@@ -1,0 +1,134 @@
+import interiorImg from "@/assets/interior-detail.jpg";
+import exteriorImg from "@/assets/exterior-detail.jpg";
+import paintImg from "@/assets/paint-correction.jpg";
+
+const BOOKING_URL = "https://xpressauto.fieldd.co/";
+
+const services = [
+  {
+    title: "Complete Detailing",
+    description: "Inside & out — a full refresh for your entire vehicle. Every surface. Every detail.",
+    image: interiorImg,
+  },
+  {
+    title: "Ceramic Coating",
+    description: "We use industry leading ceramic coating products for lasting protection and a shining finish!",
+    image: exteriorImg,
+  },
+  {
+    title: "Corporate & Fleet",
+    description: "Reliable, on-site detailing for work trucks & company vehicles. Keep your fleet clean and professional.",
+    image: paintImg,
+  },
+];
+
+const detailedServices = [
+  {
+    title: "Interior Detailing",
+    description:
+      "Your car's interior should feel as fresh and clean as the day you bought it. Our interior detailing service goes beyond the surface — we deep-clean every crevice, eliminate odours, remove stains, and restore your cabin to a like-new condition.",
+    image: interiorImg,
+  },
+  {
+    title: "Exterior Detailing",
+    description:
+      "Your vehicle's exterior is constantly exposed to dirt, grime, road salt, and harsh weather. Our exterior detailing service revives and protects your vehicle's outer surfaces with a meticulous multi-step process.",
+    image: exteriorImg,
+  },
+  {
+    title: "Paint Correction",
+    description:
+      "Over time, your vehicle's paint can develop swirl marks, scratches, and oxidation. Paint correction is a meticulous polishing process that restores clarity, smoothness, and depth to your paint by permanently removing imperfections.",
+    image: paintImg,
+  },
+];
+
+const ServicesSection = () => {
+  return (
+    <section id="services" className="section-dark py-20">
+      <div className="container">
+        {/* Tagline */}
+        <div className="text-center mb-16">
+          <h2 className="font-heading font-black text-3xl md:text-4xl uppercase mb-2">
+            <span className="text-primary">XPRESS</span> Isn't Just a Name
+          </h2>
+          <p className="font-heading font-black text-2xl md:text-3xl uppercase text-primary-foreground">
+            It's How We Move
+          </p>
+        </div>
+
+        {/* Service cards */}
+        <div className="grid md:grid-cols-3 gap-8 mb-20">
+          {services.map((service) => (
+            <div
+              key={service.title}
+              className="group bg-brand-dark-surface rounded-lg overflow-hidden hover:ring-2 hover:ring-primary transition-all"
+            >
+              <div className="h-48 overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="font-heading font-bold text-xl uppercase text-primary-foreground mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-brand-gray text-sm leading-relaxed mb-4">
+                  {service.description}
+                </p>
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary font-heading font-bold text-sm uppercase tracking-wider hover:text-brand-blue-glow transition-colors"
+                >
+                  Learn More →
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Detailed services */}
+        <div className="space-y-16">
+          {detailedServices.map((service, i) => (
+            <div
+              key={service.title}
+              className={`grid md:grid-cols-2 gap-12 items-center ${
+                i % 2 === 1 ? "md:direction-rtl" : ""
+              }`}
+            >
+              <div className={i % 2 === 1 ? "md:order-2" : ""}>
+                <h3 className="font-heading font-black text-2xl md:text-3xl uppercase text-primary-foreground mb-4">
+                  {service.title}
+                </h3>
+                <p className="text-brand-gray leading-relaxed mb-6">
+                  {service.description}
+                </p>
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors"
+                >
+                  Book Now
+                </a>
+              </div>
+              <div className={i % 2 === 1 ? "md:order-1" : ""}>
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="rounded-lg w-full object-cover aspect-video shadow-xl"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ServicesSection;

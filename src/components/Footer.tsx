@@ -1,0 +1,74 @@
+import { Phone, Mail } from "lucide-react";
+
+const BOOKING_URL = "https://xpressauto.fieldd.co/";
+
+const Footer = () => {
+  return (
+    <footer className="bg-brand-dark border-t border-brand-dark-surface py-12">
+      <div className="container">
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
+          {/* Brand */}
+          <div>
+            <span className="font-heading font-black text-xl">
+              <span className="text-primary">X</span>
+              <span className="text-primary-foreground">PRESS</span>
+              <span className="text-primary text-xs font-semibold ml-1 tracking-widest">AUTO DETAILING</span>
+            </span>
+            <p className="text-brand-gray text-sm mt-3 leading-relaxed">
+              Convenient, affordable car detailing that comes to you. Mobile detailing made simple.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-heading font-bold text-primary-foreground uppercase tracking-wider text-sm mb-4">
+              Quick Links
+            </h4>
+            <div className="flex flex-col gap-2">
+              {["Home", "Services", "About", "Reviews", "FAQ"].map((link) => (
+                <a
+                  key={link}
+                  href={`#${link.toLowerCase()}`}
+                  className="text-brand-gray text-sm hover:text-primary transition-colors"
+                >
+                  {link}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-heading font-bold text-primary-foreground uppercase tracking-wider text-sm mb-4">
+              Contact Us
+            </h4>
+            <div className="flex flex-col gap-3">
+              <a href="tel:5875004523" className="text-brand-gray text-sm hover:text-primary transition-colors flex items-center gap-2">
+                <Phone className="w-4 h-4" /> 587-500-4523
+              </a>
+              <a href="mailto:support@xpressautodetailing.ca" className="text-brand-gray text-sm hover:text-primary transition-colors flex items-center gap-2">
+                <Mail className="w-4 h-4" /> support@xpressautodetailing.ca
+              </a>
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-2.5 rounded text-sm text-center hover:bg-brand-blue-deep transition-colors w-fit"
+              >
+                Book Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-brand-dark-surface pt-6 text-center">
+          <p className="text-brand-gray text-xs">
+            © {new Date().getFullYear()} Xpress Auto Detailing. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
