@@ -67,7 +67,7 @@ const BrandPartners = () => <section className="py-16 bg-muted/30 border-y borde
         </h2>
       </ScrollReveal>
 
-      <StaggerContainer className="grid grid-cols-3 md:grid-cols-6 gap-6 mb-14" staggerDelay={0.06}>
+      <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 mb-14" staggerDelay={0.06}>
         {productBrands.map(brand => <StaggerItem key={brand.name} className="flex items-center justify-center">
             <BrandCard brand={brand} />
           </StaggerItem>)}
@@ -82,7 +82,7 @@ const BrandPartners = () => <section className="py-16 bg-muted/30 border-y borde
         </h3>
       </ScrollReveal>
 
-      <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4" staggerDelay={0.06}>
+      <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4" staggerDelay={0.06}>
         {clientPartners.map(partner => <StaggerItem key={partner.name} className="flex items-center justify-center">
             <BrandCard brand={partner} />
           </StaggerItem>)}

@@ -16,8 +16,8 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      <div className="container relative z-10">
-        <div className="max-w-2xl">
+      <div className="container relative z-10 px-6 sm:px-8">
+        <div className="max-w-2xl mx-auto text-center md:text-left md:mx-0">
           <motion.h1 initial={{
           opacity: 0,
           y: 30
@@ -27,7 +27,7 @@ const HeroSection = () => {
         }} transition={{
           duration: 0.7,
           ease: [0.25, 0.1, 0.25, 1]
-        }} className="font-heading font-black text-4xl md:text-5xl lg:text-6xl uppercase leading-tight text-primary-foreground mb-2">
+        }} className="font-heading font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase leading-tight text-primary-foreground mb-2">
             The Car Wash That <span className="text-primary">Comes to You</span>
           </motion.h1>
           <motion.h2 initial={{
@@ -52,7 +52,7 @@ const HeroSection = () => {
         }} transition={{
           duration: 0.6,
           delay: 0.45
-        }} className="flex flex-wrap gap-4">
+        }} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
             <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded hover:bg-brand-blue-deep transition-colors text-sm">
               Schedule my detail  
             </a>

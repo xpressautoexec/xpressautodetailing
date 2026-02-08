@@ -7,9 +7,9 @@ const Footer = () => {
   return (
     <footer className="bg-brand-dark border-t border-brand-dark-surface py-12">
       <div className="container">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
-          <div>
+          <div className="col-span-2 md:col-span-1 text-center md:text-left">
             <Link to="/" className="font-heading font-black text-xl">
               <span className="text-primary">X</span>
               <span className="text-primary-foreground">PRESS</span>
@@ -21,7 +21,7 @@ const Footer = () => {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="font-heading font-bold text-primary-foreground uppercase tracking-wider text-sm mb-4">Services</h4>
             <div className="flex flex-col gap-2">
               {[
@@ -40,7 +40,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="font-heading font-bold text-primary-foreground uppercase tracking-wider text-sm mb-4">Quick Links</h4>
             <div className="flex flex-col gap-2">
               {[
@@ -57,9 +57,9 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="font-heading font-bold text-primary-foreground uppercase tracking-wider text-sm mb-4">Contact Us</h4>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 items-center md:items-start">
               <a href="tel:5875004523" className="text-brand-gray text-sm hover:text-primary transition-colors flex items-center gap-2">
                 <Phone className="w-4 h-4" /> 587-500-4523
               </a>

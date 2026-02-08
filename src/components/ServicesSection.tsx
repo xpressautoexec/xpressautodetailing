@@ -7,7 +7,9 @@ import completeImg from "@/assets/complete-hero.jpg";
 import ceramicImg from "@/assets/ceramic-hero.jpg";
 import fleetImg from "@/assets/fleet-hero.jpg";
 import rvImg from "@/assets/rv-hero.jpg";
+
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
+
 const services = [{
   title: "Complete Detailing",
   description: "Inside & out — a full refresh for your entire vehicle. Every surface. Every detail.",
@@ -33,6 +35,7 @@ const services = [{
   link: "/corporate-fleet",
   price: "Custom Quote"
 }];
+
 const detailedServices = [{
   title: "Interior Detailing",
   description: "Your car's interior should feel as fresh and clean as the day you bought it. Our interior detailing service goes beyond the surface — we deep-clean every crevice, eliminate odours, remove stains, and restore your cabin to a like-new condition.",
@@ -52,56 +55,74 @@ const detailedServices = [{
   link: "/paint-ceramics",
   price: "From $299"
 }];
+
 const ServicesSection = () => {
-  return <section id="services" className="section-dark py-20">
+  return (
+    <section id="services" className="section-dark py-16 sm:py-20">
       <div className="container">
         <ScrollReveal>
-          <div className="text-center mb-16">
-            <h2 className="font-heading font-black text-3xl md:text-4xl uppercase mb-2">DISCOVER OUR SERVICES<span className="text-primary">DISCOVER</span> Isn't Just a Name
+          <div className="text-center mb-12 md:mb-16 px-4">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase mb-2">
+              Discover Our <span className="text-primary">Services</span>
             </h2>
-            <p className="font-heading font-black text-2xl md:text-3xl uppercase text-primary-foreground">AND FEEL THE DIFFERENCE</p>
+            <p className="font-heading font-bold text-lg sm:text-xl md:text-2xl uppercase text-primary-foreground/70">
+              And Feel The Difference
+            </p>
           </div>
         </ScrollReveal>
 
-        <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          {services.map(service => <StaggerItem key={service.title}>
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16 md:mb-20 px-2 sm:px-0">
+          {services.map(service => (
+            <StaggerItem key={service.title}>
               <div className="group bg-brand-dark-surface rounded-lg overflow-hidden hover:ring-2 hover:ring-primary transition-all h-full">
                 <div className="h-48 overflow-hidden">
                   <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
-                <div className="p-6">
-                  <h3 className="font-heading font-bold text-xl uppercase text-primary-foreground mb-1">{service.title}</h3>
-                  
+                <div className="p-5 sm:p-6">
+                  <h3 className="font-heading font-bold text-lg sm:text-xl uppercase text-primary-foreground mb-1">{service.title}</h3>
                   <p className="text-primary-foreground/80 text-sm leading-relaxed mb-4">{service.description}</p>
-                  <Link to={service.link} className="text-primary font-heading font-bold text-sm uppercase tracking-wider hover:text-brand-blue-glow transition-colors">Learn More →</Link>
+                  <Link to={service.link} className="text-primary font-heading font-bold text-sm uppercase tracking-wider hover:text-brand-blue-glow transition-colors">
+                    Learn More →
+                  </Link>
                 </div>
               </div>
-            </StaggerItem>)}
+            </StaggerItem>
+          ))}
         </StaggerContainer>
 
-        <div className="space-y-16">
-          {detailedServices.map((service, i) => <ScrollReveal key={service.title} direction={i % 2 === 0 ? "left" : "right"}>
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className={i % 2 === 1 ? "md:order-2" : ""}>
-                  <h3 className="font-heading font-black text-2xl md:text-3xl uppercase text-primary-foreground mb-1">{service.title}</h3>
+        <div className="space-y-12 sm:space-y-16">
+          {detailedServices.map((service, i) => (
+            <ScrollReveal key={service.title} direction={i % 2 === 0 ? "left" : "right"}>
+              <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center px-2 sm:px-0">
+                <div className={`text-center md:text-left ${i % 2 === 1 ? "md:order-2" : ""}`}>
+                  <h3 className="font-heading font-black text-xl sm:text-2xl md:text-3xl uppercase text-primary-foreground mb-1">{service.title}</h3>
                   <p className="text-primary font-heading font-bold text-lg mb-3">{service.price}</p>
                   <p className="text-primary-foreground/70 leading-relaxed mb-6 text-sm md:text-base">{service.description}</p>
-                  <div className="flex flex-wrap gap-4">
-                    <Link to={service.link} className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors">View Packages</Link>
-                    <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block border-2 border-primary text-primary font-heading font-bold uppercase tracking-wider px-6 py-3 rounded text-sm hover:bg-primary hover:text-primary-foreground transition-colors">Book Now</a>
+                  <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <Link to={service.link} className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors">
+                      View Packages
+                    </Link>
+                    <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block border-2 border-primary text-primary font-heading font-bold uppercase tracking-wider px-6 py-3 rounded text-sm hover:bg-primary hover:text-primary-foreground transition-colors">
+                      Book Now
+                    </a>
                   </div>
                 </div>
                 <div className={i % 2 === 1 ? "md:order-1" : ""}>
                   <img src={service.image} alt={service.title} className="rounded-lg w-full object-cover aspect-video shadow-xl" />
                 </div>
               </div>
-            </ScrollReveal>)}
+            </ScrollReveal>
+          ))}
         </div>
 
-        <ScrollReveal className="text-center mt-16">
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-10 py-4 rounded text-sm hover:bg-brand-blue-deep transition-colors">Book Your Detail Now</a>
+        <ScrollReveal className="text-center mt-12 sm:mt-16">
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-10 py-4 rounded text-sm hover:bg-brand-blue-deep transition-colors">
+            Book Your Detail Now
+          </a>
         </ScrollReveal>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default ServicesSection;

@@ -70,9 +70,9 @@ const Index = () => {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 px-4">
               {["Calgary", "Airdrie", "Chestermere", "Cochrane", "& Surrounding Areas"].map(city => (
-                <span key={city} className="px-4 py-2 rounded-full border border-border text-sm text-muted-foreground">{city}</span>
+                <span key={city} className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-border text-xs sm:text-sm text-muted-foreground">{city}</span>
               ))}
             </div>
           </ScrollReveal>
@@ -86,11 +86,11 @@ const Index = () => {
       <section className="py-16 bg-muted/30">
         <div className="container max-w-5xl">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground text-center mb-12">
+            <h2 className="font-heading font-black text-xl sm:text-2xl md:text-3xl uppercase text-foreground text-center mb-8 md:mb-12 px-2">
               Why Calgary Trusts <span className="text-primary">Xpress Auto Detailing</span>
             </h2>
           </ScrollReveal>
-          <StaggerContainer className="grid md:grid-cols-3 gap-8" staggerDelay={0.08}>
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 px-2 sm:px-0" staggerDelay={0.08}>
             {[{
               title: "Fully Insured & Bonded",
               desc: "Your vehicle is in safe hands. We carry full liability insurance so you can have complete peace of mind."
@@ -126,7 +126,7 @@ const Index = () => {
       <section className="py-20 bg-primary">
         <div className="container text-center">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-3xl md:text-4xl uppercase text-primary-foreground mb-4">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-primary-foreground mb-4 px-4">
               Ready to See the Difference?
             </h2>
             <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8">

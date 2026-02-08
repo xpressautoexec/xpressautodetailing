@@ -8,26 +8,28 @@ const AboutSection = () => {
   return (
     <section id="about" className="py-20 bg-background">
       <div className="container">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center px-2 sm:px-0">
           <ScrollReveal direction="left">
-            <h2 className="font-heading font-black text-3xl md:text-4xl uppercase text-foreground mb-6">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6 text-center md:text-left">
               High-Quality Car Detailing in{" "}
               <span className="text-primary">Calgary</span> and Surrounding Areas
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-6">
+            <p className="text-muted-foreground leading-relaxed mb-6 text-center md:text-left text-sm sm:text-base">
               At Xpress Auto Detailing, we're dedicated to providing high-quality, hassle-free car detailing that saves you time, effort, and money. Our experienced team delivers expert mobile detailing services right to your doorstep, making it easy to keep your vehicle in pristine condition without any extra work on your part.
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-6">
+            <p className="text-muted-foreground leading-relaxed mb-6 text-center md:text-left text-sm sm:text-base">
               We stand behind our work with a 100% satisfaction guarantee—or your money back—because your trust matters. Count on us for dependable service, unmatched convenience, and the confidence that your car is being cared for by professionals.
             </p>
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors"
-            >
-              Book Now
-            </a>
+            <div className="text-center md:text-left">
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors"
+              >
+                Book Now
+              </a>
+            </div>
           </ScrollReveal>
           <ScrollReveal direction="right">
             <div className="relative">

@@ -18,12 +18,12 @@ const BenefitsSection = () => {
     <section className="py-20 bg-background">
       <div className="container">
         <ScrollReveal>
-          <h2 className="font-heading font-black text-3xl md:text-4xl uppercase text-center text-foreground mb-12">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center text-foreground mb-8 md:mb-12 px-2">
             Benefits of <span className="text-primary">Mobile Detailing</span>
           </h2>
         </ScrollReveal>
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
-          <StaggerContainer className="lg:col-span-2 grid md:grid-cols-2 gap-6" staggerDelay={0.08}>
+        <div className="grid lg:grid-cols-3 gap-6 md:gap-8 mb-12 px-2 sm:px-0">
+          <StaggerContainer className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6" staggerDelay={0.08}>
             {benefits.map((benefit) => (
               <StaggerItem key={benefit.title}>
                 <div className="p-6 rounded-lg border border-border hover:border-primary/50 transition-colors group h-full">
