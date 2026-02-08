@@ -24,22 +24,6 @@ const AppShowcase = () => <section className="bg-primary py-20 relative overflow
             <h3 className="font-heading font-black text-2xl md:text-3xl uppercase text-primary-foreground">
               Why Choose <span className="text-primary-foreground/70">Xpress</span>?
             </h3>
-            <div className="space-y-4">
-              {[
-                
-                { title: "Eco-Friendly Products", desc: "Biodegradable, pH-balanced products safe for your vehicle." },
-                
-                
-              ].map((item) => (
-                <div key={item.title} className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary-foreground mt-2 shrink-0" />
-                  <div>
-                    <p className="font-heading font-bold text-primary-foreground uppercase tracking-wider text-sm">{item.title}</p>
-                    <p className="text-primary-foreground/70 text-sm">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
             <a href="/why-choose-us" className="inline-block border-2 border-primary-foreground text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3 rounded text-sm hover:bg-primary-foreground/10 transition-colors">
               Learn More
             </a>
