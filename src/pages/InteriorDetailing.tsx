@@ -56,7 +56,7 @@ const InteriorDetailing = () => (
     {/* Packages */}
     <section className="section-dark py-16">
       <div className="container">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-center text-foreground mb-12">
+        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-center mb-12">
           Interior Detailing Packages
         </h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
