@@ -1,24 +1,42 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Phone, Mail, Menu, X, ChevronDown } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
-interface NavLink {
+interface DropdownItem {
   label: string;
   href: string;
 }
 
-const desktopLinks: NavLink[] = [
+interface DesktopNavItem {
+  label: string;
+  href?: string;
+  children?: DropdownItem[];
+}
+
+const desktopLinks: DesktopNavItem[] = [
   { label: "Home", href: "/" },
-  { label: "Interior", href: "/interior-detailing" },
-  { label: "Exterior", href: "/exterior-detailing" },
-  { label: "Complete", href: "/complete-detailing" },
+  {
+    label: "Services",
+    children: [
+      { label: "Interior Detailing", href: "/interior-detailing" },
+      { label: "Exterior Detailing", href: "/exterior-detailing" },
+      { label: "Complete Detailing", href: "/complete-detailing" },
+      { label: "Trailer & RV", href: "/trailer-rv" },
+    ],
+  },
   { label: "Paint & Ceramics", href: "/paint-ceramics" },
-  { label: "Trailer & RV", href: "/trailer-rv" },
   { label: "Fleet", href: "/corporate-fleet" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Contact", href: "/contact" },
+  {
+    label: "More",
+    children: [
+      { label: "Gift Cards", href: "/gift-cards" },
+      { label: "Contact Us", href: "/contact" },
+      { label: "Blog", href: "/blog" },
+    ],
+  },
 ];
 
 interface MobileNavItem {
@@ -78,6 +96,45 @@ const TopBar = () => (
   </div>
 );
 
+const DesktopDropdown = ({ item }: { item: DesktopNavItem }) => {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex items-center gap-1 text-brand-gray hover:text-primary-foreground transition-colors font-heading text-xs xl:text-sm font-semibold uppercase tracking-wider whitespace-nowrap"
+      >
+        {item.label}
+        <ChevronDown className={`w-3.5 h-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && (
+        <div className="absolute top-full left-0 mt-2 min-w-[200px] bg-brand-dark border border-brand-dark-surface rounded-md shadow-xl z-[60] py-1">
+          {item.children!.map((child) => (
+            <Link
+              key={child.label}
+              to={child.href}
+              onClick={() => setOpen(false)}
+              className="block px-4 py-2.5 text-brand-gray hover:text-primary-foreground hover:bg-brand-dark-surface transition-colors font-heading text-xs font-semibold uppercase tracking-wider"
+            >
+              {child.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openMobile, setOpenMobile] = useState<string | null>(null);
@@ -96,17 +153,21 @@ const Navbar = () => {
             </span>
           </Link>
 
-          {/* Desktop nav — all links inline */}
+          {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-6 xl:gap-7">
-            {desktopLinks.map((link) => (
-              <Link
-                key={link.label}
-                to={link.href}
-                className="text-brand-gray hover:text-primary-foreground transition-colors font-heading text-xs xl:text-sm font-semibold uppercase tracking-wider whitespace-nowrap"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {desktopLinks.map((item) =>
+              item.children ? (
+                <DesktopDropdown key={item.label} item={item} />
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.href!}
+                  className="text-brand-gray hover:text-primary-foreground transition-colors font-heading text-xs xl:text-sm font-semibold uppercase tracking-wider whitespace-nowrap"
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
             <a
               href={BOOKING_URL}
               target="_blank"

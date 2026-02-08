@@ -128,6 +128,8 @@ const Index = () => {
       </section>
 
       <Footer />
+      {/* Spacer so sticky CTA doesn't cover footer on mobile */}
+      <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
       <FloatingContact />
       <ChatWidget />
