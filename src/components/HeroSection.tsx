@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import heroVideo from "@/assets/hero-video.mp4";
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 const HeroSection = () => {
-  return <section id="home" className="relative min-h-[85vh] flex items-center overflow-hidden">
+  return <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Video background */}
       <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
         <source src={heroVideo} type="video/mp4" />
@@ -40,31 +40,9 @@ const HeroSection = () => {
           duration: 0.7,
           delay: 0.15,
           ease: [0.25, 0.1, 0.25, 1]
-        }} className="font-heading font-bold text-xl md:text-2xl lg:text-3xl uppercase text-primary-foreground/80 mb-6">
+        }} className="font-heading font-bold text-lg md:text-xl lg:text-2xl uppercase text-primary-foreground/70 mb-10">
             Your Car Brand-New Again, Wherever You Are
           </motion.h2>
-          <motion.p initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.6,
-          delay: 0.3
-        }} className="text-primary-foreground/70 text-lg mb-4 max-w-lg">
-            Calgary's premier mobile detailing service — professional results delivered to your driveway, office, or anywhere you need us.
-          </motion.p>
-          <motion.p initial={{
-          opacity: 0
-        }} animate={{
-          opacity: 1
-        }} transition={{
-          duration: 0.6,
-          delay: 0.4
-        }} className="text-primary font-heading font-bold text-sm uppercase tracking-wider mb-8">
-            Limited availability — Book your spot today
-          </motion.p>
           <motion.div initial={{
           opacity: 0,
           y: 20
