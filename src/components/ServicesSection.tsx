@@ -47,7 +47,7 @@ const ServicesSection = () => {
                 </div>
                 <div className="p-6">
                   <h3 className="font-heading font-bold text-xl uppercase text-primary-foreground mb-1">{service.title}</h3>
-                  <p className="font-heading font-bold text-primary text-sm mb-3">{service.price}</p>
+                  
                   <p className="text-primary-foreground/80 text-sm leading-relaxed mb-4">{service.description}</p>
                   <Link to={service.link} className="text-primary font-heading font-bold text-sm uppercase tracking-wider hover:text-brand-blue-glow transition-colors">Learn More →</Link>
                 </div>
