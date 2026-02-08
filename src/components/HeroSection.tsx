@@ -28,7 +28,7 @@ const HeroSection = () => {
           duration: 0.7,
           ease: [0.25, 0.1, 0.25, 1]
         }} className="font-heading font-black text-4xl md:text-5xl lg:text-6xl uppercase leading-tight text-primary-foreground mb-2">
-            Premium Mobile <span className="text-primary">Detailing</span>
+            The Car Wash That <span className="text-primary">Comes to You</span>
           </motion.h1>
           <motion.h2 initial={{
           opacity: 0,
@@ -41,7 +41,7 @@ const HeroSection = () => {
           delay: 0.15,
           ease: [0.25, 0.1, 0.25, 1]
         }} className="font-heading font-bold text-xl md:text-2xl lg:text-3xl uppercase text-primary-foreground/80 mb-6">
-            Serving Calgary & Surrounding Areas
+            Your Car Brand-New Again, Wherever You Are
           </motion.h2>
           <motion.p initial={{
           opacity: 0,
@@ -52,8 +52,9 @@ const HeroSection = () => {
         }} transition={{
           duration: 0.6,
           delay: 0.3
-        }} className="text-primary-foreground/80 text-lg mb-4 max-w-lg">The car wash that comes to you
-Your Car Brand-New Again, Wherever You Are </motion.p>
+        }} className="text-primary-foreground/70 text-lg mb-4 max-w-lg">
+            Calgary's premier mobile detailing service — professional results delivered to your driveway, office, or anywhere you need us.
+          </motion.p>
           <motion.p initial={{
           opacity: 0
         }} animate={{
