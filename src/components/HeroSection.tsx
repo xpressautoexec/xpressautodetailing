@@ -1,4 +1,5 @@
 import heroBg from "@/assets/hero-bg.jpg";
+import gallery2 from "@/assets/gallery-2.jpg";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -6,10 +7,7 @@ const HeroSection = () => {
   return (
     <section id="home" className="relative min-h-[85vh] flex items-center overflow-hidden">
       {/* Background image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      />
+      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${heroBg})` }} />
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-brand-dark/70" />
       
@@ -32,14 +30,24 @@ const HeroSection = () => {
           <p className="text-brand-gray text-lg mb-8 max-w-lg">
             We'll Make Your Car Look Brand-New Again, Wherever You Are
           </p>
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded hover:bg-brand-blue-deep transition-colors text-sm"
-          >
-            Schedule My Detail
-          </a>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded hover:bg-brand-blue-deep transition-colors text-sm"
+            >
+              Schedule My Detail
+            </a>
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block border-2 border-primary-foreground text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded hover:bg-primary-foreground/10 transition-colors text-sm"
+            >
+              Book Now
+            </a>
+          </div>
         </div>
       </div>
 

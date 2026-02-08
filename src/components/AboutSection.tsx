@@ -1,4 +1,7 @@
 import aboutImage from "@/assets/about-image.jpg";
+import gallery3 from "@/assets/gallery-3.jpg";
+
+const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const AboutSection = () => {
   return (
@@ -13,9 +16,17 @@ const AboutSection = () => {
             <p className="text-muted-foreground leading-relaxed mb-6">
               At Xpress Auto Detailing, we're dedicated to providing high-quality, hassle-free car detailing that saves you time, effort, and money. Our experienced team delivers expert mobile detailing services right to your doorstep, making it easy to keep your vehicle in pristine condition without any extra work on your part.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed mb-6">
               We stand behind our work with a 100% satisfaction guarantee—or your money back—because your trust matters. Count on us for dependable service, unmatched convenience, and the confidence that your car is being cared for by professionals.
             </p>
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors"
+            >
+              Book Now
+            </a>
           </div>
           <div className="relative">
             <img
@@ -24,6 +35,11 @@ const AboutSection = () => {
               className="rounded-lg shadow-2xl w-full object-cover aspect-square"
             />
             <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary rounded-lg hidden md:block" />
+            <img
+              src={gallery3}
+              alt="Clean car interior"
+              className="absolute -bottom-8 -right-4 w-40 h-28 rounded-lg shadow-xl object-cover hidden md:block border-4 border-background"
+            />
           </div>
         </div>
       </div>

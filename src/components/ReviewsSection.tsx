@@ -1,5 +1,7 @@
 import { Star } from "lucide-react";
 
+const BOOKING_URL = "https://xpressauto.fieldd.co/";
+
 const ReviewsSection = () => {
   return (
     <section id="reviews" className="bg-primary py-20">
@@ -12,7 +14,7 @@ const ReviewsSection = () => {
             <Star key={i} className="w-6 h-6 fill-primary-foreground text-primary-foreground" />
           ))}
         </div>
-        <div className="max-w-2xl mx-auto bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-8">
+        <div className="max-w-2xl mx-auto bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-8 mb-8">
           <p className="text-primary-foreground/90 italic leading-relaxed mb-6">
             "Absolutely blown away by this mobile detailing service! They came right to me — super convenient, on time, and fully prepared. The team was professional, friendly, and completely customer-focused. They did an incredible job on the interior of my car — it looks and feels brand new! If you're looking for high-quality, hassle-free interior detailing — this is the one. Highly recommend!"
           </p>
@@ -20,6 +22,14 @@ const ReviewsSection = () => {
             — Debb A.
           </p>
         </div>
+        <a
+          href={BOOKING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-3 rounded text-sm hover:bg-primary-foreground/90 transition-colors"
+        >
+          Book Your Detail Now
+        </a>
       </div>
     </section>
   );
