@@ -9,7 +9,7 @@ const ReviewsSection = () => {
       <div className="container text-center">
         <ScrollReveal>
           <h2 className="font-heading font-black text-3xl md:text-4xl uppercase text-primary-foreground mb-4">
-            💫 100+ 5-Star Reviews
+            100+ Five-Star Reviews
           </h2>
           <div className="flex justify-center gap-1 mb-8">
             {[...Array(5)].map((_, i) => (

@@ -24,7 +24,7 @@ const GoogleReviewBadge = () => (
           <div className="flex flex-col items-center gap-3">
             <div className="text-center">
               <p className="font-heading font-bold text-primary text-sm uppercase tracking-wider mb-1">
-                🔥 Limited Spots This Week
+                Limited Spots This Week
               </p>
               <p className="text-primary-foreground/80 text-xs">
                 Only a few time slots remaining — book yours before they fill up
