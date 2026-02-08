@@ -5,6 +5,7 @@ import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import TestimonialBlock from "@/components/TestimonialBlock";
 import TrustStats from "@/components/TrustStats";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import fleetHero from "@/assets/fleet-hero.jpg";
 import { supabase } from "@/integrations/supabase/client";
@@ -204,6 +205,8 @@ const CorporateFleet = () => {
       <ServiceFAQ title="Fleet Detailing FAQs" faqs={fleetFAQs} />
 
       <Footer />
+      <div className="h-20 lg:hidden" />
+      <StickyMobileCTA />
     </div>
   );
 };

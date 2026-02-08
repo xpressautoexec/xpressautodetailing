@@ -78,7 +78,7 @@ const TopBar = () => (
         href={BOOKING_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="font-heading font-bold tracking-wider uppercase text-xs hidden sm:block hover:opacity-80 transition-opacity underline underline-offset-4"
+        className="font-heading font-bold tracking-wider uppercase text-sm hidden sm:block hover:opacity-80 transition-opacity underline underline-offset-4"
       >
         Book in 60 seconds · 14-day guarantee
       </a>
