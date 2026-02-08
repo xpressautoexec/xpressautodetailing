@@ -1,7 +1,6 @@
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
-import BeforeAfterCard from "@/components/BeforeAfterCard";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import PackageCard from "@/components/PackageCard";
@@ -9,8 +8,10 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import TestimonialBlock from "@/components/TestimonialBlock";
 import TrustStats from "@/components/TrustStats";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
+import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import exteriorHero from "@/assets/exterior-hero.jpg";
 import exteriorImg from "@/assets/exterior-detail.jpg";
+import { Snowflake, Sun, CloudRain, Droplets, ShieldCheck, Zap, ArrowRight, Check } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -44,29 +45,71 @@ const ExteriorDetailing = () => (
     <ServicePageHero title="Exterior Detailing Services in Calgary and Surrounding Areas" image={exteriorHero} />
     <TrustStats />
 
+    {/* Intro */}
     <section className="py-16 sm:py-20 bg-background">
       <div className="container max-w-4xl text-center px-6">
-        <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
-          Premium Exterior Car Detailing
-        </h2>
-        <p className="text-foreground font-heading font-bold uppercase tracking-wider text-sm mb-3">Shine That Turns Heads</p>
-        <p className="text-muted-foreground leading-relaxed mb-5 text-sm sm:text-base">
-          From road dust to stubborn tar, our exterior detailing packages remove it all. We restore your paint's brilliance, protect it against Calgary's elements, and leave your vehicle gleaming with a showroom finish that lasts.
-        </p>
-        <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-          Calgary's climate is one of the harshest in Canada for your vehicle's paint. Road salt in winter, UV exposure in summer, gravel on every highway — it all takes a toll. Regular exterior detailing isn't a luxury, it's protection. Our packages are designed to combat every seasonal threat and keep your paint looking its best year-round.
-        </p>
+        <ScrollReveal>
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
+            Calgary's Weather Is <span className="text-primary">Destroying Your Paint</span>
+          </h2>
+          <p className="text-muted-foreground leading-relaxed mb-5 text-sm sm:text-base">
+            Between road salt, gravel highways, intense UV, and chinook temperature swings, Calgary is one of the hardest cities in Canada on your vehicle's exterior. Every season brings new threats — and automatic car washes with their spinning brushes only make it worse by grinding contaminants into your clear coat.
+          </p>
+          <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
+            Professional exterior detailing doesn't just clean — it <strong className="text-foreground">decontaminates, corrects, and protects</strong>. We restore your paint's depth and brilliance, then seal it with a protective barrier that repels the elements for months.
+          </p>
+        </ScrollReveal>
       </div>
     </section>
 
+    {/* Calgary Seasonal Threats */}
+    <section className="py-16 sm:py-20 bg-muted/30">
+      <div className="container max-w-5xl px-4 sm:px-6">
+        <ScrollReveal>
+          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-4">
+            What Calgary Does to Your Paint — <span className="text-primary">Season by Season</span>
+          </h2>
+          <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto text-sm sm:text-base">
+            Your paint faces different attacks every season. Here's why year-round exterior care isn't optional — it's essential.
+          </p>
+        </ScrollReveal>
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" staggerDelay={0.1}>
+          {[
+            { icon: Snowflake, season: "Winter", color: "text-blue-400", threats: ["Road salt corrosion", "Gravel chip damage", "Calcium buildup", "Frozen grime bonding"] },
+            { icon: CloudRain, season: "Spring", color: "text-green-500", threats: ["Pollen embedding", "Tree sap bonding", "Water spot etching", "Winter damage revealed"] },
+            { icon: Sun, season: "Summer", color: "text-amber-500", threats: ["UV paint oxidation", "Bug splatter acid", "Bird dropping etching", "Tar from hot roads"] },
+            { icon: Droplets, season: "Fall", color: "text-orange-500", threats: ["Leaf tannin staining", "Early frost damage", "Pre-salt preparation", "Moisture trapping"] },
+          ].map((item) => (
+            <StaggerItem key={item.season}>
+              <div className="p-5 sm:p-6 rounded-xl border border-border bg-background hover:border-primary/30 hover:shadow-md transition-all duration-300 h-full">
+                <item.icon className={`w-8 h-8 ${item.color} mb-3`} />
+                <h3 className="font-heading font-bold text-foreground uppercase text-sm mb-3">{item.season}</h3>
+                <ul className="space-y-1.5">
+                  {item.threats.map((t) => (
+                    <li key={t} className="text-muted-foreground text-xs sm:text-sm flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </div>
+    </section>
+
+    {/* Packages */}
     <section className="section-dark py-16 sm:py-20">
       <div className="container">
-        <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center mb-4">
-          Exterior Detailing Packages
-        </h2>
-        <p className="text-center text-primary-foreground/60 font-heading text-sm uppercase tracking-widest mb-12">
-          Choose the right package for your needs
-        </p>
+        <ScrollReveal>
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center mb-4">
+            Exterior Detailing Packages
+          </h2>
+          <p className="text-center text-primary-foreground/60 font-heading text-sm uppercase tracking-widest mb-12">
+            Professional hand wash &amp; protection — never a machine
+          </p>
+        </ScrollReveal>
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0">
           <PackageCard
             icon="💧"
@@ -113,23 +156,93 @@ const ExteriorDetailing = () => (
       </div>
     </section>
 
-    {/* Before & After */}
+    {/* Car Wash vs Professional Detail */}
     <section className="py-16 sm:py-20 bg-background">
-      <div className="container max-w-5xl px-4 sm:px-6">
-        <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-4">
-          See the Difference
-        </h2>
-        <p className="text-muted-foreground text-center leading-relaxed mb-12 max-w-3xl mx-auto text-sm sm:text-base">
-          Calgary roads are brutal on your paint — gravel chips, road salt, bug splatter, and UV exposure take their toll fast. Here's what a professional exterior detail actually reverses.
-        </p>
-        <div className="grid md:grid-cols-2 gap-8 md:gap-10 mb-16">
-          <BeforeAfterCard
-            beforeIcon="🚘"
-            beforeTitle="Before: Road-Worn & Dull"
-            beforeText="A thick layer of road film dulls your paint. Brake dust is baked into your wheels. Bug residue and tar spots cling to the front end. The tires look grey and tired. From 10 feet away, the car looks okay — but up close? The neglect shows."
-            afterTitle="After: Mirror-Finish Shine"
-            afterText="Paint is buttery smooth after clay bar treatment. Wax creates a deep, reflective gloss that beads water effortlessly. Wheels are spotless. Tires are dressed and jet-black. Every inch gleams like it just left the dealership — because that's the standard we hold."
-          />
+      <div className="container max-w-4xl px-4 sm:px-6">
+        <ScrollReveal>
+          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-4">
+            Car Wash vs. <span className="text-primary">Professional Detail</span>
+          </h2>
+          <p className="text-muted-foreground text-center mb-10 max-w-2xl mx-auto text-sm sm:text-base">
+            Think your $15 car wash is enough? Here's what you're actually getting — and what you're missing.
+          </p>
+        </ScrollReveal>
+        <ScrollReveal delay={0.15}>
+          <div className="rounded-xl border border-border overflow-hidden">
+            <div className="grid grid-cols-3 bg-muted/50 p-4">
+              <span className="font-heading font-bold text-foreground text-xs sm:text-sm uppercase" />
+              <span className="font-heading font-bold text-muted-foreground text-xs sm:text-sm uppercase text-center">Car Wash</span>
+              <span className="font-heading font-bold text-primary text-xs sm:text-sm uppercase text-center">Xpress Detail</span>
+            </div>
+            {[
+              ["Safe for paint?", false, true],
+              ["Removes contaminants?", false, true],
+              ["Clay bar treatment?", false, true],
+              ["Protects against UV?", false, true],
+              ["Wheels hand-cleaned?", false, true],
+              ["Water beading finish?", false, true],
+              ["Door jambs cleaned?", false, true],
+              ["Mobile — comes to you?", false, true],
+            ].map(([label, carWash, xpress], i) => (
+              <div key={i} className={`grid grid-cols-3 p-3 sm:p-4 ${i % 2 === 0 ? "bg-background" : "bg-muted/20"}`}>
+                <span className="text-foreground text-xs sm:text-sm">{label as string}</span>
+                <span className="text-center text-muted-foreground text-sm">✗</span>
+                <span className="text-center text-primary text-sm">
+                  <Check className="w-4 h-4 mx-auto" />
+                </span>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+
+    {/* Mid-page CTA */}
+    <section className="py-10 sm:py-14 bg-primary">
+      <div className="container text-center">
+        <ScrollReveal>
+          <h3 className="font-heading font-black text-xl sm:text-2xl uppercase text-primary-foreground mb-4">
+            Stop Settling for "Clean Enough"
+          </h3>
+          <p className="text-primary-foreground/70 max-w-lg mx-auto mb-6 text-sm">
+            Your vehicle deserves better than automated brushes and recycled water. Experience the difference of a true hand detail — we come to you.
+          </p>
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all group">
+            Book My Exterior Detail
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </a>
+        </ScrollReveal>
+      </div>
+    </section>
+
+    {/* Our Process */}
+    <section className="py-16 sm:py-20 bg-muted/30">
+      <div className="container max-w-4xl px-4 sm:px-6">
+        <ScrollReveal>
+          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-12">
+            Our <span className="text-primary">5-Step</span> Exterior Process
+          </h2>
+        </ScrollReveal>
+        <div className="space-y-6">
+          {[
+            { step: "1", title: "Contactless Pre-Wash", desc: "We soak the vehicle with a high-pressure foam cannon to lift and dissolve surface dirt before anything touches the paint. This critical first step prevents micro-scratches." },
+            { step: "2", title: "Two-Bucket Hand Wash", desc: "Using the two-bucket method with pH-neutral soap and premium microfiber mitts, we hand-wash every panel. No spinning brushes, no cross-contamination." },
+            { step: "3", title: "Decontamination & Clay Bar", desc: "Iron fallout remover dissolves embedded brake dust and metal particles. Clay bar treatment removes bonded contaminants, leaving the paint glass-smooth." },
+            { step: "4", title: "Protection Application", desc: "We seal the paint with a premium wax or ceramic spray sealant that creates a hydrophobic barrier — water beads and sheets off, keeping your car cleaner longer." },
+            { step: "5", title: "Wheels, Tires & Final Touches", desc: "Wheels are hand-cleaned with wheel-safe acid-free products. Tires dressed. Windows streak-free. Every detail inspected under natural light." },
+          ].map((item, i) => (
+            <ScrollReveal key={item.step} delay={i * 0.08}>
+              <div className="flex gap-5 items-start p-5 rounded-xl border border-border bg-background hover:border-primary/30 transition-colors">
+                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shrink-0">
+                  <span className="font-heading font-bold text-primary-foreground text-sm">{item.step}</span>
+                </div>
+                <div>
+                  <h4 className="font-heading font-bold text-foreground uppercase text-sm mb-1">{item.title}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
       </div>
     </section>
@@ -141,18 +254,26 @@ const ExteriorDetailing = () => (
     {/* CTA */}
     <section className="py-16 sm:py-20 bg-gradient-to-br from-primary to-brand-blue-deep">
       <div className="container grid md:grid-cols-2 gap-8 md:gap-12 items-center px-4 sm:px-6">
-        <div className="text-center md:text-left">
-          <h3 className="font-heading font-black text-2xl sm:text-3xl uppercase text-primary-foreground mb-4">Your Vehicle Deserves Better</h3>
-          <p className="text-primary-foreground/80 leading-relaxed mb-8 text-sm sm:text-base">
-            Don't let Calgary's elements ruin your finish. Book a professional exterior detail and keep your vehicle turning heads.
-          </p>
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-lg group">
-            Book Now
-          </a>
-        </div>
-        <div className="rounded-xl overflow-hidden shadow-2xl">
-          <img src={exteriorImg} alt="Exterior detailing result" className="w-full object-cover aspect-video hover:scale-105 transition-transform duration-700" />
-        </div>
+        <ScrollReveal direction="left">
+          <div className="text-center md:text-left">
+            <h3 className="font-heading font-black text-2xl sm:text-3xl uppercase text-primary-foreground mb-4">Your Vehicle Deserves Better</h3>
+            <p className="text-primary-foreground/80 leading-relaxed mb-4 text-sm sm:text-base">
+              Don't let Calgary's elements ruin your finish. Book a professional exterior detail and keep your vehicle turning heads all year long.
+            </p>
+            <p className="text-primary-foreground/60 text-sm mb-8">
+              ✓ Hand wash only &nbsp; ✓ Paint-safe products &nbsp; ✓ Mobile to your location
+            </p>
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-lg group">
+              Schedule My Detail
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+        </ScrollReveal>
+        <ScrollReveal direction="right">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img src={exteriorImg} alt="Exterior detailing result" className="w-full object-cover aspect-video hover:scale-105 transition-transform duration-700" />
+          </div>
+        </ScrollReveal>
       </div>
     </section>
 
