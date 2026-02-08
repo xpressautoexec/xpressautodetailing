@@ -9,8 +9,10 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import TestimonialBlock from "@/components/TestimonialBlock";
 import TrustStats from "@/components/TrustStats";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
+import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import completeHero from "@/assets/complete-hero.jpg";
 import interiorImg from "@/assets/interior-detail.jpg";
+import { ArrowRight, TrendingUp, Clock, DollarSign, Sparkles, ShieldCheck, Heart } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -45,29 +47,63 @@ const CompleteDetailing = () => (
     <ServicePageHero title="Complete Detailing Services in Calgary and Surrounding Areas" image={completeHero} />
     <TrustStats />
 
+    {/* Intro */}
     <section className="py-16 sm:py-20 bg-background">
       <div className="container max-w-4xl text-center px-6">
-        <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
-          Professional Complete Detailing Services
-        </h2>
-        <p className="text-foreground font-heading font-bold uppercase tracking-wider text-sm mb-3">Your Vehicle, Brand New Again — Without Leaving Home</p>
-        <p className="text-muted-foreground leading-relaxed mb-5 text-sm sm:text-base">
-          Why settle for average when you can have dealership-quality results brought right to your driveway? At Xpress Auto Detailing, we deliver the ultimate inside-and-out transformation for SUVs, trucks, minivans, and more — serving Calgary, Airdrie, Cochrane, Chestermere, and surrounding areas. Backed by our 100% Satisfaction Guarantee.
-        </p>
-        <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-          Our complete detailing packages combine the best of our interior and exterior services into one comprehensive package. It's the most popular choice for clients who want their vehicle to look, feel, and smell brand new — without the hassle of booking multiple appointments. Whether you're prepping for a sale, welcoming a new season, or just treating yourself, complete detailing is the ultimate reset.
-        </p>
+        <ScrollReveal>
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
+            The Ultimate <span className="text-primary">Head-to-Toe</span> Vehicle Reset
+          </h2>
+          <p className="text-muted-foreground leading-relaxed mb-5 text-sm sm:text-base">
+            Why book two appointments when one gets you everything? Our complete detailing packages combine the best of our interior and exterior services into a single, comprehensive transformation — at a better price than booking separately.
+          </p>
+          <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
+            Whether you're prepping for a sale, recovering from a harsh winter, or just want your car to feel <em>brand new</em> again, this is our most popular service for a reason. It's the full reset — inside and out.
+          </p>
+        </ScrollReveal>
       </div>
     </section>
 
+    {/* Why Complete Detail - Value Props */}
+    <section className="py-16 sm:py-20 bg-muted/30">
+      <div className="container max-w-5xl px-4 sm:px-6">
+        <ScrollReveal>
+          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-12">
+            Why <span className="text-primary">Complete Detailing</span> Is Worth Every Dollar
+          </h2>
+        </ScrollReveal>
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" staggerDelay={0.08}>
+          {[
+            { icon: DollarSign, title: "Save vs. Separate Bookings", desc: "Bundling interior + exterior saves you $30–$50 compared to booking each service individually. Same quality, better price." },
+            { icon: TrendingUp, title: "Boost Resale Value", desc: "A professional detail can increase your vehicle's perceived value by $1,000–$3,000. It's the highest-ROI investment before listing." },
+            { icon: Clock, title: "Done While You Work", desc: "We detail at your home or office. Drop the keys, go about your day, come back to a transformed vehicle." },
+            { icon: Sparkles, title: "Every Surface, Every Crevice", desc: "From engine bay to trunk, dashboard to wheel wells — nothing gets overlooked. It's the most thorough clean your car has ever had." },
+            { icon: ShieldCheck, title: "Protected for Months", desc: "Clay bar treatment, wax sealant, UV protectant, and fabric guard keep your vehicle looking its best for 2–3 months after service." },
+            { icon: Heart, title: "That New Car Feeling", desc: "Step into a cabin that smells fresh, sit on seats that feel like new, and drive a car with paint that gleams. Nothing beats it." },
+          ].map((item) => (
+            <StaggerItem key={item.title}>
+              <div className="p-5 sm:p-6 rounded-xl border border-border bg-background hover:border-primary/30 hover:shadow-md transition-all duration-300 h-full">
+                <item.icon className="w-8 h-8 text-primary mb-3" />
+                <h3 className="font-heading font-bold text-foreground uppercase text-xs sm:text-sm mb-2">{item.title}</h3>
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </div>
+    </section>
+
+    {/* Packages */}
     <section className="section-dark py-16 sm:py-20">
       <div className="container">
-        <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center mb-4">
-          Complete Detailing Packages
-        </h2>
-        <p className="text-center text-primary-foreground/60 font-heading text-sm uppercase tracking-widest mb-12">
-          Choose the right package for your needs
-        </p>
+        <ScrollReveal>
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center mb-4">
+            Complete Detailing Packages
+          </h2>
+          <p className="text-center text-primary-foreground/60 font-heading text-sm uppercase tracking-widest mb-12">
+            Our most popular service — interior + exterior in one visit
+          </p>
+        </ScrollReveal>
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0">
           <PackageCard
             icon="✨"
@@ -132,32 +168,55 @@ const CompleteDetailing = () => (
       </div>
     </section>
 
-    {/* Before & After */}
+    {/* Mid-page CTA */}
+    <section className="py-10 sm:py-14 bg-primary">
+      <div className="container text-center">
+        <ScrollReveal>
+          <p className="text-primary-foreground/80 font-heading uppercase tracking-wider text-sm mb-3">Our #1 Most Booked Service</p>
+          <h3 className="font-heading font-black text-xl sm:text-2xl uppercase text-primary-foreground mb-4">
+            Save Money. Save Time. Get Everything.
+          </h3>
+          <p className="text-primary-foreground/70 max-w-lg mx-auto mb-6 text-sm">
+            Interior + exterior in one appointment. Better results, better price, zero hassle. Join hundreds of Calgary drivers who choose the complete package.
+          </p>
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all group">
+            Book the Complete Package
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </a>
+        </ScrollReveal>
+      </div>
+    </section>
+
+    {/* Use Cases */}
     <section className="py-16 sm:py-20 bg-background">
       <div className="container max-w-5xl px-4 sm:px-6">
-        <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-4">
-          Total Transformation, Inside & Out
-        </h2>
-        <p className="text-muted-foreground text-center leading-relaxed mb-12 max-w-3xl mx-auto text-sm sm:text-base">
-          A complete detail is more than a wash and vacuum — it's a full vehicle reset. Every surface, every crevice, every inch gets the attention it deserves.
-        </p>
-        <div className="space-y-10 mb-16">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-10">
-            <BeforeAfterCard
-              beforeIcon="🚙"
-              beforeTitle="Before: The Neglected Commuter"
-              beforeText="Three years of daily driving without a proper detail. The paint is oxidized and covered in water spots. Inside, the seats are stained, the carpets are matted, and there's a faint smell you can't quite identify. The car runs fine — but it doesn't feel fine."
-              afterTitle="After: The Complete Reset"
-              afterText="The paint reflects like glass. Inside, it smells like new leather. Every surface is clean, conditioned, and protected. You open the door and pause — because this is the car you remember buying."
-            />
+        <ScrollReveal>
+          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-4">
+            When Should You Book a <span className="text-primary">Complete Detail</span>?
+          </h2>
+          <p className="text-muted-foreground text-center leading-relaxed mb-12 max-w-3xl mx-auto text-sm sm:text-base">
+            A complete detail is more than a wash and vacuum — it's a full vehicle reset. Here are the most common reasons our clients book this service.
+          </p>
+        </ScrollReveal>
+        <div className="grid md:grid-cols-2 gap-8 md:gap-10">
+          <ScrollReveal delay={0.1}>
             <BeforeAfterCard
               beforeIcon="💰"
-              beforeTitle="Before: Pre-Sale Panic"
-              beforeText="You're about to list your car. The interior has years of wear. The exterior has lost its luster. Every flaw screams 'negotiate me down.'"
-              afterTitle="After: Sell It For More"
-              afterText="Buyers see a car that's been cared for. The paint pops in photos. The interior is spotless. Our clients regularly tell us their detail paid for itself at sale time."
+              beforeTitle="Before Selling or Trading In"
+              beforeText="Buyers judge with their eyes (and nose). A vehicle with visible stains, dull paint, and lingering odors signals neglect — and gives them leverage to negotiate you down by thousands."
+              afterTitle="After: Sell for Top Dollar"
+              afterText="A detailed vehicle photographs better, shows better in person, and commands a higher price. Our clients regularly tell us their $240 detail earned them $1,500–$3,000 more at sale time."
             />
-          </div>
+          </ScrollReveal>
+          <ScrollReveal delay={0.2}>
+            <BeforeAfterCard
+              beforeIcon="❄️"
+              beforeTitle="Post-Winter Recovery"
+              beforeText="Five months of salt, sand, and slush have left your carpets stained, your paint dull, and your cabin smelling like wet boots. The winter damage is everywhere."
+              afterTitle="After: Spring Ready"
+              afterText="Salt extracted from carpets. Paint decontaminated and sealed. Dashboard conditioned and UV-protected. Your car is ready for spring — and so are you."
+            />
+          </ScrollReveal>
         </div>
       </div>
     </section>
@@ -169,18 +228,26 @@ const CompleteDetailing = () => (
     {/* CTA */}
     <section className="py-16 sm:py-20 bg-gradient-to-br from-primary to-brand-blue-deep">
       <div className="container grid md:grid-cols-2 gap-8 md:gap-12 items-center px-4 sm:px-6">
-        <div className="rounded-xl overflow-hidden shadow-2xl">
-          <img src={interiorImg} alt="Complete detailing result" className="w-full object-cover aspect-video hover:scale-105 transition-transform duration-700" />
-        </div>
-        <div className="text-center md:text-left">
-          <h3 className="font-heading font-black text-2xl sm:text-3xl uppercase text-primary-foreground mb-4">The Ultimate Transformation</h3>
-          <p className="text-primary-foreground/80 leading-relaxed mb-8 text-sm sm:text-base">
-            Give your vehicle the complete treatment it deserves — inside and out. Book your complete detail today.
-          </p>
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-lg group">
-            Book Now
-          </a>
-        </div>
+        <ScrollReveal direction="left">
+          <div className="rounded-xl overflow-hidden shadow-2xl">
+            <img src={interiorImg} alt="Complete detailing result" className="w-full object-cover aspect-video hover:scale-105 transition-transform duration-700" />
+          </div>
+        </ScrollReveal>
+        <ScrollReveal direction="right">
+          <div className="text-center md:text-left">
+            <h3 className="font-heading font-black text-2xl sm:text-3xl uppercase text-primary-foreground mb-4">The Ultimate Transformation Awaits</h3>
+            <p className="text-primary-foreground/80 leading-relaxed mb-4 text-sm sm:text-base">
+              Give your vehicle the complete treatment it deserves — inside and out. We come to your home or office, and your car comes back to life.
+            </p>
+            <p className="text-primary-foreground/60 text-sm mb-8">
+              ✓ Save vs. separate bookings &nbsp; ✓ $90+ in free bonuses &nbsp; ✓ 14-day guarantee
+            </p>
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-lg group">
+              Book My Complete Detail
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
 

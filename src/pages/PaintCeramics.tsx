@@ -7,8 +7,10 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import TestimonialBlock from "@/components/TestimonialBlock";
 import TrustStats from "@/components/TrustStats";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
+import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import ceramicHero from "@/assets/ceramic-hero.jpg";
 import paintImg from "@/assets/paint-correction.jpg";
+import { ArrowRight, Droplets, Shield, Sun, Sparkles, Clock, DollarSign, Check } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -44,27 +46,75 @@ const PaintCeramics = () => (
     <TrustStats />
 
     {/* Intro */}
-    <section className="py-16 bg-background">
-      <div className="container max-w-4xl text-center">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground mb-4">
-          Paint Correction & Ceramic Coating in Calgary
-        </h2>
-        <p className="text-muted-foreground leading-relaxed mb-4">
-          Your vehicle's paint is its first impression — and over time, swirl marks, oxidation, and environmental damage steal that showroom glow. Our paint correction and ceramic coating services restore your paint to its absolute best, then lock in that perfection with industry-leading protection.
-        </p>
-        <p className="text-muted-foreground leading-relaxed">
-          Whether you're an automotive enthusiast who demands perfection, a new car owner who wants to preserve that factory finish, or someone looking to bring a neglected vehicle back to life — we have the package for you.
-        </p>
+    <section className="py-16 sm:py-20 bg-background">
+      <div className="container max-w-4xl text-center px-6">
+        <ScrollReveal>
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
+            Your Paint Deserves <span className="text-primary">Permanent Protection</span>
+          </h2>
+          <p className="text-muted-foreground leading-relaxed mb-5 text-sm sm:text-base">
+            Every time you drive through an automatic car wash, hundreds of micro-scratches are etched into your clear coat. Over time, swirl marks accumulate, oxidation sets in, and your paint loses the depth and brilliance it had when new.
+          </p>
+          <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
+            Paint correction removes those defects. Ceramic coating prevents them from coming back. Together, they're the most advanced form of automotive surface protection available today — and the best investment you can make in your vehicle's appearance and value.
+          </p>
+        </ScrollReveal>
+      </div>
+    </section>
+
+    {/* Wax vs Sealant vs Ceramic */}
+    <section className="py-16 sm:py-20 bg-muted/30">
+      <div className="container max-w-4xl px-4 sm:px-6">
+        <ScrollReveal>
+          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-4">
+            Wax vs. Sealant vs. <span className="text-primary">Ceramic Coating</span>
+          </h2>
+          <p className="text-muted-foreground text-center mb-10 max-w-2xl mx-auto text-sm sm:text-base">
+            Not all protection is created equal. Here's how they stack up — and why ceramic coating is the clear winner for long-term value.
+          </p>
+        </ScrollReveal>
+        <ScrollReveal delay={0.15}>
+          <div className="rounded-xl border border-border overflow-hidden">
+            <div className="grid grid-cols-4 bg-muted/50 p-4">
+              <span className="font-heading font-bold text-foreground text-xs sm:text-sm uppercase" />
+              <span className="font-heading font-bold text-muted-foreground text-xs sm:text-sm uppercase text-center">Wax</span>
+              <span className="font-heading font-bold text-muted-foreground text-xs sm:text-sm uppercase text-center">Sealant</span>
+              <span className="font-heading font-bold text-primary text-xs sm:text-sm uppercase text-center">Ceramic</span>
+            </div>
+            {[
+              ["Duration", "1–3 months", "4–6 months", "2–7 years"],
+              ["UV Protection", "Minimal", "Moderate", "Maximum"],
+              ["Scratch Resistance", "None", "Minimal", "9H hardness"],
+              ["Hydrophobic", "Mild", "Good", "Extreme"],
+              ["Chemical Resistance", "None", "Mild", "Full"],
+              ["Gloss Level", "Warm glow", "Good shine", "Mirror finish"],
+              ["Maintenance", "Monthly", "Quarterly", "Wash only"],
+              ["Long-term Cost", "$$$", "$$", "$"],
+            ].map(([label, wax, sealant, ceramic], i) => (
+              <div key={i} className={`grid grid-cols-4 p-3 sm:p-4 ${i % 2 === 0 ? "bg-background" : "bg-muted/20"}`}>
+                <span className="text-foreground text-xs sm:text-sm font-medium">{label}</span>
+                <span className="text-muted-foreground text-xs sm:text-sm text-center">{wax}</span>
+                <span className="text-muted-foreground text-xs sm:text-sm text-center">{sealant}</span>
+                <span className="text-primary font-semibold text-xs sm:text-sm text-center">{ceramic}</span>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
       </div>
     </section>
 
     {/* Packages */}
-    <section className="section-dark py-16">
+    <section className="section-dark py-16 sm:py-20">
       <div className="container">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-center mb-12">
-          Paint Correction & Ceramic Packages
-        </h2>
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <ScrollReveal>
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center mb-4">
+            Paint Correction & Ceramic Packages
+          </h2>
+          <p className="text-center text-primary-foreground/60 font-heading text-sm uppercase tracking-widest mb-12">
+            Correction first. Then permanent protection.
+          </p>
+        </ScrollReveal>
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0">
           <PackageCard
             icon="✨"
             name="1-Step Enhancement + 1 Yr Ceramic Spray"
@@ -109,83 +159,113 @@ const PaintCeramics = () => (
       </div>
     </section>
 
-    {/* Why Ceramic */}
-    <section className="py-16 bg-background">
-      <div className="container max-w-4xl">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground text-center mb-8">
-          Unmatched Protection. Unbelievable Shine.
-        </h2>
-        <p className="text-muted-foreground leading-relaxed mb-8">
-          If you're serious about protecting your investment and making your vehicle stand out, ceramic coating is the ultimate solution. Ceramic coatings create a high-gloss, glass-like finish that dramatically enhances the depth, color, and clarity of your paint. The result? A showroom-level shine that lasts for years, not weeks.
-        </p>
-        <div className="grid md:grid-cols-2 gap-6">
+    {/* Why Ceramic Benefits */}
+    <section className="py-16 sm:py-20 bg-background">
+      <div className="container max-w-5xl px-4 sm:px-6">
+        <ScrollReveal>
+          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-4">
+            Why Ceramic Coating Is the <span className="text-primary">Smartest Investment</span>
+          </h2>
+          <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto text-sm sm:text-base">
+            Ceramic coating isn't just protection — it's a transformation that pays for itself over time.
+          </p>
+        </ScrollReveal>
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" staggerDelay={0.08}>
           {[
-            { title: "Long-Term Protection", desc: "Defends your paint against UV rays, bird droppings, bug splatter, tree sap, road salt, and chemical contaminants for up to 7 years." },
-            { title: "Hydrophobic Barrier", desc: "Water, dirt, and grime slide right off, making washes faster, easier, and less frequent." },
-            { title: "Gloss Like No Other", desc: "Amplifies the depth, clarity, and shine of your vehicle's paint with a mirror-like finish." },
-            { title: "Resale Value Boost", desc: "Keeps your car looking newer for longer, maintaining its value and market appeal." },
-            { title: "No More Waxes", desc: "Say goodbye to monthly waxing and polishing. Protection lasts for years, saving you time & money." },
-            { title: "Worth Every Penny", desc: "A one-time investment in ceramic coating can save you thousands in future paint repairs and reconditioning." },
+            { icon: Shield, title: "Multi-Year Protection", desc: "Defends against UV rays, bird droppings, bug splatter, tree sap, road salt, and chemical contaminants for up to 7 years." },
+            { icon: Droplets, title: "Hydrophobic Barrier", desc: "Water, dirt, and grime slide right off, making washes faster, easier, and less frequent. Your car stays cleaner, longer." },
+            { icon: Sparkles, title: "Unmatched Gloss", desc: "Amplifies depth, clarity, and shine with a mirror-like finish that turns heads in any parking lot." },
+            { icon: DollarSign, title: "Higher Resale Value", desc: "Protected paint maintains its quality for years, making your vehicle more attractive and valuable when it's time to sell." },
+            { icon: Clock, title: "No More Monthly Waxing", desc: "Say goodbye to wax appointments every few months. One coating lasts years, saving you hundreds in maintenance." },
+            { icon: Sun, title: "Calgary Climate Defense", desc: "Specifically designed to handle extreme UV, chinook temperature swings, road salt, and gravel — everything Calgary throws at you." },
           ].map((item) => (
-            <div key={item.title} className="p-5 rounded-lg border border-border">
-              <h4 className="font-heading font-bold text-foreground uppercase text-sm mb-2">{item.title}</h4>
-              <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
-            </div>
+            <StaggerItem key={item.title}>
+              <div className="p-5 sm:p-6 rounded-xl border border-border hover:border-primary/30 hover:shadow-md transition-all duration-300 h-full">
+                <item.icon className="w-8 h-8 text-primary mb-3" />
+                <h4 className="font-heading font-bold text-foreground uppercase text-xs sm:text-sm mb-2">{item.title}</h4>
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
 
     {/* The Process */}
-    <section className="section-dark py-16">
-      <div className="container max-w-4xl">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-center mb-4">The Process</h2>
-        <p className="text-center mb-12">Preparation. Precision. Perfection.</p>
-        <div className="space-y-8">
+    <section className="section-dark py-16 sm:py-20">
+      <div className="container max-w-4xl px-4 sm:px-6">
+        <ScrollReveal>
+          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-center mb-4">Our Precision <span className="text-primary">5-Step Process</span></h2>
+          <p className="text-center text-primary-foreground/60 mb-12 text-sm sm:text-base">Preparation. Precision. Perfection.</p>
+        </ScrollReveal>
+        <div className="space-y-5">
           {[
-            { step: "Step 1", title: "Exterior Wash & Decontamination", desc: "Thorough two-bucket hand wash, iron remover, and clay bar treatment to eliminate embedded contaminants." },
-            { step: "Step 2", title: "Paint Inspection & Correction", desc: "Surface inspection under professional lighting. Multi-stage polishing to remove swirl marks, oxidation, and scratches." },
-            { step: "Step 3", title: "Surface Prep & Panel Wipe", desc: "Panel wipe solution removes polishing oils, allowing the ceramic coating to chemically bond directly to the paint." },
-            { step: "Step 4", title: "Ceramic Coating Application", desc: "Hand-applied in small, controlled sections using professional-grade applicators. Each panel inspected for perfection." },
-            { step: "Step 5", title: "Curing & Final Inspection", desc: "Coating bonds at the molecular level with your clear coat. Thorough final inspection ensures a perfect, streak-free finish." },
-          ].map((item) => (
-            <div key={item.step} className="flex gap-6 items-start">
-              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0">
-                <span className="font-heading font-bold text-primary-foreground text-xs">{item.step.split(" ")[1]}</span>
+            { step: "1", title: "Exterior Wash & Decontamination", desc: "Thorough two-bucket hand wash, iron remover, and clay bar treatment to eliminate all embedded contaminants from the paint surface." },
+            { step: "2", title: "Paint Inspection Under Professional Lighting", desc: "Every panel inspected under high-intensity LED lights to map swirl marks, scratches, oxidation, and defects that need correction." },
+            { step: "3", title: "Multi-Stage Paint Correction", desc: "Using professional-grade dual-action polishers with precision compounds, we systematically remove defects panel by panel until the surface is flawless." },
+            { step: "4", title: "Surface Prep & Panel Wipe", desc: "IPA (isopropyl alcohol) panel wipe removes all polishing oils, ensuring the ceramic coating bonds directly to the clear coat at the molecular level." },
+            { step: "5", title: "Ceramic Coating Application & Cure", desc: "Hand-applied in controlled sections using professional applicators. Each panel inspected for uniformity. The coating cures and hardens to form a permanent protective shield." },
+          ].map((item, i) => (
+            <ScrollReveal key={item.step} delay={i * 0.08}>
+              <div className="flex gap-5 items-start p-5 rounded-xl bg-brand-dark-surface/50 border border-brand-dark-surface hover:border-primary/30 transition-colors">
+                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shrink-0">
+                  <span className="font-heading font-bold text-primary-foreground text-sm">{item.step}</span>
+                </div>
+                <div>
+                  <h4 className="font-heading font-bold uppercase text-sm mb-1 text-primary-foreground">{item.title}</h4>
+                  <p className="text-sm leading-relaxed text-primary-foreground/70">{item.desc}</p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-heading font-bold uppercase text-sm mb-1">{item.title}</h4>
-                <p className="text-sm leading-relaxed">{item.desc}</p>
-              </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
     </section>
 
-    {/* Before & After */}
-    <section className="py-16 bg-background">
-      <div className="container max-w-5xl">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground text-center mb-4">
-          The Before & After Speaks for Itself
-        </h2>
-        <p className="text-muted-foreground text-center leading-relaxed mb-12 max-w-3xl mx-auto">
-          Paint correction and ceramic coating isn't just maintenance — it's a transformation. Swirl marks vanish. Depth returns. And your paint stays protected for years.
-        </p>
-        <div className="grid md:grid-cols-2 gap-6 mb-16">
-          <div className="p-6 rounded-lg border border-border">
-            <h4 className="font-heading font-bold text-foreground uppercase text-sm mb-2">😔 Before: Swirled & Faded</h4>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              Years of automatic car washes have left hundreds of micro-scratches across every panel. Under direct sunlight, the swirl marks are impossible to ignore. The paint looks flat and lifeless — a shadow of what it used to be.
-            </p>
-          </div>
-          <div className="p-6 rounded-lg border border-primary/30 bg-primary/5">
-            <h4 className="font-heading font-bold text-primary uppercase text-sm mb-2">💎 After: Glass-Like Perfection</h4>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              After multi-stage paint correction, the surface is flawless. Swirl marks are gone. Reflections are razor-sharp. Then the ceramic coating locks it all in — creating a hydrophobic, UV-resistant shield that keeps the paint looking this good for years.
-            </p>
-          </div>
-        </div>
+    {/* Mid-page CTA */}
+    <section className="py-10 sm:py-14 bg-primary">
+      <div className="container text-center">
+        <ScrollReveal>
+          <p className="text-primary-foreground/80 font-heading uppercase tracking-wider text-sm mb-3">Premium Service — Limited Monthly Slots</p>
+          <h3 className="font-heading font-black text-xl sm:text-2xl uppercase text-primary-foreground mb-4">
+            Protect Your Investment Before It's Too Late
+          </h3>
+          <p className="text-primary-foreground/70 max-w-lg mx-auto mb-6 text-sm">
+            Every day without protection, your paint accumulates more micro-damage from UV, salt, and road debris. Lock in that showroom finish now — spots fill up fast.
+          </p>
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all group">
+            Get My Custom Quote
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </a>
+        </ScrollReveal>
+      </div>
+    </section>
+
+    {/* Who It's For */}
+    <section className="py-16 sm:py-20 bg-muted/30">
+      <div className="container max-w-4xl text-center px-6">
+        <ScrollReveal>
+          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground mb-8">
+            Is Ceramic Coating <span className="text-primary">Right for You</span>?
+          </h2>
+        </ScrollReveal>
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4" staggerDelay={0.08}>
+          {[
+            { emoji: "🚗", text: "New car owners who want to preserve that factory finish from day one" },
+            { emoji: "🖤", text: "Dark-colored vehicle owners tired of visible swirl marks and water spots" },
+            { emoji: "📈", text: "Anyone planning to sell within 1–3 years who wants to maximize resale value" },
+            { emoji: "🏔️", text: "Calgary drivers who need serious protection from salt, UV, and gravel" },
+            { emoji: "⏰", text: "Busy professionals who want a low-maintenance, always-clean vehicle" },
+            { emoji: "🏎️", text: "Car enthusiasts who demand nothing less than perfection" },
+          ].map((item) => (
+            <StaggerItem key={item.text}>
+              <div className="flex items-center gap-3 p-4 rounded-lg border border-border bg-background text-left hover:border-primary/30 transition-colors">
+                <span className="text-2xl shrink-0">{item.emoji}</span>
+                <p className="text-muted-foreground text-sm leading-snug">{item.text}</p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
       </div>
     </section>
 
@@ -193,18 +273,26 @@ const PaintCeramics = () => (
     <ServiceFAQ title="Paint Correction & Ceramic Coating FAQs" faqs={ceramicFAQs} />
 
     {/* CTA */}
-    <section className="py-16 bg-primary">
-      <div className="container grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h3 className="font-heading font-black text-2xl uppercase text-primary-foreground mb-4">Protect Your Vehicle Permanently</h3>
-          <p className="text-primary-foreground/80 leading-relaxed mb-6">
-            Whether you've just purchased a new car or want to protect and restore a daily driver, ceramic coating offers the most advanced form of automotive surface protection available today.
-          </p>
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
-            Book Now
-          </a>
-        </div>
-        <img src={paintImg} alt="Paint correction result" className="rounded-lg shadow-xl w-full object-cover aspect-video" />
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-primary to-brand-blue-deep">
+      <div className="container grid md:grid-cols-2 gap-8 md:gap-12 items-center px-4 sm:px-6">
+        <ScrollReveal direction="left">
+          <div className="text-center md:text-left">
+            <h3 className="font-heading font-black text-2xl sm:text-3xl uppercase text-primary-foreground mb-4">Lock In Showroom-Level Protection</h3>
+            <p className="text-primary-foreground/80 leading-relaxed mb-4 text-sm sm:text-base">
+              Whether you just bought a new car or want to restore a daily driver, ceramic coating is the ultimate investment in your vehicle's future. One appointment. Years of protection.
+            </p>
+            <p className="text-primary-foreground/60 text-sm mb-8">
+              ✓ Certified installers &nbsp; ✓ 4+ year protection &nbsp; ✓ Satisfaction guaranteed
+            </p>
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-lg group">
+              Book My Ceramic Coating
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+        </ScrollReveal>
+        <ScrollReveal direction="right">
+          <img src={paintImg} alt="Paint correction result" className="rounded-xl shadow-2xl w-full object-cover aspect-video hover:scale-105 transition-transform duration-700" />
+        </ScrollReveal>
       </div>
     </section>
 
