@@ -29,10 +29,10 @@ const desktopLinks: DesktopNavItem[] = [
   { label: "Paint & Ceramics", href: "/paint-ceramics" },
   { label: "Trailer & RV", href: "/trailer-rv" },
   { label: "Fleet", href: "/corporate-fleet" },
-  { label: "Gallery", href: "/gallery" },
   {
     label: "More",
     children: [
+      { label: "Gallery", href: "/gallery" },
       { label: "Gift Cards", href: "/gift-cards" },
       { label: "Why Choose Us", href: "/why-choose-us" },
       { label: "Contact Us", href: "/contact" },
