@@ -1,4 +1,4 @@
-import { Baby, Leaf, ShieldCheck, Award, Droplets, CheckCircle } from "lucide-react";
+import { Baby, Leaf, ShieldCheck, Award, Droplets, CheckCircle, Landmark } from "lucide-react";
 import { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import bbbLogo from "@/assets/bbb-logo.png";
 
@@ -9,6 +9,7 @@ const badges = [
   { icon: Award, label: "Certified Technicians" },
   { icon: Droplets, label: "pH Balanced Chemicals" },
   { icon: CheckCircle, label: "Satisfaction Guaranteed" },
+  { icon: Landmark, label: "City Bylaws Compliant" },
 ];
 
 const TrustBadges = () => (
