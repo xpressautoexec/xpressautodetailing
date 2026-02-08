@@ -71,7 +71,9 @@ const Index = () => {
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <div className="flex flex-wrap justify-center gap-3">
-              {["Calgary", "Airdrie", "Cochrane", "Chestermere", "Okotoks", "Strathmore", "High River", "Crossfield", "Langdon", "Bearspaw"].map(city => {})}
+              {["Calgary", "Airdrie", "Cochrane", "Chestermere", "Okotoks", "Strathmore", "High River", "Crossfield", "Langdon", "Bearspaw"].map(city => (
+                <span key={city} className="px-4 py-2 rounded-full border border-border text-sm text-muted-foreground">{city}</span>
+              ))}
             </div>
           </ScrollReveal>
         </div>
