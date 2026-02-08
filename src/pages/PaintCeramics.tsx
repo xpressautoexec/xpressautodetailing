@@ -28,6 +28,11 @@ const PaintCeramics = () => (
               "1-Year Ceramic Spray Sealant",
               "Final Paint Inspection",
             ]}
+            addOns={[
+              { name: "Wheel Ceramic Coating", price: "+$80" },
+              { name: "Windshield Ceramic Coating", price: "+$50" },
+              { name: "Trim Restoration & Coating", price: "+$60" },
+            ]}
             surcharges={["SUV: $449.99", "Truck: $499.99"]}
           />
           <PackageCard
@@ -41,6 +46,12 @@ const PaintCeramics = () => (
               "85-95% Of Defects Removed",
               "4-Year Infused Ceramic Coating",
               "Final Paint Inspection",
+            ]}
+            addOns={[
+              { name: "Wheel Ceramic Coating", price: "+$80" },
+              { name: "Windshield Ceramic Coating", price: "+$50" },
+              { name: "Interior Ceramic Coating", price: "+$120" },
+              { name: "Full PPF (Paint Protection Film)", price: "Quote" },
             ]}
             surcharges={["SUV: $649.99", "Truck: $699.99"]}
             isPrimary
@@ -103,12 +114,47 @@ const PaintCeramics = () => (
       </div>
     </section>
 
-    {/* CTA */}
+    {/* Before & After */}
     <section className="py-16 bg-background">
+      <div className="container max-w-5xl">
+        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground text-center mb-4">
+          The Before & After Speaks for Itself
+        </h2>
+        <p className="text-muted-foreground text-center leading-relaxed mb-12 max-w-3xl mx-auto">
+          Paint correction and ceramic coating isn't just maintenance — it's a transformation. Swirl marks vanish. Depth returns. And your paint stays protected for years.
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
+          <div className="p-6 rounded-lg border border-border">
+            <h4 className="font-heading font-bold text-foreground uppercase text-sm mb-2">😔 Before: Swirled & Faded</h4>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Years of automatic car washes have left hundreds of micro-scratches across every panel. Under direct sunlight, the swirl marks are impossible to ignore. The paint looks flat and lifeless — a shadow of what it used to be. No amount of waxing can fix what's been etched into the clear coat.
+            </p>
+          </div>
+          <div className="p-6 rounded-lg border border-primary/30 bg-primary/5">
+            <h4 className="font-heading font-bold text-primary uppercase text-sm mb-2">💎 After: Glass-Like Perfection</h4>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              After multi-stage paint correction, the surface is flawless. Swirl marks are gone. Reflections are razor-sharp. Then the ceramic coating locks it all in — creating a hydrophobic, UV-resistant shield that keeps the paint looking this good for years. Water beads and slides off like mercury.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-muted/50 rounded-xl p-8 text-center">
+          <h3 className="font-heading font-bold text-foreground uppercase text-lg mb-3">An Investment That Pays for Itself</h3>
+          <blockquote className="text-muted-foreground italic text-lg leading-relaxed mb-4">
+            "I almost spent $3,000 on a full respray for my black BMW. Got the 2-step correction + ceramic instead for a fraction of the cost. It looks better than the day I bought it. Water just sheets off. I haven't waxed in 8 months and it still turns heads."
+          </blockquote>
+          <p className="text-sm text-muted-foreground font-semibold">— James K., Calgary</p>
+        </div>
+      </div>
+    </section>
+
+    {/* CTA */}
+    <section className="py-16 section-dark">
       <div className="container grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h3 className="font-heading font-black text-2xl uppercase text-foreground mb-4">Protect Your Vehicle Permanently</h3>
-          <p className="text-muted-foreground leading-relaxed mb-6">
+          <h3 className="font-heading font-black text-2xl uppercase text-primary-foreground mb-4">Protect Your Vehicle Permanently</h3>
+          <p className="text-brand-gray leading-relaxed mb-6">
             Whether you've just purchased a new car or want to protect and restore a daily driver, ceramic coating offers the most advanced form of automotive surface protection available today.
           </p>
           <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded text-sm hover:bg-brand-blue-deep transition-colors">
