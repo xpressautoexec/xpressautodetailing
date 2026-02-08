@@ -98,7 +98,8 @@
   }
   
   .section-dark {
-    @apply bg-brand-dark text-primary-foreground;
+    background-color: hsl(210 20% 96%);
+    color: hsl(var(--foreground));
   }
 
   .section-blue {
