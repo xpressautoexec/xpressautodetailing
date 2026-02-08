@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TrustStats from "@/components/TrustStats";
+import TrustBadges from "@/components/TrustBadges";
 import HowItWorks from "@/components/HowItWorks";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
@@ -10,6 +11,9 @@ import TestimonialBlock from "@/components/TestimonialBlock";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 import BrandPartners from "@/components/BrandPartners";
+import GoogleReviewBadge from "@/components/GoogleReviewBadge";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
+import FloatingContact from "@/components/FloatingContact";
 import SEO, { localBusinessJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 
@@ -24,7 +28,7 @@ const homeTestimonials = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pb-16 lg:pb-0">
       <SEO
         title="Mobile Car Detailing Calgary"
         description="Calgary's premier mobile car detailing service. Interior, exterior, ceramic coating & fleet detailing. We come to you — book in 60 seconds."
@@ -34,8 +38,10 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <TrustStats />
+      <TrustBadges />
       <BrandPartners />
       <HowItWorks />
+      <GoogleReviewBadge />
       <AboutSection />
       <ServicesSection />
       <ReviewsSection />
@@ -119,6 +125,8 @@ const Index = () => {
       </section>
 
       <Footer />
+      <StickyMobileCTA />
+      <FloatingContact />
     </div>
   );
 };

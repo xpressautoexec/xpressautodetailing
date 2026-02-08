@@ -38,9 +38,17 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-brand-gray text-lg mb-8 max-w-lg"
+            className="text-brand-gray text-lg mb-4 max-w-lg"
           >
             We'll Make Your Car Look Brand-New Again, Wherever You Are
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-primary font-heading font-bold text-sm uppercase tracking-wider mb-8"
+          >
+            🔥 Limited spots available — Book yours today
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

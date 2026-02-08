@@ -10,15 +10,15 @@ import fleetImg from "@/assets/fleet-hero.jpg";
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const services = [
-  { title: "Complete Detailing", description: "Inside & out — a full refresh for your entire vehicle. Every surface. Every detail.", image: completeImg, link: "/complete-detailing" },
-  { title: "Ceramic Coating", description: "We use industry leading ceramic coating products for lasting protection and a shining finish!", image: ceramicImg, link: "/paint-ceramics" },
-  { title: "Corporate & Fleet", description: "Reliable, on-site detailing for work trucks & company vehicles. Keep your fleet clean and professional.", image: fleetImg, link: "/corporate-fleet" },
+  { title: "Complete Detailing", description: "Inside & out — a full refresh for your entire vehicle. Every surface. Every detail.", image: completeImg, link: "/complete-detailing", price: "From $249" },
+  { title: "Ceramic Coating", description: "We use industry leading ceramic coating products for lasting protection and a shining finish!", image: ceramicImg, link: "/paint-ceramics", price: "From $499" },
+  { title: "Corporate & Fleet", description: "Reliable, on-site detailing for work trucks & company vehicles. Keep your fleet clean and professional.", image: fleetImg, link: "/corporate-fleet", price: "Custom Quote" },
 ];
 
 const detailedServices = [
-  { title: "Interior Detailing", description: "Your car's interior should feel as fresh and clean as the day you bought it. Our interior detailing service goes beyond the surface — we deep-clean every crevice, eliminate odours, remove stains, and restore your cabin to a like-new condition.", image: interiorImg, link: "/interior-detailing" },
-  { title: "Exterior Detailing", description: "Your vehicle's exterior is constantly exposed to dirt, grime, road salt, and harsh weather. Our exterior detailing service revives and protects your vehicle's outer surfaces with a meticulous multi-step process.", image: exteriorImg, link: "/exterior-detailing" },
-  { title: "Paint Correction", description: "Over time, your vehicle's paint can develop swirl marks, scratches, and oxidation. Paint correction is a meticulous polishing process that restores clarity, smoothness, and depth to your paint by permanently removing imperfections.", image: paintImg, link: "/paint-ceramics" },
+  { title: "Interior Detailing", description: "Your car's interior should feel as fresh and clean as the day you bought it. Our interior detailing service goes beyond the surface — we deep-clean every crevice, eliminate odours, remove stains, and restore your cabin to a like-new condition.", image: interiorImg, link: "/interior-detailing", price: "From $149" },
+  { title: "Exterior Detailing", description: "Your vehicle's exterior is constantly exposed to dirt, grime, road salt, and harsh weather. Our exterior detailing service revives and protects your vehicle's outer surfaces with a meticulous multi-step process.", image: exteriorImg, link: "/exterior-detailing", price: "From $129" },
+  { title: "Paint Correction", description: "Over time, your vehicle's paint can develop swirl marks, scratches, and oxidation. Paint correction is a meticulous polishing process that restores clarity, smoothness, and depth to your paint by permanently removing imperfections.", image: paintImg, link: "/paint-ceramics", price: "From $299" },
 ];
 
 const ServicesSection = () => {
@@ -44,7 +44,8 @@ const ServicesSection = () => {
                   <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
-                  <h3 className="font-heading font-bold text-xl uppercase text-primary-foreground mb-3">{service.title}</h3>
+                  <h3 className="font-heading font-bold text-xl uppercase text-primary-foreground mb-1">{service.title}</h3>
+                  <p className="font-heading font-bold text-primary text-sm mb-3">{service.price}</p>
                   <p className="text-brand-gray text-sm leading-relaxed mb-4">{service.description}</p>
                   <Link to={service.link} className="text-primary font-heading font-bold text-sm uppercase tracking-wider hover:text-brand-blue-glow transition-colors">Learn More →</Link>
                 </div>
@@ -58,7 +59,8 @@ const ServicesSection = () => {
             <ScrollReveal key={service.title} direction={i % 2 === 0 ? "left" : "right"}>
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className={i % 2 === 1 ? "md:order-2" : ""}>
-                  <h3 className="font-heading font-black text-2xl md:text-3xl uppercase text-primary-foreground mb-4">{service.title}</h3>
+                  <h3 className="font-heading font-black text-2xl md:text-3xl uppercase text-primary-foreground mb-1">{service.title}</h3>
+                  <p className="font-heading font-bold text-primary text-lg mb-4">{service.price}</p>
                   <p className="text-brand-gray leading-relaxed mb-6">{service.description}</p>
                   <div className="flex flex-wrap gap-4">
                     <Link to={service.link} className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors">View Packages</Link>
