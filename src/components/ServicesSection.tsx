@@ -1,6 +1,10 @@
+import { Link } from "react-router-dom";
 import interiorImg from "@/assets/interior-detail.jpg";
 import exteriorImg from "@/assets/exterior-detail.jpg";
 import paintImg from "@/assets/paint-correction.jpg";
+import completeImg from "@/assets/complete-hero.jpg";
+import ceramicImg from "@/assets/ceramic-hero.jpg";
+import fleetImg from "@/assets/fleet-hero.jpg";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -8,17 +12,20 @@ const services = [
   {
     title: "Complete Detailing",
     description: "Inside & out — a full refresh for your entire vehicle. Every surface. Every detail.",
-    image: interiorImg,
+    image: completeImg,
+    link: "/complete-detailing",
   },
   {
     title: "Ceramic Coating",
     description: "We use industry leading ceramic coating products for lasting protection and a shining finish!",
-    image: exteriorImg,
+    image: ceramicImg,
+    link: "/paint-ceramics",
   },
   {
     title: "Corporate & Fleet",
     description: "Reliable, on-site detailing for work trucks & company vehicles. Keep your fleet clean and professional.",
-    image: paintImg,
+    image: fleetImg,
+    link: "/corporate-fleet",
   },
 ];
 
@@ -28,18 +35,21 @@ const detailedServices = [
     description:
       "Your car's interior should feel as fresh and clean as the day you bought it. Our interior detailing service goes beyond the surface — we deep-clean every crevice, eliminate odours, remove stains, and restore your cabin to a like-new condition.",
     image: interiorImg,
+    link: "/interior-detailing",
   },
   {
     title: "Exterior Detailing",
     description:
       "Your vehicle's exterior is constantly exposed to dirt, grime, road salt, and harsh weather. Our exterior detailing service revives and protects your vehicle's outer surfaces with a meticulous multi-step process.",
     image: exteriorImg,
+    link: "/exterior-detailing",
   },
   {
     title: "Paint Correction",
     description:
       "Over time, your vehicle's paint can develop swirl marks, scratches, and oxidation. Paint correction is a meticulous polishing process that restores clarity, smoothness, and depth to your paint by permanently removing imperfections.",
     image: paintImg,
+    link: "/paint-ceramics",
   },
 ];
 
@@ -78,14 +88,12 @@ const ServicesSection = () => {
                 <p className="text-brand-gray text-sm leading-relaxed mb-4">
                   {service.description}
                 </p>
-                <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to={service.link}
                   className="text-primary font-heading font-bold text-sm uppercase tracking-wider hover:text-brand-blue-glow transition-colors"
                 >
                   Learn More →
-                </a>
+                </Link>
               </div>
             </div>
           ))}
@@ -96,9 +104,7 @@ const ServicesSection = () => {
           {detailedServices.map((service, i) => (
             <div
               key={service.title}
-              className={`grid md:grid-cols-2 gap-12 items-center ${
-                i % 2 === 1 ? "md:direction-rtl" : ""
-              }`}
+              className={`grid md:grid-cols-2 gap-12 items-center`}
             >
               <div className={i % 2 === 1 ? "md:order-2" : ""}>
                 <h3 className="font-heading font-black text-2xl md:text-3xl uppercase text-primary-foreground mb-4">
@@ -107,14 +113,22 @@ const ServicesSection = () => {
                 <p className="text-brand-gray leading-relaxed mb-6">
                   {service.description}
                 </p>
-                <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors"
-                >
-                  Book Now
-                </a>
+                <div className="flex flex-wrap gap-4">
+                  <Link
+                    to={service.link}
+                    className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors"
+                  >
+                    View Packages
+                  </Link>
+                  <a
+                    href={BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block border-2 border-primary text-primary font-heading font-bold uppercase tracking-wider px-6 py-3 rounded text-sm hover:bg-primary hover:text-primary-foreground transition-colors"
+                  >
+                    Book Now
+                  </a>
+                </div>
               </div>
               <div className={i % 2 === 1 ? "md:order-1" : ""}>
                 <img
@@ -125,6 +139,18 @@ const ServicesSection = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Extra CTA */}
+        <div className="text-center mt-16">
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-10 py-4 rounded text-sm hover:bg-brand-blue-deep transition-colors"
+          >
+            Book Your Detail Now
+          </a>
         </div>
       </div>
     </section>

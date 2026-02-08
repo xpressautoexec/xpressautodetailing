@@ -1,4 +1,5 @@
 import { Phone, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -6,42 +7,57 @@ const Footer = () => {
   return (
     <footer className="bg-brand-dark border-t border-brand-dark-surface py-12">
       <div className="container">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <span className="font-heading font-black text-xl">
+            <Link to="/" className="font-heading font-black text-xl">
               <span className="text-primary">X</span>
               <span className="text-primary-foreground">PRESS</span>
               <span className="text-primary text-xs font-semibold ml-1 tracking-widest">AUTO DETAILING</span>
-            </span>
+            </Link>
             <p className="text-brand-gray text-sm mt-3 leading-relaxed">
               Convenient, affordable car detailing that comes to you. Mobile detailing made simple.
             </p>
           </div>
 
+          {/* Services */}
+          <div>
+            <h4 className="font-heading font-bold text-primary-foreground uppercase tracking-wider text-sm mb-4">Services</h4>
+            <div className="flex flex-col gap-2">
+              {[
+                { label: "Interior Detailing", to: "/interior-detailing" },
+                { label: "Exterior Detailing", to: "/exterior-detailing" },
+                { label: "Complete Detailing", to: "/complete-detailing" },
+                { label: "Paint & Ceramics", to: "/paint-ceramics" },
+                { label: "Corporate & Fleet", to: "/corporate-fleet" },
+              ].map((link) => (
+                <Link key={link.label} to={link.to} className="text-brand-gray text-sm hover:text-primary transition-colors">
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading font-bold text-primary-foreground uppercase tracking-wider text-sm mb-4">
-              Quick Links
-            </h4>
+            <h4 className="font-heading font-bold text-primary-foreground uppercase tracking-wider text-sm mb-4">Quick Links</h4>
             <div className="flex flex-col gap-2">
-              {["Home", "Services", "About", "Reviews", "FAQ"].map((link) => (
-                <a
-                  key={link}
-                  href={`#${link.toLowerCase()}`}
-                  className="text-brand-gray text-sm hover:text-primary transition-colors"
-                >
-                  {link}
-                </a>
+              {[
+                { label: "Gift Cards", to: "/gift-cards" },
+                { label: "Gallery", to: "/gallery" },
+                { label: "Contact Us", to: "/contact" },
+                { label: "Blog", to: "/blog" },
+              ].map((link) => (
+                <Link key={link.label} to={link.to} className="text-brand-gray text-sm hover:text-primary transition-colors">
+                  {link.label}
+                </Link>
               ))}
             </div>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-heading font-bold text-primary-foreground uppercase tracking-wider text-sm mb-4">
-              Contact Us
-            </h4>
+            <h4 className="font-heading font-bold text-primary-foreground uppercase tracking-wider text-sm mb-4">Contact Us</h4>
             <div className="flex flex-col gap-3">
               <a href="tel:5875004523" className="text-brand-gray text-sm hover:text-primary transition-colors flex items-center gap-2">
                 <Phone className="w-4 h-4" /> 587-500-4523
