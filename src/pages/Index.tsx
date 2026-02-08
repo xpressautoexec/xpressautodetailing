@@ -9,6 +9,7 @@ import BenefitsSection from "@/components/BenefitsSection";
 import TestimonialBlock from "@/components/TestimonialBlock";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
+import SEO, { localBusinessJsonLd } from "@/components/SEO";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -22,6 +23,12 @@ const homeTestimonials = [
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Mobile Car Detailing Calgary"
+        description="Calgary's premier mobile car detailing service. Interior, exterior, ceramic coating & fleet detailing. We come to you — book in 60 seconds."
+        canonical="/"
+        jsonLd={localBusinessJsonLd}
+      />
       <Navbar />
       <HeroSection />
       <TrustStats />

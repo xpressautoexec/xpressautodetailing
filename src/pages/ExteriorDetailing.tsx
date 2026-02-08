@@ -5,6 +5,7 @@ import PackageCard from "@/components/PackageCard";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import TestimonialBlock from "@/components/TestimonialBlock";
 import TrustStats from "@/components/TrustStats";
+import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import exteriorHero from "@/assets/exterior-hero.jpg";
 import exteriorImg from "@/assets/exterior-detail.jpg";
 
@@ -27,6 +28,15 @@ const exteriorTestimonials = [
 
 const ExteriorDetailing = () => (
   <div className="min-h-screen">
+    <SEO
+      title="Exterior Detailing Calgary"
+      description="Professional mobile exterior car detailing in Calgary. Hand wash, clay bar, paint decontamination & sealant protection. Book in 60 seconds."
+      canonical="/exterior-detailing"
+      jsonLd={[
+        buildServiceJsonLd("Exterior Detailing", "Professional mobile exterior car detailing in Calgary. Hand wash, clay bar, and sealant protection.", "/exterior-detailing"),
+        buildFAQJsonLd(exteriorFAQs),
+      ]}
+    />
     <Navbar />
     <ServicePageHero title="Exterior Detailing Services in Calgary and Surrounding Areas" image={exteriorHero} />
     <TrustStats />

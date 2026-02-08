@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import TrustStats from "@/components/TrustStats";
+import SEO, { buildFAQJsonLd } from "@/components/SEO";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, Clock, MapPin, MessageCircle } from "lucide-react";
@@ -45,6 +46,12 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Contact Us — Get a Free Quote"
+        description="Contact Xpress Auto Detailing in Calgary. Get a free quote, ask questions, or book your mobile detail. We respond within 2 hours."
+        canonical="/contact"
+        jsonLd={buildFAQJsonLd(contactFAQs)}
+      />
       <Navbar />
 
       {/* Hero */}

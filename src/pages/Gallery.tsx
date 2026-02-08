@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import TrustStats from "@/components/TrustStats";
+import SEO from "@/components/SEO";
 import galleryHero from "@/assets/gallery-hero.jpg";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
@@ -30,6 +31,11 @@ const images = [
 
 const Gallery = () => (
   <div className="min-h-screen">
+    <SEO
+      title="Gallery — Our Detailing Results"
+      description="See real before & after results from Xpress Auto Detailing in Calgary. Interior, exterior, paint correction & ceramic coating transformations."
+      canonical="/gallery"
+    />
     <Navbar />
     <ServicePageHero title="Our Work" image={galleryHero} />
     <TrustStats />

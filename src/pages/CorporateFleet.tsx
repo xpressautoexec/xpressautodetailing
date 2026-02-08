@@ -5,6 +5,7 @@ import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import TestimonialBlock from "@/components/TestimonialBlock";
 import TrustStats from "@/components/TrustStats";
+import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import fleetHero from "@/assets/fleet-hero.jpg";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -55,6 +56,15 @@ const CorporateFleet = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Corporate & Fleet Detailing Calgary"
+        description="Professional fleet and corporate vehicle detailing in Calgary. Volume discounts, flexible scheduling & dedicated account management."
+        canonical="/corporate-fleet"
+        jsonLd={[
+          buildServiceJsonLd("Corporate & Fleet Detailing", "Professional fleet and corporate vehicle detailing in Calgary.", "/corporate-fleet"),
+          buildFAQJsonLd(fleetFAQs),
+        ]}
+      />
       <Navbar />
       <ServicePageHero title="Dealership, Fleet & Company Detailing in Calgary and Surrounding Areas" image={fleetHero} />
       <TrustStats />

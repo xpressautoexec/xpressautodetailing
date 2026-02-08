@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
+import SEO from "@/components/SEO";
 import giftcardHero from "@/assets/giftcard-hero.jpg";
 import { Gift, Heart, Car, Sparkles, Star, Calendar, CreditCard } from "lucide-react";
 
@@ -8,6 +9,11 @@ const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const GiftCards = () => (
   <div className="min-h-screen">
+    <SEO
+      title="Gift Cards — Car Detailing Gift Calgary"
+      description="Give the gift of a spotless ride. Xpress Auto Detailing gift cards for birthdays, holidays & special occasions. Available in multiple tiers."
+      canonical="/gift-cards"
+    />
     <Navbar />
     <ServicePageHero title="Gift Cards" image={giftcardHero} />
 
