@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServiceFAQ from "@/components/ServiceFAQ";
@@ -45,7 +46,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <PageTransition><div className="min-h-screen">
       <SEO
         title="Contact Us — Get a Free Quote"
         description="Contact Xpress Auto Detailing in Calgary. Get a free quote, ask questions, or book your mobile detail. We respond within 2 hours."
@@ -134,7 +135,7 @@ const Contact = () => {
       </section>
 
       <Footer />
-    </div>
+    </div></PageTransition>
   );
 };
 

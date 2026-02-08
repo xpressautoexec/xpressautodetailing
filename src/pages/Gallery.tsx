@@ -1,3 +1,4 @@
+import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
@@ -30,7 +31,7 @@ const images = [
 ];
 
 const Gallery = () => (
-  <div className="min-h-screen">
+  <PageTransition><div className="min-h-screen">
     <SEO
       title="Gallery — Our Detailing Results"
       description="See real before & after results from Xpress Auto Detailing in Calgary. Interior, exterior, paint correction & ceramic coating transformations."
@@ -108,7 +109,7 @@ const Gallery = () => (
     </section>
 
     <Footer />
-  </div>
+  </div></PageTransition>
 );
 
 export default Gallery;

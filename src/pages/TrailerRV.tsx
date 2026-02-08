@@ -1,3 +1,4 @@
+import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import Footer from "@/components/Footer";
@@ -72,7 +73,7 @@ const packages = [
 
 const TrailerRV = () => {
   return (
-    <div className="min-h-screen">
+    <PageTransition><div className="min-h-screen">
       <SEO
         title="Trailer & RV Detailing Calgary"
         description="Professional mobile RV and trailer detailing in Calgary. Travel trailers, motorhomes, 5th wheels & more. We come to your location — book today."
@@ -244,7 +245,7 @@ const TrailerRV = () => {
       </section>
 
       <Footer />
-    </div>
+    </div></PageTransition>
   );
 };
 

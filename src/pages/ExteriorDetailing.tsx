@@ -1,3 +1,4 @@
+import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import Footer from "@/components/Footer";
@@ -28,7 +29,7 @@ const exteriorTestimonials = [
 ];
 
 const ExteriorDetailing = () => (
-  <div className="min-h-screen">
+  <PageTransition><div className="min-h-screen">
     <SEO
       title="Exterior Detailing Calgary"
       description="Professional mobile exterior car detailing in Calgary. Hand wash, clay bar, paint decontamination & sealant protection. Book in 60 seconds."
@@ -155,7 +156,7 @@ const ExteriorDetailing = () => (
     </section>
 
     <Footer />
-  </div>
+  </div></PageTransition>
 );
 
 export default ExteriorDetailing;

@@ -1,3 +1,4 @@
+import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TrustStats from "@/components/TrustStats";
@@ -30,6 +31,7 @@ const homeTestimonials = [
 
 const Index = () => {
   return (
+    <PageTransition>
     <div className="min-h-screen pb-16 lg:pb-0">
       <SEO
         title="Mobile Car Detailing Calgary"
@@ -134,6 +136,7 @@ const Index = () => {
       <FloatingContact />
       <ChatWidget />
     </div>
+    </PageTransition>
   );
 };
 

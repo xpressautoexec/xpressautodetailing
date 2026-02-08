@@ -1,3 +1,4 @@
+import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
@@ -8,7 +9,7 @@ import { Gift, Heart, Car, Sparkles, Star, Calendar, CreditCard } from "lucide-r
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const GiftCards = () => (
-  <div className="min-h-screen">
+  <PageTransition><div className="min-h-screen">
     <SEO
       title="Gift Cards — Car Detailing Gift Calgary"
       description="Give the gift of a spotless ride. Xpress Auto Detailing gift cards for birthdays, holidays & special occasions. Available in multiple tiers."
@@ -129,7 +130,7 @@ const GiftCards = () => (
     </section>
 
     <Footer />
-  </div>
+  </div></PageTransition>
 );
 
 export default GiftCards;

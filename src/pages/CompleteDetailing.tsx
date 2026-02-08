@@ -1,3 +1,4 @@
+import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import Footer from "@/components/Footer";
@@ -29,7 +30,7 @@ const completeTestimonials = [
 ];
 
 const CompleteDetailing = () => (
-  <div className="min-h-screen">
+  <PageTransition><div className="min-h-screen">
     <SEO
       title="Complete Detailing Calgary"
       description="Full interior & exterior mobile detailing in Calgary. The ultimate top-to-bottom detail for your vehicle. Book in 60 seconds."
@@ -190,7 +191,7 @@ const CompleteDetailing = () => (
     </section>
 
     <Footer />
-  </div>
+  </div></PageTransition>
 );
 
 export default CompleteDetailing;

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
@@ -56,7 +57,7 @@ const CorporateFleet = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <PageTransition><div className="min-h-screen">
       <SEO
         title="Corporate & Fleet Detailing Calgary"
         description="Professional fleet and corporate vehicle detailing in Calgary. Volume discounts, flexible scheduling & dedicated account management."
@@ -207,7 +208,7 @@ const CorporateFleet = () => {
       <Footer />
       <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
-    </div>
+    </div></PageTransition>
   );
 };
 

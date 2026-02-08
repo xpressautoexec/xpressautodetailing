@@ -1,3 +1,4 @@
+import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
@@ -28,7 +29,7 @@ const ceramicTestimonials = [
 ];
 
 const PaintCeramics = () => (
-  <div className="min-h-screen">
+  <PageTransition><div className="min-h-screen">
     <SEO
       title="Paint Correction & Ceramic Coating Calgary"
       description="Professional paint correction and ceramic coating in Calgary. Remove swirl marks, restore gloss & protect with long-lasting ceramic coatings."
@@ -208,7 +209,7 @@ const PaintCeramics = () => (
     </section>
 
     <Footer />
-  </div>
+  </div></PageTransition>
 );
 
 export default PaintCeramics;
