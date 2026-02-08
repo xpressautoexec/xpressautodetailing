@@ -20,6 +20,7 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
 const TrailerRV = lazy(() => import("./pages/TrailerRV"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const WhyChooseUs = lazy(() => import("./pages/WhyChooseUs"));
 
 const queryClient = new QueryClient();
 
@@ -41,6 +42,7 @@ const AnimatedRoutes = () => {
         <Route path="/trailer-rv" element={<TrailerRV />} />
         <Route path="/terms-conditions" element={<TermsOfService />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/why-choose-us" element={<WhyChooseUs />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>

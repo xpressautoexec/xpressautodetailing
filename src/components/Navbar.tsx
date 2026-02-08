@@ -17,6 +17,7 @@ interface DesktopNavItem {
 
 const desktopLinks: DesktopNavItem[] = [
   { label: "Home", href: "/" },
+  { label: "Why Choose Us", href: "/why-choose-us" },
   {
     label: "Detailing",
     children: [
@@ -33,6 +34,7 @@ const desktopLinks: DesktopNavItem[] = [
     label: "More",
     children: [
       { label: "Gift Cards", href: "/gift-cards" },
+      { label: "Why Choose Us", href: "/why-choose-us" },
       { label: "Contact Us", href: "/contact" },
       { label: "Blog", href: "/blog" },
       { label: "Terms & Conditions", href: "/terms-conditions" },
@@ -65,6 +67,7 @@ const mobileLinks: MobileNavItem[] = [
     href: "#",
     children: [
       { label: "Gift Cards", href: "/gift-cards" },
+      { label: "Why Choose Us", href: "/why-choose-us" },
       { label: "Gallery", href: "/gallery" },
       { label: "Contact Us", href: "/contact" },
       { label: "Blog", href: "/blog" },
