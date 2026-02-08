@@ -9,6 +9,7 @@ import BenefitsSection from "@/components/BenefitsSection";
 import TestimonialBlock from "@/components/TestimonialBlock";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
+import BrandPartners from "@/components/BrandPartners";
 import SEO, { localBusinessJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 
@@ -33,6 +34,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <TrustStats />
+      <BrandPartners />
       <HowItWorks />
       <AboutSection />
       <ServicesSection />
