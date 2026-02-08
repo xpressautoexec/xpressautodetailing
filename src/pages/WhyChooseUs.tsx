@@ -35,7 +35,7 @@ const stats = [
   { value: "5,000+", label: "Vehicles Detailed" },
   { value: "100+", label: "5-Star Reviews" },
   { value: "4.9/5", label: "Average Rating" },
-  { value: "7+", label: "Years Experience" },
+  { value: "5+", label: "Years Experience" },
 ];
 
 const WhyChooseUs = () => {
