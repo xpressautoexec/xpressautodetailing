@@ -33,7 +33,7 @@ const InteriorDetailing = () => (
     {/* Packages */}
     <section className="section-dark py-16">
       <div className="container">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-center text-primary-foreground mb-12">
+        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-center text-foreground mb-12">
           Interior Detailing Packages
         </h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -143,8 +143,8 @@ const InteriorDetailing = () => (
       <div className="container grid md:grid-cols-2 gap-12 items-center">
         <img src={interiorImg} alt="Interior detailing result" className="rounded-lg shadow-xl w-full object-cover aspect-video" />
         <div>
-          <h3 className="font-heading font-black text-2xl uppercase text-primary-foreground mb-4">Ready for a Fresh Interior?</h3>
-          <p className="text-brand-gray leading-relaxed mb-6">
+          <h3 className="font-heading font-black text-2xl uppercase text-foreground mb-4">Ready for a Fresh Interior?</h3>
+          <p className="text-muted-foreground leading-relaxed mb-6">
             Book your interior detail today and experience the difference. We come to you — mobile anywhere in Calgary and surrounding areas.
           </p>
           <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded text-sm hover:bg-brand-blue-deep transition-colors">

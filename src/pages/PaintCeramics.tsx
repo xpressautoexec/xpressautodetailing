@@ -90,8 +90,8 @@ const PaintCeramics = () => (
     {/* The Process */}
     <section className="section-dark py-16">
       <div className="container max-w-4xl">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-primary-foreground text-center mb-4">The Process</h2>
-        <p className="text-brand-gray text-center mb-12">Preparation. Precision. Perfection.</p>
+        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground text-center mb-4">The Process</h2>
+        <p className="text-muted-foreground text-center mb-12">Preparation. Precision. Perfection.</p>
         <div className="space-y-8">
           {[
             { step: "Step 1", title: "Exterior Wash & Decontamination", desc: "Thorough two-bucket hand wash, iron remover, and clay bar treatment to eliminate embedded contaminants." },
@@ -105,8 +105,8 @@ const PaintCeramics = () => (
                 <span className="font-heading font-bold text-primary-foreground text-xs">{item.step.split(" ")[1]}</span>
               </div>
               <div>
-                <h4 className="font-heading font-bold text-primary-foreground uppercase text-sm mb-1">{item.title}</h4>
-                <p className="text-brand-gray text-sm leading-relaxed">{item.desc}</p>
+                <h4 className="font-heading font-bold text-foreground uppercase text-sm mb-1">{item.title}</h4>
+                <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
               </div>
             </div>
           ))}
@@ -153,8 +153,8 @@ const PaintCeramics = () => (
     <section className="py-16 section-dark">
       <div className="container grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h3 className="font-heading font-black text-2xl uppercase text-primary-foreground mb-4">Protect Your Vehicle Permanently</h3>
-          <p className="text-brand-gray leading-relaxed mb-6">
+          <h3 className="font-heading font-black text-2xl uppercase text-foreground mb-4">Protect Your Vehicle Permanently</h3>
+          <p className="text-muted-foreground leading-relaxed mb-6">
             Whether you've just purchased a new car or want to protect and restore a daily driver, ceramic coating offers the most advanced form of automotive surface protection available today.
           </p>
           <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded text-sm hover:bg-brand-blue-deep transition-colors">

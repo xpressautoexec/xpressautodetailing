@@ -26,7 +26,7 @@ const CompleteDetailing = () => (
 
     <section className="section-dark py-16">
       <div className="container">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-center text-primary-foreground mb-12">
+        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-center text-foreground mb-12">
           Complete Detailing Packages
         </h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -149,8 +149,8 @@ const CompleteDetailing = () => (
       <div className="container grid md:grid-cols-2 gap-12 items-center">
         <img src={interiorImg} alt="Complete detailing result" className="rounded-lg shadow-xl w-full object-cover aspect-video" />
         <div>
-          <h3 className="font-heading font-black text-2xl uppercase text-primary-foreground mb-4">The Ultimate Transformation</h3>
-          <p className="text-brand-gray leading-relaxed mb-6">
+          <h3 className="font-heading font-black text-2xl uppercase text-foreground mb-4">The Ultimate Transformation</h3>
+          <p className="text-muted-foreground leading-relaxed mb-6">
             Give your vehicle the complete treatment it deserves — inside and out. Book your complete detail today.
           </p>
           <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded text-sm hover:bg-brand-blue-deep transition-colors">
