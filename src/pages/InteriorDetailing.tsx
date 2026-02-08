@@ -2,15 +2,35 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import PackageCard from "@/components/PackageCard";
+import ServiceFAQ from "@/components/ServiceFAQ";
+import TestimonialBlock from "@/components/TestimonialBlock";
+import TrustStats from "@/components/TrustStats";
 import interiorHero from "@/assets/interior-hero.jpg";
 import interiorImg from "@/assets/interior-detail.jpg";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
+const interiorFAQs = [
+  { q: "How long does an interior detail take?", a: "The Fresh Start Interior takes about 1.5–2 hours. The Deep Clean + Shield takes 2–2.5 hours. Heavily soiled vehicles may take longer — we'll let you know upfront." },
+  { q: "Can you remove pet hair from my car?", a: "Yes! Pet hair removal is one of our most popular add-ons. We use specialized tools to extract every strand from seats, carpets, and hard-to-reach areas." },
+  { q: "Will shampooing damage my leather seats?", a: "No. We use pH-balanced cleaners specifically formulated for automotive leather. After cleaning, we apply a conditioner that keeps the leather supple and protected against cracking." },
+  { q: "Can you get rid of cigarette smoke smell?", a: "In most cases, yes. Our Deep Clean + Shield package combined with the Ozone Odor Bomb add-on is extremely effective at eliminating embedded smoke odors — not just masking them." },
+  { q: "Do I need to be home during the service?", a: "Not necessarily! As long as we have access to the vehicle and a water/power source nearby, we can work while you're at home, at work, or running errands." },
+  { q: "What if the stains don't come out?", a: "We're honest about expectations. Some permanent stains (like dye transfers or chemical burns) can't be fully removed, but we'll do our absolute best. If we can't improve it, we'll tell you before we charge." },
+];
+
+const interiorTestimonials = [
+  { quote: "My 3-year-old's car seat area was a disaster — crushed crackers, juice stains, mystery spills. After the Deep Clean + Shield, it looks like the day I bought the car. Absolutely incredible work.", name: "Amanda K.", location: "Calgary", service: "Deep Clean + Shield" },
+  { quote: "I'm a realtor and my car is my office. The Fresh Start Interior keeps it looking professional for clients. I book monthly and it's always perfect.", name: "David P.", location: "Airdrie", service: "Fresh Start Interior" },
+  { quote: "Had my dog's mud all through the back seat and carpets. They got every bit of it out and the ozone treatment killed that wet-dog smell completely. My car smells brand new.", name: "Rachel M.", location: "Cochrane", service: "Deep Clean + Shield + Ozone" },
+  { quote: "I was embarrassed to have anyone in my car. After one interior detail, my friend asked if I got a new car. That says it all.", name: "Jason T.", location: "Chestermere", service: "Deep Clean + Shield" },
+];
+
 const InteriorDetailing = () => (
   <div className="min-h-screen">
     <Navbar />
     <ServicePageHero title="Interior Detailing Services in Calgary and Surrounding Areas" image={interiorHero} />
+    <TrustStats />
 
     {/* Intro */}
     <section className="py-16 bg-background">
@@ -24,8 +44,11 @@ const InteriorDetailing = () => (
         <p className="text-muted-foreground leading-relaxed font-semibold">
           Breathe New Life Into Your Cabin
         </p>
-        <p className="text-muted-foreground leading-relaxed">
+        <p className="text-muted-foreground leading-relaxed mb-4">
           Your car's interior isn't just a space — it's where you spend hours every week. We deep clean and sanitize every surface, restore freshness, and protect against future wear, so you can drive in comfort and confidence.
+        </p>
+        <p className="text-muted-foreground leading-relaxed">
+          Did you know the average car interior harbors more bacteria than a public toilet seat? Steering wheels, cup holders, and air vents are breeding grounds for germs. Our professional interior detailing eliminates up to 99% of bacteria and allergens, creating a healthier environment for you and your passengers.
         </p>
       </div>
     </section>
@@ -127,27 +150,22 @@ const InteriorDetailing = () => (
             </div>
           </div>
         </div>
-
-        <div className="bg-muted/50 rounded-xl p-8 text-center">
-          <h3 className="font-heading font-bold text-foreground uppercase text-lg mb-3">What Our Clients Say After Their First Interior Detail</h3>
-          <blockquote className="text-muted-foreground italic text-lg leading-relaxed mb-4">
-            "I didn't think my seats could look like this again. My 2019 RAV4 looks like it just rolled off the lot. My kids couldn't believe it was the same car."
-          </blockquote>
-          <p className="text-sm text-muted-foreground font-semibold">— Sarah M., Calgary</p>
-        </div>
       </div>
     </section>
 
+    <TestimonialBlock testimonials={interiorTestimonials} />
+    <ServiceFAQ title="Interior Detailing FAQs" faqs={interiorFAQs} />
+
     {/* Image + CTA */}
-    <section className="py-16 section-dark">
+    <section className="py-16 bg-primary">
       <div className="container grid md:grid-cols-2 gap-12 items-center">
         <img src={interiorImg} alt="Interior detailing result" className="rounded-lg shadow-xl w-full object-cover aspect-video" />
         <div>
-          <h3 className="font-heading font-black text-2xl uppercase text-foreground mb-4">Ready for a Fresh Interior?</h3>
-          <p className="text-muted-foreground leading-relaxed mb-6">
+          <h3 className="font-heading font-black text-2xl uppercase text-primary-foreground mb-4">Ready for a Fresh Interior?</h3>
+          <p className="text-primary-foreground/80 leading-relaxed mb-6">
             Book your interior detail today and experience the difference. We come to you — mobile anywhere in Calgary and surrounding areas.
           </p>
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded text-sm hover:bg-brand-blue-deep transition-colors">
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
             Book Now
           </a>
         </div>
