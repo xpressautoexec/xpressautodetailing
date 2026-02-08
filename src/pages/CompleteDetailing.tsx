@@ -2,15 +2,35 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import PackageCard from "@/components/PackageCard";
+import ServiceFAQ from "@/components/ServiceFAQ";
+import TestimonialBlock from "@/components/TestimonialBlock";
+import TrustStats from "@/components/TrustStats";
 import completeHero from "@/assets/complete-hero.jpg";
 import interiorImg from "@/assets/interior-detail.jpg";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
+const completeFAQs = [
+  { q: "How long does a complete detail take?", a: "The Showroom Reset takes approximately 2.5–3 hours. The Showroom Reset + Protection takes 3–3.5 hours. Heavily soiled vehicles may require additional time." },
+  { q: "Is a complete detail worth the extra cost over separate interior/exterior?", a: "Absolutely. Bundling saves you money compared to booking interior and exterior separately, plus the detailer can ensure a seamless result without rushing between appointments." },
+  { q: "Should I get a complete detail before selling my car?", a: "100% yes. A professional detail can increase your perceived vehicle value by $1,000–$3,000. It's one of the highest-ROI investments you can make before listing." },
+  { q: "How often should I get a complete detail?", a: "We recommend a full complete detail 2–4 times per year (once per season), with exterior maintenance washes in between. Monthly clients get the best long-term results." },
+  { q: "Can you come to my workplace and do the detail while I work?", a: "Yes! Many of our clients book during work hours. We just need access to the vehicle and ideally a water/power source. We'll have it done by the time you clock out." },
+  { q: "What's included in the 25% off Engine Bay Detail bonus?", a: "When you book the Showroom Reset + Protection, you get 25% off our full engine bay detail — which includes degreasing, pressure rinsing, and dressing all engine components for a like-new engine bay." },
+];
+
+const completeTestimonials = [
+  { quote: "I was about to trade in my Highlander. Got it detailed first with the Showroom Reset + Protection and the dealer offered me $2,500 more than their original quote. Best $240 I've ever spent.", name: "Marcus D.", location: "Cochrane", service: "Showroom Reset + Protection" },
+  { quote: "We get both our family cars done every spring and fall. The complete detail keeps them in amazing shape year-round. The convenience of mobile service makes it a no-brainer.", name: "The Nguyen Family", location: "Calgary SE", service: "Showroom Reset (Seasonal)" },
+  { quote: "Bought a used Honda Accord that smelled like the previous owner's dog. After the Showroom Reset + Protection, it looked and smelled like a brand new car. My wife couldn't believe it.", name: "Chris B.", location: "Airdrie", service: "Showroom Reset + Protection" },
+  { quote: "I'm a contractor and my truck takes a beating. The complete detail every few months keeps it looking professional for clients. Worth every cent.", name: "Derek S.", location: "Okotoks", service: "Showroom Reset" },
+];
+
 const CompleteDetailing = () => (
   <div className="min-h-screen">
     <Navbar />
     <ServicePageHero title="Complete Detailing Services in Calgary and Surrounding Areas" image={completeHero} />
+    <TrustStats />
 
     <section className="py-16 bg-background">
       <div className="container max-w-4xl text-center">
@@ -18,8 +38,11 @@ const CompleteDetailing = () => (
           Professional Complete Detailing Services
         </h2>
         <p className="text-muted-foreground leading-relaxed font-semibold mb-2">Your Vehicle, Brand New Again — Without Leaving Home</p>
-        <p className="text-muted-foreground leading-relaxed">
+        <p className="text-muted-foreground leading-relaxed mb-4">
           Why settle for average when you can have dealership-quality results brought right to your driveway? At Xpress Auto Detailing, we deliver the ultimate inside-and-out transformation for SUVs, trucks, minivans, and more — serving Calgary, Airdrie, Cochrane, Chestermere, and surrounding areas. Backed by our 100% Satisfaction Guarantee.
+        </p>
+        <p className="text-muted-foreground leading-relaxed">
+          Our complete detailing packages combine the best of our interior and exterior services into one comprehensive package. It's the most popular choice for clients who want their vehicle to look, feel, and smell brand new — without the hassle of booking multiple appointments. Whether you're prepping for a sale, welcoming a new season, or just treating yourself, complete detailing is the ultimate reset.
         </p>
       </div>
     </section>
@@ -93,16 +116,15 @@ const CompleteDetailing = () => (
       </div>
     </section>
 
-    {/* Before & After Transformation */}
+    {/* Before & After */}
     <section className="py-16 bg-background">
       <div className="container max-w-5xl">
         <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground text-center mb-4">
           Total Transformation, Inside & Out
         </h2>
         <p className="text-muted-foreground text-center leading-relaxed mb-12 max-w-3xl mx-auto">
-          A complete detail is more than a wash and vacuum — it's a full vehicle reset. Every surface, every crevice, every inch gets the attention it deserves. Here's what that looks like in practice.
+          A complete detail is more than a wash and vacuum — it's a full vehicle reset. Every surface, every crevice, every inch gets the attention it deserves.
         </p>
-
         <div className="space-y-8 mb-16">
           <div className="grid md:grid-cols-2 gap-6">
             <div className="p-6 rounded-lg border border-border">
@@ -114,7 +136,7 @@ const CompleteDetailing = () => (
             <div className="p-6 rounded-lg border border-primary/30 bg-primary/5">
               <h4 className="font-heading font-bold text-primary uppercase text-sm mb-2">✨ After: The Complete Reset</h4>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                The paint reflects like glass. Inside, it smells like new leather. Every surface is clean, conditioned, and protected. You open the door and pause — because this is the car you remember buying. That's the power of a complete detail.
+                The paint reflects like glass. Inside, it smells like new leather. Every surface is clean, conditioned, and protected. You open the door and pause — because this is the car you remember buying.
               </p>
             </div>
           </div>
@@ -122,38 +144,33 @@ const CompleteDetailing = () => (
             <div className="p-6 rounded-lg border border-border">
               <h4 className="font-heading font-bold text-foreground uppercase text-sm mb-2">💰 Before: Pre-Sale Panic</h4>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                You're about to list your car. The interior has years of wear. The exterior has lost its luster. Every flaw screams "negotiate me down." You know first impressions matter — and right now, your car isn't making a good one.
+                You're about to list your car. The interior has years of wear. The exterior has lost its luster. Every flaw screams "negotiate me down."
               </p>
             </div>
             <div className="p-6 rounded-lg border border-primary/30 bg-primary/5">
               <h4 className="font-heading font-bold text-primary uppercase text-sm mb-2">✨ After: Sell It For More</h4>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Buyers see a car that's been cared for. The paint pops in photos. The interior is spotless. You get higher offers, faster responses, and the confidence that you're presenting your vehicle at its absolute best. Our clients regularly tell us their detail paid for itself at sale time.
+                Buyers see a car that's been cared for. The paint pops in photos. The interior is spotless. Our clients regularly tell us their detail paid for itself at sale time.
               </p>
             </div>
           </div>
         </div>
-
-        <div className="bg-muted/50 rounded-xl p-8 text-center">
-          <h3 className="font-heading font-bold text-foreground uppercase text-lg mb-3">The Complete Detail Difference</h3>
-          <blockquote className="text-muted-foreground italic text-lg leading-relaxed mb-4">
-            "I was about to trade in my Highlander. Got it detailed first with the Showroom Reset + Protection and the dealer offered me $2,500 more than their original quote. Best $240 I've ever spent."
-          </blockquote>
-          <p className="text-sm text-muted-foreground font-semibold">— Marcus D., Cochrane</p>
-        </div>
       </div>
     </section>
 
+    <TestimonialBlock testimonials={completeTestimonials} />
+    <ServiceFAQ title="Complete Detailing FAQs" faqs={completeFAQs} />
+
     {/* CTA */}
-    <section className="py-16 section-dark">
+    <section className="py-16 bg-primary">
       <div className="container grid md:grid-cols-2 gap-12 items-center">
         <img src={interiorImg} alt="Complete detailing result" className="rounded-lg shadow-xl w-full object-cover aspect-video" />
         <div>
-          <h3 className="font-heading font-black text-2xl uppercase text-foreground mb-4">The Ultimate Transformation</h3>
-          <p className="text-muted-foreground leading-relaxed mb-6">
+          <h3 className="font-heading font-black text-2xl uppercase text-primary-foreground mb-4">The Ultimate Transformation</h3>
+          <p className="text-primary-foreground/80 leading-relaxed mb-6">
             Give your vehicle the complete treatment it deserves — inside and out. Book your complete detail today.
           </p>
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded text-sm hover:bg-brand-blue-deep transition-colors">
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
             Book Now
           </a>
         </div>

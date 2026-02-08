@@ -54,9 +54,9 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section id="faq" className="section-dark py-20">
+    <section id="faq" className="py-20 bg-muted/30">
       <div className="container max-w-3xl">
-        <h2 className="font-heading font-black text-3xl md:text-4xl uppercase text-center text-primary-foreground mb-12">
+        <h2 className="font-heading font-black text-3xl md:text-4xl uppercase text-center text-foreground mb-12">
           FAQ
         </h2>
         <Accordion type="single" collapsible className="space-y-3">
@@ -64,12 +64,12 @@ const FAQSection = () => {
             <AccordionItem
               key={i}
               value={`faq-${i}`}
-              className="bg-brand-dark-surface rounded-lg border-none px-6"
+              className="bg-background rounded-lg border border-border px-6"
             >
-              <AccordionTrigger className="font-heading font-semibold text-primary-foreground text-left hover:no-underline hover:text-primary py-5">
+              <AccordionTrigger className="font-heading font-semibold text-foreground text-left hover:no-underline hover:text-primary py-5">
                 {faq.q}
               </AccordionTrigger>
-              <AccordionContent className="text-brand-gray leading-relaxed pb-5">
+              <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
                 {faq.a}
               </AccordionContent>
             </AccordionItem>
