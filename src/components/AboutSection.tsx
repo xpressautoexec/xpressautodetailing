@@ -1,5 +1,6 @@
 import aboutImage from "@/assets/about-image.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -8,7 +9,7 @@ const AboutSection = () => {
     <section id="about" className="py-20 bg-background">
       <div className="container">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
+          <ScrollReveal direction="left">
             <h2 className="font-heading font-black text-3xl md:text-4xl uppercase text-foreground mb-6">
               High-Quality Car Detailing in{" "}
               <span className="text-primary">Calgary</span> and Surrounding Areas
@@ -27,20 +28,22 @@ const AboutSection = () => {
             >
               Book Now
             </a>
-          </div>
-          <div className="relative">
-            <img
-              src={aboutImage}
-              alt="Xpress Auto Detailing mobile service van"
-              className="rounded-lg shadow-2xl w-full object-cover aspect-square"
-            />
-            <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary rounded-lg hidden md:block" />
-            <img
-              src={gallery3}
-              alt="Clean car interior"
-              className="absolute -bottom-8 -right-4 w-40 h-28 rounded-lg shadow-xl object-cover hidden md:block border-4 border-background"
-            />
-          </div>
+          </ScrollReveal>
+          <ScrollReveal direction="right">
+            <div className="relative">
+              <img
+                src={aboutImage}
+                alt="Xpress Auto Detailing mobile service van"
+                className="rounded-lg shadow-2xl w-full object-cover aspect-square"
+              />
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary rounded-lg hidden md:block" />
+              <img
+                src={gallery3}
+                alt="Clean car interior"
+                className="absolute -bottom-8 -right-4 w-40 h-28 rounded-lg shadow-xl object-cover hidden md:block border-4 border-background"
+              />
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

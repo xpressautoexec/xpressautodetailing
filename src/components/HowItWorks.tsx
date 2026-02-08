@@ -1,4 +1,5 @@
 import { Monitor, ShieldCheck, MapPin, MessageSquare } from "lucide-react";
+import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -13,25 +14,27 @@ const HowItWorks = () => {
   return (
     <section className="bg-primary py-16">
       <div className="container">
-        <p className="text-center text-primary-foreground font-heading font-bold uppercase tracking-wider mb-2 text-sm">
-          Get your vehicle cleaned
-        </p>
-        <h2 className="text-center text-primary-foreground font-heading font-black text-3xl md:text-4xl uppercase mb-12">
-          Without lifting a finger
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+        <ScrollReveal>
+          <p className="text-center text-primary-foreground font-heading font-bold uppercase tracking-wider mb-2 text-sm">
+            Get your vehicle cleaned
+          </p>
+          <h2 className="text-center text-primary-foreground font-heading font-black text-3xl md:text-4xl uppercase mb-12">
+            Without lifting a finger
+          </h2>
+        </ScrollReveal>
+        <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
           {steps.map((step) => (
-            <div key={step.title} className="flex flex-col items-center text-center gap-4">
+            <StaggerItem key={step.title} className="flex flex-col items-center text-center gap-4">
               <div className="w-20 h-20 rounded-full bg-primary-foreground/10 flex items-center justify-center">
                 <step.icon className="w-10 h-10 text-primary-foreground" />
               </div>
               <h3 className="font-heading font-bold text-sm uppercase text-primary-foreground tracking-wider">
                 {step.title}
               </h3>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
-        <div className="text-center">
+        </StaggerContainer>
+        <ScrollReveal className="text-center">
           <a
             href={BOOKING_URL}
             target="_blank"
@@ -40,7 +43,7 @@ const HowItWorks = () => {
           >
             Book Now
           </a>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
