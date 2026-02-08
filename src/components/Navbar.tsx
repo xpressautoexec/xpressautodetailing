@@ -45,7 +45,7 @@ const navLinks: NavItem[] = [
 const TopBar = () => (
   <div className="bg-primary text-primary-foreground text-sm py-2">
     <div className="container flex items-center justify-between">
-      <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="font-heading font-bold tracking-wider uppercase text-xs hidden sm:block hover:opacity-80 transition-opacity">
+      <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="font-heading font-bold tracking-wider uppercase text-xs hidden sm:block hover:opacity-80 transition-opacity underline underline-offset-2">
         Book in 60 seconds • 14-day make-it-right guarantee
       </a>
       <div className="flex items-center gap-4 ml-auto">

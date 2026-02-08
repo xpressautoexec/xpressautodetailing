@@ -14,6 +14,7 @@ import BrandPartners from "@/components/BrandPartners";
 import GoogleReviewBadge from "@/components/GoogleReviewBadge";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import FloatingContact from "@/components/FloatingContact";
+import ChatWidget from "@/components/ChatWidget";
 import SEO, { localBusinessJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 
@@ -127,6 +128,7 @@ const Index = () => {
       <Footer />
       <StickyMobileCTA />
       <FloatingContact />
+      <ChatWidget />
     </div>
   );
 };
