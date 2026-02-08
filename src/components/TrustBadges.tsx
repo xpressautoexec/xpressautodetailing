@@ -24,13 +24,13 @@ const TrustBadges = () => (
         <div className="hidden md:block w-px h-16 bg-border" />
 
         {/* Other badges */}
-        <StaggerContainer className="grid grid-cols-3 md:grid-cols-6 gap-4 flex-1" staggerDelay={0.05}>
+        <StaggerContainer className="grid grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4 flex-1" staggerDelay={0.05}>
           {badges.map((badge) => (
-            <StaggerItem key={badge.label} className="flex flex-col items-center text-center gap-2">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <badge.icon className="w-6 h-6 text-primary" />
+            <StaggerItem key={badge.label} className="flex flex-col items-center text-center gap-1.5 sm:gap-2">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <badge.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
               </div>
-              <span className="font-heading font-bold text-[10px] md:text-xs uppercase tracking-wider text-foreground/70 leading-tight">
+              <span className="font-heading font-bold text-[9px] sm:text-[10px] md:text-xs uppercase tracking-wider text-foreground/70 leading-tight">
                 {badge.label}
               </span>
             </StaggerItem>

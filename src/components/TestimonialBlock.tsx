@@ -16,7 +16,7 @@ const TestimonialBlock = ({ testimonials }: { testimonials: Testimonial[] }) => 
           What Our Clients Say
         </h2>
       </ScrollReveal>
-      <StaggerContainer className="grid md:grid-cols-2 gap-8" staggerDelay={0.12}>
+      <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 px-2 sm:px-0" staggerDelay={0.12}>
         {testimonials.map((t, i) => (
           <StaggerItem key={i}>
             <div className="p-6 rounded-lg border border-border bg-muted/30 h-full">

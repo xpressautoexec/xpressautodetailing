@@ -5,7 +5,7 @@ const FloatingContact = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-20 lg:bottom-6 right-4 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-[5.5rem] lg:bottom-6 right-3 sm:right-4 z-50 flex flex-col items-end gap-2 sm:gap-3">
       {open && (
         <div className="flex flex-col gap-2 animate-in slide-in-from-bottom-4 fade-in duration-200">
           <a

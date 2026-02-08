@@ -121,7 +121,7 @@ const ChatWidget = () => {
 
       {/* Chat window */}
       {open && (
-        <div className="fixed bottom-20 lg:bottom-6 left-4 z-50 w-[340px] max-h-[480px] flex flex-col bg-background rounded-xl shadow-2xl border border-border overflow-hidden animate-in slide-in-from-bottom-4 fade-in duration-200">
+        <div className="fixed bottom-20 lg:bottom-6 left-2 right-2 sm:left-4 sm:right-auto z-50 sm:w-[340px] max-h-[420px] sm:max-h-[480px] flex flex-col bg-background rounded-xl shadow-2xl border border-border overflow-hidden animate-in slide-in-from-bottom-4 fade-in duration-200">
           {/* Header */}
           <div className="bg-brand-dark px-4 py-3 flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">

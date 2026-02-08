@@ -36,14 +36,14 @@ const AppShowcase = () => (
     <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
 
     <div className="container relative z-10">
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center px-2 sm:px-0">
         {/* Left — Why Choose */}
         <ScrollReveal direction="left">
           <div className="space-y-6">
             <p className="font-heading font-bold text-sm uppercase tracking-[0.2em] text-primary-foreground/60">
               The Xpress Difference
             </p>
-            <h2 className="font-heading font-black text-3xl md:text-4xl uppercase text-primary-foreground leading-tight">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-primary-foreground leading-tight">
               Why Choose{" "}
               <span className="relative inline-block">
                 Xpress
@@ -78,7 +78,7 @@ const AppShowcase = () => (
         <ScrollReveal direction="right">
           <div className="space-y-8">
             <div>
-              <h3 className="font-heading font-black text-3xl md:text-4xl uppercase text-primary-foreground mb-2">
+              <h3 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-primary-foreground mb-2">
                 Xpress Isn't Just a Name
               </h3>
               <p className="font-heading font-bold text-xl uppercase text-primary-foreground/50 tracking-wider">
