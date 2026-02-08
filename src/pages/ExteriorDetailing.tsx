@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import PackageCard from "@/components/PackageCard";
@@ -133,6 +134,7 @@ const ExteriorDetailing = () => (
       </div>
     </section>
 
+    <BeforeAfterSlider />
     <TestimonialBlock testimonials={exteriorTestimonials} />
     <ServiceFAQ title="Exterior Detailing FAQs" faqs={exteriorFAQs} />
 

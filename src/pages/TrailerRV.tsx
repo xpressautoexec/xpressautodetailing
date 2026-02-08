@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
@@ -216,6 +217,7 @@ const TrailerRV = () => {
         </div>
       </section>
 
+      <BeforeAfterSlider />
       <TestimonialBlock testimonials={rvTestimonials} />
       <ServiceFAQ title="Trailer & RV Detailing FAQs" faqs={rvFAQs} />
 
