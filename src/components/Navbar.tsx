@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Phone, Mail, Menu, X, ChevronDown } from "lucide-react";
 
@@ -18,15 +18,15 @@ interface DesktopNavItem {
 const desktopLinks: DesktopNavItem[] = [
   { label: "Home", href: "/" },
   {
-    label: "Services",
+    label: "Detailing",
     children: [
       { label: "Interior Detailing", href: "/interior-detailing" },
       { label: "Exterior Detailing", href: "/exterior-detailing" },
       { label: "Complete Detailing", href: "/complete-detailing" },
-      { label: "Trailer & RV", href: "/trailer-rv" },
     ],
   },
   { label: "Paint & Ceramics", href: "/paint-ceramics" },
+  { label: "Trailer & RV", href: "/trailer-rv" },
   { label: "Fleet", href: "/corporate-fleet" },
   { label: "Gallery", href: "/gallery" },
   {
@@ -97,21 +97,21 @@ const TopBar = () => (
 );
 
 const DesktopDropdown = ({ item }: { item: DesktopNavItem }) => {
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
+  const handleEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setOpen(true);
+  };
+
+  const handleLeave = () => {
+    timeoutRef.current = setTimeout(() => setOpen(false), 150);
+  };
 
   return (
-    <div ref={ref} className="relative">
+    <div className="relative" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
       <button
-        onClick={() => setOpen(!open)}
         className="flex items-center gap-1 text-brand-gray hover:text-primary-foreground transition-colors font-heading text-xs xl:text-sm font-semibold uppercase tracking-wider whitespace-nowrap"
       >
         {item.label}
