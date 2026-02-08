@@ -109,23 +109,21 @@ const GiftCards = () => (
       </div>
     </section>
 
-    <section className="py-16 bg-primary">
-      <div className="container text-center">
-        <Sparkles className="w-12 h-12 text-primary-foreground mx-auto mb-4" />
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-primary-foreground mb-4">
-          Ready to Purchase?
+    <section className="py-16 bg-muted/30">
+      <div className="container max-w-2xl text-center">
+        <Sparkles className="w-12 h-12 text-primary mx-auto mb-4" />
+        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground mb-4">
+          Purchase a <span className="text-primary">Gift Card</span>
         </h2>
-        <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8">
-          Contact us to purchase a gift card for any amount. We'll send you a digital or physical card that's ready to gift. Corporate bulk orders available.
+        <p className="text-muted-foreground mb-8">
+          Select your amount and checkout instantly. Digital delivery available.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
-            Book Now
-          </a>
-          <a href="tel:5875004523" className="inline-block border-2 border-primary-foreground text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded text-sm hover:bg-primary-foreground/10 transition-colors">
-            Call Us: 587-500-4523
-          </a>
-        </div>
+        <iframe
+          src="https://xpressauto.fieldd.co/gift-cards/purchase"
+          title="Purchase Xpress Auto Detailing Gift Card"
+          className="w-full max-w-[500px] mx-auto block rounded-2xl border border-border"
+          style={{ height: "max(800px, 80vh)" }}
+        />
       </div>
     </section>
 
