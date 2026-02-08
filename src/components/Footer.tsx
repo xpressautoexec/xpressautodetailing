@@ -78,10 +78,13 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-brand-dark-surface pt-6 text-center">
+        <div className="border-t border-brand-dark-surface pt-6 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-brand-gray text-xs">
             © {new Date().getFullYear()} Xpress Auto Detailing. All rights reserved.
           </p>
+          <Link to="/terms-of-service" className="text-brand-gray text-xs hover:text-primary transition-colors">
+            Terms of Service
+          </Link>
         </div>
       </div>
     </footer>

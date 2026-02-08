@@ -1,3 +1,4 @@
+import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import Footer from "@/components/Footer";
@@ -29,7 +30,7 @@ const interiorTestimonials = [
 ];
 
 const InteriorDetailing = () => (
-  <div className="min-h-screen">
+  <PageTransition><div className="min-h-screen">
     <SEO
       title="Interior Detailing Calgary"
       description="Professional mobile interior car detailing in Calgary. Deep cleaning, stain removal, leather conditioning & odor elimination. Book in 60 seconds."
@@ -185,7 +186,7 @@ const InteriorDetailing = () => (
     </section>
 
     <Footer />
-  </div>
+  </div></PageTransition>
 );
 
 export default InteriorDetailing;

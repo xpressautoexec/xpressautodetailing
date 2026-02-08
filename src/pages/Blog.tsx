@@ -1,3 +1,4 @@
+import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -50,7 +51,7 @@ const posts = [
 ];
 
 const Blog = () => (
-  <div className="min-h-screen">
+  <PageTransition><div className="min-h-screen">
     <SEO
       title="Blog — Car Detailing Tips & News"
       description="Tips, insights, and news from Calgary's trusted mobile detailing experts. Learn how to protect and maintain your vehicle."
@@ -96,7 +97,7 @@ const Blog = () => (
     </section>
 
     <Footer />
-  </div>
+  </div></PageTransition>
 );
 
 export default Blog;
