@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
@@ -102,6 +103,26 @@ const Index = () => {
               </StaggerItem>
             ))}
           </StaggerContainer>
+        </div>
+      </section>
+
+      {/* Why Choose Xpress CTA */}
+      <section className="py-16 bg-brand-dark">
+        <div className="container text-center">
+          <ScrollReveal>
+            <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-primary-foreground mb-4">
+              Why Choose <span className="text-primary">Xpress</span>?
+            </h2>
+            <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8">
+              From certified professionals and eco-friendly products to our 100% satisfaction guarantee — discover what sets us apart.
+            </p>
+            <Link
+              to="/why-choose-us"
+              className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors"
+            >
+              Learn More
+            </Link>
+          </ScrollReveal>
         </div>
       </section>
 
