@@ -57,7 +57,7 @@ const ServicesSection = () => {
       <div className="container">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <h2 className="font-heading font-black text-3xl md:text-4xl uppercase mb-2">DISCOVER OUR SERVICES<span className="text-primary">DISCOVER</span> Isn't Just a Name
+            <h2 className="font-heading font-black text-3xl md:text-4xl uppercase mb-2">DISCOVER OUR SERVICES<span className="text-primary">DISCOVER</span> Isn't Just a Name
             </h2>
             <p className="font-heading font-black text-2xl md:text-3xl uppercase text-primary-foreground">AND FEEL THE DIFFERENCE</p>
           </div>
