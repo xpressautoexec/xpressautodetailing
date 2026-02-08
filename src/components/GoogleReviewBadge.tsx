@@ -17,7 +17,7 @@ const GoogleReviewBadge = () => (
             <p className="font-heading font-black text-2xl md:text-3xl text-primary-foreground uppercase">
               4.9 / 5.0 on Google
             </p>
-            <p className="text-brand-gray text-sm">
+            <p className="text-primary-foreground/90 text-sm">
               Based on 100+ verified reviews from real customers
             </p>
           </div>
@@ -26,7 +26,7 @@ const GoogleReviewBadge = () => (
               <p className="font-heading font-bold text-primary text-sm uppercase tracking-wider mb-1">
                 🔥 Limited Spots This Week
               </p>
-              <p className="text-brand-gray text-xs">
+              <p className="text-primary-foreground/80 text-xs">
                 Only a few time slots remaining — book yours before they fill up
               </p>
             </div>

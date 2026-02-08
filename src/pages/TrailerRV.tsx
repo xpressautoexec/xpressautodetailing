@@ -145,7 +145,7 @@ const TrailerRV = () => {
             <h2 className="font-heading font-black text-3xl md:text-4xl uppercase text-center mb-4">
               <span className="text-primary">RV Detailing</span> Packages
             </h2>
-            <p className="text-brand-gray text-center mb-12 max-w-2xl mx-auto">
+            <p className="text-primary-foreground/80 text-center mb-12 max-w-2xl mx-auto">
               Prices vary based on RV size and condition. Contact us for a custom quote tailored to your rig.
             </p>
           </ScrollReveal>
@@ -162,7 +162,7 @@ const TrailerRV = () => {
                   <p className="font-heading font-bold text-primary text-lg mb-4">{pkg.price}</p>
                   <ul className="space-y-2 mb-6 flex-1">
                     {pkg.features.map((f) => (
-                      <li key={f} className="flex gap-2 text-brand-gray text-sm">
+                      <li key={f} className="flex gap-2 text-primary-foreground/80 text-sm">
                         <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                         {f}
                       </li>

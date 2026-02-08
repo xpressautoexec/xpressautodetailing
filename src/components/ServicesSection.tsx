@@ -48,7 +48,7 @@ const ServicesSection = () => {
                 <div className="p-6">
                   <h3 className="font-heading font-bold text-xl uppercase text-primary-foreground mb-1">{service.title}</h3>
                   <p className="font-heading font-bold text-primary text-sm mb-3">{service.price}</p>
-                  <p className="text-brand-gray text-sm leading-relaxed mb-4">{service.description}</p>
+                  <p className="text-primary-foreground/80 text-sm leading-relaxed mb-4">{service.description}</p>
                   <Link to={service.link} className="text-primary font-heading font-bold text-sm uppercase tracking-wider hover:text-brand-blue-glow transition-colors">Learn More →</Link>
                 </div>
               </div>
@@ -63,7 +63,7 @@ const ServicesSection = () => {
                 <div className={i % 2 === 1 ? "md:order-2" : ""}>
                   <h3 className="font-heading font-black text-2xl md:text-3xl uppercase text-primary-foreground mb-1">{service.title}</h3>
                   <p className="font-heading font-bold text-primary text-lg mb-4">{service.price}</p>
-                  <p className="text-brand-gray leading-relaxed mb-6">{service.description}</p>
+                  <p className="text-primary-foreground/80 leading-relaxed mb-6">{service.description}</p>
                   <div className="flex flex-wrap gap-4">
                     <Link to={service.link} className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors">View Packages</Link>
                     <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block border-2 border-primary text-primary font-heading font-bold uppercase tracking-wider px-6 py-3 rounded text-sm hover:bg-primary hover:text-primary-foreground transition-colors">Book Now</a>
