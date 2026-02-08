@@ -1,5 +1,4 @@
 import Navbar from "@/components/Navbar";
-import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import HeroSection from "@/components/HeroSection";
 import TrustStats from "@/components/TrustStats";
 import TrustBadges from "@/components/TrustBadges";
@@ -42,7 +41,6 @@ const Index = () => {
       <HeroSection />
       <TrustStats />
       <TrustBadges />
-      <BeforeAfterSlider />
       <BrandPartners />
       <HowItWorks />
       <GoogleReviewBadge />
