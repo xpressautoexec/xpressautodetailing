@@ -1,12 +1,21 @@
 import { motion } from "framer-motion";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroVideo from "@/assets/hero-video.mp4";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const HeroSection = () => {
   return (
     <section id="home" className="relative min-h-[85vh] flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${heroBg})` }} />
+      {/* Video background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
       <div className="absolute inset-0 bg-brand-dark/70" />
       
       <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block">

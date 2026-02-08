@@ -26,6 +26,7 @@ const navLinks: NavItem[] = [
       { label: "Interior Detailing", href: "/interior-detailing", isRoute: true },
       { label: "Exterior Detailing", href: "/exterior-detailing", isRoute: true },
       { label: "Complete Detailing", href: "/complete-detailing", isRoute: true },
+      { label: "Trailer & RV", href: "/trailer-rv", isRoute: true },
     ],
   },
   { label: "Paint & Ceramics", href: "/paint-ceramics", isRoute: true },

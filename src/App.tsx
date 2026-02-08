@@ -17,6 +17,7 @@ const GiftCards = lazy(() => import("./pages/GiftCards"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
+const TrailerRV = lazy(() => import("./pages/TrailerRV"));
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/trailer-rv" element={<TrailerRV />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

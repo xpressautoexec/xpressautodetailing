@@ -4,6 +4,7 @@ import TrustStats from "@/components/TrustStats";
 import TrustBadges from "@/components/TrustBadges";
 import HowItWorks from "@/components/HowItWorks";
 import AboutSection from "@/components/AboutSection";
+import AppShowcase from "@/components/AppShowcase";
 import ServicesSection from "@/components/ServicesSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import BenefitsSection from "@/components/BenefitsSection";
@@ -44,6 +45,7 @@ const Index = () => {
       <HowItWorks />
       <GoogleReviewBadge />
       <AboutSection />
+      <AppShowcase />
       <ServicesSection />
       <ReviewsSection />
 

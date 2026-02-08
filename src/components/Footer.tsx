@@ -28,6 +28,7 @@ const Footer = () => {
                 { label: "Interior Detailing", to: "/interior-detailing" },
                 { label: "Exterior Detailing", to: "/exterior-detailing" },
                 { label: "Complete Detailing", to: "/complete-detailing" },
+                { label: "Trailer & RV", to: "/trailer-rv" },
                 { label: "Paint & Ceramics", to: "/paint-ceramics" },
                 { label: "Corporate & Fleet", to: "/corporate-fleet" },
               ].map((link) => (

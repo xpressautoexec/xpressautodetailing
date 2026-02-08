@@ -6,12 +6,14 @@ import paintImg from "@/assets/paint-correction.jpg";
 import completeImg from "@/assets/complete-hero.jpg";
 import ceramicImg from "@/assets/ceramic-hero.jpg";
 import fleetImg from "@/assets/fleet-hero.jpg";
+import rvImg from "@/assets/rv-hero.jpg";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const services = [
   { title: "Complete Detailing", description: "Inside & out — a full refresh for your entire vehicle. Every surface. Every detail.", image: completeImg, link: "/complete-detailing", price: "From $249" },
   { title: "Ceramic Coating", description: "We use industry leading ceramic coating products for lasting protection and a shining finish!", image: ceramicImg, link: "/paint-ceramics", price: "From $499" },
+  { title: "Trailer & RV", description: "Professional mobile detailing for travel trailers, motorhomes, 5th wheels & more. We come to your location.", image: rvImg, link: "/trailer-rv", price: "From $199" },
   { title: "Corporate & Fleet", description: "Reliable, on-site detailing for work trucks & company vehicles. Keep your fleet clean and professional.", image: fleetImg, link: "/corporate-fleet", price: "Custom Quote" },
 ];
 
@@ -36,7 +38,7 @@ const ServicesSection = () => {
           </div>
         </ScrollReveal>
 
-        <StaggerContainer className="grid md:grid-cols-3 gap-8 mb-20">
+        <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {services.map((service) => (
             <StaggerItem key={service.title}>
               <div className="group bg-brand-dark-surface rounded-lg overflow-hidden hover:ring-2 hover:ring-primary transition-all h-full">
