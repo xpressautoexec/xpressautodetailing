@@ -16,9 +16,9 @@ const StickyMobileCTA = () => (
         href={BOOKING_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex-1 text-center bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-4 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors animate-pulse hover:animate-none"
+        className="flex-1 text-center bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-4 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors"
       >
-        Book Now — Limited Spots
+        Book Now
       </a>
     </div>
   </div>
