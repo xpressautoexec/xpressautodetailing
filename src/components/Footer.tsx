@@ -82,8 +82,8 @@ const Footer = () => {
           <p className="text-brand-gray text-xs">
             © {new Date().getFullYear()} Xpress Auto Detailing. All rights reserved.
           </p>
-          <Link to="/terms-of-service" className="text-brand-gray text-xs hover:text-primary transition-colors">
-            Terms of Service
+          <Link to="/terms-conditions" className="text-brand-gray text-xs hover:text-primary transition-colors">
+            Terms & Conditions
           </Link>
         </div>
       </div>
