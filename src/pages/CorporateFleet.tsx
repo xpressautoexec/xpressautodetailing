@@ -7,7 +7,7 @@ import TestimonialBlock from "@/components/TestimonialBlock";
 import TrustStats from "@/components/TrustStats";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
-import fleetHero from "@/assets/fleet-hero.jpg";
+import fleetHero from "@/assets/fleet-kls-truck.jpg";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, Clock, TrendingUp, Shield, Users, Wrench } from "lucide-react";
