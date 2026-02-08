@@ -1,6 +1,11 @@
-import { Check } from "lucide-react";
+import { Check, Plus } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
+
+interface AddOn {
+  name: string;
+  price: string;
+}
 
 interface PackageCardProps {
   icon: string;
@@ -10,6 +15,7 @@ interface PackageCardProps {
   features: string[];
   extras?: string[];
   bonuses?: string[];
+  addOns?: AddOn[];
   guarantee?: string;
   surcharges?: string[];
   time?: string;
@@ -24,6 +30,7 @@ const PackageCard = ({
   features,
   extras,
   bonuses,
+  addOns,
   guarantee = "14-Day Guarantee: Not clean enough? We'll redo it free.",
   surcharges,
   time,
@@ -64,6 +71,25 @@ const PackageCard = ({
             {b}
           </p>
         ))}
+      </div>
+    )}
+
+    {addOns && addOns.length > 0 && (
+      <div className={`mb-4 p-4 rounded-lg ${isPrimary ? "bg-primary-foreground/10" : "bg-background/5"}`}>
+        <p className={`text-xs font-heading font-bold uppercase tracking-wider mb-2 ${isPrimary ? "text-primary-foreground" : "text-primary"}`}>
+          Popular Add-Ons
+        </p>
+        <div className="space-y-1.5">
+          {addOns.map((a, i) => (
+            <div key={i} className="flex items-center justify-between text-sm">
+              <span className="flex items-center gap-1.5">
+                <Plus className={`w-3 h-3 shrink-0 ${isPrimary ? "text-primary-foreground/70" : "text-primary"}`} />
+                <span className={isPrimary ? "text-primary-foreground/90" : "text-brand-gray"}>{a.name}</span>
+              </span>
+              <span className={`font-semibold ${isPrimary ? "text-primary-foreground" : "text-primary"}`}>{a.price}</span>
+            </div>
+          ))}
+        </div>
       </div>
     )}
 
