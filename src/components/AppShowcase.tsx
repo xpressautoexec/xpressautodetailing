@@ -29,7 +29,7 @@ const AppShowcase = () => <section className="bg-primary py-20 relative overflow
                 { title: "Fully Insured & Bonded", desc: "Complete peace of mind with full liability insurance." },
                 { title: "Eco-Friendly Products", desc: "Biodegradable, pH-balanced products safe for your vehicle." },
                 { title: "Trained & Certified", desc: "Professionally certified in paint correction & ceramic coating." },
-                { title: "Money-Back Guarantee", desc: "Not satisfied? We'll redo it or refund you completely." },
+                
               ].map((item) => (
                 <div key={item.title} className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-primary-foreground mt-2 shrink-0" />
