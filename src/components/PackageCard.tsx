@@ -45,12 +45,12 @@ const PackageCard = ({
         — From {price}
       </p>
     </div>
-    <p className={`text-sm mb-6 ${isPrimary ? "text-primary-foreground/80" : "text-brand-gray"}`}>
+    <p className={`text-sm mb-6 ${isPrimary ? "text-primary-foreground" : "text-brand-gray"}`}>
       {tagline}
     </p>
 
     {extras && extras.length > 0 && (
-      <p className={`text-sm mb-4 font-semibold ${isPrimary ? "text-primary-foreground/90" : "text-brand-gray"}`}>
+      <p className={`text-sm mb-4 font-semibold ${isPrimary ? "text-primary-foreground" : "text-brand-gray"}`}>
         {extras[0]}
       </p>
     )}
@@ -59,7 +59,7 @@ const PackageCard = ({
       {features.map((f, i) => (
         <li key={i} className="flex items-start gap-2.5 text-sm">
           <Check className={`w-4 h-4 mt-0.5 shrink-0 ${isPrimary ? "text-primary-foreground" : "text-primary"}`} />
-          <span className={isPrimary ? "text-primary-foreground/90" : "text-brand-gray"}>{f}</span>
+          <span className={isPrimary ? "text-primary-foreground" : "text-brand-gray"}>{f}</span>
         </li>
       ))}
     </ul>
@@ -83,8 +83,8 @@ const PackageCard = ({
           {addOns.map((a, i) => (
             <div key={i} className="flex items-center justify-between text-sm">
               <span className="flex items-center gap-1.5">
-                <Plus className={`w-3 h-3 shrink-0 ${isPrimary ? "text-primary-foreground/70" : "text-primary"}`} />
-                <span className={isPrimary ? "text-primary-foreground/90" : "text-brand-gray"}>{a.name}</span>
+                <Plus className={`w-3 h-3 shrink-0 ${isPrimary ? "text-primary-foreground" : "text-primary"}`} />
+                <span className={isPrimary ? "text-primary-foreground" : "text-brand-gray"}>{a.name}</span>
               </span>
               <span className={`font-semibold ${isPrimary ? "text-primary-foreground" : "text-primary"}`}>{a.price}</span>
             </div>
@@ -93,7 +93,7 @@ const PackageCard = ({
       </div>
     )}
 
-    <div className={`text-xs mb-4 space-y-1 ${isPrimary ? "text-primary-foreground/70" : "text-brand-gray"}`}>
+    <div className={`text-xs mb-4 space-y-1 ${isPrimary ? "text-primary-foreground/90" : "text-brand-gray"}`}>
       <p>{guarantee}</p>
       {surcharges?.map((s, i) => <p key={i}>{s}</p>)}
       {time && <p>{time}</p>}
