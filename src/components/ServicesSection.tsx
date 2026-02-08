@@ -84,7 +84,7 @@ const ServicesSection = () => {
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className={i % 2 === 1 ? "md:order-2" : ""}>
                   <h3 className="font-heading font-black text-2xl md:text-3xl uppercase text-primary-foreground mb-1">{service.title}</h3>
-                  <p className="font-heading font-bold text-primary text-lg mb-4">{service.price}</p>
+                  
                   <p className="text-primary-foreground/80 leading-relaxed mb-6">{service.description}</p>
                   <div className="flex flex-wrap gap-4">
                     <Link to={service.link} className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors">View Packages</Link>
