@@ -34,7 +34,7 @@ const HowItWorks = () => {
         <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-10 px-2 sm:px-0" staggerDelay={0.1}>
           {steps.map((step) => (
             <StaggerItem key={step.title} className="flex flex-col items-center text-center">
-              <div className="relative bg-primary-foreground/95 rounded-lg p-4 sm:p-6 w-full group hover:bg-primary-foreground transition-colors">
+              <div className="relative bg-primary-foreground/95 rounded-lg p-4 sm:p-6 w-full h-full group hover:bg-primary-foreground transition-colors flex flex-col items-center justify-center">
                 {/* Chevron arrow decoration */}
                 <div className="absolute -right-3 top-1/2 -translate-y-1/2 hidden md:block z-10">
                   <svg width="24" height="48" viewBox="0 0 24 48" fill="none">
