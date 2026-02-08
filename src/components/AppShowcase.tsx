@@ -26,7 +26,7 @@ const AppShowcase = () => <section className="bg-primary py-20 relative overflow
             </h3>
             <div className="space-y-4">
               {[
-                { title: "Fully Insured & Bonded", desc: "Complete peace of mind with full liability insurance." },
+                
                 { title: "Eco-Friendly Products", desc: "Biodegradable, pH-balanced products safe for your vehicle." },
                 
                 
