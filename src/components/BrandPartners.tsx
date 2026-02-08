@@ -1,12 +1,47 @@
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
+import brand3m from "@/assets/brand-3m.png";
+import brandXpel from "@/assets/brand-xpel.png";
+import brandGtechniq from "@/assets/brand-gtechniq.png";
+import brandAecon from "@/assets/brand-aecon.png";
+import brandWoodsHomes from "@/assets/brand-woods-homes.png";
+import brandTruman from "@/assets/brand-truman.png";
+import brandKls from "@/assets/brand-kls.png";
+import brandDirtt from "@/assets/brand-dirtt.png";
 
-const productBrands = [
-  "3M", "Gyeon", "Chemical Guys", "Adam's Polishes", "Gtechniq", "Meguiar's",
+interface BrandItem {
+  name: string;
+  logo?: string;
+}
+
+const productBrands: BrandItem[] = [
+  { name: "3M", logo: brand3m },
+  { name: "Gyeon" },
+  { name: "XPEL", logo: brandXpel },
+  { name: "Chemical Guys" },
+  { name: "Gtechniq", logo: brandGtechniq },
+  { name: "Meguiar's" },
 ];
 
-const clientPartners = [
-  "Shell", "Aecon", "Woods Homes", "Truman Homes", "KLS Earthworks", "DIRRT Environmental",
+const clientPartners: BrandItem[] = [
+  { name: "Aecon", logo: brandAecon },
+  { name: "Wood's Homes", logo: brandWoodsHomes },
+  { name: "Truman Homes", logo: brandTruman },
+  { name: "KLS Earthworks", logo: brandKls },
+  { name: "DIRTT", logo: brandDirtt },
+  { name: "Shell" },
 ];
+
+const BrandCard = ({ brand }: { brand: BrandItem }) => (
+  <div className="bg-background border border-border rounded-lg px-4 py-5 w-full flex items-center justify-center hover:border-primary/40 transition-colors min-h-[72px]">
+    {brand.logo ? (
+      <img src={brand.logo} alt={brand.name} className="h-8 md:h-10 w-auto object-contain max-w-full" />
+    ) : (
+      <span className="font-heading font-black text-sm md:text-base uppercase tracking-wider text-foreground/70">
+        {brand.name}
+      </span>
+    )}
+  </div>
+);
 
 const BrandPartners = () => (
   <section className="py-16 bg-muted/30 border-y border-border">
@@ -22,12 +57,8 @@ const BrandPartners = () => (
 
       <StaggerContainer className="grid grid-cols-3 md:grid-cols-6 gap-6 mb-14" staggerDelay={0.06}>
         {productBrands.map((brand) => (
-          <StaggerItem key={brand} className="flex items-center justify-center">
-            <div className="bg-background border border-border rounded-lg px-4 py-5 w-full flex items-center justify-center hover:border-primary/40 transition-colors">
-              <span className="font-heading font-black text-sm md:text-base uppercase tracking-wider text-foreground/70">
-                {brand}
-              </span>
-            </div>
+          <StaggerItem key={brand.name} className="flex items-center justify-center">
+            <BrandCard brand={brand} />
           </StaggerItem>
         ))}
       </StaggerContainer>
@@ -43,12 +74,8 @@ const BrandPartners = () => (
 
       <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4" staggerDelay={0.06}>
         {clientPartners.map((partner) => (
-          <StaggerItem key={partner} className="flex items-center justify-center">
-            <div className="bg-background border border-border rounded-lg px-4 py-4 w-full flex items-center justify-center hover:border-primary/40 transition-colors">
-              <span className="font-heading font-bold text-xs md:text-sm uppercase tracking-wider text-foreground/60">
-                {partner}
-              </span>
-            </div>
+          <StaggerItem key={partner.name} className="flex items-center justify-center">
+            <BrandCard brand={partner} />
           </StaggerItem>
         ))}
       </StaggerContainer>
