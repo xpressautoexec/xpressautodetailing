@@ -6,33 +6,33 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 210 20% 10%;
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 20% 10%;
+    --card-foreground: 215 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 20% 10%;
+    --popover-foreground: 215 25% 15%;
 
-    --primary: 197 100% 50%;
+    --primary: 197 100% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 20% 10%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 210 15% 92%;
+    --secondary-foreground: 215 25% 15%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 210 10% 45%;
+    --muted: 210 15% 94%;
+    --muted-foreground: 215 12% 45%;
 
-    --accent: 197 100% 45%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 197 80% 92%;
+    --accent-foreground: 197 100% 30%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 210 20% 90%;
-    --input: 210 20% 90%;
-    --ring: 197 100% 50%;
+    --border: 210 15% 88%;
+    --input: 210 15% 88%;
+    --ring: 197 100% 45%;
 
     --radius: 0.5rem;
 
@@ -46,21 +46,23 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
 
     /* Custom brand tokens */
-    --brand-dark: 210 25% 8%;
-    --brand-dark-surface: 210 20% 12%;
-    --brand-blue: 197 100% 50%;
-    --brand-blue-glow: 197 100% 60%;
-    --brand-blue-deep: 197 100% 40%;
-    --brand-gray: 210 10% 60%;
+    --brand-dark: 215 30% 12%;
+    --brand-dark-surface: 215 25% 18%;
+    --brand-blue: 197 100% 45%;
+    --brand-blue-glow: 197 100% 55%;
+    --brand-blue-deep: 197 100% 35%;
+    --brand-gray: 215 12% 55%;
     --brand-light: 210 20% 96%;
+    --brand-slate: 215 20% 22%;
+    --brand-warm-bg: 210 15% 95%;
   }
 
   .dark {
-    --background: 210 25% 8%;
+    --background: 215 30% 10%;
     --foreground: 210 40% 98%;
-    --card: 210 20% 12%;
+    --card: 215 25% 14%;
     --card-foreground: 210 40% 98%;
-    --popover: 210 20% 12%;
+    --popover: 215 25% 14%;
     --popover-foreground: 210 40% 98%;
     --primary: 197 100% 50%;
     --primary-foreground: 0 0% 100%;
@@ -98,11 +100,25 @@
   }
   
   .section-dark {
-    background-color: hsl(210 20% 96%);
-    color: hsl(var(--foreground));
+    background-color: hsl(215 30% 12%);
+    color: hsl(0 0% 100%);
+  }
+
+  .section-dark h2,
+  .section-dark h3,
+  .section-dark h4 {
+    color: hsl(0 0% 100%);
+  }
+
+  .section-dark p {
+    color: hsl(215 15% 70%);
   }
 
   .section-blue {
     @apply bg-primary text-primary-foreground;
+  }
+
+  .section-alt {
+    background-color: hsl(210 15% 95%);
   }
 }

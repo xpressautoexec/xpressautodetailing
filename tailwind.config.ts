@@ -69,6 +69,8 @@ export default {
           "blue-deep": "hsl(var(--brand-blue-deep))",
           gray: "hsl(var(--brand-gray))",
           light: "hsl(var(--brand-light))",
+          slate: "hsl(var(--brand-slate))",
+          "warm-bg": "hsl(var(--brand-warm-bg))",
         },
       },
       borderRadius: {

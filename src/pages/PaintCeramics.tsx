@@ -50,7 +50,7 @@ const PaintCeramics = () => (
     {/* Packages */}
     <section className="section-dark py-16">
       <div className="container">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-center text-foreground mb-12">
+        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-center mb-12">
           Paint Correction & Ceramic Packages
         </h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -128,8 +128,8 @@ const PaintCeramics = () => (
     {/* The Process */}
     <section className="section-dark py-16">
       <div className="container max-w-4xl">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground text-center mb-4">The Process</h2>
-        <p className="text-muted-foreground text-center mb-12">Preparation. Precision. Perfection.</p>
+        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-center mb-4">The Process</h2>
+        <p className="text-center mb-12">Preparation. Precision. Perfection.</p>
         <div className="space-y-8">
           {[
             { step: "Step 1", title: "Exterior Wash & Decontamination", desc: "Thorough two-bucket hand wash, iron remover, and clay bar treatment to eliminate embedded contaminants." },
@@ -143,8 +143,8 @@ const PaintCeramics = () => (
                 <span className="font-heading font-bold text-primary-foreground text-xs">{item.step.split(" ")[1]}</span>
               </div>
               <div>
-                <h4 className="font-heading font-bold text-foreground uppercase text-sm mb-1">{item.title}</h4>
-                <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                <h4 className="font-heading font-bold uppercase text-sm mb-1">{item.title}</h4>
+                <p className="text-sm leading-relaxed">{item.desc}</p>
               </div>
             </div>
           ))}
