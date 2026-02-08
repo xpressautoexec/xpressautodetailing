@@ -51,7 +51,7 @@
     --brand-blue: 197 100% 45%;
     --brand-blue-glow: 197 100% 55%;
     --brand-blue-deep: 197 100% 35%;
-    --brand-gray: 215 12% 55%;
+    --brand-gray: 215 12% 75%;
     --brand-light: 210 20% 96%;
     --brand-slate: 215 20% 22%;
     --brand-warm-bg: 210 15% 95%;
@@ -111,7 +111,7 @@
   }
 
   .section-dark p {
-    color: hsl(215 15% 70%);
+    color: hsl(215 15% 80%);
   }
 
   .section-blue {
