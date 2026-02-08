@@ -7,6 +7,7 @@ import brandWoodsHomes from "@/assets/brand-woods-homes.png";
 import brandTruman from "@/assets/brand-truman.png";
 import brandKls from "@/assets/brand-kls.png";
 import brandDirtt from "@/assets/brand-dirtt.png";
+import brandShell from "@/assets/brand-shell.png";
 interface BrandItem {
   name: string;
   logo?: string;
@@ -43,7 +44,8 @@ const clientPartners: BrandItem[] = [{
   name: "DIRTT",
   logo: brandDirtt
 }, {
-  name: "Shell"
+  name: "Shell",
+  logo: brandShell
 }];
 const BrandCard = ({
   brand
