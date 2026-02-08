@@ -1,6 +1,7 @@
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import BeforeAfterCard from "@/components/BeforeAfterCard";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import PackageCard from "@/components/PackageCard";
@@ -43,27 +44,30 @@ const ExteriorDetailing = () => (
     <ServicePageHero title="Exterior Detailing Services in Calgary and Surrounding Areas" image={exteriorHero} />
     <TrustStats />
 
-    <section className="py-16 bg-background">
-      <div className="container max-w-4xl text-center">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground mb-4">
+    <section className="py-16 sm:py-20 bg-background">
+      <div className="container max-w-4xl text-center px-6">
+        <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
           Premium Exterior Car Detailing
         </h2>
-        <p className="text-muted-foreground leading-relaxed font-semibold mb-2">Shine That Turns Heads</p>
-        <p className="text-muted-foreground leading-relaxed mb-4">
+        <p className="text-foreground font-heading font-bold uppercase tracking-wider text-sm mb-3">Shine That Turns Heads</p>
+        <p className="text-muted-foreground leading-relaxed mb-5 text-sm sm:text-base">
           From road dust to stubborn tar, our exterior detailing packages remove it all. We restore your paint's brilliance, protect it against Calgary's elements, and leave your vehicle gleaming with a showroom finish that lasts.
         </p>
-        <p className="text-muted-foreground leading-relaxed">
+        <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
           Calgary's climate is one of the harshest in Canada for your vehicle's paint. Road salt in winter, UV exposure in summer, gravel on every highway — it all takes a toll. Regular exterior detailing isn't a luxury, it's protection. Our packages are designed to combat every seasonal threat and keep your paint looking its best year-round.
         </p>
       </div>
     </section>
 
-    <section className="section-dark py-16">
+    <section className="section-dark py-16 sm:py-20">
       <div className="container">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-center mb-12">
+        <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center mb-4">
           Exterior Detailing Packages
         </h2>
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <p className="text-center text-primary-foreground/60 font-heading text-sm uppercase tracking-widest mb-12">
+          Choose the right package for your needs
+        </p>
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0">
           <PackageCard
             icon="💧"
             name="Gloss Refresh"
@@ -110,27 +114,22 @@ const ExteriorDetailing = () => (
     </section>
 
     {/* Before & After */}
-    <section className="py-16 bg-background">
-      <div className="container max-w-5xl">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground text-center mb-4">
+    <section className="py-16 sm:py-20 bg-background">
+      <div className="container max-w-5xl px-4 sm:px-6">
+        <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-4">
           See the Difference
         </h2>
-        <p className="text-muted-foreground text-center leading-relaxed mb-12 max-w-3xl mx-auto">
+        <p className="text-muted-foreground text-center leading-relaxed mb-12 max-w-3xl mx-auto text-sm sm:text-base">
           Calgary roads are brutal on your paint — gravel chips, road salt, bug splatter, and UV exposure take their toll fast. Here's what a professional exterior detail actually reverses.
         </p>
-        <div className="grid md:grid-cols-2 gap-12 mb-16">
-          <div className="p-6 rounded-lg border border-border">
-            <h4 className="font-heading font-bold text-foreground uppercase text-sm mb-2">🚘 Before: Road-Worn & Dull</h4>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              A thick layer of road film dulls your paint. Brake dust is baked into your wheels. Bug residue and tar spots cling to the front end. The tires look grey and tired. From 10 feet away, the car looks okay — but up close? The neglect shows.
-            </p>
-          </div>
-          <div className="p-6 rounded-lg border border-primary/30 bg-primary/5">
-            <h4 className="font-heading font-bold text-primary uppercase text-sm mb-2">✨ After: Mirror-Finish Shine</h4>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              Paint is buttery smooth after clay bar treatment. Wax creates a deep, reflective gloss that beads water effortlessly. Wheels are spotless. Tires are dressed and jet-black. Every inch gleams like it just left the dealership — because that's the standard we hold.
-            </p>
-          </div>
+        <div className="grid md:grid-cols-2 gap-8 md:gap-10 mb-16">
+          <BeforeAfterCard
+            beforeIcon="🚘"
+            beforeTitle="Before: Road-Worn & Dull"
+            beforeText="A thick layer of road film dulls your paint. Brake dust is baked into your wheels. Bug residue and tar spots cling to the front end. The tires look grey and tired. From 10 feet away, the car looks okay — but up close? The neglect shows."
+            afterTitle="After: Mirror-Finish Shine"
+            afterText="Paint is buttery smooth after clay bar treatment. Wax creates a deep, reflective gloss that beads water effortlessly. Wheels are spotless. Tires are dressed and jet-black. Every inch gleams like it just left the dealership — because that's the standard we hold."
+          />
         </div>
       </div>
     </section>
@@ -140,18 +139,20 @@ const ExteriorDetailing = () => (
     <ServiceFAQ title="Exterior Detailing FAQs" faqs={exteriorFAQs} />
 
     {/* CTA */}
-    <section className="py-16 bg-primary">
-      <div className="container grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h3 className="font-heading font-black text-2xl uppercase text-primary-foreground mb-4">Your Vehicle Deserves Better</h3>
-          <p className="text-primary-foreground/80 leading-relaxed mb-6">
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-primary to-brand-blue-deep">
+      <div className="container grid md:grid-cols-2 gap-8 md:gap-12 items-center px-4 sm:px-6">
+        <div className="text-center md:text-left">
+          <h3 className="font-heading font-black text-2xl sm:text-3xl uppercase text-primary-foreground mb-4">Your Vehicle Deserves Better</h3>
+          <p className="text-primary-foreground/80 leading-relaxed mb-8 text-sm sm:text-base">
             Don't let Calgary's elements ruin your finish. Book a professional exterior detail and keep your vehicle turning heads.
           </p>
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-lg group">
             Book Now
           </a>
         </div>
-        <img src={exteriorImg} alt="Exterior detailing result" className="rounded-lg shadow-xl w-full object-cover aspect-video" />
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img src={exteriorImg} alt="Exterior detailing result" className="w-full object-cover aspect-video hover:scale-105 transition-transform duration-700" />
+        </div>
       </div>
     </section>
 

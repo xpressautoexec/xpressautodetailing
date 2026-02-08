@@ -1,6 +1,7 @@
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import BeforeAfterCard from "@/components/BeforeAfterCard";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import PackageCard from "@/components/PackageCard";
@@ -45,33 +46,36 @@ const InteriorDetailing = () => (
     <TrustStats />
 
     {/* Intro */}
-    <section className="py-16 bg-background">
-      <div className="container max-w-4xl text-center">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground mb-4">
+    <section className="py-16 sm:py-20 bg-background">
+      <div className="container max-w-4xl text-center px-6">
+        <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
           Expert Car Interior Detailing Services
         </h2>
-        <p className="text-muted-foreground leading-relaxed mb-4">
+        <p className="text-muted-foreground leading-relaxed mb-5 text-sm sm:text-base">
           A spotless exterior is only part of what makes a vehicle truly well kept. The condition of your car's interior plays an equally vital role in overall maintenance and comfort. That's why our interior detailing services are designed to deliver a deep, transformative clean that goes beyond the surface.
         </p>
-        <p className="text-muted-foreground leading-relaxed font-semibold">
+        <p className="text-foreground font-heading font-bold uppercase tracking-wider text-sm mb-3">
           Breathe New Life Into Your Cabin
         </p>
-        <p className="text-muted-foreground leading-relaxed mb-4">
+        <p className="text-muted-foreground leading-relaxed mb-5 text-sm sm:text-base">
           Your car's interior isn't just a space — it's where you spend hours every week. We deep clean and sanitize every surface, restore freshness, and protect against future wear, so you can drive in comfort and confidence.
         </p>
-        <p className="text-muted-foreground leading-relaxed">
+        <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
           Did you know the average car interior harbors more bacteria than a public toilet seat? Steering wheels, cup holders, and air vents are breeding grounds for germs. Our professional interior detailing eliminates up to 99% of bacteria and allergens, creating a healthier environment for you and your passengers.
         </p>
       </div>
     </section>
 
     {/* Packages */}
-    <section className="section-dark py-16">
+    <section className="section-dark py-16 sm:py-20">
       <div className="container">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-center mb-12">
+        <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center mb-4">
           Interior Detailing Packages
         </h2>
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <p className="text-center text-primary-foreground/60 font-heading text-sm uppercase tracking-widest mb-12">
+          Choose the right package for your needs
+        </p>
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0">
           <PackageCard
             icon="🧼"
             name="Fresh Start Interior"
@@ -123,44 +127,30 @@ const InteriorDetailing = () => (
     </section>
 
     {/* Before & After Transformation */}
-    <section className="py-16 bg-background">
-      <div className="container max-w-5xl">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground text-center mb-4">
+    <section className="py-16 sm:py-20 bg-background">
+      <div className="container max-w-5xl px-4 sm:px-6">
+        <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-4">
           The Transformation Is Real
         </h2>
-        <p className="text-muted-foreground text-center leading-relaxed mb-12 max-w-3xl mx-auto">
+        <p className="text-muted-foreground text-center leading-relaxed mb-12 max-w-3xl mx-auto text-sm sm:text-base">
           Every interior tells a story — spilled coffee, muddy boots, years of daily wear. We've seen it all, and we've restored it all. Here's what happens when you hand us the keys.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-12 mb-16">
-          <div className="space-y-6">
-            <div className="p-6 rounded-lg border border-border">
-              <h4 className="font-heading font-bold text-foreground uppercase text-sm mb-2">🚗 Before: The Daily Driver</h4>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Crumbs wedged into every crevice. Cup holders sticky from forgotten drinks. Seats stained from kids, pets, and life. The dashboard coated in dust, and the carpets haven't been shampooed since you bought the car. You stopped noticing the smell — but your passengers haven't.
-              </p>
-            </div>
-            <div className="p-6 rounded-lg border border-primary/30 bg-primary/5">
-              <h4 className="font-heading font-bold text-primary uppercase text-sm mb-2">✨ After: The Showroom Reset</h4>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Step inside and breathe deep — it smells brand new. Every surface has been hand-cleaned and protected. Seats are plush, stain-free, and conditioned. The dashboard gleams. Even the vents are clear. It doesn't just look clean. It <em>feels</em> like a different car.
-              </p>
-            </div>
-          </div>
-          <div className="space-y-6">
-            <div className="p-6 rounded-lg border border-border">
-              <h4 className="font-heading font-bold text-foreground uppercase text-sm mb-2">🐕 Before: The Pet Owner's Ride</h4>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Fur embedded in every seat fiber. Scratches on the door panels. That unmistakable wet-dog smell that no air freshener can mask. Mud tracks on the carpets from park trips, and drool marks on the windows.
-              </p>
-            </div>
-            <div className="p-6 rounded-lg border border-primary/30 bg-primary/5">
-              <h4 className="font-heading font-bold text-primary uppercase text-sm mb-2">✨ After: Fur-Free & Fresh</h4>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Every strand of fur extracted. Seats deep-cleaned and deodorized. Door panels restored. The cabin smells like it did the day you drove it off the lot. Your dog can still ride — your interior just won't show it anymore.
-              </p>
-            </div>
-          </div>
+        <div className="grid md:grid-cols-2 gap-8 md:gap-10 mb-16">
+          <BeforeAfterCard
+            beforeIcon="🚗"
+            beforeTitle="Before: The Daily Driver"
+            beforeText="Crumbs wedged into every crevice. Cup holders sticky from forgotten drinks. Seats stained from kids, pets, and life. The dashboard coated in dust, and the carpets haven't been shampooed since you bought the car. You stopped noticing the smell — but your passengers haven't."
+            afterTitle="After: The Showroom Reset"
+            afterText="Step inside and breathe deep — it smells brand new. Every surface has been hand-cleaned and protected. Seats are plush, stain-free, and conditioned. The dashboard gleams. Even the vents are clear. It doesn't just look clean. It feels like a different car."
+          />
+          <BeforeAfterCard
+            beforeIcon="🐕"
+            beforeTitle="Before: The Pet Owner's Ride"
+            beforeText="Fur embedded in every seat fiber. Scratches on the door panels. That unmistakable wet-dog smell that no air freshener can mask. Mud tracks on the carpets from park trips, and drool marks on the windows."
+            afterTitle="After: Fur-Free & Fresh"
+            afterText="Every strand of fur extracted. Seats deep-cleaned and deodorized. Door panels restored. The cabin smells like it did the day you drove it off the lot. Your dog can still ride — your interior just won't show it anymore."
+          />
         </div>
       </div>
     </section>
@@ -170,15 +160,17 @@ const InteriorDetailing = () => (
     <ServiceFAQ title="Interior Detailing FAQs" faqs={interiorFAQs} />
 
     {/* Image + CTA */}
-    <section className="py-16 bg-primary">
-      <div className="container grid md:grid-cols-2 gap-12 items-center">
-        <img src={interiorImg} alt="Interior detailing result" className="rounded-lg shadow-xl w-full object-cover aspect-video" />
-        <div>
-          <h3 className="font-heading font-black text-2xl uppercase text-primary-foreground mb-4">Ready for a Fresh Interior?</h3>
-          <p className="text-primary-foreground/80 leading-relaxed mb-6">
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-primary to-brand-blue-deep">
+      <div className="container grid md:grid-cols-2 gap-8 md:gap-12 items-center px-4 sm:px-6">
+        <div className="rounded-xl overflow-hidden shadow-2xl">
+          <img src={interiorImg} alt="Interior detailing result" className="w-full object-cover aspect-video hover:scale-105 transition-transform duration-700" />
+        </div>
+        <div className="text-center md:text-left">
+          <h3 className="font-heading font-black text-2xl sm:text-3xl uppercase text-primary-foreground mb-4">Ready for a Fresh Interior?</h3>
+          <p className="text-primary-foreground/80 leading-relaxed mb-8 text-sm sm:text-base">
             Book your interior detail today and experience the difference. We come to you — mobile anywhere in Calgary and surrounding areas.
           </p>
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-lg group">
             Book Now
           </a>
         </div>
