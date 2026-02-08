@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import interiorImg from "@/assets/interior-detail.jpg";
 import exteriorImg from "@/assets/exterior-detail.jpg";
@@ -71,53 +72,100 @@ const ServicesSection = () => {
           </div>
         </ScrollReveal>
 
+        {/* Service cards with price badges and hover lift */}
         <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16 md:mb-20 px-2 sm:px-0">
           {services.map(service => (
             <StaggerItem key={service.title}>
-              <div className="group bg-brand-dark-surface rounded-lg overflow-hidden hover:ring-2 hover:ring-primary transition-all h-full">
-                <div className="h-48 overflow-hidden">
-                  <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <Link
+                to={service.link}
+                className="group block bg-brand-dark-surface rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 h-full border border-transparent hover:border-primary/30"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 to-transparent" />
+                  {/* Price badge */}
+                  <span className="absolute bottom-3 right-3 bg-primary text-primary-foreground font-heading font-bold text-xs uppercase tracking-wider px-3 py-1.5 rounded-lg shadow-lg">
+                    {service.price}
+                  </span>
                 </div>
                 <div className="p-5 sm:p-6">
-                  <h3 className="font-heading font-bold text-lg sm:text-xl uppercase text-primary-foreground mb-1">{service.title}</h3>
-                  <p className="text-primary-foreground/80 text-sm leading-relaxed mb-4">{service.description}</p>
-                  <Link to={service.link} className="text-primary font-heading font-bold text-sm uppercase tracking-wider hover:text-brand-blue-glow transition-colors">
-                    Learn More →
-                  </Link>
+                  <h3 className="font-heading font-bold text-lg sm:text-xl uppercase text-primary-foreground mb-2 group-hover:text-primary transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-primary-foreground/70 text-sm leading-relaxed mb-4">
+                    {service.description}
+                  </p>
+                  <span className="inline-flex items-center gap-2 text-primary font-heading font-bold text-sm uppercase tracking-wider group-hover:gap-3 transition-all">
+                    Learn More
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </span>
                 </div>
-              </div>
+              </Link>
             </StaggerItem>
           ))}
         </StaggerContainer>
 
-        <div className="space-y-12 sm:space-y-16">
+        {/* Detailed service rows */}
+        <div className="space-y-16 sm:space-y-20">
           {detailedServices.map((service, i) => (
             <ScrollReveal key={service.title} direction={i % 2 === 0 ? "left" : "right"}>
               <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center px-2 sm:px-0">
                 <div className={`text-center md:text-left ${i % 2 === 1 ? "md:order-2" : ""}`}>
-                  <h3 className="font-heading font-black text-xl sm:text-2xl md:text-3xl uppercase text-primary-foreground mb-1">{service.title}</h3>
-                  <p className="text-primary font-heading font-bold text-lg mb-3">{service.price}</p>
-                  <p className="text-primary-foreground/70 leading-relaxed mb-6 text-sm md:text-base">{service.description}</p>
+                  <span className="inline-block text-primary font-heading font-bold text-sm uppercase tracking-widest mb-2">
+                    {service.price}
+                  </span>
+                  <h3 className="font-heading font-black text-xl sm:text-2xl md:text-3xl uppercase text-primary-foreground mb-4">
+                    {service.title}
+                  </h3>
+                  <p className="text-primary-foreground/70 leading-relaxed mb-8 text-sm md:text-base">
+                    {service.description}
+                  </p>
                   <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                    <Link to={service.link} className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors">
+                    <Link
+                      to={service.link}
+                      className="group inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-brand-blue-deep transition-all hover:shadow-lg hover:shadow-primary/20"
+                    >
                       View Packages
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
-                    <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block border-2 border-primary text-primary font-heading font-bold uppercase tracking-wider px-6 py-3 rounded text-sm hover:bg-primary hover:text-primary-foreground transition-colors">
+                    <a
+                      href={BOOKING_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block border-2 border-primary text-primary font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-primary hover:text-primary-foreground transition-all"
+                    >
                       Book Now
                     </a>
                   </div>
                 </div>
-                <div className={i % 2 === 1 ? "md:order-1" : ""}>
-                  <img src={service.image} alt={service.title} className="rounded-lg w-full object-cover aspect-video shadow-xl" />
+                <div className={`${i % 2 === 1 ? "md:order-1" : ""} group`}>
+                  <div className="relative rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full object-cover aspect-video group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
           ))}
         </div>
 
-        <ScrollReveal className="text-center mt-12 sm:mt-16">
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-10 py-4 rounded text-sm hover:bg-brand-blue-deep transition-colors">
+        <ScrollReveal className="text-center mt-14 sm:mt-20">
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-10 py-4 rounded-lg text-sm hover:bg-brand-blue-deep transition-all hover:shadow-xl hover:shadow-primary/20"
+          >
             Book Your Detail Now
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
         </ScrollReveal>
       </div>

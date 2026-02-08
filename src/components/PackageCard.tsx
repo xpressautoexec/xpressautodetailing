@@ -1,4 +1,4 @@
-import { Check, Plus } from "lucide-react";
+import { Check, Plus, ArrowRight } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -36,16 +36,31 @@ const PackageCard = ({
   time,
   isPrimary = false,
 }: PackageCardProps) => (
-  <div className={`rounded-xl p-8 h-full flex flex-col ${isPrimary ? "bg-primary text-primary-foreground ring-4 ring-primary" : "bg-brand-dark-surface text-primary-foreground"}`}>
-    <div className="mb-4">
-      <h3 className="font-heading font-black text-xl md:text-2xl uppercase">
-        {icon} {name}
+  <div
+    className={`relative rounded-2xl p-6 sm:p-8 h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
+      isPrimary
+        ? "bg-gradient-to-br from-primary to-brand-blue-deep text-primary-foreground ring-2 ring-primary/50 shadow-xl shadow-primary/20"
+        : "bg-brand-dark-surface text-primary-foreground border border-brand-dark-surface hover:border-primary/30"
+    }`}
+  >
+    {/* Popular badge */}
+    {isPrimary && (
+      <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary-foreground text-primary font-heading font-bold text-[10px] uppercase tracking-widest px-4 py-1 rounded-full shadow-lg">
+        Most Popular
+      </div>
+    )}
+
+    <div className="mb-5">
+      <p className="text-3xl mb-2">{icon}</p>
+      <h3 className="font-heading font-black text-xl md:text-2xl uppercase leading-tight">
+        {name}
       </h3>
-      <p className={`font-heading font-black text-2xl md:text-3xl mt-1 ${isPrimary ? "text-primary-foreground" : "text-primary"}`}>
-        — From {price}
+      <p className={`font-heading font-black text-3xl md:text-4xl mt-2 ${isPrimary ? "text-primary-foreground" : "text-primary"}`}>
+        {price}
       </p>
     </div>
-    <p className={`text-sm mb-6 ${isPrimary ? "text-primary-foreground" : "text-brand-gray"}`}>
+
+    <p className={`text-sm leading-relaxed mb-6 ${isPrimary ? "text-primary-foreground/80" : "text-brand-gray"}`}>
       {tagline}
     </p>
 
@@ -55,17 +70,22 @@ const PackageCard = ({
       </p>
     )}
 
-    <ul className="space-y-2.5 mb-6 flex-1">
+    <ul className="space-y-3 mb-6 flex-1">
       {features.map((f, i) => (
-        <li key={i} className="flex items-start gap-2.5 text-sm">
-          <Check className={`w-4 h-4 mt-0.5 shrink-0 ${isPrimary ? "text-primary-foreground" : "text-primary"}`} />
-          <span className={isPrimary ? "text-primary-foreground" : "text-brand-gray"}>{f}</span>
+        <li key={i} className="flex items-start gap-3 text-sm">
+          <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${isPrimary ? "bg-primary-foreground/20" : "bg-primary/15"}`}>
+            <Check className={`w-3 h-3 ${isPrimary ? "text-primary-foreground" : "text-primary"}`} />
+          </div>
+          <span className={isPrimary ? "text-primary-foreground/90" : "text-brand-gray"}>{f}</span>
         </li>
       ))}
     </ul>
 
     {bonuses && bonuses.length > 0 && (
-      <div className="mb-4 space-y-1">
+      <div className={`mb-5 p-4 rounded-xl ${isPrimary ? "bg-primary-foreground/10 border border-primary-foreground/10" : "bg-primary/5 border border-primary/10"}`}>
+        <p className={`text-[10px] font-heading font-bold uppercase tracking-widest mb-2 ${isPrimary ? "text-primary-foreground/60" : "text-primary/60"}`}>
+          Included Bonuses
+        </p>
         {bonuses.map((b, i) => (
           <p key={i} className={`text-sm font-semibold ${isPrimary ? "text-primary-foreground" : "text-primary"}`}>
             {b}
@@ -75,41 +95,42 @@ const PackageCard = ({
     )}
 
     {addOns && addOns.length > 0 && (
-      <div className={`mb-4 p-4 rounded-lg ${isPrimary ? "bg-primary-foreground/10" : "bg-background/5"}`}>
-        <p className={`text-xs font-heading font-bold uppercase tracking-wider mb-2 ${isPrimary ? "text-primary-foreground" : "text-primary"}`}>
+      <div className={`mb-5 p-4 rounded-xl ${isPrimary ? "bg-primary-foreground/[0.06]" : "bg-background/[0.04]"}`}>
+        <p className={`text-[10px] font-heading font-bold uppercase tracking-widest mb-3 ${isPrimary ? "text-primary-foreground/60" : "text-primary/60"}`}>
           Popular Add-Ons
         </p>
-        <div className="space-y-1.5">
+        <div className="space-y-2">
           {addOns.map((a, i) => (
             <div key={i} className="flex items-center justify-between text-sm">
-              <span className="flex items-center gap-1.5">
-                <Plus className={`w-3 h-3 shrink-0 ${isPrimary ? "text-primary-foreground" : "text-primary"}`} />
-                <span className={isPrimary ? "text-primary-foreground" : "text-brand-gray"}>{a.name}</span>
+              <span className="flex items-center gap-2">
+                <Plus className={`w-3.5 h-3.5 shrink-0 ${isPrimary ? "text-primary-foreground/50" : "text-primary/50"}`} />
+                <span className={isPrimary ? "text-primary-foreground/80" : "text-brand-gray"}>{a.name}</span>
               </span>
-              <span className={`font-semibold ${isPrimary ? "text-primary-foreground" : "text-primary"}`}>{a.price}</span>
+              <span className={`font-bold text-xs ${isPrimary ? "text-primary-foreground" : "text-primary"}`}>{a.price}</span>
             </div>
           ))}
         </div>
       </div>
     )}
 
-    <div className={`text-xs mb-4 space-y-1 ${isPrimary ? "text-primary-foreground/90" : "text-brand-gray"}`}>
-      <p>{guarantee}</p>
+    <div className={`text-xs mb-5 space-y-1 ${isPrimary ? "text-primary-foreground/60" : "text-brand-gray/70"}`}>
+      <p className="font-medium">{guarantee}</p>
       {surcharges?.map((s, i) => <p key={i}>{s}</p>)}
-      {time && <p>{time}</p>}
+      {time && <p className="font-medium">{time}</p>}
     </div>
 
     <a
       href={BOOKING_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={`block text-center font-heading font-bold uppercase tracking-wider px-6 py-3 rounded text-sm transition-colors ${
+      className={`group flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider px-6 py-3.5 rounded-lg text-sm transition-all duration-300 ${
         isPrimary
-          ? "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-          : "bg-primary text-primary-foreground hover:bg-brand-blue-deep"
+          ? "bg-primary-foreground text-primary hover:bg-primary-foreground/90 hover:shadow-lg"
+          : "bg-primary text-primary-foreground hover:bg-brand-blue-deep hover:shadow-lg hover:shadow-primary/20"
       }`}
     >
       Schedule My Detail
+      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
     </a>
   </div>
 );
