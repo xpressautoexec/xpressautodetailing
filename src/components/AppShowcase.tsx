@@ -1,6 +1,6 @@
 import { Zap, MapPin, Handshake } from "lucide-react";
+import { Link } from "react-router-dom";
 import ScrollReveal from "@/components/ScrollReveal";
-import appShowcase from "@/assets/app-showcase.png";
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 const features = [{
   icon: Zap,
@@ -24,9 +24,12 @@ const AppShowcase = () => <section className="bg-primary py-20 relative overflow
             <h3 className="font-heading font-black text-2xl md:text-3xl uppercase text-primary-foreground">
               Why Choose <span className="text-primary-foreground/70">Xpress</span>?
             </h3>
-            <a href="/why-choose-us" className="inline-block border-2 border-primary-foreground text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3 rounded text-sm hover:bg-primary-foreground/10 transition-colors">
+            <p className="text-primary-foreground/80 max-w-xl">
+              From certified professionals and eco-friendly products to our 100% satisfaction guarantee — discover what sets us apart.
+            </p>
+            <Link to="/why-choose-us" className="inline-block border-2 border-primary-foreground text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3 rounded text-sm hover:bg-primary-foreground/10 transition-colors">
               Learn More
-            </a>
+            </Link>
           </div>
 
           {/* Text content */}
