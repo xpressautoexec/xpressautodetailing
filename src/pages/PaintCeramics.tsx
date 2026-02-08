@@ -5,6 +5,7 @@ import PackageCard from "@/components/PackageCard";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import TestimonialBlock from "@/components/TestimonialBlock";
 import TrustStats from "@/components/TrustStats";
+import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ceramicHero from "@/assets/ceramic-hero.jpg";
 import paintImg from "@/assets/paint-correction.jpg";
 
@@ -28,6 +29,15 @@ const ceramicTestimonials = [
 
 const PaintCeramics = () => (
   <div className="min-h-screen">
+    <SEO
+      title="Paint Correction & Ceramic Coating Calgary"
+      description="Professional paint correction and ceramic coating in Calgary. Remove swirl marks, restore gloss & protect with long-lasting ceramic coatings."
+      canonical="/paint-ceramics"
+      jsonLd={[
+        buildServiceJsonLd("Paint Correction & Ceramic Coating", "Professional paint correction and ceramic coating in Calgary.", "/paint-ceramics"),
+        buildFAQJsonLd(ceramicFAQs),
+      ]}
+    />
     <Navbar />
     <ServicePageHero title="Paint Correction & Ceramic Coating Packages" image={ceramicHero} />
     <TrustStats />

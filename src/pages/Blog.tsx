@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import interiorImg from "@/assets/interior-detail.jpg";
 import exteriorImg from "@/assets/exterior-detail.jpg";
 import paintImg from "@/assets/paint-correction.jpg";
@@ -50,6 +51,11 @@ const posts = [
 
 const Blog = () => (
   <div className="min-h-screen">
+    <SEO
+      title="Blog — Car Detailing Tips & News"
+      description="Tips, insights, and news from Calgary's trusted mobile detailing experts. Learn how to protect and maintain your vehicle."
+      canonical="/blog"
+    />
     <Navbar />
 
     <section className="py-20 bg-background">

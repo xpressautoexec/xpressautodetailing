@@ -5,6 +5,7 @@ import PackageCard from "@/components/PackageCard";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import TestimonialBlock from "@/components/TestimonialBlock";
 import TrustStats from "@/components/TrustStats";
+import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import completeHero from "@/assets/complete-hero.jpg";
 import interiorImg from "@/assets/interior-detail.jpg";
 
@@ -28,6 +29,15 @@ const completeTestimonials = [
 
 const CompleteDetailing = () => (
   <div className="min-h-screen">
+    <SEO
+      title="Complete Detailing Calgary"
+      description="Full interior & exterior mobile detailing in Calgary. The ultimate top-to-bottom detail for your vehicle. Book in 60 seconds."
+      canonical="/complete-detailing"
+      jsonLd={[
+        buildServiceJsonLd("Complete Detailing", "Full interior and exterior mobile detailing in Calgary.", "/complete-detailing"),
+        buildFAQJsonLd(completeFAQs),
+      ]}
+    />
     <Navbar />
     <ServicePageHero title="Complete Detailing Services in Calgary and Surrounding Areas" image={completeHero} />
     <TrustStats />
