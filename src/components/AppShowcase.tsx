@@ -21,7 +21,7 @@ const AppShowcase = () => <section className="bg-primary py-20 relative overflow
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Phone mockup image */}
           <div className="flex justify-center">
-            <img alt="Xpress Auto Detailing mobile booking app showing map and scheduling interface" className="max-w-full h-auto max-h-[400px] drop-shadow-2xl object-cover" src="/lovable-uploads/b9d4bef8-ad62-42e7-abd4-8f3928337447.png" />
+            <img alt="Xpress Auto Detailing mobile booking app showing map and scheduling interface" className="w-full h-auto max-h-[550px] drop-shadow-2xl object-contain" src="/lovable-uploads/b9d4bef8-ad62-42e7-abd4-8f3928337447.png" />
           </div>
 
           {/* Text content */}
