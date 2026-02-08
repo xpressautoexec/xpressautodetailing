@@ -34,7 +34,6 @@ const desktopLinks: DesktopNavItem[] = [
     children: [
       { label: "Gallery", href: "/gallery" },
       { label: "Gift Cards", href: "/gift-cards" },
-      { label: "Why Choose Us", href: "/why-choose-us" },
       { label: "Contact Us", href: "/contact" },
       { label: "Blog", href: "/blog" },
       { label: "Terms & Conditions", href: "/terms-conditions" },
