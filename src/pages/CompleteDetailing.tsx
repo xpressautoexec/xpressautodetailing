@@ -125,9 +125,9 @@ const CompleteDetailing = () => (
               "Vent blowout & light air freshening",
             ]}
             addOns={[
-              { name: "Pet Hair Removal", price: "+$40" },
-              { name: "Headlight Restoration", price: "+$60" },
-              { name: "Engine Bay Detail", price: "+$75" },
+              { name: "Pet Hair Removal", price: "+$55" },
+              { name: "Headlight Restoration", price: "+$80" },
+              { name: "Engine Bay Cleaning", price: "+$50" },
             ]}
             surcharges={["Add $20 for small SUVs/trucks", "Add $30 for 3-row SUVs/minivans"]}
             time="Time: 2.5-3 hrs | Mobile anywhere in Calgary"
@@ -156,8 +156,8 @@ const CompleteDetailing = () => (
             ]}
             addOns={[
               { name: "Ceramic Spray Sealant Upgrade", price: "+$50" },
-              { name: "Ozone Odor Bomb", price: "+$60" },
-              { name: "Headlight Restoration", price: "+$60" },
+              { name: "Odour Elimination", price: "+$75" },
+              { name: "Headlight Restoration", price: "+$80" },
               { name: "Trim Restoration", price: "+$35" },
             ]}
             surcharges={["Add $20 for small SUVs/trucks", "Add $30 for 3-row SUVs/minivans"]}

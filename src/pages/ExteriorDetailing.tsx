@@ -144,8 +144,8 @@ const ExteriorDetailing = () => (
               "Protective wax coat",
             ]}
             addOns={[
-              { name: "Engine Bay Detail", price: "+$75" },
-              { name: "Headlight Restoration", price: "+$60" },
+              { name: "Engine Bay Cleaning", price: "+$50" },
+              { name: "Headlight Restoration", price: "+$80" },
               { name: "Ceramic Spray Sealant Upgrade", price: "+$50" },
               { name: "Wheel Ceramic Coating", price: "+$80" },
             ]}

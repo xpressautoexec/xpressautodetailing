@@ -122,8 +122,8 @@ const InteriorDetailing = () => (
               "Vent blowout and light air freshening to leave the cabin smelling clean",
             ]}
             addOns={[
-              { name: "Pet Hair Removal", price: "+$40" },
-              { name: "Ozone Odor Elimination", price: "+$60" },
+              { name: "Pet Hair Removal", price: "+$55" },
+              { name: "Odour Elimination", price: "+$75" },
               { name: "Leather Conditioning", price: "+$30" },
             ]}
             surcharges={["Add $20 for small SUVs/trucks", "Add $30 for 3-row SUVs/minivans"]}
@@ -145,10 +145,10 @@ const InteriorDetailing = () => (
             ]}
             bonuses={["🎁 Bonus: Interior protectant application ($50 value)"]}
             addOns={[
-              { name: "Pet Hair Removal", price: "+$40" },
-              { name: "Headliner Deep Clean", price: "+$45" },
-              { name: "Ozone Odor Bomb", price: "+$60" },
-              { name: "Engine Bay Detail", price: "+$75" },
+              { name: "Pet Hair Removal", price: "+$55" },
+              { name: "Headliner Shampoo", price: "+$50" },
+              { name: "Odour Elimination", price: "+$75" },
+              { name: "Engine Bay Cleaning", price: "+$50" },
             ]}
             surcharges={["Add $20 for small SUVs/trucks", "Add $30 for 3-row SUVs/minivans"]}
             time="Time: 2-2.5 hrs | Mobile anywhere in Calgary"
