@@ -128,7 +128,7 @@ const WhyChooseUs = () => {
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <div className="flex flex-wrap justify-center gap-3">
-                {["Calgary", "Airdrie", "Cochrane", "Chestermere", "Okotoks", "Strathmore", "High River", "Crossfield", "Langdon", "Bearspaw"].map((city) => (
+                {["Calgary", "Airdrie", "Chestermere", "Cochrane", "& Surrounding Areas"].map((city) => (
                   <span key={city} className="bg-muted text-foreground font-heading font-semibold text-sm uppercase tracking-wider px-4 py-2 rounded-full">
                     {city}
                   </span>
