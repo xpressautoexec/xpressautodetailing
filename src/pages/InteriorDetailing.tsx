@@ -123,7 +123,7 @@ const InteriorDetailing = () => (
             ]}
             addOns={[
               { name: "Pet Hair Removal", price: "+$40" },
-              { name: "Odor Elimination Treatment", price: "+$50" },
+              { name: "Ozone Odor Elimination", price: "+$60" },
               { name: "Leather Conditioning", price: "+$30" },
             ]}
             surcharges={["Add $20 for small SUVs/trucks", "Add $30 for 3-row SUVs/minivans"]}
