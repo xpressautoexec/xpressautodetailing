@@ -13,19 +13,59 @@ const BOOKING_URL = "https://xpressauto.fieldd.co/";
 const addOns = [
   {
     icon: Dog,
-    name: "Pet Hair Removal",
-    price: "$40",
+    name: "Excess Pet Hair Removal",
+    price: "$55",
     description:
-      "Stubborn fur embedded in seats, carpets, and crevices? We use specialized tools and techniques to extract every last strand — leaving your interior completely fur-free.",
+      "Targets and lifts embedded pet hair from seats, carpets, mats, and hard-to-reach areas. Essential for vehicles with heavy shedding or frequent pet passengers.",
+    bestWith: "Interior or Complete Detail",
+  },
+  {
+    icon: Sparkles,
+    name: "Heavily Soiled Interior",
+    price: "$75",
+    description:
+      "Only available as add-on to interior premium package. Includes extra time and tools for severe dirt, stains, stickiness, or buildup (does not include excess pet hair).",
+    bestWith: "Interior Detail",
+  },
+  {
+    icon: Sparkles,
+    name: "Headliner Shampoo",
+    price: "$50",
+    description:
+      "Shampoo and steam clean the headliner. Stain removal included. Restores a fresh, uniform finish to discolored or stained headliner fabric.",
     bestWith: "Interior or Complete Detail",
   },
   {
     icon: Wind,
-    name: "Ozone Odor Elimination",
-    price: "$60",
+    name: "Odour Elimination",
+    price: "$75",
     description:
-      "Our ozone generator destroys odor-causing bacteria, mold, and smoke particles at the molecular level — not just masking smells, but eliminating them permanently.",
+      "Targets and neutralizes deep-set smells (pets, smoke, food, mildew). Includes up to 2 rounds of ozone treatment — not just masking smells, but eliminating them permanently.",
     bestWith: "Interior or Complete Detail",
+  },
+  {
+    icon: Shield,
+    name: "Tree Sap Removal",
+    price: "$75",
+    description:
+      "Safely removes tree sap by gently dissolving and lifting sap without damaging your paint or clear coat. Prevents long-term damage before sap begins to cause etching, staining, or permanent surface defects.",
+    bestWith: "Exterior or Complete Detail",
+  },
+  {
+    icon: Lightbulb,
+    name: "Headlight Restoration",
+    price: "$80",
+    description:
+      "Stand-alone or add-on. Restores clarity and improves night visibility. Includes both headlights. We wet-sand, polish, and seal them to restore crystal-clear clarity.",
+    bestWith: "Exterior or Complete Detail",
+  },
+  {
+    icon: Car,
+    name: "Engine Bay Cleaning",
+    price: "$50",
+    description:
+      "Add-on to any exterior package. Engine-safe chemicals and processes. All vulnerable components will be thoroughly protected. We degrease, pressure rinse, and dress all components.",
+    bestWith: "Any Detail Package",
   },
   {
     icon: Sparkles,
@@ -34,22 +74,6 @@ const addOns = [
     description:
       "Keep your leather seats supple and crack-free. We clean, condition, and protect with premium pH-balanced products designed specifically for automotive leather.",
     bestWith: "Interior Detail",
-  },
-  {
-    icon: Lightbulb,
-    name: "Headlight Restoration",
-    price: "$60",
-    description:
-      "Foggy, yellowed headlights reduce visibility and make your car look old. We wet-sand, polish, and seal them to restore crystal-clear clarity and improve nighttime safety.",
-    bestWith: "Exterior or Complete Detail",
-  },
-  {
-    icon: Car,
-    name: "Engine Bay Detail",
-    price: "$75",
-    description:
-      "A clean engine bay makes maintenance easier and impresses buyers. We degrease, pressure rinse, and dress all components for a like-new engine compartment.",
-    bestWith: "Any Detail Package",
   },
   {
     icon: Wrench,
@@ -74,14 +98,6 @@ const addOns = [
     description:
       "Upgrade from standard wax to a ceramic spray sealant that lasts 3–6 months longer. Superior hydrophobic properties, UV protection, and an unmatched deep gloss.",
     bestWith: "Exterior or Complete Detail",
-  },
-  {
-    icon: Sparkles,
-    name: "Headliner Deep Clean",
-    price: "$45",
-    description:
-      "Stained, sagging, or discolored headliner? We carefully deep-clean the fabric without damaging the adhesive, restoring it to a fresh, uniform finish.",
-    bestWith: "Interior or Complete Detail",
   },
   {
     icon: Shield,
