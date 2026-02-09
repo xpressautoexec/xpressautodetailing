@@ -35,8 +35,8 @@ const completeTestimonials = [
 const CompleteDetailing = () => (
   <PageTransition><div className="min-h-screen">
     <SEO
-      title="Complete Detailing Calgary"
-      description="Full interior & exterior mobile detailing in Calgary. The ultimate top-to-bottom detail for your vehicle. Book in 60 seconds."
+      title="Complete Car Detailing Calgary — Full Interior & Exterior"
+      description="The ultimate top-to-bottom mobile detail. Interior deep clean + exterior hand wash, clay bar & sealant — all at your door. Prices from $189. Book now."
       canonical="/complete-detailing"
       jsonLd={[
         buildServiceJsonLd("Complete Detailing", "Full interior and exterior mobile detailing in Calgary.", "/complete-detailing"),

@@ -33,8 +33,8 @@ const exteriorTestimonials = [
 const ExteriorDetailing = () => (
   <PageTransition><div className="min-h-screen">
     <SEO
-      title="Exterior Detailing Calgary"
-      description="Professional mobile exterior car detailing in Calgary. Hand wash, clay bar, paint decontamination & sealant protection. Book in 60 seconds."
+      title="Exterior Car Detailing Calgary — Mobile Hand Wash"
+      description="Professional hand wash, clay bar & paint sealant — done at your location. Remove contaminants, restore shine & protect your finish. Book online today."
       canonical="/exterior-detailing"
       jsonLd={[
         buildServiceJsonLd("Exterior Detailing", "Professional mobile exterior car detailing in Calgary. Hand wash, clay bar, and sealant protection.", "/exterior-detailing"),

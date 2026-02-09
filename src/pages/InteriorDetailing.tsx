@@ -35,8 +35,8 @@ const interiorTestimonials = [
 const InteriorDetailing = () => (
   <PageTransition><div className="min-h-screen">
     <SEO
-      title="Interior Detailing Calgary"
-      description="Professional mobile interior car detailing in Calgary. Deep cleaning, stain removal, leather conditioning & odor elimination. Book in 60 seconds."
+      title="Interior Car Detailing Calgary — Mobile Service"
+      description="Deep interior cleaning at your door. Stain removal, leather conditioning, odour elimination & sanitization. Serving Calgary & area. 100% satisfaction guaranteed."
       canonical="/interior-detailing"
       jsonLd={[
         buildServiceJsonLd("Interior Detailing", "Professional mobile interior car detailing in Calgary. Deep cleaning, stain removal, leather conditioning.", "/interior-detailing"),
