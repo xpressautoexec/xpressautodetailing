@@ -31,7 +31,7 @@ const highlights = [
 const AppShowcase = () => (
   <section className="relative py-24 overflow-hidden">
     {/* Gradient background */}
-    <div className="absolute inset-0 bg-gradient-to-br from-brand-blue-deep via-brand-dark/90 to-brand-dark" />
+    <div className="absolute inset-0 bg-gradient-to-br from-primary via-brand-blue-deep to-brand-dark/80" />
     {/* Subtle pattern overlay */}
     <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
 
