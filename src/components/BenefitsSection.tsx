@@ -35,7 +35,7 @@ const BenefitsSection = () => {
             ))}
           </StaggerContainer>
           <ScrollReveal direction="right" className="hidden lg:block">
-            <img src={benefitImg} alt="Mobile detailing in action" className="rounded-lg shadow-xl w-full h-full object-cover" />
+            <img src={benefitImg} alt="Mobile detailing in action" className="rounded-lg shadow-xl w-full h-full object-cover" loading="lazy" />
           </ScrollReveal>
         </div>
         <ScrollReveal className="text-center">

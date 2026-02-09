@@ -4,7 +4,7 @@ const BOOKING_URL = "https://xpressauto.fieldd.co/";
 const HeroSection = () => {
   return <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Video background */}
-      <img src={heroBg} alt="Professional car detailing service" className="absolute inset-0 w-full h-full object-cover" />
+      <img src={heroBg} alt="Professional car detailing service" className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" />
       <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/85 via-brand-dark/60 to-brand-dark/40" />
       
       <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block">

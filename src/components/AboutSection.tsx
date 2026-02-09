@@ -37,12 +37,14 @@ const AboutSection = () => {
                 src={aboutImage}
                 alt="Xpress Auto Detailing mobile service van"
                 className="rounded-lg shadow-2xl w-full object-cover aspect-square"
+                loading="lazy"
               />
               <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary rounded-lg hidden md:block" />
               <img
                 src={gallery3}
                 alt="Clean car interior"
                 className="absolute -bottom-8 -right-4 w-40 h-28 rounded-lg shadow-xl object-cover hidden md:block border-4 border-background"
+                loading="lazy"
               />
             </div>
           </ScrollReveal>

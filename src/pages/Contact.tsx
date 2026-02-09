@@ -48,8 +48,8 @@ const Contact = () => {
   return (
     <PageTransition><div className="min-h-screen">
       <SEO
-        title="Contact Us — Get a Free Quote"
-        description="Contact Xpress Auto Detailing in Calgary. Get a free quote, ask questions, or book your mobile detail. We respond within 2 hours."
+        title="Contact Xpress Auto Detailing — Free Quote"
+        description="Get a free car detailing quote in minutes. Call, text, or fill out our form — we respond within 2 hours. Serving Calgary, Airdrie, Cochrane & area."
         canonical="/contact"
         jsonLd={buildFAQJsonLd(contactFAQs)}
       />
