@@ -63,8 +63,8 @@ const Footer = () => {
               <a href="tel:5875004523" className="text-brand-gray text-sm hover:text-primary transition-colors flex items-center gap-2">
                 <Phone className="w-4 h-4" /> 587-500-4523
               </a>
-              <a href="mailto:support@xpressautodetailing.ca" className="text-brand-gray text-sm hover:text-primary transition-colors flex items-center gap-2">
-                <Mail className="w-4 h-4" /> support@xpressautodetailing.ca
+              <a href="mailto:support@xpressautodetail.ca" className="text-brand-gray text-sm hover:text-primary transition-colors flex items-center gap-2">
+                <Mail className="w-4 h-4" /> support@xpressautodetail.ca
               </a>
               <a
                 href={BOOKING_URL}

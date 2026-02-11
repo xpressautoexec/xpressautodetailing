@@ -91,9 +91,9 @@ const TopBar = () => (
         Book in 60 seconds · 14-day guarantee
       </a>
       <div className="flex items-center gap-4 ml-auto">
-        <a href="mailto:support@xpressautodetailing.ca" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity">
+        <a href="mailto:support@xpressautodetail.ca" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity">
           <Mail className="w-3.5 h-3.5" />
-          <span className="hidden md:inline">support@xpressautodetailing.ca</span>
+          <span className="hidden md:inline">support@xpressautodetail.ca</span>
         </a>
         <a href="tel:5875004523" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity">
           <Phone className="w-3.5 h-3.5" />

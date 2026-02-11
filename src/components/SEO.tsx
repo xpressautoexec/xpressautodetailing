@@ -66,7 +66,7 @@ export const localBusinessJsonLd = {
   name: "Xpress Auto Detailing",
   url: "https://xpressautodetailing.ca",
   telephone: "+1-587-500-4523",
-  email: "support@xpressautodetailing.ca",
+  email: "support@xpressautodetail.ca",
   description: "Calgary's premier mobile car detailing service. Interior, exterior, ceramic coating & fleet detailing.",
   areaServed: [
     { "@type": "City", name: "Calgary" },

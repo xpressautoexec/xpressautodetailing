@@ -23,7 +23,7 @@ const FloatingContact = () => {
             Text Us
           </a>
           <a
-            href="mailto:support@xpressautodetailing.ca"
+            href="mailto:support@xpressautodetail.ca"
             className="flex items-center gap-2 bg-brand-dark text-primary-foreground font-heading font-bold text-xs uppercase tracking-wider px-4 py-3 rounded-full shadow-lg hover:bg-brand-dark-surface transition-colors"
           >
             <Mail className="w-4 h-4 text-primary" />
