@@ -25,6 +25,7 @@ const AboutSection = () => {
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Book a mobile car detailing appointment in Calgary"
                 className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors"
               >
                 Book Now

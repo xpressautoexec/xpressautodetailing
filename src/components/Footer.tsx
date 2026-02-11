@@ -70,6 +70,7 @@ const Footer = () => {
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Book a car detailing appointment online"
                 className="mt-2 inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-2.5 rounded text-sm text-center hover:bg-brand-blue-deep transition-colors w-fit"
               >
                 Book Now

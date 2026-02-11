@@ -57,6 +57,7 @@ const HowItWorks = () => {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Book your mobile car detail online"
             className="inline-block bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-3 rounded text-sm hover:bg-primary-foreground/90 transition-colors"
           >
             Book Now

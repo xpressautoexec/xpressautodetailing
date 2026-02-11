@@ -39,7 +39,7 @@ const BenefitsSection = () => {
           </ScrollReveal>
         </div>
         <ScrollReveal className="text-center">
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors">
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" aria-label="Book mobile detailing service now" className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors">
             Book Now
           </a>
         </ScrollReveal>
