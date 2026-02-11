@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -40,15 +41,13 @@ const Training = () => (
           <h1 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase text-primary-foreground text-center leading-tight mb-6 max-w-4xl">
             Master the Art of <span className="text-primary">Auto Detailing</span>
           </h1>
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/training/signup"
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-brand-blue-deep transition-all duration-300 shadow-lg shadow-primary/30 group"
           >
             View Course Schedule
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -114,7 +113,7 @@ const Training = () => (
             <PackageCard
               icon="🧽"
               name="Detailing Fundamentals"
-              price="$999"
+              price="$349"
               tagline="Perfect for: Beginners who want to learn proper detailing techniques from the ground up."
               features={[
                 "2-day intensive hands-on training",
@@ -133,11 +132,15 @@ const Training = () => (
                 "🎁 Business launch checklist",
               ]}
               time="Duration: 2 days (16 hours) | Calgary facility"
+              ctaText="View Upcoming Dates"
+              ctaLink="/training/signup?course=detailing-fundamentals"
+              ctaExternal={false}
+              guarantee=""
             />
             <PackageCard
               icon="🔬"
               name="Paint Correction Mastery"
-              price="$1,499"
+              price="$549"
               tagline="Perfect for: Detailers ready to add high-value paint correction services to their offerings."
               features={[
                 "3-day intensive hands-on training",
@@ -157,6 +160,10 @@ const Training = () => (
               ]}
               time="Duration: 3 days (24 hours) | Calgary facility"
               isPrimary
+              ctaText="View Upcoming Dates"
+              ctaLink="/training/signup?course=paint-correction"
+              ctaExternal={false}
+              guarantee=""
             />
           </div>
 
@@ -164,7 +171,7 @@ const Training = () => (
             <PackageCard
               icon="💎"
               name="Ceramic Coating Certification"
-              price="$1,799"
+              price="$699"
               tagline="Perfect for: Detailers who want to offer premium ceramic coating services with manufacturer backing."
               features={[
                 "3-day intensive hands-on training",
@@ -183,11 +190,15 @@ const Training = () => (
                 "🎁 Listed as certified installer",
               ]}
               time="Duration: 3 days (24 hours) | Calgary facility"
+              ctaText="View Upcoming Dates"
+              ctaLink="/training/signup?course=ceramic-coating"
+              ctaExternal={false}
+              guarantee=""
             />
             <PackageCard
               icon="🛡️"
               name="PPF Installation"
-              price="$2,499"
+              price="$899"
               tagline="Perfect for: Detailers ready to master paint protection film and offer the highest-ticket service."
               features={[
                 "5-day intensive hands-on training",
@@ -208,6 +219,10 @@ const Training = () => (
               ]}
               time="Duration: 5 days (40 hours) | Calgary facility"
               isPrimary
+              ctaText="View Upcoming Dates"
+              ctaLink="/training/signup?course=ppf-installation"
+              ctaExternal={false}
+              guarantee=""
             />
           </div>
         </div>
@@ -224,15 +239,13 @@ const Training = () => (
             <p className="text-primary-foreground/70 max-w-lg mx-auto mb-6 text-sm">
               Our next training sessions are filling up fast. Secure your spot today and start your journey toward professional-grade detailing mastery.
             </p>
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/training/signup"
               className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all group"
             >
               Reserve My Spot
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </Link>
           </ScrollReveal>
         </div>
       </section>
@@ -253,15 +266,13 @@ const Training = () => (
             <p className="text-primary-foreground/60 text-sm mb-8">
               ✓ Hands-on with real vehicles &nbsp; ✓ Manufacturer certifications &nbsp; ✓ Small class sizes
             </p>
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/training/signup"
               className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-lg group"
             >
               Enroll Now
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </Link>
           </ScrollReveal>
         </div>
       </section>
