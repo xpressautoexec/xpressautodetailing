@@ -1,4 +1,5 @@
 import PageTransition from "@/components/PageTransition";
+import SeasonalPromoPopup from "@/components/SeasonalPromoPopup";
 import Navbar from "@/components/Navbar";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import BeforeAfterCard from "@/components/BeforeAfterCard";
@@ -252,6 +253,7 @@ const CompleteDetailing = () => (
     </section>
 
     <Footer />
+    <SeasonalPromoPopup />
   </div></PageTransition>
 );
 

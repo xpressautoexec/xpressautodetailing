@@ -1,4 +1,5 @@
 import PageTransition from "@/components/PageTransition";
+import SeasonalPromoPopup from "@/components/SeasonalPromoPopup";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
@@ -323,6 +324,7 @@ const TrailerRV = () => {
       </section>
 
       <Footer />
+      <SeasonalPromoPopup />
     </div></PageTransition>
   );
 };
