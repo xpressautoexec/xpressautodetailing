@@ -22,7 +22,7 @@ const botResponses: Record<string, string> = {
   "Do you offer ceramic coating?": "Yes! We use industry-leading ceramic coating products for lasting protection and a mirror-like finish. Packages start from **$499**.\n\nCeramic coating protects against UV, salt, bird droppings, and more. Want to book? 👉 [Book Now](https://xpressauto.fieldd.co/)",
 };
 
-const defaultResponse = "Thanks for reaching out! 😊 For the fastest response, you can:\n\n📞 Call us: **587-500-4523**\n📧 Email: **support@xpressautodetailing.ca**\n📅 [Book Online](https://xpressauto.fieldd.co/)\n\nWe typically respond within 1–2 hours!";
+const defaultResponse = "Thanks for reaching out! 😊 For the fastest response, you can:\n\n📞 Call us: **587-500-4523**\n📧 Email: **support@xpressautodetail.ca**\n📅 [Book Online](https://xpressauto.fieldd.co/)\n\nWe typically respond within 1–2 hours!";
 
 const ChatWidget = () => {
   const [open, setOpen] = useState(false);

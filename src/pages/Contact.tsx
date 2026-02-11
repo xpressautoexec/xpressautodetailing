@@ -94,8 +94,8 @@ const Contact = () => {
                 <a href="tel:5875004523" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
                   <Phone className="w-5 h-5 text-primary" /> 587-500-4523
                 </a>
-                <a href="mailto:support@xpressautodetailing.ca" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
-                  <Mail className="w-5 h-5 text-primary" /> support@xpressautodetailing.ca
+                <a href="mailto:support@xpressautodetail.ca" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+                  <Mail className="w-5 h-5 text-primary" /> support@xpressautodetail.ca
                 </a>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <Clock className="w-5 h-5 text-primary" /> Monday – Sunday: 9:00 AM – 5:00 PM
