@@ -20,6 +20,7 @@ import FloatingContact from "@/components/FloatingContact";
 import ChatWidget from "@/components/ChatWidget";
 import SEO, { localBusinessJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
+import HomePromoPopup from "@/components/HomePromoPopup";
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 const homeTestimonials = [{
   quote: "Best detailing service in Calgary, hands down. They came to my office and had my SUV looking brand new by the time I was done work.",
@@ -145,6 +146,7 @@ const Index = () => {
       <StickyMobileCTA />
       <FloatingContact />
       <ChatWidget />
+      <HomePromoPopup />
     </div>
     </PageTransition>;
 };
