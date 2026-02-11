@@ -100,7 +100,7 @@ const ServicesSection = () => {
                     {service.description}
                   </p>
                   <span className="inline-flex items-center gap-2 text-primary font-heading font-bold text-sm uppercase tracking-wider group-hover:gap-3 transition-all">
-                    Learn More
+                    {`Explore ${service.title}`}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </div>
@@ -129,13 +129,14 @@ const ServicesSection = () => {
                       to={service.link}
                       className="group inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-brand-blue-deep transition-all hover:shadow-lg hover:shadow-primary/20"
                     >
-                      View Packages
+                      {`View ${service.title} Packages`}
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
                     <a
                       href={BOOKING_URL}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`Book ${service.title} now`}
                       className="inline-block border-2 border-primary text-primary font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-primary hover:text-primary-foreground transition-all"
                     >
                       Book Now

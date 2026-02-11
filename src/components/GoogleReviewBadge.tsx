@@ -34,6 +34,7 @@ const GoogleReviewBadge = () => (
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Claim your detailing appointment spot this week"
               className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors"
             >
               Claim Your Spot

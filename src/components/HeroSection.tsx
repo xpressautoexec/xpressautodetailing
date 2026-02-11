@@ -51,10 +51,10 @@ const HeroSection = () => {
           duration: 0.6,
           delay: 0.45
         }} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded hover:bg-brand-blue-deep transition-colors text-sm">
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" aria-label="Schedule a mobile car detailing appointment" className="inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded hover:bg-brand-blue-deep transition-colors text-sm">
               Schedule my detail  
             </a>
-            <a href="tel:5875004523" className="inline-block border-2 border-primary-foreground/30 text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded hover:border-primary-foreground/60 transition-colors text-sm">
+            <a href="tel:5875004523" aria-label="Call Xpress Auto Detailing at 587-500-4523" className="inline-block border-2 border-primary-foreground/30 text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded hover:border-primary-foreground/60 transition-colors text-sm">
               Call Us
             </a>
           </motion.div>
