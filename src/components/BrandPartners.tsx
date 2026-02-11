@@ -8,6 +8,8 @@ import brandTruman from "@/assets/brand-truman.png";
 import brandKls from "@/assets/brand-kls.png";
 import brandDirtt from "@/assets/brand-dirtt.png";
 import brandShell from "@/assets/brand-shell.png";
+import brandMeguiars from "@/assets/brand-meguiars.png";
+import brandChemicalGuys from "@/assets/brand-chemical-guys.png";
 interface BrandItem {
   name: string;
   logo?: string;
@@ -16,17 +18,17 @@ const productBrands: BrandItem[] = [{
   name: "3M",
   logo: brand3m
 }, {
-  name: "Gyeon"
+  name: "Meguiar's",
+  logo: brandMeguiars
 }, {
   name: "XPEL",
   logo: brandXpel
 }, {
-  name: "Chemical Guys"
+  name: "Chemical Guys",
+  logo: brandChemicalGuys
 }, {
   name: "Gtechniq",
   logo: brandGtechniq
-}, {
-  name: "Meguiar's"
 }];
 const clientPartners: BrandItem[] = [{
   name: "Aecon",
@@ -67,7 +69,7 @@ const BrandPartners = () => <section className="py-16 bg-muted/30 border-y borde
         </h2>
       </ScrollReveal>
 
-      <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 mb-14" staggerDelay={0.06}>
+      <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6 mb-14" staggerDelay={0.06}>
         {productBrands.map(brand => <StaggerItem key={brand.name} className="flex items-center justify-center">
             <BrandCard brand={brand} />
           </StaggerItem>)}
