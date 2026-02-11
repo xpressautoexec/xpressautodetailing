@@ -19,15 +19,15 @@ import { Star } from "lucide-react";
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const images = [
-  { src: gallery1, alt: "Professional detailing equipment", category: "Equipment" },
-  { src: gallery2, alt: "Freshly detailed red sports car", category: "Exterior" },
-  { src: gallery3, alt: "Clean car interior", category: "Interior" },
-  { src: gallery4, alt: "Tire and wheel detailing", category: "Wheels" },
-  { src: gallery5, alt: "SUV foam wash", category: "Exterior" },
-  { src: gallery6, alt: "Ceramic coated hood reflection", category: "Ceramic" },
-  { src: interiorImg, alt: "Interior detailing service", category: "Interior" },
-  { src: exteriorImg, alt: "Exterior detailing service", category: "Exterior" },
-  { src: paintImg, alt: "Paint correction result", category: "Paint Correction" },
+  { src: gallery1, alt: "Glossy black BMW sedan after professional detailing", category: "Exterior" },
+  { src: gallery2, alt: "Freshly polished red sports car with mirror finish", category: "Exterior" },
+  { src: gallery3, alt: "Luxury sports car with flawless paint after ceramic coating", category: "Ceramic" },
+  { src: gallery4, alt: "Car wheel and tire cleaned and dressed to perfection", category: "Wheels" },
+  { src: gallery5, alt: "Professional foam wash being applied to vehicle exterior", category: "Exterior" },
+  { src: gallery6, alt: "Clean white sedan showcasing professional exterior detail", category: "Exterior" },
+  { src: interiorImg, alt: "Pristine car interior after deep cleaning and conditioning", category: "Interior" },
+  { src: exteriorImg, alt: "Shiny red car parked after full exterior detailing service", category: "Exterior" },
+  { src: paintImg, alt: "Luxury vehicle with corrected paint showing deep gloss finish", category: "Paint Correction" },
 ];
 
 const Gallery = () => (
