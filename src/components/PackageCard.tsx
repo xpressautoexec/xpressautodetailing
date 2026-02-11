@@ -20,6 +20,9 @@ interface PackageCardProps {
   surcharges?: string[];
   time?: string;
   isPrimary?: boolean;
+  ctaText?: string;
+  ctaLink?: string;
+  ctaExternal?: boolean;
 }
 
 const PackageCard = ({
@@ -35,6 +38,9 @@ const PackageCard = ({
   surcharges,
   time,
   isPrimary = false,
+  ctaText = "Schedule My Detail",
+  ctaLink = BOOKING_URL,
+  ctaExternal = true,
 }: PackageCardProps) => (
   <div
     className={`relative rounded-2xl p-6 sm:p-8 h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
@@ -120,16 +126,16 @@ const PackageCard = ({
     </div>
 
     <a
-      href={BOOKING_URL}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={ctaLink}
+      target={ctaExternal ? "_blank" : undefined}
+      rel={ctaExternal ? "noopener noreferrer" : undefined}
       className={`group flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider px-6 py-3.5 rounded-lg text-sm transition-all duration-300 ${
         isPrimary
           ? "bg-primary-foreground text-primary hover:bg-primary-foreground/90 hover:shadow-lg"
           : "bg-primary text-primary-foreground hover:bg-brand-blue-deep hover:shadow-lg hover:shadow-primary/20"
       }`}
     >
-      Schedule My Detail
+      {ctaText}
       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
     </a>
   </div>

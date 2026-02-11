@@ -23,6 +23,7 @@ const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const WhyChooseUs = lazy(() => import("./pages/WhyChooseUs"));
 const AddOns = lazy(() => import("./pages/AddOns"));
 const Training = lazy(() => import("./pages/Training"));
+const TrainingSignup = lazy(() => import("./pages/TrainingSignup"));
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,7 @@ const AnimatedRoutes = () => {
         <Route path="/why-choose-us" element={<WhyChooseUs />} />
         <Route path="/add-ons" element={<AddOns />} />
         <Route path="/training" element={<Training />} />
+        <Route path="/training/signup" element={<TrainingSignup />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
