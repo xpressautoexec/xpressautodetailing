@@ -68,7 +68,7 @@ const AppShowcase = () => (
               to="/why-choose-us"
               className="inline-flex items-center gap-2 border-2 border-primary-foreground/80 text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground hover:text-primary transition-all duration-300 group mt-2"
             >
-              Learn More
+              Learn More About Why Choose Us
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
