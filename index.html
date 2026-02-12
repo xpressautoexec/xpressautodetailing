@@ -28,6 +28,26 @@
     <meta name="twitter:description" content="Calgary's #1 mobile car detailing. We come to you — book in 60 seconds." />
 
     <!-- Performance: font display swap is already in the CSS import -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17894848842"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17894848842');
+
+      // Track clicks on all fieldd booking links
+      document.addEventListener('click', function(e) {
+        var link = e.target.closest('a[href*="fieldd"]');
+        if (link) {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17894848842',
+            'event_callback': function() {}
+          });
+        }
+      });
+    </script>
   </head>
 
   <body>
