@@ -47,7 +47,7 @@ serve(async (req) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Xpress Auto Detailing <onboarding@resend.dev>',
+        from: 'Xpress Auto Detailing <noreply@xpressautodetail.ca>',
         to: ['xpressautoexec@gmail.com'],
         subject: `New ${formLabel}: ${name}`,
         html: htmlBody,
