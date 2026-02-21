@@ -9,7 +9,7 @@ import TrustStats from "@/components/TrustStats";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import rvHero from "@/assets/rv-hero.jpg";
-import { Droplets, Shield, Sparkles, Truck, Clock, CheckCircle, Sun, Snowflake, Wrench, ArrowRight } from "lucide-react";
+import { Droplets, Shield, Sparkles, Truck, Clock, CheckCircle, Sun, Snowflake, Wrench, ArrowRight, Phone } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -212,47 +212,65 @@ const TrailerRV = () => {
       </section>
 
       {/* Packages */}
-      <section className="section-dark py-16 sm:py-20">
-        <div className="container max-w-5xl">
+      <section className="section-dark py-16 sm:py-24 relative overflow-hidden">
+        {/* Background glow effects */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-primary/8 rounded-full blur-[100px]" />
+        </div>
+        <div className="container max-w-6xl relative z-10">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center mb-4">
+            <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs text-center mb-3">Transparent Per-Foot Pricing</p>
+            <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-center mb-4">
               <span className="text-primary">RV Detailing</span> Packages
             </h2>
-            <p className="text-primary-foreground/60 text-center mb-12 max-w-2xl mx-auto text-sm">
-              Prices vary based on RV size and condition. Contact us for a custom quote tailored to your rig.
+            <p className="text-primary-foreground/50 text-center mb-14 max-w-2xl mx-auto text-sm">
+              Simple, honest pricing based on your rig's length. No hidden fees — what you see is what you pay.
             </p>
           </ScrollReveal>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" staggerDelay={0.1}>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6" staggerDelay={0.08}>
             {packages.map((pkg) => (
               <StaggerItem key={pkg.title}>
-                <div className={`rounded-xl p-6 h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${pkg.popular ? "border-2 border-primary bg-brand-dark-surface ring-1 ring-primary/20" : "border border-brand-dark-surface bg-brand-dark-surface/50 hover:border-primary/30"}`}>
-                  {(pkg.popular || pkg.badge) && (
-                    <span className={`self-start font-heading font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full mb-4 ${pkg.popular ? "bg-primary text-primary-foreground" : "bg-green-500/20 text-green-400 border border-green-500/30"}`}>
-                      {pkg.popular ? "Most Popular" : pkg.badge}
-                    </span>
-                  )}
-                  <h3 className="font-heading font-bold text-lg sm:text-xl uppercase text-primary-foreground mb-1">{pkg.title}</h3>
-                  <p className="font-heading font-bold text-primary text-lg mb-4">{pkg.price}</p>
-                  <ul className="space-y-2 mb-6 flex-1">
+                <div className={`group relative rounded-2xl p-6 h-full flex flex-col transition-all duration-500 hover:-translate-y-2 ${
+                  pkg.popular
+                    ? "border-2 border-primary bg-gradient-to-b from-primary/10 to-brand-dark-surface ring-1 ring-primary/20 shadow-lg shadow-primary/10"
+                    : "border border-white/[0.06] bg-white/[0.03] backdrop-blur-sm hover:border-primary/40 hover:bg-white/[0.06] hover:shadow-xl hover:shadow-primary/5"
+                }`}>
+                  {/* Top badges */}
+                  <div className="flex items-center gap-2 mb-4 min-h-[28px]">
+                    {pkg.popular && (
+                      <span className="bg-primary text-primary-foreground font-heading font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full">
+                        Most Popular
+                      </span>
+                    )}
+                    {pkg.badge && (
+                      <span className="bg-green-500/15 text-green-400 font-heading font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full border border-green-500/25">
+                        {pkg.badge}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="font-heading font-bold text-base sm:text-lg uppercase text-primary-foreground/90 mb-2 leading-tight">{pkg.title}</h3>
+                  <p className="font-heading font-black text-primary text-2xl sm:text-3xl mb-5">{pkg.price}</p>
+                  <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent mb-5" />
+                  <ul className="space-y-2.5 mb-7 flex-1">
                     {pkg.features.map((f) => (
-                      <li key={f} className="flex gap-2 text-primary-foreground/80 text-sm">
+                      <li key={f} className="flex gap-2.5 text-primary-foreground/70 text-sm">
                         <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                         {f}
                       </li>
                     ))}
                   </ul>
                   <a
-                    href={BOOKING_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`group flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm transition-all duration-300 ${
+                    href="tel:5875004523"
+                    className={`group/btn flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider px-6 py-3.5 rounded-xl text-sm transition-all duration-300 ${
                       pkg.popular
-                        ? "bg-primary text-primary-foreground hover:bg-brand-blue-deep hover:shadow-lg"
-                        : "border border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                        ? "bg-primary text-primary-foreground hover:shadow-lg hover:shadow-primary/30 hover:scale-[1.02]"
+                        : "border border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-lg hover:shadow-primary/20"
                     }`}
                   >
-                    Get a Quote
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <Phone className="w-4 h-4" />
+                    Call Now
+                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                   </a>
                 </div>
               </StaggerItem>
