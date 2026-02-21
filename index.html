@@ -41,9 +41,17 @@
       document.addEventListener('click', function(e) {
         var link = e.target.closest('a[href*="fieldd"]');
         if (link) {
+          // Google Ads conversion
           gtag('event', 'conversion', {
             'send_to': 'AW-17894848842',
             'event_callback': function() {}
+          });
+          // GA4 custom event for analytics reporting
+          gtag('event', 'book_now_click', {
+            'event_category': 'engagement',
+            'event_label': link.textContent.trim(),
+            'link_url': link.href,
+            'page_location': window.location.pathname
           });
         }
       });
