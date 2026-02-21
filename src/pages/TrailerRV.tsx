@@ -35,13 +35,24 @@ const packages = [
       "Full exterior hand wash & rinse",
       "Black streak removal",
       "Wheel & tire cleaning",
-      "Awning cleaning",
       "Window cleaning (exterior)",
+    ],
+  },
+  {
+    title: "Ceramic Sealant",
+    price: "$12/ft",
+    features: [
+      "Professional ceramic sealant application",
+      "Superior wax alternative",
+      "UV & oxidation defense",
+      "Hydrophobic surface protection",
+      "Enhanced gloss & shine",
     ],
   },
   {
     title: "Wash & Seal",
     price: "$18/ft",
+    badge: "Save 14%",
     features: [
       "Everything in Exterior Wash",
       "Ceramic sealant application (wax alternative)",
@@ -62,19 +73,9 @@ const packages = [
     ],
   },
   {
-    title: "Ceramic Sealant",
-    price: "$12/ft",
-    features: [
-      "Professional ceramic sealant application",
-      "Superior wax alternative",
-      "UV & oxidation defense",
-      "Hydrophobic surface protection",
-      "Enhanced gloss & shine",
-    ],
-  },
-  {
     title: "Correction + Sealant",
     price: "$37/ft",
+    badge: "Save 10%",
     features: [
       "Full paint correction (cut & polish)",
       "Oxidation removal & restoration",
@@ -225,9 +226,9 @@ const TrailerRV = () => {
             {packages.map((pkg) => (
               <StaggerItem key={pkg.title}>
                 <div className={`rounded-xl p-6 h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${pkg.popular ? "border-2 border-primary bg-brand-dark-surface ring-1 ring-primary/20" : "border border-brand-dark-surface bg-brand-dark-surface/50 hover:border-primary/30"}`}>
-                  {pkg.popular && (
-                    <span className="self-start bg-primary text-primary-foreground font-heading font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full mb-4">
-                      Most Popular
+                  {(pkg.popular || pkg.badge) && (
+                    <span className={`self-start font-heading font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full mb-4 ${pkg.popular ? "bg-primary text-primary-foreground" : "bg-green-500/20 text-green-400 border border-green-500/30"}`}>
+                      {pkg.popular ? "Most Popular" : pkg.badge}
                     </span>
                   )}
                   <h3 className="font-heading font-bold text-lg sm:text-xl uppercase text-primary-foreground mb-1">{pkg.title}</h3>
