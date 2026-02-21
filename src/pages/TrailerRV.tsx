@@ -353,9 +353,11 @@ const TrailerRV = () => {
             <p className="text-primary-foreground/70 max-w-lg mx-auto mb-4 text-sm sm:text-base">
               Book your trailer or RV detail today. We come to you — wherever your rig is parked. Storage lots, driveways, campgrounds — we've done them all.
             </p>
-            <p className="text-primary-foreground/50 text-sm mb-8">
-              ✓ RV-safe products only &nbsp; ✓ Any size rig &nbsp; ✓ Satisfaction guaranteed
-            </p>
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-primary-foreground/50 text-sm mb-8">
+              <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-primary-foreground/70" /> RV-safe products only</span>
+              <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-primary-foreground/70" /> Any size rig</span>
+              <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-primary-foreground/70" /> Satisfaction guaranteed</span>
+            </div>
             <a
               href={BOOKING_URL}
               target="_blank"

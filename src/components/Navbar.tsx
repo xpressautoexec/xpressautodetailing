@@ -177,6 +177,13 @@ const Navbar = () => {
               )
             )}
             <a
+              href="tel:5875004523"
+              className="flex items-center gap-1.5 text-primary-foreground font-heading font-bold text-xs xl:text-sm uppercase tracking-wider hover:text-primary transition-colors whitespace-nowrap"
+            >
+              <Phone className="w-4 h-4" />
+              587-500-4523
+            </a>
+            <a
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -232,6 +239,13 @@ const Navbar = () => {
                   </Link>
                 )
               )}
+              <a
+                href="tel:5875004523"
+                className="flex items-center justify-center gap-2 text-primary-foreground font-heading font-bold text-sm uppercase tracking-wider py-2.5 hover:text-primary transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                587-500-4523
+              </a>
               <a
                 href={BOOKING_URL}
                 target="_blank"

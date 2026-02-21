@@ -13,7 +13,7 @@ import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import completeHero from "@/assets/complete-hero.jpg";
 import interiorImg from "@/assets/interior-detail.jpg";
-import { ArrowRight, TrendingUp, Clock, DollarSign, Sparkles, ShieldCheck, Heart } from "lucide-react";
+import { ArrowRight, TrendingUp, Clock, DollarSign, Sparkles, ShieldCheck, Heart, Check, Snowflake } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -107,7 +107,7 @@ const CompleteDetailing = () => (
         </ScrollReveal>
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0">
           <PackageCard
-            icon="✨"
+            icon={<Sparkles className="w-8 h-8" />}
             name="Showroom Reset"
             price="$209.99"
             tagline="Perfect for: Selling your car, impressing clients, or giving your ride a fresh start."
@@ -134,7 +134,7 @@ const CompleteDetailing = () => (
             time="Time: 2.5-3 hrs | Mobile anywhere in Calgary"
           />
           <PackageCard
-            icon="✨"
+            icon={<Sparkles className="w-8 h-8" />}
             name="Showroom Reset + Protection"
             price="$239.99"
             tagline="Perfect for: Long-lasting shine, winter prep, or top-tier presentation."
@@ -202,7 +202,7 @@ const CompleteDetailing = () => (
         <div className="grid md:grid-cols-2 gap-8 md:gap-10">
           <ScrollReveal delay={0.1}>
             <BeforeAfterCard
-              beforeIcon="💰"
+              beforeIcon={<DollarSign className="w-5 h-5" />}
               beforeTitle="Before Selling or Trading In"
               beforeText="Buyers judge with their eyes (and nose). A vehicle with visible stains, dull paint, and lingering odors signals neglect — and gives them leverage to negotiate you down by thousands."
               afterTitle="After: Sell for Top Dollar"
@@ -211,7 +211,7 @@ const CompleteDetailing = () => (
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <BeforeAfterCard
-              beforeIcon="❄️"
+              beforeIcon={<Snowflake className="w-5 h-5" />}
               beforeTitle="Post-Winter Recovery"
               beforeText="Five months of salt, sand, and slush have left your carpets stained, your paint dull, and your cabin smelling like wet boots. The winter damage is everywhere."
               afterTitle="After: Spring Ready"

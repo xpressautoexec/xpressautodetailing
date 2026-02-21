@@ -12,7 +12,7 @@ import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import exteriorHero from "@/assets/exterior-hero.jpg";
 import exteriorImg from "@/assets/exterior-detail.jpg";
-import { Snowflake, Sun, CloudRain, Droplets, ShieldCheck, Zap, ArrowRight, Check } from "lucide-react";
+import { Snowflake, Sun, CloudRain, Droplets, ShieldCheck, Zap, ArrowRight, Check, Shield } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -113,7 +113,7 @@ const ExteriorDetailing = () => (
         </ScrollReveal>
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0">
           <PackageCard
-            icon="💧"
+            icon={<Droplets className="w-8 h-8" />}
             name="Gloss Refresh"
             price="$79.99"
             tagline="Perfect for: Quick exterior touch-ups before a big event, seasonal change, or just to turn heads on the road."
@@ -132,7 +132,7 @@ const ExteriorDetailing = () => (
             surcharges={["Add $10 for small SUVs", "Add $20 for 3rd-row SUVs/Trucks/Minivans"]}
           />
           <PackageCard
-            icon="🛡️"
+            icon={<Shield className="w-8 h-8" />}
             name="Gloss Refresh + Armor"
             price="$99.99"
             tagline="Perfect for: Drivers who want a showroom finish that lasts, even through Calgary's harsh weather."
@@ -261,9 +261,11 @@ const ExteriorDetailing = () => (
             <p className="text-primary-foreground/80 leading-relaxed mb-4 text-sm sm:text-base">
               Don't let Calgary's elements ruin your finish. Book a professional exterior detail and keep your vehicle turning heads all year long.
             </p>
-            <p className="text-primary-foreground/60 text-sm mb-8">
-              ✓ Hand wash only &nbsp; ✓ Paint-safe products &nbsp; ✓ Mobile to your location
-            </p>
+             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-primary-foreground/60 text-sm mb-8">
+               <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" /> Hand wash only</span>
+               <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" /> Paint-safe products</span>
+               <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" /> Mobile to your location</span>
+             </div>
             <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-lg group">
               Schedule My Detail
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

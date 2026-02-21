@@ -7,13 +7,20 @@ import SEO from "@/components/SEO";
 import ScrollReveal from "@/components/ScrollReveal";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-import { GraduationCap, CalendarDays, Clock, Users, MapPin, ArrowLeft, Check } from "lucide-react";
+import { GraduationCap, CalendarDays, Clock, Users, MapPin, ArrowLeft, Check, Wrench, Search, Gem, Shield } from "lucide-react";
+
+const courseIcons: Record<string, React.ReactNode> = {
+  wrench: <Wrench className="w-6 h-6 text-primary" />,
+  search: <Search className="w-6 h-6 text-primary" />,
+  gem: <Gem className="w-6 h-6 text-primary" />,
+  shield: <Shield className="w-6 h-6 text-primary" />,
+};
 
 const COURSES = [
   {
     id: "detailing-fundamentals",
     name: "Detailing Fundamentals",
-    icon: "🧽",
+    icon: "wrench",
     price: "$349",
     duration: "2 days (16 hours)",
     dates: [
@@ -25,7 +32,7 @@ const COURSES = [
   {
     id: "paint-correction",
     name: "Paint Correction Mastery",
-    icon: "🔬",
+    icon: "search",
     price: "$549",
     duration: "3 days (24 hours)",
     dates: [
@@ -37,7 +44,7 @@ const COURSES = [
   {
     id: "ceramic-coating",
     name: "Ceramic Coating Certification",
-    icon: "💎",
+    icon: "gem",
     price: "$699",
     duration: "3 days (24 hours)",
     dates: [
@@ -49,7 +56,7 @@ const COURSES = [
   {
     id: "ppf-installation",
     name: "PPF Installation",
-    icon: "🛡️",
+    icon: "shield",
     price: "$899",
     duration: "5 days (40 hours)",
     dates: [
@@ -90,7 +97,7 @@ const TrainingSignup = () => {
     if (error) {
       toast({ title: "Something went wrong. Please try again.", variant: "destructive" });
     } else {
-      toast({ title: "🎉 You're signed up! We'll send confirmation details to your email shortly." });
+      toast({ title: "You're signed up! We'll send confirmation details to your email shortly." });
       setForm({ name: "", email: "", phone: "", experience: "" });
       setSelectedDate("");
     }
@@ -142,7 +149,7 @@ const TrainingSignup = () => {
                       >
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <span className="text-2xl">{c.icon}</span>
+                            <span>{courseIcons[c.icon] || c.icon}</span>
                             <div>
                               <p className="font-heading font-bold text-sm uppercase text-foreground">{c.name}</p>
                               <p className="text-xs text-muted-foreground">{c.duration}</p>
@@ -210,7 +217,7 @@ const TrainingSignup = () => {
                     {course && selectedDate && (
                       <div className="mb-6 p-4 rounded-xl bg-primary/5 border border-primary/20">
                         <p className="text-sm text-muted-foreground">Selected:</p>
-                        <p className="font-heading font-bold text-foreground">{course.icon} {course.name} — {course.price}</p>
+                        <p className="font-heading font-bold text-foreground">{course.name} — {course.price}</p>
                         <p className="text-sm text-primary font-semibold">{selectedDate}</p>
                       </div>
                     )}
