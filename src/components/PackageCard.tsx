@@ -1,4 +1,5 @@
 import { Check, Plus, ArrowRight } from "lucide-react";
+import { type ReactNode } from "react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -8,7 +9,7 @@ interface AddOn {
 }
 
 interface PackageCardProps {
-  icon: string;
+  icon: ReactNode;
   name: string;
   price: string;
   tagline: string;
@@ -57,7 +58,7 @@ const PackageCard = ({
     )}
 
     <div className="mb-5">
-      <p className="text-3xl mb-2">{icon}</p>
+      <p className="text-3xl mb-2 text-primary">{icon}</p>
       <h3 className="font-heading font-black text-xl md:text-2xl uppercase leading-tight">
         {name}
       </h3>

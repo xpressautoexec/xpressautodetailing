@@ -11,7 +11,7 @@ import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import fleetHero from "@/assets/fleet-kls-truck.jpg";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-import { Phone, Mail, Clock, TrendingUp, Shield, Users, Wrench } from "lucide-react";
+import { Phone, Mail, Clock, TrendingUp, Shield, Users, Wrench, Check } from "lucide-react";
 
 const fleetFAQs = [
   { q: "How many vehicles can you service at once?", a: "We can typically service 3–5 vehicles per visit depending on the package. For larger fleets, we'll create a rotation schedule that covers your entire fleet within a set timeframe." },
@@ -134,7 +134,7 @@ const CorporateFleet = () => {
               "Consistent quality from trained detailers",
             ].map((item, i) => (
               <div key={i} className="flex gap-3 items-start p-3 rounded-lg border border-border">
-                <span className="text-primary font-bold mt-0.5">✓</span>
+                <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                 <p className="text-muted-foreground text-sm leading-relaxed">{item}</p>
               </div>
             ))}

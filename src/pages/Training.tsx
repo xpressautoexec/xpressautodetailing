@@ -6,7 +6,7 @@ import PackageCard from "@/components/PackageCard";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO, { buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
-import { ArrowRight, GraduationCap, Shield, Wrench, Sparkles, Award, Users } from "lucide-react";
+import { ArrowRight, GraduationCap, Shield, Wrench, Sparkles, Award, Users, Gem, Search } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -111,7 +111,7 @@ const Training = () => (
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0 mb-10">
             <PackageCard
-              icon="🧽"
+              icon={<Wrench className="w-8 h-8" />}
               name="Detailing Fundamentals"
               price="$349"
               tagline="Perfect for: Beginners who want to learn proper detailing techniques from the ground up."
@@ -138,7 +138,7 @@ const Training = () => (
               guarantee=""
             />
             <PackageCard
-              icon="🔬"
+              icon={<Search className="w-8 h-8" />}
               name="Paint Correction Mastery"
               price="$549"
               tagline="Perfect for: Detailers ready to add high-value paint correction services to their offerings."
@@ -169,7 +169,7 @@ const Training = () => (
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0">
             <PackageCard
-              icon="💎"
+              icon={<Gem className="w-8 h-8" />}
               name="Ceramic Coating Certification"
               price="$699"
               tagline="Perfect for: Detailers who want to offer premium ceramic coating services with manufacturer backing."
@@ -196,7 +196,7 @@ const Training = () => (
               guarantee=""
             />
             <PackageCard
-              icon="🛡️"
+              icon={<Shield className="w-8 h-8" />}
               name="PPF Installation"
               price="$899"
               tagline="Perfect for: Detailers ready to master paint protection film and offer the highest-ticket service."

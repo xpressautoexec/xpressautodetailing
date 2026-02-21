@@ -13,7 +13,7 @@ import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import interiorHero from "@/assets/interior-hero.jpg";
 import interiorImg from "@/assets/interior-detail.jpg";
-import { ShieldCheck, Droplets, Wind, Bug, Sparkles, Clock, ArrowRight } from "lucide-react";
+import { ShieldCheck, Droplets, Wind, Bug, Sparkles, Clock, ArrowRight, Car, PawPrint, Shield } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -110,7 +110,7 @@ const InteriorDetailing = () => (
         </ScrollReveal>
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0">
           <PackageCard
-            icon="🧼"
+            icon={<Sparkles className="w-8 h-8" />}
             name="Fresh Start Interior"
             price="$159.99"
             tagline="A quick professional refresh that makes your cabin feel spotless. Perfect for maintenance or light cleanup."
@@ -131,7 +131,7 @@ const InteriorDetailing = () => (
             time="Time: 1.5-2 hrs | Mobile anywhere in Calgary"
           />
           <PackageCard
-            icon="🛡️"
+            icon={<Shield className="w-8 h-8" />}
             name="Deep Clean + Shield"
             price="$189.99"
             tagline="A full interior transformation — stains, salt, and odors gone. Perfect for winter cleanup or cars needing a real reset."
@@ -193,7 +193,7 @@ const InteriorDetailing = () => (
         <div className="grid md:grid-cols-2 gap-8 md:gap-10 mb-16">
           <ScrollReveal delay={0.1}>
             <BeforeAfterCard
-              beforeIcon="🚗"
+              beforeIcon={<Car className="w-5 h-5" />}
               beforeTitle="Before: The Daily Driver"
               beforeText="Crumbs wedged into every crevice. Cup holders sticky from forgotten drinks. Seats stained from kids, pets, and life. The dashboard coated in dust, and the carpets haven't been shampooed since you bought the car. You stopped noticing the smell — but your passengers haven't."
               afterTitle="After: The Showroom Reset"
@@ -202,7 +202,7 @@ const InteriorDetailing = () => (
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <BeforeAfterCard
-              beforeIcon="🐕"
+              beforeIcon={<PawPrint className="w-5 h-5" />}
               beforeTitle="Before: The Pet Owner's Ride"
               beforeText="Fur embedded in every seat fiber. Scratches on the door panels. That unmistakable wet-dog smell that no air freshener can mask. Mud tracks on the carpets from park trips, and drool marks on the windows."
               afterTitle="After: Fur-Free & Fresh"

@@ -11,7 +11,7 @@ import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import ceramicHero from "@/assets/ceramic-hero.jpg";
 import paintImg from "@/assets/paint-correction.jpg";
-import { ArrowRight, Droplets, Shield, Sun, Sparkles, Clock, DollarSign, Check } from "lucide-react";
+import { ArrowRight, Droplets, Shield, Sun, Sparkles, Clock, DollarSign, Check, Gem } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -117,7 +117,7 @@ const PaintCeramics = () => (
         </ScrollReveal>
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0">
           <PackageCard
-            icon="✨"
+            icon={<Sparkles className="w-8 h-8" />}
             name="1-Step Enhancement + 1 Yr Ceramic Spray"
             price="$399.99"
             tagline="Perfect for: Daily drivers, lightly swirled paint, vehicles needing gloss restoration without a full correction."
@@ -136,7 +136,7 @@ const PaintCeramics = () => (
             surcharges={["SUV: $449.99", "Truck: $499.99"]}
           />
           <PackageCard
-            icon="💎"
+            icon={<Gem className="w-8 h-8" />}
             name="2-Step Correction + 5 Yr Ceramic Coating"
             price="$599.99"
             tagline="Perfect for: Enthusiasts, new vehicles, neglected paint, or anyone wanting long-term gloss protection and easy maintenance."

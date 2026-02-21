@@ -6,7 +6,7 @@ import TrustStats from "@/components/TrustStats";
 import SEO, { buildServiceJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import galleryHero from "@/assets/gallery-hero.jpg";
-import { Sparkles, Dog, Lightbulb, Wind, Car, Shield, Droplets, Wrench, ArrowRight } from "lucide-react";
+import { Sparkles, Dog, Lightbulb, Wind, Car, Shield, Droplets, Wrench, ArrowRight, Check } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -214,10 +214,11 @@ const AddOns = () => (
               Book any detailing package and add these upgrades during checkout
               — or mention them to your detailer on the day of service.
             </p>
-            <p className="text-primary-foreground/50 text-sm mb-8">
-              ✓ Available with any package &nbsp; ✓ No hidden fees &nbsp; ✓
-              14-day guarantee
-            </p>
+             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-primary-foreground/50 text-sm mb-8">
+               <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" /> Available with any package</span>
+               <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" /> No hidden fees</span>
+               <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" /> 14-day guarantee</span>
+             </div>
             <a
               href={BOOKING_URL}
               target="_blank"
