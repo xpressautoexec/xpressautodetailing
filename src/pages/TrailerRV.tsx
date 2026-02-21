@@ -29,47 +29,74 @@ const rvTestimonials = [
 
 const packages = [
   {
-    title: "Exterior Wash & Protect",
-    price: "From $199",
+    title: "Exterior Wash",
+    price: "$9/ft",
     features: [
       "Full exterior hand wash & rinse",
       "Black streak removal",
       "Wheel & tire cleaning",
       "Awning cleaning",
-      "UV protectant applied to all surfaces",
       "Window cleaning (exterior)",
     ],
   },
   {
-    title: "Full Interior + Exterior",
-    price: "From $399",
+    title: "Wash & Seal",
+    price: "$18/ft",
+    features: [
+      "Everything in Exterior Wash",
+      "Ceramic sealant application (wax alternative)",
+      "UV protectant on all surfaces",
+      "Long-lasting hydrophobic protection",
+    ],
+  },
+  {
+    title: "Paint Correction (Cut & Polish)",
+    price: "$29/ft",
     popular: true,
     features: [
-      "Everything in Exterior Wash & Protect",
+      "Includes full exterior wash",
+      "Oxidation removal",
+      "Cut & polish to restore finish",
+      "Gelcoat/fiberglass correction",
+      "Removes chalking & fading",
+    ],
+  },
+  {
+    title: "Ceramic Sealant",
+    price: "$12/ft",
+    features: [
+      "Professional ceramic sealant application",
+      "Superior wax alternative",
+      "UV & oxidation defense",
+      "Hydrophobic surface protection",
+      "Enhanced gloss & shine",
+    ],
+  },
+  {
+    title: "Correction + Sealant",
+    price: "$37/ft",
+    features: [
+      "Full paint correction (cut & polish)",
+      "Oxidation removal & restoration",
+      "Ceramic sealant application",
+      "Complete exterior wash included",
+      "Ultimate protection & shine",
+    ],
+  },
+  {
+    title: "Interior Detail",
+    price: "$100/hr",
+    features: [
+      "Typically 1 hour per 10ft of RV",
       "Full interior vacuum & wipe-down",
       "Kitchen & bathroom deep clean",
       "Upholstery & carpet shampooing",
       "Dashboard & console conditioning",
       "Odor elimination treatment",
-      "Window cleaning (interior & exterior)",
-    ],
-  },
-  {
-    title: "Ultimate RV Restoration",
-    price: "From $699",
-    features: [
-      "Everything in Full Interior + Exterior",
-      "Oxidation removal & polish",
-      "Paint correction for gelcoat/fiberglass",
-      "Ceramic sealant application",
-      "Roof cleaning & treatment",
-      "Engine/generator bay cleaning",
-      "Rubber seal conditioning",
-      "Full interior leather/vinyl conditioning",
+      "Window cleaning (interior)",
     ],
   },
 ];
-
 const TrailerRV = () => {
   return (
     <PageTransition><div className="min-h-screen">
@@ -194,7 +221,7 @@ const TrailerRV = () => {
               Prices vary based on RV size and condition. Contact us for a custom quote tailored to your rig.
             </p>
           </ScrollReveal>
-          <StaggerContainer className="grid md:grid-cols-3 gap-6 sm:gap-8" staggerDelay={0.1}>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" staggerDelay={0.1}>
             {packages.map((pkg) => (
               <StaggerItem key={pkg.title}>
                 <div className={`rounded-xl p-6 h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${pkg.popular ? "border-2 border-primary bg-brand-dark-surface ring-1 ring-primary/20" : "border border-brand-dark-surface bg-brand-dark-surface/50 hover:border-primary/30"}`}>
