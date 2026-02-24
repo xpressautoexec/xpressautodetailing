@@ -120,7 +120,7 @@ const DesktopDropdown = ({ item }: { item: DesktopNavItem }) => {
   return (
     <div className="relative" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
       <button
-        className="flex items-center gap-1 text-brand-gray hover:text-primary-foreground transition-colors font-heading text-xs xl:text-sm font-semibold uppercase tracking-wider whitespace-nowrap"
+        className="flex items-center gap-1 text-brand-gray hover:text-primary-foreground transition-colors font-heading text-[11px] xl:text-xs font-semibold uppercase tracking-wider whitespace-nowrap"
       >
         {item.label}
         <ChevronDown className={`w-3.5 h-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
@@ -162,7 +162,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-6 xl:gap-7">
+          <div className="hidden lg:flex items-center gap-4 xl:gap-5">
             {desktopLinks.map((item) =>
               item.children ? (
                 <DesktopDropdown key={item.label} item={item} />
@@ -170,24 +170,25 @@ const Navbar = () => {
                 <Link
                   key={item.label}
                   to={item.href!}
-                  className="text-brand-gray hover:text-primary-foreground transition-colors font-heading text-xs xl:text-sm font-semibold uppercase tracking-wider whitespace-nowrap"
+                  className="text-brand-gray hover:text-primary-foreground transition-colors font-heading text-[11px] xl:text-xs font-semibold uppercase tracking-wider whitespace-nowrap"
                 >
                   {item.label}
                 </Link>
               )
             )}
+            <div className="w-px h-5 bg-brand-dark-surface" />
             <a
               href="tel:5875004523"
-              className="flex items-center gap-1.5 text-primary-foreground font-heading font-bold text-xs xl:text-sm uppercase tracking-wider hover:text-primary transition-colors whitespace-nowrap"
+              className="flex items-center gap-1.5 text-primary-foreground font-heading font-bold text-[11px] xl:text-xs uppercase tracking-wider hover:text-primary transition-colors whitespace-nowrap"
             >
-              <Phone className="w-4 h-4" />
+              <Phone className="w-3.5 h-3.5" />
               587-500-4523
             </a>
             <a
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary text-primary-foreground font-heading font-bold text-xs xl:text-sm uppercase tracking-wider px-5 py-2.5 rounded hover:bg-brand-blue-deep transition-colors whitespace-nowrap"
+              className="bg-primary text-primary-foreground font-heading font-bold text-[11px] xl:text-xs uppercase tracking-wider px-4 py-2 rounded hover:bg-brand-blue-deep transition-colors whitespace-nowrap"
             >
               Book Now
             </a>
