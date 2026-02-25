@@ -33,49 +33,41 @@ const testimonials = [
 
 const packages = [
   {
-    title: "Ride Ready Wash",
-    price: "$59",
+    title: "Full Bike Wash",
+    price: "$129",
     features: [
-      "Full exterior hand wash & rinse",
-      "Wheel & spoke cleaning",
-      "Tire dressing",
+      "Complete exterior hand wash & rinse",
+      "Wheel, spoke & brake caliper cleaning",
+      "Tire dressing & shine",
       "Chain area degreasing",
+      "Bug & tar removal",
+      "Engine bay wipe-down",
+      "Chrome & metal polish",
       "Streak-free windscreen cleaning",
-      "Final dry & inspection",
+      "Final dry & full inspection",
     ],
   },
   {
-    title: "Ride Ready + Armor",
-    price: "$99",
+    title: "Full Wash + Armor",
+    price: "$159",
     popular: true,
     features: [
-      "Everything in Ride Ready PLUS:",
-      "Bug & tar removal",
+      "Everything in Full Bike Wash PLUS:",
       "Clay bar decontamination",
       "Paint sealant / wax protection",
-      "Chrome & metal polish",
-      "Exhaust tip cleaning & polish",
-      "UV protectant on plastics",
-    ],
-  },
-  {
-    title: "Full Motorcycle Detail",
-    price: "$149",
-    badge: "Best Value",
-    features: [
-      "Everything in Ride Ready + Armor PLUS:",
-      "Engine bay degreasing & dressing",
-      "Swingarm & sprocket deep clean",
+      "Exhaust tip deep polish",
+      "UV protectant on all plastics",
       "Leather seat conditioning",
-      "Detailed brush work on all crevices",
-      "Final coating of spray sealant",
+      "Swingarm & sprocket deep clean",
+      "Spray sealant final coat",
     ],
   },
   {
-    title: "Ceramic Coating",
-    price: "From $249",
+    title: "Full Wash + Ceramic",
+    price: "$379",
+    badge: "Ultimate Protection",
     features: [
-      "Full wash & decontamination",
+      "Everything in Full Wash + Armor PLUS:",
       "Paint correction (light polish)",
       "Professional ceramic coating application",
       "Hydrophobic finish on all surfaces",
@@ -222,7 +214,7 @@ const MotorcycleDetailing = () => {
               Every package includes a full hand wash with motorcycle-safe techniques. No shortcuts, no upsell pressure.
             </p>
           </ScrollReveal>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5" staggerDelay={0.08}>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto" staggerDelay={0.08}>
             {packages.map((pkg) => (
               <StaggerItem key={pkg.title}>
                 <div className={`group relative rounded-2xl p-6 h-full flex flex-col transition-all duration-500 hover:-translate-y-2 ${
