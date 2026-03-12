@@ -11,12 +11,20 @@ import gallery3 from "@/assets/gallery-3.jpg";
 import gallery4 from "@/assets/gallery-4.jpg";
 import gallery5 from "@/assets/gallery-5.jpg";
 import gallery6 from "@/assets/gallery-6.jpg";
+import gallery7 from "@/assets/gallery-7.jpg";
+import gallery8 from "@/assets/gallery-8.jpg";
+import gallery9 from "@/assets/gallery-9.jpg";
+import gallery10 from "@/assets/gallery-10.jpg";
+import gallery11 from "@/assets/gallery-11.jpg";
+import gallery12 from "@/assets/gallery-12.jpg";
+import gallery13 from "@/assets/gallery-13.jpg";
+import gallery14 from "@/assets/gallery-14.jpg";
+import gallery15 from "@/assets/gallery-15.jpg";
+import gallery16 from "@/assets/gallery-16.jpg";
 import interiorImg from "@/assets/interior-detail.jpg";
 import exteriorImg from "@/assets/exterior-detail.jpg";
 import paintImg from "@/assets/paint-correction.jpg";
 import { Star } from "lucide-react";
-
-const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const images = [
   { src: gallery1, alt: "Glossy black BMW sedan after professional detailing", category: "Exterior" },
@@ -25,6 +33,16 @@ const images = [
   { src: gallery4, alt: "Car wheel and tire cleaned and dressed to perfection", category: "Wheels" },
   { src: gallery5, alt: "Professional foam wash being applied to vehicle exterior", category: "Exterior" },
   { src: gallery6, alt: "Clean white sedan showcasing professional exterior detail", category: "Exterior" },
+  { src: gallery7, alt: "DIRTT Construction Systems fleet van after professional wash", category: "Fleet" },
+  { src: gallery8, alt: "Vehicle detailing result showcasing professional finish", category: "Exterior" },
+  { src: gallery9, alt: "Freshly detailed vehicle with clean finish", category: "Exterior" },
+  { src: gallery10, alt: "Professional detailing result on client vehicle", category: "Exterior" },
+  { src: gallery11, alt: "Detailed vehicle showcasing quality workmanship", category: "Exterior" },
+  { src: gallery12, alt: "Vehicle after professional exterior detail service", category: "Exterior" },
+  { src: gallery13, alt: "Clean and polished vehicle after full detail", category: "Exterior" },
+  { src: gallery14, alt: "Professional detailing results on client car", category: "Exterior" },
+  { src: gallery15, alt: "Vehicle showcasing professional detailing quality", category: "Exterior" },
+  { src: gallery16, alt: "Pristine Audi interior after deep cleaning and conditioning", category: "Interior" },
   { src: interiorImg, alt: "Pristine car interior after deep cleaning and conditioning", category: "Interior" },
   { src: exteriorImg, alt: "Shiny red car parked after full exterior detailing service", category: "Exterior" },
   { src: paintImg, alt: "Luxury vehicle with corrected paint showing deep gloss finish", category: "Paint Correction" },
@@ -102,8 +120,8 @@ const Gallery = () => (
         <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8">
           Every vehicle in our gallery started just like yours. Book your detail today and your car could be our next showcase.
         </p>
-        <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
-          Book Your Detail Now
+        <a href="tel:5875004523" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
+          Call Now
         </a>
       </div>
     </section>
