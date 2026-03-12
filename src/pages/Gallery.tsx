@@ -38,6 +38,12 @@ import gallery30 from "@/assets/gallery-30.jpg";
 import gallery31 from "@/assets/gallery-31.jpg";
 import gallery32 from "@/assets/gallery-32.jpg";
 import gallery33 from "@/assets/gallery-33.jpg";
+import gallery34 from "@/assets/gallery-34.jpg";
+import gallery35 from "@/assets/gallery-35.jpg";
+import gallery36 from "@/assets/gallery-36.jpg";
+import gallery37 from "@/assets/gallery-37.jpg";
+import gallery38 from "@/assets/gallery-38.jpg";
+import gallery39 from "@/assets/gallery-39.jpg";
 import interiorImg from "@/assets/interior-detail.jpg";
 import exteriorImg from "@/assets/exterior-detail.jpg";
 import paintImg from "@/assets/paint-correction.jpg";
@@ -77,6 +83,12 @@ const images = [
   { src: gallery31, alt: "Vehicle after professional detail service", category: "Exterior" },
   { src: gallery32, alt: "Freshly detailed vehicle showcasing quality", category: "Exterior" },
   { src: gallery33, alt: "Professional detailing result on vehicle", category: "Exterior" },
+  { src: gallery34, alt: "Vehicle detail showcasing professional finish", category: "Exterior" },
+  { src: gallery35, alt: "Freshly detailed vehicle exterior", category: "Exterior" },
+  { src: gallery36, alt: "Professional vehicle detailing result", category: "Exterior" },
+  { src: gallery37, alt: "Clean vehicle after full detail service", category: "Exterior" },
+  { src: gallery38, alt: "Vehicle showcasing expert detailing work", category: "Exterior" },
+  { src: gallery39, alt: "Professional detailing quality on display", category: "Exterior" },
   { src: interiorImg, alt: "Pristine car interior after deep cleaning and conditioning", category: "Interior" },
   { src: exteriorImg, alt: "Shiny red car parked after full exterior detailing service", category: "Exterior" },
   { src: paintImg, alt: "Luxury vehicle with corrected paint showing deep gloss finish", category: "Paint Correction" },
