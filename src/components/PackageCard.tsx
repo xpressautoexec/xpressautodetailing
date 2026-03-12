@@ -136,6 +136,7 @@ const PackageCard = ({
           : "bg-primary text-primary-foreground hover:bg-brand-blue-deep hover:shadow-lg hover:shadow-primary/20"
       }`}
     >
+      <Phone className="w-4 h-4" />
       {ctaText}
       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
     </a>

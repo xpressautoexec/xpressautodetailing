@@ -77,13 +77,12 @@ const CeramicPromoPopup = () => {
 
               <div className="block">
                 <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Book your ceramic coating now"
+                  href="tel:5875004523"
+                  aria-label="Call now to reserve your ceramic coating spot"
                   className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-brand-blue-deep transition-all duration-300 hover:gap-3 shadow-lg shadow-primary/30 mb-3"
                 >
-                  Reserve My Coating Spot
+                  <Phone className="w-4 h-4" />
+                  Call Now
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
