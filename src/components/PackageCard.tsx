@@ -39,9 +39,9 @@ const PackageCard = ({
   surcharges,
   time,
   isPrimary = false,
-  ctaText = "Schedule My Detail",
-  ctaLink = BOOKING_URL,
-  ctaExternal = true,
+  ctaText = "Call Now",
+  ctaLink = "tel:5875004523",
+  ctaExternal = false,
 }: PackageCardProps) => (
   <div
     className={`relative rounded-2xl p-6 sm:p-8 h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
