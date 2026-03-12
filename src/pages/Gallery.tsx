@@ -128,6 +128,23 @@ const Gallery = () => (
             </div>
           ))}
         </div>
+
+        {/* Video Section */}
+        <h3 className="font-heading font-black text-xl md:text-2xl uppercase text-foreground text-center mt-16 mb-8">
+          Videos
+        </h3>
+        <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="rounded-xl overflow-hidden shadow-lg border border-border">
+            <video className="w-full aspect-video object-cover" controls muted playsInline preload="metadata">
+              <source src="/videos/rv-video-1.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div className="rounded-xl overflow-hidden shadow-lg border border-border">
+            <video className="w-full aspect-video object-cover" controls muted playsInline preload="metadata">
+              <source src="/videos/rv-video-2.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
       </div>
     </section>
 
