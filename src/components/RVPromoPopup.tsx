@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { X, Sun, ArrowRight, CalendarDays } from "lucide-react";
+import { X, Sun, ArrowRight, CalendarDays, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
@@ -72,18 +72,17 @@ const RVPromoPopup = () => {
 
               <div className="flex items-center justify-center gap-2 text-primary-foreground/50 text-xs mb-5">
                 <CalendarDays className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Pre-season slots are <strong className="text-emerald-400">limited</strong> — book early</span>
+                <span>Pre-season slots are <strong className="text-emerald-400">limited</strong> — call early</span>
               </div>
 
               <div className="block">
                 <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Book your RV detail now"
+                  href="tel:5875004523"
+                  aria-label="Call now to book your RV detail"
                   className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-brand-blue-deep transition-all duration-300 hover:gap-3 shadow-lg shadow-primary/30 mb-3"
                 >
-                  Book My RV Detail
+                  <Phone className="w-4 h-4" />
+                  Call Now
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>

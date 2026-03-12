@@ -1,4 +1,4 @@
-import { Check, Plus, ArrowRight } from "lucide-react";
+import { Check, Plus, ArrowRight, Phone } from "lucide-react";
 import { type ReactNode } from "react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
@@ -39,9 +39,9 @@ const PackageCard = ({
   surcharges,
   time,
   isPrimary = false,
-  ctaText = "Schedule My Detail",
-  ctaLink = BOOKING_URL,
-  ctaExternal = true,
+  ctaText = "Call Now",
+  ctaLink = "tel:5875004523",
+  ctaExternal = false,
 }: PackageCardProps) => (
   <div
     className={`relative rounded-2xl p-6 sm:p-8 h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
@@ -136,6 +136,7 @@ const PackageCard = ({
           : "bg-primary text-primary-foreground hover:bg-brand-blue-deep hover:shadow-lg hover:shadow-primary/20"
       }`}
     >
+      <Phone className="w-4 h-4" />
       {ctaText}
       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
     </a>
