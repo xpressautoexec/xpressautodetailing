@@ -395,33 +395,6 @@ const TrailerRV = () => {
         </div>
       </section>
 
-      {/* Video Showcase */}
-      <section className="py-16 sm:py-20 bg-muted/30">
-        <div className="container max-w-5xl px-4 sm:px-6">
-          <ScrollReveal>
-            <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs text-center mb-3">See It In Action</p>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-10">
-              RV Detailing <span className="text-primary">In Motion</span>
-            </h2>
-          </ScrollReveal>
-          <div className="grid sm:grid-cols-2 gap-6">
-            <ScrollReveal delay={0.1}>
-              <div className="rounded-2xl overflow-hidden shadow-lg border border-border">
-                <video className="w-full aspect-video object-cover" controls muted playsInline preload="metadata">
-                  <source src="/videos/rv-video-1.mp4" type="video/mp4" />
-                </video>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={0.2}>
-              <div className="rounded-2xl overflow-hidden shadow-lg border border-border">
-                <video className="w-full aspect-video object-cover" controls muted playsInline preload="metadata">
-                  <source src="/videos/rv-video-2.mp4" type="video/mp4" />
-                </video>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
 
       <TestimonialBlock testimonials={rvTestimonials} />
       <ServiceFAQ title="Trailer & RV Detailing FAQs" faqs={rvFAQs} />
