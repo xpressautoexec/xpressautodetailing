@@ -21,6 +21,15 @@ import gallery13 from "@/assets/gallery-13.jpg";
 import gallery14 from "@/assets/gallery-14.jpg";
 import gallery15 from "@/assets/gallery-15.jpg";
 import gallery16 from "@/assets/gallery-16.jpg";
+import gallery17 from "@/assets/gallery-17.jpg";
+import gallery18 from "@/assets/gallery-18.jpg";
+import gallery19 from "@/assets/gallery-19.jpg";
+import gallery20 from "@/assets/gallery-20.jpg";
+import gallery21 from "@/assets/gallery-21.jpg";
+import gallery22 from "@/assets/gallery-22.jpg";
+import gallery23 from "@/assets/gallery-23.jpg";
+import gallery24 from "@/assets/gallery-24.jpg";
+import gallery25 from "@/assets/gallery-25.jpg";
 import interiorImg from "@/assets/interior-detail.jpg";
 import exteriorImg from "@/assets/exterior-detail.jpg";
 import paintImg from "@/assets/paint-correction.jpg";
@@ -43,6 +52,15 @@ const images = [
   { src: gallery14, alt: "Professional detailing results on client car", category: "Exterior" },
   { src: gallery15, alt: "Vehicle showcasing professional detailing quality", category: "Exterior" },
   { src: gallery16, alt: "Pristine Audi interior after deep cleaning and conditioning", category: "Interior" },
+  { src: gallery17, alt: "Professional detailing work on client vehicle", category: "Exterior" },
+  { src: gallery18, alt: "Freshly detailed vehicle with mirror finish", category: "Exterior" },
+  { src: gallery19, alt: "Vehicle after professional wash and detail", category: "Exterior" },
+  { src: gallery20, alt: "Silver Audi RS5 after full exterior detail", category: "Exterior" },
+  { src: gallery21, alt: "Black Tesla Model S with mirror-like paint finish", category: "Exterior" },
+  { src: gallery22, alt: "Black Audi S5 freshly detailed in driveway", category: "Exterior" },
+  { src: gallery23, alt: "KLS fleet Ford F-150 detailed in shop", category: "Fleet" },
+  { src: gallery24, alt: "Professional vehicle detailing result", category: "Exterior" },
+  { src: gallery25, alt: "Vehicle showcasing expert detailing quality", category: "Exterior" },
   { src: interiorImg, alt: "Pristine car interior after deep cleaning and conditioning", category: "Interior" },
   { src: exteriorImg, alt: "Shiny red car parked after full exterior detailing service", category: "Exterior" },
   { src: paintImg, alt: "Luxury vehicle with corrected paint showing deep gloss finish", category: "Paint Correction" },
