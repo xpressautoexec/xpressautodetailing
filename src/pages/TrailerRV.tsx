@@ -11,7 +11,7 @@ import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/Scroll
 import rvHero from "@/assets/rv-hero.jpg";
 import { Droplets, Shield, Sparkles, Truck, Clock, CheckCircle, Sun, Snowflake, Wrench, ArrowRight, Phone, MapPin, Zap, Award, CarFront, Container, Caravan } from "lucide-react";
 
-const BOOKING_URL = "https://xpressauto.fieldd.co/";
+
 
 const rvFAQs = [
   { q: "How long does RV or trailer detailing take?", a: "Depending on size and condition, an exterior wash takes 2–3 hours. A full interior + exterior detail on a large RV can take 5–8 hours. We'll give you a time estimate before we start." },
@@ -413,7 +413,7 @@ const TrailerRV = () => {
               Ready to Get Your RV<br className="hidden sm:block" /> Road-Ready?
             </h2>
             <p className="text-primary-foreground/70 max-w-lg mx-auto mb-6 text-base sm:text-lg">
-              Book your trailer or RV detail today. Storage lots, driveways, campgrounds — we've done them all.
+              Call today to schedule your trailer or RV detail. Storage lots, driveways, campgrounds — we've done them all.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-primary-foreground/60 text-sm mb-10">
               <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary-foreground/80" /> RV-safe products only</span>

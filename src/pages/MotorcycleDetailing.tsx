@@ -14,7 +14,7 @@ import {
   Wrench, Sun, Gauge, Eye, Bike, CircleDot, Flame, Wind, MapPin, Award,
 } from "lucide-react";
 
-const BOOKING_URL = "https://xpressauto.fieldd.co/";
+
 
 const faqs = [
   { q: "How long does a motorcycle detail take?", a: "A basic wash and protect takes about 1–1.5 hours. A full detail with engine cleaning and ceramic coating takes 2–4 hours depending on the bike's size and condition." },
@@ -359,7 +359,7 @@ const MotorcycleDetailing = () => {
                   Ready to Ride<br className="hidden sm:block" /> a Clean Machine?
                 </h2>
                 <p className="text-primary-foreground/70 max-w-md mb-6 text-base sm:text-lg">
-                  Book your motorcycle detail today. We come to you — wherever your bike is parked.
+                  Call today to schedule your motorcycle detail. We come to you — wherever your bike is parked.
                 </p>
                 <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-primary-foreground/60 text-sm mb-10 justify-center md:justify-start">
                   <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary-foreground/80" /> Bike-safe methods</span>
