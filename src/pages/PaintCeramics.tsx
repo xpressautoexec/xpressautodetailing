@@ -11,7 +11,7 @@ import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import ceramicHero from "@/assets/ceramic-hero.jpg";
 import paintImg from "@/assets/paint-correction.jpg";
-import { ArrowRight, Droplets, Shield, Sun, Sparkles, Clock, DollarSign, Check, Gem } from "lucide-react";
+import { ArrowRight, Droplets, Shield, Sun, Sparkles, Clock, DollarSign, Check, Gem, Phone } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
