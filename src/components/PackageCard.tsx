@@ -1,4 +1,4 @@
-import { Check, Plus, ArrowRight } from "lucide-react";
+import { Check, Plus, ArrowRight, Phone } from "lucide-react";
 import { type ReactNode } from "react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
