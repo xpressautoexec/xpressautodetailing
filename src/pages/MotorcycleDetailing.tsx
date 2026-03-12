@@ -14,7 +14,7 @@ import {
   Wrench, Sun, Gauge, Eye, Bike, CircleDot, Flame, Wind, MapPin, Award,
 } from "lucide-react";
 
-const BOOKING_URL = "https://xpressauto.fieldd.co/";
+
 
 const faqs = [
   { q: "How long does a motorcycle detail take?", a: "A basic wash and protect takes about 1–1.5 hours. A full detail with engine cleaning and ceramic coating takes 2–4 hours depending on the bike's size and condition." },
