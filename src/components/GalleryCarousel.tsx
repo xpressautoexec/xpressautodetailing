@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -21,15 +21,12 @@ const GalleryCarousel = () => {
     setSelectedIndex(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
 
-  // Attach onSelect after init
-  if (emblaApi && !emblaApi.internalEngine()?.eventHandler) {
+  useEffect(() => {
+    if (!emblaApi) return;
     emblaApi.on("select", onSelect);
-  }
-
-  // Re-attach listener
-  useState(() => {
-    if (emblaApi) emblaApi.on("select", onSelect);
-  });
+    onSelect();
+    return () => { emblaApi.off("select", onSelect); };
+  }, [emblaApi, onSelect]);
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
@@ -70,7 +67,6 @@ const GalleryCarousel = () => {
             </div>
           </div>
 
-          {/* Navigation buttons */}
           <button
             onClick={scrollPrev}
             className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-background/90 backdrop-blur-sm border border-border shadow-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 z-10"
@@ -86,7 +82,6 @@ const GalleryCarousel = () => {
             <ChevronRight className="w-5 h-5" />
           </button>
 
-          {/* Dots */}
           <div className="flex items-center justify-center gap-2 mt-6">
             {images.map((_, i) => (
               <button
