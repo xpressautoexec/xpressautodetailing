@@ -11,7 +11,7 @@ import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/Scroll
 import rvHero from "@/assets/rv-hero.jpg";
 import { Droplets, Shield, Sparkles, Truck, Clock, CheckCircle, Sun, Snowflake, Wrench, ArrowRight, Phone, MapPin, Zap, Award, CarFront, Container, Caravan } from "lucide-react";
 
-const BOOKING_URL = "https://xpressauto.fieldd.co/";
+
 
 const rvFAQs = [
   { q: "How long does RV or trailer detailing take?", a: "Depending on size and condition, an exterior wash takes 2–3 hours. A full interior + exterior detail on a large RV can take 5–8 hours. We'll give you a time estimate before we start." },
