@@ -1,7 +1,7 @@
 import PageTransition from "@/components/PageTransition";
 import SeasonalPromoPopup from "@/components/SeasonalPromoPopup";
 import Navbar from "@/components/Navbar";
-import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import GalleryCarousel from "@/components/GalleryCarousel";
 import BeforeAfterCard from "@/components/BeforeAfterCard";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
@@ -222,7 +222,7 @@ const CompleteDetailing = () => (
       </div>
     </section>
 
-    <BeforeAfterSlider />
+    <GalleryCarousel />
     <TestimonialBlock testimonials={completeTestimonials} />
     <ServiceFAQ title="Complete Detailing FAQs" faqs={completeFAQs} />
 

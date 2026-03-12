@@ -1,7 +1,7 @@
 import PageTransition from "@/components/PageTransition";
 import InteriorPromoPopup from "@/components/InteriorPromoPopup";
 import Navbar from "@/components/Navbar";
-import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import GalleryCarousel from "@/components/GalleryCarousel";
 import BeforeAfterCard from "@/components/BeforeAfterCard";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
@@ -213,7 +213,7 @@ const InteriorDetailing = () => (
       </div>
     </section>
 
-    <BeforeAfterSlider />
+    <GalleryCarousel />
 
     {/* Who It's For */}
     <section className="py-16 sm:py-20 bg-muted/30">
