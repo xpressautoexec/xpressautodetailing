@@ -68,7 +68,7 @@ const CorporateFleet = () => {
         ]}
       />
       <Navbar />
-      <ServicePageHero title="Dealership, Fleet & Company Detailing in Calgary and Surrounding Areas" image={fleetHero} />
+      <ServicePageHero title="Dealership, Fleet & Company Detailing in Calgary and Surrounding Areas" image={fleetHero} ctaType="call" />
       <TrustStats />
 
       {/* Intro */}
