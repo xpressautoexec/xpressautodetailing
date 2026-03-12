@@ -30,6 +30,14 @@ import gallery22 from "@/assets/gallery-22.jpg";
 import gallery23 from "@/assets/gallery-23.jpg";
 import gallery24 from "@/assets/gallery-24.jpg";
 import gallery25 from "@/assets/gallery-25.jpg";
+import gallery26 from "@/assets/gallery-26.jpg";
+import gallery27 from "@/assets/gallery-27.jpg";
+import gallery28 from "@/assets/gallery-28.jpg";
+import gallery29 from "@/assets/gallery-29.jpg";
+import gallery30 from "@/assets/gallery-30.jpg";
+import gallery31 from "@/assets/gallery-31.jpg";
+import gallery32 from "@/assets/gallery-32.jpg";
+import gallery33 from "@/assets/gallery-33.jpg";
 import interiorImg from "@/assets/interior-detail.jpg";
 import exteriorImg from "@/assets/exterior-detail.jpg";
 import paintImg from "@/assets/paint-correction.jpg";
@@ -61,6 +69,14 @@ const images = [
   { src: gallery23, alt: "KLS fleet Ford F-150 detailed in shop", category: "Fleet" },
   { src: gallery24, alt: "Professional vehicle detailing result", category: "Exterior" },
   { src: gallery25, alt: "Vehicle showcasing expert detailing quality", category: "Exterior" },
+  { src: gallery26, alt: "Blue BMW M340i with deep gloss under studio lighting", category: "Ceramic" },
+  { src: gallery27, alt: "BMW interior with protective steering wheel cover after detail", category: "Interior" },
+  { src: gallery28, alt: "Blue BMW M340i rear view with glowing taillights", category: "Exterior" },
+  { src: gallery29, alt: "Silver Audi RS5 freshly detailed in driveway", category: "Exterior" },
+  { src: gallery30, alt: "Professional detailing work on client vehicle", category: "Exterior" },
+  { src: gallery31, alt: "Vehicle after professional detail service", category: "Exterior" },
+  { src: gallery32, alt: "Freshly detailed vehicle showcasing quality", category: "Exterior" },
+  { src: gallery33, alt: "Professional detailing result on vehicle", category: "Exterior" },
   { src: interiorImg, alt: "Pristine car interior after deep cleaning and conditioning", category: "Interior" },
   { src: exteriorImg, alt: "Shiny red car parked after full exterior detailing service", category: "Exterior" },
   { src: paintImg, alt: "Luxury vehicle with corrected paint showing deep gloss finish", category: "Paint Correction" },
