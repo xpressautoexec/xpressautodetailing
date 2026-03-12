@@ -234,8 +234,9 @@ const PaintCeramics = () => (
           <p className="text-primary-foreground/70 max-w-lg mx-auto mb-6 text-sm">
             Every day without protection, your paint accumulates more micro-damage from UV, salt, and road debris. Lock in that showroom finish now — spots fill up fast.
           </p>
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all group">
-            Get My Custom Quote
+          <a href="tel:5875004523" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all group">
+            <Phone className="w-4 h-4" />
+            Call For a Custom Quote
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
         </ScrollReveal>
