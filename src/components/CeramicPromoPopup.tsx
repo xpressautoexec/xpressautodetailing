@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { X, ShieldAlert, ArrowRight, TrendingUp } from "lucide-react";
+import { X, ShieldAlert, ArrowRight, TrendingUp, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
