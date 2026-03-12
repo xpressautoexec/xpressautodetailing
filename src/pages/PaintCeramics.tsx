@@ -286,8 +286,9 @@ const PaintCeramics = () => (
             <p className="text-primary-foreground/60 text-sm mb-8">
               ✓ Certified installers &nbsp; ✓ 4+ year protection &nbsp; ✓ Satisfaction guaranteed
             </p>
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-lg group">
-              Book My Ceramic Coating
+            <a href="tel:5875004523" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-lg group">
+              <Phone className="w-4 h-4" />
+              Call Now
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
