@@ -222,7 +222,7 @@ const CompleteDetailing = () => (
       </div>
     </section>
 
-    <BeforeAfterSlider />
+    <GalleryCarousel />
     <TestimonialBlock testimonials={completeTestimonials} />
     <ServiceFAQ title="Complete Detailing FAQs" faqs={completeFAQs} />
 

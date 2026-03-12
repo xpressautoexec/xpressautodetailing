@@ -213,7 +213,7 @@ const InteriorDetailing = () => (
       </div>
     </section>
 
-    <BeforeAfterSlider />
+    <GalleryCarousel />
 
     {/* Who It's For */}
     <section className="py-16 sm:py-20 bg-muted/30">

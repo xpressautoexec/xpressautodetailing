@@ -248,7 +248,7 @@ const ExteriorDetailing = () => (
       </div>
     </section>
 
-    <BeforeAfterSlider />
+    <GalleryCarousel />
     <TestimonialBlock testimonials={exteriorTestimonials} />
     <ServiceFAQ title="Exterior Detailing FAQs" faqs={exteriorFAQs} />
 
