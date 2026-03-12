@@ -430,12 +430,11 @@ const TrailerRV = () => {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="tel:5875004523"
                 className="inline-flex items-center gap-2 border border-primary-foreground/30 text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-xl text-sm hover:bg-primary-foreground/10 transition-all hover:border-primary-foreground/50 group backdrop-blur-sm"
               >
-                Book Online
+                <Phone className="w-4 h-4" />
+                Call Now
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
