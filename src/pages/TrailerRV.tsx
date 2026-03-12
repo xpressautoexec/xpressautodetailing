@@ -139,7 +139,7 @@ const TrailerRV = () => {
         ]}
       />
       <Navbar />
-      <ServicePageHero title="Trailer & RV Detailing in Calgary and Surrounding Areas" image={rvHero} />
+      <ServicePageHero title="Trailer & RV Detailing in Calgary and Surrounding Areas" image={rvHero} ctaType="call" />
       <TrustStats />
 
       {/* Intro — dramatic accent */}

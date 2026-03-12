@@ -11,7 +11,7 @@ import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import ceramicHero from "@/assets/ceramic-hero.jpg";
 import paintImg from "@/assets/paint-correction.jpg";
-import { ArrowRight, Droplets, Shield, Sun, Sparkles, Clock, DollarSign, Check, Gem } from "lucide-react";
+import { ArrowRight, Droplets, Shield, Sun, Sparkles, Clock, DollarSign, Check, Gem, Phone } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -43,7 +43,7 @@ const PaintCeramics = () => (
       ]}
     />
     <Navbar />
-    <ServicePageHero title="Paint Correction & Ceramic Coating Packages" image={ceramicHero} />
+    <ServicePageHero title="Paint Correction & Ceramic Coating Packages" image={ceramicHero} ctaType="call" />
     <TrustStats />
 
     {/* Intro */}
@@ -234,8 +234,9 @@ const PaintCeramics = () => (
           <p className="text-primary-foreground/70 max-w-lg mx-auto mb-6 text-sm">
             Every day without protection, your paint accumulates more micro-damage from UV, salt, and road debris. Lock in that showroom finish now — spots fill up fast.
           </p>
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all group">
-            Get My Custom Quote
+          <a href="tel:5875004523" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all group">
+            <Phone className="w-4 h-4" />
+            Call For a Custom Quote
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
         </ScrollReveal>
@@ -285,8 +286,9 @@ const PaintCeramics = () => (
             <p className="text-primary-foreground/60 text-sm mb-8">
               ✓ Certified installers &nbsp; ✓ 4+ year protection &nbsp; ✓ Satisfaction guaranteed
             </p>
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-lg group">
-              Book My Ceramic Coating
+            <a href="tel:5875004523" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-lg group">
+              <Phone className="w-4 h-4" />
+              Call Now
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>

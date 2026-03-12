@@ -116,7 +116,7 @@ const MotorcycleDetailing = () => {
         ]}
       />
       <Navbar />
-      <ServicePageHero title="Motorcycle Detailing in Calgary and Surrounding Areas" image={motorcycleHero} />
+      <ServicePageHero title="Motorcycle Detailing in Calgary and Surrounding Areas" image={motorcycleHero} ctaType="call" />
       <TrustStats />
 
       {/* Intro */}
