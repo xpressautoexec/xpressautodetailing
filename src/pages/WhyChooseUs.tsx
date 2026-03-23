@@ -43,8 +43,8 @@ const WhyChooseUs = () => {
     <PageTransition>
       <div className="min-h-screen pb-16 lg:pb-0">
         <SEO
-          title="Why Choose Xpress Auto Detailing Calgary"
-          description="4.9★ with 200+ reviews. Certified detailers, eco-friendly products, transparent pricing & a money-back guarantee. See why Calgary drivers choose Xpress."
+           title="Why Choose Xpress Auto Detailing Calgary"
+           description="4.9★ rated with 100+ Google reviews. Certified detailers, eco-friendly products, transparent pricing & a 14-day money-back guarantee. See why Calgary trusts Xpress."
           canonical="/why-choose-us"
         />
         <Navbar />

@@ -58,7 +58,7 @@ const Index = () => {
       <div className="min-h-screen pb-16 lg:pb-0">
         <SEO
           title="Mobile Car Detailing Calgary"
-          description="Calgary's #1 mobile car detailing — we come to your home or office. Interior, exterior, ceramic coating & fleet packages. 4.9★ rated. Book online in 60 seconds."
+          description="Calgary's #1 rated mobile car detailing service — we come to your home or office. Interior, exterior, ceramic coating & fleet packages. 4.9★ on Google. Book now."
           canonical="/"
           jsonLd={localBusinessJsonLd}
         />
