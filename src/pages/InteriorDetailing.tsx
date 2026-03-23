@@ -23,13 +23,13 @@ const interiorFAQs = [
   { q: "Will shampooing damage my leather seats?", a: "No. We use pH-balanced cleaners specifically formulated for automotive leather. After cleaning, we apply a conditioner that keeps the leather supple and protected against cracking." },
   { q: "Can you get rid of cigarette smoke smell?", a: "In most cases, yes. Our Deep Clean + Shield package combined with the Ozone Odor Bomb add-on is extremely effective at eliminating embedded smoke odors — not just masking them." },
   { q: "Do I need to be home during the service?", a: "Not necessarily! As long as we have access to the vehicle and a water/power source nearby, we can work while you're at home, at work, or running errands." },
-  { q: "What if the stains don't come out?", a: "We're honest about expectations. Some permanent stains (like dye transfers or chemical burns) can't be fully removed, but we'll do our absolute best. If we can't improve it, we'll tell you before we charge." },
+  { q: "What if the stains don't come out?", a: "We're honest about expectations. Some permanent stains can't be fully removed, but we'll do our absolute best. If we can't improve it, we'll tell you before we charge." },
 ];
 
 const interiorTestimonials = [
-  { quote: "My 3-year-old's car seat area was a disaster — crushed crackers, juice stains, mystery spills. After the Deep Clean + Shield, it looks like the day I bought the car. Absolutely incredible work.", name: "Amanda K.", location: "Calgary", service: "Deep Clean + Shield" },
+  { quote: "My 3-year-old's car seat area was a disaster — crushed crackers, juice stains, mystery spills. After the Deep Clean + Shield, it looks like the day I bought the car.", name: "Amanda K.", location: "Calgary", service: "Deep Clean + Shield" },
   { quote: "I'm a realtor and my car is my office. The Fresh Start Interior keeps it looking professional for clients. I book monthly and it's always perfect.", name: "David P.", location: "Airdrie", service: "Fresh Start Interior" },
-  { quote: "Had my dog's mud all through the back seat and carpets. They got every bit of it out and the ozone treatment killed that wet-dog smell completely. My car smells brand new.", name: "Rachel M.", location: "Cochrane", service: "Deep Clean + Shield + Ozone" },
+  { quote: "Had my dog's mud all through the back seat. They got every bit of it out and the ozone treatment killed that wet-dog smell completely.", name: "Rachel M.", location: "Cochrane", service: "Deep Clean + Shield + Ozone" },
   { quote: "I was embarrassed to have anyone in my car. After one interior detail, my friend asked if I got a new car. That says it all.", name: "Jason T.", location: "Chestermere", service: "Deep Clean + Shield" },
 ];
 
@@ -40,7 +40,7 @@ const InteriorDetailing = () => (
       description="Deep interior cleaning at your door. Stain removal, leather conditioning, odour elimination & sanitization. Serving Calgary & area. 100% satisfaction guaranteed."
       canonical="/interior-detailing"
       jsonLd={[
-        buildServiceJsonLd("Interior Detailing", "Professional mobile interior car detailing in Calgary. Deep cleaning, stain removal, leather conditioning.", "/interior-detailing"),
+        buildServiceJsonLd("Interior Detailing", "Professional mobile interior car detailing in Calgary.", "/interior-detailing"),
         buildFAQJsonLd(interiorFAQs),
       ]}
     />
@@ -53,41 +53,43 @@ const InteriorDetailing = () => (
       <div className="container max-w-4xl text-center px-6">
         <ScrollReveal>
           <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
-            Your Car's Interior Is <span className="text-primary">Dirtier Than You Think</span>
+            Your Car's Interior Is <span className="text-gradient">Dirtier Than You Think</span>
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-5 text-sm sm:text-base">
-            Studies show the average steering wheel has <strong className="text-foreground">4× more bacteria than a public toilet seat</strong>. Cup holders, air vents, and seat crevices are breeding grounds for germs, allergens, and odors that build up invisibly over months of daily driving.
+            Studies show the average steering wheel has <strong className="text-foreground">4× more bacteria than a public toilet seat</strong>. Cup holders, air vents, and seat crevices are breeding grounds for germs, allergens, and odors.
           </p>
-          <p className="text-muted-foreground leading-relaxed mb-5 text-sm sm:text-base">
-            A professional interior detail isn't just about aesthetics — it's about creating a healthier, more comfortable driving environment for you, your family, and your passengers. Our detailers go beyond surface wiping to deep-clean, sanitize, and protect every inch of your cabin.
+          <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
+            A professional interior detail isn't just about aesthetics — it's about creating a <strong className="text-foreground">healthier, more comfortable</strong> driving environment for you and your family.
           </p>
         </ScrollReveal>
       </div>
     </section>
 
     {/* The Problem */}
-    <section className="py-16 sm:py-20 bg-muted/30">
+    <section className="py-16 sm:py-20 bg-card border-y border-border">
       <div className="container max-w-5xl px-4 sm:px-6">
         <ScrollReveal>
           <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-4">
             What's Hiding in Your Cabin?
           </h2>
           <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto text-sm sm:text-base">
-            Your car collects more than just miles. Here's what accumulates between professional cleanings — and why a vacuum and air freshener aren't enough.
+            Your car collects more than just miles. A vacuum and air freshener aren't enough.
           </p>
         </ScrollReveal>
-        <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6" staggerDelay={0.08}>
+        <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5" staggerDelay={0.08}>
           {[
             { icon: Bug, title: "Bacteria & Allergens", desc: "Mold, dust mites, and bacteria thrive in dark, moist areas like under seats and inside vents." },
             { icon: Droplets, title: "Stains & Spills", desc: "Coffee, food, muddy shoes — everyday spills set into fabric and leather if not treated properly." },
             { icon: Wind, title: "Trapped Odors", desc: "Cigarette smoke, pet smell, and food odors embed into headliners, carpets, and seat foam." },
-            { icon: ShieldCheck, title: "UV Damage", desc: "Calgary's intense sun cracks and fades unprotected dashboards, leather, and trim over time." },
+            { icon: ShieldCheck, title: "UV Damage", desc: "Calgary's intense sun cracks and fades unprotected dashboards, leather, and trim." },
             { icon: Sparkles, title: "Salt & Grime Buildup", desc: "Winter road salt tracked into carpets corrodes fibers and creates permanent white stains." },
-            { icon: Clock, title: "Wear & Aging", desc: "Without conditioning, leather dries out, plastics fade, and your cabin ages years faster than it should." },
+            { icon: Clock, title: "Wear & Aging", desc: "Without conditioning, leather dries out, plastics fade, and your cabin ages years faster." },
           ].map((item) => (
             <StaggerItem key={item.title}>
               <div className="p-5 sm:p-6 rounded-xl border border-border bg-background hover:border-primary/30 hover:shadow-md transition-all duration-300 h-full">
-                <item.icon className="w-8 h-8 text-primary mb-3" />
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                  <item.icon className="w-5 h-5 text-primary" />
+                </div>
                 <h3 className="font-heading font-bold text-foreground uppercase text-xs sm:text-sm mb-2">{item.title}</h3>
                 <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{item.desc}</p>
               </div>
@@ -98,29 +100,29 @@ const InteriorDetailing = () => (
     </section>
 
     {/* Packages */}
-    <section className="section-dark py-16 sm:py-20">
+    <section className="py-16 sm:py-20 bg-foreground">
       <div className="container">
         <ScrollReveal>
-          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center mb-4">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center text-background mb-4">
             Interior Detailing Packages
           </h2>
-          <p className="text-center text-primary-foreground/60 font-heading text-sm uppercase tracking-widest mb-12">
+          <p className="text-center text-background/50 font-heading text-sm uppercase tracking-widest mb-12">
             Choose the level of clean your cabin needs
           </p>
         </ScrollReveal>
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto px-2 sm:px-0">
           <PackageCard
             icon={<Sparkles className="w-8 h-8" />}
             name="Fresh Start Interior"
             price="$159.99"
-            tagline="A quick professional refresh that makes your cabin feel spotless. Perfect for maintenance or light cleanup."
+            tagline="A quick professional refresh. Perfect for maintenance or light cleanup."
             features={[
               "Full vacuum",
               "Wipe-down of dash, plastics, cupholders & doors",
               "Seats scrubbed and cleaned",
               "Rubber mats washed, scrubbed, and dressed",
               "Windows & mirrors cleaned",
-              "Vent blowout and light air freshening to leave the cabin smelling clean",
+              "Vent blowout and light air freshening",
             ]}
             addOns={[
               { name: "Pet Hair Removal", price: "+$55" },
@@ -134,7 +136,7 @@ const InteriorDetailing = () => (
             icon={<Shield className="w-8 h-8" />}
             name="Deep Clean + Shield"
             price="$189.99"
-            tagline="A full interior transformation — stains, salt, and odors gone. Perfect for winter cleanup or cars needing a real reset."
+            tagline="A full interior transformation — stains, salt, and odors gone. The real reset."
             features={[
               "Everything in the Fresh Start Interior PLUS:",
               "Deep vacuum (mats, seats, trunk)",
@@ -163,14 +165,17 @@ const InteriorDetailing = () => (
     <section className="py-10 sm:py-14 bg-primary">
       <div className="container text-center">
         <ScrollReveal>
-          <p className="text-primary-foreground/80 font-heading uppercase tracking-wider text-sm mb-3">Limited Availability This Week</p>
+          <div className="inline-flex items-center gap-2 text-primary-foreground/80 font-heading font-bold text-sm uppercase tracking-wider mb-3">
+            <Clock className="w-4 h-4" />
+            Limited Availability This Week
+          </div>
           <h3 className="font-heading font-black text-xl sm:text-2xl uppercase text-primary-foreground mb-4">
             Don't Wait Until It Gets Worse
           </h3>
           <p className="text-primary-foreground/70 max-w-lg mx-auto mb-6 text-sm">
-            Stains set deeper every day. Odors embed further into fabric. The longer you wait, the harder (and more expensive) it gets. Book now while spots are still available.
+            Stains set deeper every day. Odors embed further. The longer you wait, the harder it gets. Book now while spots are available.
           </p>
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all group">
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all shadow-lg">
             Check Available Times
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
@@ -178,7 +183,7 @@ const InteriorDetailing = () => (
       </div>
     </section>
 
-    {/* Before & After Transformation */}
+    {/* Before & After */}
     <section className="py-16 sm:py-20 bg-background">
       <div className="container max-w-5xl px-4 sm:px-6">
         <ScrollReveal>
@@ -186,27 +191,26 @@ const InteriorDetailing = () => (
             Real Results From Real Clients
           </h2>
           <p className="text-muted-foreground text-center leading-relaxed mb-12 max-w-3xl mx-auto text-sm sm:text-base">
-            Every interior tells a story — spilled coffee, muddy boots, years of daily wear. We've seen it all, and we've restored it all. Here's what happens when you hand us the keys.
+            Every interior tells a story. Here's what happens when you hand us the keys.
           </p>
         </ScrollReveal>
-
         <div className="grid md:grid-cols-2 gap-8 md:gap-10 mb-16">
           <ScrollReveal delay={0.1}>
             <BeforeAfterCard
               beforeIcon={<Car className="w-5 h-5" />}
               beforeTitle="Before: The Daily Driver"
-              beforeText="Crumbs wedged into every crevice. Cup holders sticky from forgotten drinks. Seats stained from kids, pets, and life. The dashboard coated in dust, and the carpets haven't been shampooed since you bought the car. You stopped noticing the smell — but your passengers haven't."
+              beforeText="Crumbs in every crevice. Cup holders sticky. Seats stained from kids, pets, and life. Dashboard coated in dust."
               afterTitle="After: The Showroom Reset"
-              afterText="Step inside and breathe deep — it smells brand new. Every surface has been hand-cleaned and protected. Seats are plush, stain-free, and conditioned. The dashboard gleams. Even the vents are clear. It doesn't just look clean. It feels like a different car."
+              afterText="Every surface hand-cleaned and protected. Seats plush and stain-free. Dashboard gleams. Even the vents are clear. It feels like a different car."
             />
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <BeforeAfterCard
               beforeIcon={<PawPrint className="w-5 h-5" />}
               beforeTitle="Before: The Pet Owner's Ride"
-              beforeText="Fur embedded in every seat fiber. Scratches on the door panels. That unmistakable wet-dog smell that no air freshener can mask. Mud tracks on the carpets from park trips, and drool marks on the windows."
+              beforeText="Fur embedded in every seat fiber. That unmistakable wet-dog smell. Mud tracks on carpets. Drool marks on windows."
               afterTitle="After: Fur-Free & Fresh"
-              afterText="Every strand of fur extracted. Seats deep-cleaned and deodorized. Door panels restored. The cabin smells like it did the day you drove it off the lot. Your dog can still ride — your interior just won't show it anymore."
+              afterText="Every strand extracted. Seats deep-cleaned and deodorized. Door panels restored. Smells like the day you drove it off the lot."
             />
           </ScrollReveal>
         </div>
@@ -216,24 +220,24 @@ const InteriorDetailing = () => (
     <GalleryCarousel />
 
     {/* Who It's For */}
-    <section className="py-16 sm:py-20 bg-muted/30">
+    <section className="py-16 sm:py-20 bg-card border-y border-border">
       <div className="container max-w-4xl text-center px-6">
         <ScrollReveal>
           <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground mb-8">
-            Perfect For <span className="text-primary">Every Situation</span>
+            Perfect For <span className="text-gradient">Every Situation</span>
           </h2>
         </ScrollReveal>
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4" staggerDelay={0.08}>
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4" staggerDelay={0.08}>
           {[
             { emoji: "👶", text: "Parents with kids who treat the backseat like a playground" },
             { emoji: "🐾", text: "Pet owners tired of fur, mud, and that lingering smell" },
             { emoji: "💼", text: "Professionals who drive clients and need a spotless cabin" },
             { emoji: "🏠", text: "Anyone selling or trading in their vehicle" },
             { emoji: "❄️", text: "Drivers recovering from a long Calgary winter" },
-            { emoji: "🎉", text: "Anyone who just wants to feel good getting into their car again" },
+            { emoji: "🎉", text: "Anyone who just wants to feel good getting into their car" },
           ].map((item) => (
             <StaggerItem key={item.text}>
-              <div className="flex items-center gap-3 p-4 rounded-lg border border-border bg-background text-left hover:border-primary/30 transition-colors">
+              <div className="flex items-center gap-3 p-4 rounded-xl border border-border bg-background text-left hover:border-primary/30 transition-all">
                 <span className="text-2xl shrink-0">{item.emoji}</span>
                 <p className="text-muted-foreground text-sm leading-snug">{item.text}</p>
               </div>
@@ -246,8 +250,8 @@ const InteriorDetailing = () => (
     <TestimonialBlock testimonials={interiorTestimonials} />
     <ServiceFAQ title="Interior Detailing FAQs" faqs={interiorFAQs} />
 
-    {/* Image + CTA */}
-    <section className="py-16 sm:py-20 bg-gradient-to-br from-primary to-brand-blue-deep">
+    {/* Final CTA */}
+    <section className="py-16 sm:py-20 bg-foreground">
       <div className="container grid md:grid-cols-2 gap-8 md:gap-12 items-center px-4 sm:px-6">
         <ScrollReveal direction="left">
           <div className="rounded-xl overflow-hidden shadow-2xl">
@@ -256,14 +260,14 @@ const InteriorDetailing = () => (
         </ScrollReveal>
         <ScrollReveal direction="right">
           <div className="text-center md:text-left">
-            <h3 className="font-heading font-black text-2xl sm:text-3xl uppercase text-primary-foreground mb-4">Ready for a Fresh Interior?</h3>
-            <p className="text-primary-foreground/80 leading-relaxed mb-4 text-sm sm:text-base">
-              Join hundreds of Calgary drivers who've experienced the difference a professional interior detail makes. We come to you — mobile anywhere in Calgary and surrounding areas.
+            <h3 className="font-heading font-black text-2xl sm:text-3xl uppercase text-background mb-4">Ready for a Fresh Interior?</h3>
+            <p className="text-background/70 leading-relaxed mb-4 text-sm sm:text-base">
+              Join hundreds of Calgary drivers who've experienced the difference. We come to you — mobile anywhere in Calgary and surrounding areas.
             </p>
-            <p className="text-primary-foreground/60 text-sm mb-8">
-              ✓ No hidden fees &nbsp; ✓ 14-day satisfaction guarantee &nbsp; ✓ Book in 60 seconds
+            <p className="text-background/50 text-sm mb-8">
+              ✓ No hidden fees &nbsp; ✓ 14-day guarantee &nbsp; ✓ Book in 60 seconds
             </p>
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-lg group">
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-brand-blue-deep transition-all shadow-lg shadow-primary/30">
               Book My Interior Detail
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
