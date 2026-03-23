@@ -11,8 +11,6 @@ import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/Scroll
 import rvHero from "@/assets/rv-hero.jpg";
 import { Droplets, Shield, Sparkles, Truck, Clock, CheckCircle, Sun, Snowflake, Wrench, ArrowRight, Phone, MapPin, Zap, Award, CarFront, Container, Caravan } from "lucide-react";
 
-
-
 const rvFAQs = [
   { q: "How long does RV or trailer detailing take?", a: "Depending on size and condition, an exterior wash takes 2–3 hours. A full interior + exterior detail on a large RV can take 5–8 hours. We'll give you a time estimate before we start." },
   { q: "Do you detail 5th wheels and toy haulers?", a: "Yes! We detail all types — travel trailers, 5th wheels, toy haulers, Class A/B/C motorhomes, camper vans, and horse trailers. No RV is too big or too small." },
@@ -142,7 +140,7 @@ const TrailerRV = () => {
       <ServicePageHero title="Trailer & RV Detailing in Calgary and Surrounding Areas" image={rvHero} ctaType="call" />
       <TrustStats />
 
-      {/* Intro — dramatic accent */}
+      {/* Intro */}
       <section className="py-20 sm:py-28 bg-background relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
         <div className="container max-w-4xl text-center px-6 relative z-10">
@@ -193,26 +191,23 @@ const TrailerRV = () => {
         </div>
       </section>
 
-      <section className="section-dark py-20 sm:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-0 w-72 h-72 bg-primary/8 rounded-full blur-[100px]" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
-        </div>
+      {/* Rig Types — light cards */}
+      <section className="py-20 sm:py-28 bg-background relative overflow-hidden">
         <div className="container max-w-5xl px-4 sm:px-6 relative z-10">
           <ScrollReveal>
             <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs text-center mb-3">Full-Service Mobile Detailing</p>
-            <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-center mb-14">
+            <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-foreground text-center mb-14">
               We Detail <span className="text-primary">Every Type of Rig</span>
             </h2>
           </ScrollReveal>
           <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5" staggerDelay={0.08}>
             {rigTypes.map((item) => (
               <StaggerItem key={item.label}>
-                <div className="group relative flex flex-col items-center gap-4 p-6 sm:p-8 rounded-2xl border border-white/[0.06] bg-white/[0.03] backdrop-blur-sm text-center hover:border-primary/50 hover:bg-primary/5 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10">
+                <div className="group relative flex flex-col items-center gap-4 p-6 sm:p-8 rounded-2xl border border-border bg-card text-center hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1">
                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-500">
                     <item.icon className="w-7 h-7 text-primary" />
                   </div>
-                  <span className="font-heading font-bold text-xs sm:text-sm uppercase tracking-wider">{item.label}</span>
+                  <span className="font-heading font-bold text-foreground text-xs sm:text-sm uppercase tracking-wider">{item.label}</span>
                 </div>
               </StaggerItem>
             ))}
@@ -220,9 +215,8 @@ const TrailerRV = () => {
         </div>
       </section>
 
-      {/* Seasonal Prep — side-by-side dramatic cards */}
-      <section className="py-20 sm:py-28 bg-background relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/3 rounded-full blur-[150px] pointer-events-none" />
+      {/* Seasonal Prep */}
+      <section className="py-20 sm:py-28 bg-muted/30 relative overflow-hidden">
         <div className="container max-w-5xl px-4 sm:px-6 relative z-10">
           <ScrollReveal>
             <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs text-center mb-3">Year-Round Protection</p>
@@ -235,7 +229,7 @@ const TrailerRV = () => {
           </ScrollReveal>
           <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
             <ScrollReveal delay={0.1}>
-              <div className="relative group p-7 sm:p-8 rounded-2xl border border-border bg-gradient-to-br from-amber-50/50 to-background hover:border-primary/30 transition-all duration-500 h-full hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 overflow-hidden">
+              <div className="relative group p-7 sm:p-8 rounded-2xl border border-border bg-gradient-to-br from-amber-50/50 to-card hover:border-primary/30 transition-all duration-500 h-full hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-amber-400/5 rounded-full blur-[60px] pointer-events-none" />
                 <div className="relative z-10">
                   <div className="w-14 h-14 rounded-xl bg-amber-100 flex items-center justify-center mb-5">
@@ -259,7 +253,7 @@ const TrailerRV = () => {
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
-              <div className="relative group p-7 sm:p-8 rounded-2xl border border-border bg-gradient-to-br from-blue-50/50 to-background hover:border-primary/30 transition-all duration-500 h-full hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 overflow-hidden">
+              <div className="relative group p-7 sm:p-8 rounded-2xl border border-border bg-gradient-to-br from-blue-50/50 to-card hover:border-primary/30 transition-all duration-500 h-full hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-400/5 rounded-full blur-[60px] pointer-events-none" />
                 <div className="relative z-10">
                   <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-5">
@@ -286,19 +280,15 @@ const TrailerRV = () => {
         </div>
       </section>
 
-      {/* Packages — premium dark section */}
-      <section className="section-dark py-20 sm:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px]" />
-          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-primary/8 rounded-full blur-[120px]" />
-        </div>
+      {/* Packages — light cards */}
+      <section className="py-20 sm:py-28 bg-background relative overflow-hidden">
         <div className="container max-w-6xl relative z-10">
           <ScrollReveal>
             <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs text-center mb-3">Transparent Per-Foot Pricing</p>
-            <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-center mb-4">
+            <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-foreground text-center mb-4">
               <span className="text-primary">RV Detailing</span> Packages
             </h2>
-            <p className="text-primary-foreground/50 text-center mb-16 max-w-2xl mx-auto text-sm sm:text-base">
+            <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto text-sm sm:text-base">
               Simple, honest pricing based on your rig's length. No hidden fees — what you see is what you pay.
             </p>
           </ScrollReveal>
@@ -307,15 +297,10 @@ const TrailerRV = () => {
               <StaggerItem key={pkg.title}>
                 <div className={`group relative rounded-2xl p-6 sm:p-7 h-full flex flex-col transition-all duration-500 hover:-translate-y-2 ${
                   pkg.popular
-                    ? "border-2 border-primary bg-gradient-to-b from-primary/15 via-primary/5 to-brand-dark-surface ring-1 ring-primary/20 shadow-2xl shadow-primary/15"
-                    : "border border-white/[0.06] bg-white/[0.03] backdrop-blur-sm hover:border-primary/40 hover:bg-white/[0.06] hover:shadow-xl hover:shadow-primary/5"
+                    ? "border-2 border-primary bg-card ring-1 ring-primary/20 shadow-xl shadow-primary/10"
+                    : "border border-border bg-card hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
                 }`}>
-                  {/* Popular glow */}
-                  {pkg.popular && (
-                    <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-primary/20 to-transparent pointer-events-none" />
-                  )}
-                  <div className="relative z-10 flex flex-col h-full">
-                    {/* Top badges */}
+                  <div className="flex flex-col h-full">
                     <div className="flex items-center gap-2 mb-4 min-h-[28px]">
                       {pkg.popular && (
                         <span className="bg-primary text-primary-foreground font-heading font-bold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg shadow-primary/30">
@@ -323,17 +308,17 @@ const TrailerRV = () => {
                         </span>
                       )}
                       {pkg.badge && (
-                        <span className="bg-green-500/15 text-green-400 font-heading font-bold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full border border-green-500/25">
+                        <span className="bg-success/10 text-success font-heading font-bold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full border border-success/25">
                           {pkg.badge}
                         </span>
                       )}
                     </div>
-                    <h3 className="font-heading font-bold text-base sm:text-lg uppercase text-primary-foreground/90 mb-3 leading-tight">{pkg.title}</h3>
+                    <h3 className="font-heading font-bold text-base sm:text-lg uppercase text-foreground mb-3 leading-tight">{pkg.title}</h3>
                     <p className="font-heading font-black text-primary text-3xl sm:text-4xl mb-6">{pkg.price}</p>
-                    <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent mb-6" />
+                    <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-6" />
                     <ul className="space-y-3 mb-8 flex-1">
                       {pkg.features.map((f) => (
-                        <li key={f} className="flex gap-2.5 text-primary-foreground/70 text-sm">
+                        <li key={f} className="flex gap-2.5 text-muted-foreground text-sm">
                           <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                           {f}
                         </li>
@@ -359,9 +344,8 @@ const TrailerRV = () => {
         </div>
       </section>
 
-      {/* Common RV Issues — elevated cards with icon backgrounds */}
-      <section className="py-20 sm:py-28 bg-background relative overflow-hidden">
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[150px] pointer-events-none" />
+      {/* Common RV Issues */}
+      <section className="py-20 sm:py-28 bg-muted/30 relative overflow-hidden">
         <div className="container max-w-5xl px-4 sm:px-6 relative z-10">
           <ScrollReveal>
             <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs text-center mb-3">Expert Solutions</p>
@@ -391,29 +375,26 @@ const TrailerRV = () => {
         </div>
       </section>
 
-      {/* Why Choose Us — dark section for contrast */}
-      <section className="section-dark py-20 sm:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-1/4 w-80 h-80 bg-primary/5 rounded-full blur-[120px]" />
-        </div>
+      {/* Why Choose Us — light */}
+      <section className="py-20 sm:py-28 bg-background relative overflow-hidden">
         <div className="container max-w-5xl px-4 sm:px-6 relative z-10">
           <ScrollReveal>
             <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs text-center mb-3">The Xpress Difference</p>
-            <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-center mb-14">
+            <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-foreground text-center mb-14">
               Why RV Owners Choose <span className="text-primary">Xpress</span>
             </h2>
           </ScrollReveal>
           <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6" staggerDelay={0.08}>
             {whyUs.map((item) => (
               <StaggerItem key={item.title}>
-                <div className="group relative p-6 sm:p-7 rounded-2xl border border-white/[0.06] bg-white/[0.03] backdrop-blur-sm h-full hover:border-primary/40 hover:bg-white/[0.06] transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 overflow-hidden">
+                <div className="group relative p-6 sm:p-7 rounded-2xl border border-border bg-card h-full hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1 overflow-hidden">
                   <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/5 rounded-full blur-[40px] pointer-events-none group-hover:bg-primary/10 transition-colors duration-500" />
                   <div className="relative z-10">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-500">
                       <item.icon className="w-6 h-6 text-primary" />
                     </div>
-                    <h3 className="font-heading font-bold uppercase text-sm mb-2">{item.title}</h3>
-                    <p className="text-sm leading-relaxed opacity-70">{item.desc}</p>
+                    <h3 className="font-heading font-bold text-foreground uppercase text-sm mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -422,15 +403,13 @@ const TrailerRV = () => {
         </div>
       </section>
 
-
       <TestimonialBlock testimonials={rvTestimonials} />
       <ServiceFAQ title="Trailer & RV Detailing FAQs" faqs={rvFAQs} />
 
-      {/* CTA — cinematic */}
+      {/* CTA */}
       <section className="py-20 sm:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-brand-blue-deep to-brand-dark" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(197_100%_55%/0.2),transparent_70%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(197_100%_35%/0.3),transparent_70%)]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-primary/80" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(205_100%_60%/0.3),transparent_70%)]" />
         <div className="container text-center relative z-10">
           <ScrollReveal>
             <div className="inline-flex items-center gap-2 bg-primary-foreground/10 text-primary-foreground font-heading font-bold uppercase tracking-[0.15em] text-xs px-5 py-2 rounded-full mb-8 border border-primary-foreground/20 backdrop-blur-sm">
@@ -448,24 +427,14 @@ const TrailerRV = () => {
               <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary-foreground/80" /> Any size rig</span>
               <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary-foreground/80" /> Satisfaction guaranteed</span>
             </div>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="tel:5875004523"
-                className="inline-flex items-center gap-2.5 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-xl text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-2xl hover:shadow-primary-foreground/20 hover:scale-[1.02] group"
-              >
-                <Phone className="w-4 h-4" />
-                Call (587) 500-4523
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
-                href="tel:5875004523"
-                className="inline-flex items-center gap-2 border border-primary-foreground/30 text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-xl text-sm hover:bg-primary-foreground/10 transition-all hover:border-primary-foreground/50 group backdrop-blur-sm"
-              >
-                <Phone className="w-4 h-4" />
-                Call Now
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
+            <a
+              href="tel:5875004523"
+              className="inline-flex items-center gap-2.5 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-xl text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-2xl hover:scale-[1.02] group"
+            >
+              <Phone className="w-4 h-4" />
+              Call (587) 500-4523
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
           </ScrollReveal>
         </div>
       </section>

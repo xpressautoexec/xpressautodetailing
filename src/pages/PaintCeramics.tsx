@@ -75,7 +75,7 @@ const PaintCeramics = () => (
           </p>
         </ScrollReveal>
         <ScrollReveal delay={0.15}>
-          <div className="rounded-xl border border-border overflow-hidden">
+          <div className="rounded-xl border border-border overflow-hidden bg-card">
             <div className="grid grid-cols-4 bg-muted/50 p-4">
               <span className="font-heading font-bold text-foreground text-xs sm:text-sm uppercase" />
               <span className="font-heading font-bold text-muted-foreground text-xs sm:text-sm uppercase text-center">Wax</span>
@@ -92,7 +92,7 @@ const PaintCeramics = () => (
               ["Maintenance", "Monthly", "Quarterly", "Wash only"],
               ["Long-term Cost", "$$$", "$$", "$"],
             ].map(([label, wax, sealant, ceramic], i) => (
-              <div key={i} className={`grid grid-cols-4 p-3 sm:p-4 ${i % 2 === 0 ? "bg-background" : "bg-muted/20"}`}>
+              <div key={i} className={`grid grid-cols-4 p-3 sm:p-4 ${i % 2 === 0 ? "bg-card" : "bg-muted/20"}`}>
                 <span className="text-foreground text-xs sm:text-sm font-medium">{label}</span>
                 <span className="text-muted-foreground text-xs sm:text-sm text-center">{wax}</span>
                 <span className="text-muted-foreground text-xs sm:text-sm text-center">{sealant}</span>
@@ -104,14 +104,14 @@ const PaintCeramics = () => (
       </div>
     </section>
 
-    {/* Packages */}
-    <section className="section-dark py-16 sm:py-20">
+    {/* Packages — light cards */}
+    <section className="py-16 sm:py-20 bg-background">
       <div className="container">
         <ScrollReveal>
-          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center mb-4">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-4">
             Paint Correction & Ceramic Packages
           </h2>
-          <p className="text-center text-primary-foreground/60 font-heading text-sm uppercase tracking-widest mb-12">
+          <p className="text-center text-muted-foreground font-heading text-sm uppercase tracking-widest mb-12">
             Correction first. Then permanent protection.
           </p>
         </ScrollReveal>
@@ -161,7 +161,7 @@ const PaintCeramics = () => (
     </section>
 
     {/* Why Ceramic Benefits */}
-    <section className="py-16 sm:py-20 bg-background">
+    <section className="py-16 sm:py-20 bg-muted/30">
       <div className="container max-w-5xl px-4 sm:px-6">
         <ScrollReveal>
           <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-4">
@@ -181,7 +181,7 @@ const PaintCeramics = () => (
             { icon: Sun, title: "Calgary Climate Defense", desc: "Specifically designed to handle extreme UV, chinook temperature swings, road salt, and gravel — everything Calgary throws at you." },
           ].map((item) => (
             <StaggerItem key={item.title}>
-              <div className="p-5 sm:p-6 rounded-xl border border-border hover:border-primary/30 hover:shadow-md transition-all duration-300 h-full">
+              <div className="p-5 sm:p-6 rounded-xl border border-border bg-card hover:border-primary/30 hover:shadow-md transition-all duration-300 h-full">
                 <item.icon className="w-8 h-8 text-primary mb-3" />
                 <h4 className="font-heading font-bold text-foreground uppercase text-xs sm:text-sm mb-2">{item.title}</h4>
                 <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{item.desc}</p>
@@ -192,12 +192,12 @@ const PaintCeramics = () => (
       </div>
     </section>
 
-    {/* The Process */}
-    <section className="section-dark py-16 sm:py-20">
+    {/* The Process — light cards */}
+    <section className="py-16 sm:py-20 bg-background">
       <div className="container max-w-4xl px-4 sm:px-6">
         <ScrollReveal>
-          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-center mb-4">Our Precision <span className="text-primary">5-Step Process</span></h2>
-          <p className="text-center text-primary-foreground/60 mb-12 text-sm sm:text-base">Preparation. Precision. Perfection.</p>
+          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-4">Our Precision <span className="text-primary">5-Step Process</span></h2>
+          <p className="text-center text-muted-foreground mb-12 text-sm sm:text-base">Preparation. Precision. Perfection.</p>
         </ScrollReveal>
         <div className="space-y-5">
           {[
@@ -208,13 +208,13 @@ const PaintCeramics = () => (
             { step: "5", title: "Ceramic Coating Application & Cure", desc: "Hand-applied in controlled sections using professional applicators. Each panel inspected for uniformity. The coating cures and hardens to form a permanent protective shield." },
           ].map((item, i) => (
             <ScrollReveal key={item.step} delay={i * 0.08}>
-              <div className="flex gap-5 items-start p-5 rounded-xl bg-brand-dark-surface/50 border border-brand-dark-surface hover:border-primary/30 transition-colors">
+              <div className="flex gap-5 items-start p-5 rounded-xl bg-card border border-border hover:border-primary/30 transition-colors">
                 <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shrink-0">
                   <span className="font-heading font-bold text-primary-foreground text-sm">{item.step}</span>
                 </div>
                 <div>
-                  <h4 className="font-heading font-bold uppercase text-sm mb-1 text-primary-foreground">{item.title}</h4>
-                  <p className="text-sm leading-relaxed text-primary-foreground/70">{item.desc}</p>
+                  <h4 className="font-heading font-bold uppercase text-sm mb-1 text-foreground">{item.title}</h4>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
                 </div>
               </div>
             </ScrollReveal>
@@ -261,7 +261,7 @@ const PaintCeramics = () => (
             { emoji: "🏎️", text: "Car enthusiasts who demand nothing less than perfection" },
           ].map((item) => (
             <StaggerItem key={item.text}>
-              <div className="flex items-center gap-3 p-4 rounded-lg border border-border bg-background text-left hover:border-primary/30 transition-colors">
+              <div className="flex items-center gap-3 p-4 rounded-lg border border-border bg-card text-left hover:border-primary/30 transition-colors">
                 <span className="text-2xl shrink-0">{item.emoji}</span>
                 <p className="text-muted-foreground text-sm leading-snug">{item.text}</p>
               </div>
@@ -275,7 +275,7 @@ const PaintCeramics = () => (
     <ServiceFAQ title="Paint Correction & Ceramic Coating FAQs" faqs={ceramicFAQs} />
 
     {/* CTA */}
-    <section className="py-16 sm:py-20 bg-gradient-to-br from-primary to-brand-blue-deep">
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-primary to-primary/80">
       <div className="container grid md:grid-cols-2 gap-8 md:gap-12 items-center px-4 sm:px-6">
         <ScrollReveal direction="left">
           <div className="text-center md:text-left">

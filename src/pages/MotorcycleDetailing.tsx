@@ -14,7 +14,7 @@ import {
   Wrench, Sun, Gauge, Eye, Bike, CircleDot, Flame, Wind, MapPin, Award,
 } from "lucide-react";
 
-
+const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const faqs = [
   { q: "How long does a motorcycle detail take?", a: "A basic wash and protect takes about 1–1.5 hours. A full detail with engine cleaning and ceramic coating takes 2–4 hours depending on the bike's size and condition." },
@@ -142,27 +142,23 @@ const MotorcycleDetailing = () => {
         </div>
       </section>
 
-      {/* Bike Types — dark premium section */}
-      <section className="section-dark py-20 sm:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-0 w-72 h-72 bg-primary/8 rounded-full blur-[100px]" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
-        </div>
+      {/* Bike Types — light card section */}
+      <section className="py-20 sm:py-28 bg-muted/30 relative overflow-hidden">
         <div className="container max-w-5xl px-4 sm:px-6 relative z-10">
           <ScrollReveal>
             <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs text-center mb-3">Every Ride. Every Style.</p>
-            <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-center mb-14">
+            <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-foreground text-center mb-14">
               We Detail <span className="text-primary">Every Type of Bike</span>
             </h2>
           </ScrollReveal>
           <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5" staggerDelay={0.08}>
             {bikeTypes.map((item) => (
               <StaggerItem key={item.label}>
-                <div className="group relative flex flex-col items-center gap-4 p-6 sm:p-8 rounded-2xl border border-white/[0.06] bg-white/[0.03] backdrop-blur-sm text-center hover:border-primary/50 hover:bg-primary/5 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10">
+                <div className="group relative flex flex-col items-center gap-4 p-6 sm:p-8 rounded-2xl border border-border bg-card text-center hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1">
                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-500">
                     <item.icon className="w-7 h-7 text-primary" />
                   </div>
-                  <span className="font-heading font-bold text-xs sm:text-sm uppercase tracking-wider">{item.label}</span>
+                  <span className="font-heading font-bold text-foreground text-xs sm:text-sm uppercase tracking-wider">{item.label}</span>
                 </div>
               </StaggerItem>
             ))}
@@ -184,7 +180,7 @@ const MotorcycleDetailing = () => {
             {processSteps.map((item, i) => (
               <ScrollReveal key={item.step} delay={i * 0.08}>
                 <div className="group flex gap-5 sm:gap-6 items-start p-5 sm:p-6 rounded-2xl border border-border bg-card hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-0.5">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-brand-blue-deep flex items-center justify-center shrink-0 shadow-lg shadow-primary/20">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shrink-0 shadow-lg shadow-primary/20">
                     <span className="font-heading font-black text-primary-foreground text-sm">{item.step}</span>
                   </div>
                   <div>
@@ -198,19 +194,15 @@ const MotorcycleDetailing = () => {
         </div>
       </section>
 
-      {/* Packages */}
-      <section className="section-dark py-20 sm:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px]" />
-          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-primary/8 rounded-full blur-[120px]" />
-        </div>
+      {/* Packages — light card section */}
+      <section className="py-20 sm:py-28 bg-muted/30 relative overflow-hidden">
         <div className="container max-w-6xl relative z-10">
           <ScrollReveal>
             <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs text-center mb-3">Clear, Honest Pricing</p>
-            <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-center mb-4">
+            <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-foreground text-center mb-4">
               <span className="text-primary">Motorcycle</span> Packages
             </h2>
-            <p className="text-primary-foreground/50 text-center mb-16 max-w-2xl mx-auto text-sm sm:text-base">
+            <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto text-sm sm:text-base">
               Every package includes a full hand wash with motorcycle-safe techniques. No shortcuts, no upsell pressure.
             </p>
           </ScrollReveal>
@@ -219,13 +211,10 @@ const MotorcycleDetailing = () => {
               <StaggerItem key={pkg.title}>
                 <div className={`group relative rounded-2xl p-6 h-full flex flex-col transition-all duration-500 hover:-translate-y-2 ${
                   pkg.popular
-                    ? "border-2 border-primary bg-gradient-to-b from-primary/15 via-primary/5 to-brand-dark-surface ring-1 ring-primary/20 shadow-2xl shadow-primary/15"
-                    : "border border-white/[0.06] bg-white/[0.03] backdrop-blur-sm hover:border-primary/40 hover:bg-white/[0.06] hover:shadow-xl hover:shadow-primary/5"
+                    ? "border-2 border-primary bg-card ring-1 ring-primary/20 shadow-xl shadow-primary/10"
+                    : "border border-border bg-card hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
                 }`}>
-                  {pkg.popular && (
-                    <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-primary/20 to-transparent pointer-events-none" />
-                  )}
-                  <div className="relative z-10 flex flex-col h-full">
+                  <div className="flex flex-col h-full">
                     <div className="flex items-center gap-2 mb-4 min-h-[28px]">
                       {pkg.popular && (
                         <span className="bg-primary text-primary-foreground font-heading font-bold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg shadow-primary/30">
@@ -233,17 +222,17 @@ const MotorcycleDetailing = () => {
                         </span>
                       )}
                       {pkg.badge && (
-                        <span className="bg-green-500/15 text-green-400 font-heading font-bold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full border border-green-500/25">
+                        <span className="bg-success/10 text-success font-heading font-bold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full border border-success/25">
                           {pkg.badge}
                         </span>
                       )}
                     </div>
-                    <h3 className="font-heading font-bold text-sm sm:text-base uppercase text-primary-foreground/90 mb-2 leading-tight">{pkg.title}</h3>
+                    <h3 className="font-heading font-bold text-sm sm:text-base uppercase text-foreground mb-2 leading-tight">{pkg.title}</h3>
                     <p className="font-heading font-black text-primary text-2xl sm:text-3xl mb-5">{pkg.price}</p>
-                    <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent mb-5" />
+                    <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-5" />
                     <ul className="space-y-2.5 mb-7 flex-1">
                       {pkg.features.map((f) => (
-                        <li key={f} className="flex gap-2.5 text-primary-foreground/70 text-xs sm:text-sm">
+                        <li key={f} className="flex gap-2.5 text-muted-foreground text-xs sm:text-sm">
                           <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
                           {f}
                         </li>
@@ -301,15 +290,12 @@ const MotorcycleDetailing = () => {
         </div>
       </section>
 
-      {/* Why Choose Us — dark */}
-      <section className="section-dark py-20 sm:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-1/4 w-80 h-80 bg-primary/5 rounded-full blur-[120px]" />
-        </div>
+      {/* Why Choose Us — light elevated */}
+      <section className="py-20 sm:py-28 bg-muted/30 relative overflow-hidden">
         <div className="container max-w-5xl px-4 sm:px-6 relative z-10">
           <ScrollReveal>
             <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs text-center mb-3">The Xpress Advantage</p>
-            <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-center mb-14">
+            <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-foreground text-center mb-14">
               Why Riders Choose <span className="text-primary">Xpress</span>
             </h2>
           </ScrollReveal>
@@ -323,14 +309,14 @@ const MotorcycleDetailing = () => {
               { icon: Award, title: "Satisfaction Guaranteed", desc: "Not happy? We'll redo it. We stand behind every detail — two wheels or four." },
             ].map((item) => (
               <StaggerItem key={item.title}>
-                <div className="group relative p-6 sm:p-7 rounded-2xl border border-white/[0.06] bg-white/[0.03] backdrop-blur-sm h-full hover:border-primary/40 hover:bg-white/[0.06] transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 overflow-hidden">
+                <div className="group relative p-6 sm:p-7 rounded-2xl border border-border bg-card h-full hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1 overflow-hidden">
                   <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/5 rounded-full blur-[40px] pointer-events-none group-hover:bg-primary/10 transition-colors duration-500" />
                   <div className="relative z-10">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-500">
                       <item.icon className="w-6 h-6 text-primary" />
                     </div>
-                    <h3 className="font-heading font-bold uppercase text-sm mb-2">{item.title}</h3>
-                    <p className="text-sm leading-relaxed opacity-70">{item.desc}</p>
+                    <h3 className="font-heading font-bold text-foreground uppercase text-sm mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -344,9 +330,8 @@ const MotorcycleDetailing = () => {
 
       {/* CTA */}
       <section className="py-20 sm:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-brand-blue-deep to-brand-dark" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(197_100%_55%/0.2),transparent_70%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(197_100%_35%/0.3),transparent_70%)]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-primary/80" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(205_100%_60%/0.3),transparent_70%)]" />
         <div className="container relative z-10">
           <div className="grid md:grid-cols-2 gap-10 items-center px-4 sm:px-6">
             <ScrollReveal direction="left">
@@ -366,24 +351,14 @@ const MotorcycleDetailing = () => {
                   <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary-foreground/80" /> All bike types</span>
                   <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary-foreground/80" /> Guaranteed</span>
                 </div>
-                <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
-                  <a
-                    href="tel:5875004523"
-                    className="inline-flex items-center gap-2.5 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-xl text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-2xl hover:shadow-primary-foreground/20 hover:scale-[1.02] group"
-                  >
-                    <Phone className="w-4 h-4" />
-                    Call (587) 500-4523
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                  <a
-                    href="tel:5875004523"
-                    className="inline-flex items-center gap-2 border border-primary-foreground/30 text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-xl text-sm hover:bg-primary-foreground/10 transition-all hover:border-primary-foreground/50 group backdrop-blur-sm"
-                  >
-                    <Phone className="w-4 h-4" />
-                    Call Now
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                </div>
+                <a
+                  href="tel:5875004523"
+                  className="inline-flex items-center gap-2.5 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-xl text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-2xl hover:scale-[1.02] group"
+                >
+                  <Phone className="w-4 h-4" />
+                  Call (587) 500-4523
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
               </div>
             </ScrollReveal>
             <ScrollReveal direction="right">
