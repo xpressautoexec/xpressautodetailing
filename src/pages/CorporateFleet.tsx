@@ -59,8 +59,8 @@ const CorporateFleet = () => {
   return (
     <PageTransition><div className="min-h-screen">
       <SEO
-        title="Fleet & Corporate Vehicle Detailing Calgary"
-        description="Keep your fleet spotless with on-site mobile detailing. Volume discounts, after-hours service & zero downtime. Trusted by Calgary businesses. Get a free quote."
+         title="Fleet & Corporate Vehicle Detailing Calgary"
+         description="On-site mobile fleet detailing for Calgary businesses. Volume discounts, after-hours scheduling & zero downtime. Trusted by Shell, Aecon & more. Get a free quote."
         canonical="/corporate-fleet"
         jsonLd={[
           buildServiceJsonLd("Corporate & Fleet Detailing", "Professional fleet and corporate vehicle detailing in Calgary.", "/corporate-fleet"),

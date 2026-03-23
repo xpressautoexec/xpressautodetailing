@@ -107,8 +107,8 @@ const MotorcycleDetailing = () => {
   return (
     <PageTransition><div className="min-h-screen">
       <SEO
-        title="Motorcycle Detailing Calgary — Mobile Bike Detail"
-        description="Professional mobile motorcycle detailing in Calgary. Sport bikes, cruisers, touring & adventure bikes. Hand wash, ceramic coating & full details. We come to you."
+         title="Motorcycle Detailing Calgary — Mobile Bike Detail"
+         description="Mobile motorcycle detailing in Calgary for sport bikes, cruisers, touring & adventure bikes. Hand wash, ceramic coating & engine detail. Fully insured. We come to you."
         canonical="/motorcycle-detailing"
         jsonLd={[
           buildServiceJsonLd("Motorcycle Detailing", "Professional mobile motorcycle detailing in Calgary and surrounding areas.", "/motorcycle-detailing"),
