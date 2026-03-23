@@ -29,36 +29,30 @@ const highlights = [
 ];
 
 const AppShowcase = () => (
-  <section className="relative py-24 overflow-hidden">
-    {/* Gradient background */}
-    <div className="absolute inset-0 bg-gradient-to-br from-primary via-brand-blue-deep to-brand-dark/80" />
+  <section className="relative py-20 sm:py-24 overflow-hidden bg-foreground">
     {/* Subtle pattern overlay */}
-    <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
+    <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
 
     <div className="container relative z-10">
       <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center px-2 sm:px-0">
         {/* Left — Why Choose */}
         <ScrollReveal direction="left">
           <div className="space-y-6">
-            <p className="font-heading font-bold text-sm uppercase tracking-[0.2em] text-primary-foreground/60">
+            <p className="font-heading font-bold text-sm uppercase tracking-[0.2em] text-background/50">
               The Xpress Difference
             </p>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-primary-foreground leading-tight">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-background leading-tight">
               Why Choose{" "}
-              <span className="relative inline-block">
-                Xpress
-                <span className="absolute -bottom-1 left-0 right-0 h-1 bg-primary-foreground/30 rounded-full" />
-              </span>
-              ?
+              <span className="text-primary">Xpress</span>?
             </h2>
-            <p className="text-primary-foreground/80 text-lg leading-relaxed max-w-md">
+            <p className="text-background/70 text-base sm:text-lg leading-relaxed max-w-md">
               From certified professionals and eco-friendly products to our 100% satisfaction guarantee — discover what sets us apart.
             </p>
 
             <ul className="space-y-3 pt-2">
               {highlights.map((h) => (
-                <li key={h} className="flex items-center gap-3 text-primary-foreground/90">
-                  <CheckCircle2 className="w-5 h-5 text-primary-foreground/60 shrink-0" />
+                <li key={h} className="flex items-center gap-3 text-background/80">
+                  <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
                   <span className="text-sm font-medium">{h}</span>
                 </li>
               ))}
@@ -66,9 +60,9 @@ const AppShowcase = () => (
 
             <Link
               to="/why-choose-us"
-              className="inline-flex items-center gap-2 border-2 border-primary-foreground/80 text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground hover:text-primary transition-all duration-300 group mt-2"
+              className="inline-flex items-center gap-2 border-2 border-background/30 text-background font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-background hover:text-foreground transition-all duration-300 group mt-2"
             >
-              Learn More About Why Choose Us
+              Learn More
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
@@ -78,26 +72,26 @@ const AppShowcase = () => (
         <ScrollReveal direction="right">
           <div className="space-y-8">
             <div>
-              <h3 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-primary-foreground mb-2">
+              <h3 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-background mb-2">
                 Xpress Isn't Just a Name
               </h3>
-              <p className="font-heading font-bold text-xl uppercase text-primary-foreground/50 tracking-wider">
+              <p className="font-heading font-bold text-xl uppercase text-background/40 tracking-wider">
                 It's How We Move
               </p>
             </div>
 
-            <StaggerContainer className="space-y-5" staggerDelay={0.12}>
+            <StaggerContainer className="space-y-4" staggerDelay={0.12}>
               {features.map((f) => (
                 <StaggerItem key={f.title}>
-                  <div className="flex items-start gap-5 p-5 rounded-xl bg-primary-foreground/[0.07] backdrop-blur-sm border border-primary-foreground/10 hover:bg-primary-foreground/[0.12] transition-all duration-300 group">
-                    <div className="w-14 h-14 rounded-xl bg-primary-foreground/10 flex items-center justify-center shrink-0 group-hover:bg-primary-foreground/20 group-hover:scale-110 transition-all duration-300">
-                      <f.icon className="w-7 h-7 text-primary-foreground" />
+                  <div className="flex items-start gap-5 p-5 rounded-xl bg-background/[0.06] backdrop-blur-sm border border-background/10 hover:bg-background/[0.10] transition-all duration-300 group">
+                    <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/30 transition-all duration-300">
+                      <f.icon className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <p className="font-heading font-bold text-primary-foreground uppercase tracking-wider text-base mb-1">
+                      <p className="font-heading font-bold text-background uppercase tracking-wider text-sm mb-1">
                         {f.title}
                       </p>
-                      <p className="text-primary-foreground/60 text-sm leading-relaxed">
+                      <p className="text-background/50 text-sm leading-relaxed">
                         {f.desc}
                       </p>
                     </div>
@@ -110,7 +104,7 @@ const AppShowcase = () => (
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all duration-300 shadow-lg shadow-black/20 group"
+              className="group inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-brand-blue-deep transition-all duration-300 shadow-lg shadow-primary/30"
             >
               Book Now
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

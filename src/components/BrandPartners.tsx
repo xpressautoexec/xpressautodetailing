@@ -10,69 +10,57 @@ import brandDirtt from "@/assets/brand-dirtt.png";
 import brandShell from "@/assets/brand-shell.png";
 import brandMeguiars from "@/assets/brand-meguiars.png";
 import brandChemicalGuys from "@/assets/brand-chemical-guys.png";
+
 interface BrandItem {
   name: string;
   logo?: string;
 }
-const productBrands: BrandItem[] = [{
-  name: "3M",
-  logo: brand3m
-}, {
-  name: "Meguiar's",
-  logo: brandMeguiars
-}, {
-  name: "XPEL",
-  logo: brandXpel
-}, {
-  name: "Chemical Guys",
-  logo: brandChemicalGuys
-}, {
-  name: "Gtechniq",
-  logo: brandGtechniq
-}];
-const clientPartners: BrandItem[] = [{
-  name: "Aecon",
-  logo: brandAecon
-}, {
-  name: "Wood's Homes",
-  logo: brandWoodsHomes
-}, {
-  name: "Truman Homes",
-  logo: brandTruman
-}, {
-  name: "KLS Earthworks",
-  logo: brandKls
-}, {
-  name: "DIRTT",
-  logo: brandDirtt
-}, {
-  name: "Shell",
-  logo: brandShell
-}];
-const BrandCard = ({
-  brand
-}: {
-  brand: BrandItem;
-}) => <div className="bg-background border border-border rounded-lg px-4 py-5 w-full flex items-center justify-center hover:border-primary/40 transition-colors min-h-[72px]">
-    {brand.logo ? <img src={brand.logo} alt={brand.name} className="h-8 md:h-10 w-auto object-contain max-w-full border-0" /> : <span className="font-heading font-black text-sm md:text-base uppercase tracking-wider text-foreground/70">
-        {brand.name}
-      </span>}
-  </div>;
-const BrandPartners = () => <section className="py-16 bg-muted/30 border-y border-border">
+
+const productBrands: BrandItem[] = [
+  { name: "3M", logo: brand3m },
+  { name: "Meguiar's", logo: brandMeguiars },
+  { name: "XPEL", logo: brandXpel },
+  { name: "Chemical Guys", logo: brandChemicalGuys },
+  { name: "Gtechniq", logo: brandGtechniq },
+];
+
+const clientPartners: BrandItem[] = [
+  { name: "Aecon", logo: brandAecon },
+  { name: "Wood's Homes", logo: brandWoodsHomes },
+  { name: "Truman Homes", logo: brandTruman },
+  { name: "KLS Earthworks", logo: brandKls },
+  { name: "DIRTT", logo: brandDirtt },
+  { name: "Shell", logo: brandShell },
+];
+
+const BrandCard = ({ brand }: { brand: BrandItem }) => (
+  <div className="bg-card border border-border rounded-xl px-4 py-5 w-full flex items-center justify-center hover:border-primary/30 hover:shadow-sm transition-all duration-300 min-h-[72px]">
+    {brand.logo ? (
+      <img src={brand.logo} alt={brand.name} className="h-8 md:h-10 w-auto object-contain max-w-full border-0" />
+    ) : (
+      <span className="font-heading font-black text-sm md:text-base uppercase tracking-wider text-foreground/70">{brand.name}</span>
+    )}
+  </div>
+);
+
+const BrandPartners = () => (
+  <section className="py-14 sm:py-16 bg-background border-y border-border">
     <div className="container">
       <ScrollReveal>
         <p className="text-center text-muted-foreground font-heading text-xs uppercase tracking-widest mb-2">
           Products We Trust
         </p>
         <h2 className="text-center font-heading font-black text-2xl md:text-3xl uppercase text-foreground mb-10">
-          Industry-Leading <span className="text-primary">Brands</span>
+          Industry-Leading <span className="text-gradient">Brands</span>
         </h2>
       </ScrollReveal>
 
-      <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6 mb-14" staggerDelay={0.06}>
-        {productBrands.map(brand => <StaggerItem key={brand.name} className="flex items-center justify-center">
+      <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-5 mb-14" staggerDelay={0.06}>
+        {productBrands.map((brand) => (
+          <StaggerItem key={brand.name} className="flex items-center justify-center">
             <BrandCard brand={brand} />
-          </StaggerItem>)}
+          </StaggerItem>
+        ))}
       </StaggerContainer>
 
       <ScrollReveal>
@@ -85,10 +73,14 @@ const BrandPartners = () => <section className="py-16 bg-muted/30 border-y borde
       </ScrollReveal>
 
       <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4" staggerDelay={0.06}>
-        {clientPartners.map(partner => <StaggerItem key={partner.name} className="flex items-center justify-center">
+        {clientPartners.map((partner) => (
+          <StaggerItem key={partner.name} className="flex items-center justify-center">
             <BrandCard brand={partner} />
-          </StaggerItem>)}
+          </StaggerItem>
+        ))}
       </StaggerContainer>
     </div>
-  </section>;
+  </section>
+);
+
 export default BrandPartners;
