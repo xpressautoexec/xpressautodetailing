@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Shield, Clock } from "lucide-react";
+import { ArrowRight, Shield, Clock, Zap } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
@@ -17,6 +17,8 @@ import Footer from "@/components/Footer";
 import BrandPartners from "@/components/BrandPartners";
 import GoogleReviewBadge from "@/components/GoogleReviewBadge";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
+import StickyBookingBar from "@/components/StickyBookingBar";
+import SocialProofToast from "@/components/SocialProofToast";
 import FloatingContact from "@/components/FloatingContact";
 import ChatWidget from "@/components/ChatWidget";
 import SEO, { localBusinessJsonLd } from "@/components/SEO";
@@ -69,6 +71,32 @@ const Index = () => {
         <HowItWorks />
         <GoogleReviewBadge />
         <ServicesSection />
+
+        {/* Mid-page conversion break */}
+        <section className="py-8 bg-urgency">
+          <div className="container flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+            <div className="flex items-center gap-2 text-urgency-foreground">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-urgency-foreground opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-urgency-foreground"></span>
+              </span>
+              <span className="font-heading font-bold text-sm uppercase tracking-wider">
+                Limited spots — Summer schedule filling fast
+              </span>
+            </div>
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-white text-urgency font-heading font-bold uppercase tracking-wider text-xs px-6 py-2.5 rounded-lg hover:bg-white/90 transition-all group shadow-lg"
+            >
+              <Zap className="w-3.5 h-3.5" />
+              Book Now
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+            </a>
+          </div>
+        </section>
+
         <AboutSection />
         <AppShowcase />
         <BrandPartners />
@@ -155,11 +183,15 @@ const Index = () => {
         <FAQSection />
 
         {/* Final CTA */}
-        <section className="py-16 sm:py-20 bg-foreground">
-          <div className="container text-center">
+        <section className="py-16 sm:py-20 bg-foreground relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(205_100%_50%/0.1),transparent_70%)]" />
+          <div className="container text-center relative z-10">
             <ScrollReveal>
-              <div className="inline-flex items-center gap-2 bg-urgency/90 text-urgency-foreground font-heading font-bold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-6">
-                <Clock className="w-3.5 h-3.5" />
+              <div className="inline-flex items-center gap-2 bg-urgency text-urgency-foreground font-heading font-bold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-6">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-urgency-foreground opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-urgency-foreground"></span>
+                </span>
                 Spots Filling Up Fast
               </div>
               <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-background mb-4 px-4">
@@ -175,22 +207,33 @@ const Index = () => {
                 <span>•</span>
                 <span>No Hidden Fees</span>
               </div>
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-10 py-4 rounded-lg text-sm hover:bg-brand-blue-deep transition-all shadow-lg shadow-primary/30"
-              >
-                Schedule My Detail
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-10 py-4 rounded-lg text-sm hover:bg-primary/90 transition-all shadow-lg shadow-primary/30 hover:scale-[1.02]"
+                >
+                  <Zap className="w-4 h-4" />
+                  Book Now — Takes 60 Seconds
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+                <a
+                  href="tel:5875004523"
+                  className="inline-flex items-center gap-2 border border-background/20 text-background font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-xs hover:bg-background/10 transition-all"
+                >
+                  Or Call (587) 500-4523
+                </a>
+              </div>
             </ScrollReveal>
           </div>
         </section>
 
         <Footer />
-        <div className="h-20 lg:hidden" />
+        <div className="h-24 lg:hidden" />
         <StickyMobileCTA />
+        <StickyBookingBar />
+        <SocialProofToast />
         <FloatingContact />
         <ChatWidget />
         <HomePromoPopup />
