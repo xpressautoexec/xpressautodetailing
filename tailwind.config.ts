@@ -72,6 +72,14 @@ export default {
           slate: "hsl(var(--brand-slate))",
           "warm-bg": "hsl(var(--brand-warm-bg))",
         },
+        urgency: {
+          DEFAULT: "hsl(var(--urgency))",
+          foreground: "hsl(var(--urgency-foreground))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -6,33 +6,33 @@
 
 @layer base {
   :root {
-    --background: 210 20% 98%;
-    --foreground: 215 25% 15%;
+    --background: 216 30% 97%;
+    --foreground: 215 30% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 215 30% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 215 30% 12%;
 
-    --primary: 197 100% 45%;
+    --primary: 205 100% 42%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 15% 92%;
-    --secondary-foreground: 215 25% 15%;
+    --secondary: 214 20% 93%;
+    --secondary-foreground: 215 30% 12%;
 
-    --muted: 210 15% 94%;
-    --muted-foreground: 215 12% 45%;
+    --muted: 214 18% 94%;
+    --muted-foreground: 215 15% 42%;
 
-    --accent: 197 80% 92%;
-    --accent-foreground: 197 100% 30%;
+    --accent: 205 60% 92%;
+    --accent-foreground: 205 100% 30%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 210 15% 88%;
-    --input: 210 15% 88%;
-    --ring: 197 100% 45%;
+    --border: 214 20% 90%;
+    --input: 214 20% 90%;
+    --ring: 205 100% 42%;
 
     --radius: 0.5rem;
 
@@ -46,15 +46,21 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
 
     /* Custom brand tokens */
-    --brand-dark: 215 30% 12%;
-    --brand-dark-surface: 215 25% 18%;
-    --brand-blue: 197 100% 45%;
-    --brand-blue-glow: 197 100% 55%;
-    --brand-blue-deep: 197 100% 35%;
-    --brand-gray: 215 12% 75%;
-    --brand-light: 210 20% 96%;
-    --brand-slate: 215 20% 22%;
-    --brand-warm-bg: 210 15% 95%;
+    --brand-dark: 215 35% 10%;
+    --brand-dark-surface: 215 30% 15%;
+    --brand-blue: 205 100% 42%;
+    --brand-blue-glow: 205 100% 52%;
+    --brand-blue-deep: 205 100% 32%;
+    --brand-gray: 215 15% 65%;
+    --brand-light: 216 25% 96%;
+    --brand-slate: 215 25% 20%;
+    --brand-warm-bg: 214 18% 95%;
+    
+    /* Conversion tokens */
+    --urgency: 15 90% 55%;
+    --urgency-foreground: 0 0% 100%;
+    --success: 152 70% 40%;
+    --success-foreground: 0 0% 100%;
   }
 
   .dark {
@@ -64,13 +70,13 @@
     --card-foreground: 210 40% 98%;
     --popover: 215 25% 14%;
     --popover-foreground: 210 40% 98%;
-    --primary: 197 100% 50%;
+    --primary: 205 100% 48%;
     --primary-foreground: 0 0% 100%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 197 100% 45%;
+    --accent: 205 100% 42%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
@@ -100,7 +106,7 @@
   }
   
   .section-dark {
-    background-color: hsl(215 30% 12%);
+    background-color: hsl(215 35% 10%);
     color: hsl(0 0% 100%);
   }
 
@@ -119,6 +125,6 @@
   }
 
   .section-alt {
-    background-color: hsl(210 15% 95%);
+    background-color: hsl(214 18% 95%);
   }
 }
