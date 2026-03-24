@@ -120,16 +120,21 @@ const PaintCeramics = () => (
             icon={<Sparkles className="w-8 h-8" />}
             name="1-Step Enhancement + 1 Yr Ceramic"
             price="$399.99"
-            tagline="Restore gloss & add a year of ceramic protection."
+            tagline="Restore gloss, remove light swirls & add a full year of ceramic protection — ideal for daily drivers."
+            ctaText="Call Now"
+            ctaLink="tel:5875004523"
             features={[
-              "Paint decontamination",
-              "1-step power polish (40-60% defect removal)",
-              "1-year ceramic spray sealant",
-              "Final paint inspection",
+              "Full paint decontamination (iron, tar, fallout)",
+              "Clay bar treatment for glass-smooth surface",
+              "1-step machine polish (removes 40–60% of swirls & scratches)",
+              "1-year ceramic spray sealant (hydrophobic finish)",
+              "Final paint inspection under LED lighting",
+              "Aftercare guide provided",
             ]}
             addOns={[
               { name: "Wheel Ceramic Coating", price: "+$80" },
-              { name: "Windshield Coating", price: "+$50" },
+              { name: "Windshield Hydrophobic Coating", price: "+$50" },
+              { name: "Trim & Plastic Ceramic", price: "+$40" },
             ]}
             surcharges={["SUV: $449.99", "Truck: $499.99"]}
           />
@@ -137,16 +142,22 @@ const PaintCeramics = () => (
             icon={<Gem className="w-8 h-8" />}
             name="2-Step Correction + 5 Yr Ceramic"
             price="$599.99"
-            tagline="Full correction & multi-year ceramic for enthusiasts."
+            tagline="Full paint correction for enthusiasts — removes 85–95% of defects with multi-year ceramic protection."
+            ctaText="Call Now"
+            ctaLink="tel:5875004523"
             features={[
-              "Paint decontamination",
-              "2-step cut & polish (85-95% defect removal)",
-              "4-year infused ceramic coating",
-              "Final paint inspection",
+              "Full paint decontamination (iron, tar, fallout)",
+              "Clay bar treatment for glass-smooth surface",
+              "2-step compound cut & fine polish (85–95% defect removal)",
+              "4-year professional-grade infused ceramic coating",
+              "LED inspection at every stage for quality control",
+              "Paint depth readings taken before correction",
+              "Aftercare kit & maintenance schedule included",
             ]}
             addOns={[
               { name: "Wheel Ceramic Coating", price: "+$80" },
-              { name: "Interior Ceramic Coating", price: "+$120" },
+              { name: "Interior Ceramic Coating (all trim)", price: "+$120" },
+              { name: "Windshield Hydrophobic Coating", price: "+$50" },
             ]}
             surcharges={["SUV: $649.99", "Truck: $699.99"]}
             isPrimary

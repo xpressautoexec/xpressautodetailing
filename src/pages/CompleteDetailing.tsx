@@ -116,43 +116,49 @@ const CompleteDetailing = () => (
             icon={<Sparkles className="w-8 h-8" />}
             name="Showroom Reset"
             price="$209.99"
-            tagline="Full interior + exterior in one visit — our best value."
+            tagline="Full interior + exterior in one visit — saves $30+ vs booking separately. Our best value for a complete refresh."
             features={[
-              "Full hand wash, dry & tire shine",
-              "Deep vacuum, dash & console detailed",
+              "Full foam pre-wash + two-bucket hand wash & dry",
+              "Tire, wheel & wheel well cleaning + tire shine",
+              "Deep vacuum of seats, carpets, trunk & all crevices",
+              "Dashboard, console & door panels detailed",
               "Seats steam cleaned & conditioned",
-              "Carpets shampooed",
+              "All carpets & fabric shampooed",
               "Streak-free windows inside & out",
             ]}
             addOns={[
               { name: "Pet Hair Removal", price: "+$55" },
               { name: "Engine Bay Cleaning", price: "+$50" },
+              { name: "Ozone Odour Elimination", price: "+$75" },
             ]}
             surcharges={["Add $20 for small SUVs/trucks", "Add $30 for 3-row SUVs/minivans"]}
-            time="~2.5-3 hrs | Mobile anywhere in Calgary"
+            time="~2.5–3 hrs | Mobile anywhere in Calgary"
           />
           <PackageCard
-            icon={<Sparkles className="w-8 h-8" />}
+            icon={<ShieldCheck className="w-8 h-8" />}
             name="Showroom Reset + Protection"
             price="$239.99"
-            tagline="The ultimate package — deep clean, correction & lasting protection."
+            tagline="The ultimate package — deep clean, decontamination & lasting protection for every surface inside and out."
             features={[
-              "Everything in Showroom Reset",
-              "Clay bar decontamination",
-              "Protective wax coat",
-              "Fabric/leather protectant applied",
-              "UV protection on all surfaces",
+              "Everything in Showroom Reset included",
+              "Clay bar paint decontamination (glass-smooth finish)",
+              "Hand-applied carnauba & synthetic wax coat",
+              "Fabric guard OR leather conditioner applied",
+              "UV protectant on all interior plastics & trim",
+              "Door jambs cleaned & dried",
+              "Exhaust tips polished",
             ]}
             bonuses={[
-              "🎁 IronX Treatment ($40 value)",
-              "🎁 25% OFF Engine Bay Detail",
+              "IronX Fallout Treatment ($40 value) — FREE",
+              "25% OFF Engine Bay Detail when added",
             ]}
             addOns={[
-              { name: "Ceramic Spray Sealant", price: "+$50" },
-              { name: "Odour Elimination", price: "+$75" },
+              { name: "Ceramic Spray Sealant Upgrade", price: "+$50" },
+              { name: "Ozone Odour Elimination", price: "+$75" },
+              { name: "Headlight Restoration", price: "+$80" },
             ]}
             surcharges={["Add $20 for small SUVs/trucks", "Add $30 for 3-row SUVs/minivans"]}
-            time="~3-3.5 hrs | Mobile anywhere in Calgary"
+            time="~3–3.5 hrs | Mobile anywhere in Calgary"
             isPrimary
           />
         </div>
