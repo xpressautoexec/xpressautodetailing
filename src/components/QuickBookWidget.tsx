@@ -1,18 +1,46 @@
 import { useState } from "react";
-import { ArrowRight, Zap, CheckCircle } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowRight, Zap, CheckCircle, Car, Truck } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
-const services = [
-  { label: "Interior Detail", price: "$129+", time: "~2 hrs" },
-  { label: "Exterior Detail", price: "$99+", time: "~1.5 hrs" },
-  { label: "Complete Detail", price: "$209+", time: "~3 hrs" },
-  { label: "Ceramic Coating", price: "$499+", time: "~4 hrs" },
+type VehicleSize = "sedan" | "small_suv" | "large_suv";
+
+const vehicleSizes: { id: VehicleSize; label: string; icon: typeof Car; desc: string }[] = [
+  { id: "sedan", label: "Sedan / Coupe", icon: Car, desc: "Cars & small vehicles" },
+  { id: "small_suv", label: "SUV / Truck", icon: Truck, desc: "Mid-size SUVs & pickups" },
+  { id: "large_suv", label: "3-Row / Van", icon: Truck, desc: "Large SUVs & minivans" },
+];
+
+interface ServiceOption {
+  label: string;
+  base: Record<VehicleSize, string>;
+  time: string;
+  popular?: boolean;
+}
+
+const services: ServiceOption[] = [
+  {
+    label: "Exterior Detail",
+    base: { sedan: "$79.99", small_suv: "$89.99", large_suv: "$99.99" },
+    time: "~1.5 hrs",
+  },
+  {
+    label: "Interior Detail",
+    base: { sedan: "$159.99", small_suv: "$179.99", large_suv: "$189.99" },
+    time: "~2 hrs",
+  },
+  {
+    label: "Complete Detail",
+    base: { sedan: "$209.99", small_suv: "$229.99", large_suv: "$239.99" },
+    time: "~3 hrs",
+    popular: true,
+  },
 ];
 
 const QuickBookWidget = () => {
-  const [selected, setSelected] = useState(0);
+  const [vehicle, setVehicle] = useState<VehicleSize>("sedan");
+  const [selectedService, setSelectedService] = useState(2); // default to Complete
 
   return (
     <motion.div
@@ -21,29 +49,76 @@ const QuickBookWidget = () => {
       transition={{ duration: 0.6, delay: 0.5 }}
       className="mt-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 sm:p-6 max-w-xl"
     >
-      <p className="text-white/90 font-heading font-bold text-xs uppercase tracking-wider mb-3">
-        Quick Book — Pick Your Service
+      {/* Step 1: Vehicle */}
+      <p className="text-white/90 font-heading font-bold text-[10px] uppercase tracking-widest mb-2 flex items-center gap-2">
+        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-black">1</span>
+        Your Vehicle
       </p>
-      <div className="grid grid-cols-2 gap-2 mb-4">
+      <div className="grid grid-cols-3 gap-2 mb-4">
+        {vehicleSizes.map((v) => (
+          <button
+            key={v.id}
+            onClick={() => setVehicle(v.id)}
+            className={`relative text-center p-2.5 rounded-xl border transition-all duration-200 ${
+              vehicle === v.id
+                ? "bg-primary/20 border-primary text-white"
+                : "bg-white/5 border-white/10 text-white/60 hover:border-white/30 hover:bg-white/10"
+            }`}
+          >
+            <v.icon className={`w-5 h-5 mx-auto mb-1 ${vehicle === v.id ? "text-primary" : "text-white/50"}`} />
+            <span className="block font-heading font-bold text-[10px] sm:text-xs leading-tight">{v.label}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* Step 2: Service */}
+      <p className="text-white/90 font-heading font-bold text-[10px] uppercase tracking-widest mb-2 flex items-center gap-2">
+        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-black">2</span>
+        Pick Your Service
+      </p>
+      <div className="space-y-2 mb-4">
         {services.map((s, i) => (
           <button
             key={s.label}
-            onClick={() => setSelected(i)}
-            className={`relative text-left p-3 rounded-xl border transition-all duration-200 ${
-              selected === i
+            onClick={() => setSelectedService(i)}
+            className={`relative w-full text-left p-3 rounded-xl border transition-all duration-200 flex items-center justify-between ${
+              selectedService === i
                 ? "bg-primary/20 border-primary text-white"
                 : "bg-white/5 border-white/10 text-white/70 hover:border-white/30 hover:bg-white/10"
             }`}
           >
-            {selected === i && (
-              <CheckCircle className="absolute top-2 right-2 w-4 h-4 text-primary" />
-            )}
-            <span className="block font-heading font-bold text-xs sm:text-sm">{s.label}</span>
-            <span className="block text-primary font-bold text-sm sm:text-base mt-0.5">{s.price}</span>
-            <span className="block text-white/50 text-[10px] mt-0.5">{s.time}</span>
+            <div className="flex items-center gap-3">
+              {selectedService === i && (
+                <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+              )}
+              <div>
+                <span className="flex items-center gap-2">
+                  <span className="font-heading font-bold text-xs sm:text-sm">{s.label}</span>
+                  {s.popular && (
+                    <span className="bg-urgency text-urgency-foreground text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full">
+                      Popular
+                    </span>
+                  )}
+                </span>
+                <span className="block text-white/40 text-[10px] mt-0.5">{s.time}</span>
+              </div>
+            </div>
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={`${s.label}-${vehicle}`}
+                initial={{ opacity: 0, y: -5 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 5 }}
+                className="text-primary font-bold text-sm sm:text-base"
+              >
+                {s.base[vehicle]}
+              </motion.span>
+            </AnimatePresence>
           </button>
         ))}
       </div>
+
+      {/* CTA */}
       <a
         href={BOOKING_URL}
         target="_blank"
@@ -51,7 +126,7 @@ const QuickBookWidget = () => {
         className="group flex items-center justify-center gap-2 w-full bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3.5 rounded-xl text-sm hover:bg-primary/90 transition-all shadow-lg shadow-primary/30 hover:scale-[1.02]"
       >
         <Zap className="w-4 h-4" />
-        Book {services[selected].label} Now
+        Book Now — {services[selectedService].base[vehicle]}
         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
       </a>
       <p className="text-white/40 text-[10px] text-center mt-2">
