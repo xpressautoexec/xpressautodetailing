@@ -279,56 +279,72 @@ const TrailerRV = () => {
               Simple per-foot pricing. No hidden fees. Call for a quote based on your rig's length.
             </p>
           </ScrollReveal>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" staggerDelay={0.06}>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.06}>
             {packages.map((pkg) => (
               <StaggerItem key={pkg.title}>
-                <div className={`relative rounded-[1.6rem] h-full flex flex-col overflow-hidden border transition-all duration-300 hover:-translate-y-1 ${
+                <div className={`relative rounded-2xl h-full flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl ${
                   pkg.popular
-                    ? "border-primary/35 shadow-2xl shadow-primary/15"
-                    : "border-border shadow-xl shadow-foreground/5"
+                    ? "ring-2 ring-primary shadow-xl shadow-primary/25"
+                    : "shadow-xl shadow-black/10"
                 }`}>
-                  {/* Card header */}
-                  <div className={`px-5 sm:px-6 pt-5 pb-4 ${pkg.popular ? "bg-primary" : "bg-accent/80"}`}>
-                    <div className="flex items-center gap-2 mb-2 min-h-[22px]">
+                  {/* Badge */}
+                  {(pkg.popular || pkg.badge) && (
+                    <div className="absolute top-4 right-4 z-10">
                       {pkg.popular && (
-                        <span className="bg-background text-foreground font-heading font-bold text-[9px] uppercase tracking-wider px-2.5 py-1 rounded-full">
+                        <span className="bg-urgency text-urgency-foreground font-heading font-bold text-[9px] uppercase tracking-widest px-3 py-1 rounded-full shadow-md">
                           Most Popular
                         </span>
                       )}
-                      {pkg.badge && (
-                        <span className="bg-success/15 text-success font-heading font-bold text-[9px] uppercase tracking-wider px-2.5 py-1 rounded-full border border-success/25">
+                      {pkg.badge && !pkg.popular && (
+                        <span className="bg-success text-success-foreground font-heading font-bold text-[9px] uppercase tracking-widest px-3 py-1 rounded-full shadow-md">
                           {pkg.badge}
                         </span>
                       )}
                     </div>
-                    <h3 className={`font-heading font-black text-base sm:text-lg uppercase leading-tight ${
-                      pkg.popular ? "text-primary-foreground" : "text-foreground"
-                    }`}>{pkg.title}</h3>
-                    <p className={`font-heading font-black text-3xl mt-1 ${
-                      pkg.popular ? "text-primary-foreground" : "text-primary"
-                    }`}>{pkg.price}</p>
-                    <p className={`text-xs mt-1.5 ${
-                      pkg.popular ? "text-primary-foreground/80" : "text-muted-foreground"
-                    }`}>{pkg.desc}</p>
-                  </div>
+                  )}
 
-                  {/* Card body */}
-                  <div className="px-5 sm:px-6 py-5 bg-background flex-1 flex flex-col">
-                    <ul className="space-y-2 mb-5 flex-1">
+                  {/* Full card — single bg */}
+                  <div className="bg-card px-6 sm:px-7 pt-7 pb-6 flex-1 flex flex-col">
+                    {/* Price block */}
+                    <div className="mb-5">
+                      <h3 className="font-heading font-black text-sm uppercase tracking-wider text-muted-foreground mb-1">
+                        {pkg.title}
+                      </h3>
+                      <p className="font-heading font-black text-4xl sm:text-5xl text-primary leading-none">
+                        {pkg.price}
+                      </p>
+                      <p className="text-muted-foreground text-xs mt-2 leading-relaxed">
+                        {pkg.desc}
+                      </p>
+                    </div>
+
+                    {/* Divider */}
+                    <div className="h-px bg-border mb-5" />
+
+                    {/* Features */}
+                    <ul className="space-y-3 mb-6 flex-1">
                       {pkg.features.map((f) => (
-                        <li key={f} className="flex items-start gap-2.5 text-sm text-foreground/80">
-                          <Check className="w-3.5 h-3.5 text-success shrink-0 mt-0.5" />
+                        <li key={f} className="flex items-start gap-3 text-sm text-foreground/85">
+                          <div className="w-5 h-5 rounded-full bg-success/15 flex items-center justify-center shrink-0 mt-0.5">
+                            <Check className="w-3 h-3 text-success" />
+                          </div>
                           {f}
                         </li>
                       ))}
                     </ul>
+
+                    {/* CTA */}
                     <a
                       href="tel:5875004523"
-                      className="group flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider px-5 py-3.5 rounded-xl text-sm transition-all duration-300 bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20"
+                      className={`group flex items-center justify-center gap-2.5 font-heading font-bold uppercase tracking-wider px-5 py-4 rounded-xl text-sm transition-all duration-300 ${
+                        pkg.popular
+                          ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25"
+                          : "bg-foreground text-background hover:bg-foreground/90 shadow-lg shadow-foreground/15"
+                      }`}
                     >
-                      <Phone className="w-3.5 h-3.5" />
+                      <Phone className="w-4 h-4" />
                       Call for Quote
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
                   </div>
                 </div>
