@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, Zap, CheckCircle, Car, Truck } from "lucide-react";
+import { ArrowRight, Zap, CheckCircle, Car, Truck, Bus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
@@ -9,7 +9,7 @@ type VehicleSize = "sedan" | "small_suv" | "large_suv";
 const vehicleSizes: { id: VehicleSize; label: string; icon: typeof Car; desc: string }[] = [
   { id: "sedan", label: "Sedan / Coupe", icon: Car, desc: "Cars & small vehicles" },
   { id: "small_suv", label: "SUV / Truck", icon: Truck, desc: "Mid-size SUVs & pickups" },
-  { id: "large_suv", label: "3-Row / Van", icon: Truck, desc: "Large SUVs & minivans" },
+  { id: "large_suv", label: "3-Row SUV / Minivan", icon: Bus, desc: "Large SUVs & minivans" },
 ];
 
 interface ServiceOption {
