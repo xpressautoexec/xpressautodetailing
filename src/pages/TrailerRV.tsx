@@ -269,65 +269,58 @@ const TrailerRV = () => {
       </section>
 
       {/* Packages */}
-      <section className="py-16 sm:py-20 bg-brand-dark-surface border-y border-brand-dark">
+      <section className="py-16 sm:py-20 bg-muted/30 border-y border-border">
         <div className="container max-w-6xl px-4 sm:px-6">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center text-background mb-3">
-              RV Detailing Packages
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center text-foreground mb-3">
+              RV Detailing <span className="text-primary">Packages</span>
             </h2>
-            <p className="text-center text-background/50 text-sm mb-12 max-w-lg mx-auto">
+            <p className="text-center text-muted-foreground text-sm mb-12 max-w-lg mx-auto">
               Simple per-foot pricing. No hidden fees. Call for a quote based on your rig's length.
             </p>
           </ScrollReveal>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.06}>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" staggerDelay={0.06}>
             {packages.map((pkg) => (
               <StaggerItem key={pkg.title}>
-                <div className={`relative rounded-2xl h-full flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl ${
+                <div className={`relative rounded-xl h-full flex flex-col border transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
                   pkg.popular
-                    ? "ring-2 ring-primary shadow-xl shadow-primary/25"
-                    : "shadow-xl shadow-black/10"
+                    ? "border-primary bg-card shadow-lg shadow-primary/10"
+                    : "border-border bg-card shadow-md hover:border-primary/40"
                 }`}>
-                  {/* Badge */}
+                  {/* Badges */}
                   {(pkg.popular || pkg.badge) && (
-                    <div className="absolute top-4 right-4 z-10">
-                      {pkg.popular && (
-                        <span className="bg-urgency text-urgency-foreground font-heading font-bold text-[9px] uppercase tracking-widest px-3 py-1 rounded-full shadow-md">
+                    <div className="absolute -top-3 left-5 z-10">
+                      {pkg.popular ? (
+                        <span className="bg-primary text-primary-foreground font-heading font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md">
                           Most Popular
                         </span>
-                      )}
-                      {pkg.badge && !pkg.popular && (
-                        <span className="bg-success text-success-foreground font-heading font-bold text-[9px] uppercase tracking-widest px-3 py-1 rounded-full shadow-md">
+                      ) : pkg.badge ? (
+                        <span className="bg-success text-success-foreground font-heading font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md">
                           {pkg.badge}
                         </span>
-                      )}
+                      ) : null}
                     </div>
                   )}
 
-                  {/* Full card — single bg */}
-                  <div className="bg-card px-6 sm:px-7 pt-7 pb-6 flex-1 flex flex-col">
-                    {/* Price block */}
-                    <div className="mb-5">
-                      <h3 className="font-heading font-black text-sm uppercase tracking-wider text-muted-foreground mb-1">
-                        {pkg.title}
-                      </h3>
-                      <p className="font-heading font-black text-4xl sm:text-5xl text-primary leading-none">
-                        {pkg.price}
-                      </p>
-                      <p className="text-muted-foreground text-xs mt-2 leading-relaxed">
-                        {pkg.desc}
-                      </p>
-                    </div>
+                  <div className="px-6 pt-8 pb-6 flex-1 flex flex-col">
+                    {/* Title & Price */}
+                    <p className="font-heading font-bold text-[10px] uppercase tracking-widest text-muted-foreground/60 mb-1">
+                      {pkg.title}
+                    </p>
+                    <p className="font-heading font-black text-3xl sm:text-4xl text-foreground leading-none mb-1.5">
+                      {pkg.price}
+                    </p>
+                    <p className="text-muted-foreground text-xs leading-relaxed mb-5">
+                      {pkg.desc}
+                    </p>
 
-                    {/* Divider */}
                     <div className="h-px bg-border mb-5" />
 
                     {/* Features */}
-                    <ul className="space-y-3 mb-6 flex-1">
+                    <ul className="space-y-2.5 mb-6 flex-1">
                       {pkg.features.map((f) => (
-                        <li key={f} className="flex items-start gap-3 text-sm text-foreground/85">
-                          <div className="w-5 h-5 rounded-full bg-success/15 flex items-center justify-center shrink-0 mt-0.5">
-                            <Check className="w-3 h-3 text-success" />
-                          </div>
+                        <li key={f} className="flex items-start gap-2.5 text-sm text-foreground/80">
+                          <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                           {f}
                         </li>
                       ))}
@@ -336,10 +329,10 @@ const TrailerRV = () => {
                     {/* CTA */}
                     <a
                       href="tel:5875004523"
-                      className={`group flex items-center justify-center gap-2.5 font-heading font-bold uppercase tracking-wider px-5 py-4 rounded-xl text-sm transition-all duration-300 ${
+                      className={`group flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider px-5 py-3.5 rounded-lg text-sm transition-all duration-300 ${
                         pkg.popular
-                          ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25"
-                          : "bg-foreground text-background hover:bg-foreground/90 shadow-lg shadow-foreground/15"
+                          ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-primary/20"
+                          : "bg-foreground/5 text-foreground border border-border hover:bg-primary hover:text-primary-foreground hover:border-primary"
                       }`}
                     >
                       <Phone className="w-4 h-4" />
