@@ -21,6 +21,9 @@ const rvTestimonials = [
   { quote: "Had our 30ft travel trailer detailed before a big family trip. It looked absolutely brand new — inside and out. The kids couldn't believe it was the same trailer!", name: "Dave & Karen M.", location: "Cochrane", service: "Full RV Detail" },
   { quote: "We store our motorhome over winter and always get it detailed in spring with Xpress. They come right to the storage lot. So convenient and always top quality.", name: "Ron P.", location: "Airdrie", service: "Spring Ready Package" },
   { quote: "Our horse trailer was in rough shape after a season of hauling. Xpress cleaned it inside and out — even got the stubborn stains out of the flooring. Incredible work.", name: "Sarah L.", location: "Okotoks", service: "Horse Trailer Detail" },
+  { quote: "We bought a used 5th wheel and it was filthy — previous owners clearly neglected it. After one visit from Xpress, it looked and smelled like new. Worth every penny.", name: "Greg & Lisa T.", location: "Calgary NE", service: "Full Interior + Exterior" },
+  { quote: "I run a small fleet of cargo trailers. Xpress handles all of them — always on time, always professional. My trailers look better than they did on the lot.", name: "Mark D.", location: "Chestermere", service: "Fleet Exterior Wash" },
+  { quote: "Got the paint correction on our 2019 Jayco. The oxidation was terrible after two Alberta summers. They brought it back to the original colour. Absolutely stunned.", name: "Jennifer W.", location: "Calgary SW", service: "Paint Correction" },
 ];
 
 const packages = [
@@ -194,16 +197,36 @@ const TrailerRV = () => {
         </div>
       </section>
 
-      {/* Intro — brief & executive */}
+      {/* Intro — executive with stats */}
       <section className="py-16 sm:py-20 bg-background">
-        <div className="container max-w-3xl text-center px-6">
+        <div className="container max-w-5xl px-6">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
-              Your RV Is a <span className="text-primary">Major Investment</span>
-            </h2>
-            <p className="text-muted-foreground leading-relaxed text-base sm:text-lg">
-              Regular detailing isn't just cosmetic — it protects gelcoat, prevents seal degradation, and preserves resale value. We bring our full mobile setup directly to your rig, wherever it's parked.
-            </p>
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+              <div>
+                <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
+                  Your RV Is a <span className="text-primary">Major Investment</span>
+                </h2>
+                <p className="text-muted-foreground leading-relaxed text-base sm:text-lg mb-4">
+                  Regular detailing isn't just cosmetic — it protects gelcoat, prevents seal degradation, and preserves resale value. We bring our full mobile setup directly to your rig, wherever it's parked.
+                </p>
+                <p className="text-muted-foreground leading-relaxed text-sm">
+                  From compact camper vans to 40ft Class A motorhomes — we've seen and detailed it all. Our RV-specific products, extension equipment, and trained technicians deliver results that general detailers simply can't match.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { stat: "500+", label: "RVs & Trailers Detailed" },
+                  { stat: "4.9/5", label: "Average Client Rating" },
+                  { stat: "100%", label: "RV-Safe Products" },
+                  { stat: "24hr", label: "Typical Booking Window" },
+                ].map((item) => (
+                  <div key={item.label} className="p-5 rounded-xl border border-border bg-card text-center">
+                    <p className="font-heading font-black text-2xl text-primary">{item.stat}</p>
+                    <p className="text-muted-foreground text-xs mt-1 font-medium">{item.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </ScrollReveal>
         </div>
       </section>
@@ -365,7 +388,39 @@ const TrailerRV = () => {
       <TestimonialBlock testimonials={rvTestimonials} />
       <ServiceFAQ title="Trailer & RV Detailing FAQs" faqs={rvFAQs} />
 
-      {/* Final CTA */}
+      {/* Why Choose Us */}
+      <section className="py-16 sm:py-20 bg-background">
+        <div className="container max-w-5xl px-6">
+          <ScrollReveal>
+            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-10">
+              Why RV Owners Choose <span className="text-primary">Xpress</span>
+            </h2>
+          </ScrollReveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { icon: Droplets, title: "RV-Safe Products", desc: "pH-balanced, RV-specific products safe for gelcoat, fiberglass, decals, and rubber seals." },
+              { icon: Shield, title: "UV & Oxidation Defense", desc: "Ceramic sealants protect against Alberta's harsh UV that fades and chalks RV exteriors." },
+              { icon: MapPin, title: "Any Size, Any Location", desc: "Driveway, storage lot, or campground — we bring full equipment to you, any rig size." },
+              { icon: Clock, title: "Seasonal Prep Experts", desc: "Spring de-winterization and fall prep packages designed for the Alberta RV season." },
+              { icon: Zap, title: "Specialized Equipment", desc: "Extension poles, RV-height ladders, and high-reach foam cannons that regular detailers lack." },
+              { icon: Award, title: "Satisfaction Guaranteed", desc: "Not happy? We redo it or refund you. We stand behind every detail — no exceptions." },
+            ].map((item) => (
+              <ScrollReveal key={item.title}>
+                <div className="flex gap-4 p-5 rounded-xl border border-border bg-card hover:border-primary/30 transition-all h-full">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <item.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading font-bold text-foreground text-sm uppercase mb-1">{item.title}</h3>
+                    <p className="text-muted-foreground text-xs leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 sm:py-20 bg-primary">
         <div className="container text-center px-6">
           <ScrollReveal>
