@@ -115,46 +115,39 @@ const InteriorDetailing = () => (
             icon={<Sparkles className="w-8 h-8" />}
             name="Fresh Start Interior"
             price="$159.99"
-            tagline="A quick professional refresh. Perfect for maintenance or light cleanup."
+            tagline="A quick professional refresh for light cleanup and maintenance."
             features={[
-              "Full vacuum",
-              "Wipe-down of dash, plastics, cupholders & doors",
-              "Seats scrubbed and cleaned",
-              "Rubber mats washed, scrubbed, and dressed",
+              "Full vacuum & wipe-down",
+              "Seats scrubbed & cleaned",
               "Windows & mirrors cleaned",
-              "Vent blowout and light air freshening",
+              "Rubber mats washed & dressed",
             ]}
             addOns={[
               { name: "Pet Hair Removal", price: "+$55" },
               { name: "Odour Elimination", price: "+$75" },
-              { name: "Leather Conditioning", price: "+$30" },
             ]}
             surcharges={["Add $20 for small SUVs/trucks", "Add $30 for 3-row SUVs/minivans"]}
-            time="Time: 1.5-2 hrs | Mobile anywhere in Calgary"
+            time="~1.5-2 hrs | Mobile anywhere in Calgary"
           />
           <PackageCard
             icon={<Shield className="w-8 h-8" />}
             name="Deep Clean + Shield"
             price="$189.99"
-            tagline="A full interior transformation — stains, salt, and odors gone. The real reset."
+            tagline="Full interior transformation — stains, salt, and odors eliminated."
             features={[
-              "Everything in the Fresh Start Interior PLUS:",
-              "Deep vacuum (mats, seats, trunk)",
-              "Shampoo/steam clean seats, mats & carpets",
-              "Leather clean & condition or fabric protectant",
-              "Sticky residue removal",
+              "Everything in Fresh Start",
+              "Shampoo/steam clean seats & carpets",
+              "Leather clean & condition",
+              "UV protection & surface dressing",
               "Door jambs cleaned",
-              "Complete surface UV protection & dressing",
             ]}
-            bonuses={["🎁 Bonus: Interior protectant application ($50 value)"]}
+            bonuses={["🎁 Interior protectant ($50 value)"]}
             addOns={[
               { name: "Pet Hair Removal", price: "+$55" },
-              { name: "Headliner Shampoo", price: "+$50" },
               { name: "Odour Elimination", price: "+$75" },
-              { name: "Engine Bay Cleaning", price: "+$50" },
             ]}
             surcharges={["Add $20 for small SUVs/trucks", "Add $30 for 3-row SUVs/minivans"]}
-            time="Time: 2-2.5 hrs | Mobile anywhere in Calgary"
+            time="~2-2.5 hrs | Mobile anywhere in Calgary"
             isPrimary
           />
         </div>

@@ -116,17 +116,15 @@ const ExteriorDetailing = () => (
             icon={<Droplets className="w-8 h-8" />}
             name="Gloss Refresh"
             price="$79.99"
-            tagline="Perfect for: Quick exterior touch-ups before a big event, seasonal change, or just to turn heads."
+            tagline="A thorough hand wash & shine — perfect for regular maintenance."
             features={[
-              "No contact pre-wash",
-              "Soft contact hand wash",
-              "Soft contact hand dry & blow dry",
-              "Tire and wheel cleaning & shine",
+              "Contactless pre-wash & hand wash",
+              "Tire, wheel cleaning & shine",
               "Streak-free window cleaning",
+              "Blow dry & final inspection",
             ]}
             addOns={[
               { name: "Bug & Tar Removal", price: "+$25" },
-              { name: "Trim Restoration", price: "+$35" },
               { name: "Rain Repellent Coating", price: "+$30" },
             ]}
             surcharges={["Add $10 for small SUVs", "Add $20 for 3rd-row SUVs/Trucks/Minivans"]}
@@ -135,20 +133,17 @@ const ExteriorDetailing = () => (
             icon={<Shield className="w-8 h-8" />}
             name="Gloss Refresh + Armor"
             price="$99.99"
-            tagline="Perfect for: Drivers who want a showroom finish that lasts through Calgary's harsh weather."
+            tagline="Deep decontamination + wax seal for lasting protection."
             features={[
-              "Everything in Gloss Refresh PLUS:",
-              "Door jambs pressure washed",
-              "Bug & tar removal",
-              "Deep brake dust cleaning",
-              "Clay bar treatment",
+              "Everything in Gloss Refresh",
+              "Clay bar decontamination",
+              "Bug, tar & brake dust removal",
               "Protective wax coat",
+              "Door jambs cleaned",
             ]}
             addOns={[
               { name: "Engine Bay Cleaning", price: "+$50" },
               { name: "Headlight Restoration", price: "+$80" },
-              { name: "Ceramic Spray Sealant Upgrade", price: "+$50" },
-              { name: "Wheel Ceramic Coating", price: "+$80" },
             ]}
             surcharges={["Add $10 for small SUVs", "Add $20 for 3rd-row SUVs/Trucks/Minivans"]}
             isPrimary
