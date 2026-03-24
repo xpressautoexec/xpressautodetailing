@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Star, Clock, Shield, Zap } from "lucide-react";
 import heroBg from "@/assets/hero-bg-new.jpg";
+import QuickBookWidget from "@/components/QuickBookWidget";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -95,19 +96,9 @@ const HeroSection = () => {
             </a>
           </motion.div>
 
-          {/* Trust micro-copy */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="flex items-center gap-4 mt-5 justify-center md:justify-start text-white/50 text-xs"
-          >
-            <span className="flex items-center gap-1"><Shield className="w-3.5 h-3.5" /> 14-Day Guarantee</span>
-            <span>•</span>
-            <span>No Hidden Fees</span>
-            <span>•</span>
-            <span>Fully Insured</span>
-          </motion.div>
+          {/* Quick Book Widget */}
+          <QuickBookWidget />
+
         </div>
       </div>
     </section>
