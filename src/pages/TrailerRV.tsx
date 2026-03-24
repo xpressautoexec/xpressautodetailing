@@ -268,8 +268,8 @@ const TrailerRV = () => {
         </div>
       </section>
 
-      {/* Packages — dark bg for contrast */}
-      <section className="py-16 sm:py-20 bg-muted/40 border-y border-border">
+      {/* Packages */}
+      <section className="py-16 sm:py-20 bg-secondary/70 border-y border-border">
         <div className="container max-w-6xl px-4 sm:px-6">
           <ScrollReveal>
             <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center text-foreground mb-3">
@@ -279,16 +279,16 @@ const TrailerRV = () => {
               Simple per-foot pricing. No hidden fees. Call for a quote based on your rig's length.
             </p>
           </ScrollReveal>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5" staggerDelay={0.06}>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" staggerDelay={0.06}>
             {packages.map((pkg) => (
               <StaggerItem key={pkg.title}>
-                <div className={`relative rounded-2xl h-full flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 ${
+                <div className={`relative rounded-[1.6rem] h-full flex flex-col overflow-hidden border transition-all duration-300 hover:-translate-y-1 ${
                   pkg.popular
-                    ? "ring-2 ring-primary/60 shadow-xl shadow-primary/20"
-                    : "shadow-lg"
+                    ? "border-primary/35 shadow-2xl shadow-primary/15"
+                    : "border-border shadow-xl shadow-foreground/5"
                 }`}>
                   {/* Card header */}
-                  <div className={`px-5 sm:px-6 pt-5 pb-4 ${pkg.popular ? "bg-primary" : "bg-muted/80"}`}>
+                  <div className={`px-5 sm:px-6 pt-5 pb-4 ${pkg.popular ? "bg-primary" : "bg-accent/80"}`}>
                     <div className="flex items-center gap-2 mb-2 min-h-[22px]">
                       {pkg.popular && (
                         <span className="bg-background text-foreground font-heading font-bold text-[9px] uppercase tracking-wider px-2.5 py-1 rounded-full">
@@ -308,15 +308,15 @@ const TrailerRV = () => {
                       pkg.popular ? "text-primary-foreground" : "text-primary"
                     }`}>{pkg.price}</p>
                     <p className={`text-xs mt-1.5 ${
-                      pkg.popular ? "text-primary-foreground/70" : "text-muted-foreground"
+                      pkg.popular ? "text-primary-foreground/80" : "text-muted-foreground"
                     }`}>{pkg.desc}</p>
                   </div>
 
                   {/* Card body */}
-                  <div className="px-5 sm:px-6 py-5 bg-card flex-1 flex flex-col">
+                  <div className="px-5 sm:px-6 py-5 bg-background flex-1 flex flex-col">
                     <ul className="space-y-2 mb-5 flex-1">
                       {pkg.features.map((f) => (
-                        <li key={f} className="flex items-start gap-2.5 text-sm text-foreground/75">
+                        <li key={f} className="flex items-start gap-2.5 text-sm text-foreground/80">
                           <Check className="w-3.5 h-3.5 text-success shrink-0 mt-0.5" />
                           {f}
                         </li>
@@ -324,7 +324,7 @@ const TrailerRV = () => {
                     </ul>
                     <a
                       href="tel:5875004523"
-                      className="group flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider px-5 py-3 rounded-xl text-sm transition-all duration-300 bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-primary/20"
+                      className="group flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider px-5 py-3.5 rounded-xl text-sm transition-all duration-300 bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20"
                     >
                       <Phone className="w-3.5 h-3.5" />
                       Call for Quote
