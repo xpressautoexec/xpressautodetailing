@@ -116,36 +116,44 @@ const ExteriorDetailing = () => (
             icon={<Droplets className="w-8 h-8" />}
             name="Gloss Refresh"
             price="$79.99"
-            tagline="A thorough hand wash & shine — perfect for regular maintenance."
+            tagline="A thorough hand wash & shine — perfect for regular maintenance or between full details."
             features={[
-              "Contactless pre-wash & hand wash",
-              "Tire, wheel cleaning & shine",
-              "Streak-free window cleaning",
-              "Blow dry & final inspection",
+              "Contactless foam pre-wash to loosen dirt safely",
+              "Two-bucket method hand wash with pH-neutral soap",
+              "Tire, wheel & wheel well cleaning + tire shine",
+              "Streak-free window & mirror cleaning (exterior)",
+              "Compressed air blow dry for a spot-free finish",
+              "Final walk-around inspection with you",
             ]}
             addOns={[
               { name: "Bug & Tar Removal", price: "+$25" },
-              { name: "Rain Repellent Coating", price: "+$30" },
+              { name: "Rain Repellent Windshield Coating", price: "+$30" },
+              { name: "Trim Restorer (faded plastics)", price: "+$25" },
             ]}
             surcharges={["Add $10 for small SUVs", "Add $20 for 3rd-row SUVs/Trucks/Minivans"]}
+            time="~1–1.5 hrs | Mobile anywhere in Calgary"
           />
           <PackageCard
             icon={<Shield className="w-8 h-8" />}
             name="Gloss Refresh + Armor"
             price="$99.99"
-            tagline="Deep decontamination + wax seal for lasting protection."
+            tagline="Deep decontamination + wax seal for lasting paint protection. Our most popular exterior package."
             features={[
-              "Everything in Gloss Refresh",
-              "Clay bar decontamination",
-              "Bug, tar & brake dust removal",
-              "Protective wax coat",
-              "Door jambs cleaned",
+              "Everything in Gloss Refresh included",
+              "Clay bar decontamination for glass-smooth paint",
+              "Bug, tar & iron fallout removal",
+              "Hand-applied carnauba & synthetic wax coat",
+              "Door jambs cleaned & dried",
+              "Exhaust tips polished",
+              "Rubber & plastic trim dressed & UV-protected",
             ]}
             addOns={[
               { name: "Engine Bay Cleaning", price: "+$50" },
-              { name: "Headlight Restoration", price: "+$80" },
+              { name: "Headlight Restoration (per pair)", price: "+$80" },
+              { name: "Ceramic Spray Sealant Upgrade", price: "+$50" },
             ]}
             surcharges={["Add $10 for small SUVs", "Add $20 for 3rd-row SUVs/Trucks/Minivans"]}
+            time="~1.5–2 hrs | Mobile anywhere in Calgary"
             isPrimary
           />
         </div>
