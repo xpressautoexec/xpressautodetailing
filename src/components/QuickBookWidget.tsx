@@ -47,7 +47,7 @@ const QuickBookWidget = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.5 }}
-      className="mt-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 sm:p-6 max-w-xl"
+      className="mt-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-5 max-w-xl"
     >
       {/* Step 1: Vehicle */}
       <p className="text-white/90 font-heading font-bold text-[10px] uppercase tracking-widest mb-2 flex items-center gap-2">
