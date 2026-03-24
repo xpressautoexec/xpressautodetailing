@@ -301,11 +301,7 @@ const TrailerRV = () => {
                     </ul>
                     <a
                       href="tel:5875004523"
-                      className={`group flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider px-5 py-3 rounded-xl text-sm transition-all duration-300 ${
-                        pkg.popular
-                          ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-primary/20"
-                          : "border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground"
-                      }`}
+                      className="group flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider px-5 py-3 rounded-xl text-sm transition-all duration-300 bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-primary/20"
                     >
                       <Phone className="w-3.5 h-3.5" />
                       Call for Quote
