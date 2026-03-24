@@ -118,40 +118,35 @@ const PaintCeramics = () => (
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0">
           <PackageCard
             icon={<Sparkles className="w-8 h-8" />}
-            name="1-Step Enhancement + 1 Yr Ceramic Spray"
+            name="1-Step Enhancement + 1 Yr Ceramic"
             price="$399.99"
-            tagline="Perfect for: Daily drivers, lightly swirled paint, vehicles needing gloss restoration without a full correction."
+            tagline="Restore gloss & add a year of ceramic protection."
             features={[
-              "Paint Decontamination",
-              "1-Step Power Polish",
-              "40-60% Of Defects Removed",
-              "1-Year Ceramic Spray Sealant",
-              "Final Paint Inspection",
+              "Paint decontamination",
+              "1-step power polish (40-60% defect removal)",
+              "1-year ceramic spray sealant",
+              "Final paint inspection",
             ]}
             addOns={[
               { name: "Wheel Ceramic Coating", price: "+$80" },
-              { name: "Windshield Ceramic Coating", price: "+$50" },
-              { name: "Trim Restoration & Coating", price: "+$60" },
+              { name: "Windshield Coating", price: "+$50" },
             ]}
             surcharges={["SUV: $449.99", "Truck: $499.99"]}
           />
           <PackageCard
             icon={<Gem className="w-8 h-8" />}
-            name="2-Step Correction + 5 Yr Ceramic Coating"
+            name="2-Step Correction + 5 Yr Ceramic"
             price="$599.99"
-            tagline="Perfect for: Enthusiasts, new vehicles, neglected paint, or anyone wanting long-term gloss protection and easy maintenance."
+            tagline="Full correction & multi-year ceramic for enthusiasts."
             features={[
-              "Paint Decontamination",
-              "2-Step Power Cut & Polish",
-              "85-95% Of Defects Removed",
-              "4-Year Infused Ceramic Coating",
-              "Final Paint Inspection",
+              "Paint decontamination",
+              "2-step cut & polish (85-95% defect removal)",
+              "4-year infused ceramic coating",
+              "Final paint inspection",
             ]}
             addOns={[
               { name: "Wheel Ceramic Coating", price: "+$80" },
-              { name: "Windshield Ceramic Coating", price: "+$50" },
               { name: "Interior Ceramic Coating", price: "+$120" },
-              { name: "Full PPF (Paint Protection Film)", price: "Quote" },
             ]}
             surcharges={["SUV: $649.99", "Truck: $699.99"]}
             isPrimary
