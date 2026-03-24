@@ -269,7 +269,7 @@ const TrailerRV = () => {
       </section>
 
       {/* Packages */}
-      <section className="py-16 sm:py-20 bg-brand-slate border-y border-border">
+      <section className="py-16 sm:py-20 bg-brand-blue-deep border-y border-border">
         <div className="container max-w-6xl px-4 sm:px-6">
           <ScrollReveal>
             <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center text-background mb-3">
