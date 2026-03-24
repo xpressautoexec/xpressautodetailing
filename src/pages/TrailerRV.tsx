@@ -21,6 +21,9 @@ const rvTestimonials = [
   { quote: "Had our 30ft travel trailer detailed before a big family trip. It looked absolutely brand new — inside and out. The kids couldn't believe it was the same trailer!", name: "Dave & Karen M.", location: "Cochrane", service: "Full RV Detail" },
   { quote: "We store our motorhome over winter and always get it detailed in spring with Xpress. They come right to the storage lot. So convenient and always top quality.", name: "Ron P.", location: "Airdrie", service: "Spring Ready Package" },
   { quote: "Our horse trailer was in rough shape after a season of hauling. Xpress cleaned it inside and out — even got the stubborn stains out of the flooring. Incredible work.", name: "Sarah L.", location: "Okotoks", service: "Horse Trailer Detail" },
+  { quote: "We bought a used 5th wheel and it was filthy — previous owners clearly neglected it. After one visit from Xpress, it looked and smelled like new. Worth every penny.", name: "Greg & Lisa T.", location: "Calgary NE", service: "Full Interior + Exterior" },
+  { quote: "I run a small fleet of cargo trailers. Xpress handles all of them — always on time, always professional. My trailers look better than they did on the lot.", name: "Mark D.", location: "Chestermere", service: "Fleet Exterior Wash" },
+  { quote: "Got the paint correction on our 2019 Jayco. The oxidation was terrible after two Alberta summers. They brought it back to the original colour. Absolutely stunned.", name: "Jennifer W.", location: "Calgary SW", service: "Paint Correction" },
 ];
 
 const packages = [
@@ -194,16 +197,36 @@ const TrailerRV = () => {
         </div>
       </section>
 
-      {/* Intro — brief & executive */}
+      {/* Intro — executive with stats */}
       <section className="py-16 sm:py-20 bg-background">
-        <div className="container max-w-3xl text-center px-6">
+        <div className="container max-w-5xl px-6">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
-              Your RV Is a <span className="text-primary">Major Investment</span>
-            </h2>
-            <p className="text-muted-foreground leading-relaxed text-base sm:text-lg">
-              Regular detailing isn't just cosmetic — it protects gelcoat, prevents seal degradation, and preserves resale value. We bring our full mobile setup directly to your rig, wherever it's parked.
-            </p>
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+              <div>
+                <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
+                  Your RV Is a <span className="text-primary">Major Investment</span>
+                </h2>
+                <p className="text-muted-foreground leading-relaxed text-base sm:text-lg mb-4">
+                  Regular detailing isn't just cosmetic — it protects gelcoat, prevents seal degradation, and preserves resale value. We bring our full mobile setup directly to your rig, wherever it's parked.
+                </p>
+                <p className="text-muted-foreground leading-relaxed text-sm">
+                  From compact camper vans to 40ft Class A motorhomes — we've seen and detailed it all. Our RV-specific products, extension equipment, and trained technicians deliver results that general detailers simply can't match.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { stat: "500+", label: "RVs & Trailers Detailed" },
+                  { stat: "4.9/5", label: "Average Client Rating" },
+                  { stat: "100%", label: "RV-Safe Products" },
+                  { stat: "24hr", label: "Typical Booking Window" },
+                ].map((item) => (
+                  <div key={item.label} className="p-5 rounded-xl border border-border bg-card text-center">
+                    <p className="font-heading font-black text-2xl text-primary">{item.stat}</p>
+                    <p className="text-muted-foreground text-xs mt-1 font-medium">{item.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </ScrollReveal>
         </div>
       </section>
