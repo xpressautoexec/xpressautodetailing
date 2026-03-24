@@ -218,7 +218,7 @@ const TrailerRV = () => {
                   { stat: "500+", label: "RVs & Trailers Detailed" },
                   { stat: "4.9/5", label: "Average Client Rating" },
                   { stat: "100%", label: "RV-Safe Products" },
-                  { stat: "24hr", label: "Typical Booking Window" },
+                  { stat: "72hr", label: "Typical Booking Window" },
                 ].map((item) => (
                   <div key={item.label} className="p-5 rounded-xl border border-border bg-card text-center">
                     <p className="font-heading font-black text-2xl text-primary">{item.stat}</p>
@@ -269,13 +269,13 @@ const TrailerRV = () => {
       </section>
 
       {/* Packages — dark bg for contrast */}
-      <section className="py-16 sm:py-20 bg-foreground">
+      <section className="py-16 sm:py-20 bg-muted/40 border-y border-border">
         <div className="container max-w-6xl px-4 sm:px-6">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center text-background mb-3">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center text-foreground mb-3">
               RV Detailing Packages
             </h2>
-            <p className="text-center text-background/50 text-sm mb-12 max-w-lg mx-auto">
+            <p className="text-center text-muted-foreground text-sm mb-12 max-w-lg mx-auto">
               Simple per-foot pricing. No hidden fees. Call for a quote based on your rig's length.
             </p>
           </ScrollReveal>
