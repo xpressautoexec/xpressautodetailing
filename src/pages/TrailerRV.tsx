@@ -268,14 +268,14 @@ const TrailerRV = () => {
         </div>
       </section>
 
-      {/* Packages — clean executive cards */}
-      <section className="py-16 sm:py-20 bg-muted/30 border-y border-border">
+      {/* Packages — dark bg for contrast */}
+      <section className="py-16 sm:py-20 bg-foreground">
         <div className="container max-w-6xl px-4 sm:px-6">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center text-foreground mb-3">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center text-background mb-3">
               RV Detailing Packages
             </h2>
-            <p className="text-center text-muted-foreground text-sm mb-12 max-w-lg mx-auto">
+            <p className="text-center text-background/50 text-sm mb-12 max-w-lg mx-auto">
               Simple per-foot pricing. No hidden fees. Call for a quote based on your rig's length.
             </p>
           </ScrollReveal>
@@ -284,11 +284,11 @@ const TrailerRV = () => {
               <StaggerItem key={pkg.title}>
                 <div className={`relative rounded-2xl h-full flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 ${
                   pkg.popular
-                    ? "ring-2 ring-primary/40 shadow-xl"
-                    : "border border-border hover:border-primary/30 hover:shadow-lg"
+                    ? "ring-2 ring-primary/60 shadow-xl shadow-primary/20"
+                    : "shadow-lg"
                 }`}>
                   {/* Card header */}
-                  <div className={`px-5 sm:px-6 pt-5 pb-4 ${pkg.popular ? "bg-primary" : "bg-card"}`}>
+                  <div className={`px-5 sm:px-6 pt-5 pb-4 ${pkg.popular ? "bg-primary" : "bg-muted/80"}`}>
                     <div className="flex items-center gap-2 mb-2 min-h-[22px]">
                       {pkg.popular && (
                         <span className="bg-background text-foreground font-heading font-bold text-[9px] uppercase tracking-wider px-2.5 py-1 rounded-full">
@@ -335,6 +335,94 @@ const TrailerRV = () => {
               </StaggerItem>
             ))}
           </StaggerContainer>
+        </div>
+      </section>
+
+      {/* Mid-page CTA */}
+      <section className="py-10 sm:py-14 bg-primary">
+        <div className="container text-center px-6">
+          <ScrollReveal>
+            <div className="inline-flex items-center gap-2 text-primary-foreground/80 font-heading font-bold text-sm uppercase tracking-wider mb-3">
+              <Clock className="w-4 h-4" />
+              Book Before the Season Rush
+            </div>
+            <h3 className="font-heading font-black text-xl sm:text-2xl uppercase text-primary-foreground mb-4">
+              Spring Slots Are Filling Fast
+            </h3>
+            <p className="text-primary-foreground/60 max-w-lg mx-auto mb-6 text-sm">
+              RV owners across Calgary are booking their spring details now. Don't wait until there's a 2-week backlog.
+            </p>
+            <a href="tel:5875004523" className="group inline-flex items-center gap-2 bg-background text-foreground font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-xl text-sm hover:bg-background/90 transition-all shadow-lg">
+              <Phone className="w-4 h-4" />
+              Call for a Free Quote
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Common RV Problems */}
+      <section className="py-16 sm:py-20 bg-background">
+        <div className="container max-w-5xl px-4 sm:px-6">
+          <ScrollReveal>
+            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-3">
+              Common RV Problems <span className="text-primary">We Solve</span>
+            </h2>
+            <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto text-sm">
+              RVs face unique challenges that regular car washes can't handle. Here's what we specialize in.
+            </p>
+          </ScrollReveal>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" staggerDelay={0.06}>
+            {[
+              { icon: Droplets, title: "Black Streak Removal", desc: "Those ugly vertical streaks from roof runoff? We safely dissolve and remove them without damaging your finish or decals." },
+              { icon: Sun, title: "Oxidation & Chalking", desc: "Faded, chalky fiberglass restored to its original colour and protected against further UV degradation with professional sealants." },
+              { icon: Shield, title: "Rubber Seal Conditioning", desc: "Dry, cracked seals lead to leaks and water damage. We clean and condition every seal to extend its lifespan." },
+              { icon: Sparkles, title: "Interior Mold & Mildew", desc: "Storage environments breed mold in cushions, cabinets, and carpets. Our deep clean eliminates it and prevents return." },
+              { icon: Wrench, title: "Awning Cleaning", desc: "Mold, mildew, and debris build up on awnings fast. We deep clean and treat them to prevent premature deterioration." },
+              { icon: Clock, title: "Pre-Sale Prep", desc: "Selling your RV? A professional detail can add thousands to your asking price. First impressions matter at this price point." },
+            ].map((item) => (
+              <StaggerItem key={item.title}>
+                <div className="p-5 rounded-xl border border-border bg-card hover:border-primary/30 hover:shadow-md transition-all h-full">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                    <item.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-heading font-bold text-foreground uppercase text-xs sm:text-sm mb-1.5">{item.title}</h3>
+                  <p className="text-muted-foreground text-xs leading-relaxed">{item.desc}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* Our Process */}
+      <section className="py-16 sm:py-20 bg-muted/30 border-y border-border">
+        <div className="container max-w-4xl px-6">
+          <ScrollReveal>
+            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-12">
+              Our <span className="text-primary">RV Detailing</span> Process
+            </h2>
+          </ScrollReveal>
+          <div className="space-y-6">
+            {[
+              { step: "01", title: "Inspection & Quote", desc: "We assess your rig's size, condition, and specific needs. You get an honest quote upfront — no surprises." },
+              { step: "02", title: "Pre-Wash & Decontamination", desc: "High-reach foam cannon covers the entire rig. Black streaks, bugs, and road film are broken down with RV-safe degreasers." },
+              { step: "03", title: "Hand Wash & Detail", desc: "Every panel, compartment, and awning is hand-washed with pH-neutral soap using extension poles and RV-height ladders." },
+              { step: "04", title: "Correction & Protection", desc: "Oxidation is machine-polished away. Ceramic sealant or wax is applied for months of UV and water protection." },
+              { step: "05", title: "Interior Deep Clean", desc: "Full vacuum, shampoo, sanitize — kitchen, bathroom, sleeping areas, and all living surfaces are restored." },
+              { step: "06", title: "Final Inspection", desc: "Walk-around with you to ensure every detail meets our standard. Not satisfied? We fix it on the spot." },
+            ].map((item, i) => (
+              <ScrollReveal key={item.step} delay={i * 0.08}>
+                <div className="flex gap-5 items-start p-5 rounded-xl bg-card border border-border hover:border-primary/20 transition-all">
+                  <span className="font-heading font-black text-2xl text-primary/30 shrink-0 w-10">{item.step}</span>
+                  <div>
+                    <h3 className="font-heading font-bold text-foreground uppercase text-sm mb-1">{item.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 
