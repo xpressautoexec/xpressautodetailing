@@ -269,13 +269,13 @@ const TrailerRV = () => {
       </section>
 
       {/* Packages */}
-      <section className="py-16 sm:py-20 bg-accent border-y border-border">
+      <section className="py-16 sm:py-20 bg-brand-dark-surface border-y border-brand-dark">
         <div className="container max-w-6xl px-4 sm:px-6">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center text-foreground mb-3">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center text-background mb-3">
               RV Detailing Packages
             </h2>
-            <p className="text-center text-muted-foreground text-sm mb-12 max-w-lg mx-auto">
+            <p className="text-center text-background/50 text-sm mb-12 max-w-lg mx-auto">
               Simple per-foot pricing. No hidden fees. Call for a quote based on your rig's length.
             </p>
           </ScrollReveal>
