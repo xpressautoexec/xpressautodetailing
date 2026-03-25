@@ -8,7 +8,7 @@ type VehicleSize = "sedan" | "small_suv" | "large_suv";
 
 const vehicleSizes: { id: VehicleSize; label: string; icon: typeof Car; desc: string }[] = [
   { id: "sedan", label: "Sedan / Coupe", icon: Car, desc: "Cars & small vehicles" },
-  { id: "small_suv", label: "SUV / Truck", icon: Truck, desc: "Mid-size SUVs & pickups" },
+  { id: "small_suv", label: "SUV / Pickup", icon: Truck, desc: "Mid-size SUVs & pickups" },
   { id: "large_suv", label: "3-Row SUV / Minivan", icon: Bus, desc: "Large SUVs & minivans" },
 ];
 
