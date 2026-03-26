@@ -40,8 +40,8 @@ const PackageCard = ({
   time,
   isPrimary = false,
   ctaText = "Book Now",
-  ctaLink = "tel:5875004523",
-  ctaExternal = false,
+  ctaLink = "https://xpressauto.fieldd.co/",
+  ctaExternal = true,
 }: PackageCardProps) => (
   <div
     className={`relative rounded-2xl h-full flex flex-col transition-all duration-300 hover:-translate-y-1 overflow-hidden ${
