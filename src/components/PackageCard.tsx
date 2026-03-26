@@ -1,4 +1,4 @@
-import { Check, Plus, ArrowRight, Phone, Clock, Shield } from "lucide-react";
+import { Check, Plus, ArrowRight, CalendarCheck, Clock, Shield } from "lucide-react";
 import { type ReactNode } from "react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
@@ -167,7 +167,7 @@ const PackageCard = ({
         rel={ctaExternal ? "noopener noreferrer" : undefined}
         className="group flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider px-6 py-3.5 rounded-xl text-sm transition-all duration-300 bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20"
       >
-        <Phone className="w-4 h-4" />
+        <CalendarCheck className="w-4 h-4" />
         {ctaText}
         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
       </a>
