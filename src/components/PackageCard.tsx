@@ -39,7 +39,7 @@ const PackageCard = ({
   surcharges,
   time,
   isPrimary = false,
-  ctaText = "Call Now",
+  ctaText = "Book Now",
   ctaLink = "tel:5875004523",
   ctaExternal = false,
 }: PackageCardProps) => (
