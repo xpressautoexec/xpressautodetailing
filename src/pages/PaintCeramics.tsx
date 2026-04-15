@@ -132,8 +132,8 @@ const PaintCeramics = () => (
               "Aftercare guide provided",
             ]}
             addOns={[
-              { name: "Wheel Ceramic Coating", price: "+$80" },
-              { name: "Windshield Hydrophobic Coating", price: "+$50" },
+              { name: "Wheel Ceramic Coating", price: "+$80/wheel" },
+              { name: "Windshield Ceramic Coating", price: "+$120" },
               { name: "Trim & Plastic Ceramic", price: "+$40" },
             ]}
             surcharges={["SUV: $449.99", "Truck: $499.99"]}
@@ -155,9 +155,9 @@ const PaintCeramics = () => (
               "Aftercare kit & maintenance schedule included",
             ]}
             addOns={[
-              { name: "Wheel Ceramic Coating", price: "+$80" },
+              { name: "Wheel Ceramic Coating", price: "+$80/wheel" },
               { name: "Interior Ceramic Coating (all trim)", price: "+$120" },
-              { name: "Windshield Hydrophobic Coating", price: "+$50" },
+              { name: "Windshield Ceramic Coating", price: "+$120" },
             ]}
             surcharges={["SUV: $649.99", "Truck: $699.99"]}
             isPrimary
