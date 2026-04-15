@@ -91,6 +91,18 @@ const packages = [
     ],
   },
   {
+    title: "Decal Restoration & UV Protectant",
+    price: "$10/ft",
+    desc: "Restore faded decals & protect all surfaces from UV damage",
+    features: [
+      "Faded decal colour restoration treatment",
+      "UV protectant applied to all exterior decals & graphics",
+      "Prevents future cracking, peeling & yellowing",
+      "Gelcoat & fiberglass UV shield included",
+      "Extends decal life by years",
+    ],
+  },
+  {
     title: "Interior Detail",
     price: "$100/hr",
     desc: "Deep clean every surface — kitchen, bath & living area",
