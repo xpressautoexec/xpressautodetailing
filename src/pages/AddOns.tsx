@@ -30,7 +30,7 @@ const addOns = [
   {
     icon: Sparkles,
     name: "Headliner Shampoo",
-    price: "$50",
+    price: "$40",
     description:
       "Shampoo and steam clean the headliner. Stain removal included. Restores a fresh, uniform finish to discolored or stained headliner fabric.",
     bestWith: "Interior or Complete Detail",
@@ -66,54 +66,6 @@ const addOns = [
     description:
       "Add-on to any exterior package. Engine-safe chemicals and processes. All vulnerable components will be thoroughly protected. We degrease, pressure rinse, and dress all components.",
     bestWith: "Any Detail Package",
-  },
-  {
-    icon: Sparkles,
-    name: "Leather Conditioning",
-    price: "$30",
-    description:
-      "Keep your leather seats supple and crack-free. We clean, condition, and protect with premium pH-balanced products designed specifically for automotive leather.",
-    bestWith: "Interior Detail",
-  },
-  {
-    icon: Wrench,
-    name: "Trim Restoration",
-    price: "$35",
-    description:
-      "Faded black trim makes even a clean car look neglected. We restore and protect exterior trim pieces back to their original rich, dark finish.",
-    bestWith: "Exterior or Complete Detail",
-  },
-  {
-    icon: Droplets,
-    name: "Rain Repellent Coating",
-    price: "$30",
-    description:
-      "Hydrophobic windshield coating that causes rain to bead and sheet off at speed. Dramatically improves visibility in wet conditions — especially during Calgary storms.",
-    bestWith: "Exterior Detail",
-  },
-  {
-    icon: Shield,
-    name: "Ceramic Spray Sealant Upgrade",
-    price: "$50",
-    description:
-      "Upgrade from standard wax to a ceramic spray sealant that lasts 3–6 months longer. Superior hydrophobic properties, UV protection, and an unmatched deep gloss.",
-    bestWith: "Exterior or Complete Detail",
-  },
-  {
-    icon: Shield,
-    name: "Wheel Ceramic Coating",
-    price: "$80",
-    description:
-      "Protect your wheels with a ceramic coating that repels brake dust, road grime, and salt — making cleaning effortless and keeping them looking new for months.",
-    bestWith: "Paint & Ceramic Package",
-  },
-  {
-    icon: Droplets,
-    name: "Windshield Ceramic Coating",
-    price: "$50",
-    description:
-      "Long-lasting hydrophobic ceramic coating for your windshield. Rain beads and flies off at highway speed, reducing the need for wipers and improving safety.",
-    bestWith: "Paint & Ceramic Package",
   },
 ];
 
