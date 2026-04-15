@@ -166,7 +166,39 @@ const PaintCeramics = () => (
       </div>
     </section>
 
-    {/* Why Ceramic Benefits */}
+    {/* Ceramic Add-Ons */}
+    <section className="py-16 sm:py-20 bg-muted/30 border-y border-border">
+      <div className="container max-w-4xl px-4 sm:px-6">
+        <ScrollReveal>
+          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-4">
+            Ceramic <span className="text-primary">Add-Ons</span>
+          </h2>
+          <p className="text-muted-foreground text-center mb-10 max-w-2xl mx-auto text-sm sm:text-base">
+            Extend your ceramic protection to every surface. Available with any paint correction or ceramic package.
+          </p>
+        </ScrollReveal>
+        <StaggerContainer className="grid sm:grid-cols-3 gap-5" staggerDelay={0.08}>
+          {[
+            { icon: Shield, name: "Ceramic Spray Sealant Upgrade", price: "$75", desc: "Upgrade from standard wax to a ceramic spray sealant that lasts 3–6 months longer. Superior hydrophobic properties, UV protection, and deep gloss." },
+            { icon: Shield, name: "Wheel Ceramic Coating", price: "$80/wheel", desc: "Protect your wheels with a ceramic coating that repels brake dust, road grime, and salt — making cleaning effortless and keeping them looking new." },
+            { icon: Droplets, name: "Windshield Ceramic Coating", price: "$120", desc: "Long-lasting hydrophobic ceramic coating for your windshield. Rain beads and flies off at highway speed, reducing the need for wipers and improving safety." },
+          ].map((item) => (
+            <StaggerItem key={item.name}>
+              <div className="p-6 rounded-xl border border-border bg-card hover:border-primary/40 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                <div className="flex items-start justify-between mb-3">
+                  <item.icon className="w-9 h-9 text-primary shrink-0" />
+                  <span className="font-heading font-black text-primary text-lg">{item.price}</span>
+                </div>
+                <h3 className="font-heading font-bold text-foreground uppercase text-sm mb-2">{item.name}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed flex-1">{item.desc}</p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </div>
+    </section>
+
+
     <section className="py-16 sm:py-20 bg-muted/30">
       <div className="container max-w-5xl px-4 sm:px-6">
         <ScrollReveal>
