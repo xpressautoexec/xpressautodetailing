@@ -27,6 +27,7 @@ const rvTestimonials = [
 ];
 
 const packages = [
+  // Row 1: Exterior, Interior, Sealant, Decal Restoration
   {
     title: "Exterior Wash",
     price: "$9/ft",
@@ -37,6 +38,18 @@ const packages = [
       "Wheel, tire & fender cleaning",
       "Awning exterior rinse",
       "Rubber seal inspection & conditioning",
+    ],
+  },
+  {
+    title: "Interior Detail",
+    price: "$15/ft",
+    desc: "Deep clean every surface — kitchen, bath & living area",
+    features: [
+      "Full vacuum, wipe-down & surface shampoo",
+      "Kitchen counters, sink & appliance cleaning",
+      "Bathroom deep clean & sanitization",
+      "Odor elimination treatment included",
+      "All living area surfaces detailed",
     ],
   },
   {
@@ -51,6 +64,19 @@ const packages = [
       "Lasts 6–12 months depending on storage",
     ],
   },
+  {
+    title: "Decal Restoration & UV Protectant",
+    price: "$10/ft",
+    desc: "Restore faded decals & protect all surfaces from UV damage",
+    features: [
+      "Faded decal colour restoration treatment",
+      "UV protectant applied to all exterior decals & graphics",
+      "Prevents future cracking, peeling & yellowing",
+      "Gelcoat & fiberglass UV shield included",
+      "Extends decal life by years",
+    ],
+  },
+  // Row 2: Wash & Seal, Paint Correction, Correction + Sealant
   {
     title: "Wash & Seal",
     price: "$18/ft",
@@ -88,30 +114,6 @@ const packages = [
       "Ceramic sealant applied post-correction",
       "Maximum UV & weather protection",
       "Best value for total restoration",
-    ],
-  },
-  {
-    title: "Decal Restoration & UV Protectant",
-    price: "$10/ft",
-    desc: "Restore faded decals & protect all surfaces from UV damage",
-    features: [
-      "Faded decal colour restoration treatment",
-      "UV protectant applied to all exterior decals & graphics",
-      "Prevents future cracking, peeling & yellowing",
-      "Gelcoat & fiberglass UV shield included",
-      "Extends decal life by years",
-    ],
-  },
-  {
-    title: "Interior Detail",
-    price: "$100/hr",
-    desc: "Deep clean every surface — kitchen, bath & living area",
-    features: [
-      "Approx 1 hr per 10ft of RV length",
-      "Full vacuum, wipe-down & surface shampoo",
-      "Kitchen counters, sink & appliance cleaning",
-      "Bathroom deep clean & sanitization",
-      "Odor elimination treatment included",
     ],
   },
 ];
