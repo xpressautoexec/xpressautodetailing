@@ -80,6 +80,7 @@ const packages = [
   {
     title: "Wash & Seal",
     price: "$18/ft",
+    originalPrice: "$21/ft",
     badge: "Save 14%",
     desc: "Exterior wash + ceramic sealant in one visit",
     features: [
@@ -105,6 +106,7 @@ const packages = [
   {
     title: "Correction + Sealant",
     price: "$37/ft",
+    originalPrice: "$41/ft",
     popular: true,
     badge: "Best Value",
     desc: "Full oxidation removal + ceramic sealant for maximum protection",
@@ -316,7 +318,10 @@ const TrailerRV = () => {
                   )}
                   <div className="px-6 pt-8 pb-6 flex-1 flex flex-col">
                     <p className="font-heading font-bold text-[10px] uppercase tracking-widest text-muted-foreground/60 mb-1">{pkg.title}</p>
-                    <p className="font-heading font-black text-3xl sm:text-4xl text-foreground leading-none mb-1.5">{pkg.price}</p>
+                     <p className="font-heading font-black text-3xl sm:text-4xl text-foreground leading-none mb-1.5">
+                       {pkg.originalPrice && <span className="text-lg text-muted-foreground/50 line-through mr-2">{pkg.originalPrice}</span>}
+                       {pkg.price}
+                     </p>
                     <p className="text-muted-foreground text-xs leading-relaxed mb-5">{pkg.desc}</p>
                     <div className="h-px bg-border mb-5" />
                     <ul className="space-y-2.5 mb-6 flex-1">
@@ -357,7 +362,10 @@ const TrailerRV = () => {
                   )}
                   <div className="px-6 pt-8 pb-6 flex-1 flex flex-col">
                     <p className="font-heading font-bold text-[10px] uppercase tracking-widest text-muted-foreground/60 mb-1">{pkg.title}</p>
-                    <p className="font-heading font-black text-3xl sm:text-4xl text-foreground leading-none mb-1.5">{pkg.price}</p>
+                     <p className="font-heading font-black text-3xl sm:text-4xl text-foreground leading-none mb-1.5">
+                       {pkg.originalPrice && <span className="text-lg text-muted-foreground/50 line-through mr-2">{pkg.originalPrice}</span>}
+                       {pkg.price}
+                     </p>
                     <p className="text-muted-foreground text-xs leading-relaxed mb-5">{pkg.desc}</p>
                     <div className="h-px bg-border mb-5" />
                     <ul className="space-y-2.5 mb-6 flex-1">
