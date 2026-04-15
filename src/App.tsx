@@ -10,7 +10,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
 const InteriorDetailing = lazy(() => import("./pages/InteriorDetailing"));
-const ExteriorDetailing = lazy(() => import("./pages/ExteriorDetailing"));
+
 const CompleteDetailing = lazy(() => import("./pages/CompleteDetailing"));
 const PaintCeramics = lazy(() => import("./pages/PaintCeramics"));
 const CorporateFleet = lazy(() => import("./pages/CorporateFleet"));
@@ -35,7 +35,7 @@ const AnimatedRoutes = () => {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Index />} />
         <Route path="/interior-detailing" element={<InteriorDetailing />} />
-        <Route path="/exterior-detailing" element={<ExteriorDetailing />} />
+        
         <Route path="/complete-detailing" element={<CompleteDetailing />} />
         <Route path="/paint-ceramics" element={<PaintCeramics />} />
         <Route path="/corporate-fleet" element={<CorporateFleet />} />

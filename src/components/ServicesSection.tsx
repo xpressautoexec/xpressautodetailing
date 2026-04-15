@@ -52,13 +52,6 @@ const detailedServices = [
     price: "From $159",
   },
   {
-    title: "Exterior Detailing",
-    description: "Hand wash, clay bar, and paint protection that no automated car wash can match. Calgary's weather is brutal on your paint — we fight back.",
-    image: exteriorImg,
-    link: "/exterior-detailing",
-    price: "From $79",
-  },
-  {
     title: "Paint Correction",
     description: "Remove swirl marks, scratches, and oxidation with our meticulous multi-stage polishing process. Restore clarity and depth to your paint permanently.",
     image: paintImg,

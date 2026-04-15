@@ -26,7 +26,7 @@ const Footer = () => {
             <div className="flex flex-col gap-2">
               {[
                 { label: "Interior Detailing", to: "/interior-detailing" },
-                { label: "Exterior Detailing", to: "/exterior-detailing" },
+                
                 { label: "Complete Detailing", to: "/complete-detailing" },
                 { label: "Trailer & RV", to: "/trailer-rv" },
                 { label: "Paint & Ceramics", to: "/paint-ceramics" },
