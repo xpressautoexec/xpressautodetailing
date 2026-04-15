@@ -6,7 +6,7 @@ import TrustStats from "@/components/TrustStats";
 import SEO, { buildServiceJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import galleryHero from "@/assets/gallery-hero.jpg";
-import { Sparkles, Dog, Lightbulb, Wind, Car, Shield, Droplets, Wrench, ArrowRight, Check } from "lucide-react";
+import { Sparkles, Dog, Lightbulb, Wind, Car, Shield, ArrowRight, Check } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -74,7 +74,7 @@ const AddOns = () => (
     <div className="min-h-screen">
       <SEO
          title="Add-On Detailing Services Calgary"
-         description="Upgrade your detail with premium add-ons: pet hair removal ($55), headlight restoration ($80), engine bay cleaning ($50), ceramic sealant & more. Book online today."
+         description="Upgrade your detail with premium add-ons: pet hair removal ($55), headlight restoration ($80), engine bay cleaning ($50), odour elimination & more. Book online today."
         canonical="/add-ons"
         jsonLd={buildServiceJsonLd(
           "Add-On Detailing Services",
