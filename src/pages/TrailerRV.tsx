@@ -67,26 +67,26 @@ const packages = [
   {
     title: "Paint Correction",
     price: "$29/ft",
-    popular: true,
-    desc: "Machine polish to restore original finish & colour",
+    desc: "Machine polish to remove oxidation & restore original finish",
     features: [
       "Full exterior wash included",
-      "Machine cut & polish to restore finish",
-      "Oxidation, chalking & scratch removal",
-      "Faded gelcoat/fiberglass colour restoration",
+      "Heavy oxidation & chalking removal",
+      "Machine cut & polish to restore colour",
+      "Faded gelcoat/fiberglass brought back to life",
       "Final inspection under work lighting",
     ],
   },
   {
     title: "Correction + Sealant",
     price: "$37/ft",
-    badge: "Save 10%",
-    desc: "Full correction + ceramic sealant for maximum value",
+    popular: true,
+    badge: "Best Value",
+    desc: "Full oxidation removal + ceramic sealant for maximum protection",
     features: [
-      "Full paint correction included",
+      "Complete oxidation & chalk removal",
+      "Machine polish to restore original finish",
       "Ceramic sealant applied post-correction",
-      "Maximum protection & restored gloss",
-      "Decal edges carefully detailed",
+      "Maximum UV & weather protection",
       "Best value for total restoration",
     ],
   },
@@ -291,15 +291,14 @@ const TrailerRV = () => {
               Simple per-foot pricing. No hidden fees. Call for a quote based on your rig's length.
             </p>
           </ScrollReveal>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" staggerDelay={0.06}>
-            {packages.map((pkg) => (
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5" staggerDelay={0.06}>
+            {packages.slice(0, 4).map((pkg) => (
               <StaggerItem key={pkg.title}>
                 <div className={`relative rounded-xl h-full flex flex-col border transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
                   pkg.popular
                     ? "border-primary bg-card shadow-lg shadow-primary/10"
                     : "border-border bg-card shadow-md hover:border-primary/40"
                 }`}>
-                  {/* Badges */}
                   {(pkg.popular || pkg.badge) && (
                     <div className="absolute -top-3 left-5 z-10">
                       {pkg.popular ? (
@@ -313,43 +312,61 @@ const TrailerRV = () => {
                       ) : null}
                     </div>
                   )}
-
                   <div className="px-6 pt-8 pb-6 flex-1 flex flex-col">
-                    {/* Title & Price */}
-                    <p className="font-heading font-bold text-[10px] uppercase tracking-widest text-muted-foreground/60 mb-1">
-                      {pkg.title}
-                    </p>
-                    <p className="font-heading font-black text-3xl sm:text-4xl text-foreground leading-none mb-1.5">
-                      {pkg.price}
-                    </p>
-                    <p className="text-muted-foreground text-xs leading-relaxed mb-5">
-                      {pkg.desc}
-                    </p>
-
+                    <p className="font-heading font-bold text-[10px] uppercase tracking-widest text-muted-foreground/60 mb-1">{pkg.title}</p>
+                    <p className="font-heading font-black text-3xl sm:text-4xl text-foreground leading-none mb-1.5">{pkg.price}</p>
+                    <p className="text-muted-foreground text-xs leading-relaxed mb-5">{pkg.desc}</p>
                     <div className="h-px bg-border mb-5" />
-
-                    {/* Features */}
                     <ul className="space-y-2.5 mb-6 flex-1">
                       {pkg.features.map((f) => (
                         <li key={f} className="flex items-start gap-2.5 text-sm text-foreground/80">
-                          <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                          {f}
+                          <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />{f}
                         </li>
                       ))}
                     </ul>
-
-                    {/* CTA */}
-                    <a
-                      href="tel:5875004523"
-                      className={`group flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider px-5 py-3.5 rounded-lg text-sm transition-all duration-300 ${
-                        pkg.popular
-                          ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-primary/20"
-                          : "bg-foreground/5 text-foreground border border-border hover:bg-primary hover:text-primary-foreground hover:border-primary"
-                      }`}
-                    >
-                      <Phone className="w-4 h-4" />
-                      Call for Quote
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <a href="tel:5875004523" className="group flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider px-5 py-3.5 rounded-lg text-sm transition-all duration-300 bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-primary/20">
+                      <Phone className="w-4 h-4" />Call for Quote<ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5" staggerDelay={0.06}>
+            {packages.slice(4).map((pkg) => (
+              <StaggerItem key={pkg.title}>
+                <div className={`relative rounded-xl h-full flex flex-col border transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+                  pkg.popular
+                    ? "border-primary bg-card shadow-lg shadow-primary/10"
+                    : "border-border bg-card shadow-md hover:border-primary/40"
+                }`}>
+                  {(pkg.popular || pkg.badge) && (
+                    <div className="absolute -top-3 left-5 z-10">
+                      {pkg.popular ? (
+                        <span className="bg-primary text-primary-foreground font-heading font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md">
+                          Most Popular
+                        </span>
+                      ) : pkg.badge ? (
+                        <span className="bg-success text-success-foreground font-heading font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md">
+                          {pkg.badge}
+                        </span>
+                      ) : null}
+                    </div>
+                  )}
+                  <div className="px-6 pt-8 pb-6 flex-1 flex flex-col">
+                    <p className="font-heading font-bold text-[10px] uppercase tracking-widest text-muted-foreground/60 mb-1">{pkg.title}</p>
+                    <p className="font-heading font-black text-3xl sm:text-4xl text-foreground leading-none mb-1.5">{pkg.price}</p>
+                    <p className="text-muted-foreground text-xs leading-relaxed mb-5">{pkg.desc}</p>
+                    <div className="h-px bg-border mb-5" />
+                    <ul className="space-y-2.5 mb-6 flex-1">
+                      {pkg.features.map((f) => (
+                        <li key={f} className="flex items-start gap-2.5 text-sm text-foreground/80">
+                          <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />{f}
+                        </li>
+                      ))}
+                    </ul>
+                    <a href="tel:5875004523" className="group flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider px-5 py-3.5 rounded-lg text-sm transition-all duration-300 bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-primary/20">
+                      <Phone className="w-4 h-4" />Call for Quote<ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
                   </div>
                 </div>
