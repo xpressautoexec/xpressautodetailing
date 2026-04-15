@@ -134,7 +134,7 @@ const PaintCeramics = () => (
             addOns={[
               { name: "Wheel Ceramic Coating", price: "+$80/wheel" },
               { name: "Windshield Ceramic Coating", price: "+$120" },
-              { name: "Trim & Plastic Ceramic", price: "+$40" },
+              { name: "Ceramic Spray Sealant Upgrade", price: "+$75" },
             ]}
             surcharges={["SUV: $449.99", "Truck: $499.99"]}
           />
