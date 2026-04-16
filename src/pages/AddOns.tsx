@@ -6,7 +6,7 @@ import TrustStats from "@/components/TrustStats";
 import SEO, { buildServiceJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import galleryHero from "@/assets/gallery-hero.jpg";
-import { Sparkles, Dog, Lightbulb, Wind, Car, Shield, ArrowRight, Check } from "lucide-react";
+import { Sparkles, Dog, Lightbulb, Wind, Car, Shield, Droplets, ArrowRight, Check } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -66,6 +66,14 @@ const addOns = [
     description:
       "Add-on to any exterior package. Engine-safe chemicals and processes. All vulnerable components will be thoroughly protected. We degrease, pressure rinse, and dress all components.",
     bestWith: "Any Detail Package",
+  },
+  {
+    icon: Droplets,
+    name: "Ceramic Spray Sealant Upgrade",
+    price: "$75",
+    description:
+      "Upgrade from standard wax to a ceramic spray sealant that lasts 3–6 months longer. Superior hydrophobic properties, UV protection, and deep gloss for any exterior or complete detail.",
+    bestWith: "Exterior or Complete Detail",
   },
 ];
 
