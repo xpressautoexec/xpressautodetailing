@@ -136,7 +136,7 @@ const PaintCeramics = () => (
               { name: "Windshield Ceramic Coating", price: "+$120" },
               { name: "Ceramic Spray Sealant Upgrade", price: "+$75" },
             ]}
-            surcharges={["SUV: $449.99", "Truck: $499.99"]}
+            surcharges={["SUV & Truck: $449.99", "SUV 7-Seat: $549.99"]}
           />
           <PackageCard
             icon={<Gem className="w-8 h-8" />}
@@ -159,7 +159,7 @@ const PaintCeramics = () => (
               { name: "Interior Ceramic Coating (all trim)", price: "+$120" },
               { name: "Windshield Ceramic Coating", price: "+$120" },
             ]}
-            surcharges={["SUV: $649.99", "Truck: $699.99"]}
+            surcharges={["SUV & Truck: $699.99", "SUV 7-Seat: $749.99"]}
             isPrimary
           />
         </div>

@@ -127,9 +127,9 @@ const CompleteDetailing = () => (
               "Streak-free windows inside & out",
             ]}
             addOns={[
+              { name: "Ceramic Spray Sealant Upgrade", price: "+$75" },
               { name: "Pet Hair Removal", price: "+$55" },
               { name: "Engine Bay Cleaning", price: "+$50" },
-              { name: "Ozone Odour Elimination", price: "+$75" },
             ]}
             surcharges={["Add $20 for small SUVs/trucks", "Add $30 for 3-row SUVs/minivans"]}
             time="~2.5–3 hrs | Mobile anywhere in Calgary"
@@ -153,7 +153,7 @@ const CompleteDetailing = () => (
               "25% OFF Engine Bay Detail when added",
             ]}
             addOns={[
-              { name: "Ceramic Spray Sealant Upgrade", price: "+$50" },
+              { name: "Ceramic Spray Sealant Upgrade", price: "+$75" },
               { name: "Ozone Odour Elimination", price: "+$75" },
               { name: "Headlight Restoration", price: "+$80" },
             ]}
