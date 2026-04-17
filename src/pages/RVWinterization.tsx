@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
-import { Snowflake, Sun, CheckCircle, ArrowRight, Phone, Wrench, Droplets, Shield, Clock, MapPin, Star } from "lucide-react";
+import { Snowflake, Sun, CheckCircle, ArrowRight, Phone, Wrench, Droplets, Shield, Clock, MapPin, Sparkles, AlertTriangle } from "lucide-react";
 import rvHero from "@/assets/rv-hero.jpg";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
@@ -13,144 +13,152 @@ const faqs = [
   { q: "When should I winterize my RV in Calgary?", a: "We recommend winterizing before the first hard freeze — typically mid-to-late October. Booking early in October ensures availability before the rush." },
   { q: "When should I de-winterize my RV?", a: "Most Calgary owners de-winterize between mid-April and mid-May, once overnight temperatures stay above freezing. Book 2–3 weeks ahead of your first trip." },
   { q: "Do you come to my storage lot?", a: "Yes — we service RVs and trailers at storage facilities, driveways, and acreages across Calgary, Airdrie, Cochrane, and Chestermere. We bring everything needed." },
+  { q: "How does per-foot pricing work?", a: "Exterior and interior detailing on RVs is priced by length so you only pay for the size of your rig. Bundle with a winterization or de-winterization and your per-foot rate drops." },
   { q: "What's included in winterization?", a: "We blow out the water lines with compressed air, drain fresh/grey/black tanks, bypass the water heater, add RV-safe antifreeze through the system, and protect all plumbing." },
   { q: "Do you use RV-safe antifreeze?", a: "Always. We use non-toxic, pink RV/marine antifreeze that's safe for potable water systems. Never automotive antifreeze." },
-  { q: "Can I add a detail to my winterization?", a: "Absolutely — bundle a winterization with an exterior wash or full detail and save. Just ask when booking." },
 ];
 
-const winterizationPackages = [
+type Tier = {
+  title: string;
+  basePrice: string;
+  icon: typeof Snowflake;
+  desc: string;
+  popular?: boolean;
+  bestValue?: boolean;
+  badge?: string;
+  pricing: { label: string; original?: string; bundle: string }[];
+  features: string[];
+  smartLine?: string;
+  pushLine?: string;
+};
+
+const tiers: Tier[] = [
   {
-    title: "Basic Winterization",
-    price: "$149",
+    title: "Essential Service",
+    basePrice: "$179–$199",
     icon: Snowflake,
-    desc: "Essential plumbing protection to prevent freeze damage.",
+    desc: "Core plumbing protection or spring start-up. The minimum your RV needs to survive — or wake up from — Calgary winter.",
+    pricing: [
+      { label: "Winterization or De-Winterization", bundle: "$179–$199" },
+    ],
     features: [
-      "Drain fresh, grey & black water tanks",
-      "Blow out water lines with compressed air",
-      "Bypass water heater",
-      "Add RV-safe antifreeze through the plumbing system",
-      "P-trap & toilet antifreeze fill",
-      "Battery disconnect check",
+      "Full water system drain or flush",
+      "Antifreeze application or removal",
+      "Water line blowout / system reactivation",
+      "Basic plumbing system check",
+      "RV-safe antifreeze (non-toxic)",
     ],
   },
   {
-    title: "Complete Winterization",
-    price: "$229",
+    title: "Winter Protection Package",
+    basePrice: "$179–$199 + $7/ft",
     icon: Shield,
     popular: true,
     badge: "Most Popular",
-    desc: "Full plumbing winterization plus exterior storage prep.",
-    features: [
-      "Everything in Basic Winterization",
-      "Exterior hand wash & dry",
-      "Roof inspection & seal check",
-      "Tire pressure check & inflation",
-      "Slide-out lubrication",
-      "Rubber seal conditioning (doors, slides, windows)",
-      "Vent & A/C cover install (covers extra if needed)",
+    desc: "Bundle your service with a full exterior wash and lock in a discounted per-foot rate. Prevents oxidation, staining, and storage buildup.",
+    pricing: [
+      { label: "Base Service", bundle: "$179–$199" },
+      { label: "Exterior Wash (per ft)", original: "$9/ft", bundle: "$7/ft" },
     ],
+    features: [
+      "Everything in Essential Service",
+      "Full exterior hand wash (roof, sides, wheels)",
+      "Black streak treatment on sidewalls",
+      "Tire dressing & wheel well clean",
+      "Prepares RV for storage or season start",
+      "Helps prevent oxidation, staining & buildup",
+    ],
+    smartLine: "Upgrade to full interior + exterior for only ~$200 more on most RVs.",
   },
   {
-    title: "Winterize + Deep Detail",
-    price: "$449",
-    icon: Wrench,
-    desc: "Store your RV showroom-clean and fully protected.",
-    features: [
-      "Everything in Complete Winterization",
-      "Full interior deep clean & vacuum",
-      "Fridge defrost, clean & prop open",
-      "Pantry, cabinets & drawers wiped",
-      "Bathroom sanitization",
-      "Pest deterrent treatment",
-      "Final winter-ready inspection report",
-    ],
-  },
-];
-
-const dewinterizationPackages = [
-  {
-    title: "Basic De-Winterization",
-    price: "$169",
-    icon: Sun,
-    desc: "Flush, sanitize, and get your plumbing camp-ready.",
-    features: [
-      "Flush antifreeze from entire plumbing system",
-      "Reconnect & test water heater",
-      "Sanitize fresh water tank with bleach solution",
-      "Pressure test for leaks",
-      "Test all faucets, shower & toilet",
-      "Reconnect & test battery",
-    ],
-  },
-  {
-    title: "Spring Ready Package",
-    price: "$259",
-    icon: Droplets,
-    popular: true,
+    title: "Full Season Ready Package",
+    basePrice: "$179–$199 + $7/ft + $8/ft",
+    icon: Sparkles,
+    bestValue: true,
     badge: "Best Value",
-    desc: "Plumbing startup plus full system inspection for the season.",
-    features: [
-      "Everything in Basic De-Winterization",
-      "Exterior hand wash & black streak removal",
-      "Tire pressure & condition check",
-      "Roof, seal & seam inspection",
-      "Slide-out operation test & lubrication",
-      "Propane system leak check",
-      "12V & 110V electrical test",
+    desc: "The complete reset. Service, exterior, and full interior detail bundled at our deepest per-foot discount.",
+    pricing: [
+      { label: "Base Service", bundle: "$179–$199" },
+      { label: "Exterior Wash (per ft)", original: "$9/ft", bundle: "$7/ft" },
+      { label: "Interior Detail (per ft)", original: "$10/ft", bundle: "$8/ft" },
     ],
-  },
-  {
-    title: "De-Winterize + Full Detail",
-    price: "$499",
-    icon: Star,
-    desc: "Open the door to a clean, ready-to-camp RV.",
     features: [
-      "Everything in Spring Ready Package",
-      "Full interior deep clean & vacuum",
-      "Kitchen & bathroom sanitization",
-      "Upholstery & surface wipe-down",
-      "Window cleaning (interior & exterior)",
-      "Odor neutralizer treatment",
-      "Pre-trip readiness checklist",
+      "Everything in Winter Protection Package",
+      "Full interior vacuum & wipe down",
+      "Kitchen deep clean & sanitization",
+      "Bathroom deep clean & sanitization",
+      "Cabinets, drawers & surface wipe",
+      "Odor reset & freshness treatment",
+      "Pre-trip / post-storage readiness check",
     ],
+    pushLine: "Most customers choose this to fully reset their RV and avoid booking multiple services later.",
   },
 ];
 
-const PackageCard = ({ pkg }: { pkg: typeof winterizationPackages[0] }) => {
-  const Icon = pkg.icon;
+const TierCard = ({ tier }: { tier: Tier }) => {
+  const Icon = tier.icon;
+  const accent = tier.bestValue ? "border-urgency shadow-xl shadow-urgency/10" : tier.popular ? "border-primary shadow-lg shadow-primary/10" : "border-border hover:border-primary/40";
   return (
-    <div className={`relative bg-card border-2 rounded-xl p-6 sm:p-7 flex flex-col h-full transition-all duration-300 hover:shadow-xl ${pkg.popular ? "border-primary shadow-lg shadow-primary/10" : "border-border hover:border-primary/40"}`}>
-      {pkg.badge && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground font-heading font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full whitespace-nowrap">
-          {pkg.badge}
+    <div className={`relative bg-card border-2 rounded-xl p-6 sm:p-7 flex flex-col h-full transition-all duration-300 hover:shadow-xl ${accent}`}>
+      {tier.badge && (
+        <div className={`absolute -top-3 left-1/2 -translate-x-1/2 font-heading font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full whitespace-nowrap ${tier.bestValue ? "bg-urgency text-urgency-foreground" : "bg-primary text-primary-foreground"}`}>
+          {tier.badge}
         </div>
       )}
+
       <div className="flex items-center gap-3 mb-4">
         <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center">
           <Icon className="w-5 h-5 text-primary" />
         </div>
-        <h3 className="font-heading font-black text-lg uppercase tracking-tight text-foreground">{pkg.title}</h3>
+        <h3 className="font-heading font-black text-lg uppercase tracking-tight text-foreground">{tier.title}</h3>
       </div>
-      <div className="mb-3">
-        <span className="font-heading font-black text-3xl text-primary">{pkg.price}</span>
-        <span className="text-muted-foreground text-sm ml-2">starting</span>
+
+      <p className="text-muted-foreground text-sm mb-5 leading-relaxed">{tier.desc}</p>
+
+      {/* Pricing breakdown */}
+      <div className="mb-5 p-4 rounded-lg bg-muted/40 border border-border/50">
+        <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-muted-foreground/70 mb-2.5">Bundle Pricing</p>
+        <ul className="space-y-2">
+          {tier.pricing.map((p) => (
+            <li key={p.label} className="flex items-center justify-between text-sm">
+              <span className="text-foreground/80">{p.label}</span>
+              <span className="flex items-center gap-2">
+                {p.original && <span className="text-muted-foreground/60 line-through text-xs">{p.original}</span>}
+                <span className="font-heading font-black text-primary">{p.bundle}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
-      <p className="text-muted-foreground text-sm mb-5 leading-relaxed">{pkg.desc}</p>
+
+      {tier.smartLine && (
+        <div className="mb-5 p-3 rounded-lg bg-primary/5 border border-primary/15 text-xs text-primary font-semibold leading-relaxed">
+          {tier.smartLine}
+        </div>
+      )}
+
+      {tier.pushLine && (
+        <div className="mb-5 p-3 rounded-lg bg-urgency/10 border border-urgency/20 text-xs text-urgency-foreground font-semibold leading-relaxed">
+          {tier.pushLine}
+        </div>
+      )}
+
       <ul className="space-y-2.5 mb-6 flex-grow">
-        {pkg.features.map((f) => (
+        {tier.features.map((f) => (
           <li key={f} className="flex items-start gap-2 text-sm text-foreground/80">
             <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
             <span>{f}</span>
           </li>
         ))}
       </ul>
+
       <a
         href={BOOKING_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-auto inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-5 py-3 rounded-lg text-sm hover:bg-brand-blue-deep transition-colors"
+        className={`mt-auto inline-flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider px-5 py-3 rounded-lg text-sm transition-colors ${tier.bestValue ? "bg-urgency text-urgency-foreground hover:bg-urgency/90" : "bg-primary text-primary-foreground hover:bg-brand-blue-deep"}`}
       >
-        Book This Package
+        {tier.bestValue ? "Bundle & Save" : "Book This Package"}
         <ArrowRight className="w-4 h-4" />
       </a>
     </div>
@@ -162,11 +170,11 @@ const RVWinterization = () => {
     <PageTransition>
       <div className="min-h-screen">
         <SEO
-          title="RV Winterization & De-Winterization Calgary — Mobile Service"
-          description="Mobile RV winterization and spring start-up in Calgary, Airdrie, Cochrane & Chestermere. Protect your RV from freeze damage or get camp-ready. We come to you."
+          title="RV Winterization & De-Winterization Calgary — Bundle & Save"
+          description="Mobile RV winterization & spring start-up in Calgary, Airdrie, Cochrane & Chestermere. Bundle with detailing for discounted per-foot rates. We come to you."
           canonical="/trailer-rv/winterization"
           jsonLd={[
-            buildServiceJsonLd("RV Winterization & De-Winterization", "Mobile RV winterization and de-winterization service in Calgary and surrounding areas.", "/trailer-rv/winterization"),
+            buildServiceJsonLd("RV Winterization & De-Winterization", "Mobile RV winterization and de-winterization service in Calgary with bundled detailing discounts.", "/trailer-rv/winterization"),
             buildFAQJsonLd(faqs),
           ]}
         />
@@ -181,15 +189,18 @@ const RVWinterization = () => {
           <div className="relative z-10 container flex flex-col justify-end min-h-[460px] sm:min-h-[520px] pb-12 sm:pb-16 pt-28 px-6">
             <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 bg-urgency/90 text-urgency-foreground font-heading font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
-                <Snowflake className="w-3 h-3" />
-                Seasonal Booking — Limited Spots
+                <AlertTriangle className="w-3 h-3" />
+                Limited Seasonal Availability
               </div>
               <h1 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-background leading-[1.1] mb-4">
                 RV Winterization &<br />
                 <span className="text-primary">De-Winterization</span>
               </h1>
-              <p className="text-background/75 text-base sm:text-lg leading-relaxed mb-6 max-w-xl">
+              <p className="text-background/75 text-base sm:text-lg leading-relaxed mb-3 max-w-xl">
                 Protect your RV from Calgary's brutal winters — or get it camp-ready in spring. Mobile service straight to your driveway or storage lot.
+              </p>
+              <p className="text-primary font-heading font-bold text-sm uppercase tracking-wider mb-6">
+                Bundle &amp; save vs booking services individually
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
@@ -198,7 +209,7 @@ const RVWinterization = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3.5 rounded-lg text-sm hover:bg-brand-blue-deep transition-colors"
                 >
-                  Book Online
+                  Book Your Winterization Today
                   <ArrowRight className="w-4 h-4" />
                 </a>
                 <a
@@ -220,7 +231,7 @@ const RVWinterization = () => {
               { icon: MapPin, label: "Mobile — We Come to You" },
               { icon: Clock, label: "Same-Week Availability" },
               { icon: Shield, label: "RV-Safe Antifreeze Only" },
-              { icon: CheckCircle, label: "Inspection Report Included" },
+              { icon: Sparkles, label: "Bundle Discounts Applied" },
             ].map((item) => (
               <div key={item.label} className="flex flex-col items-center gap-2">
                 <item.icon className="w-5 h-5 text-primary" />
@@ -230,62 +241,46 @@ const RVWinterization = () => {
           </div>
         </section>
 
-        {/* Winterization */}
+        {/* Tiers */}
         <section className="py-16 sm:py-20 bg-background">
           <div className="container">
             <ScrollReveal>
               <div className="text-center max-w-2xl mx-auto mb-12">
                 <div className="inline-flex items-center gap-2 bg-primary/10 text-primary font-heading font-bold text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
-                  <Snowflake className="w-3 h-3" />
-                  Fall Service
+                  <Droplets className="w-3 h-3" />
+                  Fall &amp; Spring Service
                 </div>
                 <h2 className="font-heading font-black text-3xl sm:text-4xl uppercase text-foreground mb-4">
-                  Winterization Packages
+                  Pick Your Bundle &amp; Save
                 </h2>
                 <p className="text-muted-foreground text-base leading-relaxed">
-                  Avoid cracked pipes, ruined water heaters, and thousand-dollar repair bills. Pick the level of protection that fits your storage plan.
+                  One fixed base service fee. Bundle exterior or interior detailing and your per-foot rate drops automatically — no coupon code needed.
                 </p>
               </div>
             </ScrollReveal>
 
-            <StaggerContainer className="grid md:grid-cols-3 gap-6">
-              {winterizationPackages.map((pkg) => (
-                <StaggerItem key={pkg.title}>
-                  <PackageCard pkg={pkg} />
+            <StaggerContainer className="grid md:grid-cols-3 gap-6 md:gap-7 pt-3">
+              {tiers.map((tier) => (
+                <StaggerItem key={tier.title}>
+                  <TierCard tier={tier} />
                 </StaggerItem>
               ))}
             </StaggerContainer>
-          </div>
-        </section>
 
-        {/* De-winterization */}
-        <section className="py-16 sm:py-20 bg-muted/30">
-          <div className="container">
-            <ScrollReveal>
-              <div className="text-center max-w-2xl mx-auto mb-12">
-                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary font-heading font-bold text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
-                  <Sun className="w-3 h-3" />
-                  Spring Service
-                </div>
-                <h2 className="font-heading font-black text-3xl sm:text-4xl uppercase text-foreground mb-4">
-                  De-Winterization Packages
-                </h2>
-                <p className="text-muted-foreground text-base leading-relaxed">
-                  Get road-ready faster. We flush, sanitize, inspect, and hand your RV back ready for the first trip of the season.
+            <div className="mt-10 max-w-3xl mx-auto bg-urgency/5 border border-urgency/20 rounded-xl p-5 flex items-start gap-3">
+              <AlertTriangle className="w-5 h-5 text-urgency shrink-0 mt-0.5" />
+              <div>
+                <p className="font-heading font-bold text-sm uppercase tracking-wider text-foreground mb-1">
+                  Limited Seasonal Availability
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Book early before freezing temperatures hit. Fall winterization spots fill fast through October — spring de-winterization slots book up by mid-April.
                 </p>
               </div>
-            </ScrollReveal>
-
-            <StaggerContainer className="grid md:grid-cols-3 gap-6">
-              {dewinterizationPackages.map((pkg) => (
-                <StaggerItem key={pkg.title}>
-                  <PackageCard pkg={pkg} />
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
+            </div>
 
             <p className="text-center text-muted-foreground text-xs mt-8 max-w-xl mx-auto">
-              Pricing based on standard travel trailers and motorhomes up to 30 ft. Larger rigs, 5th wheels, and Class A motorhomes may incur a size surcharge — quoted upfront.
+              Per-foot pricing applies to exterior length of your travel trailer, 5th wheel, or motorhome. Final quote confirmed at booking. Calgary, Airdrie, Cochrane &amp; Chestermere.
             </p>
           </div>
         </section>
