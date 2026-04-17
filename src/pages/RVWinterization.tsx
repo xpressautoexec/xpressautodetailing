@@ -277,6 +277,181 @@ const RVWinterization = () => {
           </div>
         </section>
 
+        {/* Why Winterization Matters */}
+        <section className="py-16 sm:py-20 bg-muted/30">
+          <div className="container">
+            <ScrollReveal>
+              <div className="text-center max-w-2xl mx-auto mb-12">
+                <div className="inline-flex items-center gap-2 bg-urgency/10 text-urgency font-heading font-bold text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
+                  <ThermometerSnowflake className="w-3 h-3" />
+                  Why It Matters
+                </div>
+                <h2 className="font-heading font-black text-3xl sm:text-4xl uppercase text-foreground mb-4">
+                  Calgary Winters Destroy Unprotected RVs
+                </h2>
+                <p className="text-muted-foreground text-base leading-relaxed">
+                  Temperatures here drop to -30°C. Water expands ~9% when frozen — enough force to split copper, crack PEX fittings, shatter water heater tanks, and rupture pumps. One missed step can cost thousands.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-4">
+              <ScrollReveal direction="left">
+                <img
+                  src={rvDamageImg}
+                  alt="Frozen burst water line on an RV in Calgary winter"
+                  loading="lazy"
+                  width={1280}
+                  height={832}
+                  className="rounded-xl shadow-xl w-full h-auto object-cover"
+                />
+              </ScrollReveal>
+              <ScrollReveal direction="right">
+                <div className="space-y-4">
+                  {[
+                    { icon: DollarSign, title: "Burst Pipes & Water Damage", desc: "Average freeze repair runs $1,500–$5,000+. Hidden water damage in walls and floors can total an RV." },
+                    { icon: Wrench, title: "Cracked Water Heater & Pump", desc: "A single freeze cycle can destroy your water heater tank ($400–$900) and pump assembly ($200–$500)." },
+                    { icon: Shield, title: "Voided Warranty Risk", desc: "Most RV manufacturers require documented winterization. Skip it and freeze claims get denied." },
+                    { icon: Home, title: "Mold, Mildew & Odors", desc: "Standing water in tanks and lines breeds bacteria over winter — leading to bad smells and contaminated potable systems by spring." },
+                  ].map((item) => (
+                    <div key={item.title} className="flex items-start gap-4 p-4 bg-card rounded-lg border border-border">
+                      <div className="w-10 h-10 rounded-lg bg-urgency/10 flex items-center justify-center shrink-0">
+                        <item.icon className="w-5 h-5 text-urgency" />
+                      </div>
+                      <div>
+                        <h3 className="font-heading font-bold text-base text-foreground mb-1">{item.title}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </section>
+
+        {/* Our Process */}
+        <section className="py-16 sm:py-20 bg-background">
+          <div className="container">
+            <ScrollReveal>
+              <div className="text-center max-w-2xl mx-auto mb-12">
+                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary font-heading font-bold text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
+                  <Wrench className="w-3 h-3" />
+                  Our Process
+                </div>
+                <h2 className="font-heading font-black text-3xl sm:text-4xl uppercase text-foreground mb-4">
+                  How We Winterize Your RV
+                </h2>
+                <p className="text-muted-foreground text-base leading-relaxed">
+                  A complete, documented procedure performed on-site at your driveway or storage lot. Typically 60–90 minutes per rig.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+              <ScrollReveal direction="left">
+                <div className="space-y-4">
+                  {[
+                    { step: "01", title: "Drain Fresh, Grey & Black Tanks", desc: "All three tanks fully emptied and flushed. Black tank rinsed with built-in flush or wand." },
+                    { step: "02", title: "Bypass Water Heater", desc: "We engage the bypass valves so antifreeze never enters (and wastes inside) your water heater tank." },
+                    { step: "03", title: "Compressed Air Blowout", desc: "Regulated air at 30–40 PSI clears every line — hot, cold, outdoor shower, and toilet sprayer." },
+                    { step: "04", title: "Pump in RV-Safe Antifreeze", desc: "Non-toxic pink antifreeze pulled through the pump until it flows pink from every faucet, shower, and toilet." },
+                    { step: "05", title: "Trap & Drain Protection", desc: "Antifreeze poured into P-traps, shower drains, and toilet bowl to seal off freeze points." },
+                    { step: "06", title: "Final Inspection & Report", desc: "Visual check of seals, vents, and exterior. You get a checklist confirming everything was completed." },
+                  ].map((item) => (
+                    <div key={item.step} className="flex items-start gap-4 p-4 bg-card rounded-lg border border-border hover:border-primary/40 transition-colors">
+                      <div className="font-heading font-black text-2xl text-primary/70 shrink-0 w-10">{item.step}</div>
+                      <div>
+                        <h3 className="font-heading font-bold text-base text-foreground mb-1">{item.title}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </ScrollReveal>
+              <ScrollReveal direction="right">
+                <div className="lg:sticky lg:top-24">
+                  <img
+                    src={rvProcessImg}
+                    alt="Technician winterizing an RV in a Calgary driveway"
+                    loading="lazy"
+                    width={1280}
+                    height={832}
+                    className="rounded-xl shadow-xl w-full h-auto object-cover"
+                  />
+                  <div className="mt-6 p-5 bg-primary/5 border border-primary/20 rounded-xl">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Truck className="w-4 h-4 text-primary" />
+                      <p className="font-heading font-bold text-xs uppercase tracking-wider text-primary">Fully Mobile</p>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      We bring the compressor, antifreeze, tools, and waste containment. You don't need power, water, or to move the RV — we work where it sits.
+                    </p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </section>
+
+        {/* Seasonal Timing */}
+        <section className="py-16 bg-muted/30">
+          <div className="container max-w-4xl">
+            <ScrollReveal>
+              <div className="text-center mb-10">
+                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary font-heading font-bold text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
+                  <Calendar className="w-3 h-3" />
+                  Calgary Timing
+                </div>
+                <h2 className="font-heading font-black text-3xl sm:text-4xl uppercase text-foreground mb-4">
+                  When to Book
+                </h2>
+              </div>
+            </ScrollReveal>
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div className="p-6 bg-card border-2 border-border rounded-xl">
+                <div className="flex items-center gap-3 mb-3">
+                  <Snowflake className="w-6 h-6 text-primary" />
+                  <h3 className="font-heading font-black text-lg uppercase text-foreground">Winterization</h3>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                  Book between <strong className="text-foreground">late September and mid-October</strong>. First hard freeze in Calgary typically hits late October — don't wait.
+                </p>
+                <p className="text-xs text-urgency font-heading font-bold uppercase tracking-wider">Spots fill fastest in early October</p>
+              </div>
+              <div className="p-6 bg-card border-2 border-border rounded-xl">
+                <div className="flex items-center gap-3 mb-3">
+                  <Sun className="w-6 h-6 text-primary" />
+                  <h3 className="font-heading font-black text-lg uppercase text-foreground">De-Winterization</h3>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                  Book between <strong className="text-foreground">mid-April and mid-May</strong>, once overnight temperatures stay above 0°C. Schedule 2–3 weeks before your first trip.
+                </p>
+                <p className="text-xs text-urgency font-heading font-bold uppercase tracking-wider">May long weekend books out by mid-April</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Mid-page CTA */}
+        <section className="py-12 bg-foreground">
+          <div className="container text-center max-w-2xl">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-background mb-3">
+              Lock in your spot before the freeze
+            </h2>
+            <p className="text-background/70 text-base mb-6">
+              Mobile service across Calgary, Airdrie, Cochrane &amp; Chestermere.
+            </p>
+            <a
+              href="tel:5875004523"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-7 py-4 rounded-lg text-sm hover:bg-brand-blue-deep transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              Call Now: 587-500-4523
+            </a>
+          </div>
+        </section>
+
         {/* FAQ */}
         <ServiceFAQ title="RV Winterization FAQs" faqs={faqs} />
 
