@@ -4,8 +4,10 @@ import Footer from "@/components/Footer";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
-import { Snowflake, Sun, CheckCircle, ArrowRight, Phone, Wrench, Droplets, Shield, Clock, MapPin, Sparkles, AlertTriangle } from "lucide-react";
+import { Snowflake, Sun, CheckCircle, ArrowRight, Phone, Wrench, Droplets, Shield, Clock, MapPin, Sparkles, AlertTriangle, ThermometerSnowflake, DollarSign, Home, Calendar, Truck } from "lucide-react";
 import rvHero from "@/assets/rv-hero.jpg";
+import rvProcessImg from "@/assets/rv-winterization-process.jpg";
+import rvDamageImg from "@/assets/rv-frozen-damage.jpg";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -138,7 +140,8 @@ const TierCard = ({ tier }: { tier: Tier }) => {
       )}
 
       {tier.pushLine && (
-        <div className="mb-5 p-3 rounded-lg bg-urgency/10 border border-urgency/20 text-xs text-urgency-foreground font-semibold leading-relaxed">
+        <div className="mb-5 p-3 rounded-lg bg-urgency/10 border border-urgency/30 text-xs text-foreground font-semibold leading-relaxed">
+          <span className="text-urgency font-heading font-black uppercase tracking-wider mr-1">Top Pick:</span>
           {tier.pushLine}
         </div>
       )}
