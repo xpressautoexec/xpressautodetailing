@@ -291,7 +291,7 @@ const RVWinterization = () => {
         </section>
 
         {/* FAQ */}
-        <ServiceFAQ items={faqs} />
+        <ServiceFAQ title="RV Winterization FAQs" faqs={faqs} />
 
         <Footer />
       </div>
