@@ -316,47 +316,8 @@ const RVWinterization = () => {
           </div>
         </section>
 
-        {/* Seasonal Timing */}
-        <section className="py-16 bg-muted/30">
-          <div className="container max-w-4xl">
-            <ScrollReveal>
-              <div className="text-center mb-10">
-                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary font-heading font-bold text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
-                  <Calendar className="w-3 h-3" />
-                  Calgary Timing
-                </div>
-                <h2 className="font-heading font-black text-3xl sm:text-4xl uppercase text-foreground mb-4">
-                  When to Book
-                </h2>
-              </div>
-            </ScrollReveal>
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div className="p-6 bg-card border-2 border-border rounded-xl">
-                <div className="flex items-center gap-3 mb-3">
-                  <Snowflake className="w-6 h-6 text-primary" />
-                  <h3 className="font-heading font-black text-lg uppercase text-foreground">Winterization</h3>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                  Book between <strong className="text-foreground">late September and mid-October</strong>. First hard freeze in Calgary typically hits late October — don't wait.
-                </p>
-                <p className="text-xs text-urgency font-heading font-bold uppercase tracking-wider">Spots fill fastest in early October</p>
-              </div>
-              <div className="p-6 bg-card border-2 border-border rounded-xl">
-                <div className="flex items-center gap-3 mb-3">
-                  <Sun className="w-6 h-6 text-primary" />
-                  <h3 className="font-heading font-black text-lg uppercase text-foreground">De-Winterization</h3>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                  Book between <strong className="text-foreground">mid-April and mid-May</strong>, once overnight temperatures stay above 0°C. Schedule 2–3 weeks before your first trip.
-                </p>
-                <p className="text-xs text-urgency font-heading font-bold uppercase tracking-wider">May long weekend books out by mid-April</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Why Winterization Matters */}
-        <section className="py-16 sm:py-20 bg-background">
+        <section className="py-16 sm:py-20 bg-muted/30">
           <div className="container">
             <ScrollReveal>
               <div className="text-center max-w-2xl mx-auto mb-12">
@@ -404,6 +365,45 @@ const RVWinterization = () => {
                   ))}
                 </div>
               </ScrollReveal>
+            </div>
+          </div>
+        </section>
+
+        {/* Seasonal Timing */}
+        <section className="py-16 bg-background">
+          <div className="container max-w-4xl">
+            <ScrollReveal>
+              <div className="text-center mb-10">
+                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary font-heading font-bold text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
+                  <Calendar className="w-3 h-3" />
+                  Calgary Timing
+                </div>
+                <h2 className="font-heading font-black text-3xl sm:text-4xl uppercase text-foreground mb-4">
+                  When to Book
+                </h2>
+              </div>
+            </ScrollReveal>
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div className="p-6 bg-card border-2 border-border rounded-xl">
+                <div className="flex items-center gap-3 mb-3">
+                  <Snowflake className="w-6 h-6 text-primary" />
+                  <h3 className="font-heading font-black text-lg uppercase text-foreground">Winterization</h3>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                  Book between <strong className="text-foreground">late September and mid-October</strong>. First hard freeze in Calgary typically hits late October — don't wait.
+                </p>
+                <p className="text-xs text-urgency font-heading font-bold uppercase tracking-wider">Spots fill fastest in early October</p>
+              </div>
+              <div className="p-6 bg-card border-2 border-border rounded-xl">
+                <div className="flex items-center gap-3 mb-3">
+                  <Sun className="w-6 h-6 text-primary" />
+                  <h3 className="font-heading font-black text-lg uppercase text-foreground">De-Winterization</h3>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                  Book between <strong className="text-foreground">mid-April and mid-May</strong>, once overnight temperatures stay above 0°C. Schedule 2–3 weeks before your first trip.
+                </p>
+                <p className="text-xs text-urgency font-heading font-bold uppercase tracking-wider">May long weekend books out by mid-April</p>
+              </div>
             </div>
           </div>
         </section>
