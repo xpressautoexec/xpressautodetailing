@@ -28,7 +28,13 @@ const desktopLinks: DesktopNavItem[] = [
     ],
   },
   { label: "Paint & Ceramics", href: "/paint-ceramics" },
-  { label: "Trailer & RV", href: "/trailer-rv" },
+  {
+    label: "Trailer & RV",
+    children: [
+      { label: "Trailer & RV Detailing", href: "/trailer-rv" },
+      { label: "Winterization & De-Winterization", href: "/trailer-rv/winterization" },
+    ],
+  },
   { label: "Fleet", href: "/corporate-fleet" },
   {
     label: "More",
@@ -64,6 +70,14 @@ const mobileLinks: MobileNavItem[] = [
     ],
   },
   { label: "Paint & Ceramics", href: "/paint-ceramics" },
+  {
+    label: "Trailer & RV",
+    href: "#",
+    children: [
+      { label: "Trailer & RV Detailing", href: "/trailer-rv" },
+      { label: "Winterization & De-Winterization", href: "/trailer-rv/winterization" },
+    ],
+  },
   { label: "Corporate & Fleet", href: "/corporate-fleet" },
   {
     label: "More",
