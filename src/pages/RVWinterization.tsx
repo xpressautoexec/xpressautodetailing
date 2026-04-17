@@ -405,7 +405,7 @@ const RVWinterization = () => {
         </section>
 
         {/* Our Process */}
-        <section className="py-16 sm:py-20 bg-background">
+        <section className="py-16 sm:py-20 bg-muted/30">
           <div className="container">
             <ScrollReveal>
               <div className="text-center max-w-2xl mx-auto mb-12">
