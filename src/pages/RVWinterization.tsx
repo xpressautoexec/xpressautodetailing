@@ -120,20 +120,53 @@ const TierCard = ({ tier }: { tier: Tier }) => {
       <p className="text-muted-foreground text-sm mb-5 leading-relaxed">{tier.desc}</p>
 
       {/* Pricing breakdown */}
-      <div className="mb-5 p-4 rounded-lg bg-muted/40 border border-border/50">
-        <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-muted-foreground/70 mb-2.5">Bundle Pricing</p>
-        <ul className="space-y-2">
-          {tier.pricing.map((p) => (
-            <li key={p.label} className="flex items-center justify-between text-sm">
-              <span className="text-foreground/80">{p.label}</span>
-              <span className="flex items-center gap-2">
-                {p.original && <span className="text-muted-foreground/60 line-through text-xs">{p.original}</span>}
-                <span className="font-heading font-black text-primary">{p.bundle}</span>
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {(() => {
+        const baseRows = tier.pricing.filter((p) => !p.original);
+        const addOnRows = tier.pricing.filter((p) => p.original);
+        return (
+          <div className="mb-5 rounded-xl border border-border/60 overflow-hidden">
+            {/* Base price section */}
+            <div className="bg-muted/40 px-4 py-3">
+              <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-muted-foreground/70 mb-2">
+                Base Price by RV Size
+              </p>
+              <ul className="space-y-1.5">
+                {baseRows.map((p) => (
+                  <li key={p.label} className="flex items-center justify-between text-sm">
+                    <span className="text-foreground/80">{p.label.replace(/^Base Service\s*/, "").replace(/[()]/g, "") || p.label}</span>
+                    <span className="font-heading font-black text-primary text-base">{p.bundle}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Add-on per-foot section */}
+            {addOnRows.length > 0 && (
+              <div className="bg-urgency/5 border-t border-border/60 px-4 py-3">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-urgency">
+                    Bundle &amp; Save
+                  </p>
+                  <span className="text-[10px] font-heading font-black uppercase tracking-wider bg-urgency text-urgency-foreground px-2 py-0.5 rounded">
+                    Save {tier.bestValue ? "$3/ft" : "$2/ft"}
+                  </span>
+                </div>
+                <ul className="space-y-1.5">
+                  {addOnRows.map((p) => (
+                    <li key={p.label} className="flex items-center justify-between text-sm gap-2">
+                      <span className="text-foreground/80 leading-tight">{p.label.replace(/\s*\(per ft\)/, "")}</span>
+                      <span className="flex items-baseline gap-1.5 shrink-0">
+                        <span className="text-muted-foreground/60 line-through text-xs">{p.original}</span>
+                        <span className="font-heading font-black text-primary text-base">{p.bundle}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        );
+      })()}
 
       {tier.smartLine && (
         <div className="mb-5 p-3 rounded-lg bg-primary/5 border border-primary/15 text-xs text-primary font-semibold leading-relaxed">
