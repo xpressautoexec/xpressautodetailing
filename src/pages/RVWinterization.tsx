@@ -126,9 +126,9 @@ const TierCard = ({ tier }: { tier: Tier }) => {
         return (
           <div className="mb-5 rounded-xl border border-border/60 overflow-hidden">
             {/* Base price section */}
-            <div className="bg-muted/40 px-4 py-3">
-              <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-muted-foreground/70 mb-2">
-                Base Price by RV Size
+            <div className="bg-primary/5 px-4 py-3">
+              <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-primary mb-2">
+                Winterization / De-Winterization Price
               </p>
               <ul className="space-y-1.5">
                 {baseRows.map((p) => (
