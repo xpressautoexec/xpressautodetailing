@@ -152,15 +152,13 @@ const TierCard = ({ tier }: { tier: Tier }) => {
         ))}
       </ul>
 
-      <a
-        href={BOOKING_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`mt-auto inline-flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider px-5 py-3 rounded-lg text-sm transition-colors ${tier.bestValue ? "bg-urgency text-urgency-foreground hover:bg-urgency/90" : "bg-primary text-primary-foreground hover:bg-brand-blue-deep"}`}
-      >
-        {tier.bestValue ? "Bundle & Save" : "Book This Package"}
-        <ArrowRight className="w-4 h-4" />
-      </a>
+              <a
+                href="tel:5875004523"
+                className={`mt-auto inline-flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider px-5 py-3 rounded-lg text-sm transition-colors ${tier.bestValue ? "bg-urgency text-urgency-foreground hover:bg-urgency/90" : "bg-primary text-primary-foreground hover:bg-brand-blue-deep"}`}
+              >
+                <Phone className="w-4 h-4" />
+                Call to Book
+              </a>
     </div>
   );
 };
@@ -204,20 +202,11 @@ const RVWinterization = () => {
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="tel:5875004523"
                   className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3.5 rounded-lg text-sm hover:bg-brand-blue-deep transition-colors"
                 >
-                  Book Your Winterization Today
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-                <a
-                  href="tel:5875004523"
-                  className="inline-flex items-center gap-2 bg-background/10 backdrop-blur text-background border border-background/30 font-heading font-bold uppercase tracking-wider px-6 py-3.5 rounded-lg text-sm hover:bg-background/20 transition-colors"
-                >
                   <Phone className="w-4 h-4" />
-                  587-500-4523
+                  Call Now: 587-500-4523
                 </a>
               </div>
             </div>
