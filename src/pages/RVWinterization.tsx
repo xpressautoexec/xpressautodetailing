@@ -280,9 +280,13 @@ const RVWinterization = () => {
                 <h2 className="font-heading font-black text-3xl sm:text-4xl uppercase text-foreground mb-4">
                   Pick Your Bundle &amp; Save
                 </h2>
-                <p className="text-muted-foreground text-base leading-relaxed">
+                <p className="text-muted-foreground text-base leading-relaxed mb-4">
                   One fixed base service fee. Bundle exterior or interior detailing and your per-foot rate drops automatically — no coupon code needed.
                 </p>
+                <div className="inline-flex items-center gap-2 bg-success/10 text-success font-heading font-bold text-xs uppercase tracking-wider px-4 py-2 rounded-full">
+                  <CheckCircle className="w-3.5 h-3.5" />
+                  RV-Safe Antifreeze Included in Every Package
+                </div>
               </div>
             </ScrollReveal>
 
