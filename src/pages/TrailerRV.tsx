@@ -27,19 +27,7 @@ const rvTestimonials = [
 ];
 
 const packages = [
-  // Row 1: Interior, Exterior, Sealant, Decal Restoration
-  {
-    title: "Interior Detail",
-    price: "$12.50/ft",
-    desc: "Deep clean every surface — kitchen, bath & living area",
-    features: [
-      "Full vacuum, wipe-down & surface shampoo",
-      "Kitchen counters, sink & appliance cleaning",
-      "Bathroom deep clean & sanitization",
-      "Odor elimination treatment included",
-      "All living area surfaces detailed",
-    ],
-  },
+  // Row 1: Exterior, Interior, Sealant, Decal Restoration
   {
     title: "Exterior Wash",
     price: "$9/ft",
@@ -50,6 +38,18 @@ const packages = [
       "Wheel, tire & fender cleaning",
       "Awning exterior rinse",
       "Rubber seal inspection & conditioning",
+    ],
+  },
+  {
+    title: "Interior Detail",
+    price: "$12/ft",
+    desc: "Deep clean every surface — kitchen, bath & living area",
+    features: [
+      "Full vacuum, wipe-down & surface shampoo",
+      "Kitchen counters, sink & appliance cleaning",
+      "Bathroom deep clean & sanitization",
+      "Odor elimination treatment included",
+      "All living area surfaces detailed",
     ],
   },
   {
