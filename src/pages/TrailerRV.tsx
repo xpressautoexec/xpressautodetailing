@@ -30,7 +30,7 @@ const packages = [
   // Row 1: Interior, Exterior, Sealant, Decal Restoration
   {
     title: "Interior Detail",
-    price: "$10/ft",
+    price: "$12.50/ft",
     desc: "Deep clean every surface — kitchen, bath & living area",
     features: [
       "Full vacuum, wipe-down & surface shampoo",
