@@ -42,7 +42,7 @@ const packages = [
   },
   {
     title: "Interior Detail",
-    price: "$12.50/ft",
+    price: "$10/ft",
     desc: "Deep clean every surface — kitchen, bath & living area",
     features: [
       "Full vacuum, wipe-down & surface shampoo",
