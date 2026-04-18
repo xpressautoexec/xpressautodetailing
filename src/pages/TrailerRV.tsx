@@ -27,19 +27,7 @@ const rvTestimonials = [
 ];
 
 const packages = [
-  // Row 1: Exterior, Interior, Sealant, Decal Restoration
-  {
-    title: "Exterior Wash",
-    price: "$9/ft",
-    desc: "Full hand wash, black streak removal & tire shine",
-    features: [
-      "Full exterior hand wash with RV-safe soap",
-      "Black streak removal from all sides",
-      "Wheel, tire & fender cleaning",
-      "Awning exterior rinse",
-      "Rubber seal inspection & conditioning",
-    ],
-  },
+  // Row 1: Interior, Exterior, Sealant, Decal Restoration
   {
     title: "Interior Detail",
     price: "$10/ft",
@@ -50,6 +38,18 @@ const packages = [
       "Bathroom deep clean & sanitization",
       "Odor elimination treatment included",
       "All living area surfaces detailed",
+    ],
+  },
+  {
+    title: "Exterior Wash",
+    price: "$9/ft",
+    desc: "Full hand wash, black streak removal & tire shine",
+    features: [
+      "Full exterior hand wash with RV-safe soap",
+      "Black streak removal from all sides",
+      "Wheel, tire & fender cleaning",
+      "Awning exterior rinse",
+      "Rubber seal inspection & conditioning",
     ],
   },
   {
