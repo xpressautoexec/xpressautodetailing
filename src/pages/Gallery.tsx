@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import TrustStats from "@/components/TrustStats";
+import VanDivider from "@/components/VanDivider";
 import SEO from "@/components/SEO";
 import galleryHero from "@/assets/gallery-hero.jpg";
 import gallery1 from "@/assets/gallery-1.jpg";
@@ -188,6 +189,15 @@ const Gallery = () => (
         </a>
       </div>
     </section>
+
+    <VanDivider
+      variant="light"
+      direction="right"
+      duration={1.1}
+      distance={240}
+      headline="Your Vehicle Could Be Next"
+      subline="See the difference in person — book your detail today"
+    />
 
     <Footer />
   </div></PageTransition>
