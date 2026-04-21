@@ -98,10 +98,26 @@ const Index = () => {
           </div>
         </section>
 
-        <VanDivider variant="dark" headline="Our Van Comes to You" subline="Fully equipped mobile detailing unit serving Calgary & surrounding areas" />
+        <VanDivider
+          variant="dark"
+          direction="right"
+          duration={1}
+          distance={180}
+          headline="Our Van Comes to You"
+          subline="Fully equipped mobile detailing unit serving Calgary & surrounding areas"
+        />
         <AboutSection />
         <AppShowcase />
         <BrandPartners />
+        <VanDivider
+          variant="light"
+          direction="left"
+          duration={0.7}
+          delay={0.1}
+          distance={140}
+          headline="Always On the Move"
+          subline="On time, every time — rain, snow, or shine"
+        />
         <ReviewsSection />
 
         {/* Service Areas */}
