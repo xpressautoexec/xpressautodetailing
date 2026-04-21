@@ -98,10 +98,26 @@ const Index = () => {
           </div>
         </section>
 
-        <VanDivider variant="dark" headline="Our Van Comes to You" subline="Fully equipped mobile detailing unit serving Calgary & surrounding areas" />
+        <VanDivider
+          variant="dark"
+          direction="right"
+          duration={1}
+          distance={180}
+          headline="Our Van Comes to You"
+          subline="Fully equipped mobile detailing unit serving Calgary & surrounding areas"
+        />
         <AboutSection />
         <AppShowcase />
         <BrandPartners />
+        <VanDivider
+          variant="light"
+          direction="left"
+          duration={0.7}
+          delay={0.1}
+          distance={140}
+          headline="Always On the Move"
+          subline="On time, every time — rain, snow, or shine"
+        />
         <ReviewsSection />
 
         {/* Service Areas */}
@@ -183,6 +199,15 @@ const Index = () => {
         </section>
 
         <FAQSection />
+
+        <VanDivider
+          variant="primary"
+          direction="right"
+          duration={0.55}
+          distance={220}
+          headline="Ready When You Are"
+          subline="Book in 60 seconds — we'll roll up to your driveway"
+        />
 
         {/* Final CTA */}
         <section className="py-16 sm:py-20 bg-foreground relative overflow-hidden">
