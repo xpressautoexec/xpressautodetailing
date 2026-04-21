@@ -1,11 +1,24 @@
 import { Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import vanImage from "@/assets/xpress-van.png";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const Footer = () => {
   return (
-    <footer className="bg-brand-dark border-t border-brand-dark-surface py-12">
+    <footer className="bg-brand-dark border-t border-brand-dark-surface py-12 relative">
+      {/* Van overlapping the top edge of the footer */}
+      <motion.img
+        src={vanImage}
+        alt=""
+        aria-hidden="true"
+        initial={{ opacity: 0, x: -140 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute right-4 sm:right-12 -top-12 sm:-top-20 md:-top-24 w-[180px] sm:w-[280px] md:w-[340px] z-20 drop-shadow-2xl pointer-events-none"
+      />
       <div className="container">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
