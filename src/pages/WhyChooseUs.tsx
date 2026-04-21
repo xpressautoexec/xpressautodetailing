@@ -9,6 +9,7 @@ import ReviewsSection from "@/components/ReviewsSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import TestimonialBlock from "@/components/TestimonialBlock";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
+import VanDivider from "@/components/VanDivider";
 import { Star, ShieldCheck, Award, ThumbsUp, Heart, Leaf, Clock, Users, CheckCircle } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
@@ -226,6 +227,15 @@ const WhyChooseUs = () => {
             </ScrollReveal>
           </div>
         </section>
+
+        <VanDivider
+          variant="primary"
+          direction="left"
+          duration={0.9}
+          distance={200}
+          headline="Calgary's Most Trusted Detail Crew"
+          subline="Backed by 100+ five-star reviews"
+        />
 
         <Footer />
         <div className="h-20 lg:hidden" />

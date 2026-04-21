@@ -6,6 +6,7 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import TestimonialBlock from "@/components/TestimonialBlock";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
+import VanDivider from "@/components/VanDivider";
 import rvHero from "@/assets/rv-hero.jpg";
 import { Droplets, Shield, Sparkles, Truck, Clock, CheckCircle, Sun, Snowflake, Wrench, ArrowRight, Phone, MapPin, Zap, Award, CarFront, Container, Caravan, Star, Check } from "lucide-react";
 
@@ -577,6 +578,15 @@ const TrailerRV = () => {
           </ScrollReveal>
         </div>
       </section>
+
+      <VanDivider
+        variant="primary"
+        direction="left"
+        duration={0.65}
+        distance={180}
+        headline="We Bring the Detail to Your RV"
+        subline="Storage lots, campgrounds, driveways — anywhere with water access"
+      />
 
       <Footer />
       <RVPromoPopup />
