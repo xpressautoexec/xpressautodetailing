@@ -17,6 +17,16 @@ const HeroSection = () => {
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/30" />
 
+      {/* Floating branded van — desktop only */}
+      <motion.img
+        src={vanImage}
+        alt="Xpress Auto Detailing branded service van"
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+        className="hidden lg:block absolute right-0 bottom-8 w-[55%] max-w-[720px] z-[5] drop-shadow-2xl pointer-events-none"
+      />
+
       <div className="container relative z-10 px-6 sm:px-8 py-12">
         <div className="max-w-2xl mx-auto text-center md:text-left md:mx-0">
           {/* Urgency badge */}
