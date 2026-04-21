@@ -1,5 +1,6 @@
 import aboutImage from "@/assets/about-image.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
+import vanImage from "@/assets/xpress-van.png";
 import ScrollReveal from "@/components/ScrollReveal";
 import { ArrowRight } from "lucide-react";
 
