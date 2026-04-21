@@ -200,6 +200,15 @@ const Index = () => {
 
         <FAQSection />
 
+        <VanDivider
+          variant="primary"
+          direction="right"
+          duration={0.55}
+          distance={220}
+          headline="Ready When You Are"
+          subline="Book in 60 seconds — we'll roll up to your driveway"
+        />
+
         {/* Final CTA */}
         <section className="py-16 sm:py-20 bg-foreground relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(205_100%_50%/0.1),transparent_70%)]" />
