@@ -8,7 +8,7 @@ import SEO, { buildFAQJsonLd } from "@/components/SEO";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, Clock, MapPin, MessageCircle } from "lucide-react";
-import VanDivider from "@/components/VanDivider";
+
 
 const contactFAQs = [
   { q: "What areas do you serve?", a: "We serve Calgary and all surrounding communities including Airdrie, Cochrane, Chestermere, Okotoks, Strathmore, High River, Crossfield, Langdon, and Bearspaw. If you're within 30 minutes of Calgary, we can likely come to you." },
@@ -134,15 +134,6 @@ const Contact = () => {
           </a>
         </div>
       </section>
-
-      <VanDivider
-        variant="dark"
-        direction="right"
-        duration={0.75}
-        distance={160}
-        headline="We'll Be There Soon"
-        subline="Average response time: under 2 hours"
-      />
 
       <Footer />
     </div></PageTransition>
