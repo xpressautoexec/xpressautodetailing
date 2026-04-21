@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Star, Clock, Shield, Zap } from "lucide-react";
 import heroBg from "@/assets/hero-bg-new.jpg";
+import vanImage from "@/assets/xpress-van.png";
 import QuickBookWidget from "@/components/QuickBookWidget";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
