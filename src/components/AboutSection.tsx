@@ -1,6 +1,5 @@
 import aboutImage from "@/assets/about-image.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
-import vanImage from "@/assets/xpress-van.png";
 import ScrollReveal from "@/components/ScrollReveal";
 import { ArrowRight } from "lucide-react";
 
@@ -39,11 +38,17 @@ const AboutSection = () => {
           </ScrollReveal>
           <ScrollReveal direction="right">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/5 to-transparent rounded-3xl blur-3xl" />
               <img
-                src={vanImage}
-                alt="Xpress Auto Detailing branded mobile service van"
-                className="relative w-full h-auto object-contain drop-shadow-2xl"
+                src={aboutImage}
+                alt="Xpress Auto Detailing mobile service van"
+                className="rounded-xl shadow-xl w-full object-cover aspect-square"
+                loading="lazy"
+              />
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary rounded-xl hidden md:block opacity-80" />
+              <img
+                src={gallery3}
+                alt="Clean car interior"
+                className="absolute -bottom-8 -right-4 w-40 h-28 rounded-xl shadow-xl object-cover hidden md:block border-4 border-background"
                 loading="lazy"
               />
             </div>

@@ -1,7 +1,6 @@
 import { Zap, MapPin, Handshake, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
-import vanImage from "@/assets/xpress-van.png";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -33,14 +32,6 @@ const AppShowcase = () => (
   <section className="relative py-20 sm:py-24 overflow-hidden bg-foreground">
     {/* Subtle pattern overlay */}
     <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "40px 40px" }} />
-
-    {/* Faded van background accent */}
-    <img
-      src={vanImage}
-      alt=""
-      aria-hidden="true"
-      className="absolute -left-20 bottom-0 w-[600px] opacity-[0.07] pointer-events-none hidden md:block"
-    />
 
     <div className="container relative z-10">
       <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center px-2 sm:px-0">
