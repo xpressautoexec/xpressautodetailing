@@ -9,7 +9,7 @@ import TrustStats from "@/components/TrustStats";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
-import VanDivider from "@/components/VanDivider";
+
 import fleetHero from "@/assets/fleet-kls-truck.jpg";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -249,15 +249,6 @@ const CorporateFleet = () => {
       </section>
 
       <ServiceFAQ title="Fleet Detailing FAQs" faqs={fleetFAQs} />
-
-      <VanDivider
-        variant="dark"
-        direction="right"
-        duration={0.5}
-        distance={260}
-        headline="One Crew. Your Whole Fleet."
-        subline="On-site detailing for trucks, vans & company vehicles"
-      />
 
       <Footer />
       <div className="h-20 lg:hidden" />
