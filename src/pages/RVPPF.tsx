@@ -497,7 +497,7 @@ const RVPPF = () => {
           </div>
         </section>
 
-        <ServiceFAQ faqs={faqs} />
+        <ServiceFAQ title="RV PPF — Frequently Asked Questions" faqs={faqs} />
         <Footer />
       </div>
     </PageTransition>
