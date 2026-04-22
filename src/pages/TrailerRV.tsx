@@ -387,7 +387,108 @@ const TrailerRV = () => {
         </div>
       </section>
 
-      {/* Mid-page CTA */}
+      {/* Premium: System X 9-Year Graphene Ceramic Coating */}
+      <section className="relative py-20 sm:py-28 bg-foreground overflow-hidden">
+        {/* Decorative gradient glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.18),transparent_60%)]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+
+        <div className="container relative z-10 px-6">
+          <ScrollReveal>
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <div className="inline-flex items-center gap-2 bg-primary/15 border border-primary/30 text-primary font-heading font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
+                <Sparkles className="w-3 h-3" />
+                Flagship Protection · Custom Quote
+              </div>
+              <h2 className="font-heading font-black text-3xl sm:text-5xl uppercase text-background leading-[1.05] mb-4">
+                System X <span className="text-primary">9-Year</span><br />
+                Graphene-Infused Ceramic Coating
+              </h2>
+              <p className="text-background/70 text-base sm:text-lg leading-relaxed">
+                The longest-lasting, most hydrophobic ceramic coating on the market — engineered for RVs, motorhomes &amp; 5th wheels that face Alberta's brutal UV, road grime, and storage cycles.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* Feature card grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-10 max-w-6xl mx-auto">
+            {[
+              {
+                icon: Shield,
+                title: "9-Year Manufacturer Warranty",
+                desc: "Industry-leading protection backed by System X — the same coating trusted on luxury vehicles, yachts and aircraft.",
+              },
+              {
+                icon: Zap,
+                title: "Graphene-Infused Formula",
+                desc: "Graphene additives reduce water spotting, increase scratch resistance and improve heat dissipation vs. standard SiO₂ coatings.",
+              },
+              {
+                icon: Sun,
+                title: "Stops UV Oxidation Cold",
+                desc: "Locks in gel-coat clarity and gloss for nearly a decade — no more chalky sidewalls or faded fiberglass.",
+              },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="bg-background/5 backdrop-blur-sm border border-background/10 rounded-2xl p-6 hover:border-primary/40 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center mb-4">
+                  <Icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-heading font-black text-lg uppercase tracking-tight text-background mb-2">{title}</h3>
+                <p className="text-background/65 text-sm leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Includes strip */}
+          <div className="bg-background/5 backdrop-blur-sm border border-background/10 rounded-2xl p-6 sm:p-8 max-w-6xl mx-auto mb-10">
+            <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-primary mb-4 text-center">
+              What's Included
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+              {[
+                "Full exterior decontamination wash & clay bar",
+                "Light paint correction & gel-coat polish",
+                "System X Graphene base coat (entire body)",
+                "System X Top Coat for max hydrophobic gloss",
+                "Trim, glass & headlight ceramic protection",
+                "9-year written manufacturer warranty",
+                "Annual inspection & re-boost program",
+                "Care kit with maintenance instructions",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-2.5 text-sm text-background/85">
+                  <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Custom quote callout + CTA */}
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 bg-urgency/15 border border-urgency/30 text-urgency font-heading font-bold text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
+              <Award className="w-3 h-3" />
+              Pricing Tailored To Your Rig
+            </div>
+            <p className="text-background/70 text-sm sm:text-base leading-relaxed mb-6">
+              Every RV is different — size, condition, paint vs. gel coat, and prep needs all factor in. Call for a personalized assessment and a transparent quote.
+            </p>
+            <a
+              href="tel:5875004523"
+              className="inline-flex items-center gap-3 bg-primary text-primary-foreground font-heading font-black uppercase tracking-wider px-8 py-4 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg hover:bg-brand-blue-deep transition-colors shadow-2xl shadow-primary/30"
+            >
+              <Phone className="w-5 h-5" />
+              Call for Custom Quote
+              <ArrowRight className="w-5 h-5" />
+            </a>
+            <p className="text-background/50 text-xs mt-4 uppercase tracking-wider font-semibold">
+              587-500-4523 · Free in-person assessment
+            </p>
+          </div>
+        </div>
+      </section>
+
+
       <section className="py-10 sm:py-14 bg-primary">
         <div className="container text-center px-6">
           <ScrollReveal>
