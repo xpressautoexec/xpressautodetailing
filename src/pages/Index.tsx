@@ -99,6 +99,7 @@ const Index = () => {
         </section>
 
         <AboutSection />
+        <VanDivider direction="left" duration={1.1} distance={320} />
         <AppShowcase />
         <BrandPartners />
         <ReviewsSection />
@@ -130,7 +131,6 @@ const Index = () => {
         </section>
 
         <BenefitsSection />
-        <VanDivider direction="left" duration={0.9} distance={260} />
         <TestimonialBlock testimonials={homeTestimonials} />
 
         {/* Why Choose Us */}
