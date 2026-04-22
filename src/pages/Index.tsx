@@ -24,7 +24,6 @@ import ChatWidget from "@/components/ChatWidget";
 import SEO, { localBusinessJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import HomePromoPopup from "@/components/HomePromoPopup";
-import VanDivider from "@/components/VanDivider";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -99,7 +98,6 @@ const Index = () => {
         </section>
 
         <AboutSection />
-        <VanDivider direction="left" duration={1.1} distance={320} />
         <AppShowcase />
         <BrandPartners />
         <ReviewsSection />
