@@ -6,7 +6,7 @@ import PageTransition from "@/components/PageTransition";
 const TermsOfService = () => (
   <PageTransition>
     <div className="min-h-screen">
-      <SEO title="Terms & Conditions" description="Read the full terms and conditions for Xpress Auto Detailing mobile car detailing services in Calgary, including cancellation fees, liability & payment policies." canonical="/terms-conditions" />
+      <SEO title="Terms & Conditions — Xpress Auto Detailing Calgary" description="Read the full terms and conditions for Xpress Auto Detailing mobile car detailing services in Calgary, including cancellation, liability and payment policies." canonical="/terms-conditions" />
       <Navbar />
       <section className="py-16 bg-background">
         <div className="container max-w-3xl">

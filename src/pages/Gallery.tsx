@@ -98,8 +98,8 @@ const images = [
 const Gallery = () => (
   <PageTransition><div className="min-h-screen">
     <SEO
-       title="Before & After Gallery — Xpress Auto Detailing"
-       description="Browse real before & after photos of our mobile detailing work in Calgary. Interior deep cleans, paint corrections, ceramic coatings & complete details. See the proof."
+      title="Before & After Detailing Gallery Calgary — Real Results"
+      description="Browse real before & after photos of our Calgary mobile detailing: interior deep cleans, paint corrections, ceramic coatings & complete details. See the proof."
       canonical="/gallery"
     />
     <Navbar />
