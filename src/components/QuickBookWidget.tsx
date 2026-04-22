@@ -21,11 +21,6 @@ interface ServiceOption {
 
 const services: ServiceOption[] = [
   {
-    label: "Exterior Detail",
-    base: { sedan: "$79.99", small_suv: "$89.99", large_suv: "$99.99" },
-    time: "~1.5 hrs",
-  },
-  {
     label: "Interior Detail",
     base: { sedan: "$159.99", small_suv: "$179.99", large_suv: "$189.99" },
     time: "~2 hrs",
@@ -40,7 +35,7 @@ const services: ServiceOption[] = [
 
 const QuickBookWidget = () => {
   const [vehicle, setVehicle] = useState<VehicleSize>("sedan");
-  const [selectedService, setSelectedService] = useState(2); // default to Complete
+  const [selectedService, setSelectedService] = useState(1); // default to Complete
 
   return (
     <motion.div
