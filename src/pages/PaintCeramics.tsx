@@ -34,8 +34,8 @@ const ceramicTestimonials = [
 const PaintCeramics = () => (
   <PageTransition><div className="min-h-screen">
     <SEO
-      title="Paint Correction & Ceramic Coating Calgary"
-      description="Professional paint correction & ceramic coating in Calgary. Remove swirl marks, scratches & oxidation. 1-year to 4-year ceramic protection. Certified installers. Call today."
+      title="Paint Correction & Ceramic Coating Calgary — 1–4 Yr Protection"
+      description="Pro paint correction & ceramic coating in Calgary. Remove swirls, scratches & oxidation. 1, 2 & 4-year ceramic packages. Certified installers. Call for a free quote."
       canonical="/paint-ceramics"
       jsonLd={[
         buildServiceJsonLd("Paint Correction & Ceramic Coating", "Professional paint correction and ceramic coating in Calgary.", "/paint-ceramics"),
