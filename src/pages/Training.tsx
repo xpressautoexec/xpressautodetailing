@@ -98,7 +98,135 @@ const Training = () => (
       </section>
 
       {/* Course Packages */}
-      <section className="section-dark py-16 sm:py-20">
+      <section className="py-16 sm:py-20 bg-background">
+        <div className="container">
+          <ScrollReveal>
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-4">
+              Training <span className="text-primary">Packages</span>
+            </h2>
+            <p className="text-center text-muted-foreground font-heading text-sm uppercase tracking-widest mb-12">
+              Choose the course that matches your goals
+            </p>
+          </ScrollReveal>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0 mb-10">
+            <PackageCard
+              icon={<Wrench className="w-8 h-8" />}
+              name="Detailing Fundamentals"
+              price="$349"
+              tagline="Perfect for: Beginners who want to learn proper detailing techniques from the ground up."
+              features={[
+                "2-day intensive hands-on training",
+                "Interior deep cleaning & extraction",
+                "Exterior wash, clay bar & decontamination",
+                "Proper product selection & dilution ratios",
+                "Tool operation & maintenance",
+                "Paint-safe washing techniques",
+                "Wheel & tire detailing mastery",
+                "Leather & fabric care fundamentals",
+                "Business startup basics & pricing strategies",
+                "Certificate of completion",
+              ]}
+              bonuses={[
+                "Starter product kit ($150 value)",
+                "Business launch checklist",
+              ]}
+              time="Duration: 2 days (16 hours) | Calgary facility"
+              ctaText="Call to Enroll"
+              ctaLink="tel:5875004523"
+              ctaExternal={false}
+              guarantee=""
+            />
+            <PackageCard
+              icon={<Search className="w-8 h-8" />}
+              name="Paint Correction Mastery"
+              price="$549"
+              tagline="Perfect for: Detailers ready to add high-value paint correction services to their offerings."
+              features={[
+                "3-day intensive hands-on training",
+                "Paint thickness measurement & assessment",
+                "Single-stage & multi-stage correction",
+                "Rotary & dual-action polisher techniques",
+                "Compound & polish selection",
+                "Swirl mark, scratch & oxidation removal",
+                "Wet sanding fundamentals",
+                "Paint finishing & refinement",
+                "Before/after documentation for clients",
+                "Certificate of completion",
+              ]}
+              bonuses={[
+                "Paint correction compound kit ($200 value)",
+                "Paint thickness gauge rental for 1 month",
+              ]}
+              time="Duration: 3 days (24 hours) | Calgary facility"
+              isPrimary
+              ctaText="Call to Enroll"
+              ctaLink="tel:5875004523"
+              ctaExternal={false}
+              guarantee=""
+            />
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0">
+            <PackageCard
+              icon={<Gem className="w-8 h-8" />}
+              name="Ceramic Coating Certification"
+              price="$699"
+              tagline="Perfect for: Detailers who want to offer premium ceramic coating services with manufacturer backing."
+              features={[
+                "3-day intensive hands-on training",
+                "Surface preparation & decontamination",
+                "Paint correction prerequisite techniques",
+                "Ceramic coating application (multiple brands)",
+                "Gtechniq Crystal Serum certification",
+                "Curing processes & environmental controls",
+                "Multi-layer coating techniques",
+                "Maintenance coating applications",
+                "Client consultation & expectation setting",
+                "Manufacturer-backed certification",
+              ]}
+              bonuses={[
+                "Gtechniq starter kit ($300 value)",
+                "Listed as certified installer",
+              ]}
+              time="Duration: 3 days (24 hours) | Calgary facility"
+              ctaText="Call to Enroll"
+              ctaLink="tel:5875004523"
+              ctaExternal={false}
+              guarantee=""
+            />
+            <PackageCard
+              icon={<Shield className="w-8 h-8" />}
+              name="PPF Installation"
+              price="$899"
+              tagline="Perfect for: Detailers ready to master paint protection film and offer the highest-ticket service."
+              features={[
+                "5-day intensive hands-on training",
+                "XPEL paint protection film certification",
+                "DAP (Design Access Program) software training",
+                "Pre-cut kit installation techniques",
+                "Bulk film cutting & custom wrapping",
+                "Complex curve & edge wrapping",
+                "Headlight, mirror & high-impact areas",
+                "Full front-end PPF installation",
+                "Removal & re-application procedures",
+                "XPEL certified installer status",
+              ]}
+              bonuses={[
+                "XPEL sample roll kit ($250 value)",
+                "DAP software access (3 months)",
+                "Listed on XPEL installer locator",
+              ]}
+              time="Duration: 5 days (40 hours) | Calgary facility"
+              isPrimary
+              ctaText="Call to Enroll"
+              ctaLink="tel:5875004523"
+              ctaExternal={false}
+              guarantee=""
+            />
+          </div>
+        </div>
+      </section>
         <div className="container">
           <ScrollReveal>
             <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center mb-4">
