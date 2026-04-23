@@ -98,13 +98,13 @@ const Training = () => (
       </section>
 
       {/* Course Packages */}
-      <section className="section-dark py-16 sm:py-20">
+      <section className="py-16 sm:py-20 bg-background">
         <div className="container">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center mb-4">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-4">
               Training <span className="text-primary">Packages</span>
             </h2>
-            <p className="text-center text-primary-foreground/60 font-heading text-sm uppercase tracking-widest mb-12">
+            <p className="text-center text-muted-foreground font-heading text-sm uppercase tracking-widest mb-12">
               Choose the course that matches your goals
             </p>
           </ScrollReveal>
@@ -128,12 +128,12 @@ const Training = () => (
                 "Certificate of completion",
               ]}
               bonuses={[
-                "🎁 Starter product kit ($150 value)",
-                "🎁 Business launch checklist",
+                "Starter product kit ($150 value)",
+                "Business launch checklist",
               ]}
               time="Duration: 2 days (16 hours) | Calgary facility"
-              ctaText="View Upcoming Dates"
-              ctaLink="/training/signup?course=detailing-fundamentals"
+              ctaText="Call to Enroll"
+              ctaLink="tel:5875004523"
               ctaExternal={false}
               guarantee=""
             />
@@ -155,13 +155,13 @@ const Training = () => (
                 "Certificate of completion",
               ]}
               bonuses={[
-                "🎁 Paint correction compound kit ($200 value)",
-                "🎁 Paint thickness gauge rental for 1 month",
+                "Paint correction compound kit ($200 value)",
+                "Paint thickness gauge rental for 1 month",
               ]}
               time="Duration: 3 days (24 hours) | Calgary facility"
               isPrimary
-              ctaText="View Upcoming Dates"
-              ctaLink="/training/signup?course=paint-correction"
+              ctaText="Call to Enroll"
+              ctaLink="tel:5875004523"
               ctaExternal={false}
               guarantee=""
             />
@@ -186,12 +186,12 @@ const Training = () => (
                 "Manufacturer-backed certification",
               ]}
               bonuses={[
-                "🎁 Gtechniq starter kit ($300 value)",
-                "🎁 Listed as certified installer",
+                "Gtechniq starter kit ($300 value)",
+                "Listed as certified installer",
               ]}
               time="Duration: 3 days (24 hours) | Calgary facility"
-              ctaText="View Upcoming Dates"
-              ctaLink="/training/signup?course=ceramic-coating"
+              ctaText="Call to Enroll"
+              ctaLink="tel:5875004523"
               ctaExternal={false}
               guarantee=""
             />
@@ -213,14 +213,14 @@ const Training = () => (
                 "XPEL certified installer status",
               ]}
               bonuses={[
-                "🎁 XPEL sample roll kit ($250 value)",
-                "🎁 DAP software access (3 months)",
-                "🎁 Listed on XPEL installer locator",
+                "XPEL sample roll kit ($250 value)",
+                "DAP software access (3 months)",
+                "Listed on XPEL installer locator",
               ]}
               time="Duration: 5 days (40 hours) | Calgary facility"
               isPrimary
-              ctaText="View Upcoming Dates"
-              ctaLink="/training/signup?course=ppf-installation"
+              ctaText="Call to Enroll"
+              ctaLink="tel:5875004523"
               ctaExternal={false}
               guarantee=""
             />
