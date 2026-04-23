@@ -288,7 +288,7 @@ const RVPPF = () => {
               </div>
 
               <h1 className="font-heading font-black text-3xl sm:text-5xl md:text-6xl uppercase text-background leading-[1.05] mb-5">
-                RV Paint Protection<br />
+                RV Paint Protection Film<br />
                 <span className="text-primary">That Outlasts the Road</span>
               </h1>
 
