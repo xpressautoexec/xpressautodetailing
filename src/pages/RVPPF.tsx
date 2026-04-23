@@ -439,6 +439,179 @@ const RVPPF = () => {
           </div>
         </section>
 
+        {/* COMPARISON TABLE */}
+        <section className="py-16 sm:py-20 bg-background">
+          <div className="container px-6">
+            <ScrollReveal>
+              <div className="text-center max-w-3xl mx-auto mb-10">
+                <p className="text-primary font-heading font-bold text-xs uppercase tracking-widest mb-3">
+                  Side-by-Side Comparison
+                </p>
+                <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-foreground leading-tight mb-4">
+                  Compare Every Package at a Glance
+                </h2>
+                <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
+                  Exactly what each package covers, how long install takes, and who it's built for.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            {(() => {
+              const rows: { label: string; key: "front-cap" | "front-plus" | "high-impact" | "full-body" | "duration" | "price" | "warranty" }[] = [
+                { label: "Front Cap / Nose", key: "front-cap" },
+                { label: "Headlights & Marker Lights", key: "front-cap" },
+                { label: "Hood / Front Cowl", key: "front-plus" },
+                { label: "Side Mirrors & Arms", key: "front-plus" },
+                { label: "A-Pillar Leading Edges", key: "front-plus" },
+                { label: "Lower Rocker Panels", key: "high-impact" },
+                { label: "Front & Rear Wheel Arches", key: "high-impact" },
+                { label: "Slide-Out Edges & Faces", key: "high-impact" },
+                { label: "Storage Door Edges", key: "high-impact" },
+                { label: "Full Side Panels (Both Sides)", key: "full-body" },
+                { label: "Rear Cap / Rear Wall", key: "full-body" },
+                { label: "Roof Leading Edge & Overhang", key: "full-body" },
+              ];
+              const order: Array<Package["coverageLevel"]> = ["front-cap", "front-plus", "high-impact", "full-body"];
+              const includes = (pkgLevel: Package["coverageLevel"], rowKey: typeof rows[number]["key"]) => {
+                if (rowKey === "duration" || rowKey === "price" || rowKey === "warranty") return false;
+                return order.indexOf(pkgLevel) >= order.indexOf(rowKey);
+              };
+
+              return (
+                <div className="max-w-7xl mx-auto overflow-x-auto rounded-2xl border border-border bg-card shadow-lg">
+                  <table className="w-full text-sm min-w-[760px]">
+                    <thead>
+                      <tr className="bg-muted/40 border-b-2 border-border">
+                        <th className="text-left p-4 sm:p-5 font-heading font-black text-xs uppercase tracking-widest text-muted-foreground sticky left-0 bg-muted/40 z-10 min-w-[220px]">
+                          Coverage Area
+                        </th>
+                        {packages.map((pkg) => (
+                          <th
+                            key={pkg.name}
+                            className={`text-center p-4 sm:p-5 align-top ${
+                              pkg.popular ? "bg-primary/5" : pkg.bestValue ? "bg-urgency/5" : ""
+                            }`}
+                          >
+                            {pkg.badge && (
+                              <span
+                                className={`inline-block font-heading font-bold text-[9px] uppercase tracking-widest px-2 py-0.5 rounded-full mb-2 ${
+                                  pkg.bestValue
+                                    ? "bg-urgency text-urgency-foreground"
+                                    : "bg-primary text-primary-foreground"
+                                }`}
+                              >
+                                {pkg.badge}
+                              </span>
+                            )}
+                            <div className="font-heading font-black text-sm sm:text-base uppercase text-foreground leading-tight">
+                              {pkg.name}
+                            </div>
+                            <div className="font-heading font-black text-lg sm:text-xl text-primary mt-1">
+                              {pkg.priceFrom}
+                            </div>
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {/* Install Time row */}
+                      <tr className="border-b border-border bg-muted/20">
+                        <td className="p-4 font-heading font-bold uppercase text-xs tracking-wider text-foreground sticky left-0 bg-muted/20 z-10 flex items-center gap-2">
+                          <Clock className="w-4 h-4 text-primary" />
+                          Install Time
+                        </td>
+                        {packages.map((pkg) => (
+                          <td
+                            key={pkg.name}
+                            className={`p-4 text-center font-bold text-foreground ${
+                              pkg.popular ? "bg-primary/5" : pkg.bestValue ? "bg-urgency/5" : ""
+                            }`}
+                          >
+                            {pkg.duration}
+                          </td>
+                        ))}
+                      </tr>
+
+                      {/* Coverage rows */}
+                      {rows.map((row, i) => (
+                        <tr key={row.label + i} className="border-b border-border/60 hover:bg-muted/20 transition-colors">
+                          <td className="p-4 text-foreground/85 sticky left-0 bg-card hover:bg-muted/20 z-10">
+                            {row.label}
+                          </td>
+                          {packages.map((pkg) => {
+                            const yes = includes(pkg.coverageLevel, row.key);
+                            return (
+                              <td
+                                key={pkg.name}
+                                className={`p-4 text-center ${
+                                  pkg.popular ? "bg-primary/5" : pkg.bestValue ? "bg-urgency/5" : ""
+                                }`}
+                              >
+                                {yes ? (
+                                  <CheckCircle className="w-5 h-5 text-primary mx-auto" aria-label="Included" />
+                                ) : (
+                                  <span className="inline-block w-4 h-0.5 bg-muted-foreground/30 rounded" aria-label="Not included" />
+                                )}
+                              </td>
+                            );
+                          })}
+                        </tr>
+                      ))}
+
+                      {/* Warranty row */}
+                      <tr className="border-b border-border bg-muted/20">
+                        <td className="p-4 font-heading font-bold uppercase text-xs tracking-wider text-foreground sticky left-0 bg-muted/20 z-10 flex items-center gap-2">
+                          <Shield className="w-4 h-4 text-primary" />
+                          Film Warranty
+                        </td>
+                        {packages.map((pkg) => (
+                          <td
+                            key={pkg.name}
+                            className={`p-4 text-center font-semibold text-foreground/85 ${
+                              pkg.popular ? "bg-primary/5" : pkg.bestValue ? "bg-urgency/5" : ""
+                            }`}
+                          >
+                            {pkg.coverageLevel === "full-body" ? "10 Years" : "7 Years"}
+                          </td>
+                        ))}
+                      </tr>
+
+                      {/* CTA row */}
+                      <tr>
+                        <td className="p-4 sticky left-0 bg-card z-10" />
+                        {packages.map((pkg) => (
+                          <td
+                            key={pkg.name}
+                            className={`p-4 text-center ${
+                              pkg.popular ? "bg-primary/5" : pkg.bestValue ? "bg-urgency/5" : ""
+                            }`}
+                          >
+                            <a
+                              href={PHONE}
+                              className={`inline-flex items-center justify-center gap-1.5 font-heading font-bold uppercase tracking-wider px-3 py-2 rounded-lg text-[11px] transition-all whitespace-nowrap ${
+                                pkg.bestValue
+                                  ? "bg-urgency text-urgency-foreground hover:bg-urgency/90"
+                                  : "bg-primary text-primary-foreground hover:bg-brand-blue-deep"
+                              }`}
+                            >
+                              <Phone className="w-3 h-3" />
+                              Call
+                            </a>
+                          </td>
+                        ))}
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              );
+            })()}
+
+            <p className="text-center text-xs text-muted-foreground mt-6">
+              Swipe horizontally on mobile to compare all packages. Final coverage and pricing confirmed during free in-person inspection.
+            </p>
+          </div>
+        </section>
+
         {/* PROCESS */}
         <section className="py-16 sm:py-20 bg-background">
           <div className="container px-6">
