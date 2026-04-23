@@ -346,6 +346,32 @@ const RVPPF = () => {
           </div>
         </section>
 
+        {/* TRUSTED SUPPLIERS */}
+        <section className="bg-background border-b border-border py-8">
+          <div className="container px-6">
+            <p className="text-center text-[10px] sm:text-xs font-heading font-bold uppercase tracking-[0.25em] text-muted-foreground mb-5">
+              Trusted Film Suppliers
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14">
+              <div className="flex items-center gap-2 text-foreground">
+                <Shield className="w-5 h-5 text-primary" />
+                <span className="font-heading font-black text-2xl sm:text-3xl tracking-tight">XPEL</span>
+              </div>
+              <div className="h-8 w-px bg-border hidden sm:block" />
+              <div className="flex items-center gap-2 text-foreground">
+                <Shield className="w-5 h-5 text-primary" />
+                <span className="font-heading font-black text-2xl sm:text-3xl tracking-tight">3M</span>
+                <span className="font-heading font-bold text-xs uppercase tracking-widest text-muted-foreground ml-1">
+                  Scotchgard™
+                </span>
+              </div>
+            </div>
+            <p className="text-center text-xs text-muted-foreground mt-4 max-w-xl mx-auto">
+              We install only premium, manufacturer-warrantied PPF from industry leaders Xpel and 3M.
+            </p>
+          </div>
+        </section>
+
         {/* WHY PPF */}
         <section className="py-16 sm:py-20 bg-background">
           <div className="container px-6">
