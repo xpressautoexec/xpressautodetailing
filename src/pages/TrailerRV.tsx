@@ -8,6 +8,7 @@ import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 
 import rvHero from "@/assets/rv-hero.jpg";
+import systemXLogo from "@/assets/systemx-logo.png";
 import { Droplets, Shield, Sparkles, Truck, Clock, CheckCircle, Sun, Snowflake, Wrench, ArrowRight, Phone, MapPin, Zap, Award, CarFront, Container, Caravan, Star, Check } from "lucide-react";
 
 const rvFAQs = [
@@ -397,13 +398,20 @@ const TrailerRV = () => {
         <div className="container relative z-10 px-6">
           <ScrollReveal>
             <div className="text-center max-w-3xl mx-auto mb-12">
-              <div className="inline-flex items-center gap-2 bg-primary/15 border border-primary/30 text-primary font-heading font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
+              <div className="inline-flex items-center gap-2 bg-primary/15 border border-primary/30 text-primary font-heading font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
                 <Sparkles className="w-3 h-3" />
                 Flagship Protection · Custom Quote
               </div>
+              <img
+                src={systemXLogo}
+                alt="System X Ceramic Protection — official authorized installer"
+                className="mx-auto h-16 sm:h-20 w-auto mb-6 invert brightness-0"
+                style={{ filter: "invert(1) brightness(2)" }}
+                loading="lazy"
+              />
               <h2 className="font-heading font-black text-3xl sm:text-5xl uppercase text-background leading-[1.05] mb-4">
-                System X <span className="text-primary">9-Year</span><br />
-                Graphene-Infused Ceramic Coating
+                <span className="text-primary">9-Year</span> Graphene-Infused<br />
+                Ceramic Coating
               </h2>
               <p className="text-background/70 text-base sm:text-lg leading-relaxed">
                 The longest-lasting, most hydrophobic ceramic coating on the market — engineered for RVs, motorhomes &amp; 5th wheels that face Alberta's brutal UV, road grime, and storage cycles.
