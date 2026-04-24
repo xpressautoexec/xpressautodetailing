@@ -11,6 +11,7 @@ import brandShell from "@/assets/brand-shell.png";
 import brandMeguiars from "@/assets/brand-meguiars.png";
 import brandChemicalGuys from "@/assets/brand-chemical-guys.png";
 import brandSilverhillAcura from "@/assets/brand-silverhill-acura.png";
+import brandLandform from "@/assets/brand-landform.png";
 
 interface BrandItem {
   name: string;
@@ -33,6 +34,7 @@ const clientPartners: BrandItem[] = [
   { name: "DIRTT", logo: brandDirtt },
   { name: "Shell", logo: brandShell },
   { name: "Silverhill Acura", logo: brandSilverhillAcura },
+  { name: "Landform", logo: brandLandform },
 ];
 
 const BrandCard = ({ brand }: { brand: BrandItem }) => (

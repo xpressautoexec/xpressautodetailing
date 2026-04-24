@@ -19,6 +19,7 @@ import brandKls from "@/assets/brand-kls.png";
 import brandDirtt from "@/assets/brand-dirtt.png";
 import brandShell from "@/assets/brand-shell.png";
 import brandSilverhillAcura from "@/assets/brand-silverhill-acura.png";
+import brandLandform from "@/assets/brand-landform.png";
 import catExcavator1 from "@/assets/gallery-cat-excavator-1.jpg";
 import catExcavatorExt1 from "@/assets/gallery-cat-excavator-exterior-1.jpg";
 import catExcavatorExt2 from "@/assets/gallery-cat-excavator-exterior-2.jpg";
@@ -232,6 +233,7 @@ const CorporateFleet = () => {
               { name: "DIRTT", logo: brandDirtt },
               { name: "Shell", logo: brandShell },
               { name: "Silverhill Acura", logo: brandSilverhillAcura },
+              { name: "Landform", logo: brandLandform },
             ].map((partner) => (
               <StaggerItem key={partner.name} className="flex items-center justify-center">
                 <div className="bg-card border border-border rounded-xl px-4 py-5 w-full flex items-center justify-center hover:border-primary/30 hover:shadow-sm transition-all duration-300 min-h-[72px]">
