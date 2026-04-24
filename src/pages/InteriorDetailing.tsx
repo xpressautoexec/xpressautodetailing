@@ -17,6 +17,8 @@ import RecentWorkStrip from "@/components/RecentWorkStrip";
 import bmwRedInterior from "@/assets/gallery-bmw-red-interior.jpg";
 import catExcavator1 from "@/assets/gallery-cat-excavator-1.jpg";
 import catExcavator3 from "@/assets/gallery-cat-excavator-3.jpg";
+import bmwRedDash from "@/assets/gallery-bmw-red-dash.jpg";
+import catExcavatorPedals from "@/assets/gallery-cat-excavator-pedals.jpg";
 import { ShieldCheck, Droplets, Wind, Bug, Sparkles, Clock, ArrowRight, Car, PawPrint, Shield } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
