@@ -12,6 +12,8 @@ import systemXLogo from "@/assets/systemx-logo.png";
 import RecentWorkStrip from "@/components/RecentWorkStrip";
 import rvOxidation from "@/assets/gallery-rv-oxidation-correction.jpg";
 import rvSurveyorFront from "@/assets/gallery-rv-surveyor-front.jpg";
+import rvSurveyorFull from "@/assets/gallery-rv-surveyor-full.jpg";
+import rvPaintCloseup from "@/assets/gallery-rv-paint-correction-closeup.jpg";
 import { Droplets, Shield, Sparkles, Truck, Clock, CheckCircle, Sun, Snowflake, Wrench, ArrowRight, Phone, MapPin, Zap, Award, CarFront, Container, Caravan, Star, Check } from "lucide-react";
 
 const rvFAQs = [
@@ -698,9 +700,9 @@ const TrailerRV = () => {
         description="Real oxidation correction and exterior restoration on travel trailers — from chalky and faded to deep gloss."
         images={[
           { src: rvOxidation, alt: "RV roof oxidation correction in progress showing dramatic before and after" },
-          { src: rvSurveyorFront, alt: "Surveyor travel trailer front cap during oxidation correction" },
-          { src: rvOxidation, alt: "Side-by-side oxidation removal on RV exterior panel" },
-          { src: rvSurveyorFront, alt: "RV front cap restored to deep gloss finish" },
+          { src: rvSurveyorFull, alt: "Surveyor travel trailer front cap full view during paint correction" },
+          { src: rvPaintCloseup, alt: "Close-up of RV paint correction showing dramatic gloss restoration" },
+          { src: rvSurveyorFront, alt: "Surveyor RV front cap restored to deep gloss finish" },
         ]}
       />
 
