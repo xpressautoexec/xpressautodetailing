@@ -183,6 +183,19 @@ const CorporateFleet = () => {
 
       <TestimonialBlock testimonials={fleetTestimonials} />
 
+      <RecentWorkStrip
+        eyebrow="Heavy Equipment Detailing"
+        title="Recent"
+        highlight="Fleet Work"
+        description="From construction excavators to delivery vans — we restore operator cabins and exteriors to like-new condition."
+        images={[
+          { src: catExcavatorExt1, alt: "CAT Landform excavator on jobsite after exterior wash" },
+          { src: catExcavatorExt2, alt: "CAT 320 excavator side profile freshly detailed on construction site" },
+          { src: catExcavator1, alt: "CAT excavator cab interior after professional deep clean" },
+          { src: catExcavator3, alt: "CAT excavator cab with spotless seat and controls" },
+        ]}
+      />
+
       {/* Fleet Partners */}
       <section className="py-14 sm:py-16 bg-background border-y border-border">
         <div className="container">
@@ -251,19 +264,6 @@ const CorporateFleet = () => {
           </ScrollReveal>
         </div>
       </section>
-
-      <RecentWorkStrip
-        eyebrow="Heavy Equipment Detailing"
-        title="Recent"
-        highlight="Fleet Work"
-        description="From construction excavators to delivery vans — we restore operator cabins and exteriors to like-new condition."
-        images={[
-          { src: catExcavatorExt1, alt: "CAT Landform excavator on jobsite after exterior wash" },
-          { src: catExcavatorExt2, alt: "CAT 320 excavator side profile freshly detailed on construction site" },
-          { src: catExcavator1, alt: "CAT excavator cab interior after professional deep clean" },
-          { src: catExcavator3, alt: "CAT excavator cab with spotless seat and controls" },
-        ]}
-      />
 
       <ServiceFAQ title="Fleet Detailing FAQs" faqs={fleetFAQs} />
 
