@@ -34,6 +34,7 @@ const clientPartners: BrandItem[] = [
   { name: "DIRTT", logo: brandDirtt },
   { name: "Shell", logo: brandShell },
   { name: "Silverhill Acura", logo: brandSilverhillAcura },
+  { name: "Landform", logo: brandLandform },
 ];
 
 const BrandCard = ({ brand }: { brand: BrandItem }) => (
