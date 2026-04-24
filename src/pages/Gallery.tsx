@@ -45,6 +45,16 @@ import gallery36 from "@/assets/gallery-36.jpg";
 import gallery37 from "@/assets/gallery-37.jpg";
 import gallery38 from "@/assets/gallery-38.jpg";
 import gallery39 from "@/assets/gallery-39.jpg";
+import bmwEmblem from "@/assets/gallery-bmw-emblem.jpg";
+import bmwWheelFront from "@/assets/gallery-bmw-wheel-front.jpg";
+import bmwWheelRear from "@/assets/gallery-bmw-wheel-rear.jpg";
+import bmwRedInterior from "@/assets/gallery-bmw-red-interior.jpg";
+import rvOxidation from "@/assets/gallery-rv-oxidation-correction.jpg";
+import rvSurveyorFront from "@/assets/gallery-rv-surveyor-front.jpg";
+import catExcavator1 from "@/assets/gallery-cat-excavator-1.jpg";
+import catExcavator2 from "@/assets/gallery-cat-excavator-2.jpg";
+import catExcavator3 from "@/assets/gallery-cat-excavator-3.jpg";
+import catExcavator4 from "@/assets/gallery-cat-excavator-4.jpg";
 import interiorImg from "@/assets/interior-detail.jpg";
 import exteriorImg from "@/assets/exterior-detail.jpg";
 import paintImg from "@/assets/paint-correction.jpg";
@@ -90,6 +100,16 @@ const images = [
   { src: gallery37, alt: "Clean vehicle after full detail service", category: "Exterior" },
   { src: gallery38, alt: "Vehicle showcasing expert detailing work", category: "Exterior" },
   { src: gallery39, alt: "Professional detailing quality on display", category: "Exterior" },
+  { src: bmwEmblem, alt: "Silver BMW hood with mirror-finish reflection after paint correction", category: "Paint Correction" },
+  { src: bmwWheelFront, alt: "BMW M-series front wheel with blue caliper after detail", category: "Wheels" },
+  { src: bmwWheelRear, alt: "BMW M-series rear wheel and quarter panel freshly detailed", category: "Wheels" },
+  { src: bmwRedInterior, alt: "BMW red leather interior after deep clean and conditioning", category: "Interior" },
+  { src: rvOxidation, alt: "RV roof oxidation removal in progress with masking tape divider", category: "RV" },
+  { src: rvSurveyorFront, alt: "Surveyor travel trailer front cap during oxidation correction", category: "RV" },
+  { src: catExcavator1, alt: "CAT excavator cab interior after professional deep clean", category: "Fleet" },
+  { src: catExcavator2, alt: "Detailed CAT excavator operator cabin", category: "Fleet" },
+  { src: catExcavator3, alt: "CAT excavator cab with spotless seat and controls", category: "Fleet" },
+  { src: catExcavator4, alt: "Heavy equipment cabin restored to like-new condition", category: "Fleet" },
   { src: interiorImg, alt: "Pristine car interior after deep cleaning and conditioning", category: "Interior" },
   { src: exteriorImg, alt: "Shiny red car parked after full exterior detailing service", category: "Exterior" },
   { src: paintImg, alt: "Luxury vehicle with corrected paint showing deep gloss finish", category: "Paint Correction" },

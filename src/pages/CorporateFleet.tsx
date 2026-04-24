@@ -11,6 +11,11 @@ import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 
 import fleetHero from "@/assets/fleet-kls-truck.jpg";
+import RecentWorkStrip from "@/components/RecentWorkStrip";
+import catExcavator1 from "@/assets/gallery-cat-excavator-1.jpg";
+import catExcavator2 from "@/assets/gallery-cat-excavator-2.jpg";
+import catExcavator3 from "@/assets/gallery-cat-excavator-3.jpg";
+import catExcavator4 from "@/assets/gallery-cat-excavator-4.jpg";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, Clock, TrendingUp, Shield, Users, Wrench, Check, ArrowRight, CheckCircle } from "lucide-react";
@@ -247,6 +252,19 @@ const CorporateFleet = () => {
           </ScrollReveal>
         </div>
       </section>
+
+      <RecentWorkStrip
+        eyebrow="Heavy Equipment Detailing"
+        title="Recent"
+        highlight="Fleet Work"
+        description="From construction excavators to delivery vans — we restore operator cabins and exteriors to like-new condition."
+        images={[
+          { src: catExcavator1, alt: "CAT excavator cab interior after professional deep clean" },
+          { src: catExcavator2, alt: "Detailed CAT excavator operator cabin" },
+          { src: catExcavator3, alt: "CAT excavator cab with spotless seat and controls" },
+          { src: catExcavator4, alt: "Heavy equipment cabin restored to like-new condition" },
+        ]}
+      />
 
       <ServiceFAQ title="Fleet Detailing FAQs" faqs={fleetFAQs} />
 

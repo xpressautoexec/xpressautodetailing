@@ -13,6 +13,10 @@ import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import interiorHero from "@/assets/interior-hero.jpg";
 import interiorImg from "@/assets/interior-detail.jpg";
+import RecentWorkStrip from "@/components/RecentWorkStrip";
+import bmwRedInterior from "@/assets/gallery-bmw-red-interior.jpg";
+import catExcavator1 from "@/assets/gallery-cat-excavator-1.jpg";
+import catExcavator3 from "@/assets/gallery-cat-excavator-3.jpg";
 import { ShieldCheck, Droplets, Wind, Bug, Sparkles, Clock, ArrowRight, Car, PawPrint, Shield } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
@@ -274,6 +278,19 @@ const InteriorDetailing = () => (
         </ScrollReveal>
       </div>
     </section>
+
+    <RecentWorkStrip
+      eyebrow="See the Difference"
+      title="Recent"
+      highlight="Interior Work"
+      description="From luxury leather to heavy-equipment cabins — every interior gets the same meticulous treatment."
+      images={[
+        { src: bmwRedInterior, alt: "BMW red leather interior after deep clean and conditioning" },
+        { src: interiorImg, alt: "Pristine car interior after deep cleaning and conditioning" },
+        { src: catExcavator1, alt: "CAT excavator cab interior after professional deep clean" },
+        { src: catExcavator3, alt: "Heavy equipment operator cabin restored to like-new condition" },
+      ]}
+    />
 
     <Footer />
     <InteriorPromoPopup />
