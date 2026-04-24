@@ -245,49 +245,38 @@ const CorporateFleet = () => {
         </div>
       </section>
 
-      {/* Contact Form */}
-      <section className="py-20 sm:py-28 bg-background">
-        <div className="container grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          <ScrollReveal direction="left">
-            <div>
-              <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs mb-3">Start Today</p>
-              <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground mb-8">Get a Free Quote</h2>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <input type="text" placeholder="Name *" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full bg-card border border-border text-foreground rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary" required maxLength={100} />
-                <input type="text" placeholder="Company Name" value={form.company_name} onChange={(e) => setForm({ ...form, company_name: e.target.value })} className="w-full bg-card border border-border text-foreground rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary" maxLength={100} />
-                <input type="email" placeholder="Email *" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full bg-card border border-border text-foreground rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary" required maxLength={255} />
-                <input type="tel" placeholder="Phone" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full bg-card border border-border text-foreground rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary" maxLength={20} />
-                <textarea placeholder="How Can We Help? (Please mention fleet size & services required) *" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={5} className="w-full bg-card border border-border text-foreground rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary resize-none" required maxLength={1000} />
-                <button type="submit" disabled={loading} className="w-full bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3.5 rounded-xl text-sm hover:shadow-lg hover:shadow-primary/30 hover:scale-[1.01] transition-all disabled:opacity-50">
-                  {loading ? "Submitting..." : "Submit"}
-                </button>
-              </form>
+      {/* Call CTA */}
+      <section className="py-20 sm:py-28 bg-primary">
+        <div className="container max-w-3xl text-center px-4 sm:px-6">
+          <ScrollReveal>
+            <p className="text-primary-foreground/80 font-heading font-bold uppercase tracking-[0.2em] text-xs mb-3">
+              Ready to Talk Fleet?
+            </p>
+            <h2 className="font-heading font-black text-3xl md:text-4xl uppercase text-primary-foreground mb-4">
+              Get a Custom Fleet Quote
+            </h2>
+            <p className="text-primary-foreground/80 text-base md:text-lg max-w-xl mx-auto mb-10">
+              Every fleet is different. Call us to discuss your vehicle count, schedule, and service needs — we'll build a plan that fits your operation and budget.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="tel:5875004523"
+                className="inline-flex items-center justify-center gap-3 bg-primary-foreground text-primary font-heading font-black uppercase tracking-wider px-8 py-4 rounded-xl text-base hover:scale-[1.02] transition-all shadow-lg w-full sm:w-auto"
+              >
+                <Phone className="w-5 h-5" />
+                Call 587-500-4523
+              </a>
+              <a
+                href="mailto:support@xpressautodetail.ca"
+                className="inline-flex items-center justify-center gap-3 border-2 border-primary-foreground/40 text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-xl text-sm hover:bg-primary-foreground/10 transition-all w-full sm:w-auto"
+              >
+                <Mail className="w-5 h-5" />
+                Email Us
+              </a>
             </div>
-          </ScrollReveal>
-          <ScrollReveal direction="right">
-            <div className="flex flex-col justify-center h-full">
-              <h3 className="font-heading font-bold text-xl text-foreground uppercase mb-6">We Love Talking to You!</h3>
-              <p className="text-muted-foreground mb-8">Feel free to contact us anytime.</p>
-              <div className="space-y-5">
-                <a href="tel:5875004523" className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors group">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <Phone className="w-5 h-5 text-primary" />
-                  </div>
-                  587-500-4523
-                </a>
-                <a href="mailto:support@xpressautodetail.ca" className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors group">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <Mail className="w-5 h-5 text-primary" />
-                  </div>
-                  support@xpressautodetail.ca
-                </a>
-                <div className="flex items-center gap-4 text-muted-foreground">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <Clock className="w-5 h-5 text-primary" />
-                  </div>
-                  Monday – Sunday: 9:00 AM – 5:00 PM
-                </div>
-              </div>
+            <div className="mt-8 inline-flex items-center gap-2 text-primary-foreground/80 text-sm">
+              <Clock className="w-4 h-4" />
+              Monday – Sunday: 9:00 AM – 5:00 PM
             </div>
           </ScrollReveal>
         </div>
