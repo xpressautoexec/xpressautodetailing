@@ -17,6 +17,8 @@ import RecentWorkStrip from "@/components/RecentWorkStrip";
 import bmwRedInterior from "@/assets/gallery-bmw-red-interior.jpg";
 import catExcavator1 from "@/assets/gallery-cat-excavator-1.jpg";
 import catExcavator3 from "@/assets/gallery-cat-excavator-3.jpg";
+import bmwRedDash from "@/assets/gallery-bmw-red-dash.jpg";
+import catExcavatorPedals from "@/assets/gallery-cat-excavator-pedals.jpg";
 import { ShieldCheck, Droplets, Wind, Bug, Sparkles, Clock, ArrowRight, Car, PawPrint, Shield } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
@@ -285,10 +287,10 @@ const InteriorDetailing = () => (
       highlight="Interior Work"
       description="From luxury leather to heavy-equipment cabins — every interior gets the same meticulous treatment."
       images={[
-        { src: bmwRedInterior, alt: "BMW red leather interior after deep clean and conditioning" },
-        { src: interiorImg, alt: "Pristine car interior after deep cleaning and conditioning" },
+        { src: bmwRedInterior, alt: "BMW red leather seats after deep clean and conditioning" },
+        { src: bmwRedDash, alt: "BMW interior dash, steering wheel and red leather after detail" },
         { src: catExcavator1, alt: "CAT excavator cab interior after professional deep clean" },
-        { src: catExcavator3, alt: "Heavy equipment operator cabin restored to like-new condition" },
+        { src: catExcavatorPedals, alt: "Spotless CAT excavator floor pedals and cab after detail" },
       ]}
     />
 

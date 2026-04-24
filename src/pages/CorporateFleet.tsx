@@ -13,9 +13,9 @@ import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/Scroll
 import fleetHero from "@/assets/fleet-kls-truck.jpg";
 import RecentWorkStrip from "@/components/RecentWorkStrip";
 import catExcavator1 from "@/assets/gallery-cat-excavator-1.jpg";
-import catExcavator2 from "@/assets/gallery-cat-excavator-2.jpg";
+import catExcavatorExt1 from "@/assets/gallery-cat-excavator-exterior-1.jpg";
+import catExcavatorExt2 from "@/assets/gallery-cat-excavator-exterior-2.jpg";
 import catExcavator3 from "@/assets/gallery-cat-excavator-3.jpg";
-import catExcavator4 from "@/assets/gallery-cat-excavator-4.jpg";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, Clock, TrendingUp, Shield, Users, Wrench, Check, ArrowRight, CheckCircle } from "lucide-react";
@@ -259,10 +259,10 @@ const CorporateFleet = () => {
         highlight="Fleet Work"
         description="From construction excavators to delivery vans — we restore operator cabins and exteriors to like-new condition."
         images={[
+          { src: catExcavatorExt1, alt: "CAT Landform excavator on jobsite after exterior wash" },
+          { src: catExcavatorExt2, alt: "CAT 320 excavator side profile freshly detailed on construction site" },
           { src: catExcavator1, alt: "CAT excavator cab interior after professional deep clean" },
-          { src: catExcavator2, alt: "Detailed CAT excavator operator cabin" },
           { src: catExcavator3, alt: "CAT excavator cab with spotless seat and controls" },
-          { src: catExcavator4, alt: "Heavy equipment cabin restored to like-new condition" },
         ]}
       />
 
