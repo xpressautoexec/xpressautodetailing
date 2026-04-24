@@ -38,7 +38,7 @@ const clientPartners: BrandItem[] = [
 ];
 
 const BrandCard = ({ brand }: { brand: BrandItem }) => (
-  <div className="bg-card border border-border rounded-xl px-6 py-6 w-full h-24 md:h-28 flex items-center justify-center hover:border-primary/30 hover:shadow-sm transition-all duration-300">
+  <div className="bg-white border-2 border-border rounded-xl px-6 py-6 w-full h-24 md:h-28 flex items-center justify-center shadow-sm hover:border-primary/50 hover:shadow-md transition-all duration-300">
     {brand.logo ? (
       <img src={brand.logo} alt={brand.name} className="max-h-12 md:max-h-14 w-auto max-w-[80%] object-contain border-0" />
     ) : (
