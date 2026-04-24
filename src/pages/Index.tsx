@@ -68,6 +68,7 @@ const Index = () => {
         <HeroSection />
         <TrustStats />
         <TrustBadges />
+        <BrandPartners />
         <HowItWorks />
         <GoogleReviewBadge />
         <ServicesSection />
@@ -99,7 +100,6 @@ const Index = () => {
 
         <AboutSection />
         <AppShowcase />
-        <BrandPartners />
         <ReviewsSection />
 
         {/* Service Areas */}
