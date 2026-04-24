@@ -100,7 +100,6 @@ const Index = () => {
 
         <AboutSection />
         <AppShowcase />
-        <BrandPartners />
         <ReviewsSection />
 
         {/* Service Areas */}
