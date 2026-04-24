@@ -6,11 +6,6 @@ import TrustStats from "@/components/TrustStats";
 
 import SEO from "@/components/SEO";
 import galleryHero from "@/assets/gallery-hero.jpg";
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-import gallery4 from "@/assets/gallery-4.jpg";
-import gallery5 from "@/assets/gallery-5.jpg";
 import gallery6 from "@/assets/gallery-6.jpg";
 import gallery7 from "@/assets/gallery-7.jpg";
 import gallery8 from "@/assets/gallery-8.jpg";
@@ -68,17 +63,9 @@ import rvPaintCloseup from "@/assets/gallery-rv-paint-correction-closeup.jpg";
 import subaruWheel from "@/assets/gallery-subaru-wheel.jpg";
 import rangeRoverExterior from "@/assets/gallery-range-rover-exterior.jpg";
 import rangeRoverInterior from "@/assets/gallery-range-rover-interior.jpg";
-import interiorImg from "@/assets/interior-detail.jpg";
-import exteriorImg from "@/assets/exterior-detail.jpg";
-import paintImg from "@/assets/paint-correction.jpg";
 import { Star } from "lucide-react";
 
 const images = [
-  { src: gallery1, alt: "Glossy black BMW sedan after professional detailing", category: "Exterior" },
-  { src: gallery2, alt: "Freshly polished red sports car with mirror finish", category: "Exterior" },
-  { src: gallery3, alt: "Luxury sports car with flawless paint after ceramic coating", category: "Ceramic" },
-  { src: gallery4, alt: "Car wheel and tire cleaned and dressed to perfection", category: "Wheels" },
-  { src: gallery5, alt: "Professional foam wash being applied to vehicle exterior", category: "Exterior" },
   { src: gallery6, alt: "Clean white sedan showcasing professional exterior detail", category: "Exterior" },
   { src: gallery7, alt: "DIRTT Construction Systems fleet van after professional wash", category: "Fleet" },
   { src: gallery8, alt: "Vehicle detailing result showcasing professional finish", category: "Exterior" },
@@ -136,9 +123,6 @@ const images = [
   { src: subaruWheel, alt: "Subaru wheel with Michelin X-Ice tire after wheel and tire detail", category: "Wheels" },
   { src: rangeRoverExterior, alt: "Green Range Rover SV after full exterior detail with deep gloss finish", category: "Exterior" },
   { src: rangeRoverInterior, alt: "Range Rover tan leather interior after deep clean and conditioning", category: "Interior" },
-  { src: interiorImg, alt: "Pristine car interior after deep cleaning and conditioning", category: "Interior" },
-  { src: exteriorImg, alt: "Shiny red car parked after full exterior detailing service", category: "Exterior" },
-  { src: paintImg, alt: "Luxury vehicle with corrected paint showing deep gloss finish", category: "Paint Correction" },
 ];
 
 const Gallery = () => (
