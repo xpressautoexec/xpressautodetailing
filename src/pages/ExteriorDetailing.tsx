@@ -14,8 +14,9 @@ import exteriorHero from "@/assets/exterior-hero.jpg";
 import exteriorImg from "@/assets/exterior-detail.jpg";
 import RecentWorkStrip from "@/components/RecentWorkStrip";
 import bmwEmblem from "@/assets/gallery-bmw-emblem.jpg";
-import bmwWheelFront from "@/assets/gallery-bmw-wheel-front.jpg";
-import bmwWheelRear from "@/assets/gallery-bmw-wheel-rear.jpg";
+import bmwHeadlight from "@/assets/gallery-bmw-headlight.jpg";
+import bmwRear from "@/assets/gallery-bmw-rear.jpg";
+import lexusIs from "@/assets/gallery-lexus-is.jpg";
 import { Snowflake, Sun, CloudRain, Droplets, ShieldCheck, Zap, ArrowRight, Check, Shield, Clock } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
