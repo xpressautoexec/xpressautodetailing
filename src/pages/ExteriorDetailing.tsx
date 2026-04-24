@@ -12,6 +12,10 @@ import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import exteriorHero from "@/assets/exterior-hero.jpg";
 import exteriorImg from "@/assets/exterior-detail.jpg";
+import RecentWorkStrip from "@/components/RecentWorkStrip";
+import bmwEmblem from "@/assets/gallery-bmw-emblem.jpg";
+import bmwWheelFront from "@/assets/gallery-bmw-wheel-front.jpg";
+import bmwWheelRear from "@/assets/gallery-bmw-wheel-rear.jpg";
 import { Snowflake, Sun, CloudRain, Droplets, ShieldCheck, Zap, ArrowRight, Check, Shield, Clock } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
@@ -286,6 +290,19 @@ const ExteriorDetailing = () => (
         </ScrollReveal>
       </div>
     </section>
+
+    <RecentWorkStrip
+      eyebrow="See the Shine"
+      title="Recent"
+      highlight="Exterior Work"
+      description="Mirror-finish paint, gleaming wheels, and crisp body panels — real client vehicles after our exterior service."
+      images={[
+        { src: bmwEmblem, alt: "Silver BMW hood with mirror-finish reflection after paint correction" },
+        { src: bmwWheelFront, alt: "BMW front wheel with blue caliper after deep clean and dressing" },
+        { src: bmwWheelRear, alt: "BMW rear wheel and quarter panel freshly detailed" },
+        { src: exteriorImg, alt: "Shiny vehicle after full exterior detailing service" },
+      ]}
+    />
 
     <Footer />
     <SeasonalPromoPopup />
