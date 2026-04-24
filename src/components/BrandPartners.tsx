@@ -10,6 +10,7 @@ import brandDirtt from "@/assets/brand-dirtt.png";
 import brandShell from "@/assets/brand-shell.png";
 import brandMeguiars from "@/assets/brand-meguiars.png";
 import brandChemicalGuys from "@/assets/brand-chemical-guys.png";
+import brandSilverhillAcura from "@/assets/brand-silverhill-acura.png";
 
 interface BrandItem {
   name: string;
@@ -31,6 +32,7 @@ const clientPartners: BrandItem[] = [
   { name: "KLS Earthworks", logo: brandKls },
   { name: "DIRTT", logo: brandDirtt },
   { name: "Shell", logo: brandShell },
+  { name: "Silverhill Acura", logo: brandSilverhillAcura },
 ];
 
 const BrandCard = ({ brand }: { brand: BrandItem }) => (
@@ -72,7 +74,7 @@ const BrandPartners = () => (
         </h3>
       </ScrollReveal>
 
-      <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4" staggerDelay={0.06}>
+      <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4" staggerDelay={0.06}>
         {clientPartners.map((partner) => (
           <StaggerItem key={partner.name} className="flex items-center justify-center">
             <BrandCard brand={partner} />

@@ -12,6 +12,13 @@ import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/Scroll
 
 import fleetHero from "@/assets/fleet-kls-truck.jpg";
 import RecentWorkStrip from "@/components/RecentWorkStrip";
+import brandAecon from "@/assets/brand-aecon.png";
+import brandWoodsHomes from "@/assets/brand-woods-homes.png";
+import brandTruman from "@/assets/brand-truman.png";
+import brandKls from "@/assets/brand-kls.png";
+import brandDirtt from "@/assets/brand-dirtt.png";
+import brandShell from "@/assets/brand-shell.png";
+import brandSilverhillAcura from "@/assets/brand-silverhill-acura.png";
 import catExcavator1 from "@/assets/gallery-cat-excavator-1.jpg";
 import catExcavatorExt1 from "@/assets/gallery-cat-excavator-exterior-1.jpg";
 import catExcavatorExt2 from "@/assets/gallery-cat-excavator-exterior-2.jpg";
@@ -204,6 +211,37 @@ const CorporateFleet = () => {
       </section>
 
       <TestimonialBlock testimonials={fleetTestimonials} />
+
+      {/* Fleet Partners */}
+      <section className="py-14 sm:py-16 bg-background border-y border-border">
+        <div className="container">
+          <ScrollReveal>
+            <p className="text-center text-muted-foreground font-heading text-xs uppercase tracking-widest mb-2">
+              Trusted By
+            </p>
+            <h2 className="text-center font-heading font-black text-2xl md:text-3xl uppercase text-foreground mb-10">
+              Companies We've <span className="text-primary">Worked With</span>
+            </h2>
+          </ScrollReveal>
+          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4" staggerDelay={0.06}>
+            {[
+              { name: "Aecon", logo: brandAecon },
+              { name: "Wood's Homes", logo: brandWoodsHomes },
+              { name: "Truman Homes", logo: brandTruman },
+              { name: "KLS Earthworks", logo: brandKls },
+              { name: "DIRTT", logo: brandDirtt },
+              { name: "Shell", logo: brandShell },
+              { name: "Silverhill Acura", logo: brandSilverhillAcura },
+            ].map((partner) => (
+              <StaggerItem key={partner.name} className="flex items-center justify-center">
+                <div className="bg-card border border-border rounded-xl px-4 py-5 w-full flex items-center justify-center hover:border-primary/30 hover:shadow-sm transition-all duration-300 min-h-[72px]">
+                  <img src={partner.logo} alt={partner.name} className="h-8 md:h-10 w-auto object-contain max-w-full" />
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
 
       {/* Contact Form */}
       <section className="py-20 sm:py-28 bg-background">
