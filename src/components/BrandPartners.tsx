@@ -76,7 +76,7 @@ const BrandPartners = () => (
         </h3>
       </ScrollReveal>
 
-      <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4" staggerDelay={0.06}>
+      <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-5xl mx-auto" staggerDelay={0.06}>
         {clientPartners.map((partner) => (
           <StaggerItem key={partner.name} className="flex items-center justify-center">
             <BrandCard brand={partner} />
