@@ -42,8 +42,14 @@ import gallery36 from "@/assets/gallery-36.jpg";
 import gallery37 from "@/assets/gallery-37.jpg";
 import gallery38 from "@/assets/gallery-38.jpg";
 import gallery39 from "@/assets/gallery-39.jpg";
+import bmwEmblem from "@/assets/gallery-bmw-emblem.jpg";
+import bmwWheelFront from "@/assets/gallery-bmw-wheel-front.jpg";
+import bmwRedInterior from "@/assets/gallery-bmw-red-interior.jpg";
+import rvSurveyorFront from "@/assets/gallery-rv-surveyor-front.jpg";
+import catExcavator1 from "@/assets/gallery-cat-excavator-1.jpg";
+import catExcavator3 from "@/assets/gallery-cat-excavator-3.jpg";
 
-const images = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7, gallery8, gallery9, gallery10, gallery11, gallery12, gallery13, gallery14, gallery15, gallery16, gallery17, gallery18, gallery19, gallery20, gallery21, gallery22, gallery23, gallery24, gallery25, gallery26, gallery27, gallery28, gallery29, gallery30, gallery31, gallery32, gallery33, gallery34, gallery35, gallery36, gallery37, gallery38, gallery39];
+const images = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7, gallery8, gallery9, gallery10, gallery11, gallery12, gallery13, gallery14, gallery15, gallery16, gallery17, gallery18, gallery19, gallery20, gallery21, gallery22, gallery23, gallery24, gallery25, gallery26, gallery27, gallery28, gallery29, gallery30, gallery31, gallery32, gallery33, gallery34, gallery35, gallery36, gallery37, gallery38, gallery39, bmwEmblem, bmwWheelFront, bmwRedInterior, rvSurveyorFront, catExcavator1, catExcavator3];
 
 const GalleryCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center", skipSnaps: false });
