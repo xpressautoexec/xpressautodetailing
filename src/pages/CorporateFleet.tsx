@@ -43,33 +43,6 @@ const fleetTestimonials = [
 ];
 
 const CorporateFleet = () => {
-  const { toast } = useToast();
-  const [loading, setLoading] = useState(false);
-  const [form, setForm] = useState({ name: "", company_name: "", email: "", phone: "", message: "" });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
-      toast({ title: "Please fill in all required fields", variant: "destructive" });
-      return;
-    }
-    setLoading(true);
-    const { error } = await supabase.from("contact_submissions").insert({
-      name: form.name.trim(),
-      company_name: form.company_name.trim() || null,
-      email: form.email.trim(),
-      phone: form.phone.trim() || null,
-      message: form.message.trim(),
-      form_type: "fleet",
-    });
-    setLoading(false);
-    if (error) {
-      toast({ title: "Something went wrong. Please try again.", variant: "destructive" });
-    } else {
-      toast({ title: "Thank you! We'll be in touch shortly." });
-      setForm({ name: "", company_name: "", email: "", phone: "", message: "" });
-    }
-  };
 
   return (
     <PageTransition><div className="min-h-screen">
