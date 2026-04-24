@@ -68,6 +68,7 @@ const Index = () => {
         <HeroSection />
         <TrustStats />
         <TrustBadges />
+        <BrandPartners />
         <HowItWorks />
         <GoogleReviewBadge />
         <ServicesSection />
