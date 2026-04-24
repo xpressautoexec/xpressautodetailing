@@ -220,6 +220,19 @@ const TrailerRV = () => {
         </div>
       </section>
 
+      <RecentWorkStrip
+        eyebrow="See the Difference"
+        title="Recent"
+        highlight="RV Work"
+        description="Real oxidation correction and exterior restoration on travel trailers — from chalky and faded to deep gloss."
+        images={[
+          { src: rvOxidation, alt: "RV roof oxidation correction in progress showing dramatic before and after" },
+          { src: rvSurveyorFull, alt: "Surveyor travel trailer front cap full view during paint correction" },
+          { src: rvPaintCloseup, alt: "Close-up of RV paint correction showing dramatic gloss restoration" },
+          { src: rvSurveyorFront, alt: "Surveyor RV front cap restored to deep gloss finish" },
+        ]}
+      />
+
       {/* Intro — executive with stats */}
       <section className="py-16 sm:py-20 bg-background">
         <div className="container max-w-5xl px-6">
@@ -699,19 +712,6 @@ const TrailerRV = () => {
           </ScrollReveal>
         </div>
       </section>
-
-      <RecentWorkStrip
-        eyebrow="See the Difference"
-        title="Recent"
-        highlight="RV Work"
-        description="Real oxidation correction and exterior restoration on travel trailers — from chalky and faded to deep gloss."
-        images={[
-          { src: rvOxidation, alt: "RV roof oxidation correction in progress showing dramatic before and after" },
-          { src: rvSurveyorFull, alt: "Surveyor travel trailer front cap full view during paint correction" },
-          { src: rvPaintCloseup, alt: "Close-up of RV paint correction showing dramatic gloss restoration" },
-          { src: rvSurveyorFront, alt: "Surveyor RV front cap restored to deep gloss finish" },
-        ]}
-      />
 
       <Footer />
       <RVPromoPopup />
