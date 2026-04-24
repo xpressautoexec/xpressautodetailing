@@ -207,7 +207,7 @@ const CorporateFleet = () => {
               Companies We've <span className="text-primary">Worked With</span>
             </h2>
           </ScrollReveal>
-          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4" staggerDelay={0.06}>
+          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-5xl mx-auto" staggerDelay={0.06}>
             {[
               { name: "Aecon", logo: brandAecon },
               { name: "Wood's Homes", logo: brandWoodsHomes },
@@ -219,8 +219,8 @@ const CorporateFleet = () => {
               { name: "Landform", logo: brandLandform },
             ].map((partner) => (
               <StaggerItem key={partner.name} className="flex items-center justify-center">
-                <div className="bg-card border border-border rounded-xl px-4 py-5 w-full flex items-center justify-center hover:border-primary/30 hover:shadow-sm transition-all duration-300 min-h-[72px]">
-                  <img src={partner.logo} alt={partner.name} className="h-8 md:h-10 w-auto object-contain max-w-full" />
+                <div className="bg-card border border-border rounded-xl px-6 py-6 w-full h-24 md:h-28 flex items-center justify-center hover:border-primary/30 hover:shadow-sm transition-all duration-300">
+                  <img src={partner.logo} alt={partner.name} className="max-h-12 md:max-h-14 w-auto max-w-[80%] object-contain" />
                 </div>
               </StaggerItem>
             ))}
