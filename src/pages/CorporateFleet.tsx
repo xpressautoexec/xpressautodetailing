@@ -233,6 +233,7 @@ const CorporateFleet = () => {
               { name: "DIRTT", logo: brandDirtt },
               { name: "Shell", logo: brandShell },
               { name: "Silverhill Acura", logo: brandSilverhillAcura },
+              { name: "Landform", logo: brandLandform },
             ].map((partner) => (
               <StaggerItem key={partner.name} className="flex items-center justify-center">
                 <div className="bg-card border border-border rounded-xl px-4 py-5 w-full flex items-center justify-center hover:border-primary/30 hover:shadow-sm transition-all duration-300 min-h-[72px]">
