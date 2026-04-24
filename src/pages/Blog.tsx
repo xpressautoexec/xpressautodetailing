@@ -8,10 +8,31 @@ import paintImg from "@/assets/paint-correction.jpg";
 import gallery5 from "@/assets/gallery-5.jpg";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
+import rvSurveyorFull from "@/assets/gallery-rv-surveyor-full.jpg";
+import catExcavatorExt1 from "@/assets/gallery-cat-excavator-exterior-1.jpg";
+import bmwHeadlight from "@/assets/gallery-bmw-headlight.jpg";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const posts = [
+  {
+    title: "Spring Paint Decontamination: Why Your Car Needs It After a Calgary Winter",
+    excerpt: "Six months of road salt, mag chloride, and gravel leaves microscopic contamination bonded to your clear coat. We walk through iron decon, clay bar treatment, and a one-step polish to reset your paint before sealing it for summer.",
+    image: bmwHeadlight,
+    date: "April 18, 2026",
+  },
+  {
+    title: "RV Oxidation Removal: Restoring Faded Fiberglass Before Camping Season",
+    excerpt: "That chalky white film on your trailer's gel coat isn't just ugly — it's failing UV protection. Here's the multi-stage compounding and sealing process we use to bring 10-year-old rigs back to a deep, wet gloss that lasts a full season.",
+    image: rvSurveyorFull,
+    date: "April 8, 2026",
+  },
+  {
+    title: "Fleet Detailing ROI: Why Calgary Companies Are Switching to Scheduled Service",
+    excerpt: "Clean trucks book more jobs, sell more units, and last longer between resale. We break down the real numbers behind monthly fleet detailing — including a case study from a 12-vehicle service company that cut their replacement cycle by 18 months.",
+    image: catExcavatorExt1,
+    date: "March 28, 2026",
+  },
   {
     title: "Why Mobile Detailing is the Future of Car Care in Calgary",
     excerpt: "Discover why more Calgary drivers are choosing mobile detailing over traditional car washes — and how it saves you time, money, and hassle. From skipping the drive to the shop to getting dealership-quality results in your own driveway, mobile detailing is changing the game for busy Albertans.",
