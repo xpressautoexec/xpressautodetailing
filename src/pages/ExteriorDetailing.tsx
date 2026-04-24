@@ -299,9 +299,9 @@ const ExteriorDetailing = () => (
       description="Mirror-finish paint, gleaming wheels, and crisp body panels — real client vehicles after our exterior service."
       images={[
         { src: bmwEmblem, alt: "Silver BMW hood with mirror-finish reflection after paint correction" },
-        { src: bmwWheelFront, alt: "BMW front wheel with blue caliper after deep clean and dressing" },
-        { src: bmwWheelRear, alt: "BMW rear wheel and quarter panel freshly detailed" },
-        { src: exteriorImg, alt: "Shiny vehicle after full exterior detailing service" },
+        { src: bmwHeadlight, alt: "BMW M-series headlight and front fender after polish and decontamination" },
+        { src: bmwRear, alt: "BMW 2-Series convertible rear three-quarter freshly detailed" },
+        { src: lexusIs, alt: "Charcoal Lexus IS F-Sport after full exterior detail" },
       ]}
     />
 
