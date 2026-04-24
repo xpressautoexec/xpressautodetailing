@@ -65,6 +65,9 @@ import bmwRedDash from "@/assets/gallery-bmw-red-dash.jpg";
 import lexusIs from "@/assets/gallery-lexus-is.jpg";
 import rvSurveyorFull from "@/assets/gallery-rv-surveyor-full.jpg";
 import rvPaintCloseup from "@/assets/gallery-rv-paint-correction-closeup.jpg";
+import subaruWheel from "@/assets/gallery-subaru-wheel.jpg";
+import rangeRoverExterior from "@/assets/gallery-range-rover-exterior.jpg";
+import rangeRoverInterior from "@/assets/gallery-range-rover-interior.jpg";
 import interiorImg from "@/assets/interior-detail.jpg";
 import exteriorImg from "@/assets/exterior-detail.jpg";
 import paintImg from "@/assets/paint-correction.jpg";
@@ -130,6 +133,9 @@ const images = [
   { src: lexusIs, alt: "Charcoal Lexus IS F-Sport after full exterior detail", category: "Exterior" },
   { src: rvSurveyorFull, alt: "Surveyor travel trailer front cap full view during paint correction", category: "RV" },
   { src: rvPaintCloseup, alt: "Close-up of RV paint correction with dramatic gloss restoration", category: "RV" },
+  { src: subaruWheel, alt: "Subaru wheel with Michelin X-Ice tire after wheel and tire detail", category: "Wheels" },
+  { src: rangeRoverExterior, alt: "Green Range Rover SV after full exterior detail with deep gloss finish", category: "Exterior" },
+  { src: rangeRoverInterior, alt: "Range Rover tan leather interior after deep clean and conditioning", category: "Interior" },
   { src: interiorImg, alt: "Pristine car interior after deep cleaning and conditioning", category: "Interior" },
   { src: exteriorImg, alt: "Shiny red car parked after full exterior detailing service", category: "Exterior" },
   { src: paintImg, alt: "Luxury vehicle with corrected paint showing deep gloss finish", category: "Paint Correction" },

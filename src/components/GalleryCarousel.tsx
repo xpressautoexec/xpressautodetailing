@@ -53,8 +53,11 @@ import bmwHeadlight from "@/assets/gallery-bmw-headlight.jpg";
 import bmwRear from "@/assets/gallery-bmw-rear.jpg";
 import lexusIs from "@/assets/gallery-lexus-is.jpg";
 import rvSurveyorFull from "@/assets/gallery-rv-surveyor-full.jpg";
+import rangeRoverExterior from "@/assets/gallery-range-rover-exterior.jpg";
+import rangeRoverInterior from "@/assets/gallery-range-rover-interior.jpg";
+import subaruWheel from "@/assets/gallery-subaru-wheel.jpg";
 
-const images = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7, gallery8, gallery9, gallery10, gallery11, gallery12, gallery13, gallery14, gallery15, gallery16, gallery17, gallery18, gallery19, gallery20, gallery21, gallery22, gallery23, gallery24, gallery25, gallery26, gallery27, gallery28, gallery29, gallery30, gallery31, gallery32, gallery33, gallery34, gallery35, gallery36, gallery37, gallery38, gallery39, bmwEmblem, bmwWheelFront, bmwRedInterior, rvSurveyorFront, catExcavator1, catExcavator3, bmwHeadlight, bmwRear, lexusIs, rvSurveyorFull, catExcavatorExt1];
+const images = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7, gallery8, gallery9, gallery10, gallery11, gallery12, gallery13, gallery14, gallery15, gallery16, gallery17, gallery18, gallery19, gallery20, gallery21, gallery22, gallery23, gallery24, gallery25, gallery26, gallery27, gallery28, gallery29, gallery30, gallery31, gallery32, gallery33, gallery34, gallery35, gallery36, gallery37, gallery38, gallery39, bmwEmblem, bmwWheelFront, bmwRedInterior, rvSurveyorFront, catExcavator1, catExcavator3, bmwHeadlight, bmwRear, lexusIs, rvSurveyorFull, catExcavatorExt1, rangeRoverExterior, rangeRoverInterior, subaruWheel];
 
 const GalleryCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center", skipSnaps: false });
