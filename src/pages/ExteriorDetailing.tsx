@@ -17,6 +17,7 @@ import bmwEmblem from "@/assets/gallery-bmw-emblem.jpg";
 import bmwHeadlight from "@/assets/gallery-bmw-headlight.jpg";
 import bmwRear from "@/assets/gallery-bmw-rear.jpg";
 import lexusIs from "@/assets/gallery-lexus-is.jpg";
+import rangeRoverExterior from "@/assets/gallery-range-rover-exterior.jpg";
 import { Snowflake, Sun, CloudRain, Droplets, ShieldCheck, Zap, ArrowRight, Check, Shield, Clock } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
@@ -298,7 +299,7 @@ const ExteriorDetailing = () => (
       highlight="Exterior Work"
       description="Mirror-finish paint, gleaming wheels, and crisp body panels — real client vehicles after our exterior service."
       images={[
-        { src: bmwEmblem, alt: "Silver BMW hood with mirror-finish reflection after paint correction" },
+        { src: rangeRoverExterior, alt: "Green Range Rover SV after full exterior detail with deep gloss finish" },
         { src: bmwHeadlight, alt: "BMW M-series headlight and front fender after polish and decontamination" },
         { src: bmwRear, alt: "BMW 2-Series convertible rear three-quarter freshly detailed" },
         { src: lexusIs, alt: "Charcoal Lexus IS F-Sport after full exterior detail" },

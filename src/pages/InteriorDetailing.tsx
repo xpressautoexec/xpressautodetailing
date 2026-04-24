@@ -19,6 +19,7 @@ import catExcavator1 from "@/assets/gallery-cat-excavator-1.jpg";
 import catExcavator3 from "@/assets/gallery-cat-excavator-3.jpg";
 import bmwRedDash from "@/assets/gallery-bmw-red-dash.jpg";
 import catExcavatorPedals from "@/assets/gallery-cat-excavator-pedals.jpg";
+import rangeRoverInterior from "@/assets/gallery-range-rover-interior.jpg";
 import { ShieldCheck, Droplets, Wind, Bug, Sparkles, Clock, ArrowRight, Car, PawPrint, Shield } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
