@@ -164,17 +164,31 @@ const Gallery = () => (
         <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
           Browse through some of our recent projects. Every vehicle gets our full attention and the professional treatment it deserves. From quick maintenance washes to full paint corrections and ceramic coatings — these results speak for themselves.
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {images.map((img, i) => (
-            <div key={i} className="overflow-hidden rounded-lg group aspect-square relative">
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="text-white font-heading font-bold text-sm uppercase">{img.category}</span>
+        <div className="space-y-16">
+          {sections.map((section) => (
+            <div key={section.title}>
+              <div className="mb-6 text-center">
+                <h3 className="font-heading font-black text-xl md:text-2xl uppercase text-foreground">
+                  {section.title}
+                </h3>
+                <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto mt-2">
+                  {section.description}
+                </p>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {section.images.map((img, i) => (
+                  <div key={i} className="overflow-hidden rounded-lg group aspect-square relative">
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-white font-heading font-bold text-sm uppercase">{section.title}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           ))}
