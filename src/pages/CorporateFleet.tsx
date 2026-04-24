@@ -259,10 +259,10 @@ const CorporateFleet = () => {
         highlight="Fleet Work"
         description="From construction excavators to delivery vans — we restore operator cabins and exteriors to like-new condition."
         images={[
+          { src: catExcavatorExt1, alt: "CAT Landform excavator on jobsite after exterior wash" },
+          { src: catExcavatorExt2, alt: "CAT 320 excavator side profile freshly detailed on construction site" },
           { src: catExcavator1, alt: "CAT excavator cab interior after professional deep clean" },
-          { src: catExcavator2, alt: "Detailed CAT excavator operator cabin" },
           { src: catExcavator3, alt: "CAT excavator cab with spotless seat and controls" },
-          { src: catExcavator4, alt: "Heavy equipment cabin restored to like-new condition" },
         ]}
       />
 
