@@ -277,15 +277,22 @@ const TrailerRV = () => {
 
       {/* Video Showcase */}
       <section className="py-16 sm:py-20 bg-background">
-        <div className="container max-w-3xl px-4 sm:px-6">
+        <div className="container max-w-5xl px-4 sm:px-6">
           <ScrollReveal>
             <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-10">
               See the <span className="text-primary">Results</span>
             </h2>
-            <div className="rounded-2xl overflow-hidden shadow-xl border border-border">
-              <video className="w-full aspect-video object-cover" controls muted playsInline preload="metadata">
-                <source src="/videos/rv-video-1.mp4" type="video/mp4" />
-              </video>
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div className="rounded-2xl overflow-hidden shadow-xl border border-border">
+                <video className="w-full aspect-video object-cover" controls muted playsInline preload="metadata">
+                  <source src="/videos/rv-video-1.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-xl border border-border">
+                <video className="w-full aspect-video object-cover" controls muted playsInline preload="metadata">
+                  <source src="/videos/rv-video-3.mp4" type="video/mp4" />
+                </video>
+              </div>
             </div>
           </ScrollReveal>
         </div>
