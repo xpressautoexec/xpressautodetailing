@@ -23,8 +23,6 @@ import catExcavator1 from "@/assets/gallery-cat-excavator-1.jpg";
 import catExcavatorExt1 from "@/assets/gallery-cat-excavator-exterior-1.jpg";
 import catExcavatorExt2 from "@/assets/gallery-cat-excavator-exterior-2.jpg";
 import catExcavator3 from "@/assets/gallery-cat-excavator-3.jpg";
-import { supabase } from "@/integrations/supabase/client";
-import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, Clock, TrendingUp, Shield, Users, Wrench, Check, ArrowRight, CheckCircle } from "lucide-react";
 
 const fleetFAQs = [
