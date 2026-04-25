@@ -27,6 +27,7 @@ const AddOns = lazy(() => import("./pages/AddOns"));
 const Training = lazy(() => import("./pages/Training"));
 const TrainingSignup = lazy(() => import("./pages/TrainingSignup"));
 const MotorcycleDetailing = lazy(() => import("./pages/MotorcycleDetailing"));
+const WindshieldPPF = lazy(() => import("./pages/WindshieldPPF"));
 
 const queryClient = new QueryClient();
 
