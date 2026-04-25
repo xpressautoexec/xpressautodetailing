@@ -22,7 +22,7 @@ const productBrands: BrandItem[] = [
   { name: "3M", logo: brand3m },
   { name: "Meguiar's", logo: brandMeguiars },
   { name: "XPEL", logo: brandXpel },
-  { name: "Chemical Guys", logo: brandChemicalGuys },
+  { name: "Menzerna", logo: brandMenzerna },
   { name: "Gtechniq", logo: brandGtechniq },
 ];
 
