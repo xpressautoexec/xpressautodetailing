@@ -56,6 +56,7 @@ const AnimatedRoutes = () => {
         <Route path="/training" element={<Training />} />
         <Route path="/training/signup" element={<TrainingSignup />} />
         <Route path="/motorcycle-detailing" element={<MotorcycleDetailing />} />
+        <Route path="/windshield-ppf" element={<WindshieldPPF />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
