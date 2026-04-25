@@ -28,6 +28,10 @@ import {
 import windshieldHero from "@/assets/windshield-ppf-hero.jpg";
 import windshieldCracked from "@/assets/windshield-cracked.jpg";
 import windshieldProtected from "@/assets/windshield-protected.jpg";
+import windshieldSedan from "@/assets/windshield-ppf-sedan.jpg";
+import windshieldSuv from "@/assets/windshield-ppf-suv.jpg";
+import windshieldTruck from "@/assets/windshield-ppf-truck.jpg";
+import windshieldRv from "@/assets/windshield-ppf-rv.jpg";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -42,15 +46,15 @@ const faqs = [
   },
   {
     q: "How long does Windshield PPF last?",
-    a: "Our film carries a manufacturer warranty of up to 3 years against yellowing, peeling and bubbling. With proper care, most installs perform 2–3 years of Calgary highway driving before replacement is recommended.",
+    a: "It's a true one-and-done install — our film is engineered to last up to 10 years on the glass with proper care, well past the time most owners keep their vehicle.",
   },
   {
     q: "Can it be removed without damaging the glass?",
     a: "Yes — it's designed to be removed cleanly with no residue or damage to your OEM windshield, even years later.",
   },
   {
-    q: "Why is it cheaper than a new windshield?",
-    a: "A windshield replacement on a modern vehicle with ADAS, rain sensors, or HUD can cost $1,200–$3,500+ once recalibration is included. Our PPF install is a fraction of that and protects you from multiple potential strikes.",
+    q: "Why is it cheaper than replacing my windshield?",
+    a: "A typical windshield replacement runs $350–$800 in Calgary depending on the vehicle and any ADAS recalibration. The real savings come from prevention — most clients would otherwise replace their windshield 2–3 times over the life of the vehicle. One PPF install lasts up to 10 years and prevents every chip in between.",
   },
   {
     q: "Does insurance cover it?",
@@ -90,6 +94,7 @@ type VehicleSize = {
   installTime: string;
   icon: typeof Car;
   examples: string;
+  image: string;
 };
 
 const vehicleSizes: VehicleSize[] = [
@@ -101,6 +106,7 @@ const vehicleSizes: VehicleSize[] = [
     installTime: "2–3 hrs",
     icon: Car,
     examples: "Honda Civic · Toyota Corolla · Mazda 3 · Tesla Model 3",
+    image: windshieldSedan,
   },
   {
     id: "midsize",
@@ -110,6 +116,7 @@ const vehicleSizes: VehicleSize[] = [
     installTime: "3–4 hrs",
     icon: Car,
     examples: "RAV4 · CR-V · Tucson · Model Y · Outback",
+    image: windshieldSuv,
   },
   {
     id: "fullsize",
@@ -119,6 +126,7 @@ const vehicleSizes: VehicleSize[] = [
     installTime: "3–4 hrs",
     icon: Truck,
     examples: "F-150 · Silverado · Tahoe · Suburban · RAM 1500",
+    image: windshieldTruck,
   },
   {
     id: "heavy",
@@ -128,6 +136,7 @@ const vehicleSizes: VehicleSize[] = [
     installTime: "4–5 hrs",
     icon: Caravan,
     examples: "F-250/350 · Sprinter · Transit · Class A & C RVs",
+    image: windshieldRv,
   },
 ];
 
@@ -223,8 +232,8 @@ const WindshieldPPF = () => {
     },
     {
       icon: DollarSign,
-      title: "Saves $1,200–$3,500+",
-      desc: "Avoid the cost of windshield replacement and ADAS recalibration.",
+      title: "One & Done — Up to 10 Yrs",
+      desc: "Skip $350–$800 windshield replacements two or three times over the life of your vehicle.",
     },
     {
       icon: Eye,
@@ -253,7 +262,7 @@ const WindshieldPPF = () => {
       <div className="min-h-screen">
         <SEO
           title="Windshield PPF Calgary — Stop Rock Chips Before They Crack"
-          description="Optically clear windshield protection film in Calgary. Stops highway rock chips, saves $1,200+ on replacements, ADAS-safe. Pricing by vehicle size."
+          description="One-and-done windshield protection film in Calgary. Lasts up to 10 years, prevents $350–$800 windshield replacements, ADAS-safe. Pricing by vehicle size."
           canonical="/windshield-ppf"
           jsonLd={[
             buildServiceJsonLd(
@@ -280,13 +289,13 @@ const WindshieldPPF = () => {
                 Highway Damage · Solved
               </p>
               <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
-                One Rock Chip Away From a <span className="text-primary">$2,000 Bill</span>
+                One Install. <span className="text-primary">Up to 10 Years</span> of Protection.
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-5 text-sm sm:text-base">
-                Modern windshields are no longer just glass. They house ADAS cameras, lane-keep sensors, rain detection, head-up displays and acoustic laminates — and replacing one on a 2020+ vehicle routinely runs <strong className="text-foreground">$1,200 to $3,500+</strong> once OEM glass and recalibration are factored in.
+                A windshield replacement in Calgary typically runs <strong className="text-foreground">$350–$800</strong> depending on your vehicle, glass type, and ADAS recalibration. The problem isn't one replacement — it's the second and third one. On Deerfoot, Stoney, and the QEII, it's not <em>if</em> a rock chips your glass, it's <em>when</em>.
               </p>
               <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-                Windshield PPF is an optically clear, self-healing 6–8 mil polyurethane film professionally laid over your factory glass. It absorbs and disperses the impact of highway debris, gravel, salt and ice — so a hit that would have cracked your windshield instead bounces off harmlessly.
+                Windshield PPF is a true one-and-done solution. An optically clear, self-healing 6–8 mil polyurethane film professionally laid over your factory glass — engineered to last <strong className="text-foreground">up to 10 years</strong>. It absorbs and disperses every rock, gravel and ice strike, so a hit that would have cracked your windshield instead bounces off harmlessly. One install, every chip prevented.
               </p>
             </ScrollReveal>
           </div>
@@ -324,10 +333,10 @@ const WindshieldPPF = () => {
                 </div>
                 <ul className="space-y-1.5 text-sm text-muted-foreground">
                   <li>· Cracks from $5 of highway gravel</li>
-                  <li>· $1,200–$3,500+ replacement cost</li>
-                  <li>· Required ADAS recalibration</li>
-                  <li>· 1–3 days off the road</li>
-                  <li>· Insurance claim & deductible</li>
+                  <li>· $350–$800 per replacement</li>
+                  <li>· 2–3 replacements over the life of your vehicle</li>
+                  <li>· Possible ADAS recalibration each time</li>
+                  <li>· Days off the road + insurance hassle</li>
                 </ul>
               </div>
               <div className="rounded-xl border border-primary/20 bg-primary/5 p-5 sm:p-6">
@@ -337,10 +346,10 @@ const WindshieldPPF = () => {
                 </div>
                 <ul className="space-y-1.5 text-sm text-muted-foreground">
                   <li>· Rock chips bounce off the film</li>
-                  <li>· OEM glass stays intact for years</li>
-                  <li>· No recalibration needed</li>
+                  <li>· OEM glass stays intact — up to 10 years</li>
+                  <li>· One install, every future chip prevented</li>
                   <li>· Self-heals minor scratches with heat</li>
-                  <li>· One install, multiple chips prevented</li>
+                  <li>· No insurance claims, no downtime</li>
                 </ul>
               </div>
             </div>
@@ -423,17 +432,38 @@ const WindshieldPPF = () => {
 
             {/* Live quote card */}
             <div className="rounded-2xl overflow-hidden border border-border shadow-xl bg-card">
+              {/* Dynamic vehicle image preview */}
+              <div className="relative aspect-[16/9] sm:aspect-[21/9] bg-foreground overflow-hidden">
+                <img
+                  key={selected.id}
+                  src={selected.image}
+                  alt={`${selected.label} with windshield PPF applied`}
+                  loading="lazy"
+                  width={1280}
+                  height={896}
+                  className="absolute inset-0 w-full h-full object-cover animate-in fade-in duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/10 to-transparent" />
+                <span className="absolute top-4 left-4 bg-primary text-primary-foreground font-heading font-bold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded flex items-center gap-1.5">
+                  <Shield className="w-3 h-3" /> PPF Applied
+                </span>
+                <div className="absolute bottom-4 left-4 right-4 text-background">
+                  <p className="font-heading font-black text-base sm:text-lg uppercase">{selected.label}</p>
+                  <p className="text-xs sm:text-sm opacity-80">{selected.examples}</p>
+                </div>
+              </div>
+
               <div className="bg-primary text-primary-foreground px-6 sm:px-10 py-7 sm:py-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
                   <p className="font-heading font-bold uppercase tracking-[0.2em] text-xs opacity-80 mb-1">
                     Your Quote
                   </p>
                   <p className="font-heading font-black text-xl sm:text-2xl uppercase leading-tight">{selected.label}</p>
-                  <p className="text-xs sm:text-sm opacity-80 mt-1">{selected.examples}</p>
+                  <p className="text-xs sm:text-sm opacity-80 mt-1">Install: {selected.installTime} · Lasts up to 10 years</p>
                 </div>
                 <div className="text-left sm:text-right">
                   <p className="font-heading font-black text-4xl sm:text-5xl leading-none">${selected.price}</p>
-                  <p className="text-xs uppercase tracking-wider opacity-80 mt-1">Install: {selected.installTime}</p>
+                  <p className="text-xs uppercase tracking-wider opacity-80 mt-1">One-Time · No Subscription</p>
                 </div>
               </div>
 
@@ -449,7 +479,7 @@ const WindshieldPPF = () => {
                     "Edge sealing for long-term durability",
                     "Rain sensor, ADAS & HUD compatibility check",
                     "Hydrophobic top-layer activation",
-                    "3-year manufacturer warranty",
+                    "Lasts up to 10 years — one-and-done",
                     "Aftercare guide & maintenance kit",
                   ].map((f) => (
                     <li key={f} className="flex items-start gap-3 text-sm">
@@ -463,13 +493,11 @@ const WindshieldPPF = () => {
 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
-                    href={BOOKING_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="tel:5875004523"
                     className="group flex-1 inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-4 rounded-xl text-sm hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/20"
                   >
-                    <CalendarCheck className="w-4 h-4" />
-                    Book My Install — ${selected.price}
+                    <Phone className="w-4 h-4" />
+                    Call to Book — ${selected.price}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </a>
                   <a
@@ -477,7 +505,7 @@ const WindshieldPPF = () => {
                     className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary font-heading font-bold uppercase tracking-wider px-6 py-4 rounded-xl text-sm hover:bg-primary hover:text-primary-foreground transition-all"
                   >
                     <Phone className="w-4 h-4" />
-                    Call 587-500-4523
+                    587-500-4523
                   </a>
                 </div>
 
@@ -531,16 +559,16 @@ const WindshieldPPF = () => {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 mt-10">
                 <div className="rounded-xl border border-background/10 bg-background/5 p-6">
-                  <p className="font-heading font-black text-3xl sm:text-4xl text-primary mb-1">$2,400</p>
-                  <p className="text-background/70 text-xs uppercase tracking-wider">Avg. Modern Windshield Replacement</p>
+                  <p className="font-heading font-black text-3xl sm:text-4xl text-primary mb-1">$1,650</p>
+                  <p className="text-background/70 text-xs uppercase tracking-wider">3 Replacements Over 10 Yrs ($350–$800 ea.)</p>
                 </div>
                 <div className="rounded-xl border border-primary/40 bg-primary/10 p-6">
                   <p className="font-heading font-black text-3xl sm:text-4xl text-primary mb-1">${selected.price}</p>
-                  <p className="text-background/70 text-xs uppercase tracking-wider">One-Time PPF Install</p>
+                  <p className="text-background/70 text-xs uppercase tracking-wider">One PPF Install · Up to 10 Years</p>
                 </div>
                 <div className="rounded-xl border border-background/10 bg-background/5 p-6">
-                  <p className="font-heading font-black text-3xl sm:text-4xl text-success mb-1">${(2400 - selected.price).toLocaleString()}</p>
-                  <p className="text-background/70 text-xs uppercase tracking-wider">Saved Per Prevented Strike</p>
+                  <p className="font-heading font-black text-3xl sm:text-4xl text-success mb-1">${Math.max(0, 1650 - selected.price).toLocaleString()}</p>
+                  <p className="text-background/70 text-xs uppercase tracking-wider">Net Savings + Zero Downtime</p>
                 </div>
               </div>
             </ScrollReveal>
