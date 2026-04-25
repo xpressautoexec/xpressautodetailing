@@ -559,16 +559,16 @@ const WindshieldPPF = () => {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 mt-10">
                 <div className="rounded-xl border border-background/10 bg-background/5 p-6">
-                  <p className="font-heading font-black text-3xl sm:text-4xl text-primary mb-1">$2,400</p>
-                  <p className="text-background/70 text-xs uppercase tracking-wider">Avg. Modern Windshield Replacement</p>
+                  <p className="font-heading font-black text-3xl sm:text-4xl text-primary mb-1">$1,650</p>
+                  <p className="text-background/70 text-xs uppercase tracking-wider">3 Replacements Over 10 Yrs ($350–$800 ea.)</p>
                 </div>
                 <div className="rounded-xl border border-primary/40 bg-primary/10 p-6">
                   <p className="font-heading font-black text-3xl sm:text-4xl text-primary mb-1">${selected.price}</p>
-                  <p className="text-background/70 text-xs uppercase tracking-wider">One-Time PPF Install</p>
+                  <p className="text-background/70 text-xs uppercase tracking-wider">One PPF Install · Up to 10 Years</p>
                 </div>
                 <div className="rounded-xl border border-background/10 bg-background/5 p-6">
-                  <p className="font-heading font-black text-3xl sm:text-4xl text-success mb-1">${(2400 - selected.price).toLocaleString()}</p>
-                  <p className="text-background/70 text-xs uppercase tracking-wider">Saved Per Prevented Strike</p>
+                  <p className="font-heading font-black text-3xl sm:text-4xl text-success mb-1">${Math.max(0, 1650 - selected.price).toLocaleString()}</p>
+                  <p className="text-background/70 text-xs uppercase tracking-wider">Net Savings + Zero Downtime</p>
                 </div>
               </div>
             </ScrollReveal>
