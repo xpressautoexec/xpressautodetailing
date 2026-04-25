@@ -24,7 +24,7 @@ import {
   Zap,
   DollarSign,
 } from "lucide-react";
-import rvPPFHero from "@/assets/rv-ppf-hero.jpg";
+import rvPPFHero from "@/assets/gallery-rv-paint-correction-closeup.jpg";
 
 const PHONE = "tel:5875004523";
 const PHONE_DISPLAY = "587-500-4523";
