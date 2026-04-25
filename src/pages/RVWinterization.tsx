@@ -6,7 +6,7 @@ import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import { Snowflake, Sun, CheckCircle, ArrowRight, Phone, Wrench, Droplets, Shield, Clock, MapPin, Sparkles, AlertTriangle, ThermometerSnowflake, DollarSign, Home, Calendar, Truck } from "lucide-react";
 import rvHero from "@/assets/rv-hero.jpg";
-import rvProcessImg from "@/assets/rv-winterization-process.jpg";
+import rvProcessImg from "@/assets/gallery-rv-oxidation-correction.jpg";
 import rvDamageImg from "@/assets/rv-frozen-damage.jpg";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
