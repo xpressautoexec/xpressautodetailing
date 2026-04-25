@@ -432,17 +432,38 @@ const WindshieldPPF = () => {
 
             {/* Live quote card */}
             <div className="rounded-2xl overflow-hidden border border-border shadow-xl bg-card">
+              {/* Dynamic vehicle image preview */}
+              <div className="relative aspect-[16/9] sm:aspect-[21/9] bg-foreground overflow-hidden">
+                <img
+                  key={selected.id}
+                  src={selected.image}
+                  alt={`${selected.label} with windshield PPF applied`}
+                  loading="lazy"
+                  width={1280}
+                  height={896}
+                  className="absolute inset-0 w-full h-full object-cover animate-in fade-in duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/10 to-transparent" />
+                <span className="absolute top-4 left-4 bg-primary text-primary-foreground font-heading font-bold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded flex items-center gap-1.5">
+                  <Shield className="w-3 h-3" /> PPF Applied
+                </span>
+                <div className="absolute bottom-4 left-4 right-4 text-background">
+                  <p className="font-heading font-black text-base sm:text-lg uppercase">{selected.label}</p>
+                  <p className="text-xs sm:text-sm opacity-80">{selected.examples}</p>
+                </div>
+              </div>
+
               <div className="bg-primary text-primary-foreground px-6 sm:px-10 py-7 sm:py-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
                   <p className="font-heading font-bold uppercase tracking-[0.2em] text-xs opacity-80 mb-1">
                     Your Quote
                   </p>
                   <p className="font-heading font-black text-xl sm:text-2xl uppercase leading-tight">{selected.label}</p>
-                  <p className="text-xs sm:text-sm opacity-80 mt-1">{selected.examples}</p>
+                  <p className="text-xs sm:text-sm opacity-80 mt-1">Install: {selected.installTime} · Lasts up to 10 years</p>
                 </div>
                 <div className="text-left sm:text-right">
                   <p className="font-heading font-black text-4xl sm:text-5xl leading-none">${selected.price}</p>
-                  <p className="text-xs uppercase tracking-wider opacity-80 mt-1">Install: {selected.installTime}</p>
+                  <p className="text-xs uppercase tracking-wider opacity-80 mt-1">One-Time · No Subscription</p>
                 </div>
               </div>
 
@@ -458,7 +479,7 @@ const WindshieldPPF = () => {
                     "Edge sealing for long-term durability",
                     "Rain sensor, ADAS & HUD compatibility check",
                     "Hydrophobic top-layer activation",
-                    "3-year manufacturer warranty",
+                    "Lasts up to 10 years — one-and-done",
                     "Aftercare guide & maintenance kit",
                   ].map((f) => (
                     <li key={f} className="flex items-start gap-3 text-sm">
@@ -472,13 +493,11 @@ const WindshieldPPF = () => {
 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
-                    href={BOOKING_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="tel:5875004523"
                     className="group flex-1 inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-4 rounded-xl text-sm hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/20"
                   >
-                    <CalendarCheck className="w-4 h-4" />
-                    Book My Install — ${selected.price}
+                    <Phone className="w-4 h-4" />
+                    Call to Book — ${selected.price}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </a>
                   <a
@@ -486,7 +505,7 @@ const WindshieldPPF = () => {
                     className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary font-heading font-bold uppercase tracking-wider px-6 py-4 rounded-xl text-sm hover:bg-primary hover:text-primary-foreground transition-all"
                   >
                     <Phone className="w-4 h-4" />
-                    Call 587-500-4523
+                    587-500-4523
                   </a>
                 </div>
 
