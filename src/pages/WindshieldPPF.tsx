@@ -1,0 +1,596 @@
+import { useState, useRef, useCallback, useMemo } from "react";
+import PageTransition from "@/components/PageTransition";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ServicePageHero from "@/components/ServicePageHero";
+import ServiceFAQ from "@/components/ServiceFAQ";
+import TestimonialBlock from "@/components/TestimonialBlock";
+import TrustStats from "@/components/TrustStats";
+import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
+import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
+import {
+  Shield,
+  Zap,
+  Eye,
+  DollarSign,
+  Sun,
+  Droplets,
+  Check,
+  Phone,
+  ArrowRight,
+  Car,
+  Truck,
+  Caravan,
+  Sparkles,
+  AlertTriangle,
+  CalendarCheck,
+} from "lucide-react";
+import windshieldHero from "@/assets/windshield-ppf-hero.jpg";
+import windshieldCracked from "@/assets/windshield-cracked.jpg";
+import windshieldProtected from "@/assets/windshield-protected.jpg";
+
+const BOOKING_URL = "https://xpressauto.fieldd.co/";
+
+const faqs = [
+  {
+    q: "How does Windshield PPF actually protect against rock chips?",
+    a: "Our windshield protection film is a 6–8 mil-thick optically clear polyurethane that absorbs and disperses impact energy before it reaches the glass. Most rock chips that would normally crack your windshield instead bounce off the film harmlessly.",
+  },
+  {
+    q: "Will it affect visibility or wiper function?",
+    a: "No. The film is optically clear (over 99% light transmission), self-healing under heat, and engineered to work seamlessly with factory wipers, rain sensors, ADAS cameras, and HUD displays.",
+  },
+  {
+    q: "How long does Windshield PPF last?",
+    a: "Our film carries a manufacturer warranty of up to 3 years against yellowing, peeling and bubbling. With proper care, most installs perform 2–3 years of Calgary highway driving before replacement is recommended.",
+  },
+  {
+    q: "Can it be removed without damaging the glass?",
+    a: "Yes — it's designed to be removed cleanly with no residue or damage to your OEM windshield, even years later.",
+  },
+  {
+    q: "Why is it cheaper than a new windshield?",
+    a: "A windshield replacement on a modern vehicle with ADAS, rain sensors, or HUD can cost $1,200–$3,500+ once recalibration is included. Our PPF install is a fraction of that and protects you from multiple potential strikes.",
+  },
+  {
+    q: "Does insurance cover it?",
+    a: "Most comprehensive policies don't cover PPF directly, but every prevented windshield claim helps keep your premium and deductible intact. Many clients install it after a single claim to avoid going through it again.",
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Took two big rock hits on Deerfoot in the first month. Both would've cracked my old windshield — instead just little marks on the film. Already paid for itself.",
+    name: "Devon M.",
+    location: "Calgary SE",
+    service: "Windshield PPF — SUV",
+  },
+  {
+    quote:
+      "ADAS cameras and HUD on my Tucson all still work perfectly. You can't tell the film is even there until you look at the edge.",
+    name: "Priya S.",
+    location: "Airdrie",
+    service: "Windshield PPF — Crossover",
+  },
+  {
+    quote:
+      "Replaced my last windshield twice in two years. Got the PPF on my new F-150 and haven't had a single chip get through in 18 months.",
+    name: "Cory R.",
+    location: "Cochrane",
+    service: "Windshield PPF — Truck",
+  },
+];
+
+type VehicleSize = {
+  id: string;
+  label: string;
+  description: string;
+  price: number;
+  installTime: string;
+  icon: typeof Car;
+  examples: string;
+};
+
+const vehicleSizes: VehicleSize[] = [
+  {
+    id: "compact",
+    label: "Compact / Sedan",
+    description: "Smaller windshield surface area",
+    price: 449,
+    installTime: "2–3 hrs",
+    icon: Car,
+    examples: "Honda Civic · Toyota Corolla · Mazda 3 · Tesla Model 3",
+  },
+  {
+    id: "midsize",
+    label: "Midsize SUV / Crossover",
+    description: "Standard SUV and most crossovers",
+    price: 549,
+    installTime: "3–4 hrs",
+    icon: Car,
+    examples: "RAV4 · CR-V · Tucson · Model Y · Outback",
+  },
+  {
+    id: "fullsize",
+    label: "Full-Size SUV / Truck",
+    description: "Trucks and large SUVs",
+    price: 649,
+    installTime: "3–4 hrs",
+    icon: Truck,
+    examples: "F-150 · Silverado · Tahoe · Suburban · RAM 1500",
+  },
+  {
+    id: "heavy",
+    label: "HD Truck / Van / RV",
+    description: "Heavy-duty trucks, work vans, motorhomes",
+    price: 849,
+    installTime: "4–5 hrs",
+    icon: Caravan,
+    examples: "F-250/350 · Sprinter · Transit · Class A & C RVs",
+  },
+];
+
+/* ---------------- Before / After slider ---------------- */
+
+interface BAProps {
+  beforeSrc: string;
+  afterSrc: string;
+  beforeAlt: string;
+  afterAlt: string;
+}
+
+const WindshieldBeforeAfter = ({ beforeSrc, afterSrc, beforeAlt, afterAlt }: BAProps) => {
+  const [position, setPosition] = useState(50);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+
+  const updatePosition = useCallback((clientX: number) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+    setPosition((x / rect.width) * 100);
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative w-full aspect-[4/3] sm:aspect-video rounded-2xl overflow-hidden cursor-col-resize select-none shadow-2xl border border-border"
+      onPointerDown={(e) => {
+        isDragging.current = true;
+        (e.target as HTMLElement).setPointerCapture(e.pointerId);
+        updatePosition(e.clientX);
+      }}
+      onPointerMove={(e) => {
+        if (!isDragging.current) return;
+        updatePosition(e.clientX);
+      }}
+      onPointerUp={() => {
+        isDragging.current = false;
+      }}
+      role="slider"
+      aria-label="Cracked vs PPF-protected windshield comparison"
+      aria-valuenow={Math.round(position)}
+      aria-valuemin={0}
+      aria-valuemax={100}
+    >
+      <img src={afterSrc} alt={afterAlt} className="absolute inset-0 w-full h-full object-cover" draggable={false} />
+      <div className="absolute inset-0 overflow-hidden" style={{ width: `${position}%` }}>
+        <img
+          src={beforeSrc}
+          alt={beforeAlt}
+          className="absolute inset-0 h-full object-cover"
+          style={{ width: containerRef.current ? `${containerRef.current.offsetWidth}px` : "100vw", maxWidth: "none" }}
+          draggable={false}
+        />
+      </div>
+      <div
+        className="absolute top-0 bottom-0 w-0.5 bg-primary-foreground z-10 shadow-[0_0_20px_rgba(255,255,255,0.5)]"
+        style={{ left: `${position}%`, transform: "translateX(-50%)" }}
+      >
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-primary-foreground shadow-xl flex items-center justify-center ring-4 ring-primary/30">
+          <svg width="22" height="22" viewBox="0 0 20 20" fill="none" className="text-brand-dark">
+            <path d="M7 4L3 10L7 16" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M13 4L17 10L13 16" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
+      </div>
+      <span className="absolute top-4 left-4 bg-urgency text-urgency-foreground font-heading font-bold text-xs uppercase tracking-wider px-3 py-1.5 rounded z-20 flex items-center gap-1.5">
+        <AlertTriangle className="w-3 h-3" /> Unprotected
+      </span>
+      <span className="absolute top-4 right-4 bg-primary text-primary-foreground font-heading font-bold text-xs uppercase tracking-wider px-3 py-1.5 rounded z-20 flex items-center gap-1.5">
+        <Shield className="w-3 h-3" /> PPF Protected
+      </span>
+    </div>
+  );
+};
+
+/* ---------------- Page ---------------- */
+
+const WindshieldPPF = () => {
+  const [selectedSize, setSelectedSize] = useState<string>("midsize");
+
+  const selected = useMemo(
+    () => vehicleSizes.find((v) => v.id === selectedSize) ?? vehicleSizes[1],
+    [selectedSize],
+  );
+
+  const benefits = [
+    {
+      icon: Shield,
+      title: "Stops Rock Chips",
+      desc: "Absorbs impact from highway debris before it reaches your glass.",
+    },
+    {
+      icon: DollarSign,
+      title: "Saves $1,200–$3,500+",
+      desc: "Avoid the cost of windshield replacement and ADAS recalibration.",
+    },
+    {
+      icon: Eye,
+      title: "Optically Clear",
+      desc: "99%+ light transmission — invisible once installed.",
+    },
+    {
+      icon: Sparkles,
+      title: "Self-Healing",
+      desc: "Light scratches and swirls disappear with sun and warm water.",
+    },
+    {
+      icon: Sun,
+      title: "UV & Heat Resistant",
+      desc: "Won't yellow, bubble, or peel under Calgary sun and extreme cold.",
+    },
+    {
+      icon: Droplets,
+      title: "Hydrophobic Surface",
+      desc: "Rain beads off — better visibility and easier cleaning.",
+    },
+  ];
+
+  return (
+    <PageTransition>
+      <div className="min-h-screen">
+        <SEO
+          title="Windshield PPF Calgary — Stop Rock Chips Before They Crack"
+          description="Optically clear windshield protection film in Calgary. Stops highway rock chips, saves $1,200+ on replacements, ADAS-safe. Pricing by vehicle size."
+          canonical="/windshield-ppf"
+          jsonLd={[
+            buildServiceJsonLd(
+              "Windshield Paint Protection Film",
+              "Optically clear self-healing windshield protection film professionally installed in Calgary.",
+              "/windshield-ppf",
+            ),
+            buildFAQJsonLd(faqs),
+          ]}
+        />
+        <Navbar />
+        <ServicePageHero
+          title="Windshield PPF — Stop Rock Chips Before They Crack"
+          image={windshieldHero}
+          ctaType="call"
+        />
+        <TrustStats />
+
+        {/* Intro */}
+        <section className="py-16 sm:py-20 bg-background">
+          <div className="container max-w-4xl text-center px-6">
+            <ScrollReveal>
+              <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs mb-3">
+                Highway Damage · Solved
+              </p>
+              <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
+                One Rock Chip Away From a <span className="text-primary">$2,000 Bill</span>
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-5 text-sm sm:text-base">
+                Modern windshields are no longer just glass. They house ADAS cameras, lane-keep sensors, rain detection, head-up displays and acoustic laminates — and replacing one on a 2020+ vehicle routinely runs <strong className="text-foreground">$1,200 to $3,500+</strong> once OEM glass and recalibration are factored in.
+              </p>
+              <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
+                Windshield PPF is an optically clear, self-healing 6–8 mil polyurethane film professionally laid over your factory glass. It absorbs and disperses the impact of highway debris, gravel, salt and ice — so a hit that would have cracked your windshield instead bounces off harmlessly.
+              </p>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* Before / After comparison */}
+        <section className="py-16 sm:py-20 bg-muted/30">
+          <div className="container max-w-5xl px-4 sm:px-6">
+            <ScrollReveal>
+              <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs text-center mb-3">
+                Drag to Compare
+              </p>
+              <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-4">
+                See What <span className="text-primary">PPF</span> Prevents
+              </h2>
+              <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-10 text-sm sm:text-base">
+                Drag the slider — the unprotected windshield on the left is exactly what one piece of highway gravel can do. The right side shows a windshield with our PPF: clear, intact, hydrophobic.
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.15}>
+              <WindshieldBeforeAfter
+                beforeSrc={windshieldCracked}
+                afterSrc={windshieldProtected}
+                beforeAlt="Cracked unprotected windshield with rock chip damage and spider-web fractures"
+                afterAlt="Crystal-clear windshield protected with paint protection film, water beading off"
+              />
+            </ScrollReveal>
+
+            <div className="grid sm:grid-cols-2 gap-4 mt-8">
+              <div className="rounded-xl border border-urgency/20 bg-urgency/5 p-5 sm:p-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <AlertTriangle className="w-4 h-4 text-urgency" />
+                  <h3 className="font-heading font-bold text-foreground text-sm uppercase tracking-wider">Without PPF</h3>
+                </div>
+                <ul className="space-y-1.5 text-sm text-muted-foreground">
+                  <li>· Cracks from $5 of highway gravel</li>
+                  <li>· $1,200–$3,500+ replacement cost</li>
+                  <li>· Required ADAS recalibration</li>
+                  <li>· 1–3 days off the road</li>
+                  <li>· Insurance claim & deductible</li>
+                </ul>
+              </div>
+              <div className="rounded-xl border border-primary/20 bg-primary/5 p-5 sm:p-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <Shield className="w-4 h-4 text-primary" />
+                  <h3 className="font-heading font-bold text-foreground text-sm uppercase tracking-wider">With Our PPF</h3>
+                </div>
+                <ul className="space-y-1.5 text-sm text-muted-foreground">
+                  <li>· Rock chips bounce off the film</li>
+                  <li>· OEM glass stays intact for years</li>
+                  <li>· No recalibration needed</li>
+                  <li>· Self-heals minor scratches with heat</li>
+                  <li>· One install, multiple chips prevented</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits grid */}
+        <section className="py-16 sm:py-20 bg-background">
+          <div className="container max-w-6xl px-4 sm:px-6">
+            <ScrollReveal>
+              <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-4">
+                Why Drivers Are Choosing <span className="text-primary">Windshield PPF</span>
+              </h2>
+              <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12 text-sm sm:text-base">
+                Six measurable advantages over leaving your factory glass exposed.
+              </p>
+            </ScrollReveal>
+            <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" staggerDelay={0.07}>
+              {benefits.map((b) => (
+                <StaggerItem key={b.title}>
+                  <div className="h-full rounded-xl border border-border bg-card p-6 hover:border-primary/40 hover:shadow-lg transition-all duration-300">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                      <b.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="font-heading font-bold text-foreground text-base uppercase mb-2">{b.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </section>
+
+        {/* Pricing calculator */}
+        <section className="py-16 sm:py-20 bg-muted/30">
+          <div className="container max-w-5xl px-4 sm:px-6">
+            <ScrollReveal>
+              <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs text-center mb-3">
+                Transparent Pricing
+              </p>
+              <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-4">
+                Pick Your <span className="text-primary">Vehicle Size</span>
+              </h2>
+              <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-10 text-sm sm:text-base">
+                Pricing scales with windshield surface area. No hidden fees — what you see here is what you pay.
+              </p>
+            </ScrollReveal>
+
+            {/* Vehicle selector */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8">
+              {vehicleSizes.map((v) => {
+                const Icon = v.icon;
+                const active = v.id === selectedSize;
+                return (
+                  <button
+                    key={v.id}
+                    onClick={() => setSelectedSize(v.id)}
+                    className={`text-left rounded-xl p-4 sm:p-5 border-2 transition-all duration-200 ${
+                      active
+                        ? "border-primary bg-primary/5 shadow-lg shadow-primary/10 -translate-y-0.5"
+                        : "border-border bg-card hover:border-primary/40"
+                    }`}
+                    aria-pressed={active}
+                  >
+                    <div
+                      className={`w-10 h-10 rounded-lg flex items-center justify-center mb-3 ${
+                        active ? "bg-primary text-primary-foreground" : "bg-muted text-foreground/70"
+                      }`}
+                    >
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <p className="font-heading font-bold text-xs sm:text-sm uppercase text-foreground leading-tight mb-1">
+                      {v.label}
+                    </p>
+                    <p className="text-xs text-muted-foreground leading-snug">{v.description}</p>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Live quote card */}
+            <div className="rounded-2xl overflow-hidden border border-border shadow-xl bg-card">
+              <div className="bg-primary text-primary-foreground px-6 sm:px-10 py-7 sm:py-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div>
+                  <p className="font-heading font-bold uppercase tracking-[0.2em] text-xs opacity-80 mb-1">
+                    Your Quote
+                  </p>
+                  <p className="font-heading font-black text-xl sm:text-2xl uppercase leading-tight">{selected.label}</p>
+                  <p className="text-xs sm:text-sm opacity-80 mt-1">{selected.examples}</p>
+                </div>
+                <div className="text-left sm:text-right">
+                  <p className="font-heading font-black text-4xl sm:text-5xl leading-none">${selected.price}</p>
+                  <p className="text-xs uppercase tracking-wider opacity-80 mt-1">Install: {selected.installTime}</p>
+                </div>
+              </div>
+
+              <div className="p-6 sm:p-10">
+                <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-muted-foreground mb-4">
+                  What's Included
+                </p>
+                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-3 mb-8">
+                  {[
+                    "Premium 6–8 mil optically clear PPF",
+                    "Pre-install glass decontamination & polish",
+                    "Custom-cut for your exact windshield",
+                    "Edge sealing for long-term durability",
+                    "Rain sensor, ADAS & HUD compatibility check",
+                    "Hydrophobic top-layer activation",
+                    "3-year manufacturer warranty",
+                    "Aftercare guide & maintenance kit",
+                  ].map((f) => (
+                    <li key={f} className="flex items-start gap-3 text-sm">
+                      <div className="w-5 h-5 rounded-full bg-success/15 flex items-center justify-center shrink-0 mt-0.5">
+                        <Check className="w-3 h-3 text-success" />
+                      </div>
+                      <span className="text-foreground/80">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href={BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex-1 inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-4 rounded-xl text-sm hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/20"
+                  >
+                    <CalendarCheck className="w-4 h-4" />
+                    Book My Install — ${selected.price}
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                  <a
+                    href="tel:5875004523"
+                    className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary font-heading font-bold uppercase tracking-wider px-6 py-4 rounded-xl text-sm hover:bg-primary hover:text-primary-foreground transition-all"
+                  >
+                    <Phone className="w-4 h-4" />
+                    Call 587-500-4523
+                  </a>
+                </div>
+
+                <p className="text-xs text-muted-foreground text-center mt-5">
+                  Final price confirmed at drop-off based on exact windshield dimensions. Heated glass, panoramic and oversized windshields may be subject to a small surcharge.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Process */}
+        <section className="py-16 sm:py-20 bg-background">
+          <div className="container max-w-5xl px-4 sm:px-6">
+            <ScrollReveal>
+              <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-12">
+                Our 4-Step <span className="text-primary">Install Process</span>
+              </h2>
+            </ScrollReveal>
+            <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5" staggerDelay={0.08}>
+              {[
+                { n: "01", icon: Droplets, t: "Decontaminate", d: "Glass is washed, clay-barred and IPA-wiped to remove every contaminant before film touches the surface." },
+                { n: "02", icon: Eye, t: "Custom Pattern", d: "Computer-cut template precisely matches your make, model and year — including sensor cut-outs." },
+                { n: "03", icon: Zap, t: "Precision Install", d: "Film is squeegeed flat in a controlled environment with zero dust, lint or air bubbles." },
+                { n: "04", icon: Shield, t: "Cure & Seal", d: "Edges are sealed and the film is given 24 hours to fully bond before pickup." },
+              ].map((s) => (
+                <StaggerItem key={s.n}>
+                  <div className="relative h-full rounded-xl border border-border bg-card p-6 hover:border-primary/40 hover:shadow-lg transition-all">
+                    <span className="absolute top-4 right-5 font-heading font-black text-3xl text-primary/15">{s.n}</span>
+                    <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                      <s.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <h3 className="font-heading font-bold text-foreground text-base uppercase mb-2">{s.t}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{s.d}</p>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </section>
+
+        {/* ROI block */}
+        <section className="py-16 sm:py-20 bg-foreground">
+          <div className="container max-w-4xl px-4 sm:px-6 text-center">
+            <ScrollReveal>
+              <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs mb-3">
+                The Math Is Simple
+              </p>
+              <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-background mb-6">
+                Pay <span className="text-primary">Once</span>. Skip Replacement After Replacement.
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 mt-10">
+                <div className="rounded-xl border border-background/10 bg-background/5 p-6">
+                  <p className="font-heading font-black text-3xl sm:text-4xl text-primary mb-1">$2,400</p>
+                  <p className="text-background/70 text-xs uppercase tracking-wider">Avg. Modern Windshield Replacement</p>
+                </div>
+                <div className="rounded-xl border border-primary/40 bg-primary/10 p-6">
+                  <p className="font-heading font-black text-3xl sm:text-4xl text-primary mb-1">${selected.price}</p>
+                  <p className="text-background/70 text-xs uppercase tracking-wider">One-Time PPF Install</p>
+                </div>
+                <div className="rounded-xl border border-background/10 bg-background/5 p-6">
+                  <p className="font-heading font-black text-3xl sm:text-4xl text-success mb-1">${(2400 - selected.price).toLocaleString()}</p>
+                  <p className="text-background/70 text-xs uppercase tracking-wider">Saved Per Prevented Strike</p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <TestimonialBlock testimonials={testimonials} />
+
+        {/* FAQ */}
+        <ServiceFAQ
+          faqs={faqs}
+          title="Windshield PPF — Common Questions"
+        />
+
+        {/* Final CTA */}
+        <section className="py-16 sm:py-20 bg-primary">
+          <div className="container max-w-3xl text-center px-6">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-primary-foreground mb-5">
+              One Rock Chip Pays for It. The Next Hundred Are Free.
+            </h2>
+            <p className="text-primary-foreground/85 mb-8 text-sm sm:text-base">
+              Book your install today — slots fill fast in spring and fall when gravel season peaks on Calgary highways.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-xl text-sm hover:bg-primary-foreground/90 transition-all"
+              >
+                <CalendarCheck className="w-4 h-4" />
+                Book Online
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a
+                href="tel:5875004523"
+                className="inline-flex items-center justify-center gap-2 border-2 border-primary-foreground text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-xl text-sm hover:bg-primary-foreground hover:text-primary transition-all"
+              >
+                <Phone className="w-4 h-4" />
+                587-500-4523
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    </PageTransition>
+  );
+};
+
+export default WindshieldPPF;
