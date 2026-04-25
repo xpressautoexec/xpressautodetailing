@@ -11,7 +11,8 @@ import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import ceramicHero from "@/assets/ceramic-hero.jpg";
 import paintImg from "@/assets/paint-correction.jpg";
-import { ArrowRight, Droplets, Shield, Sun, Sparkles, Clock, DollarSign, Check, Gem, Phone } from "lucide-react";
+import brandMenzerna from "@/assets/brand-menzerna.png";
+import { ArrowRight, Droplets, Shield, Sun, Sparkles, Clock, DollarSign, Check, Gem, Phone, Award, Beaker } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -63,7 +64,56 @@ const PaintCeramics = () => (
       </div>
     </section>
 
-    {/* Wax vs Sealant vs Ceramic */}
+    {/* Menzerna - Polishing Compounds We Trust */}
+    <section className="py-16 sm:py-20 bg-background border-y border-border">
+      <div className="container max-w-6xl px-4 sm:px-6">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+          <ScrollReveal direction="left">
+            <div className="bg-white rounded-2xl border border-border shadow-sm p-8 sm:p-12 flex items-center justify-center">
+              <img src={brandMenzerna} alt="Menzerna polishing compounds — German-engineered paint correction" className="max-h-32 sm:max-h-40 w-auto object-contain" />
+            </div>
+          </ScrollReveal>
+          <ScrollReveal direction="right">
+            <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs mb-3">
+              Polishing Compounds We Trust
+            </p>
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-5">
+              Powered by <span className="text-primary">Menzerna</span> — German Precision Since 1888
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-6 text-sm sm:text-base">
+              Every paint correction we perform is done with Menzerna polishing compounds — the gold standard used by Porsche, Mercedes-Benz, BMW and Audi at the factory level. Over 130 years of German chemistry means cleaner cuts, deeper gloss and zero hologramming.
+            </p>
+            <ul className="space-y-3 mb-2">
+              <li className="flex items-start gap-3 text-sm sm:text-base">
+                <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <Award className="w-3.5 h-3.5 text-primary" />
+                </div>
+                <span className="text-foreground/80"><strong className="text-foreground">OEM-Approved</strong> — trusted by European luxury manufacturers</span>
+              </li>
+              <li className="flex items-start gap-3 text-sm sm:text-base">
+                <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <Beaker className="w-3.5 h-3.5 text-primary" />
+                </div>
+                <span className="text-foreground/80"><strong className="text-foreground">Power Lock Particle Technology</strong> — removes defects without micro-marring</span>
+              </li>
+              <li className="flex items-start gap-3 text-sm sm:text-base">
+                <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <Sparkles className="w-3.5 h-3.5 text-primary" />
+                </div>
+                <span className="text-foreground/80"><strong className="text-foreground">Mirror-finish results</strong> — the deepest, most reflective gloss possible before coating</span>
+              </li>
+              <li className="flex items-start gap-3 text-sm sm:text-base">
+                <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <Shield className="w-3.5 h-3.5 text-primary" />
+                </div>
+                <span className="text-foreground/80"><strong className="text-foreground">Body-shop safe</strong> — silicone-free, ceramic-coating compatible</span>
+              </li>
+            </ul>
+          </ScrollReveal>
+        </div>
+      </div>
+    </section>
+
     <section className="py-16 sm:py-20 bg-muted/30">
       <div className="container max-w-4xl px-4 sm:px-6">
         <ScrollReveal>
