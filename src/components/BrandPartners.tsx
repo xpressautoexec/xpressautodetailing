@@ -9,7 +9,7 @@ import brandKls from "@/assets/brand-kls.png";
 import brandDirtt from "@/assets/brand-dirtt.png";
 import brandShell from "@/assets/brand-shell.png";
 import brandMeguiars from "@/assets/brand-meguiars.png";
-import brandChemicalGuys from "@/assets/brand-chemical-guys.png";
+import brandMenzerna from "@/assets/brand-menzerna.png";
 import brandSilverhillAcura from "@/assets/brand-silverhill-acura.png";
 import brandLandform from "@/assets/brand-landform.png";
 
@@ -22,7 +22,7 @@ const productBrands: BrandItem[] = [
   { name: "3M", logo: brand3m },
   { name: "Meguiar's", logo: brandMeguiars },
   { name: "XPEL", logo: brandXpel },
-  { name: "Chemical Guys", logo: brandChemicalGuys },
+  { name: "Menzerna", logo: brandMenzerna },
   { name: "Gtechniq", logo: brandGtechniq },
 ];
 
