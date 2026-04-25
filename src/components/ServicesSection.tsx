@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
-import interiorImg from "@/assets/interior-detail.jpg";
-import exteriorImg from "@/assets/exterior-detail.jpg";
-import paintImg from "@/assets/paint-correction.jpg";
-import completeImg from "@/assets/complete-hero.jpg";
-import ceramicImg from "@/assets/ceramic-hero.jpg";
-import fleetImg from "@/assets/fleet-hero.jpg";
+import interiorImg from "@/assets/gallery-range-rover-interior.jpg";
+import paintImg from "@/assets/gallery-bmw-emblem.jpg";
+import completeImg from "@/assets/gallery-range-rover-exterior.jpg";
+import ceramicImg from "@/assets/gallery-26.jpg";
+import fleetImg from "@/assets/gallery-7.jpg";
 import rvImg from "@/assets/rv-hero.jpg";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
