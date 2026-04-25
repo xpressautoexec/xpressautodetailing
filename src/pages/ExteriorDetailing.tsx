@@ -11,7 +11,7 @@ import TrustStats from "@/components/TrustStats";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import exteriorHero from "@/assets/gallery-range-rover-exterior.jpg";
-import exteriorImg from "@/assets/exterior-detail.jpg";
+import exteriorImg from "@/assets/gallery-21.jpg";
 import RecentWorkStrip from "@/components/RecentWorkStrip";
 import bmwEmblem from "@/assets/gallery-bmw-emblem.jpg";
 import bmwHeadlight from "@/assets/gallery-bmw-headlight.jpg";
