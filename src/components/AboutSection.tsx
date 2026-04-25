@@ -1,4 +1,4 @@
-import aboutImage from "@/assets/about-image.jpg";
+import aboutImage from "@/assets/gallery-29.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
 import ScrollReveal from "@/components/ScrollReveal";
 import { ArrowRight } from "lucide-react";
