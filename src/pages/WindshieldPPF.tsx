@@ -28,6 +28,10 @@ import {
 import windshieldHero from "@/assets/windshield-ppf-hero.jpg";
 import windshieldCracked from "@/assets/windshield-cracked.jpg";
 import windshieldProtected from "@/assets/windshield-protected.jpg";
+import windshieldSedan from "@/assets/windshield-ppf-sedan.jpg";
+import windshieldSuv from "@/assets/windshield-ppf-suv.jpg";
+import windshieldTruck from "@/assets/windshield-ppf-truck.jpg";
+import windshieldRv from "@/assets/windshield-ppf-rv.jpg";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -42,15 +46,15 @@ const faqs = [
   },
   {
     q: "How long does Windshield PPF last?",
-    a: "Our film carries a manufacturer warranty of up to 3 years against yellowing, peeling and bubbling. With proper care, most installs perform 2–3 years of Calgary highway driving before replacement is recommended.",
+    a: "It's a true one-and-done install — our film is engineered to last up to 10 years on the glass with proper care, well past the time most owners keep their vehicle.",
   },
   {
     q: "Can it be removed without damaging the glass?",
     a: "Yes — it's designed to be removed cleanly with no residue or damage to your OEM windshield, even years later.",
   },
   {
-    q: "Why is it cheaper than a new windshield?",
-    a: "A windshield replacement on a modern vehicle with ADAS, rain sensors, or HUD can cost $1,200–$3,500+ once recalibration is included. Our PPF install is a fraction of that and protects you from multiple potential strikes.",
+    q: "Why is it cheaper than replacing my windshield?",
+    a: "A typical windshield replacement runs $350–$800 in Calgary depending on the vehicle and any ADAS recalibration. The real savings come from prevention — most clients would otherwise replace their windshield 2–3 times over the life of the vehicle. One PPF install lasts up to 10 years and prevents every chip in between.",
   },
   {
     q: "Does insurance cover it?",
@@ -90,6 +94,7 @@ type VehicleSize = {
   installTime: string;
   icon: typeof Car;
   examples: string;
+  image: string;
 };
 
 const vehicleSizes: VehicleSize[] = [
@@ -101,6 +106,7 @@ const vehicleSizes: VehicleSize[] = [
     installTime: "2–3 hrs",
     icon: Car,
     examples: "Honda Civic · Toyota Corolla · Mazda 3 · Tesla Model 3",
+    image: windshieldSedan,
   },
   {
     id: "midsize",
@@ -110,6 +116,7 @@ const vehicleSizes: VehicleSize[] = [
     installTime: "3–4 hrs",
     icon: Car,
     examples: "RAV4 · CR-V · Tucson · Model Y · Outback",
+    image: windshieldSuv,
   },
   {
     id: "fullsize",
@@ -119,6 +126,7 @@ const vehicleSizes: VehicleSize[] = [
     installTime: "3–4 hrs",
     icon: Truck,
     examples: "F-150 · Silverado · Tahoe · Suburban · RAM 1500",
+    image: windshieldTruck,
   },
   {
     id: "heavy",
@@ -128,6 +136,7 @@ const vehicleSizes: VehicleSize[] = [
     installTime: "4–5 hrs",
     icon: Caravan,
     examples: "F-250/350 · Sprinter · Transit · Class A & C RVs",
+    image: windshieldRv,
   },
 ];
 
@@ -223,8 +232,8 @@ const WindshieldPPF = () => {
     },
     {
       icon: DollarSign,
-      title: "Saves $1,200–$3,500+",
-      desc: "Avoid the cost of windshield replacement and ADAS recalibration.",
+      title: "One & Done — Up to 10 Yrs",
+      desc: "Skip $350–$800 windshield replacements two or three times over the life of your vehicle.",
     },
     {
       icon: Eye,
