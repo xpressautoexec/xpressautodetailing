@@ -11,8 +11,8 @@ import TestimonialBlock from "@/components/TestimonialBlock";
 import TrustStats from "@/components/TrustStats";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
-import completeHero from "@/assets/complete-hero.jpg";
-import interiorImg from "@/assets/interior-detail.jpg";
+import completeHero from "@/assets/gallery-22.jpg";
+import interiorImg from "@/assets/gallery-bmw-red-interior.jpg";
 import { ArrowRight, TrendingUp, Clock, DollarSign, Sparkles, ShieldCheck, Heart, Check, Snowflake } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
