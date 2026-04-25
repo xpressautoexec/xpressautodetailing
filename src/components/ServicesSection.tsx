@@ -4,7 +4,7 @@ import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/Scroll
 import interiorImg from "@/assets/gallery-range-rover-interior.jpg";
 import paintImg from "@/assets/gallery-bmw-emblem.jpg";
 import completeImg from "@/assets/gallery-range-rover-exterior.jpg";
-import ceramicImg from "@/assets/gallery-26.jpg";
+import ceramicImg from "@/assets/gallery-rv-paint-correction-closeup.jpg";
 import fleetImg from "@/assets/gallery-7.jpg";
 import rvImg from "@/assets/rv-hero.jpg";
 
