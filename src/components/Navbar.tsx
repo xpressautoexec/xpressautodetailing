@@ -27,7 +27,13 @@ const desktopLinks: DesktopNavItem[] = [
       { label: "Add-Ons", href: "/add-ons" },
     ],
   },
-  { label: "Paint & Ceramics", href: "/paint-ceramics" },
+  {
+    label: "Ceramics & PPF",
+    children: [
+      { label: "Paint & Ceramics", href: "/paint-ceramics" },
+      { label: "Windshield PPF", href: "/windshield-ppf" },
+    ],
+  },
   {
     label: "Trailer & RV",
     children: [
@@ -70,7 +76,14 @@ const mobileLinks: MobileNavItem[] = [
       { label: "Trailer & RV", href: "/trailer-rv" },
     ],
   },
-  { label: "Paint & Ceramics", href: "/paint-ceramics" },
+  {
+    label: "Ceramics & PPF",
+    href: "#",
+    children: [
+      { label: "Paint & Ceramics", href: "/paint-ceramics" },
+      { label: "Windshield PPF", href: "/windshield-ppf" },
+    ],
+  },
   {
     label: "Trailer & RV",
     href: "#",
