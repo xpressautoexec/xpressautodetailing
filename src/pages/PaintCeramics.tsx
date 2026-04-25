@@ -9,8 +9,8 @@ import TestimonialBlock from "@/components/TestimonialBlock";
 import TrustStats from "@/components/TrustStats";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
-import ceramicHero from "@/assets/ceramic-hero.jpg";
-import paintImg from "@/assets/paint-correction.jpg";
+import ceramicHero from "@/assets/gallery-28.jpg";
+import paintImg from "@/assets/gallery-bmw-emblem.jpg";
 import brandMenzerna from "@/assets/brand-menzerna.png";
 import { ArrowRight, Droplets, Shield, Sun, Sparkles, Clock, DollarSign, Check, Gem, Phone, Award, Beaker } from "lucide-react";
 

@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import SEO from "@/components/SEO";
-import giftcardHero from "@/assets/giftcard-hero.jpg";
+import giftcardHero from "@/assets/gallery-26.jpg";
 import { Gift, Heart, Car, Sparkles, Star, Calendar, CreditCard } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
