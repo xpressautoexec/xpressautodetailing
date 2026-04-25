@@ -9,7 +9,7 @@ import brandKls from "@/assets/brand-kls.png";
 import brandDirtt from "@/assets/brand-dirtt.png";
 import brandShell from "@/assets/brand-shell.png";
 import brandMeguiars from "@/assets/brand-meguiars.png";
-import brandChemicalGuys from "@/assets/brand-chemical-guys.png";
+import brandMenzerna from "@/assets/brand-menzerna.png";
 import brandSilverhillAcura from "@/assets/brand-silverhill-acura.png";
 import brandLandform from "@/assets/brand-landform.png";
 
