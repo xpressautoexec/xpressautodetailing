@@ -78,7 +78,6 @@ const sections: { title: string; description: string; images: GalleryImage[] }[]
       { src: gallery26, alt: "Blue BMW M340i with deep gloss under studio lighting after ceramic coating" },
       { src: gallery28, alt: "Blue BMW M340i rear view with glowing taillights after ceramic" },
       { src: rvPaintCloseup, alt: "Close-up of RV paint correction with dramatic gloss restoration" },
-      { src: paintReflection, alt: "Mirror-like paint reflection on sedan after paint correction" },
     ],
   },
   {
@@ -87,10 +86,6 @@ const sections: { title: string; description: string; images: GalleryImage[] }[]
     images: [
       { src: rangeRoverExterior, alt: "Green Range Rover SV after full exterior detail with deep gloss finish" },
       { src: lexusIs, alt: "Charcoal Lexus IS F-Sport after full exterior detail" },
-      { src: acuraGrey, alt: "Grey Acura RDX A-Spec after full exterior detail in Calgary" },
-      { src: acuraBlue, alt: "Blue Acura RDX lineup freshly detailed at dealership" },
-      { src: gtiFront, alt: "White Volkswagen GTI front view after exterior detail" },
-      { src: gtiRear, alt: "White Volkswagen GTI rear three-quarter view after detail" },
       { src: gallery20, alt: "Silver Audi RS5 after full exterior detail" },
       { src: gallery29, alt: "Silver Audi RS5 freshly detailed in driveway" },
       { src: gallery21, alt: "Black Tesla Model S with mirror-like paint finish" },
@@ -110,7 +105,6 @@ const sections: { title: string; description: string; images: GalleryImage[] }[]
       { src: rangeRoverInterior, alt: "Range Rover tan leather interior after deep clean and conditioning" },
       { src: bmwRedInterior, alt: "BMW red leather interior after deep clean and conditioning" },
       { src: bmwRedDash, alt: "BMW interior with red leather seats, steering wheel and dash after deep clean" },
-      { src: gtiInterior, alt: "Volkswagen GTI plaid interior after deep clean and conditioning" },
       { src: gallery16, alt: "Pristine Audi interior after deep cleaning and conditioning" },
       { src: gallery27, alt: "BMW interior with protective steering wheel cover after detail" },
       { src: gallery8, alt: "Audi interior after deep clean and conditioning" },
@@ -122,6 +116,18 @@ const sections: { title: string; description: string; images: GalleryImage[] }[]
       { src: gallery19, alt: "Red Ford truck interior after deep clean" },
       { src: gallery32, alt: "Audi diamond-stitched leather seats after interior detail" },
       { src: gallery37, alt: "SUV cargo area after interior deep clean" },
+    ],
+  },
+  {
+    title: "Dealership Details",
+    description: "Lot-ready prep and full details for dealership inventory — interior, exterior, and showroom-ready finish.",
+    images: [
+      { src: acuraGrey, alt: "Grey Acura RDX A-Spec detailed for dealership lot in Calgary" },
+      { src: acuraBlue, alt: "Blue Acura RDX lineup freshly detailed at Acura dealership" },
+      { src: gtiFront, alt: "White Volkswagen GTI front view prepped for dealership" },
+      { src: gtiRear, alt: "White Volkswagen GTI rear view after dealership detail" },
+      { src: gtiInterior, alt: "Volkswagen GTI plaid interior after dealership prep detail" },
+      { src: paintReflection, alt: "Mirror-like paint reflection after dealership paint correction" },
     ],
   },
   {
