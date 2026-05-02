@@ -54,6 +54,16 @@ import rvPaintCloseup from "@/assets/gallery-rv-paint-correction-closeup.jpg";
 import subaruWheel from "@/assets/gallery-subaru-wheel.jpg";
 import rangeRoverExterior from "@/assets/gallery-range-rover-exterior.jpg";
 import rangeRoverInterior from "@/assets/gallery-range-rover-interior.jpg";
+import paintReflection from "@/assets/gallery-paint-reflection.jpg";
+import acuraGrey from "@/assets/gallery-acura-grey.jpg";
+import acuraBlue from "@/assets/gallery-acura-blue.jpg";
+import hurricaneRear from "@/assets/gallery-hurricane-rear.jpg";
+import hurricaneFront from "@/assets/gallery-hurricane-front.jpg";
+import hurricaneHeadOn from "@/assets/gallery-hurricane-head-on.jpg";
+import hurricaneSide from "@/assets/gallery-hurricane-side.jpg";
+import gtiFront from "@/assets/gallery-gti-front.jpg";
+import gtiRear from "@/assets/gallery-gti-rear.jpg";
+import gtiInterior from "@/assets/gallery-gti-interior.jpg";
 import { Star } from "lucide-react";
 
 type GalleryImage = { src: string; alt: string };
@@ -68,6 +78,7 @@ const sections: { title: string; description: string; images: GalleryImage[] }[]
       { src: gallery26, alt: "Blue BMW M340i with deep gloss under studio lighting after ceramic coating" },
       { src: gallery28, alt: "Blue BMW M340i rear view with glowing taillights after ceramic" },
       { src: rvPaintCloseup, alt: "Close-up of RV paint correction with dramatic gloss restoration" },
+      { src: paintReflection, alt: "Mirror-like paint reflection on sedan after paint correction" },
     ],
   },
   {
@@ -76,6 +87,10 @@ const sections: { title: string; description: string; images: GalleryImage[] }[]
     images: [
       { src: rangeRoverExterior, alt: "Green Range Rover SV after full exterior detail with deep gloss finish" },
       { src: lexusIs, alt: "Charcoal Lexus IS F-Sport after full exterior detail" },
+      { src: acuraGrey, alt: "Grey Acura RDX A-Spec after full exterior detail in Calgary" },
+      { src: acuraBlue, alt: "Blue Acura RDX lineup freshly detailed at dealership" },
+      { src: gtiFront, alt: "White Volkswagen GTI front view after exterior detail" },
+      { src: gtiRear, alt: "White Volkswagen GTI rear three-quarter view after detail" },
       { src: gallery20, alt: "Silver Audi RS5 after full exterior detail" },
       { src: gallery29, alt: "Silver Audi RS5 freshly detailed in driveway" },
       { src: gallery21, alt: "Black Tesla Model S with mirror-like paint finish" },
@@ -95,6 +110,7 @@ const sections: { title: string; description: string; images: GalleryImage[] }[]
       { src: rangeRoverInterior, alt: "Range Rover tan leather interior after deep clean and conditioning" },
       { src: bmwRedInterior, alt: "BMW red leather interior after deep clean and conditioning" },
       { src: bmwRedDash, alt: "BMW interior with red leather seats, steering wheel and dash after deep clean" },
+      { src: gtiInterior, alt: "Volkswagen GTI plaid interior after deep clean and conditioning" },
       { src: gallery16, alt: "Pristine Audi interior after deep cleaning and conditioning" },
       { src: gallery27, alt: "BMW interior with protective steering wheel cover after detail" },
       { src: gallery8, alt: "Audi interior after deep clean and conditioning" },
@@ -125,6 +141,10 @@ const sections: { title: string; description: string; images: GalleryImage[] }[]
       { src: rvOxidation, alt: "RV roof oxidation removal in progress with masking tape divider" },
       { src: rvSurveyorFront, alt: "Surveyor travel trailer front cap during oxidation correction" },
       { src: rvSurveyorFull, alt: "Surveyor travel trailer front cap full view during paint correction" },
+      { src: hurricaneFront, alt: "Hurricane motorhome front view after full exterior detail" },
+      { src: hurricaneHeadOn, alt: "Hurricane RV head-on view after professional wash and detail" },
+      { src: hurricaneRear, alt: "Hurricane motorhome rear view freshly detailed" },
+      { src: hurricaneSide, alt: "Hurricane RV full side profile after oxidation removal and detail" },
     ],
   },
   {
