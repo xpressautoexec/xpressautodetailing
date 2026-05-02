@@ -78,7 +78,6 @@ const sections: { title: string; description: string; images: GalleryImage[] }[]
       { src: gallery26, alt: "Blue BMW M340i with deep gloss under studio lighting after ceramic coating" },
       { src: gallery28, alt: "Blue BMW M340i rear view with glowing taillights after ceramic" },
       { src: rvPaintCloseup, alt: "Close-up of RV paint correction with dramatic gloss restoration" },
-      { src: paintReflection, alt: "Mirror-like paint reflection on sedan after paint correction" },
     ],
   },
   {
