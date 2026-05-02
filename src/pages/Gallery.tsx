@@ -64,6 +64,9 @@ import hurricaneSide from "@/assets/gallery-hurricane-side.jpg";
 import gtiFront from "@/assets/gallery-gti-front.jpg";
 import gtiRear from "@/assets/gallery-gti-rear.jpg";
 import gtiInterior from "@/assets/gallery-gti-interior.jpg";
+import acuraGarage from "@/assets/gallery-acura-garage.jpg";
+import acuraFloormat from "@/assets/gallery-acura-floormat.jpg";
+import acuraCargo from "@/assets/gallery-acura-cargo.jpg";
 import { Star } from "lucide-react";
 
 type GalleryImage = { src: string; alt: string };
@@ -122,8 +125,11 @@ const sections: { title: string; description: string; images: GalleryImage[] }[]
     title: "Dealership Details",
     description: "Lot-ready prep and full details for dealership inventory — interior, exterior, and showroom-ready finish.",
     images: [
+      { src: acuraGarage, alt: "Grey Acura RDX being detailed in underground parking garage" },
       { src: acuraGrey, alt: "Grey Acura RDX A-Spec detailed for dealership lot in Calgary" },
       { src: acuraBlue, alt: "Blue Acura RDX lineup freshly detailed at Acura dealership" },
+      { src: acuraFloormat, alt: "Acura floor mat and pedals after deep interior clean" },
+      { src: acuraCargo, alt: "Acura RDX cargo area after dealership prep detail" },
       { src: gtiFront, alt: "White Volkswagen GTI front view prepped for dealership" },
       { src: gtiRear, alt: "White Volkswagen GTI rear view after dealership detail" },
       { src: gtiInterior, alt: "Volkswagen GTI plaid interior after dealership prep detail" },
