@@ -206,8 +206,8 @@ const RVWinterization = () => {
     <PageTransition>
       <div className="min-h-screen">
         <SEO
-          title="RV Winterization & De-Winterization Calgary — From $164.99"
-          description="Mobile RV winterization & spring start-up in Calgary, Airdrie, Cochrane & Chestermere. RV-safe antifreeze. Bundle with detailing for discounted per-foot rates."
+          title="RV Winterization Calgary | Mobile From $164.99"
+          description="Mobile RV winterization and de-winterization in Calgary, Airdrie, Cochrane & Chestermere. RV-safe antifreeze, full system blow-out. Bundle with detailing to save."
           canonical="/trailer-rv/winterization"
           jsonLd={[
             buildServiceJsonLd("RV Winterization & De-Winterization", "Mobile RV winterization and de-winterization service in Calgary with bundled detailing discounts.", "/trailer-rv/winterization"),

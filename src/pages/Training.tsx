@@ -23,8 +23,8 @@ const Training = () => (
   <PageTransition>
     <div className="min-h-screen">
       <SEO
-        title="Auto Detailing Training Calgary — Ceramic, Paint Correction & PPF"
-        description="Hands-on auto detailing training in Calgary. Learn ceramic coating, paint correction & PPF from certified pros. Small classes (4–6 students). Limited spots — enroll now."
+        title="Auto Detailing Training Calgary | Hands-On Courses"
+        description="Hands-on auto detailing courses in Calgary. Learn ceramic coating, paint correction & PPF installation. Small classes of 4-6 students. Enroll now."
         canonical="/training"
         jsonLd={[buildFAQJsonLd(trainingFAQs)]}
       />

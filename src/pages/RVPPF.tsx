@@ -257,8 +257,8 @@ const RVPPF = () => {
     <PageTransition>
       <div className="min-h-screen">
         <SEO
-          title="RV Paint Protection Film (PPF) Calgary — Rock Chip Defense"
-          description="Premium RV PPF in Calgary. Front cap, hood, rocker & full-body packages with self-healing TPU film. Protect your motorhome from rocks, bugs & UV. Call for a free quote."
+          title="RV PPF Calgary | Paint Protection Film for RVs"
+          description="RV paint protection film in Calgary. Self-healing PPF for front caps, hoods, rockers & full wraps. Stop rock chips, bugs & UV damage. Call for a free quote."
           canonical="/trailer-rv/ppf"
           jsonLd={[
             buildServiceJsonLd(

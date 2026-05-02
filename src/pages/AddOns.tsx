@@ -81,8 +81,8 @@ const AddOns = () => (
   <PageTransition>
     <div className="min-h-screen">
       <SEO
-        title="Add-On Detailing Services Calgary — Pet Hair, Headlights & More"
-        description="Upgrade any detail with add-ons: pet hair removal $55, headlight restoration $80, engine bay clean $50, odour elimination & more. Book online with your service."
+        title="Detailing Add-Ons Calgary | Pet Hair, Headlights"
+        description="Upgrade any detail with add-ons — pet hair removal, headlight restoration, engine bay cleaning, odour elimination & more. Book online with your service."
         canonical="/add-ons"
         jsonLd={buildServiceJsonLd(
           "Add-On Detailing Services",

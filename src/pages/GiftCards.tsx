@@ -11,8 +11,8 @@ const BOOKING_URL = "https://xpressauto.fieldd.co/";
 const GiftCards = () => (
   <PageTransition><div className="min-h-screen">
     <SEO
-      title="Car Detailing Gift Cards Calgary — From $75, Instant Delivery"
-      description="Give the gift of a spotless ride. Digital car detailing gift cards from $75 — perfect for birthdays, holidays & thank-yous. Instant email delivery. Shop now."
+      title="Car Detailing Gift Cards Calgary | From $75"
+      description="Car detailing gift cards in Calgary from $75. Instant digital delivery — perfect for birthdays, holidays & thank-yous. Redeemable for any detailing service."
       canonical="/gift-cards"
     />
     <Navbar />

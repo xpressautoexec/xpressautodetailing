@@ -140,8 +140,8 @@ const TrailerRV = () => {
   return (
     <PageTransition><div className="min-h-screen">
       <SEO
-        title="RV & Trailer Detailing Calgary — Mobile Service Per Foot"
-        description="Mobile RV & trailer detailing in Calgary. Travel trailers, motorhomes, 5th wheels & toy haulers. Per-foot pricing for wash, ceramic & interior. We come to you."
+        title="RV & Trailer Detailing Calgary | Mobile Per-Foot"
+        description="Mobile RV and trailer detailing in Calgary. Oxidation removal, wash, ceramic coating & interior cleaning for motorhomes, 5th wheels & travel trailers. We come to you."
         canonical="/trailer-rv"
         jsonLd={[
           buildServiceJsonLd("Trailer & RV Detailing", "Professional mobile RV and trailer detailing in Calgary and surrounding areas.", "/trailer-rv"),
