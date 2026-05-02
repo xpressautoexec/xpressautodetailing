@@ -261,8 +261,8 @@ const WindshieldPPF = () => {
     <PageTransition>
       <div className="min-h-screen">
         <SEO
-          title="Windshield PPF Calgary — Stop Rock Chips Before They Crack"
-          description="One-and-done windshield protection film in Calgary. Lasts up to 10 years, prevents $350–$800 windshield replacements, ADAS-safe. Pricing by vehicle size."
+          title="Windshield PPF Calgary | Rock Chip Protection"
+          description="Windshield protection film in Calgary. Lasts up to 10 years, prevents $350-$800 replacements, ADAS-safe install. One-and-done. Pricing by vehicle size."
           canonical="/windshield-ppf"
           jsonLd={[
             buildServiceJsonLd(

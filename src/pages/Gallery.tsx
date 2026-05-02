@@ -148,8 +148,8 @@ const sections: { title: string; description: string; images: GalleryImage[] }[]
 const Gallery = () => (
   <PageTransition><div className="min-h-screen">
     <SEO
-      title="Before & After Detailing Gallery Calgary — Real Results"
-      description="Browse real before & after photos of our Calgary mobile detailing: interior deep cleans, paint corrections, ceramic coatings & complete details. See the proof."
+      title="Car Detailing Before & After Gallery | Calgary"
+      description="Real before and after photos from Calgary mobile detailing jobs — interior cleans, paint corrections, ceramic coatings, RV oxidation removal & more."
       canonical="/gallery"
     />
     <Navbar />
