@@ -51,8 +51,18 @@ import rvSurveyorFull from "@/assets/gallery-rv-surveyor-full.jpg";
 import rangeRoverExterior from "@/assets/gallery-range-rover-exterior.jpg";
 import rangeRoverInterior from "@/assets/gallery-range-rover-interior.jpg";
 import subaruWheel from "@/assets/gallery-subaru-wheel.jpg";
+import paintReflection from "@/assets/gallery-paint-reflection.jpg";
+import acuraGrey from "@/assets/gallery-acura-grey.jpg";
+import acuraBlue from "@/assets/gallery-acura-blue.jpg";
+import hurricaneRear from "@/assets/gallery-hurricane-rear.jpg";
+import hurricaneFront from "@/assets/gallery-hurricane-front.jpg";
+import hurricaneHeadOn from "@/assets/gallery-hurricane-head-on.jpg";
+import hurricaneSide from "@/assets/gallery-hurricane-side.jpg";
+import gtiFront from "@/assets/gallery-gti-front.jpg";
+import gtiRear from "@/assets/gallery-gti-rear.jpg";
+import gtiInterior from "@/assets/gallery-gti-interior.jpg";
 
-const images = [gallery6, gallery7, gallery8, gallery9, gallery10, gallery11, gallery12, gallery13, gallery14, gallery15, gallery16, gallery17, gallery18, gallery19, gallery20, gallery21, gallery22, gallery23, gallery24, gallery25, gallery26, gallery27, gallery28, gallery29, gallery30, gallery31, gallery32, gallery33, gallery34, gallery35, gallery36, gallery37, gallery38, gallery39, bmwEmblem, bmwWheelFront, bmwRedInterior, rvSurveyorFront, catExcavator1, catExcavator3, bmwHeadlight, bmwRear, lexusIs, rvSurveyorFull, catExcavatorExt1, rangeRoverExterior, rangeRoverInterior, subaruWheel];
+const images = [gallery6, gallery7, gallery8, gallery9, gallery10, gallery11, gallery12, gallery13, gallery14, gallery15, gallery16, gallery17, gallery18, gallery19, gallery20, gallery21, gallery22, gallery23, gallery24, gallery25, gallery26, gallery27, gallery28, gallery29, gallery30, gallery31, gallery32, gallery33, gallery34, gallery35, gallery36, gallery37, gallery38, gallery39, bmwEmblem, bmwWheelFront, bmwRedInterior, rvSurveyorFront, catExcavator1, catExcavator3, bmwHeadlight, bmwRear, lexusIs, rvSurveyorFull, catExcavatorExt1, rangeRoverExterior, rangeRoverInterior, subaruWheel, paintReflection, acuraGrey, acuraBlue, hurricaneRear, hurricaneFront, hurricaneHeadOn, hurricaneSide, gtiFront, gtiRear, gtiInterior];
 
 const GalleryCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center", skipSnaps: false });
