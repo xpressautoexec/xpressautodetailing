@@ -34,7 +34,7 @@ const rvTestimonials = [
 ];
 
 const packages = [
-  // Row 1: Exterior, Interior, Sealant, Decal Restoration
+  // Row 1: Exterior, Sealant, Decal Restoration, Interior
   {
     title: "Exterior Wash",
     price: "$11/ft",
@@ -45,19 +45,6 @@ const packages = [
       "Wheel, tire & fender cleaning",
       "Awning exterior rinse",
       "Rubber seal inspection & conditioning",
-    ],
-  },
-  {
-    title: "Interior Detail",
-    price: "$90/hr",
-    desc: "Deep clean every surface — estimate ~1 hr per 10 ft",
-    features: [
-      "Full vacuum, wipe-down & surface shampoo",
-      "Kitchen counters, sink & appliance cleaning",
-      "Bathroom deep clean & sanitization",
-      "Odor elimination treatment included",
-      "All living area surfaces detailed",
-      "Hourly rate — final time varies by condition",
     ],
   },
   {
@@ -82,6 +69,19 @@ const packages = [
       "Prevents future cracking, peeling & yellowing",
       "Gelcoat & fiberglass UV shield included",
       "Extends decal life by years",
+    ],
+  },
+  {
+    title: "Interior Detail",
+    price: "$90/hr",
+    desc: "Deep clean every surface — estimate ~1 hr per 10 ft",
+    features: [
+      "Full vacuum, wipe-down & surface shampoo",
+      "Kitchen counters, sink & appliance cleaning",
+      "Bathroom deep clean & sanitization",
+      "Odor elimination treatment included",
+      "All living area surfaces detailed",
+      "Hourly rate — final time varies by condition",
     ],
   },
   // Row 2: Wash & Seal, Paint Correction, Correction + Sealant
