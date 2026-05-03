@@ -62,7 +62,7 @@ const tiers: Tier[] = [
     pricing: [
       { label: "Base Service (≤35 ft)", bundle: "$164.99" },
       { label: "Base Service (>35 ft)", bundle: "$184.99" },
-      { label: "Exterior Wash (per ft)", original: "$9/ft", bundle: "$7/ft" },
+      { label: "Exterior Wash (per ft)", original: "$11/ft", bundle: "$9/ft" },
     ],
     features: [
       "Everything in Essential Service",
