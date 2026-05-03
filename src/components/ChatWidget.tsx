@@ -17,7 +17,7 @@ const quickReplies = [
 
 const botResponses: Record<string, string> = {
   "I'd like to book a detail": "Awesome! You can book instantly through our online system — it only takes 60 seconds! [Book Now](https://xpressauto.fieldd.co/)\n\nOr tell me your preferred date/time and vehicle type, and we'll get you set up!",
-  "What are your prices?": "Here's a quick overview:\n\n• **Exterior Detailing** — from $129\n• **Interior Detailing** — from $149\n• **Complete Detail** — from $249\n• **Ceramic Coating** — from $499\n\nPrices vary by vehicle size. Want a custom quote? Just tell us your vehicle!",
+  "What are your prices?": "Here's a quick overview:\n\n• **Exterior Detailing** — from $139\n• **Interior Detailing** — from $159\n• **Complete Detail** — from $259\n• **Ceramic Coating** — from $509\n\nPrices vary by vehicle size. Want a custom quote? Just tell us your vehicle!",
   "What areas do you serve?": "We serve **Calgary** and all surrounding areas including Airdrie, Cochrane, Chestermere, Okotoks, Strathmore, High River, Crossfield, Langdon, and Bearspaw. If you're within 30 min of Calgary, we can come to you!",
   "Do you offer ceramic coating?": "Yes! We use industry-leading ceramic coating products for lasting protection and a mirror-like finish. Packages start from **$499**.\n\nCeramic coating protects against UV, salt, bird droppings, and more. Want to book? [Book Now](https://xpressauto.fieldd.co/)",
 };
