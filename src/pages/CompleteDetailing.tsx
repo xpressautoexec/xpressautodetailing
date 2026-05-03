@@ -115,7 +115,7 @@ const CompleteDetailing = () => (
           <PackageCard
             icon={<Sparkles className="w-8 h-8" />}
             name="Showroom Reset"
-            price="$209.99"
+            price="$219.99"
             tagline="Full interior + exterior in one visit — saves $30+ vs booking separately. Our best value for a complete refresh."
             features={[
               "Full foam pre-wash + two-bucket hand wash & dry",
@@ -137,7 +137,7 @@ const CompleteDetailing = () => (
           <PackageCard
             icon={<ShieldCheck className="w-8 h-8" />}
             name="Showroom Reset + Protection"
-            price="$239.99"
+            price="$249.99"
             tagline="The ultimate package — deep clean, decontamination & lasting protection for every surface inside and out."
             features={[
               "Everything in Showroom Reset included",
@@ -205,7 +205,7 @@ const CompleteDetailing = () => (
               beforeTitle="Before Selling or Trading In"
               beforeText="Visible stains, dull paint, and lingering odors signal neglect — giving buyers leverage to negotiate you down."
               afterTitle="After: Sell for Top Dollar"
-              afterText="A detailed vehicle photographs better and commands a higher price. Our $240 detail regularly earns clients $1,500–$3,000 more."
+              afterText="A detailed vehicle photographs better and commands a higher price. Our $250 detail regularly earns clients $1,500–$3,000 more."
             />
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
