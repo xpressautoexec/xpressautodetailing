@@ -37,7 +37,7 @@ const packages = [
   // Row 1: Exterior, Interior, Sealant, Decal Restoration
   {
     title: "Exterior Wash",
-    price: "$9/ft",
+    price: "$11/ft",
     desc: "Full hand wash, black streak removal & tire shine",
     features: [
       "Full exterior hand wash with RV-safe soap",
@@ -49,19 +49,20 @@ const packages = [
   },
   {
     title: "Interior Detail",
-    price: "$12/ft",
-    desc: "Deep clean every surface — kitchen, bath & living area",
+    price: "$90/hr",
+    desc: "Deep clean every surface — estimate ~1 hr per 10 ft",
     features: [
       "Full vacuum, wipe-down & surface shampoo",
       "Kitchen counters, sink & appliance cleaning",
       "Bathroom deep clean & sanitization",
       "Odor elimination treatment included",
       "All living area surfaces detailed",
+      "Hourly rate — final time varies by condition",
     ],
   },
   {
     title: "Ceramic Sealant",
-    price: "$12/ft",
+    price: "$16/ft",
     desc: "Professional sealant for UV & oxidation defense",
     features: [
       "Professional-grade ceramic sealant application",
@@ -73,11 +74,11 @@ const packages = [
   },
   {
     title: "Decal Restoration & UV Protectant",
-    price: "$10/ft",
-    desc: "Restore faded decals & protect all surfaces from UV damage",
+    price: "$13/ft",
+    desc: "Full-RV UV protection plus targeted decal restoration",
     features: [
-      "Faded decal colour restoration treatment",
-      "UV protectant applied to all exterior decals & graphics",
+      "UV protectant applied to entire RV exterior",
+      "Targeted decal colour restoration treatment",
       "Prevents future cracking, peeling & yellowing",
       "Gelcoat & fiberglass UV shield included",
       "Extends decal life by years",
@@ -86,9 +87,9 @@ const packages = [
   // Row 2: Wash & Seal, Paint Correction, Correction + Sealant
   {
     title: "Wash & Seal",
-    price: "$18/ft",
-    originalPrice: "$21/ft",
-    badge: "Save 14%",
+    price: "$24/ft",
+    originalPrice: "$27/ft",
+    badge: "Save 11%",
     desc: "Exterior wash + ceramic sealant in one visit",
     features: [
       "Full exterior wash included",
@@ -100,7 +101,7 @@ const packages = [
   },
   {
     title: "Paint Correction",
-    price: "$29/ft",
+    price: "$34/ft",
     desc: "Machine polish to remove oxidation & restore original finish",
     features: [
       "Full exterior wash included",
@@ -112,8 +113,8 @@ const packages = [
   },
   {
     title: "Correction + Sealant",
-    price: "$37/ft",
-    originalPrice: "$41/ft",
+    price: "$46/ft",
+    originalPrice: "$50/ft",
     popular: true,
     badge: "Best Value",
     desc: "Full oxidation removal + ceramic sealant for maximum protection",
