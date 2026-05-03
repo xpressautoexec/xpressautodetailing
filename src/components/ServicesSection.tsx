@@ -16,7 +16,7 @@ const services = [
     description: "Inside & out — a full refresh for your entire vehicle. Our #1 most booked service.",
     image: completeImg,
     link: "/complete-detailing",
-    price: "From $209",
+    price: "From $219",
     tag: "Most Popular",
   },
   {
@@ -48,7 +48,7 @@ const detailedServices = [
     description: "Deep-clean every crevice, eliminate odours, remove stains, and restore your cabin to a like-new condition. Your steering wheel has 4× more bacteria than a toilet seat — we fix that.",
     image: interiorImg,
     link: "/interior-detailing",
-    price: "From $159",
+    price: "From $169",
   },
   {
     title: "Paint Correction",

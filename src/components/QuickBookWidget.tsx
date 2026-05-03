@@ -22,12 +22,12 @@ interface ServiceOption {
 const services: ServiceOption[] = [
   {
     label: "Interior Detail",
-    base: { sedan: "$159.99", small_suv: "$179.99", large_suv: "$189.99" },
+    base: { sedan: "$169.99", small_suv: "$189.99", large_suv: "$199.99" },
     time: "~2 hrs",
   },
   {
     label: "Complete Detail",
-    base: { sedan: "$209.99", small_suv: "$229.99", large_suv: "$239.99" },
+    base: { sedan: "$219.99", small_suv: "$239.99", large_suv: "$249.99" },
     time: "~3 hrs",
     popular: true,
   },
