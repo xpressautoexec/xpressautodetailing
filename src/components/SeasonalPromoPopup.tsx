@@ -71,8 +71,8 @@ const SeasonalPromoPopup = () => {
               </p>
 
               <div className="inline-block bg-primary-foreground/10 rounded-lg px-4 py-2 mb-5">
-                <span className="text-primary-foreground/50 text-xs line-through mr-2">$249</span>
-                <span className="text-primary font-heading font-black text-xl">$189</span>
+                <span className="text-primary-foreground/50 text-xs line-through mr-2">$259</span>
+                <span className="text-primary font-heading font-black text-xl">$199</span>
               </div>
 
               <div className="block">
