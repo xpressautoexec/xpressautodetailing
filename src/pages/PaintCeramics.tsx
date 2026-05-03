@@ -169,7 +169,7 @@ const PaintCeramics = () => (
           <PackageCard
             icon={<Sparkles className="w-8 h-8" />}
             name="1-Step Enhancement + 1 Yr Ceramic"
-            price="$399.99"
+            price="$409.99"
             tagline="Restore gloss, remove light swirls & add a full year of ceramic protection — ideal for daily drivers."
             ctaText="Call Now"
             ctaLink="tel:5875004523"
@@ -191,7 +191,7 @@ const PaintCeramics = () => (
           <PackageCard
             icon={<Gem className="w-8 h-8" />}
             name="2-Step Correction + 5 Yr Ceramic"
-            price="$599.99"
+            price="$609.99"
             tagline="Full paint correction for enthusiasts — removes 85–95% of defects with multi-year ceramic protection."
             ctaText="Call Now"
             ctaLink="tel:5875004523"

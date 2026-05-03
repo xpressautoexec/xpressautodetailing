@@ -34,7 +34,7 @@ const testimonials = [
 const packages = [
   {
     title: "Full Bike Wash",
-    price: "$129",
+    price: "$139",
     features: [
       "Controlled rinse avoiding electronics & bearings",
       "pH-neutral foam & hand wash with microfiber mitts",
@@ -46,7 +46,7 @@ const packages = [
   },
   {
     title: "Full Wash + Armor",
-    price: "$159",
+    price: "$169",
     popular: true,
     features: [
       "Everything in Full Bike Wash included",
@@ -59,7 +59,7 @@ const packages = [
   },
   {
     title: "Full Wash + Ceramic",
-    price: "$379",
+    price: "$389",
     badge: "Ultimate Protection",
     features: [
       "Everything in Full Wash + Armor included",

@@ -121,7 +121,7 @@ const InteriorDetailing = () => (
           <PackageCard
             icon={<Sparkles className="w-8 h-8" />}
             name="Fresh Start Interior"
-            price="$159.99"
+            price="$169.99"
             tagline="A professional refresh for light cleanup and regular maintenance — keeps your cabin feeling fresh between deep cleans."
             features={[
               "Full vacuum of seats, carpets, trunk & crevices",
@@ -142,7 +142,7 @@ const InteriorDetailing = () => (
           <PackageCard
             icon={<Shield className="w-8 h-8" />}
             name="Deep Clean + Shield"
-            price="$189.99"
+            price="$199.99"
             tagline="Full interior transformation — embedded stains, winter salt, pet mess & odors completely eliminated and protected."
             features={[
               "Everything in Fresh Start included",

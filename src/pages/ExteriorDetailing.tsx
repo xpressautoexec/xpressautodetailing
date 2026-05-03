@@ -121,7 +121,7 @@ const ExteriorDetailing = () => (
           <PackageCard
             icon={<Droplets className="w-8 h-8" />}
             name="Gloss Refresh"
-            price="$79.99"
+            price="$89.99"
             tagline="A thorough hand wash & shine — perfect for regular maintenance or between full details."
             features={[
               "Contactless foam pre-wash to loosen dirt safely",
@@ -142,7 +142,7 @@ const ExteriorDetailing = () => (
           <PackageCard
             icon={<Shield className="w-8 h-8" />}
             name="Gloss Refresh + Armor"
-            price="$99.99"
+            price="$109.99"
             tagline="Deep decontamination + wax seal for lasting paint protection. Our most popular exterior package."
             features={[
               "Everything in Gloss Refresh included",
