@@ -230,8 +230,8 @@ const PaintCeramics = () => (
         <StaggerContainer className="grid sm:grid-cols-3 gap-5" staggerDelay={0.08}>
           {[
             { icon: Shield, name: "Ceramic Spray Sealant Upgrade", price: "$75", desc: "Upgrade from standard wax to a ceramic spray sealant that lasts 3–6 months longer. Superior hydrophobic properties, UV protection, and deep gloss." },
-            { icon: Shield, name: "Wheel Ceramic Coating", price: "$80/wheel", desc: "Protect your wheels with a ceramic coating that repels brake dust, road grime, and salt — making cleaning effortless and keeping them looking new." },
-            { icon: Droplets, name: "Windshield Ceramic Coating", price: "$120", desc: "Long-lasting hydrophobic ceramic coating for your windshield. Rain beads and flies off at highway speed, reducing the need for wipers and improving safety." },
+            { icon: Shield, name: "Wheel Ceramic Coating", price: "$120/wheel", desc: "Protect your wheels with a ceramic coating that repels brake dust, road grime, and salt — making cleaning effortless and keeping them looking new." },
+            { icon: Droplets, name: "All Glass Ceramic Coating", price: "$230", desc: "Long-lasting hydrophobic ceramic coating applied to all vehicle glass. Rain beads and flies off at highway speed, reducing the need for wipers and improving visibility." },
           ].map((item) => (
             <StaggerItem key={item.name}>
               <div className="p-6 rounded-xl border border-border bg-card hover:border-primary/40 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
