@@ -191,7 +191,7 @@ const PaintCeramics = () => (
           <PackageCard
             icon={<Gem className="w-8 h-8" />}
             name="2-Step Correction + 5 Yr Ceramic"
-            price="$899.99"
+            price="$849.99"
             tagline="Full paint correction for enthusiasts — removes 85–95% of defects with multi-year ceramic protection."
             ctaText="Call Now"
             ctaLink="tel:5875004523"
@@ -209,7 +209,7 @@ const PaintCeramics = () => (
               { name: "Interior Ceramic Coating (all trim)", price: "+$120" },
               { name: "Windshield Ceramic Coating", price: "+$120" },
             ]}
-            surcharges={["SUV & Truck: $999.99", "SUV 7-Seat: $1,049.99"]}
+            surcharges={["SUV & Truck: $949.99", "SUV 7-Seat: $999.99"]}
             isPrimary
           />
         </div>
