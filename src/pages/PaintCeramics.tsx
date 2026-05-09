@@ -184,7 +184,7 @@ const PaintCeramics = () => (
             addOns={[
               { name: "Wheel Ceramic Coating", price: "+$120/wheel" },
               { name: "All Glass Ceramic Coating", price: "+$230" },
-              { name: "Ceramic Spray Sealant Upgrade", price: "+$75" },
+              { name: "Ceramic Spray Sealant Upgrade", price: "+$110" },
             ]}
             surcharges={["SUV & Truck: $524.99", "SUV 7-Seat: $624.99"]}
           />
@@ -227,11 +227,12 @@ const PaintCeramics = () => (
             Extend your ceramic protection to every surface. Available with any paint correction or ceramic package.
           </p>
         </ScrollReveal>
-        <StaggerContainer className="grid sm:grid-cols-3 gap-5" staggerDelay={0.08}>
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5" staggerDelay={0.08}>
           {[
-            { icon: Shield, name: "Ceramic Spray Sealant Upgrade", price: "$75", desc: "Upgrade from standard wax to a ceramic spray sealant that lasts 3–6 months longer. Superior hydrophobic properties, UV protection, and deep gloss." },
+            { icon: Shield, name: "Ceramic Spray Sealant Upgrade", price: "$110", desc: "Upgrade from standard wax to a ceramic spray sealant that lasts 3–6 months longer. Superior hydrophobic properties, UV protection, and deep gloss." },
             { icon: Shield, name: "Wheel Ceramic Coating", price: "$120/wheel", desc: "Protect your wheels with a ceramic coating that repels brake dust, road grime, and salt — making cleaning effortless and keeping them looking new." },
             { icon: Droplets, name: "All Glass Ceramic Coating", price: "$230", desc: "Long-lasting hydrophobic ceramic coating applied to all vehicle glass. Rain beads and flies off at highway speed, reducing the need for wipers and improving visibility." },
+            { icon: Shield, name: "Interior Ceramic Coating", price: "$350", desc: "Full interior trim, plastics, and leather protection. Repels spills, blocks UV fading, and makes routine cleaning effortless across every interior surface." },
           ].map((item) => (
             <StaggerItem key={item.name}>
               <div className="p-6 rounded-xl border border-border bg-card hover:border-primary/40 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
