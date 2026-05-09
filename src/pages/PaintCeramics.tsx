@@ -169,7 +169,7 @@ const PaintCeramics = () => (
           <PackageCard
             icon={<Sparkles className="w-8 h-8" />}
             name="1-Step Enhancement + 1 Yr Ceramic"
-            price="$399.99"
+            price="$549.99"
             tagline="Restore gloss, remove light swirls & add a full year of ceramic protection — ideal for daily drivers."
             ctaText="Call Now"
             ctaLink="tel:5875004523"
@@ -186,12 +186,12 @@ const PaintCeramics = () => (
               { name: "Windshield Ceramic Coating", price: "+$120" },
               { name: "Ceramic Spray Sealant Upgrade", price: "+$75" },
             ]}
-            surcharges={["SUV & Truck: $449.99", "SUV 7-Seat: $549.99"]}
+            surcharges={["SUV & Truck: $599.99", "SUV 7-Seat: $699.99"]}
           />
           <PackageCard
             icon={<Gem className="w-8 h-8" />}
             name="2-Step Correction + 5 Yr Ceramic"
-            price="$599.99"
+            price="$899.99"
             tagline="Full paint correction for enthusiasts — removes 85–95% of defects with multi-year ceramic protection."
             ctaText="Call Now"
             ctaLink="tel:5875004523"
@@ -209,7 +209,7 @@ const PaintCeramics = () => (
               { name: "Interior Ceramic Coating (all trim)", price: "+$120" },
               { name: "Windshield Ceramic Coating", price: "+$120" },
             ]}
-            surcharges={["SUV & Truck: $699.99", "SUV 7-Seat: $749.99"]}
+            surcharges={["SUV & Truck: $999.99", "SUV 7-Seat: $1,049.99"]}
             isPrimary
           />
         </div>
