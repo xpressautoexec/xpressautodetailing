@@ -169,7 +169,7 @@ const PaintCeramics = () => (
           <PackageCard
             icon={<Sparkles className="w-8 h-8" />}
             name="1-Step Enhancement + 1 Yr Ceramic"
-            price="$549.99"
+            price="$474.99"
             tagline="Restore gloss, remove light swirls & add a full year of ceramic protection — ideal for daily drivers."
             ctaText="Call Now"
             ctaLink="tel:5875004523"
@@ -186,7 +186,7 @@ const PaintCeramics = () => (
               { name: "All Glass Ceramic Coating", price: "+$230" },
               { name: "Ceramic Spray Sealant Upgrade", price: "+$75" },
             ]}
-            surcharges={["SUV & Truck: $599.99", "SUV 7-Seat: $699.99"]}
+            surcharges={["SUV & Truck: $524.99", "SUV 7-Seat: $624.99"]}
           />
           <PackageCard
             icon={<Gem className="w-8 h-8" />}
