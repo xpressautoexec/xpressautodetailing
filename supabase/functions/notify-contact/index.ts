@@ -20,15 +20,46 @@ serve(async (req) => {
 
   try {
     // Verify shared secret — only the DB trigger should be able to call this
-    const NOTIFY_SECRET = Deno.env.get('NOTIFY_SECRET');
-    if (!NOTIFY_SECRET) {
-      console.error('NOTIFY_SECRET is not configured');
+    const providedSecret = req.headers.get('x-notify-secret');
+    if (!providedSecret) {
       return new Response(JSON.stringify({ success: false, error: 'Unauthorized' }), {
         status: 401,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
     }
-    if (req.headers.get('x-notify-secret') !== NOTIFY_SECRET) {
+
+    const SUPABASE_URL = Deno.env.get('SUPABASE_URL');
+    const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
+    if (!SUPABASE_URL || !SERVICE_ROLE_KEY) {
+      console.error('Supabase env vars not configured');
+      return new Response(JSON.stringify({ success: false, error: 'Internal error' }), {
+        status: 500,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Fetch expected secret from vault via private RPC
+    const secretRes = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_notify_contact_secret`, {
+      method: 'POST',
+      headers: {
+        'apikey': SERVICE_ROLE_KEY,
+        'Authorization': `Bearer ${SERVICE_ROLE_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: '{}',
+    });
+
+    if (!secretRes.ok) {
+      console.error('Failed to fetch notify secret:', secretRes.status);
+      return new Response(JSON.stringify({ success: false, error: 'Internal error' }), {
+        status: 500,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    const expectedSecret = await secretRes.json();
+    // Constant-time-ish comparison
+    if (typeof expectedSecret !== 'string' || expectedSecret.length === 0 || providedSecret !== expectedSecret) {
       return new Response(JSON.stringify({ success: false, error: 'Unauthorized' }), {
         status: 401,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
