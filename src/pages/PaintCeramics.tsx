@@ -182,8 +182,8 @@ const PaintCeramics = () => (
               "Aftercare guide provided",
             ]}
             addOns={[
-              { name: "Wheel Ceramic Coating", price: "+$80/wheel" },
-              { name: "Windshield Ceramic Coating", price: "+$120" },
+              { name: "Wheel Ceramic Coating", price: "+$120/wheel" },
+              { name: "All Glass Ceramic Coating", price: "+$230" },
               { name: "Ceramic Spray Sealant Upgrade", price: "+$75" },
             ]}
             surcharges={["SUV & Truck: $599.99", "SUV 7-Seat: $699.99"]}
@@ -205,9 +205,9 @@ const PaintCeramics = () => (
               "Aftercare kit & maintenance schedule included",
             ]}
             addOns={[
-              { name: "Wheel Ceramic Coating", price: "+$80/wheel" },
-              { name: "Interior Ceramic Coating (all trim)", price: "+$120" },
-              { name: "Windshield Ceramic Coating", price: "+$120" },
+              { name: "Wheel Ceramic Coating", price: "+$120/wheel" },
+              { name: "Interior Ceramic Coating (all trim)", price: "+$350" },
+              { name: "All Glass Ceramic Coating", price: "+$230" },
             ]}
             surcharges={["SUV & Truck: $949.99", "SUV 7-Seat: $999.99"]}
             isPrimary
