@@ -120,7 +120,7 @@ const InteriorDetailing = () => (
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto px-2 sm:px-0">
           <PackageCard
             icon={<Sparkles className="w-8 h-8" />}
-            name="Fresh Start Interior"
+            name="Fresh Start (Base Package)"
             price="$169.99"
             tagline="A professional refresh for light cleanup and regular maintenance — keeps your cabin feeling fresh between deep cleans."
             features={[
