@@ -97,7 +97,7 @@ const PackageCard = ({
 
       {/* Features */}
       {featureGroups && featureGroups.length > 0 ? (
-        <div className="mb-5 space-y-5">
+        <div className={`mb-5 ${featureGroups.length > 1 ? "grid sm:grid-cols-2 gap-x-6 gap-y-5" : "space-y-5"}`}>
           {featureGroups.map((group, gi) => (
             <div key={gi}>
               <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-muted-foreground/60 mb-3">
