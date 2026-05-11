@@ -14,6 +14,7 @@ interface PackageCardProps {
   price: string;
   tagline: string;
   features: string[];
+  featureGroups?: { label: string; items: string[] }[];
   extras?: string[];
   bonuses?: string[];
   addOns?: AddOn[];
