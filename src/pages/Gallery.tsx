@@ -6,7 +6,7 @@ import TrustStats from "@/components/TrustStats";
 
 import SEO from "@/components/SEO";
 import galleryHero from "@/assets/gallery-hero.jpg";
-import gallery6 from "@/assets/gallery-6.jpg";
+
 import gallery7 from "@/assets/gallery-7.jpg";
 import gallery8 from "@/assets/gallery-8.jpg";
 import gallery9 from "@/assets/gallery-9.jpg";
@@ -93,7 +93,7 @@ const sections: { title: string; description: string; images: GalleryImage[] }[]
       { src: gallery29, alt: "Silver Audi RS5 freshly detailed in driveway" },
       { src: gallery21, alt: "Black Tesla Model S with mirror-like paint finish" },
       { src: gallery22, alt: "Black Audi S5 freshly detailed in driveway" },
-      { src: gallery6, alt: "Red Hyundai N hatchback after professional exterior detail" },
+      
       { src: gallery11, alt: "Black BMW SUV after exterior detail" },
       { src: gallery14, alt: "White Tesla Model X after exterior wash and detail" },
       { src: bmwRear, alt: "BMW 2-Series convertible rear three-quarter view freshly detailed" },
