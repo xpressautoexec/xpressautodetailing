@@ -14,6 +14,7 @@ interface PackageCardProps {
   price: string;
   tagline: string;
   features: string[];
+  featureGroups?: { label: string; items: string[] }[];
   extras?: string[];
   bonuses?: string[];
   addOns?: AddOn[];
@@ -32,6 +33,7 @@ const PackageCard = ({
   price,
   tagline,
   features,
+  featureGroups,
   extras,
   bonuses,
   addOns,
@@ -94,21 +96,43 @@ const PackageCard = ({
       )}
 
       {/* Features */}
-      <div className="mb-5">
-        <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-muted-foreground/60 mb-3">
-          What's Included
-        </p>
-        <ul className="space-y-2.5">
-          {features.map((f, i) => (
-            <li key={i} className="flex items-start gap-3 text-sm">
-              <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 bg-success/15">
-                <Check className="w-3 h-3 text-success" />
-              </div>
-              <span className="text-foreground/80">{f}</span>
-            </li>
+      {featureGroups && featureGroups.length > 0 ? (
+        <div className={`mb-5 ${featureGroups.length > 1 ? "grid sm:grid-cols-2 gap-x-6 gap-y-5" : "space-y-5"}`}>
+          {featureGroups.map((group, gi) => (
+            <div key={gi}>
+              <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-muted-foreground/60 mb-3">
+                {group.label}
+              </p>
+              <ul className="space-y-2.5">
+                {group.items.map((f, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm">
+                    <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 bg-success/15">
+                      <Check className="w-3 h-3 text-success" />
+                    </div>
+                    <span className="text-foreground/80">{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
-      </div>
+        </div>
+      ) : (
+        <div className="mb-5">
+          <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-muted-foreground/60 mb-3">
+            What's Included
+          </p>
+          <ul className="space-y-2.5">
+            {features.map((f, i) => (
+              <li key={i} className="flex items-start gap-3 text-sm">
+                <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 bg-success/15">
+                  <Check className="w-3 h-3 text-success" />
+                </div>
+                <span className="text-foreground/80">{f}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* Bonuses */}
       {bonuses && bonuses.length > 0 && (

@@ -111,31 +111,38 @@ const CompleteDetailing = () => (
             Interior + exterior in one visit — our best value
           </p>
         </ScrollReveal>
-        <div className="max-w-xl mx-auto px-2 sm:px-0">
+        <div className="max-w-3xl mx-auto px-2 sm:px-0">
           <PackageCard
             icon={<ShieldCheck className="w-8 h-8" />}
             name="Complete Showroom Reset"
             price="$289.99"
             tagline="The ultimate inside-and-out transformation — full interior deep clean plus exterior decontamination, wax & lasting protection."
-            features={[
-              "Full foam pre-wash + two-bucket hand wash & dry",
-              "Tire, wheel & wheel well cleaning + tire shine",
-              "Clay bar paint decontamination (glass-smooth finish)",
-              "Hand-applied carnauba & synthetic wax coat",
-              "Exhaust tips polished",
-              "Door jambs cleaned & dried",
-              "Streak-free windows inside & out",
-              "Deep vacuum of seats, carpets, trunk & all crevices",
-              "Dashboard, console & door panels detailed",
-              "Hot water extraction shampoo on all carpets & fabric seats",
-              "Steam cleaning of hard-to-reach areas & crevices",
-              "Leather deep clean + conditioning treatment",
-              "UV protectant applied to dash, trim & all plastics",
-              "Interior protectant on all surfaces (long-lasting shield)",
-            ]}
-            bonuses={[
-              "IronX Fallout Treatment ($40 value) — FREE",
-              "25% OFF Engine Bay Detail when added",
+            features={[]}
+            featureGroups={[
+              {
+                label: "Exterior",
+                items: [
+                  "Full foam pre-wash + two-bucket hand wash & dry",
+                  "Tire, wheel & wheel well cleaning + tire shine",
+                  "Clay bar paint decontamination (glass-smooth finish)",
+                  "Hand-applied carnauba & synthetic wax coat",
+                  "Exhaust tips polished",
+                  "Door jambs cleaned & dried",
+                  "Streak-free windows inside & out",
+                ],
+              },
+              {
+                label: "Interior",
+                items: [
+                  "Deep vacuum of seats, carpets, trunk & all crevices",
+                  "Dashboard, console & door panels detailed",
+                  "Hot water extraction shampoo on carpets & fabric seats",
+                  "Steam cleaning of hard-to-reach areas & crevices",
+                  "Leather deep clean + conditioning treatment",
+                  "UV protectant on dash, trim & all plastics",
+                  "Interior protectant (long-lasting shield)",
+                ],
+              },
             ]}
             addOns={[
               { name: "Ceramic Spray Sealant Upgrade", price: "+$110" },
