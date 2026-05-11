@@ -105,13 +105,13 @@ const CompleteDetailing = () => (
       <div className="container">
         <ScrollReveal>
           <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center text-background mb-4">
-            Complete Detailing Packages
+            Complete Detailing Package
           </h2>
           <p className="text-center text-background/50 font-heading text-sm uppercase tracking-widest mb-12">
             Interior + exterior in one visit — our best value
           </p>
         </ScrollReveal>
-        <div className="grid md:grid-cols-1 gap-6 sm:gap-8 max-w-2xl mx-auto px-2 sm:px-0">
+        <div className="max-w-xl mx-auto px-2 sm:px-0">
           <PackageCard
             icon={<ShieldCheck className="w-8 h-8" />}
             name="Complete Showroom Reset"
