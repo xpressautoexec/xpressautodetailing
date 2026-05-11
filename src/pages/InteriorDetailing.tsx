@@ -142,7 +142,7 @@ const InteriorDetailing = () => (
           <PackageCard
             icon={<Shield className="w-8 h-8" />}
             name="Deep Clean + Shield"
-            price="$199.99"
+            price="$219.99"
             tagline="Full interior transformation — embedded stains, winter salt, pet mess & odors completely eliminated and protected."
             features={[
               "Everything in Fresh Start included",
