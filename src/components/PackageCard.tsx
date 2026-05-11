@@ -33,6 +33,7 @@ const PackageCard = ({
   price,
   tagline,
   features,
+  featureGroups,
   extras,
   bonuses,
   addOns,
