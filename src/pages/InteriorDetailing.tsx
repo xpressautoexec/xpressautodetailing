@@ -136,13 +136,13 @@ const InteriorDetailing = () => (
               { name: "Ozone Odour Elimination", price: "+$75" },
               { name: "Trunk Deep Clean", price: "+$30" },
             ]}
-            surcharges={["Add $20 for small SUVs/trucks", "Add $30 for 3-row SUVs/minivans"]}
+            surcharges={["Add $30 for SUVs/trucks", "Add $50 for 3-row SUVs/minivans"]}
             time="~1.5–2 hrs | Mobile anywhere in Calgary"
           />
           <PackageCard
             icon={<Shield className="w-8 h-8" />}
             name="Deep Clean + Shield"
-            price="$219.99"
+            price="$199.99"
             tagline="Full interior transformation — embedded stains, winter salt, pet mess & odors completely eliminated and protected."
             features={[
               "Everything in Fresh Start included",
@@ -159,7 +159,7 @@ const InteriorDetailing = () => (
               { name: "Ozone Odour Elimination", price: "+$75" },
               { name: "Headliner Deep Clean", price: "+$40" },
             ]}
-            surcharges={["Add $20 for small SUVs/trucks", "Add $30 for 3-row SUVs/minivans"]}
+            surcharges={["Add $30 for SUVs/trucks", "Add $50 for 3-row SUVs/minivans"]}
             time="~2–2.5 hrs | Mobile anywhere in Calgary"
             isPrimary
           />
