@@ -26,7 +26,7 @@ const WhyChooseUs = lazy(() => import("./pages/WhyChooseUs"));
 const AddOns = lazy(() => import("./pages/AddOns"));
 const Training = lazy(() => import("./pages/Training"));
 const TrainingSignup = lazy(() => import("./pages/TrainingSignup"));
-const MotorcycleDetailing = lazy(() => import("./pages/MotorcycleDetailing"));
+
 const WindshieldPPF = lazy(() => import("./pages/WindshieldPPF"));
 
 const queryClient = new QueryClient();
@@ -55,7 +55,7 @@ const AnimatedRoutes = () => {
         <Route path="/add-ons" element={<AddOns />} />
         <Route path="/training" element={<Training />} />
         <Route path="/training/signup" element={<TrainingSignup />} />
-        <Route path="/motorcycle-detailing" element={<MotorcycleDetailing />} />
+        
         <Route path="/windshield-ppf" element={<WindshieldPPF />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
