@@ -115,7 +115,7 @@ const CompleteDetailing = () => (
           <PackageCard
             icon={<ShieldCheck className="w-8 h-8" />}
             name="Complete Showroom Reset"
-            price="$289.99"
+            price="$269.00"
             tagline="The ultimate inside-and-out transformation — full interior deep clean plus exterior decontamination, wax & lasting protection."
             features={[]}
             featureGroups={[
@@ -150,7 +150,7 @@ const CompleteDetailing = () => (
               { name: "Ozone Odour Elimination", price: "+$75" },
               { name: "Headlight Restoration", price: "+$80" },
             ]}
-            surcharges={["Add $20 for small SUVs/trucks", "Add $30 for 3-row SUVs/minivans"]}
+            surcharges={["Add $40 for SUVs/trucks", "Add $60 for 3-row SUVs/vans"]}
             time="~3–3.5 hrs | Mobile anywhere in Calgary"
             isPrimary
           />
