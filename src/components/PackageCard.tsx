@@ -171,8 +171,8 @@ const PackageCard = ({
       {/* Spacer to push footer down */}
       <div className="flex-1" />
 
-      {/* Time & surcharges */}
-      <div className="text-xs space-y-1.5 text-muted-foreground/70 mb-5">
+      {/* Time & guarantee */}
+      <div className="text-xs space-y-1.5 text-muted-foreground/70 mb-3">
         {time && (
           <p className="flex items-center gap-1.5 font-medium text-muted-foreground">
             <Clock className="w-3 h-3" /> {time}
@@ -181,8 +181,24 @@ const PackageCard = ({
         <p className="flex items-center gap-1.5">
           <Shield className="w-3 h-3" /> {guarantee}
         </p>
-        {surcharges?.map((s, i) => <p key={i} className="pl-[18px]">{s}</p>)}
       </div>
+
+      {/* Surcharges — high visibility */}
+      {surcharges && surcharges.length > 0 && (
+        <div className="mb-5 p-3 rounded-lg bg-urgency/10 border border-urgency/30">
+          <p className="text-[10px] font-heading font-bold uppercase tracking-widest mb-1.5 text-urgency">
+            Vehicle Size Pricing
+          </p>
+          <ul className="space-y-1">
+            {surcharges.map((s, i) => (
+              <li key={i} className="text-sm font-semibold text-foreground flex items-start gap-2">
+                <Plus className="w-3.5 h-3.5 mt-0.5 shrink-0 text-urgency" />
+                <span>{s.replace(/^Add\s*/i, "")}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* CTA */}
       <a
