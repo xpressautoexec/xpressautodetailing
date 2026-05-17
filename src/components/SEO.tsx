@@ -94,7 +94,7 @@ export const buildServiceJsonLd = (name: string, description: string, url: strin
   "@type": "Service",
   name,
   description,
-  url: `https://xpressautodetailing.ca${url}`,
+  url: `https://xpressautodetail.ca${url}`,
   provider: {
     "@type": "AutoDetailing",
     name: "Xpress Auto Detailing",
