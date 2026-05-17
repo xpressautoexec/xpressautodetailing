@@ -39,8 +39,8 @@ const HeroSection = () => {
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
             className="font-heading font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase leading-tight text-white mb-2"
           >
-            The Car Wash That{" "}
-            <span className="text-primary">Comes to You</span>
+            Calgary's Mobile Detailing{" "}
+            <span className="text-primary">That Comes to You</span>
           </motion.h1>
 
           <motion.p
