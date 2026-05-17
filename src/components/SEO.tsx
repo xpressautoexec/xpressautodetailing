@@ -10,7 +10,7 @@ interface SEOProps {
 }
 
 const SITE_NAME = "Xpress Auto Detailing";
-const BASE_URL = "https://xpressautodetailing.ca";
+const BASE_URL = "https://xpressautodetail.ca";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og-default.jpg`;
 
 const SEO = ({
