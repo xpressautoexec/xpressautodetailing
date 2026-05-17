@@ -209,7 +209,7 @@ const PaintCeramics = () => (
               { name: "Interior Ceramic Coating (all trim)", price: "+$350" },
               { name: "All Glass Ceramic Coating", price: "+$230" },
             ]}
-            surcharges={["Add $100 for SUVs/trucks", "Add $150 for 3-row SUVs/vans"]}
+            surcharges={["Add $150 for SUVs/trucks", "Add $200 for 3-row SUVs/minivans"]}
             isPrimary
           />
         </div>
