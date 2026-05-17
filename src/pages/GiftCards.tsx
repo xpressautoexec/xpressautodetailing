@@ -16,7 +16,7 @@ const GiftCards = () => (
       canonical="/gift-cards"
     />
     <Navbar />
-    <ServicePageHero title="Gift Cards" image={giftcardHero} />
+    <ServicePageHero title="Car Detailing Gift Cards Calgary" image={giftcardHero} />
 
     <section className="py-16 bg-background">
       <div className="container max-w-4xl text-center">
