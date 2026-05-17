@@ -185,7 +185,7 @@ const Gallery = () => (
       canonical="/gallery"
     />
     <Navbar />
-    <ServicePageHero title="Our Work" image={galleryHero} />
+    <ServicePageHero title="Calgary Detailing Before & After Gallery" image={galleryHero} />
     <TrustStats />
 
     <section className="py-16 bg-background">

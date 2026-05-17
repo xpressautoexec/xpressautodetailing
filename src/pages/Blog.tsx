@@ -82,7 +82,7 @@ const Blog = () => (
 
     <section className="py-20 bg-background">
       <div className="container">
-        <h1 className="font-heading font-black text-3xl md:text-4xl uppercase text-foreground text-center mb-4">Blog</h1>
+        <h1 className="font-heading font-black text-3xl md:text-4xl uppercase text-foreground text-center mb-4">Car Detailing Tips & Guides — Calgary</h1>
         <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">Tips, insights, and news from Calgary's trusted mobile detailing experts. Stay informed about the best ways to protect and maintain your vehicle.</p>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">

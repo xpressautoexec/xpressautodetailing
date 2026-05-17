@@ -44,7 +44,7 @@ const PaintCeramics = () => (
       ]}
     />
     <Navbar />
-    <ServicePageHero title="Paint Correction & Ceramic Coating Packages" image={ceramicHero} ctaType="call" />
+    <ServicePageHero title="Paint Correction & Ceramic Coating Calgary" image={ceramicHero} ctaType="call" />
     <TrustStats />
 
     {/* Intro */}

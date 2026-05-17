@@ -10,7 +10,7 @@ interface SEOProps {
 }
 
 const SITE_NAME = "Xpress Auto Detailing";
-const BASE_URL = "https://xpressautodetailing.ca";
+const BASE_URL = "https://xpressautodetail.ca";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og-default.jpg`;
 
 const SEO = ({
@@ -64,10 +64,10 @@ export const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "AutoDetailing",
   name: "Xpress Auto Detailing",
-  url: "https://xpressautodetailing.ca",
+  url: "https://xpressautodetail.ca",
   telephone: "+1-587-500-4523",
   email: "support@xpressautodetail.ca",
-  description: "Calgary's premier mobile car detailing service. Interior, exterior, ceramic coating & fleet detailing.",
+  description: "Calgary's mobile car detailing service. Mobile detailing for cars, trucks, RVs, trailers, fleets — interior, exterior, paint correction, ceramic coating and oxidation removal. We come to you across Calgary, Airdrie, Cochrane and Chestermere.",
   areaServed: [
     { "@type": "City", name: "Calgary" },
     { "@type": "City", name: "Airdrie" },
@@ -94,7 +94,7 @@ export const buildServiceJsonLd = (name: string, description: string, url: strin
   "@type": "Service",
   name,
   description,
-  url: `https://xpressautodetailing.ca${url}`,
+  url: `https://xpressautodetail.ca${url}`,
   provider: {
     "@type": "AutoDetailing",
     name: "Xpress Auto Detailing",
