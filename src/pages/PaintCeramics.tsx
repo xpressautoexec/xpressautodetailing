@@ -186,7 +186,7 @@ const PaintCeramics = () => (
               { name: "All Glass Ceramic Coating", price: "+$230" },
               { name: "Ceramic Spray Sealant Upgrade", price: "+$110" },
             ]}
-            surcharges={["Add $50 for SUVs/trucks", "Add $150 for 3-row SUVs/vans"]}
+            surcharges={["Add $150 for SUVs/trucks", "Add $200 for 3-row SUVs/minivans"]}
           />
           <PackageCard
             icon={<Gem className="w-8 h-8" />}
