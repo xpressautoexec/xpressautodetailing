@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Star, Clock, Shield, Zap } from "lucide-react";
-import heroBg from "@/assets/hero-bg-new.jpg";
+import heroBg from "@/assets/gallery-paint-reflection.jpg";
 import vanImage from "@/assets/xpress-van.png";
 import QuickBookWidget from "@/components/QuickBookWidget";
 
