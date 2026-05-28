@@ -40,7 +40,7 @@ const services: ServiceOption[] = [
 
 const QuickBookWidget = () => {
   const [vehicle, setVehicle] = useState<VehicleSize>("sedan");
-  const [selectedService, setSelectedService] = useState(1); // default to Complete
+  const [selectedService, setSelectedService] = useState(2); // default to Complete
 
   return (
     <motion.div
