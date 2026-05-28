@@ -101,7 +101,6 @@ const mobileLinks: MobileNavItem[] = [
       { label: "Gallery", href: "/gallery" },
       { label: "Contact Us", href: "/contact" },
       { label: "Blog", href: "/blog" },
-      { label: "Training", href: "/training" },
       { label: "Terms & Conditions", href: "/terms-conditions" },
     ],
   },
