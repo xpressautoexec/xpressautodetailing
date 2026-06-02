@@ -183,6 +183,14 @@ const Gallery = () => (
       title="Detailing Before & After Gallery"
       description="Real before and after photos from Calgary mobile detailing jobs — interior cleans, paint corrections, ceramic coatings, RV oxidation removal & more."
       canonical="/gallery"
+      jsonLd={{
+        "@context": "https://schema.org",
+        "@type": "ImageGallery",
+        name: "Xpress Auto Detailing — Before & After Gallery",
+        description: "Portfolio of real Calgary mobile detailing transformations: interior deep cleans, paint corrections, ceramic coatings, and RV restorations.",
+        url: "https://xpressautodetail.ca/gallery",
+        about: "Mobile car detailing transformations in Calgary, Airdrie, Chestermere, and Cochrane.",
+      }}
     />
     <Navbar />
     <ServicePageHero title="Calgary Detailing Before & After Gallery" image={galleryHero} />
