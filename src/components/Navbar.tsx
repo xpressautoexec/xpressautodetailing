@@ -88,7 +88,7 @@ const mobileLinks: MobileNavItem[] = [
     children: [
       { label: "Trailer & RV Detailing", href: "/trailer-rv" },
       { label: "Winterization & De-Winterization", href: "/trailer-rv/winterization" },
-      { label: "RV Paint Protection Film", href: "/trailer-rv/ppf" },
+      
     ],
   },
   { label: "Corporate & Fleet", href: "/corporate-fleet" },
