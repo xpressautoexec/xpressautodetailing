@@ -20,33 +20,108 @@ import {
   ShieldCheck,
   ArrowRight,
   Clock,
+  Tag,
+  Car,
+  Truck,
+  Star,
+  Quote,
 } from "lucide-react";
+import heroImg from "@/assets/complete-hero.jpg";
+import bannerImg from "@/assets/gallery-paint-reflection.jpg";
+import gal1 from "@/assets/gallery-bmw-red-interior.jpg";
+import gal2 from "@/assets/gallery-acura-blue.jpg";
+import gal3 from "@/assets/gallery-range-rover-interior.jpg";
+import gal4 from "@/assets/gallery-gti-front.jpg";
+import gal5 from "@/assets/gallery-bmw-wheel-front.jpg";
+import gal6 from "@/assets/gallery-lexus-is.jpg";
 
 const PHONE = "587-500-4523";
 const PHONE_HREF = "tel:5875004523";
 
 const FREQUENCIES = [
-  { value: "1", label: "Every Month (Most Popular)", discount: 20, cadence: "monthly" },
-  { value: "2", label: "Every 2 Months", discount: 15, cadence: "every 2 months" },
-  { value: "3", label: "Every 3 Months", discount: 10, cadence: "every 3 months" },
-  { value: "6", label: "Every 6 Months", discount: 5, cadence: "every 6 months" },
+  { value: "1", label: "Every Month (Most Popular)", discount: 20, addOnDiscount: 15, cadence: "monthly" },
+  { value: "2", label: "Every 2 Months", discount: 15, addOnDiscount: 12, cadence: "every 2 months" },
+  { value: "3", label: "Every 3 Months", discount: 10, addOnDiscount: 10, cadence: "every 3 months" },
+  { value: "6", label: "Every 6 Months", discount: 5, addOnDiscount: 5, cadence: "every 6 months" },
 ];
 
-const PACKAGES = [
+type SizeKey = "sedan" | "small_suv" | "large_suv";
+
+const SIZE_LABELS: Record<SizeKey, string> = {
+  sedan: "Sedan / Coupe",
+  small_suv: "Small SUV / Crossover",
+  large_suv: "Large SUV / Truck / Van",
+};
+
+const PACKAGES: {
+  name: string;
+  blurb: string;
+  time: string;
+  popular?: boolean;
+  prices: Record<SizeKey, number>;
+}[] = [
   {
     name: "Interior Deep Clean + Shield",
-    base: 199.99,
     blurb:
       "Full steam extraction, leather conditioning, stain treatment and an interior protectant shield.",
     time: "2 – 2.5 hrs",
+    prices: { sedan: 199.99, small_suv: 229.99, large_suv: 249.99 },
   },
   {
     name: "Complete Showroom Reset",
-    base: 269.0,
     blurb:
       "Interior deep clean + full exterior hand wash, clay bar decontamination and sealant. Inside and out.",
     time: "3 – 3.5 hrs",
     popular: true,
+    prices: { sedan: 269.0, small_suv: 309.0, large_suv: 329.0 },
+  },
+];
+
+const ADD_ONS = [
+  { name: "Pet Hair Removal", price: 49 },
+  { name: "Ozone Odor Treatment", price: 79 },
+  { name: "Ceramic Spray Sealant", price: 99 },
+  { name: "Engine Bay Detail", price: 59 },
+  { name: "Headlight Restoration", price: 69 },
+  { name: "Leather Deep Conditioning", price: 49 },
+];
+
+const TESTIMONIALS = [
+  {
+    name: "Daniel R.",
+    vehicle: "BMW M340i · Monthly Plan since 2024",
+    quote:
+      "Best decision I made for my car. Pulls into my driveway every month, leaves looking brand new. I've stopped thinking about cleaning my car entirely.",
+  },
+  {
+    name: "Priya S.",
+    vehicle: "Acura MDX · Every 2 Months",
+    quote:
+      "Three kids, one dog. The interior used to be a disaster. Now it stays fresh between visits and the savings add up fast over the year.",
+  },
+  {
+    name: "Marcus W.",
+    vehicle: "Ford F-150 · Monthly Plan",
+    quote:
+      "Work truck during the week, family ride on weekends. The team handles both — and the monthly discount makes the truck size charge a non-issue.",
+  },
+];
+
+const PROCESS = [
+  {
+    step: "01",
+    title: "Call to Enroll",
+    body: "Quick 3-minute call. Pick frequency, package, and your preferred service window.",
+  },
+  {
+    step: "02",
+    title: "We Schedule For You",
+    body: "We reach out before each cycle. You confirm or reschedule — no tracking dates.",
+  },
+  {
+    step: "03",
+    title: "We Come To You",
+    body: "Mobile service across Calgary, Airdrie, Chestermere and Cochrane. Discount auto-applied.",
   },
 ];
 
@@ -67,7 +142,11 @@ const monthlyFAQs = [
   },
   {
     q: "Does the discount apply to add-ons?",
-    a: "The discount applies to the base package price. Add-ons (pet hair, ozone, ceramic spray, etc.) are billed separately at standard pricing.",
+    a: "Yes. Plan members save on every add-on too — up to 15% off pet hair removal, ozone treatments, ceramic spray, engine bay, headlight restoration and more.",
+  },
+  {
+    q: "What about SUVs and trucks?",
+    a: "Larger vehicles have a small size surcharge ($30–$60 over sedan pricing) reflecting extra time and product. Your plan discount still applies on top.",
   },
   {
     q: "Is there a sign-up fee?",
@@ -81,6 +160,7 @@ const monthlyFAQs = [
 
 const MonthlyPlan = () => {
   const [freq, setFreq] = useState("1");
+  const [size, setSize] = useState<SizeKey>("sedan");
   const selected = useMemo(
     () => FREQUENCIES.find((f) => f.value === freq) ?? FREQUENCIES[0],
     [freq]
@@ -91,16 +171,25 @@ const MonthlyPlan = () => {
       <div className="min-h-screen bg-background">
         <SEO
           title="Monthly Detailing Plan Calgary | Save up to 20%"
-          description="Join 200+ Calgarians on the Xpress Auto Detailing Monthly Plan. Save up to 20% on Interior Deep Clean and Complete Showroom Reset packages. Pick your frequency."
+          description="Join 200+ Calgarians on the Xpress Auto Detailing Monthly Plan. Save up to 20% on Interior Deep Clean and Complete Showroom Reset packages — plus discounted add-ons. Pick your frequency."
           canonical="/monthly-plan"
           jsonLd={[buildFAQJsonLd(monthlyFAQs)]}
         />
         <Navbar />
 
         {/* Hero */}
-        <section className="relative bg-brand-dark text-primary-foreground py-20 sm:py-28 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent" />
-          <div className="container relative max-w-4xl text-center px-6">
+        <section className="relative bg-brand-dark text-primary-foreground overflow-hidden">
+          <div className="absolute inset-0">
+            <img
+              src={heroImg}
+              alt="Detailed vehicle interior reflecting Calgary monthly detailing plan results"
+              className="w-full h-full object-cover opacity-30"
+              loading="eager"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-dark via-brand-dark/85 to-brand-dark/60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent" />
+          </div>
+          <div className="container relative max-w-5xl text-center px-6 py-24 sm:py-32">
             <div className="inline-flex items-center gap-2 bg-primary/15 border border-primary/30 rounded-full px-4 py-1.5 mb-6">
               <Users className="w-3.5 h-3.5 text-primary" />
               <span className="text-xs font-heading font-bold uppercase tracking-widest text-primary">
@@ -110,16 +199,57 @@ const MonthlyPlan = () => {
             <h1 className="font-heading font-black text-4xl sm:text-5xl lg:text-6xl uppercase leading-tight mb-5">
               The <span className="text-primary">Monthly Detailing</span> Plan
             </h1>
-            <p className="text-lg sm:text-xl text-brand-gray max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-brand-gray max-w-2xl mx-auto leading-relaxed mb-8">
               Keep your vehicle in showroom condition year-round and save up to{" "}
-              <span className="text-primary font-bold">20%</span> on every visit.
+              <span className="text-primary font-bold">20%</span> on every package
+              — plus up to <span className="text-primary font-bold">15% off all add-ons</span>.
               Pick a frequency. We handle the rest.
             </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+              <a
+                href={PHONE_HREF}
+                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider text-sm px-6 py-3.5 rounded-xl hover:bg-brand-blue-deep transition-colors w-full sm:w-auto"
+              >
+                <Phone className="w-4 h-4" />
+                Call {PHONE} to Enroll
+              </a>
+              <a
+                href="#calculator"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/20 text-primary-foreground font-heading font-bold uppercase tracking-wider text-sm px-6 py-3.5 rounded-xl hover:bg-white/15 transition-colors w-full sm:w-auto"
+              >
+                See My Discount
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-8 text-xs font-heading font-semibold uppercase tracking-wider text-brand-gray">
+              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> No Contract</span>
+              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> No Sign-Up Fee</span>
+              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> Cancel Anytime</span>
+              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> 14-Day Guarantee</span>
+            </div>
+          </div>
+        </section>
+
+        {/* Promo Banner */}
+        <section className="relative overflow-hidden bg-primary text-primary-foreground">
+          <div className="container max-w-6xl px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="flex items-center gap-3 text-center sm:text-left">
+              <Tag className="w-5 h-5 shrink-0" />
+              <p className="font-heading font-bold uppercase tracking-wider text-sm sm:text-base">
+                New Plan Members: Lock In Your Discount Today — Rates Increase Jan 1
+              </p>
+            </div>
+            <a
+              href={PHONE_HREF}
+              className="bg-white text-primary font-heading font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-2.5 rounded-lg hover:bg-white/90 transition-colors shrink-0"
+            >
+              Call to Lock In
+            </a>
           </div>
         </section>
 
         {/* Calculator */}
-        <section className="py-16 sm:py-20 bg-background">
+        <section id="calculator" className="py-16 sm:py-20 bg-background scroll-mt-24">
           <div className="container max-w-5xl px-6">
             <ScrollReveal>
               <div className="text-center mb-10">
@@ -127,7 +257,7 @@ const MonthlyPlan = () => {
                   See Your Discount
                 </p>
                 <h2 className="font-heading font-black text-3xl sm:text-4xl uppercase">
-                  Pick Your <span className="text-gradient">Frequency</span>
+                  Pick Your <span className="text-gradient">Frequency &amp; Vehicle</span>
                 </h2>
                 <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
                   The more often we visit, the more you save. Choose what fits your routine.
@@ -135,35 +265,58 @@ const MonthlyPlan = () => {
               </div>
             </ScrollReveal>
 
-            <div className="max-w-md mx-auto mb-12">
-              <label className="block text-xs font-heading font-bold uppercase tracking-widest text-muted-foreground mb-2">
-                Service Frequency
-              </label>
-              <Select value={freq} onValueChange={setFreq}>
-                <SelectTrigger className="h-14 text-base font-semibold">
-                  <Calendar className="w-4 h-4 mr-2 text-primary" />
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {FREQUENCIES.map((f) => (
-                    <SelectItem key={f.value} value={f.value} className="text-base">
-                      {f.label} — Save {f.discount}%
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <p className="text-center text-sm text-muted-foreground mt-3">
-                You'll save{" "}
-                <span className="text-primary font-bold">{selected.discount}%</span>{" "}
-                on every {selected.cadence} service.
-              </p>
+            <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-12">
+              <div>
+                <label className="block text-xs font-heading font-bold uppercase tracking-widest text-muted-foreground mb-2">
+                  Service Frequency
+                </label>
+                <Select value={freq} onValueChange={setFreq}>
+                  <SelectTrigger className="h-14 text-base font-semibold">
+                    <Calendar className="w-4 h-4 mr-2 text-primary" />
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {FREQUENCIES.map((f) => (
+                      <SelectItem key={f.value} value={f.value} className="text-base">
+                        {f.label} — Save {f.discount}%
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <label className="block text-xs font-heading font-bold uppercase tracking-widest text-muted-foreground mb-2">
+                  Vehicle Size
+                </label>
+                <Select value={size} onValueChange={(v) => setSize(v as SizeKey)}>
+                  <SelectTrigger className="h-14 text-base font-semibold">
+                    <Car className="w-4 h-4 mr-2 text-primary" />
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {(Object.keys(SIZE_LABELS) as SizeKey[]).map((k) => (
+                      <SelectItem key={k} value={k} className="text-base">
+                        {SIZE_LABELS[k]}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
+
+            <p className="text-center text-sm text-muted-foreground -mt-6 mb-10">
+              You'll save{" "}
+              <span className="text-primary font-bold">{selected.discount}%</span>{" "}
+              on every {selected.cadence} package + {" "}
+              <span className="text-primary font-bold">{selected.addOnDiscount}% off</span> all add-ons.
+            </p>
 
             {/* Package pricing */}
             <div className="grid md:grid-cols-2 gap-6">
               {PACKAGES.map((pkg) => {
-                const discounted = pkg.base * (1 - selected.discount / 100);
-                const savings = pkg.base - discounted;
+                const base = pkg.prices[size];
+                const discounted = base * (1 - selected.discount / 100);
+                const savings = base - discounted;
                 return (
                   <div
                     key={pkg.name}
@@ -195,11 +348,11 @@ const MonthlyPlan = () => {
                         {money(discounted)}
                       </span>
                       <span className="text-lg text-muted-foreground line-through pb-1">
-                        {money(pkg.base)}
+                        {money(base)}
                       </span>
                     </div>
                     <p className="text-sm font-semibold text-success mb-5">
-                      You save {money(savings)} every visit
+                      You save {money(savings)} every visit · {SIZE_LABELS[size]}
                     </p>
 
                     <div className="flex items-center gap-2 text-xs text-muted-foreground mb-5">
@@ -223,9 +376,122 @@ const MonthlyPlan = () => {
               })}
             </div>
 
-            <p className="text-xs text-center text-muted-foreground mt-6 max-w-2xl mx-auto">
-              Pricing shown is for sedans. Larger vehicles (SUVs, trucks) may have a size surcharge — your discount still applies. Add-ons billed separately.
-            </p>
+            {/* Vehicle size reference */}
+            <div className="mt-10 bg-muted/40 border border-border rounded-2xl p-6 sm:p-7">
+              <div className="flex items-center gap-2 mb-4">
+                <Truck className="w-4 h-4 text-primary" />
+                <h3 className="font-heading font-bold uppercase tracking-wider text-sm">
+                  Vehicle Size Reference (Pre-Discount)
+                </h3>
+              </div>
+              <div className="grid sm:grid-cols-3 gap-4 text-sm">
+                {(Object.keys(SIZE_LABELS) as SizeKey[]).map((k) => (
+                  <div key={k} className="bg-card border border-border rounded-xl p-4">
+                    <p className="font-heading font-bold uppercase text-xs tracking-wider text-muted-foreground mb-2">
+                      {SIZE_LABELS[k]}
+                    </p>
+                    <p className="text-foreground">
+                      Deep Clean: <span className="font-bold">{money(PACKAGES[0].prices[k])}</span>
+                    </p>
+                    <p className="text-foreground">
+                      Complete: <span className="font-bold">{money(PACKAGES[1].prices[k])}</span>
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Add-On Savings */}
+        <section className="py-16 sm:py-20 bg-muted/30">
+          <div className="container max-w-5xl px-6">
+            <div className="text-center mb-10">
+              <p className="text-sm font-heading font-bold uppercase tracking-widest text-primary mb-3">
+                Plan Member Perks
+              </p>
+              <h2 className="font-heading font-black text-3xl sm:text-4xl uppercase">
+                Save On <span className="text-gradient">Every Add-On</span>, Too
+              </h2>
+              <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
+                Plan members get up to <span className="font-bold text-primary">15% off</span> any
+                add-on at every visit. Combine with your package discount for maximum value.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {ADD_ONS.map((a) => {
+                const memberPrice = a.price * (1 - selected.addOnDiscount / 100);
+                return (
+                  <div
+                    key={a.name}
+                    className="bg-card border border-border rounded-xl p-5 flex items-center justify-between hover:border-primary/30 transition-colors"
+                  >
+                    <div>
+                      <p className="font-heading font-bold text-sm uppercase tracking-wide mb-1">
+                        {a.name}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        Regular <span className="line-through">${a.price}</span>
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <p className="font-heading font-black text-2xl text-primary leading-none">
+                        ${memberPrice.toFixed(0)}
+                      </p>
+                      <p className="text-[10px] font-heading font-bold uppercase tracking-wider text-success mt-1">
+                        Member Price
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Banner Image */}
+        <section className="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
+          <img
+            src={bannerImg}
+            alt="Mirror-finish paint reflection on a vehicle detailed by Xpress Auto"
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/90 via-brand-dark/60 to-transparent flex items-center">
+            <div className="container px-6 max-w-3xl">
+              <p className="text-primary text-xs font-heading font-bold uppercase tracking-widest mb-3">
+                The Plan Difference
+              </p>
+              <h2 className="font-heading font-black text-2xl sm:text-3xl lg:text-4xl uppercase text-primary-foreground leading-tight">
+                Showroom-Ready, Every Single Month.
+              </h2>
+            </div>
+          </div>
+        </section>
+
+        {/* Process */}
+        <section className="py-16 sm:py-20 bg-background">
+          <div className="container max-w-5xl px-6">
+            <div className="text-center mb-12">
+              <h2 className="font-heading font-black text-3xl sm:text-4xl uppercase">
+                How It <span className="text-gradient">Works</span>
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {PROCESS.map((p) => (
+                <div key={p.step} className="bg-card border border-border rounded-2xl p-7 hover:border-primary/30 transition-colors">
+                  <div className="font-heading font-black text-5xl text-primary/30 mb-3 leading-none">
+                    {p.step}
+                  </div>
+                  <h3 className="font-heading font-bold text-lg uppercase mb-2">
+                    {p.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {p.body}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -247,7 +513,7 @@ const MonthlyPlan = () => {
                 {
                   icon: <CheckCircle2 className="w-5 h-5" />,
                   title: "Locked-In Savings",
-                  body: "Up to 20% off every visit. No coupons, no fine print — it's automatic.",
+                  body: "Up to 20% off every visit + 15% off add-ons. No coupons, no fine print — it's automatic.",
                 },
                 {
                   icon: <Calendar className="w-5 h-5" />,
@@ -273,6 +539,73 @@ const MonthlyPlan = () => {
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {item.body}
                   </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Gallery strip */}
+        <section className="py-16 sm:py-20 bg-background">
+          <div className="container max-w-6xl px-6">
+            <div className="text-center mb-10">
+              <p className="text-sm font-heading font-bold uppercase tracking-widest text-primary mb-3">
+                Real Plan Member Vehicles
+              </p>
+              <h2 className="font-heading font-black text-3xl sm:text-4xl uppercase">
+                Maintained by <span className="text-gradient">Xpress</span>
+              </h2>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+              {[gal1, gal2, gal3, gal4, gal5, gal6].map((src, i) => (
+                <div key={i} className="relative aspect-square overflow-hidden rounded-xl group">
+                  <img
+                    src={src}
+                    alt={`Monthly plan member vehicle ${i + 1} detailed by Xpress Auto`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section className="py-16 sm:py-20 bg-muted/30">
+          <div className="container max-w-6xl px-6">
+            <div className="text-center mb-12">
+              <p className="text-sm font-heading font-bold uppercase tracking-widest text-primary mb-3">
+                What Members Say
+              </p>
+              <h2 className="font-heading font-black text-3xl sm:text-4xl uppercase">
+                Calgarians On The <span className="text-gradient">Plan</span>
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {TESTIMONIALS.map((t) => (
+                <div
+                  key={t.name}
+                  className="bg-card border border-border rounded-2xl p-7 relative hover:border-primary/30 transition-colors"
+                >
+                  <Quote className="w-8 h-8 text-primary/20 mb-3" />
+                  <div className="flex items-center gap-0.5 mb-3">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="text-sm text-foreground leading-relaxed mb-5">
+                    "{t.quote}"
+                  </p>
+                  <div className="border-t border-border pt-4">
+                    <p className="font-heading font-bold text-sm uppercase tracking-wide">
+                      {t.name}
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      {t.vehicle}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -321,6 +654,9 @@ const MonthlyPlan = () => {
               <Phone className="w-5 h-5" />
               Call {PHONE} to Start
             </a>
+            <p className="text-xs text-brand-gray mt-5 uppercase tracking-widest">
+              Serving Calgary · Airdrie · Chestermere · Cochrane
+            </p>
           </div>
         </section>
 
