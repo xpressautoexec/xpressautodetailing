@@ -141,7 +141,7 @@ const TrailerRV = () => {
   return (
     <PageTransition><div className="min-h-screen">
       <SEO
-        title="RV & Trailer Detailing Calgary | Mobile Per-Foot"
+        title="RV & Trailer Detailing Calgary"
         description="Mobile RV and trailer detailing in Calgary. Oxidation removal, wash, ceramic coating & interior cleaning for motorhomes, 5th wheels & travel trailers. We come to you."
         canonical="/trailer-rv"
         jsonLd={[

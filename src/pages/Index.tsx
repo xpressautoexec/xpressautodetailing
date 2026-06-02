@@ -59,7 +59,7 @@ const Index = () => {
     <PageTransition>
       <div className="min-h-screen pb-16 lg:pb-0">
         <SEO
-          title="Mobile Car Detailing Calgary | RV Oxidation Removal & More"
+          title="Mobile Car Detailing Calgary"
           description="We come to you. Calgary's 4.9-star mobile detailing — interior, exterior, ceramic coating, PPF & RV oxidation removal. Online booking, same-week service."
           canonical="/"
           jsonLd={localBusinessJsonLd}

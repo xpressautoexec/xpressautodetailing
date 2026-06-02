@@ -36,7 +36,7 @@ const completeTestimonials = [
 const CompleteDetailing = () => (
   <PageTransition><div className="min-h-screen">
     <SEO
-      title="Full Car Detailing Calgary | Interior & Exterior $209"
+      title="Full Car Detailing Calgary"
       description="Complete mobile car detailing in Calgary — full interior deep clean plus exterior hand wash, clay bar & sealant. From $209. We come to you. Book online today."
       canonical="/complete-detailing"
       jsonLd={[

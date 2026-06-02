@@ -40,7 +40,7 @@ const exteriorTestimonials = [
 const ExteriorDetailing = () => (
   <PageTransition><div className="min-h-screen">
     <SEO
-      title="Exterior Car Detailing Calgary | Hand Wash & Wax"
+      title="Exterior Car Detailing Calgary"
       description="Mobile exterior detailing in Calgary — hand wash, clay bar, paint sealant & tire shine. From $89.99. We come to your home or office. Book online in 60 seconds."
       canonical="/exterior-detailing"
       jsonLd={[

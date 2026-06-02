@@ -81,7 +81,7 @@ const AddOns = () => (
   <PageTransition>
     <div className="min-h-screen">
       <SEO
-        title="Detailing Add-Ons Calgary | Pet Hair, Headlights"
+        title="Detailing Add-Ons Calgary"
         description="Upgrade any detail with add-ons — pet hair removal, headlight restoration, engine bay cleaning, odour elimination & more. Book online with your service."
         canonical="/add-ons"
         jsonLd={buildServiceJsonLd(

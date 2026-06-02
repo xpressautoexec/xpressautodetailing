@@ -107,7 +107,7 @@ const TrainingSignup = () => {
     <PageTransition>
       <div className="min-h-screen">
         <SEO
-          title="Enroll in Detailing Training | Calgary Courses"
+          title="Detailing Training Signup"
           description="Register for hands-on detailing, ceramic coating, paint correction & PPF training in Calgary. Small classes, real vehicles. Limited spots available."
           canonical="/training/signup"
         />

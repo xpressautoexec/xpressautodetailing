@@ -43,7 +43,7 @@ const interiorTestimonials = [
 const InteriorDetailing = () => (
   <PageTransition><div className="min-h-screen">
     <SEO
-      title="Interior Car Detailing Calgary | Mobile From $169"
+      title="Interior Car Detailing Calgary"
       description="Mobile interior detailing in Calgary — steam cleaning, stain removal, odour elimination & leather conditioning. Starting at $169. We come to you. Book online."
       canonical="/interior-detailing"
       jsonLd={[
