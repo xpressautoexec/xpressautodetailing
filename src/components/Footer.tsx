@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1 text-center md:text-left">
             <Link to="/" className="inline-flex items-center justify-center md:justify-start" aria-label="Xpress Auto Detailing home">
-              <img src="/xpress-logo.png" alt="Xpress Auto & RV Detailing" className="h-14 w-auto object-contain" loading="lazy" />
+              <img src="/xpress-logo-white.png" alt="Xpress Auto & RV Detailing" className="h-14 w-auto object-contain" loading="lazy" />
             </Link>
             <p className="text-brand-gray text-sm mt-3 leading-relaxed">
               Convenient, affordable car detailing that comes to you. Mobile detailing made simple.
