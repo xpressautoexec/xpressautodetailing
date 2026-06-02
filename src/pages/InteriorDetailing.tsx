@@ -271,7 +271,7 @@ const InteriorDetailing = () => (
               Join hundreds of Calgary drivers who've experienced the difference. We come to you — mobile anywhere in Calgary and surrounding areas.
             </p>
             <p className="text-background/50 text-sm mb-8">
-              ✓ No hidden fees &nbsp; ✓ 14-day guarantee &nbsp; ✓ Book in 60 seconds
+              ✓ No hidden fees &nbsp; ✓ satisfaction guarantee &nbsp; ✓ Book in 60 seconds
             </p>
             <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-brand-blue-deep transition-all shadow-lg shadow-primary/30">
               Book My Interior Detail

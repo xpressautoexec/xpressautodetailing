@@ -233,7 +233,7 @@ const CompleteDetailing = () => (
               Give your vehicle the complete treatment — inside and out. We come to your home or office.
             </p>
             <p className="text-background/50 text-sm mb-8">
-              ✓ Save vs. separate bookings &nbsp; ✓ $90+ in free bonuses &nbsp; ✓ 14-day guarantee
+              ✓ Save vs. separate bookings &nbsp; ✓ $90+ in free bonuses &nbsp; ✓ satisfaction guarantee
             </p>
             <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-brand-blue-deep transition-all shadow-lg shadow-primary/30">
               Book My Complete Detail

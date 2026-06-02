@@ -225,7 +225,7 @@ const MonthlyPlan = () => {
               <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> No Contract</span>
               <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> No Sign-Up Fee</span>
               <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> Cancel Anytime</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> 14-Day Guarantee</span>
+              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> Satisfaction Guarantee</span>
             </div>
           </div>
         </section>
@@ -360,7 +360,7 @@ const MonthlyPlan = () => {
                       <span>{pkg.time}</span>
                       <span className="text-muted-foreground/40">•</span>
                       <ShieldCheck className="w-3.5 h-3.5" />
-                      <span>14-Day Guarantee</span>
+                      <span>Satisfaction Guarantee</span>
                     </div>
 
                     <a

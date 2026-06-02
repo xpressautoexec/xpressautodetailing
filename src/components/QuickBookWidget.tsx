@@ -130,7 +130,7 @@ const QuickBookWidget = () => {
         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
       </a>
       <p className="text-white/40 text-[10px] text-center mt-2">
-        Free cancellation · No payment until service · 14-day guarantee
+        Free cancellation · No payment until service · satisfaction guarantee
       </p>
     </motion.div>
   );

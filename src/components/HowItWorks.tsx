@@ -7,7 +7,7 @@ const steps = [
   { icon: Monitor, step: "01", title: "Book Online in 60 Seconds", desc: "Pick your service, choose a time, confirm. Done." },
   { icon: MapPin, step: "02", title: "We Come to You", desc: "Home, office, or job site — on time, every time." },
   { icon: ShieldCheck, step: "03", title: "We Detail, You Relax", desc: "Professional results while you go about your day." },
-  { icon: MessageSquare, step: "04", title: "Love It or It's Free", desc: "14-day guarantee. Not satisfied? We redo it — or refund." },
+  { icon: MessageSquare, step: "04", title: "Love It or It's Free", desc: "satisfaction guarantee. Not satisfied? We redo it — or refund." },
 ];
 
 const HowItWorks = () => {
