@@ -28,6 +28,7 @@ const Training = lazy(() => import("./pages/Training"));
 const TrainingSignup = lazy(() => import("./pages/TrainingSignup"));
 
 const WindshieldPPF = lazy(() => import("./pages/WindshieldPPF"));
+const MonthlyPlan = lazy(() => import("./pages/MonthlyPlan"));
 
 const queryClient = new QueryClient();
 
@@ -57,6 +58,7 @@ const AnimatedRoutes = () => {
         <Route path="/training/signup" element={<TrainingSignup />} />
         
         <Route path="/windshield-ppf" element={<WindshieldPPF />} />
+        <Route path="/monthly-plan" element={<MonthlyPlan />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
