@@ -130,6 +130,77 @@ serve(async (req) => {
       });
     }
 
+    // Send branded auto-reply confirmation to the customer
+    if (typeof email === 'string' && email.includes('@')) {
+      const firstName = typeof name === 'string' ? esc(name.split(' ')[0]) : 'there';
+      const isTraining = form_type === 'training';
+      const isFleet = form_type === 'fleet';
+
+      const ctaLine = isTraining
+        ? "We've received your training registration and our team will reach out within a few hours to confirm your spot and next steps."
+        : isFleet
+        ? "We've received your fleet inquiry. Our team will reach out within a few hours with a tailored quote and scheduling options."
+        : "We've received your message and our team will get back to you within a few hours (typically much sooner during business hours).";
+
+      const autoReplyHtml = `
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff;">
+          <div style="background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%); padding: 32px 24px; text-align: center;">
+            <h1 style="color: #ffffff; font-size: 24px; font-weight: 800; margin: 0; letter-spacing: 1px; text-transform: uppercase;">Xpress Auto Detailing</h1>
+            <p style="color: rgba(255,255,255,0.85); margin: 8px 0 0; font-size: 13px; letter-spacing: 2px; text-transform: uppercase;">Calgary's 4.9★ Mobile Detailers</p>
+          </div>
+          <div style="padding: 32px 28px;">
+            <h2 style="color: #0F172A; font-size: 20px; margin: 0 0 16px;">Thanks, ${firstName}! 🚗</h2>
+            <p style="color: #334155; font-size: 15px; line-height: 1.6; margin: 0 0 16px;">${ctaLine}</p>
+            <p style="color: #334155; font-size: 15px; line-height: 1.6; margin: 0 0 24px;">Here's a copy of what you sent us:</p>
+            <div style="background: #F1F5F9; border-left: 4px solid #2563EB; padding: 16px 18px; border-radius: 6px; margin-bottom: 28px;">
+              <p style="color: #475569; font-size: 14px; line-height: 1.6; margin: 0; white-space: pre-wrap;">${safeMessage}</p>
+            </div>
+            <div style="text-align: center; margin: 28px 0;">
+              <a href="https://xpressauto.fieldd.co/" style="display: inline-block; background: #2563EB; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 14px; padding: 14px 32px; border-radius: 8px; text-transform: uppercase; letter-spacing: 1px;">Book Online Now</a>
+            </div>
+            <p style="color: #334155; font-size: 14px; line-height: 1.6; margin: 24px 0 8px;"><strong>Need us sooner?</strong></p>
+            <p style="color: #334155; font-size: 14px; line-height: 1.6; margin: 0 0 4px;">📞 <a href="tel:5875004523" style="color: #2563EB; text-decoration: none; font-weight: 600;">587-500-4523</a></p>
+            <p style="color: #334155; font-size: 14px; line-height: 1.6; margin: 0 0 24px;">✉️ <a href="mailto:support@xpressautodetail.ca" style="color: #2563EB; text-decoration: none; font-weight: 600;">support@xpressautodetail.ca</a></p>
+            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 16px; margin-top: 24px;">
+              <p style="color: #0F172A; font-size: 13px; font-weight: 700; margin: 0 0 6px; text-transform: uppercase; letter-spacing: 0.5px;">The Xpress Pass — Satisfaction Guarantee</p>
+              <p style="color: #475569; font-size: 13px; line-height: 1.5; margin: 0;">If you're not 100% happy with the result, we'll make it right. That's our promise.</p>
+            </div>
+          </div>
+          <div style="background: #0F172A; padding: 20px 24px; text-align: center;">
+            <p style="color: #94A3B8; font-size: 12px; margin: 0;">Serving Calgary, Airdrie, Cochrane, Chestermere & area</p>
+            <p style="color: #64748B; font-size: 11px; margin: 6px 0 0;">© ${new Date().getFullYear()} Xpress Auto Detailing</p>
+          </div>
+        </div>
+      `;
+
+      const replySubject = isTraining
+        ? "We received your training registration — Xpress Auto Detailing"
+        : isFleet
+        ? "We received your fleet inquiry — Xpress Auto Detailing"
+        : "Thanks for reaching out — Xpress Auto Detailing";
+
+      const replyRes = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${RESEND_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: 'Xpress Auto Detailing <support@xpressautodetail.ca>',
+          to: [email],
+          subject: replySubject,
+          html: autoReplyHtml,
+          reply_to: 'support@xpressautodetail.ca',
+        }),
+      });
+
+      if (!replyRes.ok) {
+        const data = await replyRes.text();
+        console.error(`Auto-reply send failed [${replyRes.status}]:`, data);
+        // Don't fail the whole request — internal notification already sent
+      }
+    }
+
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
