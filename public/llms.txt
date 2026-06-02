@@ -1,0 +1,32 @@
+# Xpress Auto Detailing
+
+> Mobile auto detailing in Calgary, Airdrie, Chestermere, and Cochrane. Interior, complete, paint correction, ceramic coatings, PPF, RV/trailer detailing, fleet, and training.
+
+Xpress Auto Detailing is a Calgary-area mobile detailing company. We come to homes and businesses for interior cleaning, complete detailing packages, paint correction, ceramic coatings, windshield and full-vehicle paint protection film (PPF), trailer/RV detailing and winterization, corporate fleet programs, gift cards, and a hands-on detailing training course.
+
+Contact: 587-500-4523 · support@xpressautodetail.ca
+
+## Pages
+
+- [Home](/): Overview of services, packages, and service areas.
+- [Interior Detailing](/interior-detailing): Deep interior cleaning packages and pricing.
+- [Complete Detailing](/complete-detailing): Full interior + exterior detail packages.
+- [Paint Correction & Ceramic Coatings](/paint-ceramics): Multi-stage paint correction and ceramic coating tiers.
+- [Windshield PPF](/windshield-ppf): Windshield paint protection film install.
+- [Trailer & RV Detailing](/trailer-rv): RV and trailer wash, polish, and detail packages.
+- [RV Winterization](/trailer-rv/winterization): Seasonal RV winterization service.
+- [RV PPF](/trailer-rv/ppf): Paint protection film for RVs and trailers.
+- [Monthly Plan](/monthly-plan): Recurring monthly detailing subscription.
+- [Add-Ons](/add-ons): A la carte upgrades for any package.
+- [Corporate Fleet](/corporate-fleet): Fleet detailing programs for businesses.
+- [Gift Cards](/gift-cards): Purchase detailing gift cards.
+- [Gallery](/gallery): Before-and-after photos of recent work.
+- [Why Choose Us](/why-choose-us): Process, guarantee, and differentiators.
+- [Blog](/blog): Detailing tips, guides, and updates.
+- [Training](/training): Professional detailing training course overview.
+- [Training Signup](/training/signup): Enroll in the detailing training course.
+- [Contact](/contact): Get a quote or send a message.
+
+## Optional
+
+- [Terms of Service](/terms-of-service): Legal terms and conditions.
