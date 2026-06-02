@@ -479,25 +479,62 @@ const MonthlyPlan = () => {
           </div>
         </section>
 
-        {/* Banner Image */}
-        <section className="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
-          <img
-            src={bannerImg}
-            alt="Mirror-finish paint reflection on a vehicle detailed by Xpress Auto"
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/90 via-brand-dark/60 to-transparent flex items-center">
-            <div className="container px-6 max-w-3xl">
-              <p className="text-primary text-xs font-heading font-bold uppercase tracking-widest mb-3">
-                The Plan Difference
+        {/* Testimonials — featured */}
+        <section className="relative py-20 sm:py-28 bg-brand-dark text-primary-foreground overflow-hidden">
+          <div className="absolute inset-0 opacity-10">
+            <img src={bannerImg} alt="" className="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-brand-dark via-brand-dark/95 to-brand-dark" />
+          <div className="container relative max-w-7xl px-6">
+            <div className="text-center mb-14">
+              <p className="text-xs sm:text-sm font-heading font-bold uppercase tracking-[0.3em] text-primary mb-4">
+                What Members Say
               </p>
-              <h2 className="font-heading font-black text-2xl sm:text-3xl lg:text-4xl uppercase text-primary-foreground leading-tight">
-                Showroom-Ready, Every Single Month.
+              <h2 className="font-heading font-black text-4xl sm:text-5xl lg:text-6xl uppercase leading-[1.05]">
+                Real Calgarians.
+                <br />
+                <span className="text-primary">Real Results.</span>
               </h2>
+              <div className="flex items-center justify-center gap-1 mt-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-6 h-6 fill-primary text-primary" />
+                ))}
+                <span className="ml-3 font-heading font-bold text-sm uppercase tracking-wider text-brand-gray">
+                  5.0 from 200+ Members
+                </span>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+              {TESTIMONIALS.map((t, idx) => (
+                <div
+                  key={t.name}
+                  className={`relative bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-8 sm:p-10 hover:border-primary/40 hover:bg-white/[0.07] transition-all ${
+                    idx === 1 ? "md:scale-105 md:shadow-2xl md:shadow-primary/20 ring-1 ring-primary/30" : ""
+                  }`}
+                >
+                  <Quote className="w-12 h-12 text-primary mb-5" strokeWidth={1.5} />
+                  <p className="font-heading text-xl sm:text-2xl leading-[1.35] text-primary-foreground mb-8 font-medium">
+                    "{t.quote}"
+                  </p>
+                  <div className="flex items-center gap-0.5 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <div className="border-t border-white/10 pt-5">
+                    <p className="font-heading font-black text-base uppercase tracking-wide text-primary-foreground">
+                      {t.name}
+                    </p>
+                    <p className="text-sm text-brand-gray mt-1">
+                      {t.vehicle}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
+
 
         {/* Process */}
         <section className="py-16 sm:py-20 bg-background">
@@ -602,45 +639,6 @@ const MonthlyPlan = () => {
           </div>
         </section>
 
-        {/* Testimonials */}
-        <section className="py-16 sm:py-20 bg-muted/30">
-          <div className="container max-w-6xl px-6">
-            <div className="text-center mb-12">
-              <p className="text-sm font-heading font-bold uppercase tracking-widest text-primary mb-3">
-                What Members Say
-              </p>
-              <h2 className="font-heading font-black text-3xl sm:text-4xl uppercase">
-                Calgarians On The <span className="text-gradient">Plan</span>
-              </h2>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {TESTIMONIALS.map((t) => (
-                <div
-                  key={t.name}
-                  className="bg-card border border-border rounded-2xl p-7 relative hover:border-primary/30 transition-colors"
-                >
-                  <Quote className="w-8 h-8 text-primary/20 mb-3" />
-                  <div className="flex items-center gap-0.5 mb-3">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="text-sm text-foreground leading-relaxed mb-5">
-                    "{t.quote}"
-                  </p>
-                  <div className="border-t border-border pt-4">
-                    <p className="font-heading font-bold text-sm uppercase tracking-wide">
-                      {t.name}
-                    </p>
-                    <p className="text-xs text-muted-foreground mt-0.5">
-                      {t.vehicle}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* FAQ */}
         <section className="py-16 sm:py-20 bg-background">
