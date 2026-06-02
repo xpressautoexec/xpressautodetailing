@@ -16,6 +16,19 @@ const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const posts = [
   {
+    title: "The Xpress Pass: How a Monthly Detailing Membership Pays for Itself",
+    excerpt: "Over 200 Calgarians are already on The Xpress Pass — saving up to 20% on every detail and 15% on every add-on. We break down the real math: how often most owners book, what they actually save in a year, and why locking in your discount beats one-off bookings.",
+    image: bmwHeadlight,
+    date: "May 22, 2026",
+  },
+  {
+    title: "SUV vs Sedan: Why Detailing Larger Vehicles Costs More (And What You're Actually Paying For)",
+    excerpt: "A truck isn't just a bigger sedan — it's more carpet, more leather, deeper crevices, and double the exterior surface area. Here's an honest breakdown of why size-based pricing exists, what extra steps we take on SUVs and trucks, and how to keep larger vehicles in showroom shape for less.",
+    image: gallery3,
+    date: "May 10, 2026",
+  },
+
+  {
     title: "Spring Paint Decontamination: Why Your Car Needs It After a Calgary Winter",
     excerpt: "Six months of road salt, mag chloride, and gravel leaves microscopic contamination bonded to your clear coat. We walk through iron decon, clay bar treatment, and a one-step polish to reset your paint before sealing it for summer.",
     image: bmwHeadlight,
