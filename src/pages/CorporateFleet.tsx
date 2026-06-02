@@ -44,7 +44,7 @@ const CorporateFleet = () => {
   return (
     <PageTransition><div className="min-h-screen">
       <SEO
-        title="Fleet Detailing Calgary | Corporate Vehicle Cleaning"
+        title="Fleet Detailing Calgary"
         description="On-site fleet and corporate vehicle detailing in Calgary. Volume pricing, after-hours service, zero downtime. Cars, trucks, vans & heavy equipment. Free fleet quote."
         canonical="/corporate-fleet"
         jsonLd={[

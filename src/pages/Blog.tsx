@@ -87,7 +87,7 @@ const posts = [
 const Blog = () => (
   <PageTransition><div className="min-h-screen">
     <SEO
-      title="Car Detailing Blog | Tips & Guides Calgary"
+      title="Car Detailing Blog Calgary"
       description="Expert car detailing tips on paint protection, interior care, ceramic coatings & seasonal prep from Calgary's top-rated mobile detailers."
       canonical="/blog"
     />

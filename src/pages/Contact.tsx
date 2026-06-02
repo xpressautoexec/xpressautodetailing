@@ -49,7 +49,7 @@ const Contact = () => {
   return (
     <PageTransition><div className="min-h-screen">
       <SEO
-        title="Contact Us | Xpress Auto Detailing Calgary"
+        title="Contact — Calgary Mobile Detailing"
         description="Get a free car detailing quote in Calgary. Call 587-500-4523 or send a message — we reply within 2 hours. Serving Calgary, Airdrie, Cochrane & Chestermere."
         canonical="/contact"
         jsonLd={buildFAQJsonLd(contactFAQs)}

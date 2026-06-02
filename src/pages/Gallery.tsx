@@ -180,7 +180,7 @@ const sections: { title: string; description: string; images: GalleryImage[] }[]
 const Gallery = () => (
   <PageTransition><div className="min-h-screen">
     <SEO
-      title="Car Detailing Before & After Gallery | Calgary"
+      title="Detailing Before & After Gallery"
       description="Real before and after photos from Calgary mobile detailing jobs — interior cleans, paint corrections, ceramic coatings, RV oxidation removal & more."
       canonical="/gallery"
     />

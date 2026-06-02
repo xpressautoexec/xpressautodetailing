@@ -206,7 +206,7 @@ const RVWinterization = () => {
     <PageTransition>
       <div className="min-h-screen">
         <SEO
-          title="RV Winterization Calgary | Mobile From $164.99"
+          title="RV Winterization Calgary"
           description="Mobile RV winterization and de-winterization in Calgary, Airdrie, Cochrane & Chestermere. RV-safe antifreeze, full system blow-out. Bundle with detailing to save."
           canonical="/trailer-rv/winterization"
           jsonLd={[

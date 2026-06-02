@@ -171,7 +171,7 @@ const MonthlyPlan = () => {
     <PageTransition>
       <div className="min-h-screen bg-background">
         <SEO
-          title="The Xpress Pass | Calgary Monthly Detailing Membership"
+          title="Xpress Pass Monthly Detailing"
           description="Join 200+ Calgarians on The Xpress Pass — our monthly detailing membership. Save up to 20% on Interior Deep Clean and Complete Showroom Reset packages — plus discounted add-ons. Pick your frequency."
           canonical="/monthly-plan"
           jsonLd={[buildFAQJsonLd(monthlyFAQs)]}

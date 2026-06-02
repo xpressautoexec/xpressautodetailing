@@ -44,7 +44,7 @@ const WhyChooseUs = () => {
     <PageTransition>
       <div className="min-h-screen pb-16 lg:pb-0">
         <SEO
-      title="Why Choose Us | Xpress Auto Detailing Calgary"
+      title="Why Choose Us — Calgary Detailing"
       description="4.9-star rated with 200+ Google reviews. Transparent pricing, mobile convenience & real results. See why Calgary trusts Xpress Auto Detailing."
           canonical="/why-choose-us"
         />
