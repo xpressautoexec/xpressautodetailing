@@ -100,7 +100,7 @@ const PackageCard = ({
         <div className={`mb-5 ${featureGroups.length > 1 ? "grid sm:grid-cols-2 gap-x-6 gap-y-5" : "space-y-5"}`}>
           {featureGroups.map((group, gi) => (
             <div key={gi}>
-              <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-muted-foreground/60 mb-3">
+              <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-muted-foreground mb-3">
                 {group.label}
               </p>
               <ul className="space-y-2.5">
@@ -118,7 +118,7 @@ const PackageCard = ({
         </div>
       ) : (
         <div className="mb-5">
-          <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-muted-foreground/60 mb-3">
+          <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-muted-foreground mb-3">
             What's Included
           </p>
           <ul className="space-y-2.5">
@@ -151,7 +151,7 @@ const PackageCard = ({
       {/* Add-ons */}
       {addOns && addOns.length > 0 && (
         <div className="mb-5 p-4 rounded-xl bg-muted/40 border border-border/50">
-          <p className="text-[10px] font-heading font-bold uppercase tracking-widest mb-3 text-muted-foreground/60">
+          <p className="text-[10px] font-heading font-bold uppercase tracking-widest mb-3 text-muted-foreground">
             Popular Add-Ons
           </p>
           <div className="space-y-2">
@@ -172,7 +172,7 @@ const PackageCard = ({
       <div className="flex-1" />
 
       {/* Time & guarantee */}
-      <div className="text-xs space-y-1.5 text-muted-foreground/70 mb-3">
+      <div className="text-xs space-y-1.5 text-muted-foreground mb-3">
         {time && (
           <p className="flex items-center gap-1.5 font-medium text-muted-foreground">
             <Clock className="w-3 h-3" /> {time}

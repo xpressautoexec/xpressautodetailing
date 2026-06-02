@@ -179,7 +179,7 @@ const PackageCardPPF = ({ pkg }: { pkg: Package }) => {
 
       {/* Coverage diagram */}
       <div className="rounded-xl bg-muted/40 border border-border/60 p-4 mb-5">
-        <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-muted-foreground/70 mb-2 text-center">
+        <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-muted-foreground mb-2 text-center">
           Coverage Map
         </p>
         <RVCoverageDiagram level={pkg.coverageLevel} />
