@@ -13,7 +13,10 @@ const HeroSection = () => {
         src={heroBg}
         alt="Professional car detailing service"
         className="absolute inset-0 w-full h-full object-cover"
+        width={1920}
+        height={1080}
         fetchPriority="high"
+        decoding="async"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/30" />
 
