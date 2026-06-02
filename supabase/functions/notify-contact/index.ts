@@ -144,12 +144,12 @@ serve(async (req) => {
 
       const autoReplyHtml = `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff;">
-          <div style="background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%); padding: 32px 24px; text-align: center;">
-            <h1 style="color: #ffffff; font-size: 24px; font-weight: 800; margin: 0; letter-spacing: 1px; text-transform: uppercase;">Xpress Auto Detailing</h1>
-            <p style="color: rgba(255,255,255,0.85); margin: 8px 0 0; font-size: 13px; letter-spacing: 2px; text-transform: uppercase;">Calgary's 4.9★ Mobile Detailers</p>
+          <div style="background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%); padding: 28px 24px; text-align: center;">
+            <img src="https://xpressautodetail.ca/xpress-logo.png" alt="Xpress Auto & RV Detailing" width="260" style="display: inline-block; max-width: 260px; height: auto; margin: 0 auto;" />
+            <p style="color: rgba(255,255,255,0.9); margin: 12px 0 0; font-size: 12px; letter-spacing: 2px; text-transform: uppercase;">Calgary's 4.9-Star Mobile Detailers</p>
           </div>
           <div style="padding: 32px 28px;">
-            <h2 style="color: #0F172A; font-size: 20px; margin: 0 0 16px;">Thanks, ${firstName}! 🚗</h2>
+            <h2 style="color: #0F172A; font-size: 20px; margin: 0 0 16px;">Thanks, ${firstName}!</h2>
             <p style="color: #334155; font-size: 15px; line-height: 1.6; margin: 0 0 16px;">${ctaLine}</p>
             <p style="color: #334155; font-size: 15px; line-height: 1.6; margin: 0 0 24px;">Here's a copy of what you sent us:</p>
             <div style="background: #F1F5F9; border-left: 4px solid #2563EB; padding: 16px 18px; border-radius: 6px; margin-bottom: 28px;">
