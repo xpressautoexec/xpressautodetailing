@@ -180,13 +180,8 @@ const Navbar = () => {
       <nav className="bg-brand-dark sticky top-0 z-50 border-b border-brand-dark-surface">
         <div className="container flex items-center justify-between py-3">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 shrink-0" aria-label="Xpress Auto Detailing home">
-            <img src="/favicon-192.png" alt="Xpress Auto Detailing logo" className="h-8 w-8 lg:h-10 lg:w-10 object-contain" />
-            <span className="font-heading font-black text-xl lg:text-2xl tracking-tight">
-              <span className="text-primary">X</span>
-              <span className="text-primary-foreground">PRESS</span>
-              <span className="text-primary text-[10px] lg:text-xs font-semibold ml-1 tracking-widest">AUTO DETAILING</span>
-            </span>
+          <Link to="/" className="flex items-center shrink-0" aria-label="Xpress Auto Detailing home">
+            <img src="/xpress-logo.png" alt="Xpress Auto & RV Detailing" className="h-10 lg:h-12 w-auto object-contain" />
           </Link>
 
           {/* Desktop nav */}

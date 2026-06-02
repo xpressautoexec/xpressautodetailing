@@ -144,12 +144,12 @@ serve(async (req) => {
 
       const autoReplyHtml = `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff;">
-          <div style="background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%); padding: 32px 24px; text-align: center;">
-            <h1 style="color: #ffffff; font-size: 24px; font-weight: 800; margin: 0; letter-spacing: 1px; text-transform: uppercase;">Xpress Auto Detailing</h1>
-            <p style="color: rgba(255,255,255,0.85); margin: 8px 0 0; font-size: 13px; letter-spacing: 2px; text-transform: uppercase;">Calgary's 4.9★ Mobile Detailers</p>
+          <div style="background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%); padding: 28px 24px; text-align: center;">
+            <img src="https://xpressautodetail.ca/xpress-logo.png" alt="Xpress Auto & RV Detailing" width="260" style="display: inline-block; max-width: 260px; height: auto; margin: 0 auto;" />
+            <p style="color: rgba(255,255,255,0.9); margin: 12px 0 0; font-size: 12px; letter-spacing: 2px; text-transform: uppercase;">Calgary's 4.9-Star Mobile Detailers</p>
           </div>
           <div style="padding: 32px 28px;">
-            <h2 style="color: #0F172A; font-size: 20px; margin: 0 0 16px;">Thanks, ${firstName}! 🚗</h2>
+            <h2 style="color: #0F172A; font-size: 20px; margin: 0 0 16px;">Thanks, ${firstName}!</h2>
             <p style="color: #334155; font-size: 15px; line-height: 1.6; margin: 0 0 16px;">${ctaLine}</p>
             <p style="color: #334155; font-size: 15px; line-height: 1.6; margin: 0 0 24px;">Here's a copy of what you sent us:</p>
             <div style="background: #F1F5F9; border-left: 4px solid #2563EB; padding: 16px 18px; border-radius: 6px; margin-bottom: 28px;">
@@ -159,8 +159,8 @@ serve(async (req) => {
               <a href="https://xpressauto.fieldd.co/" style="display: inline-block; background: #2563EB; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 14px; padding: 14px 32px; border-radius: 8px; text-transform: uppercase; letter-spacing: 1px;">Book Online Now</a>
             </div>
             <p style="color: #334155; font-size: 14px; line-height: 1.6; margin: 24px 0 8px;"><strong>Need us sooner?</strong></p>
-            <p style="color: #334155; font-size: 14px; line-height: 1.6; margin: 0 0 4px;">📞 <a href="tel:5875004523" style="color: #2563EB; text-decoration: none; font-weight: 600;">587-500-4523</a></p>
-            <p style="color: #334155; font-size: 14px; line-height: 1.6; margin: 0 0 24px;">✉️ <a href="mailto:support@xpressautodetail.ca" style="color: #2563EB; text-decoration: none; font-weight: 600;">support@xpressautodetail.ca</a></p>
+            <p style="color: #334155; font-size: 14px; line-height: 1.6; margin: 0 0 4px;">Call: <a href="tel:5875004523" style="color: #2563EB; text-decoration: none; font-weight: 600;">587-500-4523</a></p>
+            <p style="color: #334155; font-size: 14px; line-height: 1.6; margin: 0 0 24px;">Email: <a href="mailto:support@xpressautodetail.ca" style="color: #2563EB; text-decoration: none; font-weight: 600;">support@xpressautodetail.ca</a></p>
             <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 16px; margin-top: 24px;">
               <p style="color: #0F172A; font-size: 13px; font-weight: 700; margin: 0 0 6px; text-transform: uppercase; letter-spacing: 0.5px;">The Xpress Pass — Satisfaction Guarantee</p>
               <p style="color: #475569; font-size: 13px; line-height: 1.5; margin: 0;">If you're not 100% happy with the result, we'll make it right. That's our promise.</p>

@@ -10,13 +10,8 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1 text-center md:text-left">
-            <Link to="/" className="font-heading font-black text-xl inline-flex items-center gap-2 justify-center md:justify-start">
-              <img src="/favicon-192.png" alt="Xpress Auto Detailing logo" className="h-8 w-8 object-contain" />
-              <span>
-                <span className="text-primary">X</span>
-                <span className="text-primary-foreground">PRESS</span>
-                <span className="text-primary text-xs font-semibold ml-1 tracking-widest">AUTO DETAILING</span>
-              </span>
+            <Link to="/" className="inline-flex items-center justify-center md:justify-start" aria-label="Xpress Auto Detailing home">
+              <img src="/xpress-logo.png" alt="Xpress Auto & RV Detailing" className="h-14 w-auto object-contain" loading="lazy" />
             </Link>
             <p className="text-brand-gray text-sm mt-3 leading-relaxed">
               Convenient, affordable car detailing that comes to you. Mobile detailing made simple.
