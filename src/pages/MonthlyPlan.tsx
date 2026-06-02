@@ -394,30 +394,42 @@ const MonthlyPlan = () => {
               })}
             </div>
 
-            {/* Vehicle size reference */}
+            {/* Vehicle size reference — adaptive */}
             <div className="mt-10 bg-muted/40 border border-border rounded-2xl p-6 sm:p-7">
-              <div className="flex items-center gap-2 mb-4">
-                <Truck className="w-4 h-4 text-primary" />
-                <h3 className="font-heading font-bold uppercase tracking-wider text-sm">
-                  Vehicle Size Reference (Pre-Discount)
-                </h3>
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
+                <div className="flex items-center gap-2">
+                  <Truck className="w-4 h-4 text-primary" />
+                  <h3 className="font-heading font-bold uppercase tracking-wider text-sm">
+                    Your Vehicle: <span className="text-primary">{SIZE_LABELS[size]}</span>
+                  </h3>
+                </div>
+                <span className="text-[10px] font-heading font-bold uppercase tracking-widest text-muted-foreground">
+                  Pre-Discount Rates
+                </span>
               </div>
-              <div className="grid sm:grid-cols-3 gap-4 text-sm">
-                {(Object.keys(SIZE_LABELS) as SizeKey[]).map((k) => (
-                  <div key={k} className="bg-card border border-border rounded-xl p-4">
-                    <p className="font-heading font-bold uppercase text-xs tracking-wider text-muted-foreground mb-2">
-                      {SIZE_LABELS[k]}
-                    </p>
-                    <p className="text-foreground">
-                      Deep Clean: <span className="font-bold">{money(PACKAGES[0].prices[k])}</span>
-                    </p>
-                    <p className="text-foreground">
-                      Complete: <span className="font-bold">{money(PACKAGES[1].prices[k])}</span>
-                    </p>
-                  </div>
-                ))}
+              <div className="grid sm:grid-cols-2 gap-4">
+                {PACKAGES.map((pkg) => {
+                  const base = pkg.prices[size];
+                  const discounted = base * (1 - selected.discount / 100);
+                  return (
+                    <div key={pkg.name} className="bg-card border border-border rounded-xl p-5 flex items-center justify-between gap-4">
+                      <div className="min-w-0">
+                        <p className="font-heading font-bold uppercase text-xs tracking-wider text-muted-foreground mb-1">
+                          {pkg.name}
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          Member: <span className="font-bold text-success">{money(discounted)}</span>
+                        </p>
+                      </div>
+                      <p className="font-heading font-black text-2xl text-foreground shrink-0">
+                        {money(base)}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
+
           </div>
         </section>
 
