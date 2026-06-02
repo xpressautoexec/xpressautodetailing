@@ -109,7 +109,7 @@ const HomePromoPopup = () => {
                 </a>
               </div>
 
-              <p className="text-muted-foreground/50 text-[10px] mt-4 uppercase tracking-wider">
+              <p className="text-muted-foreground text-[10px] mt-4 uppercase tracking-wider">
                 satisfaction guarantee · Free cancellation
               </p>
             </div>

@@ -152,7 +152,7 @@ const AddOns = () => (
                   <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">
                     {addon.description}
                   </p>
-                  <p className="text-xs text-muted-foreground/70 font-medium">
+                  <p className="text-xs text-muted-foreground font-medium">
                     Best with:{" "}
                     <span className="text-primary">{addon.bestWith}</span>
                   </p>

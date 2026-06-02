@@ -345,9 +345,9 @@ const TrailerRV = () => {
                     </div>
                   )}
                   <div className="px-6 pt-8 pb-6 flex-1 flex flex-col">
-                    <p className="font-heading font-bold text-[10px] uppercase tracking-widest text-muted-foreground/60 mb-1">{pkg.title}</p>
+                    <p className="font-heading font-bold text-[10px] uppercase tracking-widest text-muted-foreground mb-1">{pkg.title}</p>
                      <p className="font-heading font-black text-3xl sm:text-4xl text-foreground leading-none mb-1.5">
-                       {pkg.originalPrice && <span className="text-lg text-muted-foreground/50 line-through mr-2">{pkg.originalPrice}</span>}
+                       {pkg.originalPrice && <span className="text-lg text-muted-foreground line-through mr-2">{pkg.originalPrice}</span>}
                        {pkg.price}
                      </p>
                     <p className="text-muted-foreground text-xs leading-relaxed mb-5">{pkg.desc}</p>
@@ -389,9 +389,9 @@ const TrailerRV = () => {
                     </div>
                   )}
                   <div className="px-6 pt-8 pb-6 flex-1 flex flex-col">
-                    <p className="font-heading font-bold text-[10px] uppercase tracking-widest text-muted-foreground/60 mb-1">{pkg.title}</p>
+                    <p className="font-heading font-bold text-[10px] uppercase tracking-widest text-muted-foreground mb-1">{pkg.title}</p>
                      <p className="font-heading font-black text-3xl sm:text-4xl text-foreground leading-none mb-1.5">
-                       {pkg.originalPrice && <span className="text-lg text-muted-foreground/50 line-through mr-2">{pkg.originalPrice}</span>}
+                       {pkg.originalPrice && <span className="text-lg text-muted-foreground line-through mr-2">{pkg.originalPrice}</span>}
                        {pkg.price}
                      </p>
                     <p className="text-muted-foreground text-xs leading-relaxed mb-5">{pkg.desc}</p>

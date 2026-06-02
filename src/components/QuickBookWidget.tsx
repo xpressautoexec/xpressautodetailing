@@ -100,7 +100,7 @@ const QuickBookWidget = () => {
                     </span>
                   )}
                 </span>
-                <span className="block text-white/40 text-[10px] mt-0.5">{s.time}</span>
+                <span className="block text-white/80 text-[10px] mt-0.5">{s.time}</span>
               </div>
             </div>
             <AnimatePresence mode="wait">
@@ -129,7 +129,7 @@ const QuickBookWidget = () => {
         Book Now — {services[selectedService].base[vehicle]}
         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
       </a>
-      <p className="text-white/40 text-[10px] text-center mt-2">
+      <p className="text-white/80 text-[10px] text-center mt-2">
         Free cancellation · No payment until service · satisfaction guarantee
       </p>
     </motion.div>

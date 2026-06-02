@@ -376,7 +376,7 @@ const MonthlyPlan = () => {
                     <div className="flex items-center gap-2 text-xs text-muted-foreground mb-5">
                       <Clock className="w-3.5 h-3.5" />
                       <span>{pkg.time}</span>
-                      <span className="text-muted-foreground/40">•</span>
+                      <span className="text-muted-foreground">•</span>
                       <ShieldCheck className="w-3.5 h-3.5" />
                       <span>Satisfaction Guarantee</span>
                     </div>

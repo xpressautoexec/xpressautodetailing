@@ -156,7 +156,7 @@ const TierCard = ({ tier }: { tier: Tier }) => {
                     <li key={p.label} className="flex items-center justify-between text-sm gap-2">
                       <span className="text-foreground/80 leading-tight">{p.label.replace(/\s*\(per ft\)/, "")}</span>
                       <span className="flex items-baseline gap-1.5 shrink-0">
-                        <span className="text-muted-foreground/60 line-through text-xs">{p.original}</span>
+                        <span className="text-muted-foreground line-through text-xs">{p.original}</span>
                         <span className="font-heading font-black text-primary text-base">{p.bundle}</span>
                       </span>
                     </li>
