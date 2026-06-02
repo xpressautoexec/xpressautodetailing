@@ -23,6 +23,7 @@ const desktopLinks: DesktopNavItem[] = [
     children: [
       { label: "Interior Detailing", href: "/interior-detailing" },
       { label: "Complete Detailing", href: "/complete-detailing" },
+      { label: "Monthly Plan", href: "/monthly-plan" },
       { label: "Add-Ons", href: "/add-ons" },
     ],
   },
@@ -69,7 +70,7 @@ const mobileLinks: MobileNavItem[] = [
       { label: "Interior Detailing", href: "/interior-detailing" },
       
       { label: "Complete Detailing", href: "/complete-detailing" },
-      
+      { label: "Monthly Plan", href: "/monthly-plan" },
       { label: "Add-Ons", href: "/add-ons" },
       { label: "Trailer & RV", href: "/trailer-rv" },
     ],
