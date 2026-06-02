@@ -90,6 +90,25 @@ const Blog = () => (
       title="Car Detailing Blog Calgary"
       description="Expert car detailing tips on paint protection, interior care, ceramic coatings & seasonal prep from Calgary's top-rated mobile detailers."
       canonical="/blog"
+      jsonLd={{
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        name: "Xpress Auto Detailing Blog",
+        description: "Tips, guides, and insights on car detailing, paint protection, ceramic coatings, and seasonal vehicle care from Calgary's mobile detailing experts.",
+        url: "https://xpressautodetail.ca/blog",
+        publisher: {
+          "@type": "Organization",
+          name: "Xpress Auto Detailing",
+          url: "https://xpressautodetail.ca",
+        },
+        blogPost: posts.map((p) => ({
+          "@type": "BlogPosting",
+          headline: p.title,
+          description: p.excerpt,
+          datePublished: p.date,
+          author: { "@type": "Organization", name: "Xpress Auto Detailing" },
+        })),
+      }}
     />
     <Navbar />
 
