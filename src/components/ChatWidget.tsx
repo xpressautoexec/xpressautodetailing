@@ -138,6 +138,7 @@ const ChatWidget = () => {
             </div>
             <button
               onClick={() => setOpen(false)}
+              aria-label="Close chat"
               className="text-brand-gray hover:text-primary-foreground transition-colors"
             >
               <X className="w-5 h-5" />
@@ -206,6 +207,7 @@ const ChatWidget = () => {
             <button
               type="submit"
               disabled={!input.trim()}
+              aria-label="Send message"
               className="w-9 h-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:bg-brand-blue-deep transition-colors disabled:opacity-40"
             >
               <Send className="w-4 h-4" />
