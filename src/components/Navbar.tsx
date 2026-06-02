@@ -181,7 +181,7 @@ const Navbar = () => {
         <div className="container flex items-center justify-between py-3">
           {/* Logo */}
           <Link to="/" className="flex items-center shrink-0" aria-label="Xpress Auto Detailing home">
-            <img src="/xpress-logo.png" alt="Xpress Auto & RV Detailing" className="h-10 lg:h-12 w-auto object-contain" />
+            <img src="/xpress-logo-white.png" alt="Xpress Auto & RV Detailing" className="h-10 lg:h-12 w-auto object-contain" />
           </Link>
 
           {/* Desktop nav */}
