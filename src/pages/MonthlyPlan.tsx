@@ -27,6 +27,7 @@ import {
   Quote,
 } from "lucide-react";
 import heroImg from "@/assets/complete-hero.jpg";
+import xpressPassCard from "@/assets/xpress-pass-card.png";
 import bannerImg from "@/assets/gallery-paint-reflection.jpg";
 import gal1 from "@/assets/gallery-bmw-red-interior.jpg";
 import gal2 from "@/assets/gallery-acura-blue.jpg";
