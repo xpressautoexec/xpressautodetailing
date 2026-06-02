@@ -89,7 +89,7 @@ const ADD_ONS = [
 const TESTIMONIALS = [
   {
     name: "Daniel R.",
-    vehicle: "BMW M340i · Monthly Plan since 2024",
+    vehicle: "BMW M340i · Xpress Pass since 2024",
     quote:
       "Best decision I made for my car. Pulls into my driveway every month, leaves looking brand new. I've stopped thinking about cleaning my car entirely.",
   },
@@ -101,7 +101,7 @@ const TESTIMONIALS = [
   },
   {
     name: "Marcus W.",
-    vehicle: "Ford F-150 · Monthly Plan",
+    vehicle: "Ford F-150 · Xpress Pass",
     quote:
       "Work truck during the week, family ride on weekends. The team handles both — and the monthly discount makes the truck size charge a non-issue.",
   },
@@ -170,8 +170,8 @@ const MonthlyPlan = () => {
     <PageTransition>
       <div className="min-h-screen bg-background">
         <SEO
-          title="Monthly Detailing Plan Calgary | Save up to 20%"
-          description="Join 200+ Calgarians on the Xpress Auto Detailing Monthly Plan. Save up to 20% on Interior Deep Clean and Complete Showroom Reset packages — plus discounted add-ons. Pick your frequency."
+          title="The Xpress Pass | Calgary Monthly Detailing Membership"
+          description="Join 200+ Calgarians on The Xpress Pass — our monthly detailing membership. Save up to 20% on Interior Deep Clean and Complete Showroom Reset packages — plus discounted add-ons. Pick your frequency."
           canonical="/monthly-plan"
           jsonLd={[buildFAQJsonLd(monthlyFAQs)]}
         />
@@ -617,7 +617,7 @@ const MonthlyPlan = () => {
           <div className="container max-w-3xl px-6">
             <div className="text-center mb-10">
               <h2 className="font-heading font-black text-3xl sm:text-4xl uppercase">
-                Monthly Plan <span className="text-gradient">FAQs</span>
+                The Xpress Pass <span className="text-gradient">FAQs</span>
               </h2>
             </div>
             <div className="space-y-4">
