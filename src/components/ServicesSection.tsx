@@ -72,7 +72,7 @@ const ServicesSection = () => {
               Our <span className="text-gradient">Services</span>
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto text-sm sm:text-base">
-              Every service includes our 14-day satisfaction guarantee, eco-friendly products, and fully insured professionals.
+              Every service includes our satisfaction guarantee, eco-friendly products, and fully insured professionals.
             </p>
           </div>
         </ScrollReveal>

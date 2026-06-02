@@ -27,6 +27,7 @@ import {
   Quote,
 } from "lucide-react";
 import heroImg from "@/assets/complete-hero.jpg";
+import xpressPassCard from "@/assets/xpress-pass-card.png";
 import bannerImg from "@/assets/gallery-paint-reflection.jpg";
 import gal1 from "@/assets/gallery-bmw-red-interior.jpg";
 import gal2 from "@/assets/gallery-acura-blue.jpg";
@@ -89,7 +90,7 @@ const ADD_ONS = [
 const TESTIMONIALS = [
   {
     name: "Daniel R.",
-    vehicle: "BMW M340i · Monthly Plan since 2024",
+    vehicle: "BMW M340i · Xpress Pass since 2024",
     quote:
       "Best decision I made for my car. Pulls into my driveway every month, leaves looking brand new. I've stopped thinking about cleaning my car entirely.",
   },
@@ -101,7 +102,7 @@ const TESTIMONIALS = [
   },
   {
     name: "Marcus W.",
-    vehicle: "Ford F-150 · Monthly Plan",
+    vehicle: "Ford F-150 · Xpress Pass",
     quote:
       "Work truck during the week, family ride on weekends. The team handles both — and the monthly discount makes the truck size charge a non-issue.",
   },
@@ -170,8 +171,8 @@ const MonthlyPlan = () => {
     <PageTransition>
       <div className="min-h-screen bg-background">
         <SEO
-          title="Monthly Detailing Plan Calgary | Save up to 20%"
-          description="Join 200+ Calgarians on the Xpress Auto Detailing Monthly Plan. Save up to 20% on Interior Deep Clean and Complete Showroom Reset packages — plus discounted add-ons. Pick your frequency."
+          title="The Xpress Pass | Calgary Monthly Detailing Membership"
+          description="Join 200+ Calgarians on The Xpress Pass — our monthly detailing membership. Save up to 20% on Interior Deep Clean and Complete Showroom Reset packages — plus discounted add-ons. Pick your frequency."
           canonical="/monthly-plan"
           jsonLd={[buildFAQJsonLd(monthlyFAQs)]}
         />
@@ -182,53 +183,70 @@ const MonthlyPlan = () => {
           <div className="absolute inset-0">
             <img
               src={heroImg}
-              alt="Detailed vehicle interior reflecting Calgary monthly detailing plan results"
-              className="w-full h-full object-cover opacity-30"
+              alt="Detailed vehicle reflecting Xpress Pass membership results"
+              className="w-full h-full object-cover opacity-20"
               loading="eager"
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-dark via-brand-dark/85 to-brand-dark/60" />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-dark via-brand-dark/90 to-brand-dark/70" />
           </div>
-          <div className="container relative max-w-5xl text-center px-6 py-24 sm:py-32">
-            <div className="inline-flex items-center gap-2 bg-primary/15 border border-primary/30 rounded-full px-4 py-1.5 mb-6">
-              <Users className="w-3.5 h-3.5 text-primary" />
-              <span className="text-xs font-heading font-bold uppercase tracking-widest text-primary">
-                Over 200 Calgarians On The Plan
-              </span>
+          <div className="container relative max-w-6xl px-6 py-20 sm:py-28 grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: copy */}
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 bg-primary/15 border border-primary/30 rounded-full px-4 py-1.5 mb-6">
+                <Users className="w-3.5 h-3.5 text-primary" />
+                <span className="text-xs font-heading font-bold uppercase tracking-widest text-primary">
+                  200+ Calgary Members
+                </span>
+              </div>
+              <h1 className="font-heading font-black text-4xl sm:text-5xl lg:text-6xl uppercase leading-[1.05] mb-5">
+                The <span className="text-primary">Xpress</span> Pass
+              </h1>
+              <p className="text-base sm:text-lg text-brand-gray max-w-xl mx-auto lg:mx-0 leading-relaxed mb-3">
+                Calgary's only monthly detailing membership.
+              </p>
+              <p className="text-base sm:text-lg text-brand-gray max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8">
+                Save up to <span className="text-primary font-bold">20%</span> on every package
+                and <span className="text-primary font-bold">15% off all add-ons</span> — for as long as you're a member.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center">
+                <a
+                  href={PHONE_HREF}
+                  className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider text-sm px-6 py-3.5 rounded-xl hover:bg-brand-blue-deep transition-colors w-full sm:w-auto"
+                >
+                  <Phone className="w-4 h-4" />
+                  Claim Your Pass — {PHONE}
+                </a>
+                <a
+                  href="#calculator"
+                  className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/20 text-primary-foreground font-heading font-bold uppercase tracking-wider text-sm px-6 py-3.5 rounded-xl hover:bg-white/15 transition-colors w-full sm:w-auto"
+                >
+                  See My Discount
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+              <div className="flex flex-wrap justify-center lg:justify-start gap-x-5 gap-y-2 mt-7 text-xs font-heading font-semibold uppercase tracking-wider text-brand-gray">
+                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> No Contract</span>
+                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> No Sign-Up Fee</span>
+                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> Cancel Anytime</span>
+                <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> Satisfaction Guarantee</span>
+              </div>
             </div>
-            <h1 className="font-heading font-black text-4xl sm:text-5xl lg:text-6xl uppercase leading-tight mb-5">
-              The <span className="text-primary">Monthly Detailing</span> Plan
-            </h1>
-            <p className="text-lg sm:text-xl text-brand-gray max-w-2xl mx-auto leading-relaxed mb-8">
-              Keep your vehicle in showroom condition year-round and save up to{" "}
-              <span className="text-primary font-bold">20%</span> on every package
-              — plus up to <span className="text-primary font-bold">15% off all add-ons</span>.
-              Pick a frequency. We handle the rest.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-              <a
-                href={PHONE_HREF}
-                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider text-sm px-6 py-3.5 rounded-xl hover:bg-brand-blue-deep transition-colors w-full sm:w-auto"
-              >
-                <Phone className="w-4 h-4" />
-                Call {PHONE} to Enroll
-              </a>
-              <a
-                href="#calculator"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/20 text-primary-foreground font-heading font-bold uppercase tracking-wider text-sm px-6 py-3.5 rounded-xl hover:bg-white/15 transition-colors w-full sm:w-auto"
-              >
-                See My Discount
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-8 text-xs font-heading font-semibold uppercase tracking-wider text-brand-gray">
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> No Contract</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> No Sign-Up Fee</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> Cancel Anytime</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-primary" /> 14-Day Guarantee</span>
+
+            {/* Right: members card */}
+            <div className="relative flex justify-center lg:justify-end">
+              <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" aria-hidden />
+              <img
+                src={xpressPassCard}
+                alt="The Xpress Pass — premium black membership card"
+                className="relative w-full max-w-md drop-shadow-2xl animate-float"
+                loading="eager"
+                width={1024}
+                height={1024}
+              />
             </div>
           </div>
         </section>
+
 
         {/* Promo Banner */}
         <section className="relative overflow-hidden bg-primary text-primary-foreground">
@@ -360,7 +378,7 @@ const MonthlyPlan = () => {
                       <span>{pkg.time}</span>
                       <span className="text-muted-foreground/40">•</span>
                       <ShieldCheck className="w-3.5 h-3.5" />
-                      <span>14-Day Guarantee</span>
+                      <span>Satisfaction Guarantee</span>
                     </div>
 
                     <a
@@ -617,7 +635,7 @@ const MonthlyPlan = () => {
           <div className="container max-w-3xl px-6">
             <div className="text-center mb-10">
               <h2 className="font-heading font-black text-3xl sm:text-4xl uppercase">
-                Monthly Plan <span className="text-gradient">FAQs</span>
+                The Xpress Pass <span className="text-gradient">FAQs</span>
               </h2>
             </div>
             <div className="space-y-4">

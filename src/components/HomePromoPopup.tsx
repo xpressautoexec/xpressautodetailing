@@ -110,7 +110,7 @@ const HomePromoPopup = () => {
               </div>
 
               <p className="text-muted-foreground/50 text-[10px] mt-4 uppercase tracking-wider">
-                14-day satisfaction guarantee · Free cancellation
+                satisfaction guarantee · Free cancellation
               </p>
             </div>
           </motion.div>

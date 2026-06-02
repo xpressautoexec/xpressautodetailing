@@ -201,7 +201,7 @@ const Index = () => {
                 Join 2,000+ happy Calgary drivers who trust Xpress Auto Detailing. Book your mobile detail today — we come to you.
               </p>
               <div className="flex items-center justify-center gap-4 text-background/40 text-xs mb-8">
-                <span className="flex items-center gap-1"><Shield className="w-3.5 h-3.5" /> 14-Day Guarantee</span>
+                <span className="flex items-center gap-1"><Shield className="w-3.5 h-3.5" /> Satisfaction Guarantee</span>
                 <span>•</span>
                 <span>Free Cancellation</span>
                 <span>•</span>

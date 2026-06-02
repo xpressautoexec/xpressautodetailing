@@ -23,7 +23,7 @@ const desktopLinks: DesktopNavItem[] = [
     children: [
       { label: "Interior Detailing", href: "/interior-detailing" },
       { label: "Complete Detailing", href: "/complete-detailing" },
-      { label: "Monthly Plan", href: "/monthly-plan" },
+      { label: "The Xpress Pass", href: "/monthly-plan" },
       { label: "Add-Ons", href: "/add-ons" },
     ],
   },
@@ -69,7 +69,7 @@ const mobileLinks: MobileNavItem[] = [
       { label: "Interior Detailing", href: "/interior-detailing" },
       
       { label: "Complete Detailing", href: "/complete-detailing" },
-      { label: "Monthly Plan", href: "/monthly-plan" },
+      { label: "The Xpress Pass", href: "/monthly-plan" },
       { label: "Add-Ons", href: "/add-ons" },
       { label: "Trailer & RV", href: "/trailer-rv" },
     ],
@@ -115,7 +115,7 @@ const TopBar = () => (
         rel="noopener noreferrer"
         className="font-heading font-bold tracking-wider uppercase text-sm hidden sm:block hover:opacity-80 transition-opacity underline underline-offset-4"
       >
-        Book in 60 seconds · 14-day guarantee
+        Book in 60 seconds · satisfaction guarantee
       </a>
       <div className="flex items-center gap-4 ml-auto">
         <a href="mailto:support@xpressautodetail.ca" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity">

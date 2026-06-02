@@ -37,7 +37,7 @@ const PackageCard = ({
   extras,
   bonuses,
   addOns,
-  guarantee = "14-Day Guarantee: Not satisfied? We redo it free.",
+  guarantee = "Satisfaction Guarantee: Not satisfied? We redo it free.",
   surcharges,
   time,
   isPrimary = false,

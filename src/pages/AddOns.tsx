@@ -177,7 +177,7 @@ const AddOns = () => (
              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-primary-foreground/50 text-sm mb-8">
                <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" /> Available with any package</span>
                <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" /> No hidden fees</span>
-               <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" /> 14-day guarantee</span>
+               <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-primary" /> satisfaction guarantee</span>
              </div>
             <a
               href={BOOKING_URL}
