@@ -142,33 +142,132 @@ serve(async (req) => {
         ? "We've received your fleet inquiry. Our team will reach out within a few hours with a tailored quote and scheduling options."
         : "We've received your message and our team will get back to you within a few hours (typically much sooner during business hours).";
 
+      const headlineText = isTraining
+        ? "Your training registration is in"
+        : isFleet
+        ? "Your fleet inquiry is in"
+        : "Your message is in good hands";
+
+      const nextStepsRows = isTraining
+        ? [
+            { n: "1", t: "Confirmation call", d: "We'll reach out within a few hours to confirm your course date and answer any questions." },
+            { n: "2", t: "Pre-course materials", d: "You'll get a welcome kit with what to bring, what to expect, and how to prep." },
+            { n: "3", t: "Show up & learn", d: "Hands-on training with the same tools and techniques we use on every job." },
+          ]
+        : isFleet
+        ? [
+            { n: "1", t: "Discovery call", d: "Quick chat to understand your fleet size, vehicle types, and service cadence." },
+            { n: "2", t: "Custom quote", d: "Tailored pricing built around your schedule, locations, and volume." },
+            { n: "3", t: "Onboarding & first detail", d: "We coordinate logistics and get your fleet looking sharp — fast." },
+          ]
+        : [
+            { n: "1", t: "We review your request", d: "A real human reads every message — usually within minutes during business hours." },
+            { n: "2", t: "We reply with a quote or answer", d: "Expect a personal reply with pricing, availability, or whatever info you need." },
+            { n: "3", t: "We come to you", d: "Pick a time that works — we bring water, power, and everything else." },
+          ];
+
+      const stepsHtml = nextStepsRows.map((s) => `
+        <tr>
+          <td valign="top" width="44" style="padding: 0 14px 18px 0;">
+            <div style="width: 36px; height: 36px; border-radius: 50%; background: #2563EB; color: #ffffff; font-weight: 800; font-size: 14px; line-height: 36px; text-align: center;">${s.n}</div>
+          </td>
+          <td valign="top" style="padding: 0 0 18px 0;">
+            <p style="color: #0F172A; font-size: 14px; font-weight: 700; margin: 4px 0 4px;">${s.t}</p>
+            <p style="color: #475569; font-size: 13px; line-height: 1.55; margin: 0;">${s.d}</p>
+          </td>
+        </tr>
+      `).join('');
+
       const autoReplyHtml = `
-        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff;">
-          <div style="background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%); padding: 28px 24px; text-align: center;">
-            <img src="https://xpressautodetail.ca/xpress-logo.png" alt="Xpress Auto & RV Detailing" width="260" style="display: inline-block; max-width: 260px; height: auto; margin: 0 auto;" />
-            <p style="color: rgba(255,255,255,0.9); margin: 12px 0 0; font-size: 12px; letter-spacing: 2px; text-transform: uppercase;">Calgary's 4.9-Star Mobile Detailers</p>
-          </div>
-          <div style="padding: 32px 28px;">
-            <h2 style="color: #0F172A; font-size: 20px; margin: 0 0 16px;">Thanks, ${firstName}!</h2>
-            <p style="color: #334155; font-size: 15px; line-height: 1.6; margin: 0 0 16px;">${ctaLine}</p>
-            <p style="color: #334155; font-size: 15px; line-height: 1.6; margin: 0 0 24px;">Here's a copy of what you sent us:</p>
-            <div style="background: #F1F5F9; border-left: 4px solid #2563EB; padding: 16px 18px; border-radius: 6px; margin-bottom: 28px;">
-              <p style="color: #475569; font-size: 14px; line-height: 1.6; margin: 0; white-space: pre-wrap;">${safeMessage}</p>
+        <div style="background: #F1F5F9; padding: 24px 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
+          <div style="max-width: 620px; margin: 0 auto; background: #ffffff; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 24px rgba(15,23,42,0.08);">
+
+            <div style="background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 55%, #3B82F6 100%); padding: 32px 28px; text-align: center;">
+              <img src="https://xpressautodetail.ca/xpress-logo-white.png" alt="Xpress Auto &amp; RV Detailing" width="240" style="display: inline-block; max-width: 240px; height: auto; margin: 0 auto 14px;" />
+              <p style="color: #DBEAFE; margin: 0; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600;">Calgary &middot; Airdrie &middot; Cochrane &middot; Chestermere</p>
             </div>
-            <div style="text-align: center; margin: 28px 0;">
-              <a href="https://xpressauto.fieldd.co/" style="display: inline-block; background: #2563EB; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 14px; padding: 14px 32px; border-radius: 8px; text-transform: uppercase; letter-spacing: 1px;">Book Online Now</a>
+
+            <div style="padding: 28px 32px 0; text-align: center;">
+              <span style="display: inline-block; background: #DCFCE7; color: #15803D; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 14px; border-radius: 999px;">&#10003; Message received</span>
             </div>
-            <p style="color: #334155; font-size: 14px; line-height: 1.6; margin: 24px 0 8px;"><strong>Need us sooner?</strong></p>
-            <p style="color: #334155; font-size: 14px; line-height: 1.6; margin: 0 0 4px;">Call: <a href="tel:5875004523" style="color: #2563EB; text-decoration: none; font-weight: 600;">587-500-4523</a></p>
-            <p style="color: #334155; font-size: 14px; line-height: 1.6; margin: 0 0 24px;">Email: <a href="mailto:support@xpressautodetail.ca" style="color: #2563EB; text-decoration: none; font-weight: 600;">support@xpressautodetail.ca</a></p>
-            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 16px; margin-top: 24px;">
-              <p style="color: #0F172A; font-size: 13px; font-weight: 700; margin: 0 0 6px; text-transform: uppercase; letter-spacing: 0.5px;">The Xpress Pass — Satisfaction Guarantee</p>
-              <p style="color: #475569; font-size: 13px; line-height: 1.5; margin: 0;">If you're not 100% happy with the result, we'll make it right. That's our promise.</p>
+
+            <div style="padding: 18px 32px 8px; text-align: center;">
+              <h1 style="color: #0F172A; font-size: 26px; font-weight: 800; margin: 0 0 8px; line-height: 1.25;">Thanks, ${firstName}.</h1>
+              <p style="color: #0F172A; font-size: 18px; font-weight: 600; margin: 0 0 14px;">${headlineText}.</p>
+              <p style="color: #475569; font-size: 15px; line-height: 1.6; margin: 0 auto; max-width: 460px;">${ctaLine}</p>
             </div>
-          </div>
-          <div style="background: #0F172A; padding: 20px 24px; text-align: center;">
-            <p style="color: #94A3B8; font-size: 12px; margin: 0;">Serving Calgary, Airdrie, Cochrane, Chestermere & area</p>
-            <p style="color: #64748B; font-size: 11px; margin: 6px 0 0;">© ${new Date().getFullYear()} Xpress Auto Detailing</p>
+
+            <div style="padding: 28px 32px 4px;">
+              <p style="color: #64748B; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin: 0 0 10px;">Your message</p>
+              <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-left: 4px solid #2563EB; padding: 18px 20px; border-radius: 8px;">
+                <p style="color: #334155; font-size: 14px; line-height: 1.65; margin: 0; white-space: pre-wrap;">${safeMessage}</p>
+              </div>
+            </div>
+
+            <div style="padding: 28px 32px 8px;">
+              <p style="color: #64748B; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin: 0 0 16px;">What happens next</p>
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse;">
+                ${stepsHtml}
+              </table>
+            </div>
+
+            <div style="padding: 8px 32px 28px; text-align: center;">
+              <p style="color: #475569; font-size: 14px; line-height: 1.6; margin: 0 0 16px;">Want to lock in a time right now?</p>
+              <a href="https://xpressauto.fieldd.co/" style="display: inline-block; background: #2563EB; color: #ffffff; text-decoration: none; font-weight: 800; font-size: 14px; padding: 16px 36px; border-radius: 10px; text-transform: uppercase; letter-spacing: 1.2px; box-shadow: 0 6px 16px rgba(37,99,235,0.35);">Book Online &rarr;</a>
+              <p style="color: #94A3B8; font-size: 12px; margin: 14px 0 0;">60-second booking &middot; Pick your time &middot; We come to you</p>
+            </div>
+
+            <div style="padding: 0 32px;"><div style="height: 1px; background: #E2E8F0;"></div></div>
+
+            <div style="padding: 24px 32px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse: collapse; text-align: center;">
+                <tr>
+                  <td width="33%" style="padding: 0 6px;">
+                    <p style="color: #2563EB; font-size: 22px; font-weight: 800; margin: 0;">4.9&#9733;</p>
+                    <p style="color: #64748B; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin: 4px 0 0;">Google rating</p>
+                  </td>
+                  <td width="33%" style="padding: 0 6px; border-left: 1px solid #E2E8F0; border-right: 1px solid #E2E8F0;">
+                    <p style="color: #2563EB; font-size: 22px; font-weight: 800; margin: 0;">1000+</p>
+                    <p style="color: #64748B; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin: 4px 0 0;">Vehicles detailed</p>
+                  </td>
+                  <td width="33%" style="padding: 0 6px;">
+                    <p style="color: #2563EB; font-size: 22px; font-weight: 800; margin: 0;">&lt; 2 hr</p>
+                    <p style="color: #64748B; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin: 4px 0 0;">Reply time</p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <div style="padding: 0 32px 28px;">
+              <div style="background: #0F172A; border-radius: 12px; padding: 22px 24px; text-align: center;">
+                <p style="color: #94A3B8; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin: 0 0 10px;">Need us sooner?</p>
+                <p style="margin: 0 0 4px;">
+                  <a href="tel:5875004523" style="color: #ffffff; font-size: 22px; font-weight: 800; text-decoration: none; letter-spacing: 0.5px;">587-500-4523</a>
+                </p>
+                <p style="margin: 0;">
+                  <a href="mailto:support@xpressautodetail.ca" style="color: #93C5FD; font-size: 13px; text-decoration: none;">support@xpressautodetail.ca</a>
+                </p>
+                <p style="color: #64748B; font-size: 12px; margin: 12px 0 0;">Open daily 9 AM &ndash; 5 PM</p>
+              </div>
+            </div>
+
+            <div style="padding: 0 32px 32px;">
+              <div style="border: 1.5px solid #DBEAFE; background: linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 100%); border-radius: 12px; padding: 20px 22px;">
+                <p style="color: #1E3A8A; font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin: 0 0 8px;">The Xpress Pass</p>
+                <p style="color: #0F172A; font-size: 15px; font-weight: 700; margin: 0 0 6px;">100% Satisfaction Promise</p>
+                <p style="color: #475569; font-size: 13px; line-height: 1.6; margin: 0;">If you're not thrilled with the result, we'll come back and make it right &mdash; no questions, no extra charge.</p>
+              </div>
+            </div>
+
+            <div style="background: #0F172A; padding: 24px 28px; text-align: center;">
+              <p style="color: #E2E8F0; font-size: 13px; font-weight: 600; margin: 0 0 6px;">Xpress Auto &amp; RV Detailing</p>
+              <p style="color: #94A3B8; font-size: 12px; margin: 0 0 12px;">Calgary's mobile detailers &middot; We come to you</p>
+              <p style="margin: 0;">
+                <a href="https://xpressautodetail.ca" style="color: #93C5FD; font-size: 12px; text-decoration: none;">xpressautodetail.ca</a>
+              </p>
+              <p style="color: #64748B; font-size: 11px; margin: 12px 0 0;">&copy; ${new Date().getFullYear()} Xpress Auto Detailing. All rights reserved.</p>
+            </div>
+
           </div>
         </div>
       `;
