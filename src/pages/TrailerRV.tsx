@@ -289,6 +289,84 @@ const TrailerRV = () => {
         </div>
       </section>
 
+      {/* Places We've Worked */}
+      <section className="py-16 sm:py-20 bg-background">
+        <div className="container max-w-5xl px-6">
+          <ScrollReveal>
+            <div className="text-center mb-10">
+              <p className="text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-2">
+                On-Site Across the City
+              </p>
+              <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-3">
+                Places We've <span className="text-primary">Worked</span>
+              </h2>
+              <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto">
+                We've detailed rigs at storage compounds, campgrounds, dealerships and private shops all over Calgary and Southern Alberta. If your RV is parked there — we'll meet you there.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              {
+                title: "RV Storage Compounds",
+                items: [
+                  "Calgary RV Storage (NE)",
+                  "Stampede RV Storage",
+                  "Rocky View RV Storage",
+                  "Airdrie Secure RV & Boat",
+                  "Chestermere RV Compound",
+                  "Balzac Storage Yards",
+                ],
+              },
+              {
+                title: "Campgrounds & Resorts",
+                items: [
+                  "Bow RiversEdge Campground (Cochrane)",
+                  "Calaway RV Park & Campground",
+                  "Mountain View Camping (Calgary West)",
+                  "Symons Valley RV Campground",
+                  "Bow Valley Campground (Kananaskis)",
+                  "Sundance RV Resort (Sundre)",
+                ],
+              },
+              {
+                title: "Dealerships & Shops",
+                items: [
+                  "Local RV dealership lots (pre-sale prep)",
+                  "Independent RV repair shops",
+                  "Auto body & paint shops",
+                  "Truck & trailer service centres",
+                  "Private acreages & farm shops",
+                  "Driveways across Calgary, Airdrie, Chestermere & Cochrane",
+                ],
+              },
+            ].map((group) => (
+              <div key={group.title} className="p-6 rounded-xl border border-border bg-card hover:border-primary/30 transition-all">
+                <div className="flex items-center gap-2 mb-4">
+                  <MapPin className="w-4 h-4 text-primary" />
+                  <h3 className="font-heading font-bold text-foreground uppercase text-sm tracking-wider">
+                    {group.title}
+                  </h3>
+                </div>
+                <ul className="space-y-2.5">
+                  {group.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-foreground/80">
+                      <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center text-muted-foreground text-xs mt-8 max-w-2xl mx-auto">
+            Don't see your location? We service all of Calgary, Airdrie, Chestermere, Cochrane and surrounding areas. Just tell us where your rig is parked.
+          </p>
+        </div>
+      </section>
+
       {/* Video Showcase */}
       <section className="py-16 sm:py-20 bg-background">
         <div className="container max-w-5xl px-4 sm:px-6">
