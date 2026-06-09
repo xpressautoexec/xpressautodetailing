@@ -12,7 +12,8 @@ import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/Scroll
 import ceramicHero from "@/assets/gallery-28.jpg";
 import paintImg from "@/assets/gallery-bmw-emblem.jpg";
 import brandMenzerna from "@/assets/brand-menzerna.png";
-import { ArrowRight, Droplets, Shield, Sun, Sparkles, Clock, DollarSign, Check, Gem, Phone, Award, Beaker } from "lucide-react";
+import systemXLogo from "@/assets/systemx-logo.png";
+import { ArrowRight, Droplets, Shield, Sun, Sparkles, Clock, DollarSign, Check, CheckCircle, Gem, Phone, Award, Beaker, Zap, Car, Palette, TrendingUp, Mountain, Trophy } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -35,8 +36,8 @@ const ceramicTestimonials = [
 const PaintCeramics = () => (
   <PageTransition><div className="min-h-screen">
     <SEO
-      title="Ceramic Coating Calgary"
-      description="Professional ceramic coating and paint correction in Calgary. Remove swirls, scratches & oxidation. 1, 2 & 4-year protection packages. Call for a free quote."
+      title="Ceramic Coating Calgary | System X 9-Year Graphene"
+      description="Calgary's flagship ceramic coating & paint correction. System X 9-year graphene, Menzerna paint correction. 1, 5 & 9-year protection. Call for a custom quote."
       canonical="/paint-ceramics"
       jsonLd={[
         buildServiceJsonLd("Paint Correction & Ceramic Coating", "Professional paint correction and ceramic coating in Calgary.", "/paint-ceramics"),
@@ -51,16 +52,123 @@ const PaintCeramics = () => (
     <section className="py-16 sm:py-20 bg-background">
       <div className="container max-w-4xl text-center px-6">
         <ScrollReveal>
+          <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs mb-3">
+            Calgary's Flagship Ceramic Service
+          </p>
           <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
             Your Paint Deserves <span className="text-primary">Permanent Protection</span>
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-5 text-sm sm:text-base">
-            Every time you drive through an automatic car wash, hundreds of micro-scratches are etched into your clear coat. Over time, swirl marks accumulate, oxidation sets in, and your paint loses the depth and brilliance it had when new.
+            Every automatic wash etches hundreds of micro-scratches into your clear coat. Swirl marks accumulate, oxidation sets in, and your paint loses the depth and brilliance it had when new.
           </p>
           <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-            Paint correction removes those defects. Ceramic coating prevents them from coming back. Together, they're the most advanced form of automotive surface protection available today — and the best investment you can make in your vehicle's appearance and value.
+            We fix that. Paint correction with German-engineered Menzerna compounds removes the defects — then a professional ceramic coating, up to System X's 9-year graphene formula, locks in a mirror finish that lasts years, not months. It's the most advanced surface protection available, and our highest-end service.
           </p>
         </ScrollReveal>
+      </div>
+    </section>
+
+    {/* Premium: System X 9-Year Graphene Ceramic Coating */}
+    <section className="relative py-20 sm:py-28 bg-foreground overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.18),transparent_60%)]" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+
+      <div className="container relative z-10 px-6">
+        <ScrollReveal>
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 bg-primary/15 border border-primary/30 text-primary font-heading font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+              <Sparkles className="w-3 h-3" />
+              Flagship Protection · Custom Quote
+            </div>
+            <img
+              src={systemXLogo}
+              alt="System X Ceramic Protection — authorized installer"
+              className="mx-auto h-16 sm:h-20 w-auto mb-6"
+              style={{ filter: "invert(1) brightness(2)" }}
+              loading="lazy"
+            />
+            <h2 className="font-heading font-black text-3xl sm:text-5xl uppercase text-background leading-[1.05] mb-4">
+              <span className="text-primary">9-Year</span> Graphene-Infused<br />
+              Ceramic Coating
+            </h2>
+            <p className="text-background/70 text-base sm:text-lg leading-relaxed">
+              The longest-lasting, most hydrophobic ceramic coating on the market — engineered for daily drivers, weekend enthusiasts and exotics that face Alberta's brutal UV, chinooks, road salt and gravel.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-10 max-w-6xl mx-auto">
+          {[
+            {
+              icon: Shield,
+              title: "9-Year Manufacturer Warranty",
+              desc: "Industry-leading protection backed by System X — the same coating trusted on luxury vehicles, yachts and aircraft worldwide.",
+            },
+            {
+              icon: Zap,
+              title: "Graphene-Infused Formula",
+              desc: "Graphene additives reduce water spotting, increase scratch resistance and improve heat dissipation vs. standard SiO₂ coatings.",
+            },
+            {
+              icon: Sun,
+              title: "Stops UV Oxidation Cold",
+              desc: "Locks in clear-coat clarity and gloss for nearly a decade — no more faded paint, dull finishes or chalky panels.",
+            },
+          ].map(({ icon: Icon, title, desc }) => (
+            <div key={title} className="bg-background/5 backdrop-blur-sm border border-background/10 rounded-2xl p-6 hover:border-primary/40 transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center mb-4">
+                <Icon className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-heading font-black text-lg uppercase tracking-tight text-background mb-2">{title}</h3>
+              <p className="text-background/65 text-sm leading-relaxed">{desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="bg-background/5 backdrop-blur-sm border border-background/10 rounded-2xl p-6 sm:p-8 max-w-6xl mx-auto mb-10">
+          <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-primary mb-4 text-center">
+            What's Included
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+            {[
+              "Full exterior decontamination wash & clay bar",
+              "Multi-stage paint correction with Menzerna compounds",
+              "System X Graphene base coat (entire body)",
+              "System X Top Coat for max hydrophobic gloss",
+              "Wheel face, trim, glass & headlight ceramic protection",
+              "9-year written manufacturer warranty",
+              "Annual inspection & re-boost program",
+              "Care kit with maintenance instructions",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-2.5 text-sm text-background/85">
+                <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 bg-urgency/15 border border-urgency/30 text-urgency font-heading font-bold text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
+            <Award className="w-3 h-3" />
+            Pricing Tailored To Your Vehicle
+          </div>
+          <p className="text-background/70 text-sm sm:text-base leading-relaxed mb-6">
+            Every vehicle is different — size, condition, paint hardness and correction needs all factor in. Call for a personalized assessment and a transparent quote.
+          </p>
+          <a
+            href="tel:5875004523"
+            className="inline-flex items-center gap-3 bg-primary text-primary-foreground font-heading font-black uppercase tracking-wider px-8 py-4 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg hover:bg-brand-blue-deep transition-colors shadow-2xl shadow-primary/30"
+          >
+            <Phone className="w-5 h-5" />
+            Call for Custom Quote
+            <ArrowRight className="w-5 h-5" />
+          </a>
+          <p className="text-background/50 text-xs mt-4 uppercase tracking-wider font-semibold">
+            587-500-4523 · Free in-person assessment
+          </p>
+        </div>
       </div>
     </section>
 
@@ -158,11 +266,14 @@ const PaintCeramics = () => (
     <section className="py-16 sm:py-20 bg-background">
       <div className="container">
         <ScrollReveal>
+          <p className="text-center text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs mb-3">
+            Standard Tiers · Fixed Pricing
+          </p>
           <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-4">
-            Paint Correction & Ceramic Packages
+            Paint Correction & <span className="text-primary">Ceramic Packages</span>
           </h2>
-          <p className="text-center text-muted-foreground font-heading text-sm uppercase tracking-widest mb-12">
-            Correction first. Then permanent protection.
+          <p className="text-center text-muted-foreground text-sm max-w-2xl mx-auto mb-12">
+            Stepping stones into ceramic protection. Want maximum longevity? Upgrade to the System X 9-year coating above.
           </p>
         </ScrollReveal>
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0">
@@ -342,16 +453,18 @@ const PaintCeramics = () => (
         </ScrollReveal>
         <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4" staggerDelay={0.08}>
           {[
-            { emoji: "🚗", text: "New car owners who want to preserve that factory finish from day one" },
-            { emoji: "🖤", text: "Dark-colored vehicle owners tired of visible swirl marks and water spots" },
-            { emoji: "📈", text: "Anyone planning to sell within 1–3 years who wants to maximize resale value" },
-            { emoji: "🏔️", text: "Calgary drivers who need serious protection from salt, UV, and gravel" },
-            { emoji: "⏰", text: "Busy professionals who want a low-maintenance, always-clean vehicle" },
-            { emoji: "🏎️", text: "Car enthusiasts who demand nothing less than perfection" },
+            { icon: Car, text: "New car owners who want to preserve that factory finish from day one" },
+            { icon: Palette, text: "Dark-colored vehicle owners tired of visible swirl marks and water spots" },
+            { icon: TrendingUp, text: "Anyone planning to sell within 1–3 years who wants to maximize resale value" },
+            { icon: Mountain, text: "Calgary drivers who need serious protection from salt, UV, and gravel" },
+            { icon: Clock, text: "Busy professionals who want a low-maintenance, always-clean vehicle" },
+            { icon: Trophy, text: "Car enthusiasts who demand nothing less than perfection" },
           ].map((item) => (
             <StaggerItem key={item.text}>
               <div className="flex items-center gap-3 p-4 rounded-lg border border-border bg-card text-left hover:border-primary/30 transition-colors">
-                <span className="text-2xl shrink-0">{item.emoji}</span>
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                  <item.icon className="w-5 h-5 text-primary" />
+                </div>
                 <p className="text-muted-foreground text-sm leading-snug">{item.text}</p>
               </div>
             </StaggerItem>
@@ -373,7 +486,7 @@ const PaintCeramics = () => (
               Whether you just bought a new car or want to restore a daily driver, ceramic coating is the ultimate investment in your vehicle's future. One appointment. Years of protection.
             </p>
             <p className="text-primary-foreground/60 text-sm mb-8">
-              ✓ Certified installers &nbsp; ✓ 4+ year protection &nbsp; ✓ Satisfaction guaranteed
+              ✓ System X authorized installer &nbsp; ✓ Up to 9-year protection &nbsp; ✓ Satisfaction guaranteed
             </p>
             <a href="tel:5875004523" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-lg group">
               <Phone className="w-4 h-4" />
