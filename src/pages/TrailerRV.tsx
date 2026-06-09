@@ -241,21 +241,21 @@ const TrailerRV = () => {
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div>
                 <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
-                  Your RV Is a <span className="text-primary">Major Investment</span>
+                  Southern Alberta's <span className="text-primary">Only Mobile RV Detailers</span>
                 </h2>
                 <p className="text-muted-foreground leading-relaxed text-base sm:text-lg mb-4">
-                  Regular detailing isn't just cosmetic — it protects gelcoat, prevents seal degradation, and preserves resale value. We bring our full mobile setup directly to your rig, wherever it's parked.
+                  No one else brings a full RV-grade detailing setup directly to your site. We're the only mobile operation in Southern Alberta dedicated to motorhomes, 5th wheels, travel trailers and toy haulers — saving you the hassle, time and fuel of dragging your rig across the city.
                 </p>
                 <p className="text-muted-foreground leading-relaxed text-sm">
-                  From compact camper vans to 40ft Class A motorhomes — we've seen and detailed it all. Our RV-specific products, extension equipment, and trained technicians deliver results that general detailers simply can't match.
+                  We run the best equipment, compounds and processes in the industry — tried and tested on every type of rig. 100+ RVs serviced in the past year alone, with the reviews, photos and before/afters to prove it.
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { stat: "500+", label: "RVs & Trailers Detailed" },
+                  { stat: "100+", label: "RVs Serviced This Year" },
+                  { stat: "#1", label: "Mobile RV Detailer in S. AB" },
                   { stat: "4.9/5", label: "Average Client Rating" },
-                  { stat: "100%", label: "RV-Safe Products" },
-                  { stat: "72hr", label: "Typical Booking Window" },
+                  { stat: "$0", label: "Towing or Drop-Off Cost" },
                 ].map((item) => (
                   <div key={item.label} className="p-5 rounded-xl border border-border bg-card text-center">
                     <p className="font-heading font-black text-2xl text-primary">{item.stat}</p>
