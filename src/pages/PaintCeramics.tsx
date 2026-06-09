@@ -486,7 +486,7 @@ const PaintCeramics = () => (
               Whether you just bought a new car or want to restore a daily driver, ceramic coating is the ultimate investment in your vehicle's future. One appointment. Years of protection.
             </p>
             <p className="text-primary-foreground/60 text-sm mb-8">
-              ✓ Certified installers &nbsp; ✓ 4+ year protection &nbsp; ✓ Satisfaction guaranteed
+              ✓ System X authorized installer &nbsp; ✓ Up to 9-year protection &nbsp; ✓ Satisfaction guaranteed
             </p>
             <a href="tel:5875004523" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-lg group">
               <Phone className="w-4 h-4" />
