@@ -318,7 +318,7 @@ const PaintCeramics = () => (
     </section>
 
     {/* Packages — light cards */}
-    <section className="py-16 sm:py-20 bg-background">
+    <section id="packages" className="py-16 sm:py-20 bg-background scroll-mt-24">
       <div className="container">
         <ScrollReveal>
           <p className="text-center text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs mb-3">
