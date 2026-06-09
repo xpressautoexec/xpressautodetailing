@@ -60,15 +60,27 @@ const packages = [
     ],
   },
   {
-    title: "Decal Restoration & UV Protectant",
-    price: "$13/ft",
-    desc: "Full-RV UV protection plus targeted decal restoration",
+    title: "UV Protectant",
+    price: "$9.5/ft",
+    desc: "Full-RV UV protectant to prevent fading & oxidation",
     features: [
       "UV protectant applied to entire RV exterior",
-      "Targeted decal colour restoration treatment",
-      "Prevents future cracking, peeling & yellowing",
-      "Gelcoat & fiberglass UV shield included",
-      "Extends decal life by years",
+      "Shields gelcoat & fiberglass from sun damage",
+      "Prevents future chalking, cracking & yellowing",
+      "Safe on decals, rubber seals & trim",
+      "Ideal pre-storage or pre-summer treatment",
+    ],
+  },
+  {
+    title: "Decal Restoration",
+    price: "$30/decal",
+    desc: "Rehydration & polish to bring back faded decal colour",
+    features: [
+      "Per-decal pricing — pay only for what you restore",
+      "Deep rehydration to reverse drying & fading",
+      "Machine polish to restore gloss & colour depth",
+      "Strong UV protectant applied to lock it in",
+      "Restores most fading — extends decal life by years",
     ],
   },
   {
@@ -101,7 +113,7 @@ const packages = [
   },
   {
     title: "Paint Correction",
-    price: "$34/ft",
+    price: "$38/ft",
     desc: "Machine polish to remove oxidation & restore original finish",
     features: [
       "Full exterior wash included",
@@ -113,8 +125,8 @@ const packages = [
   },
   {
     title: "Correction + Sealant",
-    price: "$46/ft",
-    originalPrice: "$50/ft",
+    price: "$48/ft",
+    originalPrice: "$54/ft",
     popular: true,
     badge: "Best Value",
     desc: "Full oxidation removal + ceramic sealant for maximum protection",
@@ -445,7 +457,7 @@ const TrailerRV = () => {
               </StaggerItem>
             ))}
           </StaggerContainer>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5" staggerDelay={0.06}>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-5" staggerDelay={0.06}>
             {packages.slice(4).map((pkg) => (
               <StaggerItem key={pkg.title}>
                 <div className={`relative rounded-xl h-full flex flex-col border transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
