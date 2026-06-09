@@ -164,16 +164,16 @@ const TrailerRV = () => {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-urgency/90 text-urgency-foreground font-heading font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
               <Zap className="w-3 h-3" />
-              Limited Availability This Season
+              The Only Mobile RV Detailers in Southern Alberta
             </div>
 
             <h1 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-background leading-[1.1] mb-4">
-              Premium RV & Trailer<br />
-              <span className="text-primary">Detailing Service</span>
+              Mobile RV & Trailer<br />
+              <span className="text-primary">Detailing — We Come to You</span>
             </h1>
 
             <p className="text-background/70 text-base sm:text-lg leading-relaxed mb-5 max-w-xl">
-              Calgary's trusted mobile RV detailing — we come to your driveway, storage lot, or campground. Every type of rig, any size.
+              Skip the hassle, time and cost of towing your 5th wheel or driving your motorhome to a shop. We bring pro-grade equipment, compounds and processes — tried, tested, and proven on 100+ rigs in the past year alone.
             </p>
 
             <div className="flex items-center gap-4 text-background/60 text-sm mb-8">
@@ -186,7 +186,7 @@ const TrailerRV = () => {
               </span>
               <span>4.9/5</span>
               <span className="w-px h-4 bg-background/20" />
-              <span>100+ 5-Star Reviews</span>
+              <span>100+ RVs Serviced This Year</span>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
@@ -241,21 +241,21 @@ const TrailerRV = () => {
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div>
                 <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
-                  Your RV Is a <span className="text-primary">Major Investment</span>
+                  Southern Alberta's <span className="text-primary">Only Mobile RV Detailers</span>
                 </h2>
                 <p className="text-muted-foreground leading-relaxed text-base sm:text-lg mb-4">
-                  Regular detailing isn't just cosmetic — it protects gelcoat, prevents seal degradation, and preserves resale value. We bring our full mobile setup directly to your rig, wherever it's parked.
+                  No one else brings a full RV-grade detailing setup directly to your site. We're the only mobile operation in Southern Alberta dedicated to motorhomes, 5th wheels, travel trailers and toy haulers — saving you the hassle, time and fuel of dragging your rig across the city.
                 </p>
                 <p className="text-muted-foreground leading-relaxed text-sm">
-                  From compact camper vans to 40ft Class A motorhomes — we've seen and detailed it all. Our RV-specific products, extension equipment, and trained technicians deliver results that general detailers simply can't match.
+                  We run the best equipment, compounds and processes in the industry — tried and tested on every type of rig. 100+ RVs serviced in the past year alone, with the reviews, photos and before/afters to prove it.
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { stat: "500+", label: "RVs & Trailers Detailed" },
+                  { stat: "100+", label: "RVs Serviced This Year" },
+                  { stat: "#1", label: "Mobile RV Detailer in S. AB" },
                   { stat: "4.9/5", label: "Average Client Rating" },
-                  { stat: "100%", label: "RV-Safe Products" },
-                  { stat: "72hr", label: "Typical Booking Window" },
+                  { stat: "$0", label: "Towing or Drop-Off Cost" },
                 ].map((item) => (
                   <div key={item.label} className="p-5 rounded-xl border border-border bg-card text-center">
                     <p className="font-heading font-black text-2xl text-primary">{item.stat}</p>
@@ -286,6 +286,84 @@ const TrailerRV = () => {
               </StaggerItem>
             ))}
           </StaggerContainer>
+        </div>
+      </section>
+
+      {/* Places We've Worked */}
+      <section className="py-16 sm:py-20 bg-background">
+        <div className="container max-w-5xl px-6">
+          <ScrollReveal>
+            <div className="text-center mb-10">
+              <p className="text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-2">
+                On-Site Across the City
+              </p>
+              <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-3">
+                Places We've <span className="text-primary">Worked</span>
+              </h2>
+              <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto">
+                We've detailed rigs at storage compounds, campgrounds, dealerships and private shops all over Calgary and Southern Alberta. If your RV is parked there — we'll meet you there.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              {
+                title: "RV Storage Compounds",
+                items: [
+                  "Calgary RV Storage (NE)",
+                  "Stampede RV Storage",
+                  "Rocky View RV Storage",
+                  "Airdrie Secure RV & Boat",
+                  "Chestermere RV Compound",
+                  "Balzac Storage Yards",
+                ],
+              },
+              {
+                title: "Campgrounds & Resorts",
+                items: [
+                  "Bow RiversEdge Campground (Cochrane)",
+                  "Calaway RV Park & Campground",
+                  "Mountain View Camping (Calgary West)",
+                  "Symons Valley RV Campground",
+                  "Bow Valley Campground (Kananaskis)",
+                  "Sundance RV Resort (Sundre)",
+                ],
+              },
+              {
+                title: "Dealerships & Shops",
+                items: [
+                  "Local RV dealership lots (pre-sale prep)",
+                  "Independent RV repair shops",
+                  "Auto body & paint shops",
+                  "Truck & trailer service centres",
+                  "Private acreages & farm shops",
+                  "Driveways across Calgary, Airdrie, Chestermere & Cochrane",
+                ],
+              },
+            ].map((group) => (
+              <div key={group.title} className="p-6 rounded-xl border border-border bg-card hover:border-primary/30 transition-all">
+                <div className="flex items-center gap-2 mb-4">
+                  <MapPin className="w-4 h-4 text-primary" />
+                  <h3 className="font-heading font-bold text-foreground uppercase text-sm tracking-wider">
+                    {group.title}
+                  </h3>
+                </div>
+                <ul className="space-y-2.5">
+                  {group.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-foreground/80">
+                      <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center text-muted-foreground text-xs mt-8 max-w-2xl mx-auto">
+            Don't see your location? We service all of Calgary, Airdrie, Chestermere, Cochrane and surrounding areas. Just tell us where your rig is parked.
+          </p>
         </div>
       </section>
 
