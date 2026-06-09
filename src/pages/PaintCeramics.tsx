@@ -266,11 +266,14 @@ const PaintCeramics = () => (
     <section className="py-16 sm:py-20 bg-background">
       <div className="container">
         <ScrollReveal>
+          <p className="text-center text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs mb-3">
+            Standard Tiers · Fixed Pricing
+          </p>
           <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-4">
-            Paint Correction & Ceramic Packages
+            Paint Correction & <span className="text-primary">Ceramic Packages</span>
           </h2>
-          <p className="text-center text-muted-foreground font-heading text-sm uppercase tracking-widest mb-12">
-            Correction first. Then permanent protection.
+          <p className="text-center text-muted-foreground text-sm max-w-2xl mx-auto mb-12">
+            Stepping stones into ceramic protection. Want maximum longevity? Upgrade to the System X 9-year coating above.
           </p>
         </ScrollReveal>
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0">
