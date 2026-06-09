@@ -164,16 +164,16 @@ const TrailerRV = () => {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-urgency/90 text-urgency-foreground font-heading font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
               <Zap className="w-3 h-3" />
-              Limited Availability This Season
+              The Only Mobile RV Detailers in Southern Alberta
             </div>
 
             <h1 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-background leading-[1.1] mb-4">
-              Premium RV & Trailer<br />
-              <span className="text-primary">Detailing Service</span>
+              Mobile RV & Trailer<br />
+              <span className="text-primary">Detailing — We Come to You</span>
             </h1>
 
             <p className="text-background/70 text-base sm:text-lg leading-relaxed mb-5 max-w-xl">
-              Calgary's trusted mobile RV detailing — we come to your driveway, storage lot, or campground. Every type of rig, any size.
+              Skip the hassle, time and cost of towing your 5th wheel or driving your motorhome to a shop. We bring pro-grade equipment, compounds and processes — tried, tested, and proven on 100+ rigs in the past year alone.
             </p>
 
             <div className="flex items-center gap-4 text-background/60 text-sm mb-8">
@@ -186,7 +186,7 @@ const TrailerRV = () => {
               </span>
               <span>4.9/5</span>
               <span className="w-px h-4 bg-background/20" />
-              <span>100+ 5-Star Reviews</span>
+              <span>100+ RVs Serviced This Year</span>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
