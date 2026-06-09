@@ -9,7 +9,7 @@ import TestimonialBlock from "@/components/TestimonialBlock";
 import TrustStats from "@/components/TrustStats";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
-import ceramicHero from "@/assets/gallery-28.jpg";
+import ceramicHero from "@/assets/paint-ceramics-hero.jpg";
 import paintImg from "@/assets/gallery-bmw-emblem.jpg";
 import brandMenzerna from "@/assets/brand-menzerna.png";
 import systemXLogo from "@/assets/systemx-logo.png";
