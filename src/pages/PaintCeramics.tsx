@@ -12,7 +12,8 @@ import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/Scroll
 import ceramicHero from "@/assets/gallery-28.jpg";
 import paintImg from "@/assets/gallery-bmw-emblem.jpg";
 import brandMenzerna from "@/assets/brand-menzerna.png";
-import { ArrowRight, Droplets, Shield, Sun, Sparkles, Clock, DollarSign, Check, Gem, Phone, Award, Beaker } from "lucide-react";
+import systemXLogo from "@/assets/systemx-logo.png";
+import { ArrowRight, Droplets, Shield, Sun, Sparkles, Clock, DollarSign, Check, CheckCircle, Gem, Phone, Award, Beaker, Zap, Car, Palette, TrendingUp, Mountain, Trophy } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
