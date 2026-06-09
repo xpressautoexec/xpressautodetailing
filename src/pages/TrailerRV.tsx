@@ -457,7 +457,7 @@ const TrailerRV = () => {
               </StaggerItem>
             ))}
           </StaggerContainer>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5" staggerDelay={0.06}>
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-5" staggerDelay={0.06}>
             {packages.slice(4).map((pkg) => (
               <StaggerItem key={pkg.title}>
                 <div className={`relative rounded-xl h-full flex flex-col border transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
