@@ -45,7 +45,62 @@ const PaintCeramics = () => (
       ]}
     />
     <Navbar />
-    <ServicePageHero title="Paint Correction & Ceramic Coating Calgary" image={ceramicHero} ctaType="call" />
+
+    {/* Premium Hero */}
+    <section className="relative min-h-[600px] sm:min-h-[640px] overflow-hidden">
+      <img
+        src={ceramicHero}
+        alt="Glossy black Porsche 911 with mirror ceramic-coated paint and water beading — paint correction & ceramic coating Calgary"
+        className="absolute inset-0 w-full h-full object-cover"
+        width={1920}
+        height={1080}
+        fetchPriority="high"
+        decoding="async"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/70 to-foreground/30" />
+      <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 to-transparent" />
+
+      <div className="relative z-10 container flex flex-col justify-end min-h-[600px] sm:min-h-[640px] pb-12 sm:pb-16 pt-28 px-6">
+        <div className="max-w-2xl">
+          <div className="inline-flex items-center gap-2 bg-primary/90 text-primary-foreground font-heading font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
+            <Sparkles className="w-3 h-3" />
+            System X Authorized Installer · Calgary
+          </div>
+
+          <h1 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-background leading-[1.1] mb-4">
+            Paint Correction &<br />
+            <span className="text-primary">Ceramic Coating</span>
+          </h1>
+
+          <p className="text-background/75 text-base sm:text-lg leading-relaxed mb-5 max-w-xl">
+            Mirror-finish paint correction with Menzerna compounds, sealed with up to a <strong className="text-background">9-year System X graphene</strong> ceramic coating. Calgary's flagship paint protection service.
+          </p>
+
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-background/70 text-sm mb-7">
+            <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-primary" /> Up to 9-Year Protection</span>
+            <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-primary" /> Menzerna Polishing</span>
+            <span className="flex items-center gap-1.5"><CheckCircle className="w-4 h-4 text-primary" /> Free In-Person Quote</span>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href="tel:5875004523"
+              className="group inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-7 py-4 rounded-xl text-sm hover:bg-primary/90 transition-all shadow-lg shadow-primary/30"
+            >
+              <Phone className="w-4 h-4" />
+              Call (587) 500-4523
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href="#packages"
+              className="inline-flex items-center justify-center gap-2 bg-background/10 backdrop-blur-sm border border-background/20 text-background font-heading font-bold uppercase tracking-wider px-7 py-4 rounded-xl text-sm hover:bg-background/20 transition-all"
+            >
+              View Packages
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
     <TrustStats />
 
     {/* Intro */}
