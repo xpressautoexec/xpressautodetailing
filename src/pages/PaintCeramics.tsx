@@ -453,16 +453,18 @@ const PaintCeramics = () => (
         </ScrollReveal>
         <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4" staggerDelay={0.08}>
           {[
-            { emoji: "🚗", text: "New car owners who want to preserve that factory finish from day one" },
-            { emoji: "🖤", text: "Dark-colored vehicle owners tired of visible swirl marks and water spots" },
-            { emoji: "📈", text: "Anyone planning to sell within 1–3 years who wants to maximize resale value" },
-            { emoji: "🏔️", text: "Calgary drivers who need serious protection from salt, UV, and gravel" },
-            { emoji: "⏰", text: "Busy professionals who want a low-maintenance, always-clean vehicle" },
-            { emoji: "🏎️", text: "Car enthusiasts who demand nothing less than perfection" },
+            { icon: Car, text: "New car owners who want to preserve that factory finish from day one" },
+            { icon: Palette, text: "Dark-colored vehicle owners tired of visible swirl marks and water spots" },
+            { icon: TrendingUp, text: "Anyone planning to sell within 1–3 years who wants to maximize resale value" },
+            { icon: Mountain, text: "Calgary drivers who need serious protection from salt, UV, and gravel" },
+            { icon: Clock, text: "Busy professionals who want a low-maintenance, always-clean vehicle" },
+            { icon: Trophy, text: "Car enthusiasts who demand nothing less than perfection" },
           ].map((item) => (
             <StaggerItem key={item.text}>
               <div className="flex items-center gap-3 p-4 rounded-lg border border-border bg-card text-left hover:border-primary/30 transition-colors">
-                <span className="text-2xl shrink-0">{item.emoji}</span>
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                  <item.icon className="w-5 h-5 text-primary" />
+                </div>
                 <p className="text-muted-foreground text-sm leading-snug">{item.text}</p>
               </div>
             </StaggerItem>
