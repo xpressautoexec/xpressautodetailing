@@ -13,6 +13,8 @@ import brandSilverhillAcura from "@/assets/brand-silverhill-acura.png";
 import brandLandform from "@/assets/brand-landform.png";
 import brandPs from "@/assets/brand-ps.png.asset.json";
 import brandDucan from "@/assets/brand-ducan.jpg.asset.json";
+import brandSystemX from "@/assets/brand-systemx.png.asset.json";
+
 
 interface BrandItem {
   name: string;
@@ -24,7 +26,7 @@ const productBrands: BrandItem[] = [
   { name: "XPEL", logo: brandXpel },
   { name: "P&S", logo: brandPs.url },
   { name: "Ducan", logo: brandDucan.url },
-  { name: "System X" },
+  { name: "System X", logo: brandSystemX.url },
   { name: "Menzerna", logo: brandMenzerna },
   { name: "Gtechniq", logo: brandGtechniq },
 ];
