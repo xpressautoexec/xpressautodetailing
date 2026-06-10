@@ -8,10 +8,11 @@ import brandTruman from "@/assets/brand-truman.png";
 import brandKls from "@/assets/brand-kls.png";
 import brandDirtt from "@/assets/brand-dirtt.png";
 import brandShell from "@/assets/brand-shell.png";
-import brandMeguiars from "@/assets/brand-meguiars.png";
 import brandMenzerna from "@/assets/brand-menzerna.png";
 import brandSilverhillAcura from "@/assets/brand-silverhill-acura.png";
 import brandLandform from "@/assets/brand-landform.png";
+import brandPs from "@/assets/brand-ps.png.asset.json";
+import brandDucan from "@/assets/brand-ducan.jpg.asset.json";
 
 interface BrandItem {
   name: string;
@@ -20,11 +21,14 @@ interface BrandItem {
 
 const productBrands: BrandItem[] = [
   { name: "3M", logo: brand3m },
-  { name: "Meguiar's", logo: brandMeguiars },
   { name: "XPEL", logo: brandXpel },
+  { name: "P&S", logo: brandPs.url },
+  { name: "Ducan", logo: brandDucan.url },
+  { name: "System X" },
   { name: "Menzerna", logo: brandMenzerna },
   { name: "Gtechniq", logo: brandGtechniq },
 ];
+
 
 const clientPartners: BrandItem[] = [
   { name: "Aecon", logo: brandAecon },
