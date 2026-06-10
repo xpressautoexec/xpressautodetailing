@@ -126,9 +126,6 @@ const ServicesSection = () => {
             <ScrollReveal key={service.title} direction={i % 2 === 0 ? "left" : "right"}>
               <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center px-2 sm:px-0">
                 <div className={`text-center md:text-left ${i % 2 === 1 ? "md:order-2" : ""}`}>
-                  <span className="inline-block text-primary font-heading font-bold text-sm uppercase tracking-widest mb-2">
-                    {service.price}
-                  </span>
                   <h3 className="font-heading font-black text-xl sm:text-2xl md:text-3xl uppercase text-foreground mb-4">
                     {service.title}
                   </h3>
