@@ -2,8 +2,7 @@ import { Star, ArrowRight, Clock, ExternalLink } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
-const GOOGLE_REVIEWS_URL =
-  "https://www.google.com/maps/search/Xpress+Auto+%26+RV+Detailing+Calgary";
+const GOOGLE_REVIEWS_URL = "https://g.page/r/CQ5ISLUTohBKEBM/review";
 
 const reviews = [
   {
