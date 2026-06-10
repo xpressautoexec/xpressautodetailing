@@ -3,7 +3,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 const GOOGLE_REVIEWS_URL =
-  "https://www.google.com/search?q=Xpress+Auto+%26+RV+Detailing+Calgary&stick=H4sIAAAAAAAA_-NgU1I1qLA0NjQzMjQyNDQ1NTM1NjazMqgwTjI1MUw0TUk0Tkw1NEs2WsTK7p-UlZqXqBCSWJSdmJeoEJyaXJqXmJOZmqcAACwQVzZTAAAA#lrd=0x537170e1234567:0x0,1";
+  "https://www.google.com/maps/search/?api=1&query=Xpress+Auto+%26+RV+Detailing+Calgary";
 
 const reviews = [
   {
