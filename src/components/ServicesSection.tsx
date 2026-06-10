@@ -97,9 +97,11 @@ const ServicesSection = () => {
                       {service.tag}
                     </span>
                   )}
-                  <span className="absolute bottom-3 right-3 bg-primary text-primary-foreground font-heading font-bold text-xs uppercase tracking-wider px-3 py-1.5 rounded-lg shadow-lg">
-                    {service.price}
-                  </span>
+                  {service.price === "Custom Quote" && (
+                    <span className="absolute bottom-3 right-3 bg-primary text-primary-foreground font-heading font-bold text-xs uppercase tracking-wider px-3 py-1.5 rounded-lg shadow-lg">
+                      {service.price}
+                    </span>
+                  )}
                 </div>
                 <div className="p-5 sm:p-6">
                   <h3 className="font-heading font-bold text-lg uppercase text-foreground mb-2 group-hover:text-primary transition-colors">
