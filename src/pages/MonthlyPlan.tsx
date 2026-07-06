@@ -66,7 +66,7 @@ const PACKAGES: {
     blurb:
       "Full steam extraction, leather conditioning, stain treatment and an interior protectant shield.",
     time: "2 – 2.5 hrs",
-    prices: { sedan: 199.99, small_suv: 229.99, large_suv: 249.99 },
+    prices: { sedan: 199.99, small_suv: 249.99, large_suv: 269.99 },
   },
   {
     name: "Complete Showroom Reset",
@@ -74,7 +74,7 @@ const PACKAGES: {
       "Interior deep clean + full exterior hand wash, clay bar decontamination and sealant. Inside and out.",
     time: "3 – 3.5 hrs",
     popular: true,
-    prices: { sedan: 269.0, small_suv: 309.0, large_suv: 329.0 },
+    prices: { sedan: 269.0, small_suv: 329.0, large_suv: 349.0 },
   },
 ];
 

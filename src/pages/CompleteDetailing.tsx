@@ -150,7 +150,7 @@ const CompleteDetailing = () => (
               { name: "Ozone Odour Elimination", price: "+$75" },
               { name: "Headlight Restoration", price: "+$80" },
             ]}
-            surcharges={["Add $40 for SUVs/trucks", "Add $60 for 3-row SUVs/vans"]}
+            surcharges={["Add $60 for SUVs/trucks", "Add $80 for 3-row SUVs/vans"]}
             time="~3–3.5 hrs | Mobile anywhere in Calgary"
             isPrimary
           />

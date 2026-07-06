@@ -136,7 +136,7 @@ const InteriorDetailing = () => (
               { name: "Ozone Odour Elimination", price: "+$75" },
               { name: "Trunk Deep Clean", price: "+$30" },
             ]}
-            surcharges={["Add $30 for SUVs/trucks", "Add $50 for 3-row SUVs/minivans"]}
+            surcharges={["Add $50 for SUVs/trucks", "Add $70 for 3-row SUVs/minivans"]}
             time="~1.5–2 hrs | Mobile anywhere in Calgary"
           />
           <PackageCard
@@ -159,7 +159,7 @@ const InteriorDetailing = () => (
               { name: "Ozone Odour Elimination", price: "+$75" },
               { name: "Headliner Deep Clean", price: "+$40" },
             ]}
-            surcharges={["Add $30 for SUVs/trucks", "Add $50 for 3-row SUVs/minivans"]}
+            surcharges={["Add $50 for SUVs/trucks", "Add $70 for 3-row SUVs/minivans"]}
             time="~2–2.5 hrs | Mobile anywhere in Calgary"
             isPrimary
           />
