@@ -90,9 +90,13 @@ const faqs = [
 
 const MarineDetailing = () => {
   const [length, setLength] = useState(22);
-  const [pkg, setPkg] = useState(3); // Full Interior + Exterior
+  const [selectedPkgs, setSelectedPkgs] = useState<number[]>([3]); // Full Interior + Exterior
 
-  const estimate = PACKAGES[pkg].price * length;
+  const togglePkg = (i: number) =>
+    setSelectedPkgs((prev) => (prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i]));
+
+  const perFootTotal = selectedPkgs.reduce((sum, i) => sum + PACKAGES[i].price, 0);
+  const estimate = perFootTotal * length;
 
   return (
     <PageTransition>
