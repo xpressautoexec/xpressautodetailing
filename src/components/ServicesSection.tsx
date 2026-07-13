@@ -99,9 +99,9 @@ const ServicesSection = () => {
         </ScrollReveal>
 
         {/* Top services grid */}
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 mb-16 md:mb-20 px-2 sm:px-0" staggerDelay={0.08}>
+        <StaggerContainer className="flex flex-wrap justify-center gap-5 md:gap-6 mb-16 md:mb-20 px-2 sm:px-0" staggerDelay={0.08}>
           {services.map((service) => (
-            <StaggerItem key={service.title}>
+            <StaggerItem key={service.title} className="w-full sm:w-[calc(50%-0.625rem)] md:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)]">
               <Link
                 to={service.link}
                 className="group block bg-card rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full border border-border hover:border-primary/30"
