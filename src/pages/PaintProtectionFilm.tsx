@@ -7,6 +7,7 @@ import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Shield, Zap, Check, Phone, ArrowRight, Award, Sparkles, AlertTriangle } from "lucide-react";
 import ppfHero from "@/assets/ppf-hero.jpg";
+import CarSideDiagram from "@/components/CarSideDiagram";
 
 type PackageId = "bumper" | "partial" | "full" | "track" | "body";
 
