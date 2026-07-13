@@ -13,7 +13,10 @@ import ceramicHero from "@/assets/gallery-paint-reflection.jpg";
 import paintImg from "@/assets/gallery-bmw-emblem.jpg";
 import brandMenzerna from "@/assets/brand-menzerna.png";
 import systemXLogo from "@/assets/systemx-logo.png";
-import { ArrowRight, Droplets, Shield, Sun, Sparkles, Clock, DollarSign, Check, CheckCircle, Gem, Phone, Award, Beaker, Zap, Car, Palette, TrendingUp, Mountain, Trophy } from "lucide-react";
+import certSystemX from "@/assets/cert-systemx.png.asset.json";
+import certGtechniq from "@/assets/cert-gtechniq.png.asset.json";
+import certGyeon from "@/assets/cert-gyeon.png.asset.json";
+import { ArrowRight, Droplets, Shield, Sun, Sparkles, Check, CheckCircle, Gem, Phone, Award, Beaker, Zap } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -103,25 +106,87 @@ const PaintCeramics = () => (
     </section>
     <TrustStats />
 
-    {/* Intro */}
-    <section className="py-16 sm:py-20 bg-background">
-      <div className="container max-w-4xl text-center px-6">
-        <ScrollReveal>
-          <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs mb-3">
-            Calgary's Flagship Ceramic Service
-          </p>
-          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
-            Your Paint Deserves <span className="text-primary">Permanent Protection</span>
-          </h2>
-          <p className="text-muted-foreground leading-relaxed mb-5 text-sm sm:text-base">
-            Every automatic wash etches hundreds of micro-scratches into your clear coat. Swirl marks accumulate, oxidation sets in, and your paint loses the depth and brilliance it had when new.
-          </p>
-          <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-            We fix that. Paint correction with German-engineered Menzerna compounds removes the defects — then a professional ceramic coating, up to System X's 9-year graphene formula, locks in a mirror finish that lasts years, not months. It's the most advanced surface protection available, and our highest-end service.
-          </p>
-        </ScrollReveal>
+    {/* Certified Installer Strip */}
+    <section className="py-8 sm:py-10 bg-background border-b border-border">
+      <div className="container max-w-5xl px-6">
+        <p className="text-center text-muted-foreground font-heading font-bold uppercase tracking-[0.2em] text-[10px] sm:text-xs mb-5">
+          Certified Installers Of
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+          {[certSystemX, certGtechniq, certGyeon].map((logo, i) => (
+            <div key={i} className="bg-white border border-border rounded-xl px-5 py-3 h-16 sm:h-20 flex items-center justify-center shadow-sm">
+              <img src={logo.url} alt="Certified installer logo" className="max-h-10 sm:max-h-12 w-auto object-contain" loading="lazy" />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
+
+    {/* Packages — moved up so buyers see options quickly */}
+    <section id="packages" className="py-16 sm:py-20 bg-background scroll-mt-24">
+      <div className="container">
+        <ScrollReveal>
+          <p className="text-center text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs mb-3">
+            Standard Tiers · Fixed Pricing
+          </p>
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-4">
+            Paint Correction & <span className="text-primary">Ceramic Packages</span>
+          </h2>
+          <p className="text-center text-muted-foreground text-sm max-w-2xl mx-auto mb-12">
+            Two stepping-stone tiers into ceramic protection. For maximum longevity, upgrade to the flagship System X 9-year graphene coating below.
+          </p>
+        </ScrollReveal>
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0">
+          <PackageCard
+            icon={<Sparkles className="w-8 h-8" />}
+            name="1-Step Enhancement + 1 Yr Ceramic"
+            price="$474.99"
+            tagline="Restore gloss, remove light swirls & add a full year of ceramic protection — ideal for daily drivers."
+            ctaText="Call Now"
+            ctaLink="tel:5875004523"
+            features={[
+              "Full paint decontamination (iron, tar, fallout)",
+              "Clay bar treatment for glass-smooth surface",
+              "1-step machine polish (removes 40–60% of swirls & scratches)",
+              "1-year ceramic spray sealant (hydrophobic finish)",
+              "Final paint inspection under LED lighting",
+              "Aftercare guide provided",
+            ]}
+            addOns={[
+              { name: "Wheel Ceramic Coating", price: "+$120/wheel" },
+              { name: "All Glass Ceramic Coating", price: "+$230" },
+              { name: "Ceramic Spray Sealant Upgrade", price: "+$110" },
+            ]}
+            surcharges={["Add $150 for SUVs/trucks", "Add $200 for 3-row SUVs/minivans"]}
+          />
+          <PackageCard
+            icon={<Gem className="w-8 h-8" />}
+            name="2-Step Correction + 5 Yr Ceramic"
+            price="$849.99"
+            tagline="Full paint correction for enthusiasts — removes 85–95% of defects with multi-year ceramic protection."
+            ctaText="Call Now"
+            ctaLink="tel:5875004523"
+            features={[
+              "Full paint decontamination (iron, tar, fallout)",
+              "Clay bar treatment for glass-smooth surface",
+              "2-step compound cut & fine polish (85–95% defect removal)",
+              "4-year professional-grade infused ceramic coating",
+              "LED inspection at every stage for quality control",
+              "Paint depth readings taken before correction",
+              "Aftercare kit & maintenance schedule included",
+            ]}
+            addOns={[
+              { name: "Wheel Ceramic Coating", price: "+$120/wheel" },
+              { name: "Interior Ceramic Coating (all trim)", price: "+$350" },
+              { name: "All Glass Ceramic Coating", price: "+$230" },
+            ]}
+            surcharges={["Add $150 for SUVs/trucks", "Add $200 for 3-row SUVs/minivans"]}
+            isPrimary
+          />
+        </div>
+      </div>
+    </section>
+
 
     {/* Premium: System X 9-Year Graphene Ceramic Coating */}
     <section className="relative py-20 sm:py-28 bg-foreground overflow-hidden">
@@ -317,70 +382,6 @@ const PaintCeramics = () => (
       </div>
     </section>
 
-    {/* Packages — light cards */}
-    <section id="packages" className="py-16 sm:py-20 bg-background scroll-mt-24">
-      <div className="container">
-        <ScrollReveal>
-          <p className="text-center text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs mb-3">
-            Standard Tiers · Fixed Pricing
-          </p>
-          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-4">
-            Paint Correction & <span className="text-primary">Ceramic Packages</span>
-          </h2>
-          <p className="text-center text-muted-foreground text-sm max-w-2xl mx-auto mb-12">
-            Stepping stones into ceramic protection. Want maximum longevity? Upgrade to the System X 9-year coating above.
-          </p>
-        </ScrollReveal>
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0">
-          <PackageCard
-            icon={<Sparkles className="w-8 h-8" />}
-            name="1-Step Enhancement + 1 Yr Ceramic"
-            price="$474.99"
-            tagline="Restore gloss, remove light swirls & add a full year of ceramic protection — ideal for daily drivers."
-            ctaText="Call Now"
-            ctaLink="tel:5875004523"
-            features={[
-              "Full paint decontamination (iron, tar, fallout)",
-              "Clay bar treatment for glass-smooth surface",
-              "1-step machine polish (removes 40–60% of swirls & scratches)",
-              "1-year ceramic spray sealant (hydrophobic finish)",
-              "Final paint inspection under LED lighting",
-              "Aftercare guide provided",
-            ]}
-            addOns={[
-              { name: "Wheel Ceramic Coating", price: "+$120/wheel" },
-              { name: "All Glass Ceramic Coating", price: "+$230" },
-              { name: "Ceramic Spray Sealant Upgrade", price: "+$110" },
-            ]}
-            surcharges={["Add $150 for SUVs/trucks", "Add $200 for 3-row SUVs/minivans"]}
-          />
-          <PackageCard
-            icon={<Gem className="w-8 h-8" />}
-            name="2-Step Correction + 5 Yr Ceramic"
-            price="$849.99"
-            tagline="Full paint correction for enthusiasts — removes 85–95% of defects with multi-year ceramic protection."
-            ctaText="Call Now"
-            ctaLink="tel:5875004523"
-            features={[
-              "Full paint decontamination (iron, tar, fallout)",
-              "Clay bar treatment for glass-smooth surface",
-              "2-step compound cut & fine polish (85–95% defect removal)",
-              "4-year professional-grade infused ceramic coating",
-              "LED inspection at every stage for quality control",
-              "Paint depth readings taken before correction",
-              "Aftercare kit & maintenance schedule included",
-            ]}
-            addOns={[
-              { name: "Wheel Ceramic Coating", price: "+$120/wheel" },
-              { name: "Interior Ceramic Coating (all trim)", price: "+$350" },
-              { name: "All Glass Ceramic Coating", price: "+$230" },
-            ]}
-            surcharges={["Add $150 for SUVs/trucks", "Add $200 for 3-row SUVs/minivans"]}
-            isPrimary
-          />
-        </div>
-      </div>
-    </section>
 
     {/* Ceramic Add-Ons */}
     <section className="py-16 sm:py-20 bg-muted/30 border-y border-border">
@@ -416,36 +417,6 @@ const PaintCeramics = () => (
     </section>
 
 
-    <section className="py-16 sm:py-20 bg-muted/30">
-      <div className="container max-w-5xl px-4 sm:px-6">
-        <ScrollReveal>
-          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-4">
-            Why Ceramic Coating Is the <span className="text-primary">Smartest Investment</span>
-          </h2>
-          <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto text-sm sm:text-base">
-            Ceramic coating isn't just protection — it's a transformation that pays for itself over time.
-          </p>
-        </ScrollReveal>
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" staggerDelay={0.08}>
-          {[
-            { icon: Shield, title: "Multi-Year Protection", desc: "Defends against UV rays, bird droppings, bug splatter, tree sap, road salt, and chemical contaminants for up to 7 years." },
-            { icon: Droplets, title: "Hydrophobic Barrier", desc: "Water, dirt, and grime slide right off, making washes faster, easier, and less frequent. Your car stays cleaner, longer." },
-            { icon: Sparkles, title: "Unmatched Gloss", desc: "Amplifies depth, clarity, and shine with a mirror-like finish that turns heads in any parking lot." },
-            { icon: DollarSign, title: "Higher Resale Value", desc: "Protected paint maintains its quality for years, making your vehicle more attractive and valuable when it's time to sell." },
-            { icon: Clock, title: "No More Monthly Waxing", desc: "Say goodbye to wax appointments every few months. One coating lasts years, saving you hundreds in maintenance." },
-            { icon: Sun, title: "Calgary Climate Defense", desc: "Specifically designed to handle extreme UV, chinook temperature swings, road salt, and gravel — everything Calgary throws at you." },
-          ].map((item) => (
-            <StaggerItem key={item.title}>
-              <div className="p-5 sm:p-6 rounded-xl border border-border bg-card hover:border-primary/30 hover:shadow-md transition-all duration-300 h-full">
-                <item.icon className="w-8 h-8 text-primary mb-3" />
-                <h4 className="font-heading font-bold text-foreground uppercase text-xs sm:text-sm mb-2">{item.title}</h4>
-                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{item.desc}</p>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </div>
-    </section>
 
     {/* The Process — light cards */}
     <section className="py-16 sm:py-20 bg-background">
@@ -498,35 +469,6 @@ const PaintCeramics = () => (
       </div>
     </section>
 
-    {/* Who It's For */}
-    <section className="py-16 sm:py-20 bg-muted/30">
-      <div className="container max-w-4xl text-center px-6">
-        <ScrollReveal>
-          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground mb-8">
-            Is Ceramic Coating <span className="text-primary">Right for You</span>?
-          </h2>
-        </ScrollReveal>
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4" staggerDelay={0.08}>
-          {[
-            { icon: Car, text: "New car owners who want to preserve that factory finish from day one" },
-            { icon: Palette, text: "Dark-colored vehicle owners tired of visible swirl marks and water spots" },
-            { icon: TrendingUp, text: "Anyone planning to sell within 1–3 years who wants to maximize resale value" },
-            { icon: Mountain, text: "Calgary drivers who need serious protection from salt, UV, and gravel" },
-            { icon: Clock, text: "Busy professionals who want a low-maintenance, always-clean vehicle" },
-            { icon: Trophy, text: "Car enthusiasts who demand nothing less than perfection" },
-          ].map((item) => (
-            <StaggerItem key={item.text}>
-              <div className="flex items-center gap-3 p-4 rounded-lg border border-border bg-card text-left hover:border-primary/30 transition-colors">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                  <item.icon className="w-5 h-5 text-primary" />
-                </div>
-                <p className="text-muted-foreground text-sm leading-snug">{item.text}</p>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </div>
-    </section>
 
     <TestimonialBlock testimonials={ceramicTestimonials} />
     <ServiceFAQ title="Paint Correction & Ceramic Coating FAQs" faqs={ceramicFAQs} />
