@@ -2,15 +2,7 @@ import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/Scroll
 import brand3m from "@/assets/brand-3m-new.jpg.asset.json";
 import brandXpel from "@/assets/brand-xpel-new.png.asset.json";
 import brandGtechniq from "@/assets/brand-gtechniq.png";
-import brandAecon from "@/assets/brand-aecon.png";
-import brandWoodsHomes from "@/assets/brand-woods-homes.png";
-import brandTruman from "@/assets/brand-truman.png";
-import brandKls from "@/assets/brand-kls.png";
-import brandDirtt from "@/assets/brand-dirtt.png";
-import brandShell from "@/assets/brand-shell.png";
 import brandMenzerna from "@/assets/brand-menzerna.png";
-import brandSilverhillAcura from "@/assets/brand-silverhill-acura.png";
-import brandLandform from "@/assets/brand-landform.png";
 import brandPs from "@/assets/brand-ps.png.asset.json";
 import brandDucan from "@/assets/brand-ducan.jpg.asset.json";
 import brandSystemX from "@/assets/brand-systemx.png.asset.json";
@@ -29,18 +21,6 @@ const productBrands: BrandItem[] = [
   { name: "System X", logo: brandSystemX.url },
   { name: "Menzerna", logo: brandMenzerna },
   { name: "Gtechniq", logo: brandGtechniq },
-];
-
-
-const clientPartners: BrandItem[] = [
-  { name: "Aecon", logo: brandAecon },
-  { name: "Wood's Homes", logo: brandWoodsHomes },
-  { name: "Truman Homes", logo: brandTruman },
-  { name: "KLS Earthworks", logo: brandKls },
-  { name: "DIRTT", logo: brandDirtt },
-  { name: "Shell", logo: brandShell },
-  { name: "Silverhill Acura", logo: brandSilverhillAcura },
-  { name: "Landform", logo: brandLandform },
 ];
 
 const BrandCard = ({ brand }: { brand: BrandItem }) => (
@@ -65,27 +45,10 @@ const BrandPartners = () => (
         </h2>
       </ScrollReveal>
 
-      <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 sm:gap-5 mb-14" staggerDelay={0.06}>
+      <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 sm:gap-5" staggerDelay={0.06}>
         {productBrands.map((brand) => (
           <StaggerItem key={brand.name} className="flex items-center justify-center">
             <BrandCard brand={brand} />
-          </StaggerItem>
-        ))}
-      </StaggerContainer>
-
-      <ScrollReveal>
-        <p className="text-center text-muted-foreground font-heading text-xs uppercase tracking-widest mb-2">
-          Trusted By
-        </p>
-        <h3 className="text-center font-heading font-bold text-lg uppercase text-foreground mb-8">
-          Our Corporate & Fleet Partners
-        </h3>
-      </ScrollReveal>
-
-      <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-5xl mx-auto" staggerDelay={0.06}>
-        {clientPartners.map((partner) => (
-          <StaggerItem key={partner.name} className="flex items-center justify-center">
-            <BrandCard brand={partner} />
           </StaggerItem>
         ))}
       </StaggerContainer>
