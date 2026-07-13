@@ -80,7 +80,7 @@ const services = [
 const tiers = [
   {
     name: "Turnover Basic",
-    price: "From $149",
+    price: "From $199",
     perUnit: "per unit",
     features: [
       "Interior sanitize & wipe-down",
@@ -92,7 +92,7 @@ const tiers = [
   },
   {
     name: "Turnover Plus",
-    price: "From $249",
+    price: "From $349",
     perUnit: "per unit",
     popular: true,
     features: [
@@ -106,7 +106,7 @@ const tiers = [
   },
   {
     name: "Seasonal Refresh",
-    price: "From $549",
+    price: "From $749",
     perUnit: "per unit",
     features: [
       "Deep interior extraction",
@@ -234,7 +234,7 @@ const RVRentalFleet = () => {
                 Pick a Rotation <span className="text-gradient">That Fits</span>
               </h2>
               <p className="text-muted-foreground text-sm mt-3">
-                Pricing scales with unit length and volume — 5+ unit fleets receive contract pricing.
+                Every fleet is different. These are starting points based on typical travel trailers under 30 ft. Final pricing depends on unit type, length, condition, and how often you turn over. Call us for an accurate quote tailored to your fleet.
               </p>
             </ScrollReveal>
             <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -283,6 +283,17 @@ const RVRentalFleet = () => {
                 </ScrollReveal>
               ))}
             </div>
+
+            <ScrollReveal className="mt-10 max-w-3xl mx-auto">
+              <div className="bg-card border border-border rounded-2xl p-6 text-center">
+                <p className="text-foreground font-heading font-bold uppercase tracking-wider text-sm mb-2">
+                  Fully Customizable Programs
+                </p>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Tell us your unit mix, booking calendar, and standards. We'll build a rotation and quote that matches your exact operation — no cookie-cutter packages.
+                </p>
+              </div>
+            </ScrollReveal>
           </div>
         </section>
 
