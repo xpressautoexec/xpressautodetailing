@@ -130,19 +130,21 @@ const PaintProtectionFilm = () => {
               Pick Your <span className="text-gradient">Coverage</span>
             </h2>
             <p className="text-muted-foreground text-sm mt-3 max-w-2xl mx-auto">
-              Tap a package — the diagram shows every panel wrapped in film.
+              Tap a package — the illustration shows exactly which panels get wrapped in film. Blue = protected.
             </p>
           </ScrollReveal>
 
           <div className="grid lg:grid-cols-2 gap-10 items-center max-w-5xl mx-auto">
-            {/* Diagram */}
-            <div className="bg-card border border-border rounded-2xl p-8 sm:p-10">
-              <CarSideDiagram activePanels={current.panels} highlightColor="hsl(48 96% 53%)" />
-              <div className="flex items-center justify-center gap-2 mt-3">
-                <span className="inline-block w-3 h-3 rounded-sm" style={{ background: "hsl(48 96% 53%)" }} />
-                <span className="text-xs text-muted-foreground font-heading uppercase tracking-wider">Yellow = protected by film</span>
-              </div>
+            {/* Coverage illustration */}
+            <div className="bg-gradient-to-br from-brand-dark to-brand-dark-surface rounded-2xl p-6 sm:p-8 flex items-center justify-center min-h-[280px]">
+              <img
+                src={current.image}
+                alt={`${current.name} PPF coverage illustration`}
+                className="w-full h-auto max-h-[340px] object-contain drop-shadow-2xl transition-opacity duration-300"
+                loading="lazy"
+              />
             </div>
+
 
             {/* Package selector */}
             <div className="space-y-3">
