@@ -16,7 +16,6 @@ interface Package {
   name: string;
   price: string;
   tagline: string;
-  image: string;
   includes: string[];
   popular?: boolean;
 }
@@ -28,7 +27,6 @@ const PACKAGES: Package[] = [
     name: "Partial Front",
     price: "$999",
     tagline: "Full bumper, 1/3 hood, 1/3 fenders and mirrors.",
-    image: ppfPartialAsset.url,
     includes: ["Full bumper", "1/3 hood", "1/3 fenders", "Mirror caps", "10-year warranty"],
   },
   {
@@ -36,7 +34,6 @@ const PACKAGES: Package[] = [
     name: "Full Front",
     price: "$1,899",
     tagline: "The industry standard — full hood, fenders, bumper, mirrors.",
-    image: ppfFullAsset.url,
     includes: ["Full bumper", "Full hood", "Full fenders", "Mirror caps", "Headlights", "10-year warranty"],
     popular: true,
   },
@@ -45,7 +42,6 @@ const PACKAGES: Package[] = [
     name: "Track Pack",
     price: "$2,899",
     tagline: "Full front + rocker panels and front pillars.",
-    image: ppfTrackAsset.url,
     includes: ["Everything in Full Front", "Rocker panels", "Front pillars", "Door cups & handle area", "Rear luggage / boot area"],
   },
   {
@@ -53,7 +49,6 @@ const PACKAGES: Package[] = [
     name: "Full Vehicle",
     price: "$5,999",
     tagline: "Complete vehicle protection — every painted panel wrapped in film.",
-    image: ppfBodyAsset.url,
     includes: ["Every painted body panel", "Full doors, quarters, roof", "Rear bumper & trunk", "10-year warranty", "Concours-level install"],
   },
 ];
