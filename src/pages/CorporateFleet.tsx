@@ -19,6 +19,8 @@ import brandDirtt from "@/assets/brand-dirtt.png";
 import brandShell from "@/assets/brand-shell.png";
 import brandSilverhillAcura from "@/assets/brand-silverhill-acura.png";
 import brandLandform from "@/assets/brand-landform.png";
+import brandNewWestTruck from "@/assets/brand-new-west-truck.png.asset.json";
+import brandRanchmans from "@/assets/brand-ranchmans.jpg.asset.json";
 import catExcavator1 from "@/assets/gallery-cat-excavator-1.jpg";
 import catExcavatorExt1 from "@/assets/gallery-cat-excavator-exterior-1.jpg";
 import catExcavatorExt2 from "@/assets/gallery-cat-excavator-exterior-2.jpg";
