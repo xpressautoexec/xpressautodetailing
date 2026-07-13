@@ -322,7 +322,7 @@ const MarineDetailing = () => {
         </div>
       </section>
 
-      <ServiceFAQ items={faqs} />
+      <ServiceFAQ title="Frequently Asked Questions" faqs={faqs} />
 
       {/* CTA */}
       <section className="py-16 bg-brand-dark">

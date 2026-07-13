@@ -295,7 +295,7 @@ const WindowTinting = () => {
         </div>
       </section>
 
-      <ServiceFAQ items={faqs} />
+      <ServiceFAQ title="Frequently Asked Questions" faqs={faqs} />
 
       <section className="py-16 bg-brand-dark">
         <div className="container max-w-3xl text-center">
