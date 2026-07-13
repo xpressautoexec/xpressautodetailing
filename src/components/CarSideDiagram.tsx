@@ -102,8 +102,8 @@ const CarSideDiagram = ({
           <stop offset="100%" stopColor="hsl(220 15% 70%)" />
         </linearGradient>
         <linearGradient id="carGlass" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="hsl(210 25% 40%)" />
-          <stop offset="100%" stopColor="hsl(210 30% 22%)" />
+          <stop offset="0%" stopColor="hsl(200 40% 82%)" />
+          <stop offset="100%" stopColor="hsl(200 30% 68%)" />
         </linearGradient>
       </defs>
 
