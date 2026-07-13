@@ -145,9 +145,6 @@ const PaintProtectionFilm = () => {
                 <span className="inline-block w-3 h-3 rounded-sm" style={{ background: "hsl(48 96% 53%)" }} />
                 <span className="text-xs text-muted-foreground font-heading uppercase tracking-wider">Yellow = protected by film</span>
               </div>
-              <p className="text-center text-xs text-muted-foreground mt-4 font-heading uppercase tracking-wider">
-                Highlighted panels = protected
-              </p>
             </div>
 
             {/* Package selector */}
