@@ -71,6 +71,7 @@ const Index = () => {
         <TrustStats />
         <TrustBadges />
         <BrandPartners />
+        <CompanyLogos />
         <HowItWorks />
         <GoogleReviewBadge />
         <ServicesSection />
