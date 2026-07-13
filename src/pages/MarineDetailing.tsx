@@ -314,6 +314,31 @@ const MarineDetailing = () => {
         </div>
       </section>
 
+      {/* Real work gallery */}
+      <section className="py-16 bg-muted/20">
+        <div className="container">
+          <ScrollReveal className="text-center mb-10">
+            <p className="text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-2">Recent Work</p>
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase">Pontoons We've <span className="text-gradient">Brought Back</span></h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto mt-3 text-sm sm:text-base">
+              Real jobs, done on-site in Southern Alberta. Aluminum restored, vinyl reset, decals polished — no tow required.
+            </p>
+          </ScrollReveal>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            {GALLERY.map((g) => (
+              <div key={g.src} className="group relative rounded-xl overflow-hidden shadow-lg aspect-square bg-muted">
+                <img
+                  src={g.src}
+                  alt={g.alt}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* À la carte */}
       <section className="py-16 bg-muted/30">
         <div className="container max-w-4xl">
