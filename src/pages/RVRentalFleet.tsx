@@ -283,6 +283,17 @@ const RVRentalFleet = () => {
                 </ScrollReveal>
               ))}
             </div>
+
+            <ScrollReveal className="mt-10 max-w-3xl mx-auto">
+              <div className="bg-card border border-border rounded-2xl p-6 text-center">
+                <p className="text-foreground font-heading font-bold uppercase tracking-wider text-sm mb-2">
+                  Fully Customizable Programs
+                </p>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Tell us your unit mix, booking calendar, and standards. We'll build a rotation and quote that matches your exact operation — no cookie-cutter packages.
+                </p>
+              </div>
+            </ScrollReveal>
           </div>
         </section>
 
