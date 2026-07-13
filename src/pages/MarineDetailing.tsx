@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal from "@/components/ScrollReveal";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Anchor, Waves, Sparkles, Shield, Phone, ArrowRight, Check, MapPin, Award, Droplets } from "lucide-react";
 import marineHeroAsset from "@/assets/marine-pontoon-sunset.jpg.asset.json";
 import marineTubesAsset from "@/assets/marine-pontoon-tubes.jpg.asset.json";
