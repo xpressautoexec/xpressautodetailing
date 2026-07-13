@@ -8,6 +8,7 @@ import TrustStats from "@/components/TrustStats";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
+import CompanyLogos from "@/components/CompanyLogos";
 
 import fleetHero from "@/assets/fleet-kls-truck.jpg";
 import RecentWorkStrip from "@/components/RecentWorkStrip";
