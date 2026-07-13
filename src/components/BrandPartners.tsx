@@ -2,15 +2,7 @@ import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/Scroll
 import brand3m from "@/assets/brand-3m-new.jpg.asset.json";
 import brandXpel from "@/assets/brand-xpel-new.png.asset.json";
 import brandGtechniq from "@/assets/brand-gtechniq.png";
-import brandAecon from "@/assets/brand-aecon.png";
-import brandWoodsHomes from "@/assets/brand-woods-homes.png";
-import brandTruman from "@/assets/brand-truman.png";
-import brandKls from "@/assets/brand-kls.png";
-import brandDirtt from "@/assets/brand-dirtt.png";
-import brandShell from "@/assets/brand-shell.png";
 import brandMenzerna from "@/assets/brand-menzerna.png";
-import brandSilverhillAcura from "@/assets/brand-silverhill-acura.png";
-import brandLandform from "@/assets/brand-landform.png";
 import brandPs from "@/assets/brand-ps.png.asset.json";
 import brandDucan from "@/assets/brand-ducan.jpg.asset.json";
 import brandSystemX from "@/assets/brand-systemx.png.asset.json";
