@@ -7,10 +7,7 @@ import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Shield, Zap, Check, Phone, ArrowRight, Award, Sparkles, AlertTriangle } from "lucide-react";
 import ppfHero from "@/assets/ppf-hero.jpg";
-import ppfPartialAsset from "@/assets/ppf-partial-front.png.asset.json";
-import ppfFullAsset from "@/assets/ppf-full-front.png.asset.json";
-import ppfTrackAsset from "@/assets/ppf-track-pack.png.asset.json";
-import ppfBodyAsset from "@/assets/ppf-full-body.png.asset.json";
+import PPFCoverageDiagram from "@/components/PPFCoverageDiagram";
 
 type PackageId = "partial" | "full" | "track" | "body";
 
