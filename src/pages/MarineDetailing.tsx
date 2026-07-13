@@ -13,10 +13,16 @@ import marineInteriorAsset from "@/assets/marine-interior-seats.jpg.asset.json";
 import marineLoungeAsset from "@/assets/marine-seating-lounge.jpg.asset.json";
 import marineHelmAsset from "@/assets/marine-helm-seat.jpg.asset.json";
 import marineBenchAsset from "@/assets/marine-bench-detail.jpg.asset.json";
+import marineMotorAsset from "@/assets/marine-mercury-motor.jpg.asset.json";
+import marineBadgeAsset from "@/assets/marine-sport-badge.jpg.asset.json";
+import marineSideAsset from "@/assets/marine-side-profile.jpg.asset.json";
 const marineHero = marineHeroAsset.url;
 const marineTubes = marineTubesAsset.url;
 const GALLERY = [
   { src: marineHeroAsset.url, alt: "SunChaser pontoon after full mobile detail at sunset" },
+  { src: marineSideAsset.url, alt: "SunChaser Sport pontoon side profile with polished aluminum tube" },
+  { src: marineMotorAsset.url, alt: "Mercury 150 FourStroke outboard motor after polish" },
+  { src: marineBadgeAsset.url, alt: "SunChaser Sport chrome badge on detailed pontoon fence" },
   { src: marineInteriorAsset.url, alt: "Cleaned pontoon interior with restored vinyl seating" },
   { src: marineLoungeAsset.url, alt: "Restored pontoon rear lounge and vinyl seating" },
   { src: marineHelmAsset.url, alt: "Detailed pontoon captain's helm seat and dashboard" },
