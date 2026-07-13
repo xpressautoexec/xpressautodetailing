@@ -46,7 +46,6 @@ const services = [
     description: "The only mobile marine detailer in Southern Alberta. Aluminum pontoon restoration.",
     image: marineImg,
     link: "/marine",
-    tag: "New",
   },
   {
     title: "Trailer & RV",
