@@ -24,6 +24,7 @@ import ChatWidget from "@/components/ChatWidget";
 import SEO, { localBusinessJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import HomePromoPopup from "@/components/HomePromoPopup";
+import InstagramFeed from "@/components/InstagramFeed";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -101,6 +102,8 @@ const Index = () => {
         <AboutSection />
         <AppShowcase />
         <ReviewsSection />
+        <InstagramFeed />
+
 
         {/* Service Areas */}
         <section className="py-14 sm:py-16 bg-card">
