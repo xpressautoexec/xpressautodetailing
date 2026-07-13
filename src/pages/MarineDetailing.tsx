@@ -16,7 +16,7 @@ import marineBenchAsset from "@/assets/marine-bench-detail.jpg.asset.json";
 import marineMotorAsset from "@/assets/marine-mercury-motor.jpg.asset.json";
 import marineBadgeAsset from "@/assets/marine-sport-badge.jpg.asset.json";
 import marineSideAsset from "@/assets/marine-side-profile.jpg.asset.json";
-const marineHero = marineHeroAsset.url;
+const marineHero = marineSideAsset.url;
 const marineTubes = marineTubesAsset.url;
 const GALLERY = [
   { src: marineHeroAsset.url, alt: "SunChaser pontoon after full mobile detail at sunset" },
@@ -37,12 +37,16 @@ const PACKAGES = [
     price: 12,
     tagline: "Fast refresh — hand wash, decontamination, and a coat of marine wax.",
     features: ["Hand wash exterior", "Iron & salt decontamination", "Rail & hardware polish", "Marine spray wax topcoat"],
+    image: marineDecalAsset.url,
+    imageAlt: "Polished chrome pontoon decal after wash and wax",
   },
   {
     name: "Interior Detail",
     price: 18,
     tagline: "Deep clean of vinyl seating, floors, storage compartments, and helm.",
     features: ["Vinyl seat deep clean & UV protectant", "Carpet / snap-in floor extraction", "Compartments & console detail", "Windows, gauges & helm dusted"],
+    image: marineBenchAsset.url,
+    imageAlt: "Cleaned pontoon vinyl bench seating",
   },
   {
     name: "Exterior Polish & Seal",
@@ -50,6 +54,8 @@ const PACKAGES = [
     tagline: "Machine polish to bring gelcoat or paint back — sealed for the season.",
     features: ["1-step machine polish", "Oxidation & light scratch removal", "Marine polymer sealant (6-month)", "Rails, cleats & hardware polish"],
     popular: false,
+    image: marineSideAsset.url,
+    imageAlt: "Polished pontoon side profile after exterior polish and seal",
   },
   {
     name: "Full Interior + Exterior",
@@ -57,21 +63,25 @@ const PACKAGES = [
     tagline: "The complete reset — inside, outside, top to bottom. Our #1 marine package.",
     features: ["Everything in Interior Detail", "Everything in Polish & Seal", "Bimini / canopy cleaning", "Bilge wipe-down"],
     popular: true,
+    image: marineHeroAsset.url,
+    imageAlt: "Fully detailed SunChaser pontoon at sunset",
   },
   {
     name: "Marine Ceramic Coating",
     price: 55,
     tagline: "2-year professional ceramic coating for gelcoat, paint, and metal.",
     features: ["Full paint correction prep", "2-year marine-grade ceramic", "Hydrophobic UV protection", "Slick, easy-clean finish"],
+    image: marineMotorAsset.url,
+    imageAlt: "Mercury outboard motor after ceramic-level polish",
   },
 ];
 
 const ALA_CARTE = [
-  { name: "Aluminum Pontoon Acid Restoration", price: "$35/ft", desc: "Brings oxidized tubes back to factory shine." },
-  { name: "Oxidation Removal / Heavy Compound", price: "$25/ft", desc: "Multi-stage cut for chalky, faded gelcoat." },
-  { name: "Engine Bay Detail", price: "$90", desc: "Degreased, dressed, and inspected." },
-  { name: "Canopy / Bimini Cleaning", price: "$60", desc: "Mildew, bird stains, UV protectant." },
-  { name: "Trailer Wash & Wheel Detail", price: "$45", desc: "Salt, brake dust, and grime — gone." },
+  { name: "Aluminum Pontoon Acid Restoration", price: "$35/ft", desc: "Brings oxidized tubes back to factory shine.", image: marineTubesAsset.url },
+  { name: "Oxidation Removal / Heavy Compound", price: "$25/ft", desc: "Multi-stage cut for chalky, faded gelcoat.", image: marineBadgeAsset.url },
+  { name: "Engine Bay Detail", price: "$90", desc: "Degreased, dressed, and inspected.", image: marineMotorAsset.url },
+  { name: "Canopy / Bimini Cleaning", price: "$60", desc: "Mildew, bird stains, UV protectant.", image: marineLoungeAsset.url },
+  { name: "Trailer Wash & Wheel Detail", price: "$45", desc: "Salt, brake dust, and grime — gone.", image: marineHelmAsset.url },
 ];
 
 const faqs = [
