@@ -13,6 +13,9 @@ import ceramicHero from "@/assets/gallery-paint-reflection.jpg";
 import paintImg from "@/assets/gallery-bmw-emblem.jpg";
 import brandMenzerna from "@/assets/brand-menzerna.png";
 import systemXLogo from "@/assets/systemx-logo.png";
+import certSystemX from "@/assets/cert-systemx.png.asset.json";
+import certGtechniq from "@/assets/cert-gtechniq.png.asset.json";
+import certGyeon from "@/assets/cert-gyeon.png.asset.json";
 import { ArrowRight, Droplets, Shield, Sun, Sparkles, Clock, DollarSign, Check, CheckCircle, Gem, Phone, Award, Beaker, Zap, Car, Palette, TrendingUp, Mountain, Trophy } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
