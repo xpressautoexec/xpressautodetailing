@@ -10,13 +10,17 @@ import marineHeroAsset from "@/assets/marine-pontoon-sunset.jpg.asset.json";
 import marineTubesAsset from "@/assets/marine-pontoon-tubes.jpg.asset.json";
 import marineDecalAsset from "@/assets/marine-decal-detail.jpg.asset.json";
 import marineInteriorAsset from "@/assets/marine-interior-seats.jpg.asset.json";
+import marineLoungeAsset from "@/assets/marine-seating-lounge.jpg.asset.json";
+import marineHelmAsset from "@/assets/marine-helm-seat.jpg.asset.json";
+import marineBenchAsset from "@/assets/marine-bench-detail.jpg.asset.json";
 const marineHero = marineHeroAsset.url;
 const marineTubes = marineTubesAsset.url;
-const marineDecal = marineDecalAsset.url;
-const marineInterior = marineInteriorAsset.url;
 const GALLERY = [
   { src: marineHeroAsset.url, alt: "SunChaser pontoon after full mobile detail at sunset" },
   { src: marineInteriorAsset.url, alt: "Cleaned pontoon interior with restored vinyl seating" },
+  { src: marineLoungeAsset.url, alt: "Restored pontoon rear lounge and vinyl seating" },
+  { src: marineHelmAsset.url, alt: "Detailed pontoon captain's helm seat and dashboard" },
+  { src: marineBenchAsset.url, alt: "Cleaned pontoon bench seating and speaker area" },
   { src: marineTubesAsset.url, alt: "Polished aluminum pontoon tubes after acid restoration" },
   { src: marineDecalAsset.url, alt: "Chrome SunChaser decal polished and restored" },
 ];
