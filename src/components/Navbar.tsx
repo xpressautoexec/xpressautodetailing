@@ -93,7 +93,7 @@ const mobileLinks: MobileNavItem[] = [
     children: [
       { label: "Marine & Pontoon Detailing", href: "/marine" },
       { label: "Trailer & RV Detailing", href: "/trailer-rv" },
-      { label: "RV Winterization", href: "/trailer-rv/winterization" },
+      { label: "RV Rental Fleet Care", href: "/rv-rental-fleet" },
     ],
   },
   { label: "Corporate & Fleet", href: "/corporate-fleet" },
