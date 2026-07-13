@@ -354,18 +354,27 @@ const MarineDetailing = () => {
               Real jobs, done on-site in Southern Alberta. Aluminum restored, vinyl reset, decals polished — no tow required.
             </p>
           </ScrollReveal>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-            {GALLERY.map((g) => (
-              <div key={g.src} className="group relative rounded-xl overflow-hidden shadow-lg aspect-square bg-muted">
-                <img
-                  src={g.src}
-                  alt={g.alt}
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ))}
-          </div>
+          <Carousel opts={{ loop: true, align: "start" }} className="w-full">
+            <CarouselContent className="-ml-3 sm:-ml-4">
+              {GALLERY.map((g) => (
+                <CarouselItem key={g.src} className="pl-3 sm:pl-4 basis-4/5 sm:basis-1/2 lg:basis-1/3">
+                  <div className="group relative rounded-xl overflow-hidden shadow-lg aspect-[4/3] bg-muted">
+                    <img
+                      src={g.src}
+                      alt={g.alt}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                      <p className="text-white text-xs sm:text-sm font-heading font-semibold leading-snug">{g.alt}</p>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden sm:flex -left-2 lg:-left-6" />
+            <CarouselNext className="hidden sm:flex -right-2 lg:-right-6" />
+          </Carousel>
         </div>
       </section>
 
