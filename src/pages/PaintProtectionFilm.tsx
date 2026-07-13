@@ -27,7 +27,7 @@ const PACKAGES: Package[] = [
     name: "Bumper Only",
     price: "$599",
     tagline: "Chip protection for the highest-impact panel.",
-    panels: ["bumper"],
+    panels: ["bumperFront", "headlight"],
     includes: ["Full front bumper", "XPEL Ultimate Plus film", "10-year warranty", "Self-healing top coat"],
   },
   {
@@ -35,7 +35,7 @@ const PACKAGES: Package[] = [
     name: "Partial Front",
     price: "$999",
     tagline: "Front bumper, 18\" of hood, fenders and mirrors.",
-    panels: ["bumper", "hoodPartial", "fenders", "mirrors"],
+    panels: ["bumperFront", "hoodPartial", "fender", "mirror", "headlight"],
     includes: ["Bumper", "Partial hood (18\")", "Fenders", "Mirror caps", "10-year warranty"],
   },
   {
@@ -43,7 +43,7 @@ const PACKAGES: Package[] = [
     name: "Full Front",
     price: "$1,899",
     tagline: "The industry standard — full hood, fenders, bumper, mirrors, headlights.",
-    panels: ["bumper", "hood", "fenders", "mirrors", "headlights"],
+    panels: ["bumperFront", "hood", "fender", "mirror", "headlight"],
     includes: ["Full hood", "Full fenders", "Bumper", "Mirror caps", "Headlights", "10-year warranty"],
     popular: true,
   },
@@ -52,7 +52,7 @@ const PACKAGES: Package[] = [
     name: "Track Pack",
     price: "$2,899",
     tagline: "Full front + rockers, A-pillars, door cups and rear luggage area.",
-    panels: ["bumper", "hood", "fenders", "mirrors", "headlights", "rockers", "aPillars", "doorCups", "rearLuggage"],
+    panels: ["bumperFront", "hood", "fender", "mirror", "headlight", "rocker", "aPillar", "doorCup"],
     includes: ["Everything in Full Front", "Rocker panels", "A-pillars & roof edge", "Door cups & handle area", "Rear luggage / boot area"],
   },
   {
@@ -60,7 +60,7 @@ const PACKAGES: Package[] = [
     name: "Full Body",
     price: "$5,999",
     tagline: "Complete vehicle protection — every painted panel wrapped in film.",
-    panels: ["bumper", "hood", "fenders", "mirrors", "headlights", "rockers", "aPillars", "doorCups", "rearLuggage", "doors", "roof", "rearQuarters", "trunk"],
+    panels: ["bumperFront", "hood", "fender", "mirror", "headlight", "rocker", "aPillar", "doorCup", "frontDoor", "rearDoor", "rearQuarter", "bumperRear", "trunk", "roofFull"],
     includes: ["Every painted body panel", "Full doors, quarters, roof", "Rear bumper & trunk", "10-year warranty", "Concours-level install"],
   },
 ];
