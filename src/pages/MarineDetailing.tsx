@@ -6,7 +6,20 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Anchor, Waves, Sparkles, Shield, Phone, ArrowRight, Check, MapPin, Award, Droplets } from "lucide-react";
-import marineHero from "@/assets/marine-hero.jpg";
+import marineHeroAsset from "@/assets/marine-pontoon-sunset.jpg.asset.json";
+import marineTubesAsset from "@/assets/marine-pontoon-tubes.jpg.asset.json";
+import marineDecalAsset from "@/assets/marine-decal-detail.jpg.asset.json";
+import marineInteriorAsset from "@/assets/marine-interior-seats.jpg.asset.json";
+const marineHero = marineHeroAsset.url;
+const marineTubes = marineTubesAsset.url;
+const marineDecal = marineDecalAsset.url;
+const marineInterior = marineInteriorAsset.url;
+const GALLERY = [
+  { src: marineHeroAsset.url, alt: "SunChaser pontoon after full mobile detail at sunset" },
+  { src: marineInteriorAsset.url, alt: "Cleaned pontoon interior with restored vinyl seating" },
+  { src: marineTubesAsset.url, alt: "Polished aluminum pontoon tubes after acid restoration" },
+  { src: marineDecalAsset.url, alt: "Chrome SunChaser decal polished and restored" },
+];
 
 const PACKAGES = [
   {
@@ -295,9 +308,34 @@ const MarineDetailing = () => {
           </ScrollReveal>
           <ScrollReveal direction="right">
             <div className="rounded-2xl overflow-hidden shadow-xl">
-              <img src={marineHero} alt="Pontoon aluminum restoration" className="w-full aspect-[4/3] object-cover" loading="lazy" />
+              <img src={marineTubes} alt="Polished aluminum pontoon tubes after mobile acid restoration" className="w-full aspect-[4/3] object-cover" loading="lazy" />
             </div>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Real work gallery */}
+      <section className="py-16 bg-muted/20">
+        <div className="container">
+          <ScrollReveal className="text-center mb-10">
+            <p className="text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-2">Recent Work</p>
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase">Pontoons We've <span className="text-gradient">Brought Back</span></h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto mt-3 text-sm sm:text-base">
+              Real jobs, done on-site in Southern Alberta. Aluminum restored, vinyl reset, decals polished — no tow required.
+            </p>
+          </ScrollReveal>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            {GALLERY.map((g) => (
+              <div key={g.src} className="group relative rounded-xl overflow-hidden shadow-lg aspect-square bg-muted">
+                <img
+                  src={g.src}
+                  alt={g.alt}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
