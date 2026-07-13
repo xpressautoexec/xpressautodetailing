@@ -7,63 +7,60 @@ import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Shield, Zap, Check, Phone, ArrowRight, Award, Sparkles, AlertTriangle } from "lucide-react";
 import ppfHero from "@/assets/ppf-hero.jpg";
-import CarSideDiagram from "@/components/CarSideDiagram";
+import ppfPartialAsset from "@/assets/ppf-partial-front.png.asset.json";
+import ppfFullAsset from "@/assets/ppf-full-front.png.asset.json";
+import ppfTrackAsset from "@/assets/ppf-track-pack.png.asset.json";
+import ppfBodyAsset from "@/assets/ppf-full-body.png.asset.json";
 
-type PackageId = "bumper" | "partial" | "full" | "track" | "body";
+type PackageId = "partial" | "full" | "track" | "body";
 
 interface Package {
   id: PackageId;
   name: string;
   price: string;
   tagline: string;
-  panels: string[]; // panel keys highlighted on diagram
+  image: string;
   includes: string[];
   popular?: boolean;
 }
 
+
 const PACKAGES: Package[] = [
-  {
-    id: "bumper",
-    name: "Bumper Only",
-    price: "$599",
-    tagline: "Chip protection for the highest-impact panel.",
-    panels: ["bumperFront", "headlight"],
-    includes: ["Full front bumper", "XPEL Ultimate Plus film", "10-year warranty", "Self-healing top coat"],
-  },
   {
     id: "partial",
     name: "Partial Front",
     price: "$999",
-    tagline: "Front bumper, 18\" of hood, fenders and mirrors.",
-    panels: ["bumperFront", "hoodPartial", "fender", "mirror", "headlight"],
-    includes: ["Bumper", "Partial hood (18\")", "Fenders", "Mirror caps", "10-year warranty"],
+    tagline: "Full bumper, 1/3 hood, 1/3 fenders and mirrors.",
+    image: ppfPartialAsset.url,
+    includes: ["Full bumper", "1/3 hood", "1/3 fenders", "Mirror caps", "10-year warranty"],
   },
   {
     id: "full",
     name: "Full Front",
     price: "$1,899",
-    tagline: "The industry standard — full hood, fenders, bumper, mirrors, headlights.",
-    panels: ["bumperFront", "hood", "fender", "mirror", "headlight"],
-    includes: ["Full hood", "Full fenders", "Bumper", "Mirror caps", "Headlights", "10-year warranty"],
+    tagline: "The industry standard — full hood, fenders, bumper, mirrors.",
+    image: ppfFullAsset.url,
+    includes: ["Full bumper", "Full hood", "Full fenders", "Mirror caps", "Headlights", "10-year warranty"],
     popular: true,
   },
   {
     id: "track",
     name: "Track Pack",
     price: "$2,899",
-    tagline: "Full front + rockers, A-pillars, door cups and rear luggage area.",
-    panels: ["bumperFront", "hood", "fender", "mirror", "headlight", "rocker", "aPillar", "doorCup"],
-    includes: ["Everything in Full Front", "Rocker panels", "A-pillars & roof edge", "Door cups & handle area", "Rear luggage / boot area"],
+    tagline: "Full front + rocker panels and front pillars.",
+    image: ppfTrackAsset.url,
+    includes: ["Everything in Full Front", "Rocker panels", "Front pillars", "Door cups & handle area", "Rear luggage / boot area"],
   },
   {
     id: "body",
-    name: "Full Body",
+    name: "Full Vehicle",
     price: "$5,999",
     tagline: "Complete vehicle protection — every painted panel wrapped in film.",
-    panels: ["bumperFront", "hood", "fender", "mirror", "headlight", "rocker", "aPillar", "doorCup", "frontDoor", "rearDoor", "rearQuarter", "bumperRear", "trunk", "roofFull"],
+    image: ppfBodyAsset.url,
     includes: ["Every painted body panel", "Full doors, quarters, roof", "Rear bumper & trunk", "10-year warranty", "Concours-level install"],
   },
 ];
+
 
 const ADD_ONS = [
   { name: "Windshield PPF", price: "$699", desc: "6–8 mil optically-clear windshield film — up to 10 years of chip protection." },
