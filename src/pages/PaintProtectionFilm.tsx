@@ -8,6 +8,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { Shield, Zap, Check, Phone, ArrowRight, Award, Sparkles, AlertTriangle } from "lucide-react";
 import ppfHero from "@/assets/ppf-hero.jpg";
 import PPFCoverageDiagram from "@/components/PPFCoverageDiagram";
+import xpelLogo from "@/assets/xpel-ultimate-plus.png.asset.json";
+import threeMLogo from "@/assets/3m-science.jpg.asset.json";
 
 type PackageId = "partial" | "full" | "track" | "body";
 
@@ -109,6 +111,29 @@ const PaintProtectionFilm = () => {
             <a href="#coverage" className="inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-white/20 backdrop-blur-md transition">
               See Coverage <ArrowRight className="w-4 h-4" />
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Manufacturer logos */}
+      <section className="py-10 bg-card border-b border-border">
+        <div className="container">
+          <p className="text-center text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-6">
+            Certified Installers Of
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-16">
+            <img
+              src={xpelLogo.url}
+              alt="XPEL Ultimate Plus Paint Protection Film"
+              className="h-16 sm:h-20 w-auto object-contain"
+              loading="lazy"
+            />
+            <img
+              src={threeMLogo.url}
+              alt="3M Science. Applied to Life."
+              className="h-12 sm:h-14 w-auto object-contain"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
