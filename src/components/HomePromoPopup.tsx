@@ -67,16 +67,16 @@ const HomePromoPopup = () => {
               </div>
 
               <p className="text-primary font-heading font-bold uppercase tracking-widest text-xs mb-2">
-                Spring / Summer Rush
+                Now Booking · Summer 2026
               </p>
 
               <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground leading-tight mb-2">
-                Don't Get Left<br />
-                <span className="text-primary">Waiting</span>
+                New Services<br />
+                <span className="text-primary">Just Dropped</span>
               </h2>
 
               <p className="text-muted-foreground text-sm leading-relaxed mb-4 max-w-xs mx-auto">
-                Every year we're fully booked by mid-June. Secure your spot now — takes just 60 seconds.
+                Now offering <span className="font-bold text-foreground">Paint Protection Film</span>, <span className="font-bold text-foreground">Ceramic Window Tinting</span> and <span className="font-bold text-foreground">Marine Detailing</span>. Spots fill fast — lock yours in.
               </p>
 
               {/* Social proof */}
