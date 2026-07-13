@@ -78,53 +78,6 @@ const faqs = [
   { q: "Truck / SUV / exotic surcharges?", a: "Oversized vehicles +15%, exotics with complex curves +25%. Confirmed with a free quote before booking." },
 ];
 
-// Coverage diagram — top-down car outline
-const PANEL_FILLS: Record<string, string> = {
-  bumper: "M 40 20 L 160 20 L 160 45 L 40 45 Z",
-  hood: "M 50 45 L 150 45 L 150 105 L 50 105 Z",
-  hoodPartial: "M 50 45 L 150 45 L 150 75 L 50 75 Z",
-  fenders: "M 30 45 L 50 45 L 50 105 L 30 105 Z M 150 45 L 170 45 L 170 105 L 150 105 Z",
-  mirrors: "M 25 90 L 35 90 L 35 100 L 25 100 Z M 165 90 L 175 90 L 175 100 L 165 100 Z",
-  headlights: "M 45 25 L 75 25 L 75 42 L 45 42 Z M 125 25 L 155 25 L 155 42 L 125 42 Z",
-  rockers: "M 35 130 L 55 130 L 55 260 L 35 260 Z M 145 130 L 165 130 L 165 260 L 145 260 Z",
-  aPillars: "M 55 105 L 75 105 L 75 130 L 55 130 Z M 125 105 L 145 105 L 145 130 L 125 130 Z",
-  doorCups: "M 60 155 L 78 155 L 78 168 L 60 168 Z M 122 155 L 140 155 L 140 168 L 122 168 Z M 60 210 L 78 210 L 78 223 L 60 223 Z M 122 210 L 140 210 L 140 223 L 122 223 Z",
-  rearLuggage: "M 55 285 L 145 285 L 145 320 L 55 320 Z",
-  doors: "M 55 130 L 145 130 L 145 265 L 55 265 Z",
-  roof: "M 65 105 L 135 105 L 135 265 L 65 265 Z",
-  rearQuarters: "M 35 265 L 55 265 L 55 320 L 35 320 Z M 145 265 L 165 265 L 165 320 L 145 320 Z",
-  trunk: "M 40 320 L 160 320 L 160 345 L 40 345 Z",
-};
-
-const CarDiagram = ({ activePanels }: { activePanels: string[] }) => {
-  const active = new Set(activePanels);
-  return (
-    <svg viewBox="0 0 200 380" className="w-full max-w-[280px] mx-auto">
-      {/* Car body outline */}
-      <path
-        d="M 55 15 Q 100 5 145 15 L 165 45 L 175 105 L 175 300 L 165 345 L 145 360 Q 100 370 55 360 L 35 345 L 25 300 L 25 105 L 35 45 Z"
-        fill="hsl(var(--muted))"
-        stroke="hsl(var(--border))"
-        strokeWidth="1.5"
-      />
-      {/* Windshield / roof glass */}
-      <path d="M 65 108 L 135 108 L 135 265 L 65 265 Z" fill="hsl(var(--brand-dark))" opacity="0.15" />
-
-      {/* Highlighted panels */}
-      {Object.entries(PANEL_FILLS).map(([key, d]) => (
-        active.has(key) && (
-          <path
-            key={key}
-            d={d}
-            fill="hsl(var(--primary))"
-            opacity="0.85"
-            className="transition-all duration-500"
-          />
-        )
-      ))}
-    </svg>
-  );
-};
 
 const PaintProtectionFilm = () => {
   const [selected, setSelected] = useState<PackageId>("full");
