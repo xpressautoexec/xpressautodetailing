@@ -210,10 +210,19 @@ const MarineDetailing = () => {
                 }`}
               >
                 {p.popular && (
-                  <div className="absolute top-0 right-0 bg-urgency text-urgency-foreground font-heading font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-bl-xl">
+                  <div className="absolute top-0 right-0 z-10 bg-urgency text-urgency-foreground font-heading font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-bl-xl">
                     Most Popular
                   </div>
                 )}
+                <div className="relative aspect-[16/9] overflow-hidden bg-muted">
+                  <img
+                    src={p.image}
+                    alt={p.imageAlt}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                </div>
                 <div className="p-6 pb-4">
                   <h3 className="font-heading font-black text-lg uppercase text-foreground mb-1">{p.name}</h3>
                   <p className="font-heading font-black text-3xl text-primary">${p.price}<span className="text-base text-muted-foreground font-bold">/ft</span></p>
