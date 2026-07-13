@@ -18,20 +18,25 @@ import marineBenchAsset from "@/assets/marine-bench-detail.jpg.asset.json";
 import marineMotorAsset from "@/assets/marine-mercury-motor.jpg.asset.json";
 import marineBadgeAsset from "@/assets/marine-sport-badge.jpg.asset.json";
 import marineSideAsset from "@/assets/marine-side-profile.jpg.asset.json";
+import boatAquaholicAsset from "@/assets/boat-aquaholic-side.jpg.asset.json";
+import boatSunchaserDecalCloseupAsset from "@/assets/boat-sunchaser-decal-closeup.jpg.asset.json";
 const marineHero = marineSideAsset.url;
 const marineTubes = marineTubesAsset.url;
 const GALLERY = [
-  { src: marineHeroAsset.url, alt: "SunChaser pontoon after full mobile detail at sunset" },
-  { src: marineSideAsset.url, alt: "SunChaser Sport pontoon side profile with polished aluminum tube" },
-  { src: marineMotorAsset.url, alt: "Mercury 150 FourStroke outboard motor after polish" },
-  { src: marineBadgeAsset.url, alt: "SunChaser Sport chrome badge on detailed pontoon fence" },
-  { src: marineInteriorAsset.url, alt: "Cleaned pontoon interior with restored vinyl seating" },
-  { src: marineLoungeAsset.url, alt: "Restored pontoon rear lounge and vinyl seating" },
-  { src: marineHelmAsset.url, alt: "Detailed pontoon captain's helm seat and dashboard" },
-  { src: marineBenchAsset.url, alt: "Cleaned pontoon bench seating and speaker area" },
-  { src: marineTubesAsset.url, alt: "Polished aluminum pontoon tubes after acid restoration" },
-  { src: marineDecalAsset.url, alt: "Chrome SunChaser decal polished and restored" },
+  { src: marineHeroAsset.url, alt: "SunChaser pontoon at sunset" },
+  { src: boatAquaholicAsset.url, alt: "Aquaholic SunChaser Sport pontoon side profile" },
+  { src: boatSunchaserDecalCloseupAsset.url, alt: "SunChaser decal closeup" },
+  { src: marineSideAsset.url, alt: "SunChaser Sport pontoon side profile" },
+  { src: marineMotorAsset.url, alt: "Mercury outboard motor" },
+  { src: marineBadgeAsset.url, alt: "SunChaser Sport badge" },
+  { src: marineInteriorAsset.url, alt: "Pontoon interior vinyl seating" },
+  { src: marineLoungeAsset.url, alt: "Pontoon rear lounge" },
+  { src: marineHelmAsset.url, alt: "Pontoon helm and dashboard" },
+  { src: marineBenchAsset.url, alt: "Pontoon bench seating" },
+  { src: marineTubesAsset.url, alt: "Polished aluminum pontoon tubes" },
+  { src: marineDecalAsset.url, alt: "Chrome SunChaser decal" },
 ];
+
 
 const PACKAGES = [
   {
@@ -56,8 +61,9 @@ const PACKAGES = [
     tagline: "Machine polish to bring gelcoat or paint back — sealed for the season.",
     features: ["1-step machine polish", "Oxidation & light scratch removal", "Marine polymer sealant (6-month)", "Rails, cleats & hardware polish"],
     popular: false,
-    image: marineMotorAsset.url,
-    imageAlt: "Polished Mercury outboard after exterior detail",
+    image: boatAquaholicAsset.url,
+    imageAlt: "Pontoon exterior polished and sealed",
+
   },
   {
     name: "Full Interior + Exterior",
@@ -389,9 +395,8 @@ const MarineDetailing = () => {
                       loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                      <p className="text-white text-xs sm:text-sm font-heading font-semibold leading-snug">{g.alt}</p>
-                    </div>
+
+
                   </div>
                 </CarouselItem>
               ))}
