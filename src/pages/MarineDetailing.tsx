@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal from "@/components/ScrollReveal";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Anchor, Waves, Sparkles, Shield, Phone, ArrowRight, Check, MapPin, Award, Droplets } from "lucide-react";
 import marineHeroAsset from "@/assets/marine-pontoon-sunset.jpg.asset.json";
 import marineTubesAsset from "@/assets/marine-pontoon-tubes.jpg.asset.json";
@@ -37,16 +38,16 @@ const PACKAGES = [
     price: 12,
     tagline: "Fast refresh — hand wash, decontamination, and a coat of marine wax.",
     features: ["Hand wash exterior", "Iron & salt decontamination", "Rail & hardware polish", "Marine spray wax topcoat"],
-    image: marineDecalAsset.url,
-    imageAlt: "Polished chrome pontoon decal after wash and wax",
+    image: marineInteriorAsset.url,
+    imageAlt: "Freshly washed pontoon deck",
   },
   {
     name: "Interior Detail",
     price: 18,
     tagline: "Deep clean of vinyl seating, floors, storage compartments, and helm.",
     features: ["Vinyl seat deep clean & UV protectant", "Carpet / snap-in floor extraction", "Compartments & console detail", "Windows, gauges & helm dusted"],
-    image: marineBenchAsset.url,
-    imageAlt: "Cleaned pontoon vinyl bench seating",
+    image: marineHelmAsset.url,
+    imageAlt: "Detailed captain's helm seat and dashboard",
   },
   {
     name: "Exterior Polish & Seal",
@@ -54,8 +55,8 @@ const PACKAGES = [
     tagline: "Machine polish to bring gelcoat or paint back — sealed for the season.",
     features: ["1-step machine polish", "Oxidation & light scratch removal", "Marine polymer sealant (6-month)", "Rails, cleats & hardware polish"],
     popular: false,
-    image: marineSideAsset.url,
-    imageAlt: "Polished pontoon side profile after exterior polish and seal",
+    image: marineMotorAsset.url,
+    imageAlt: "Polished Mercury outboard after exterior detail",
   },
   {
     name: "Full Interior + Exterior",
@@ -63,16 +64,16 @@ const PACKAGES = [
     tagline: "The complete reset — inside, outside, top to bottom. Our #1 marine package.",
     features: ["Everything in Interior Detail", "Everything in Polish & Seal", "Bimini / canopy cleaning", "Bilge wipe-down"],
     popular: true,
-    image: marineHeroAsset.url,
-    imageAlt: "Fully detailed SunChaser pontoon at sunset",
+    image: marineSideAsset.url,
+    imageAlt: "SunChaser Sport side profile after full detail",
   },
   {
     name: "Marine Ceramic Coating",
     price: 55,
     tagline: "2-year professional ceramic coating for gelcoat, paint, and metal.",
     features: ["Full paint correction prep", "2-year marine-grade ceramic", "Hydrophobic UV protection", "Slick, easy-clean finish"],
-    image: marineMotorAsset.url,
-    imageAlt: "Mercury outboard motor after ceramic-level polish",
+    image: marineHeroAsset.url,
+    imageAlt: "SunChaser pontoon coated and glossy at sunset",
   },
 ];
 
@@ -353,18 +354,27 @@ const MarineDetailing = () => {
               Real jobs, done on-site in Southern Alberta. Aluminum restored, vinyl reset, decals polished — no tow required.
             </p>
           </ScrollReveal>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-            {GALLERY.map((g) => (
-              <div key={g.src} className="group relative rounded-xl overflow-hidden shadow-lg aspect-square bg-muted">
-                <img
-                  src={g.src}
-                  alt={g.alt}
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ))}
-          </div>
+          <Carousel opts={{ loop: true, align: "start" }} className="w-full">
+            <CarouselContent className="-ml-3 sm:-ml-4">
+              {GALLERY.map((g) => (
+                <CarouselItem key={g.src} className="pl-3 sm:pl-4 basis-4/5 sm:basis-1/2 lg:basis-1/3">
+                  <div className="group relative rounded-xl overflow-hidden shadow-lg aspect-[4/3] bg-muted">
+                    <img
+                      src={g.src}
+                      alt={g.alt}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                      <p className="text-white text-xs sm:text-sm font-heading font-semibold leading-snug">{g.alt}</p>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden sm:flex -left-2 lg:-left-6" />
+            <CarouselNext className="hidden sm:flex -right-2 lg:-right-6" />
+          </Carousel>
         </div>
       </section>
 
