@@ -22,8 +22,8 @@ interface BrandItem {
 }
 
 const productBrands: BrandItem[] = [
-  { name: "3M", logo: brand3m },
-  { name: "XPEL", logo: brandXpel },
+  { name: "3M", logo: brand3m.url },
+  { name: "XPEL", logo: brandXpel.url },
   { name: "P&S", logo: brandPs.url },
   { name: "Ducan", logo: brandDucan.url },
   { name: "System X", logo: brandSystemX.url },
