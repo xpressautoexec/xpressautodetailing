@@ -24,10 +24,16 @@ const Footer = () => {
             <div className="flex flex-col gap-2">
               {[
                 { label: "Interior Detailing", to: "/interior-detailing" },
-                
                 { label: "Complete Detailing", to: "/complete-detailing" },
-                { label: "Trailer & RV", to: "/trailer-rv" },
+                { label: "The Xpress Pass", to: "/monthly-plan" },
+                { label: "Add-Ons", to: "/add-ons" },
                 { label: "Paint & Ceramics", to: "/paint-ceramics" },
+                { label: "Paint Protection Film", to: "/ppf" },
+                { label: "Window Tinting", to: "/window-tinting" },
+                { label: "Windshield PPF", to: "/windshield-ppf" },
+                { label: "Marine & Pontoon Detailing", to: "/marine" },
+                { label: "Trailer & RV Detailing", to: "/trailer-rv" },
+                { label: "RV Rental Fleet Care", to: "/rv-rental-fleet" },
                 { label: "Corporate & Fleet", to: "/corporate-fleet" },
               ].map((link) => (
                 <Link key={link.label} to={link.to} className="text-brand-gray text-sm hover:text-primary transition-colors">
@@ -39,13 +45,16 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="text-center md:text-left">
-            <h4 className="font-heading font-bold text-primary-foreground uppercase tracking-wider text-sm mb-4">Quick Links</h4>
+            <h4 className="font-heading font-bold text-primary-foreground uppercase tracking-wider text-sm mb-4">Company</h4>
             <div className="flex flex-col gap-2">
               {[
+                { label: "Why Choose Us", to: "/why-choose-us" },
                 { label: "Gift Cards", to: "/gift-cards" },
                 { label: "Gallery", to: "/gallery" },
-                { label: "Contact Us", to: "/contact" },
                 { label: "Blog", to: "/blog" },
+                { label: "Training", to: "/training" },
+                { label: "Contact Us", to: "/contact" },
+                { label: "Terms & Conditions", to: "/terms-conditions" },
               ].map((link) => (
                 <Link key={link.label} to={link.to} className="text-brand-gray text-sm hover:text-primary transition-colors">
                   {link.label}
