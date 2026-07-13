@@ -290,7 +290,7 @@ const MarineDetailing = () => {
               href="tel:5875004523"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-brand-blue-deep transition"
             >
-              <Phone className="w-4 h-4" /> $55/ft — Call for Booking
+              <Phone className="w-4 h-4" /> $35/ft — Call for Booking
             </a>
           </ScrollReveal>
           <ScrollReveal direction="right">
