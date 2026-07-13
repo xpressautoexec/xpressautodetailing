@@ -67,7 +67,7 @@ const PACKAGES: Package[] = [
 
 const ADD_ONS = [
   { name: "Windshield PPF", price: "$699", desc: "6–8 mil optically-clear windshield film — up to 10 years of chip protection." },
-  { name: "Interior Screen PPF", price: "$149", desc: "Anti-glare protection for infotainment & digital gauge cluster." },
+  { name: "Interior Screen PPF", price: "$149", desc: "Anti-glare film that shields infotainment & gauge cluster from fingernail scratches, key marks and swirls." },
 ];
 
 const faqs = [
