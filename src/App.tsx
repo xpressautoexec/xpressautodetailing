@@ -19,7 +19,7 @@ const Gallery = lazy(() => import("./pages/Gallery"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
 const TrailerRV = lazy(() => import("./pages/TrailerRV"));
-const RVWinterization = lazy(() => import("./pages/RVWinterization"));
+const RVRentalFleet = lazy(() => import("./pages/RVRentalFleet"));
 const RVPPF = lazy(() => import("./pages/RVPPF"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const WhyChooseUs = lazy(() => import("./pages/WhyChooseUs"));
