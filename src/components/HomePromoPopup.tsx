@@ -76,7 +76,7 @@ const HomePromoPopup = () => {
               </h2>
 
               <p className="text-muted-foreground text-sm leading-relaxed mb-4 max-w-xs mx-auto">
-                Now offering <span className="font-bold text-foreground">Paint Protection Film</span>, <span className="font-bold text-foreground">Ceramic Window Tinting</span> and <span className="font-bold text-foreground">Marine Detailing</span>. Spots fill fast — lock yours in.
+                Now offering <span className="font-bold text-foreground">Paint Protection Film</span> and <span className="font-bold text-foreground">Ceramic Window Tinting</span>. Spots fill fast — lock yours in.
               </p>
 
               {/* Social proof */}
