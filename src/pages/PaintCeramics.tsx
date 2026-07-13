@@ -106,25 +106,87 @@ const PaintCeramics = () => (
     </section>
     <TrustStats />
 
-    {/* Intro */}
-    <section className="py-16 sm:py-20 bg-background">
-      <div className="container max-w-4xl text-center px-6">
-        <ScrollReveal>
-          <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs mb-3">
-            Calgary's Flagship Ceramic Service
-          </p>
-          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
-            Your Paint Deserves <span className="text-primary">Permanent Protection</span>
-          </h2>
-          <p className="text-muted-foreground leading-relaxed mb-5 text-sm sm:text-base">
-            Every automatic wash etches hundreds of micro-scratches into your clear coat. Swirl marks accumulate, oxidation sets in, and your paint loses the depth and brilliance it had when new.
-          </p>
-          <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-            We fix that. Paint correction with German-engineered Menzerna compounds removes the defects — then a professional ceramic coating, up to System X's 9-year graphene formula, locks in a mirror finish that lasts years, not months. It's the most advanced surface protection available, and our highest-end service.
-          </p>
-        </ScrollReveal>
+    {/* Certified Installer Strip */}
+    <section className="py-8 sm:py-10 bg-background border-b border-border">
+      <div className="container max-w-5xl px-6">
+        <p className="text-center text-muted-foreground font-heading font-bold uppercase tracking-[0.2em] text-[10px] sm:text-xs mb-5">
+          Certified Installers Of
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+          {[certSystemX, certGtechniq, certGyeon].map((logo, i) => (
+            <div key={i} className="bg-white border border-border rounded-xl px-5 py-3 h-16 sm:h-20 flex items-center justify-center shadow-sm">
+              <img src={logo.url} alt="Certified installer logo" className="max-h-10 sm:max-h-12 w-auto object-contain" loading="lazy" />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
+
+    {/* Packages — moved up so buyers see options quickly */}
+    <section id="packages" className="py-16 sm:py-20 bg-background scroll-mt-24">
+      <div className="container">
+        <ScrollReveal>
+          <p className="text-center text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs mb-3">
+            Standard Tiers · Fixed Pricing
+          </p>
+          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-4">
+            Paint Correction & <span className="text-primary">Ceramic Packages</span>
+          </h2>
+          <p className="text-center text-muted-foreground text-sm max-w-2xl mx-auto mb-12">
+            Two stepping-stone tiers into ceramic protection. For maximum longevity, upgrade to the flagship System X 9-year graphene coating below.
+          </p>
+        </ScrollReveal>
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-2 sm:px-0">
+          <PackageCard
+            icon={<Sparkles className="w-8 h-8" />}
+            name="1-Step Enhancement + 1 Yr Ceramic"
+            price="$474.99"
+            tagline="Restore gloss, remove light swirls & add a full year of ceramic protection — ideal for daily drivers."
+            ctaText="Call Now"
+            ctaLink="tel:5875004523"
+            features={[
+              "Full paint decontamination (iron, tar, fallout)",
+              "Clay bar treatment for glass-smooth surface",
+              "1-step machine polish (removes 40–60% of swirls & scratches)",
+              "1-year ceramic spray sealant (hydrophobic finish)",
+              "Final paint inspection under LED lighting",
+              "Aftercare guide provided",
+            ]}
+            addOns={[
+              { name: "Wheel Ceramic Coating", price: "+$120/wheel" },
+              { name: "All Glass Ceramic Coating", price: "+$230" },
+              { name: "Ceramic Spray Sealant Upgrade", price: "+$110" },
+            ]}
+            surcharges={["Add $150 for SUVs/trucks", "Add $200 for 3-row SUVs/minivans"]}
+          />
+          <PackageCard
+            icon={<Gem className="w-8 h-8" />}
+            name="2-Step Correction + 5 Yr Ceramic"
+            price="$849.99"
+            tagline="Full paint correction for enthusiasts — removes 85–95% of defects with multi-year ceramic protection."
+            ctaText="Call Now"
+            ctaLink="tel:5875004523"
+            features={[
+              "Full paint decontamination (iron, tar, fallout)",
+              "Clay bar treatment for glass-smooth surface",
+              "2-step compound cut & fine polish (85–95% defect removal)",
+              "4-year professional-grade infused ceramic coating",
+              "LED inspection at every stage for quality control",
+              "Paint depth readings taken before correction",
+              "Aftercare kit & maintenance schedule included",
+            ]}
+            addOns={[
+              { name: "Wheel Ceramic Coating", price: "+$120/wheel" },
+              { name: "Interior Ceramic Coating (all trim)", price: "+$350" },
+              { name: "All Glass Ceramic Coating", price: "+$230" },
+            ]}
+            surcharges={["Add $150 for SUVs/trucks", "Add $200 for 3-row SUVs/minivans"]}
+            isPrimary
+          />
+        </div>
+      </div>
+    </section>
+
 
     {/* Premium: System X 9-Year Graphene Ceramic Coating */}
     <section className="relative py-20 sm:py-28 bg-foreground overflow-hidden">
