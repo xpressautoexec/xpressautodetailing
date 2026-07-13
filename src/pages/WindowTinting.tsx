@@ -8,6 +8,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sun, Shield, Eye, Phone, ArrowRight, Check, AlertTriangle, Zap } from "lucide-react";
 import tintHero from "@/assets/tint-hero.jpg";
+import CarSideDiagram from "@/components/CarSideDiagram";
 
 type TintTier = "carbon" | "ceramic";
 
