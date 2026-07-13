@@ -209,11 +209,11 @@ const MarineDetailing = () => {
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+          <div className="flex flex-wrap justify-center gap-5 mb-10">
             {PACKAGES.map((p, i) => (
               <div
                 key={p.name}
-                className={`relative rounded-2xl bg-card border overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 ${
+                className={`relative rounded-2xl bg-card border overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.834rem)] ${
                   p.popular ? "border-primary/50 shadow-xl shadow-primary/10 ring-1 ring-primary/30" : "border-border hover:border-primary/30 hover:shadow-lg"
                 }`}
               >
