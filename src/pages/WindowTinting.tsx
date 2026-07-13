@@ -22,12 +22,12 @@ interface Coverage {
 }
 
 const COVERAGES: Coverage[] = [
-  { id: "front2", name: "2 Front Windows", desc: "Front driver + passenger.", price: { carbon: 199, ceramic: 279 }, panels: ["frontL", "frontR"] },
-  { id: "rearWs", name: "Rear Windshield", desc: "Back glass only.", price: { carbon: 149, ceramic: 199 }, panels: ["rear"] },
-  { id: "full", name: "Full Car (no windshield)", desc: "All 4 sides + rear.", price: { carbon: 399, ceramic: 549 }, panels: ["frontL", "frontR", "rearL", "rearR", "rear"], popular: true },
-  { id: "fullWs", name: "Full Car + Windshield", desc: "Everything including front glass.", price: { carbon: 599, ceramic: 799 }, panels: ["frontL", "frontR", "rearL", "rearR", "rear", "windshield"] },
-  { id: "windshield", name: "Windshield Only", desc: "Front glass — heat rejection focus.", price: { carbon: 249, ceramic: 349 }, panels: ["windshield"] },
-  { id: "sunroof", name: "Sunroof", desc: "Panoramic or standard.", price: { carbon: 99, ceramic: 149 }, panels: ["sunroof"] },
+  { id: "front2", name: "2 Front Windows", desc: "Front driver + passenger.", price: { carbon: 149, ceramic: 219 }, panels: ["frontDoorGlass"] },
+  { id: "rearWs", name: "Rear Windshield", desc: "Back glass only.", price: { carbon: 119, ceramic: 169 }, panels: ["rearGlass"] },
+  { id: "full", name: "Full Car (no windshield)", desc: "All 4 sides + rear.", price: { carbon: 299, ceramic: 429 }, panels: ["frontDoorGlass", "rearDoorGlass", "rearGlass"], popular: true },
+  { id: "fullWs", name: "Full Car + Windshield", desc: "Everything including front glass.", price: { carbon: 449, ceramic: 629 }, panels: ["frontDoorGlass", "rearDoorGlass", "rearGlass", "windshield"] },
+  { id: "windshield", name: "Windshield Only", desc: "Front glass — heat rejection focus.", price: { carbon: 199, ceramic: 279 }, panels: ["windshield"] },
+  { id: "sunroof", name: "Sunroof", desc: "Panoramic or standard.", price: { carbon: 79, ceramic: 119 }, panels: ["sunroof"] },
 ];
 
 const TIERS: Record<TintTier, { name: string; sub: string; features: string[] }> = {
