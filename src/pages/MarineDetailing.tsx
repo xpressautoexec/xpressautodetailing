@@ -308,7 +308,7 @@ const MarineDetailing = () => {
           </ScrollReveal>
           <ScrollReveal direction="right">
             <div className="rounded-2xl overflow-hidden shadow-xl">
-              <img src={marineHero} alt="Pontoon aluminum restoration" className="w-full aspect-[4/3] object-cover" loading="lazy" />
+              <img src={marineTubes} alt="Polished aluminum pontoon tubes after mobile acid restoration" className="w-full aspect-[4/3] object-cover" loading="lazy" />
             </div>
           </ScrollReveal>
         </div>
