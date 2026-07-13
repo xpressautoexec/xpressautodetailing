@@ -129,12 +129,7 @@ const PaintProtectionFilm = () => {
           <div className="grid lg:grid-cols-2 gap-10 items-center max-w-5xl mx-auto">
             {/* Coverage illustration */}
             <div className="bg-gradient-to-br from-brand-dark to-brand-dark-surface rounded-2xl p-6 sm:p-8 flex items-center justify-center min-h-[280px]">
-              <img
-                src={current.image}
-                alt={`${current.name} PPF coverage illustration`}
-                className="w-full h-auto max-h-[340px] object-contain drop-shadow-2xl transition-opacity duration-300"
-                loading="lazy"
-              />
+              <PPFCoverageDiagram package={selected} />
             </div>
 
 
