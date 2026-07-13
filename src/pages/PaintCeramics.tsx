@@ -417,36 +417,6 @@ const PaintCeramics = () => (
     </section>
 
 
-    <section className="py-16 sm:py-20 bg-muted/30">
-      <div className="container max-w-5xl px-4 sm:px-6">
-        <ScrollReveal>
-          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-4">
-            Why Ceramic Coating Is the <span className="text-primary">Smartest Investment</span>
-          </h2>
-          <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto text-sm sm:text-base">
-            Ceramic coating isn't just protection — it's a transformation that pays for itself over time.
-          </p>
-        </ScrollReveal>
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" staggerDelay={0.08}>
-          {[
-            { icon: Shield, title: "Multi-Year Protection", desc: "Defends against UV rays, bird droppings, bug splatter, tree sap, road salt, and chemical contaminants for up to 7 years." },
-            { icon: Droplets, title: "Hydrophobic Barrier", desc: "Water, dirt, and grime slide right off, making washes faster, easier, and less frequent. Your car stays cleaner, longer." },
-            { icon: Sparkles, title: "Unmatched Gloss", desc: "Amplifies depth, clarity, and shine with a mirror-like finish that turns heads in any parking lot." },
-            { icon: DollarSign, title: "Higher Resale Value", desc: "Protected paint maintains its quality for years, making your vehicle more attractive and valuable when it's time to sell." },
-            { icon: Clock, title: "No More Monthly Waxing", desc: "Say goodbye to wax appointments every few months. One coating lasts years, saving you hundreds in maintenance." },
-            { icon: Sun, title: "Calgary Climate Defense", desc: "Specifically designed to handle extreme UV, chinook temperature swings, road salt, and gravel — everything Calgary throws at you." },
-          ].map((item) => (
-            <StaggerItem key={item.title}>
-              <div className="p-5 sm:p-6 rounded-xl border border-border bg-card hover:border-primary/30 hover:shadow-md transition-all duration-300 h-full">
-                <item.icon className="w-8 h-8 text-primary mb-3" />
-                <h4 className="font-heading font-bold text-foreground uppercase text-xs sm:text-sm mb-2">{item.title}</h4>
-                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{item.desc}</p>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </div>
-    </section>
 
     {/* The Process — light cards */}
     <section className="py-16 sm:py-20 bg-background">
