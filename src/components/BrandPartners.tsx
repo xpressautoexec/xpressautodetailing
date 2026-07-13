@@ -1,6 +1,6 @@
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
-import brand3m from "@/assets/brand-3m.png";
-import brandXpel from "@/assets/brand-xpel.png";
+import brand3m from "@/assets/brand-3m-new.jpg.asset.json";
+import brandXpel from "@/assets/brand-xpel-new.png.asset.json";
 import brandGtechniq from "@/assets/brand-gtechniq.png";
 import brandAecon from "@/assets/brand-aecon.png";
 import brandWoodsHomes from "@/assets/brand-woods-homes.png";
