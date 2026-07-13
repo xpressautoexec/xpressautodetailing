@@ -45,27 +45,10 @@ const BrandPartners = () => (
         </h2>
       </ScrollReveal>
 
-      <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 sm:gap-5 mb-14" staggerDelay={0.06}>
+      <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 sm:gap-5" staggerDelay={0.06}>
         {productBrands.map((brand) => (
           <StaggerItem key={brand.name} className="flex items-center justify-center">
             <BrandCard brand={brand} />
-          </StaggerItem>
-        ))}
-      </StaggerContainer>
-
-      <ScrollReveal>
-        <p className="text-center text-muted-foreground font-heading text-xs uppercase tracking-widest mb-2">
-          Trusted By
-        </p>
-        <h3 className="text-center font-heading font-bold text-lg uppercase text-foreground mb-8">
-          Our Corporate & Fleet Partners
-        </h3>
-      </ScrollReveal>
-
-      <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-5xl mx-auto" staggerDelay={0.06}>
-        {clientPartners.map((partner) => (
-          <StaggerItem key={partner.name} className="flex items-center justify-center">
-            <BrandCard brand={partner} />
           </StaggerItem>
         ))}
       </StaggerContainer>
