@@ -237,10 +237,12 @@ const MarineDetailing = () => {
                     ))}
                   </ul>
                   <button
-                    onClick={() => setPkg(i)}
-                    className="text-primary font-heading font-bold text-xs uppercase tracking-wider hover:underline text-left"
+                    onClick={() => togglePkg(i)}
+                    className={`font-heading font-bold text-xs uppercase tracking-wider text-left transition ${
+                      selectedPkgs.includes(i) ? "text-success" : "text-primary hover:underline"
+                    }`}
                   >
-                    Use in Estimator ↓
+                    {selectedPkgs.includes(i) ? "✓ Added to Estimate" : "+ Add to Estimate ↓"}
                   </button>
                 </div>
               </div>
