@@ -11,44 +11,44 @@ import marineHero from "@/assets/marine-hero.jpg";
 const PACKAGES = [
   {
     name: "Wash & Wax",
-    price: 18,
+    price: 12,
     tagline: "Fast refresh — hand wash, decontamination, and a coat of marine wax.",
     features: ["Hand wash exterior", "Iron & salt decontamination", "Rail & hardware polish", "Marine spray wax topcoat"],
   },
   {
     name: "Interior Detail",
-    price: 28,
+    price: 18,
     tagline: "Deep clean of vinyl seating, floors, storage compartments, and helm.",
     features: ["Vinyl seat deep clean & UV protectant", "Carpet / snap-in floor extraction", "Compartments & console detail", "Windows, gauges & helm dusted"],
   },
   {
     name: "Exterior Polish & Seal",
-    price: 45,
+    price: 28,
     tagline: "Machine polish to bring gelcoat or paint back — sealed for the season.",
     features: ["1-step machine polish", "Oxidation & light scratch removal", "Marine polymer sealant (6-month)", "Rails, cleats & hardware polish"],
     popular: false,
   },
   {
     name: "Full Interior + Exterior",
-    price: 65,
+    price: 42,
     tagline: "The complete reset — inside, outside, top to bottom. Our #1 marine package.",
     features: ["Everything in Interior Detail", "Everything in Polish & Seal", "Bimini / canopy cleaning", "Bilge wipe-down"],
     popular: true,
   },
   {
     name: "Marine Ceramic Coating",
-    price: 85,
+    price: 55,
     tagline: "2-year professional ceramic coating for gelcoat, paint, and metal.",
     features: ["Full paint correction prep", "2-year marine-grade ceramic", "Hydrophobic UV protection", "Slick, easy-clean finish"],
   },
 ];
 
 const ALA_CARTE = [
-  { name: "Aluminum Pontoon Acid Restoration", price: "$55/ft", desc: "Brings oxidized tubes back to factory shine." },
-  { name: "Oxidation Removal / Heavy Compound", price: "$40/ft", desc: "Multi-stage cut for chalky, faded gelcoat." },
-  { name: "Engine Bay Detail", price: "$120", desc: "Degreased, dressed, and inspected." },
-  { name: "Canopy / Bimini Cleaning", price: "$80", desc: "Mildew, bird stains, UV protectant." },
-  { name: "Trailer Wash & Wheel Detail", price: "$60", desc: "Salt, brake dust, and grime — gone." },
+  { name: "Aluminum Pontoon Acid Restoration", price: "$35/ft", desc: "Brings oxidized tubes back to factory shine." },
+  { name: "Oxidation Removal / Heavy Compound", price: "$25/ft", desc: "Multi-stage cut for chalky, faded gelcoat." },
+  { name: "Engine Bay Detail", price: "$90", desc: "Degreased, dressed, and inspected." },
+  { name: "Canopy / Bimini Cleaning", price: "$60", desc: "Mildew, bird stains, UV protectant." },
+  { name: "Trailer Wash & Wheel Detail", price: "$45", desc: "Salt, brake dust, and grime — gone." },
 ];
 
 const faqs = [
@@ -290,7 +290,7 @@ const MarineDetailing = () => {
               href="tel:5875004523"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-brand-blue-deep transition"
             >
-              <Phone className="w-4 h-4" /> $55/ft — Call for Booking
+              <Phone className="w-4 h-4" /> $35/ft — Call for Booking
             </a>
           </ScrollReveal>
           <ScrollReveal direction="right">

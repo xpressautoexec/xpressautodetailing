@@ -8,6 +8,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sun, Shield, Eye, Phone, ArrowRight, Check, AlertTriangle, Zap } from "lucide-react";
 import tintHero from "@/assets/tint-hero.jpg";
+import CarSideDiagram from "@/components/CarSideDiagram";
 
 type TintTier = "carbon" | "ceramic";
 
@@ -21,12 +22,12 @@ interface Coverage {
 }
 
 const COVERAGES: Coverage[] = [
-  { id: "front2", name: "2 Front Windows", desc: "Front driver + passenger.", price: { carbon: 199, ceramic: 279 }, panels: ["frontL", "frontR"] },
-  { id: "rearWs", name: "Rear Windshield", desc: "Back glass only.", price: { carbon: 149, ceramic: 199 }, panels: ["rear"] },
-  { id: "full", name: "Full Car (no windshield)", desc: "All 4 sides + rear.", price: { carbon: 399, ceramic: 549 }, panels: ["frontL", "frontR", "rearL", "rearR", "rear"], popular: true },
-  { id: "fullWs", name: "Full Car + Windshield", desc: "Everything including front glass.", price: { carbon: 599, ceramic: 799 }, panels: ["frontL", "frontR", "rearL", "rearR", "rear", "windshield"] },
-  { id: "windshield", name: "Windshield Only", desc: "Front glass — heat rejection focus.", price: { carbon: 249, ceramic: 349 }, panels: ["windshield"] },
-  { id: "sunroof", name: "Sunroof", desc: "Panoramic or standard.", price: { carbon: 99, ceramic: 149 }, panels: ["sunroof"] },
+  { id: "front2", name: "2 Front Windows", desc: "Front driver + passenger.", price: { carbon: 149, ceramic: 219 }, panels: ["frontDoorGlass"] },
+  { id: "rearWs", name: "Rear Windshield", desc: "Back glass only.", price: { carbon: 119, ceramic: 169 }, panels: ["rearGlass"] },
+  { id: "full", name: "Full Car (no windshield)", desc: "All 4 sides + rear.", price: { carbon: 299, ceramic: 429 }, panels: ["frontDoorGlass", "rearDoorGlass", "rearGlass"], popular: true },
+  { id: "fullWs", name: "Full Car + Windshield", desc: "Everything including front glass.", price: { carbon: 449, ceramic: 629 }, panels: ["frontDoorGlass", "rearDoorGlass", "rearGlass", "windshield"] },
+  { id: "windshield", name: "Windshield Only", desc: "Front glass — heat rejection focus.", price: { carbon: 199, ceramic: 279 }, panels: ["windshield"] },
+  { id: "sunroof", name: "Sunroof", desc: "Panoramic or standard.", price: { carbon: 79, ceramic: 119 }, panels: ["sunroof"] },
 ];
 
 const TIERS: Record<TintTier, { name: string; sub: string; features: string[] }> = {
@@ -51,59 +52,9 @@ const faqs = [
   { q: "SUV / truck pricing?", a: "SUVs, trucks, and 3-row vehicles add $50 flat to any package due to larger glass area. Confirmed on quote." },
 ];
 
-// Tint diagram — side profile of a car
-const WindowShape: Record<string, string> = {
-  windshield: "M 40 55 L 100 40 L 100 90 L 40 95 Z",
-  frontL: "M 105 40 L 155 40 L 155 90 L 105 90 Z",
-  rearL: "M 160 40 L 210 40 L 205 90 L 160 90 Z",
-  rear: "M 215 45 L 240 55 L 240 90 L 210 90 Z",
-  frontR: "M 105 40 L 155 40 L 155 90 L 105 90 Z", // same as frontL visually
-  rearR: "M 160 40 L 210 40 L 205 90 L 160 90 Z",
-  sunroof: "M 100 30 L 200 30 L 200 40 L 100 40 Z",
-};
-
 const TintDiagram = ({ panels, tier }: { panels: string[]; tier: TintTier }) => {
-  const activeSet = new Set(panels);
-  const tintOpacity = tier === "ceramic" ? 0.85 : 0.7;
-
-  return (
-    <svg viewBox="0 0 280 140" className="w-full max-w-md mx-auto">
-      {/* Car body silhouette (side view) */}
-      <path
-        d="M 20 100 L 40 55 Q 45 45 55 42 L 100 32 Q 150 25 200 32 L 245 55 Q 260 60 260 75 L 260 105 Q 260 115 250 115 L 30 115 Q 20 115 20 105 Z"
-        fill="hsl(var(--muted))"
-        stroke="hsl(var(--border))"
-        strokeWidth="1.5"
-      />
-      {/* Wheels */}
-      <circle cx="65" cy="115" r="14" fill="hsl(var(--brand-dark))" />
-      <circle cx="215" cy="115" r="14" fill="hsl(var(--brand-dark))" />
-      <circle cx="65" cy="115" r="6" fill="hsl(var(--muted))" />
-      <circle cx="215" cy="115" r="6" fill="hsl(var(--muted))" />
-
-      {/* All windows shown lightly */}
-      {Object.entries(WindowShape).slice(0, 5).map(([key, d]) => (
-        <path key={`base-${key}`} d={d} fill="hsl(var(--brand-dark))" opacity="0.15" />
-      ))}
-      {activeSet.has("sunroof") && (
-        <path d={WindowShape.sunroof} fill="hsl(var(--primary))" opacity={tintOpacity} />
-      )}
-
-      {/* Tinted windows */}
-      {["windshield", "frontL", "rearL", "rear"].map((k) =>
-        activeSet.has(k) && (
-          <motion.path
-            key={k}
-            d={WindowShape[k]}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: tintOpacity }}
-            transition={{ duration: 0.4 }}
-            fill="hsl(var(--brand-dark))"
-          />
-        )
-      )}
-    </svg>
-  );
+  const tintColor = tier === "ceramic" ? "hsl(220 60% 8%)" : "hsl(220 30% 20%)";
+  return <CarSideDiagram activePanels={panels} highlightColor={tintColor} />;
 };
 
 const WindowTinting = () => {
