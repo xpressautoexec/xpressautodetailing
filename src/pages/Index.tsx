@@ -15,6 +15,7 @@ import TestimonialBlock from "@/components/TestimonialBlock";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 import BrandPartners from "@/components/BrandPartners";
+import CompanyLogos from "@/components/CompanyLogos";
 import GoogleReviewBadge from "@/components/GoogleReviewBadge";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import StickyBookingBar from "@/components/StickyBookingBar";
