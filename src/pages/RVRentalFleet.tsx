@@ -80,7 +80,7 @@ const services = [
 const tiers = [
   {
     name: "Turnover Basic",
-    price: "From $149",
+    price: "From $199",
     perUnit: "per unit",
     features: [
       "Interior sanitize & wipe-down",
@@ -92,7 +92,7 @@ const tiers = [
   },
   {
     name: "Turnover Plus",
-    price: "From $249",
+    price: "From $349",
     perUnit: "per unit",
     popular: true,
     features: [
@@ -106,7 +106,7 @@ const tiers = [
   },
   {
     name: "Seasonal Refresh",
-    price: "From $549",
+    price: "From $749",
     perUnit: "per unit",
     features: [
       "Deep interior extraction",
