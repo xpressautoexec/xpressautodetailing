@@ -90,9 +90,13 @@ const faqs = [
 
 const MarineDetailing = () => {
   const [length, setLength] = useState(22);
-  const [pkg, setPkg] = useState(3); // Full Interior + Exterior
+  const [selectedPkgs, setSelectedPkgs] = useState<number[]>([3]); // Full Interior + Exterior
 
-  const estimate = PACKAGES[pkg].price * length;
+  const togglePkg = (i: number) =>
+    setSelectedPkgs((prev) => (prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i]));
+
+  const perFootTotal = selectedPkgs.reduce((sum, i) => sum + PACKAGES[i].price, 0);
+  const estimate = perFootTotal * length;
 
   return (
     <PageTransition>
@@ -233,10 +237,12 @@ const MarineDetailing = () => {
                     ))}
                   </ul>
                   <button
-                    onClick={() => setPkg(i)}
-                    className="text-primary font-heading font-bold text-xs uppercase tracking-wider hover:underline text-left"
+                    onClick={() => togglePkg(i)}
+                    className={`font-heading font-bold text-xs uppercase tracking-wider text-left transition ${
+                      selectedPkgs.includes(i) ? "text-success" : "text-primary hover:underline"
+                    }`}
                   >
-                    Use in Estimator ↓
+                    {selectedPkgs.includes(i) ? "✓ Added to Estimate" : "+ Add to Estimate ↓"}
                   </button>
                 </div>
               </div>
@@ -269,23 +275,39 @@ const MarineDetailing = () => {
                     <span>14 ft</span><span>40 ft</span>
                   </div>
                   <label className="block font-heading font-bold text-xs uppercase tracking-wider mt-6 mb-2 text-primary-foreground/80">
-                    Package
+                    Services ({selectedPkgs.length} selected)
                   </label>
-                  <select
-                    value={pkg}
-                    onChange={(e) => setPkg(Number(e.target.value))}
-                    className="w-full bg-white/15 border border-white/25 rounded-lg px-3 py-2.5 text-sm font-heading font-semibold text-white focus:outline-none focus:border-white/60"
-                  >
-                    {PACKAGES.map((p, i) => (
-                      <option key={p.name} value={i} className="text-foreground">
-                        {p.name} — ${p.price}/ft
-                      </option>
-                    ))}
-                  </select>
+                  <div className="space-y-1.5 max-h-56 overflow-y-auto pr-1">
+                    {PACKAGES.map((p, i) => {
+                      const checked = selectedPkgs.includes(i);
+                      return (
+                        <label
+                          key={p.name}
+                          className={`flex items-center justify-between gap-3 px-3 py-2 rounded-lg cursor-pointer border transition ${
+                            checked ? "bg-white/20 border-white/60" : "bg-white/5 border-white/15 hover:bg-white/10"
+                          }`}
+                        >
+                          <div className="flex items-center gap-2 min-w-0">
+                            <input
+                              type="checkbox"
+                              checked={checked}
+                              onChange={() => togglePkg(i)}
+                              className="accent-white shrink-0"
+                            />
+                            <span className="text-sm font-heading font-semibold text-white truncate">{p.name}</span>
+                          </div>
+                          <span className="text-xs font-heading font-bold text-white/90 shrink-0">${p.price}/ft</span>
+                        </label>
+                      );
+                    })}
+                  </div>
                 </div>
                 <div className="flex flex-col justify-center">
                   <p className="font-heading font-bold text-[10px] uppercase tracking-widest text-primary-foreground/70 mb-1">Estimated</p>
                   <p className="font-heading font-black text-5xl md:text-6xl">${estimate}</p>
+                  <p className="text-primary-foreground/80 text-xs mt-1">
+                    ${perFootTotal}/ft × {length} ft · {selectedPkgs.length} service{selectedPkgs.length === 1 ? "" : "s"}
+                  </p>
                   <p className="text-primary-foreground/75 text-xs mt-2">Final price confirmed on arrival after we measure LOA.</p>
                   <a
                     href="tel:5875004523"
