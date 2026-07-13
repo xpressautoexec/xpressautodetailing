@@ -1,6 +1,6 @@
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
-import brand3m from "@/assets/brand-3m.png";
-import brandXpel from "@/assets/brand-xpel.png";
+import brand3m from "@/assets/brand-3m-new.jpg.asset.json";
+import brandXpel from "@/assets/brand-xpel-new.png.asset.json";
 import brandGtechniq from "@/assets/brand-gtechniq.png";
 import brandAecon from "@/assets/brand-aecon.png";
 import brandWoodsHomes from "@/assets/brand-woods-homes.png";
@@ -22,8 +22,8 @@ interface BrandItem {
 }
 
 const productBrands: BrandItem[] = [
-  { name: "3M", logo: brand3m },
-  { name: "XPEL", logo: brandXpel },
+  { name: "3M", logo: brand3m.url },
+  { name: "XPEL", logo: brandXpel.url },
   { name: "P&S", logo: brandPs.url },
   { name: "Ducan", logo: brandDucan.url },
   { name: "System X", logo: brandSystemX.url },
