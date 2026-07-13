@@ -7,6 +7,9 @@ import completeImg from "@/assets/gallery-range-rover-exterior.jpg";
 import ceramicImg from "@/assets/gallery-21.jpg";
 import fleetImg from "@/assets/gallery-23.jpg";
 import rvImg from "@/assets/rv-hero.jpg";
+import marineImg from "@/assets/marine-hero.jpg";
+import ppfImg from "@/assets/ppf-hero.jpg";
+import tintImg from "@/assets/tint-hero.jpg";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -16,7 +19,6 @@ const services = [
     description: "Inside & out — a full refresh for your entire vehicle. Our #1 most booked service.",
     image: completeImg,
     link: "/complete-detailing",
-    price: "From $219",
     tag: "Most Popular",
   },
   {
@@ -24,14 +26,33 @@ const services = [
     description: "Industry-leading ceramic products for lasting protection and showroom shine.",
     image: ceramicImg,
     link: "/paint-ceramics",
-    price: "From $499",
+  },
+  {
+    title: "Paint Protection Film",
+    description: "10-year XPEL & 3M PPF — self-healing, invisible rock chip protection.",
+    image: ppfImg,
+    link: "/ppf",
+    tag: "New",
+  },
+  {
+    title: "Window Tinting",
+    description: "Mobile Carbon or Ceramic IR tinting — installed at your home or work.",
+    image: tintImg,
+    link: "/window-tinting",
+    tag: "New",
+  },
+  {
+    title: "Marine & Pontoon",
+    description: "The only mobile marine detailer in Southern Alberta. Aluminum pontoon restoration.",
+    image: marineImg,
+    link: "/marine",
+    tag: "New",
   },
   {
     title: "Trailer & RV",
     description: "Professional mobile detailing for travel trailers, motorhomes, 5th wheels & more.",
     image: rvImg,
     link: "/trailer-rv",
-    price: "From $199",
   },
   {
     title: "Corporate & Fleet",

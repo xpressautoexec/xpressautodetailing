@@ -28,17 +28,20 @@ const desktopLinks: DesktopNavItem[] = [
     ],
   },
   {
-    label: "Ceramics & PPF",
+    label: "Protection",
     children: [
       { label: "Paint & Ceramics", href: "/paint-ceramics" },
+      { label: "Paint Protection Film (PPF)", href: "/ppf" },
+      { label: "Window Tinting", href: "/window-tinting" },
       { label: "Windshield PPF", href: "/windshield-ppf" },
     ],
   },
   {
-    label: "Trailer & RV",
+    label: "Marine & RV",
     children: [
+      { label: "Marine & Pontoon Detailing", href: "/marine" },
       { label: "Trailer & RV Detailing", href: "/trailer-rv" },
-      { label: "Winterization & De-Winterization", href: "/trailer-rv/winterization" },
+      { label: "RV Winterization", href: "/trailer-rv/winterization" },
     ],
   },
   { label: "Fleet", href: "/corporate-fleet" },
@@ -75,20 +78,22 @@ const mobileLinks: MobileNavItem[] = [
     ],
   },
   {
-    label: "Ceramics & PPF",
+    label: "Protection",
     href: "#",
     children: [
       { label: "Paint & Ceramics", href: "/paint-ceramics" },
+      { label: "Paint Protection Film (PPF)", href: "/ppf" },
+      { label: "Window Tinting", href: "/window-tinting" },
       { label: "Windshield PPF", href: "/windshield-ppf" },
     ],
   },
   {
-    label: "Trailer & RV",
+    label: "Marine & RV",
     href: "#",
     children: [
+      { label: "Marine & Pontoon Detailing", href: "/marine" },
       { label: "Trailer & RV Detailing", href: "/trailer-rv" },
-      { label: "Winterization & De-Winterization", href: "/trailer-rv/winterization" },
-      
+      { label: "RV Winterization", href: "/trailer-rv/winterization" },
     ],
   },
   { label: "Corporate & Fleet", href: "/corporate-fleet" },
