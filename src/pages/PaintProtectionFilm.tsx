@@ -140,7 +140,11 @@ const PaintProtectionFilm = () => {
           <div className="grid lg:grid-cols-2 gap-10 items-center max-w-5xl mx-auto">
             {/* Diagram */}
             <div className="bg-card border border-border rounded-2xl p-8 sm:p-10">
-              <CarDiagram activePanels={current.panels} />
+              <CarSideDiagram activePanels={current.panels} highlightColor="hsl(48 96% 53%)" />
+              <div className="flex items-center justify-center gap-2 mt-3">
+                <span className="inline-block w-3 h-3 rounded-sm" style={{ background: "hsl(48 96% 53%)" }} />
+                <span className="text-xs text-muted-foreground font-heading uppercase tracking-wider">Yellow = protected by film</span>
+              </div>
               <p className="text-center text-xs text-muted-foreground mt-4 font-heading uppercase tracking-wider">
                 Highlighted panels = protected
               </p>
