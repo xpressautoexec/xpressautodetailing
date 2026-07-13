@@ -51,7 +51,7 @@ const AnimatedRoutes = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/trailer-rv" element={<TrailerRV />} />
-        <Route path="/trailer-rv/winterization" element={<RVWinterization />} />
+        <Route path="/rv-rental-fleet" element={<RVRentalFleet />} />
         <Route path="/trailer-rv/ppf" element={<RVPPF />} />
         <Route path="/terms-conditions" element={<TermsOfService />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
