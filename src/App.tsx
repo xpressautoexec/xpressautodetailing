@@ -19,7 +19,7 @@ const Gallery = lazy(() => import("./pages/Gallery"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
 const TrailerRV = lazy(() => import("./pages/TrailerRV"));
-const RVWinterization = lazy(() => import("./pages/RVWinterization"));
+const RVRentalFleet = lazy(() => import("./pages/RVRentalFleet"));
 const RVPPF = lazy(() => import("./pages/RVPPF"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const WhyChooseUs = lazy(() => import("./pages/WhyChooseUs"));
@@ -51,7 +51,7 @@ const AnimatedRoutes = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/trailer-rv" element={<TrailerRV />} />
-        <Route path="/trailer-rv/winterization" element={<RVWinterization />} />
+        <Route path="/rv-rental-fleet" element={<RVRentalFleet />} />
         <Route path="/trailer-rv/ppf" element={<RVPPF />} />
         <Route path="/terms-conditions" element={<TermsOfService />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />

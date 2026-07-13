@@ -763,7 +763,7 @@ const TrailerRV = () => {
               { icon: Droplets, title: "RV-Safe Products", desc: "pH-balanced, RV-specific products safe for gelcoat, fiberglass, decals, and rubber seals." },
               { icon: Shield, title: "UV & Oxidation Defense", desc: "Ceramic sealants protect against Alberta's harsh UV that fades and chalks RV exteriors." },
               { icon: MapPin, title: "Any Size, Any Location", desc: "Driveway, storage lot, or campground — we bring full equipment to you, any rig size." },
-              { icon: Clock, title: "Seasonal Prep Experts", desc: "Spring de-winterization and fall prep packages designed for the Alberta RV season." },
+              { icon: Clock, title: "Seasonal Prep Experts", desc: "Spring and fall prep packages designed around the Alberta RV season." },
               { icon: Zap, title: "Specialized Equipment", desc: "Extension poles, RV-height ladders, and high-reach foam cannons that regular detailers lack." },
               { icon: Award, title: "Satisfaction Guaranteed", desc: "Not happy? We redo it or refund you. We stand behind every detail — no exceptions." },
             ].map((item) => (
