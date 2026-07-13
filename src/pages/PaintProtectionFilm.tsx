@@ -67,7 +67,7 @@ const PACKAGES: Package[] = [
 
 const ADD_ONS = [
   { name: "Windshield PPF", price: "$699", desc: "6–8 mil optically-clear windshield film — up to 10 years of chip protection." },
-  { name: "Interior Screen PPF", price: "$149", desc: "Anti-glare protection for infotainment & digital gauge cluster." },
+  { name: "Interior Screen PPF", price: "$149", desc: "Anti-glare film that shields infotainment & gauge cluster from fingernail scratches, key marks and swirls." },
 ];
 
 const faqs = [
@@ -180,23 +180,47 @@ const PaintProtectionFilm = () => {
 
           {/* Selected package details */}
           <ScrollReveal className="mt-10 max-w-3xl mx-auto">
-            <div className="bg-gradient-to-br from-primary to-brand-blue-deep text-primary-foreground rounded-2xl p-6 sm:p-8">
-              <div className="flex items-center justify-between flex-wrap gap-3 mb-4">
-                <h3 className="font-heading font-black text-2xl uppercase">{current.name}</h3>
-                <span className="font-heading font-black text-3xl">{current.price}</span>
-              </div>
-              <div className="grid sm:grid-cols-2 gap-3 mb-5">
-                {current.includes.map((f) => (
-                  <div key={f} className="flex items-start gap-2 text-sm">
-                    <Check className="w-4 h-4 shrink-0 mt-0.5" /> {f}
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary via-primary to-brand-blue-deep text-primary-foreground shadow-2xl shadow-primary/30">
+              {/* Decorative glow */}
+              <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-white/10 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-32 -left-20 w-80 h-80 rounded-full bg-brand-blue-deep/40 blur-3xl pointer-events-none" />
+
+              <div className="relative p-7 sm:p-10">
+                <div className="flex items-start justify-between flex-wrap gap-4 mb-6 pb-6 border-b border-white/15">
+                  <div>
+                    <p className="text-white/70 font-heading font-bold text-[10px] uppercase tracking-[0.25em] mb-2">Selected Package</p>
+                    <h3 className="font-heading font-black text-2xl sm:text-3xl uppercase leading-none">{current.name}</h3>
+                    <p className="text-white/80 text-sm mt-2 max-w-md">{current.tagline}</p>
                   </div>
-                ))}
+                  <div className="text-right">
+                    <p className="text-white/60 text-[10px] font-heading font-bold uppercase tracking-widest mb-1">Starting At</p>
+                    <span className="font-heading font-black text-4xl sm:text-5xl tracking-tight">{current.price}</span>
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-x-6 gap-y-3 mb-7">
+                  {current.includes.map((f) => (
+                    <div key={f} className="flex items-start gap-3 text-sm">
+                      <span className="shrink-0 inline-flex items-center justify-center w-5 h-5 rounded-full bg-white/20 mt-0.5">
+                        <Check className="w-3 h-3" strokeWidth={3} />
+                      </span>
+                      <span className="leading-snug">{f}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-3">
+                  <a href="tel:5875004523" className="inline-flex items-center gap-2 bg-white text-primary font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-white/90 transition shadow-lg">
+                    <Phone className="w-4 h-4" /> Book {current.name}
+                  </a>
+                  <a href="tel:5875004523" className="inline-flex items-center gap-2 border border-white/30 bg-white/5 backdrop-blur text-white font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-white/15 transition">
+                    Free Quote <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
-              <a href="tel:5875004523" className="inline-flex items-center gap-2 bg-white text-primary font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-white/90 transition">
-                <Phone className="w-4 h-4" /> Book {current.name}
-              </a>
             </div>
           </ScrollReveal>
+
 
           <p className="text-center text-xs text-muted-foreground mt-6 flex items-center justify-center gap-2">
             <AlertTriangle className="w-3.5 h-3.5" />
