@@ -377,12 +377,20 @@ const MarineDetailing = () => {
           </ScrollReveal>
           <div className="grid sm:grid-cols-2 gap-4">
             {ALA_CARTE.map((a) => (
-              <div key={a.name} className="bg-card border border-border rounded-xl p-5 hover:border-primary/40 transition-colors">
-                <div className="flex justify-between items-start gap-3 mb-1">
-                  <h3 className="font-heading font-bold text-sm sm:text-base uppercase text-foreground">{a.name}</h3>
-                  <span className="font-heading font-black text-primary text-sm sm:text-base whitespace-nowrap">{a.price}</span>
+              <div key={a.name} className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary/40 transition-colors flex gap-4">
+                <img
+                  src={a.image}
+                  alt={a.name}
+                  loading="lazy"
+                  className="w-24 sm:w-28 h-full object-cover shrink-0"
+                />
+                <div className="flex-1 py-4 pr-4">
+                  <div className="flex justify-between items-start gap-3 mb-1">
+                    <h3 className="font-heading font-bold text-sm sm:text-base uppercase text-foreground">{a.name}</h3>
+                    <span className="font-heading font-black text-primary text-sm sm:text-base whitespace-nowrap">{a.price}</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{a.desc}</p>
                 </div>
-                <p className="text-sm text-muted-foreground">{a.desc}</p>
               </div>
             ))}
           </div>
