@@ -104,15 +104,19 @@ const ServicesSection = () => {
             <StaggerItem key={service.title} className="w-full sm:w-[calc(50%-0.625rem)] md:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)]">
               <Link
                 to={service.link}
-                className="group block bg-card rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full border border-border hover:border-primary/30"
+                className={`group block bg-card rounded-xl overflow-hidden transition-all duration-300 h-full border-2 ${
+                  service.title === "Complete Detailing"
+                    ? "border-primary/60 bg-primary/[0.03] shadow-lg shadow-primary/10 hover:border-primary hover:shadow-primary/20"
+                    : "border-border hover:border-primary/40 hover:-translate-y-1 hover:shadow-xl"
+                }`}
               >
                 <div className="relative h-48 overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 to-transparent" />
                   {service.tag && (
                     <span className="absolute top-3 left-3 bg-urgency text-urgency-foreground font-heading font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full">
                       {service.tag}
@@ -125,15 +129,18 @@ const ServicesSection = () => {
                   )}
                 </div>
                 <div className="p-5 sm:p-6">
-                  <h3 className="font-heading font-bold text-lg uppercase text-foreground mb-2 group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h3>
+                  <div className="flex items-center justify-between gap-3 mb-2">
+                    <h3 className={`font-heading font-bold text-base uppercase ${service.title === "Complete Detailing" ? "text-primary" : "text-foreground group-hover:text-primary"} transition-colors`}>
+                      {service.title}
+                    </h3>
+                    <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  </div>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                     {service.description}
                   </p>
-                  <span className="inline-flex items-center gap-2 text-primary font-heading font-bold text-sm uppercase tracking-wider group-hover:gap-3 transition-all">
+                  <span className="inline-flex items-center gap-2 text-primary font-heading font-bold text-xs uppercase tracking-wider group-hover:gap-3 transition-all">
                     View Packages
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </div>
               </Link>
