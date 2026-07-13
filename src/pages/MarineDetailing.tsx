@@ -78,11 +78,7 @@ const PACKAGES = [
   },
 ];
 
-const ALA_CARTE = [
-  { name: "Oxidation Removal / Heavy Compound", price: "$25/ft", desc: "Multi-stage cut for chalky, faded gelcoat.", image: marineBadgeAsset.url },
-  { name: "Canopy / Bimini Cleaning", price: "$60", desc: "Mildew, bird stains, UV protectant.", image: marineLoungeAsset.url },
-  { name: "Trailer Wash & Wheel Detail", price: "$45", desc: "Salt, brake dust, and grime — gone.", image: marineHelmAsset.url },
-];
+const interiorSeatImage = marineInteriorAsset.url;
 
 const faqs = [
   { q: "Do you really come to me?", a: "Yes — we're the only mobile marine detailer serving Southern Alberta. We service boats at your home, storage yard, marina, or launch. All water and power are self-contained." },
