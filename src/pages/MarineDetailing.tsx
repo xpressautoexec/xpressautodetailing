@@ -9,6 +9,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Anchor, Waves, Sparkles, Shield, Phone, ArrowRight, Check, MapPin, Award, Droplets } from "lucide-react";
 import marineHeroAsset from "@/assets/marine-pontoon-sunset.jpg.asset.json";
 import marineTubesAsset from "@/assets/marine-pontoon-tubes.jpg.asset.json";
+import sunchaserDecalAsset from "@/assets/sunchaser-decal-closeup.png.asset.json";
 import marineDecalAsset from "@/assets/marine-decal-detail.jpg.asset.json";
 import marineInteriorAsset from "@/assets/marine-interior-seats.jpg.asset.json";
 import marineLoungeAsset from "@/assets/marine-seating-lounge.jpg.asset.json";
@@ -72,15 +73,13 @@ const PACKAGES = [
     price: 55,
     tagline: "2-year professional ceramic coating for gelcoat, paint, and metal.",
     features: ["Full paint correction prep", "2-year marine-grade ceramic", "Hydrophobic UV protection", "Slick, easy-clean finish"],
-    image: marineHeroAsset.url,
-    imageAlt: "SunChaser pontoon coated and glossy at sunset",
+    image: sunchaserDecalAsset.url,
+    imageAlt: "SunChaser pontoon decal with mirror-gloss ceramic finish",
   },
 ];
 
 const ALA_CARTE = [
-  { name: "Aluminum Pontoon Acid Restoration", price: "$35/ft", desc: "Brings oxidized tubes back to factory shine.", image: marineTubesAsset.url },
   { name: "Oxidation Removal / Heavy Compound", price: "$25/ft", desc: "Multi-stage cut for chalky, faded gelcoat.", image: marineBadgeAsset.url },
-  { name: "Engine Bay Detail", price: "$90", desc: "Degreased, dressed, and inspected.", image: marineMotorAsset.url },
   { name: "Canopy / Bimini Cleaning", price: "$60", desc: "Mildew, bird stains, UV protectant.", image: marineLoungeAsset.url },
   { name: "Trailer Wash & Wheel Detail", price: "$45", desc: "Salt, brake dust, and grime — gone.", image: marineHelmAsset.url },
 ];
@@ -316,6 +315,13 @@ const MarineDetailing = () => {
             <p className="text-muted-foreground leading-relaxed mb-5">
               Years of hard water, algae and oxidation leave pontoon tubes chalky, gray and pitted. Our marine-grade acid wash and multi-stage polish process strips it all — and brings the aluminum back to a bright factory finish.
             </p>
+            <div className="rounded-xl border border-primary/30 bg-primary/5 p-4 mb-6">
+              <div className="flex items-baseline gap-2 mb-1">
+                <span className="font-heading font-black text-3xl text-primary">$300</span>
+                <span className="font-heading font-bold text-sm uppercase tracking-wider text-foreground">/ pontoon side</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Priced per face — most pontoons have 2 sides (outer tubes). We confirm on arrival.</p>
+            </div>
             <ul className="space-y-3 mb-6">
               {[
                 "Safe, controlled marine acid wash",
@@ -333,7 +339,7 @@ const MarineDetailing = () => {
               href="tel:5875004523"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-brand-blue-deep transition"
             >
-              <Phone className="w-4 h-4" /> $35/ft — Call for Booking
+              <Phone className="w-4 h-4" /> Call to Book
             </a>
           </ScrollReveal>
           <ScrollReveal direction="right">
