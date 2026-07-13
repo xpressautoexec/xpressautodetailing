@@ -469,35 +469,6 @@ const PaintCeramics = () => (
       </div>
     </section>
 
-    {/* Who It's For */}
-    <section className="py-16 sm:py-20 bg-muted/30">
-      <div className="container max-w-4xl text-center px-6">
-        <ScrollReveal>
-          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground mb-8">
-            Is Ceramic Coating <span className="text-primary">Right for You</span>?
-          </h2>
-        </ScrollReveal>
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4" staggerDelay={0.08}>
-          {[
-            { icon: Car, text: "New car owners who want to preserve that factory finish from day one" },
-            { icon: Palette, text: "Dark-colored vehicle owners tired of visible swirl marks and water spots" },
-            { icon: TrendingUp, text: "Anyone planning to sell within 1–3 years who wants to maximize resale value" },
-            { icon: Mountain, text: "Calgary drivers who need serious protection from salt, UV, and gravel" },
-            { icon: Clock, text: "Busy professionals who want a low-maintenance, always-clean vehicle" },
-            { icon: Trophy, text: "Car enthusiasts who demand nothing less than perfection" },
-          ].map((item) => (
-            <StaggerItem key={item.text}>
-              <div className="flex items-center gap-3 p-4 rounded-lg border border-border bg-card text-left hover:border-primary/30 transition-colors">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                  <item.icon className="w-5 h-5 text-primary" />
-                </div>
-                <p className="text-muted-foreground text-sm leading-snug">{item.text}</p>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </div>
-    </section>
 
     <TestimonialBlock testimonials={ceramicTestimonials} />
     <ServiceFAQ title="Paint Correction & Ceramic Coating FAQs" faqs={ceramicFAQs} />
