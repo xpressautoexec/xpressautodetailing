@@ -44,8 +44,9 @@ const PACKAGES = [
     price: 12,
     tagline: "Fast refresh — hand wash, decontamination, and a coat of marine wax.",
     features: ["Hand wash exterior", "Iron & salt decontamination", "Rail & hardware polish", "Marine spray wax topcoat"],
-    image: marineInteriorAsset.url,
-    imageAlt: "Freshly washed pontoon deck",
+    image: marineBadgeAsset.url,
+    imageAlt: "Chrome badge shining after wash and wax",
+
   },
   {
     name: "Interior Detail",
@@ -71,8 +72,9 @@ const PACKAGES = [
     tagline: "The complete reset — inside, outside, top to bottom. Our #1 marine package.",
     features: ["Everything in Interior Detail", "Everything in Polish & Seal", "Bimini / canopy cleaning", "Bilge wipe-down"],
     popular: true,
-    image: marineSideAsset.url,
-    imageAlt: "SunChaser Sport side profile after full detail",
+    image: marineHeroAsset.url,
+    imageAlt: "SunChaser pontoon fully detailed inside and out at sunset",
+
   },
   {
     name: "Marine Ceramic Coating",
