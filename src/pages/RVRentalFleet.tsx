@@ -234,7 +234,7 @@ const RVRentalFleet = () => {
                 Pick a Rotation <span className="text-gradient">That Fits</span>
               </h2>
               <p className="text-muted-foreground text-sm mt-3">
-                Pricing scales with unit length and volume — 5+ unit fleets receive contract pricing.
+                Every fleet is different. These are starting points based on typical travel trailers under 30 ft. Final pricing depends on unit type, length, condition, and how often you turn over. Call us for an accurate quote tailored to your fleet.
               </p>
             </ScrollReveal>
             <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
