@@ -380,32 +380,54 @@ const MarineDetailing = () => {
         </div>
       </section>
 
-      {/* À la carte */}
+      {/* Interior Seat Ceramic Coating */}
       <section className="py-16 bg-muted/30">
-        <div className="container max-w-4xl">
-          <ScrollReveal className="text-center mb-10">
-            <p className="text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-2">À La Carte</p>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase">Add-Ons & Extras</h2>
+        <div className="container grid md:grid-cols-2 gap-10 items-center">
+          <ScrollReveal direction="left">
+            <div className="rounded-2xl overflow-hidden shadow-xl">
+              <img
+                src={interiorSeatImage}
+                alt="Vinyl marine seating protected with ceramic coating"
+                className="w-full aspect-[4/3] object-cover"
+                loading="lazy"
+              />
+            </div>
           </ScrollReveal>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {ALA_CARTE.map((a) => (
-              <div key={a.name} className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary/40 transition-colors flex gap-4">
-                <img
-                  src={a.image}
-                  alt={a.name}
-                  loading="lazy"
-                  className="w-24 sm:w-28 h-full object-cover shrink-0"
-                />
-                <div className="flex-1 py-4 pr-4">
-                  <div className="flex justify-between items-start gap-3 mb-1">
-                    <h3 className="font-heading font-bold text-sm sm:text-base uppercase text-foreground">{a.name}</h3>
-                    <span className="font-heading font-black text-primary text-sm sm:text-base whitespace-nowrap">{a.price}</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground">{a.desc}</p>
-                </div>
+          <ScrollReveal direction="right">
+            <p className="text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-3">Premium Protection</p>
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase mb-4">
+              Interior Seat <span className="text-gradient">Ceramic Coating</span>
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-5">
+              Marine vinyl takes a beating from UV, sunscreen, lake water, and mildew. Our ceramic coating forms a hydrophobic barrier on your seats and interior surfaces so spills wipe off, stains don't set, and your vinyl stays supple season after season.
+            </p>
+            <div className="rounded-xl border border-primary/30 bg-primary/5 p-4 mb-6">
+              <div className="flex items-baseline gap-2 mb-1">
+                <span className="font-heading font-black text-3xl text-primary">$650</span>
+                <span className="font-heading font-bold text-sm uppercase tracking-wider text-foreground">Starting at</span>
               </div>
-            ))}
-          </div>
+              <p className="text-xs text-muted-foreground">Final price depends on number of seats, lounges, and helm upholstery. We quote before starting.</p>
+            </div>
+            <ul className="space-y-3 mb-6">
+              {[
+                "Ceramic coating for vinyl, leather, and synthetic seats",
+                "UV & mildew-resistant protection",
+                "Hydrophobic barrier against spills and lake water",
+                "Easier cleanups all season long",
+              ].map((f) => (
+                <li key={f} className="flex items-start gap-3 text-sm">
+                  <Shield className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-foreground/85">{f}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="tel:5875004523"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-brand-blue-deep transition"
+            >
+              <Phone className="w-4 h-4" /> Call to Book
+            </a>
+          </ScrollReveal>
         </div>
       </section>
 
