@@ -16,7 +16,7 @@ import systemXLogo from "@/assets/systemx-logo.png";
 import certSystemX from "@/assets/cert-systemx.png.asset.json";
 import certGtechniq from "@/assets/cert-gtechniq.png.asset.json";
 import certGyeon from "@/assets/cert-gyeon.png.asset.json";
-import { ArrowRight, Shield, Sparkles, Check, CheckCircle, Gem, Phone, Award, Beaker, Zap } from "lucide-react";
+import { ArrowRight, Droplets, Shield, Sun, Sparkles, Check, CheckCircle, Gem, Phone, Award, Beaker, Zap } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
