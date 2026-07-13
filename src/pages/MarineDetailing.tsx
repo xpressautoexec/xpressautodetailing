@@ -305,6 +305,9 @@ const MarineDetailing = () => {
                 <div className="flex flex-col justify-center">
                   <p className="font-heading font-bold text-[10px] uppercase tracking-widest text-primary-foreground/70 mb-1">Estimated</p>
                   <p className="font-heading font-black text-5xl md:text-6xl">${estimate}</p>
+                  <p className="text-primary-foreground/80 text-xs mt-1">
+                    ${perFootTotal}/ft × {length} ft · {selectedPkgs.length} service{selectedPkgs.length === 1 ? "" : "s"}
+                  </p>
                   <p className="text-primary-foreground/75 text-xs mt-2">Final price confirmed on arrival after we measure LOA.</p>
                   <a
                     href="tel:5875004523"
