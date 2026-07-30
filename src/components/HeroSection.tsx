@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Star, Clock, Shield, Zap } from "lucide-react";
-import heroBg from "@/assets/hero-audi-rs5.png";
 import vanImage from "@/assets/xpress-van.png";
 import QuickBookWidget from "@/components/QuickBookWidget";
 
@@ -10,13 +9,13 @@ const HeroSection = () => {
   return (
     <section id="home" className="relative min-h-[85vh] flex items-center overflow-hidden">
       <img
-        src={heroBg}
+        src="/hero-audi-rs5.webp"
         alt="Professional car detailing service"
         className="absolute inset-0 w-full h-full object-cover"
-        width={1920}
-        height={1080}
+        width={682}
+        height={678}
         fetchPriority="high"
-        decoding="async"
+        decoding="sync"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/30" />
 
