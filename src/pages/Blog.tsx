@@ -17,6 +17,13 @@ const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const posts = [
   {
+    title: "Calgary Car Detailing Prices: Mobile vs Shop Compared",
+    excerpt: "Every package price we charge, what a comparable Calgary shop typically quotes, and where the real cost difference hides. Interior, complete detail, paint correction, System X 9-year graphene, PPF and tint — with add-on pricing published up front.",
+    image: gallery1,
+    date: "July 30, 2026",
+    href: "/calgary-detailing-price-comparison",
+  },
+  {
     title: "PPF vs Ceramic Coating for Calgary Winters: Which Protects Your Paint?",
     excerpt: "Calgary's salt brine and mag chloride attack paint chemically, while Deerfoot gravel attacks it mechanically. We break down what paint protection film stops, what ceramic coating stops, and how local drivers combine both before the first snowfall.",
     image: paintImg,
