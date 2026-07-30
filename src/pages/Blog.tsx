@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -15,6 +16,13 @@ import bmwHeadlight from "@/assets/gallery-bmw-headlight.jpg";
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const posts = [
+  {
+    title: "PPF vs Ceramic Coating for Calgary Winters: Which Protects Your Paint?",
+    excerpt: "Calgary's salt brine and mag chloride attack paint chemically, while Deerfoot gravel attacks it mechanically. We break down what paint protection film stops, what ceramic coating stops, and how local drivers combine both before the first snowfall.",
+    image: paintImg,
+    date: "July 30, 2026",
+    href: "/blog/ppf-vs-ceramic-coating-calgary",
+  },
   {
     title: "The Xpress Pass: How a Monthly Detailing Membership Pays for Itself",
     excerpt: "Over 200 Calgarians are already on The Xpress Pass — saving up to 20% on every detail and 15% on every add-on. We break down the real math: how often most owners book, what they actually save in a year, and why locking in your discount beats one-off bookings.",
@@ -127,9 +135,15 @@ const Blog = () => (
                 <p className="text-primary text-xs font-heading font-semibold uppercase tracking-wider mb-2">{post.date}</p>
                 <h3 className="font-heading font-bold text-lg text-foreground mb-3 group-hover:text-primary transition-colors">{post.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">{post.excerpt}</p>
-                <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="text-primary font-heading font-bold text-sm uppercase tracking-wider hover:text-brand-blue-glow transition-colors">
-                  Read More →
-                </a>
+                {post.href ? (
+                  <Link to={post.href} className="text-primary font-heading font-bold text-sm uppercase tracking-wider hover:text-brand-blue-glow transition-colors">
+                    Read More →
+                  </Link>
+                ) : (
+                  <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="text-primary font-heading font-bold text-sm uppercase tracking-wider hover:text-brand-blue-glow transition-colors">
+                    Read More →
+                  </a>
+                )}
               </div>
             </article>
           ))}
