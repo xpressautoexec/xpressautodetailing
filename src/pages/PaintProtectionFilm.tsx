@@ -62,12 +62,84 @@ const ADD_ONS = [
 ];
 
 const faqs = [
-  { q: "How long does PPF last?", a: "Both XPEL Ultimate Plus and 3M Pro Series carry a 10-year manufacturer warranty against yellowing, cracking, and delamination." },
+  { q: "How long does PPF last?", a: "Both XPEL Ultimate Plus and 3M Pro Series carry a 10-year manufacturer warranty against yellowing, cracking, and delamination. In Calgary's UV-heavy, freeze-thaw climate we typically see film performing well past that mark when it's maintained properly." },
   { q: "Will it change the look of my paint?", a: "No — the film is optically clear and self-healing. Gloss and colour stay factory. Matte and satin variants are available for satin/matte vehicles." },
-  { q: "How long does installation take?", a: "Bumper-only about 1 day, Full Front 2 days, Track Pack 3 days, Full Body 5–7 days depending on vehicle." },
-  { q: "Does PPF really pay for itself?", a: "One repaint on a hood or bumper in Calgary runs $1,200–$2,500. Full Front PPF prevents rock chips, road rash, and etching for a decade — most owners save 3–5× the install cost." },
+  { q: "How long does installation take?", a: "Partial Front about 1 day, Full Front 2 days, Track Pack 3 days, Full Body 5–7 days depending on vehicle complexity. Vehicles are kept indoors, dust-controlled, and cured before release." },
+  { q: "Does PPF really pay for itself?", a: "One repaint on a hood or bumper in Calgary runs $1,200–$2,500. Full Front PPF prevents rock chips, road rash, and etching for a decade — most owners save 3–5× the install cost, and protected paint holds resale value." },
   { q: "Truck / SUV / exotic surcharges?", a: "Oversized vehicles +15%, exotics with complex curves +25%. Confirmed with a free quote before booking." },
+  { q: "Do you wrap the edges of panels?", a: "Wherever the panel can be safely disassembled, yes. We remove badges, lights, mirror caps and trim so film tucks behind the edge — no visible film lines, no lifting edge for salt and grit to creep under." },
+  { q: "Can PPF be removed later?", a: "Yes. Quality film removes cleanly with controlled heat and leaves factory paint underneath — one of the reasons leased and resale-focused vehicles are ideal candidates." },
+  { q: "Should I get PPF or ceramic coating?", a: "They solve different problems. PPF is physical impact protection against gravel and road debris; ceramic coating is chemical protection and slickness against salt, brine and etching. The strongest setup is PPF on impact zones with ceramic coating over the top and across the rest of the vehicle." },
+  { q: "Can you install PPF on a brand-new vehicle?", a: "New vehicles are the ideal time — the paint is uncontaminated and chip-free. We still decontaminate and, where needed, lightly polish before install so nothing is sealed under the film." },
+  { q: "How do I wash a PPF'd vehicle?", a: "Wait seven days after install, then hand wash with pH-neutral soap. Avoid pressure washing directly at film edges from close range, and skip automatic brush washes. That's it — no special products required." },
+  { q: "Does PPF cover rock chips already in the paint?", a: "Film will not hide existing chips, and installing over them locks them in. We'll flag any chips at the walkaround and can arrange touch-up or paint correction beforehand." },
+  { q: "Do you offer financing or fleet pricing?", a: "Yes — multi-vehicle and dealer/fleet programs are quoted per unit at reduced rates. Call for a fleet quote." },
 ];
+
+const THREATS = [
+  {
+    title: "Gravel & winter road chip",
+    desc: "Deerfoot, Stoney and Glenmore are gravel-treated all winter. At highway speed, a single chip cuts straight through clear coat and primer — and in Calgary's freeze-thaw cycles that exposed spot becomes rust within a season.",
+  },
+  {
+    title: "Brine & magnesium chloride",
+    desc: "Calgary's anti-icing brine clings to bumpers, rockers and lower doors. It's far more corrosive than rock salt and etches unprotected clear coat over repeated winters.",
+  },
+  {
+    title: "Prairie sun & UV oxidation",
+    desc: "Alberta averages more sunny days than almost anywhere in Canada. Concentrated UV fades reds and blacks and dulls clear coat — PPF blocks the majority of it.",
+  },
+  {
+    title: "Bug acid & tree sap",
+    desc: "Summer highway runs to Banff and Kananaskis coat the front end in bug residue whose acids etch paint within hours in heat. Film takes the hit instead of your clear coat.",
+  },
+];
+
+const FILMS = [
+  {
+    name: "XPEL Ultimate Plus",
+    thickness: "8 mil",
+    warranty: "10 years",
+    points: [
+      "Elastomeric self-healing top coat",
+      "Hydrophobic surface sheds brine & slush",
+      "Non-yellowing stabilizers for high-UV climates",
+      "Best-in-class stretch for complex curves",
+    ],
+    best: "Daily drivers, trucks and SUVs racking up winter highway kilometres.",
+  },
+  {
+    name: "3M Pro Series",
+    thickness: "8 mil",
+    warranty: "10 years",
+    points: [
+      "Scotchgard self-healing top layer",
+      "Exceptional optical clarity over light paints",
+      "Proven long-term edge stability",
+      "Matte / satin options available",
+    ],
+    best: "Show cars, light-coloured paint, and owners wanting factory-invisible finish.",
+  },
+];
+
+const PROCESS = [
+  { step: "01", title: "Walkaround & quote", desc: "We inspect paint under light for chips, swirls and prior repairs, confirm coverage and give firm pricing — no surprise surcharges at drop-off." },
+  { step: "02", title: "Decontamination wash", desc: "Full hand wash, iron and tar removal, and clay decontamination so nothing is trapped between paint and film." },
+  { step: "03", title: "Paint correction (as needed)", desc: "Film magnifies whatever is beneath it. Swirls and light defects are polished out before install so the finish under the film is right." },
+  { step: "04", title: "Disassembly & pattern", desc: "Badges, lights, mirrors and trim come off so film can be wrapped around edges instead of cut on the panel." },
+  { step: "05", title: "Install in a controlled bay", desc: "Indoor, dust-controlled, temperature-managed installation — the single biggest factor in whether film lifts a year later." },
+  { step: "06", title: "Cure & handover", desc: "Vehicle rests 24 hours before pickup, then we walk you through the seven-day care window and warranty registration." },
+];
+
+const CARE = [
+  "Wait 7 days before the first wash so adhesive fully cures.",
+  "Hand wash with pH-neutral soap; two-bucket method or touchless.",
+  "Keep pressure washer nozzles 12+ inches from film edges.",
+  "Skip automatic brush washes — the brushes are what lift edges.",
+  "Remove bug splatter and bird droppings promptly, even on film.",
+  "Top with ceramic coating over the film for easier winter cleanup.",
+];
+
 
 
 const PaintProtectionFilm = () => {
