@@ -374,7 +374,7 @@ const PaintProtectionFilm = () => {
                 <div className="h-full bg-card border border-border rounded-xl p-6 hover:border-primary/40 transition">
                   <div className="flex items-center gap-3 mb-3">
                     <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10 shrink-0">
-                      <AlertTriangle className="w-4.5 h-4.5 text-primary" />
+                      <AlertTriangle className="w-4 h-4 text-primary" />
                     </span>
                     <h3 className="font-heading font-black text-base uppercase">{t.title}</h3>
                   </div>
