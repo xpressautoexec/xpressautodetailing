@@ -9,7 +9,7 @@ const TermsOfService = () => (
       <SEO
         title="Terms & Conditions — Xpress Auto Detailing"
         description="Terms and conditions for Xpress Auto Detailing mobile services across Calgary, Airdrie, Chestermere and Cochrane — booking, cancellation, coatings, PPF, tint, marine and RV policies."
-        canonical="/terms-conditions"
+        canonical="/terms-of-service"
       />
       <Navbar />
       <section className="py-16 bg-background">
