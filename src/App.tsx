@@ -68,6 +68,7 @@ const AnimatedRoutes = () => {
         <Route path="/marine" element={<MarineDetailing />} />
         <Route path="/ppf" element={<PaintProtectionFilm />} />
         <Route path="/window-tinting" element={<WindowTinting />} />
+        <Route path="/calgary-detailing-price-comparison" element={<PriceComparison />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
