@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { AnimatePresence } from "framer-motion";
@@ -53,7 +53,7 @@ const AnimatedRoutes = () => {
         <Route path="/trailer-rv" element={<TrailerRV />} />
         <Route path="/rv-rental-fleet" element={<RVRentalFleet />} />
         <Route path="/trailer-rv/ppf" element={<RVPPF />} />
-        <Route path="/terms-conditions" element={<TermsOfService />} />
+        <Route path="/terms-conditions" element={<Navigate to="/terms-of-service" replace />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/why-choose-us" element={<WhyChooseUs />} />
         <Route path="/add-ons" element={<AddOns />} />
