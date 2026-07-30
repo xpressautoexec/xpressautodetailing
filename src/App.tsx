@@ -33,6 +33,7 @@ const MonthlyPlan = lazy(() => import("./pages/MonthlyPlan"));
 const MarineDetailing = lazy(() => import("./pages/MarineDetailing"));
 const PaintProtectionFilm = lazy(() => import("./pages/PaintProtectionFilm"));
 const WindowTinting = lazy(() => import("./pages/WindowTinting"));
+const PriceComparison = lazy(() => import("./pages/PriceComparison"));
 
 const queryClient = new QueryClient();
 
@@ -67,6 +68,7 @@ const AnimatedRoutes = () => {
         <Route path="/marine" element={<MarineDetailing />} />
         <Route path="/ppf" element={<PaintProtectionFilm />} />
         <Route path="/window-tinting" element={<WindowTinting />} />
+        <Route path="/calgary-detailing-price-comparison" element={<PriceComparison />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
