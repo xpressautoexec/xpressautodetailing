@@ -33,6 +33,7 @@ const MonthlyPlan = lazy(() => import("./pages/MonthlyPlan"));
 const MarineDetailing = lazy(() => import("./pages/MarineDetailing"));
 const PaintProtectionFilm = lazy(() => import("./pages/PaintProtectionFilm"));
 const WindowTinting = lazy(() => import("./pages/WindowTinting"));
+const PriceComparison = lazy(() => import("./pages/PriceComparison"));
 
 const queryClient = new QueryClient();
 
