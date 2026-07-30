@@ -52,7 +52,7 @@ const desktopLinks: DesktopNavItem[] = [
       { label: "Gift Cards", href: "/gift-cards" },
       { label: "Contact Us", href: "/contact" },
       { label: "Blog", href: "/blog" },
-      { label: "Terms & Conditions", href: "/terms-conditions" },
+      { label: "Terms & Conditions", href: "/terms-of-service" },
     ],
   },
 ];
@@ -106,7 +106,7 @@ const mobileLinks: MobileNavItem[] = [
       { label: "Gallery", href: "/gallery" },
       { label: "Contact Us", href: "/contact" },
       { label: "Blog", href: "/blog" },
-      { label: "Terms & Conditions", href: "/terms-conditions" },
+      { label: "Terms & Conditions", href: "/terms-of-service" },
     ],
   },
 ];

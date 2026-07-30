@@ -54,7 +54,7 @@ const Footer = () => {
                 { label: "Blog", to: "/blog" },
                 { label: "Training", to: "/training" },
                 { label: "Contact Us", to: "/contact" },
-                { label: "Terms & Conditions", to: "/terms-conditions" },
+                { label: "Terms & Conditions", to: "/terms-of-service" },
               ].map((link) => (
                 <Link key={link.label} to={link.to} className="text-brand-gray text-sm hover:text-primary transition-colors">
                   {link.label}
@@ -90,7 +90,7 @@ const Footer = () => {
           <p className="text-brand-gray text-xs">
             © {new Date().getFullYear()} Xpress Auto Detailing. All rights reserved.
           </p>
-          <Link to="/terms-conditions" className="text-brand-gray text-xs hover:text-primary transition-colors">
+          <Link to="/terms-of-service" className="text-brand-gray text-xs hover:text-primary transition-colors">
             Terms & Conditions
           </Link>
         </div>
