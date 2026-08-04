@@ -41,7 +41,7 @@ const CompanyLogos = () => {
               <div className="bg-white border-2 border-border rounded-xl px-6 py-6 w-full h-24 md:h-28 flex items-center justify-center shadow-sm hover:border-primary/50 hover:shadow-md transition-all duration-300">
                 <img
                   src={partner.logo}
-                  alt={partner.name}
+                  alt={`${partner.name} — commercial fleet detailing client of Xpress Auto Detailing`}
                   className="max-h-12 md:max-h-14 w-auto max-w-[80%] object-contain"
                 />
               </div>
