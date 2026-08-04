@@ -40,7 +40,7 @@ const priceRows = [
     service: "Complete Detail — interior + exterior",
     ours: "$269.00",
     shop: "$280 – $400",
-    note: "Foam pre-wash, clay bar decon, wax, full interior reset. ~3–3.5 hrs.",
+    note: "Foam pre-wash, clay bar decon, wax, full interior reset. ~2.58–3.08 hrs.",
     link: "/complete-detailing",
   },
   {

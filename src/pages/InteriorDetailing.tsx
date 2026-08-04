@@ -25,7 +25,7 @@ import { ShieldCheck, Droplets, Wind, Bug, Sparkles, Clock, ArrowRight, Car, Paw
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const interiorFAQs = [
-  { q: "How long does an interior detail take?", a: "The Fresh Start Interior takes about 2.25–2.75 hours. The Deep Clean + Shield takes 2.75–3.25 hours. Heavily soiled vehicles may take longer — we'll let you know upfront." },
+  { q: "How long does an interior detail take?", a: "The Fresh Start Interior takes about 1.83–2.33 hours. The Deep Clean + Shield takes 2.33–2.83 hours. Heavily soiled vehicles may take longer — we'll let you know upfront." },
   { q: "Can you remove pet hair from my car?", a: "Yes! Pet hair removal is one of our most popular add-ons. We use specialized tools to extract every strand from seats, carpets, and hard-to-reach areas." },
   { q: "Will shampooing damage my leather seats?", a: "No. We use pH-balanced cleaners specifically formulated for automotive leather. After cleaning, we apply a conditioner that keeps the leather supple and protected against cracking." },
   { q: "Can you get rid of cigarette smoke smell?", a: "In most cases, yes. Our Deep Clean + Shield package combined with the Ozone Odor Bomb add-on is extremely effective at eliminating embedded smoke odors — not just masking them." },
@@ -137,7 +137,7 @@ const InteriorDetailing = () => (
               { name: "Trunk Deep Clean", price: "+$30" },
             ]}
             surcharges={["Add $50 for SUVs/trucks", "Add $70 for 3-row SUVs/minivans"]}
-            time="~2.25–2.75 hrs | Mobile anywhere in Calgary"
+            time="~1.83–2.33 hrs | Mobile anywhere in Calgary"
           />
           <PackageCard
             icon={<Shield className="w-8 h-8" />}
@@ -160,7 +160,7 @@ const InteriorDetailing = () => (
               { name: "Headliner Deep Clean", price: "+$40" },
             ]}
             surcharges={["Add $50 for SUVs/trucks", "Add $70 for 3-row SUVs/minivans"]}
-            time="~2.75–3.25 hrs | Mobile anywhere in Calgary"
+            time="~2.33–2.83 hrs | Mobile anywhere in Calgary"
             isPrimary
           />
         </div>

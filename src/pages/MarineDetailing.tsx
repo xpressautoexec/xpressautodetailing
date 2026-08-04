@@ -93,7 +93,7 @@ const faqs = [
   { q: "How is per-foot pricing measured?", a: "Length overall (LOA) — bow to stern. We measure on arrival and confirm before starting. No surprises." },
   { q: "Can you restore oxidized aluminum pontoons?", a: "Yes. Our acid restoration + polish process removes years of oxidation, water staining, and chalking. Most tubes look factory-new when we're done." },
   { q: "What areas do you cover?", a: "Calgary, Airdrie, Chestermere, Cochrane, Okotoks and surrounding lakes — Ghost, Chestermere, Sikome, Glenmore, Gleniffer, Sylvan." },
-  { q: "How long does a typical detail take?", a: "A 20 ft boat wash & wax is 2.75–3.75 hours. A full Interior + Exterior on a 24 ft pontoon runs 5.75–7.75 hours. Ceramic coatings are usually a 2-day process." },
+  { q: "How long does a typical detail take?", a: "A 20 ft boat wash & wax is 2.33–3.33 hours. A full Interior + Exterior on a 24 ft pontoon runs 5.33–7.33 hours. Ceramic coatings are usually a 2-day process." },
 ];
 
 const MarineDetailing = () => {
