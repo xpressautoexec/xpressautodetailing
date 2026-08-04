@@ -23,17 +23,17 @@ const services: ServiceOption[] = [
   {
     label: "Interior — Fresh Start",
     base: { sedan: "$169.99", small_suv: "$219.99", large_suv: "$239.99" },
-    time: "~1.5–2 hrs",
+    time: "~2.25–2.75 hrs",
   },
   {
     label: "Interior — Deep Clean + Shield",
     base: { sedan: "$199.99", small_suv: "$249.99", large_suv: "$269.99" },
-    time: "~2–2.5 hrs",
+    time: "~2.75–3.25 hrs",
   },
   {
     label: "Complete Showroom Reset",
     base: { sedan: "$269.00", small_suv: "$329.00", large_suv: "$349.00" },
-    time: "~3–3.5 hrs",
+    time: "~3.75–4.25 hrs",
     popular: true,
   },
 ];
