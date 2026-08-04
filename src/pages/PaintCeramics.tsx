@@ -113,9 +113,9 @@ const PaintCeramics = () => (
           Certified Installers Of
         </p>
         <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
-          {[certSystemX, certGtechniq, certGyeon].map((logo, i) => (
+          {[{ logo: certSystemX, name: "System X Ceramic" }, { logo: certGtechniq, name: "Gtechniq" }, { logo: certGyeon, name: "Gyeon" }].map(({ logo, name }, i) => (
             <div key={i} className="bg-white border border-border rounded-xl px-5 py-3 h-16 sm:h-20 flex items-center justify-center shadow-sm">
-              <img src={logo.url} alt="Certified installer logo" className="max-h-10 sm:max-h-12 w-auto object-contain" loading="lazy" />
+              <img src={logo.url} alt={`${name} certified ceramic coating installer — Xpress Auto Detailing Calgary`} className="max-h-10 sm:max-h-12 w-auto object-contain" loading="lazy" />
             </div>
           ))}
         </div>
@@ -493,7 +493,7 @@ const PaintCeramics = () => (
           </div>
         </ScrollReveal>
         <ScrollReveal direction="right">
-          <img src={paintImg} alt="Paint correction result" className="rounded-xl shadow-2xl w-full object-cover aspect-video hover:scale-105 transition-transform duration-700" />
+          <img src={paintImg} alt="Close-up of mirror-finish paint after multi-stage paint correction in Calgary" className="rounded-xl shadow-2xl w-full object-cover aspect-video hover:scale-105 transition-transform duration-700" />
         </ScrollReveal>
       </div>
     </section>

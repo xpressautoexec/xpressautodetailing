@@ -10,7 +10,7 @@ const HeroSection = () => {
     <section id="home" className="relative min-h-[85vh] flex items-center overflow-hidden">
       <img
         src="/hero-audi-rs5.webp"
-        alt="Professional car detailing service"
+        alt="Detailer applying ceramic coating to a black Audi RS5 at a Calgary customer's driveway"
         className="absolute inset-0 w-full h-full object-cover"
         width={682}
         height={678}
@@ -41,7 +41,7 @@ const HeroSection = () => {
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
             className="font-heading font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase leading-tight text-white mb-2"
           >
-            Calgary's Mobile Detailing{" "}
+            Calgary Mobile Car Detailing{" "}
             <span className="text-primary">That Comes to You</span>
           </motion.h1>
 
@@ -61,7 +61,7 @@ const HeroSection = () => {
             transition={{ delay: 0.3 }}
             className="flex items-center gap-3 mb-5 justify-center md:justify-start flex-wrap"
           >
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1" role="img" aria-label="Rated 4.9 out of 5 stars from over 100 Google reviews">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
               ))}
