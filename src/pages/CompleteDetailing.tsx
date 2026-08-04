@@ -18,7 +18,7 @@ import { ArrowRight, TrendingUp, Clock, DollarSign, Sparkles, ShieldCheck, Heart
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const completeFAQs = [
-  { q: "How long does a complete detail take?", a: "The Showroom Reset takes approximately 3.25–3.75 hours. The Showroom Reset + Protection takes 3.75–4.25 hours. Heavily soiled vehicles may require additional time." },
+  { q: "How long does a complete detail take?", a: "The Showroom Reset takes approximately 2.83–3.33 hours. The Showroom Reset + Protection takes 3.33–3.83 hours. Heavily soiled vehicles may require additional time." },
   { q: "Is a complete detail worth the extra cost over separate interior/exterior?", a: "Absolutely. Bundling saves you money compared to booking separately, plus the detailer ensures a seamless result." },
   { q: "Should I get a complete detail before selling my car?", a: "100% yes. A professional detail can increase your perceived vehicle value by $1,000–$3,000." },
   { q: "How often should I get a complete detail?", a: "We recommend 2–4 times per year (once per season), with exterior maintenance washes in between." },
@@ -151,7 +151,7 @@ const CompleteDetailing = () => (
               { name: "Headlight Restoration", price: "+$80" },
             ]}
             surcharges={["Add $60 for SUVs/trucks", "Add $80 for 3-row SUVs/vans"]}
-            time="~3.75–4.25 hrs | Mobile anywhere in Calgary"
+            time="~3.33–3.83 hrs | Mobile anywhere in Calgary"
             isPrimary
           />
         </div>
