@@ -137,7 +137,7 @@ const ExteriorDetailing = () => (
               { name: "Trim Restorer (faded plastics)", price: "+$25" },
             ]}
             surcharges={["Add $10 for small SUVs", "Add $20 for 3rd-row SUVs/Trucks/Minivans"]}
-            time="~1–1.5 hrs | Mobile anywhere in Calgary"
+            time="~1.75–2.25 hrs | Mobile anywhere in Calgary"
           />
           <PackageCard
             icon={<Shield className="w-8 h-8" />}
@@ -159,7 +159,7 @@ const ExteriorDetailing = () => (
               { name: "Ceramic Spray Sealant Upgrade", price: "+$50" },
             ]}
             surcharges={["Add $10 for small SUVs", "Add $20 for 3rd-row SUVs/Trucks/Minivans"]}
-            time="~1.5–2 hrs | Mobile anywhere in Calgary"
+            time="~2.25–2.75 hrs | Mobile anywhere in Calgary"
             isPrimary
           />
         </div>
