@@ -5,8 +5,8 @@ import Footer from "@/components/Footer";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal from "@/components/ScrollReveal";
-import { Shield, Zap, Check, Phone, ArrowRight, Award, Sparkles, AlertTriangle } from "lucide-react";
-import ppfHero from "@/assets/ppf-hero.jpg";
+import { Shield, Zap, Check, Phone, ArrowRight, Award, Sparkles, AlertTriangle, Clock, BadgeCheck, X, Minus, Layers, ShieldCheck, Droplets, Sun } from "lucide-react";
+import ppfHero from "@/assets/ppf-hero-premium.jpg";
 import PPFCoverageDiagram from "@/components/PPFCoverageDiagram";
 import xpelLogo from "@/assets/xpel-ultimate-plus.png.asset.json";
 import threeMLogo from "@/assets/3m-science.jpg.asset.json";
@@ -19,6 +19,9 @@ interface Package {
   price: string;
   tagline: string;
   includes: string[];
+  panels: string;
+  install: string;
+  bestFor: string;
   popular?: boolean;
 }
 
@@ -29,14 +32,20 @@ const PACKAGES: Package[] = [
     name: "Partial Front",
     price: "$999",
     tagline: "Full bumper, 1/3 hood, 1/3 fenders and mirrors.",
-    includes: ["Full bumper", "1/3 hood", "1/3 fenders", "Mirror caps", "10-year warranty"],
+    includes: ["Full front bumper wrapped & tucked", "Leading 1/3 of hood", "Leading 1/3 of front fenders", "Mirror caps", "10-year film warranty"],
+    panels: "5 zones",
+    install: "1 day in-shop",
+    bestFor: "Budget-conscious protection of the highest-impact strike zone.",
   },
   {
     id: "full",
     name: "Full Front",
     price: "$1,899",
     tagline: "The industry standard — full hood, fenders, bumper, mirrors.",
-    includes: ["Full bumper", "Full hood", "Full fenders", "Mirror caps", "Headlights", "10-year warranty"],
+    includes: ["Full front bumper", "Full hood — no cut line", "Full front fenders", "Mirror caps", "Headlights & fog lights", "10-year film warranty"],
+    panels: "7 zones",
+    install: "2 days in-shop",
+    bestFor: "Daily drivers and new vehicles — the coverage 8 of 10 clients choose.",
     popular: true,
   },
   {
@@ -44,15 +53,49 @@ const PACKAGES: Package[] = [
     name: "Track Pack",
     price: "$2,899",
     tagline: "Full front + rocker panels and front pillars.",
-    includes: ["Everything in Full Front", "Rocker panels", "Front pillars", "Door cups & handle area", "Rear luggage / boot area"],
+    includes: ["Everything in Full Front", "Rocker panels", "A-pillars & roof leading edge", "Door cups & handle cavities", "Rear luggage / loading edge"],
+    panels: "12 zones",
+    install: "3 days in-shop",
+    bestFor: "Highway commuters, lowered cars and anyone tired of rocker sandblasting.",
   },
   {
     id: "body",
     name: "Full Vehicle",
     price: "$5,999",
     tagline: "Complete vehicle protection — every painted panel wrapped in film.",
-    includes: ["Every painted body panel", "Full doors, quarters, roof", "Rear bumper & trunk", "10-year warranty", "Concours-level install"],
+    includes: ["Every painted body panel", "Doors, quarters and roof", "Rear bumper & trunk lid", "Edges wrapped after disassembly", "10-year film warranty"],
+    panels: "Every panel",
+    install: "5–7 days in-shop",
+    bestFor: "Exotics, collector cars and paint codes you never want to respray.",
   },
+];
+
+const PROTECTION_MATRIX = {
+  columns: ["No Protection", "Wax / Sealant", "Ceramic Coating", "PPF", "PPF + Ceramic"],
+  rows: [
+    { label: "Stops rock chips & gravel impact", values: ["no", "no", "no", "yes", "yes"] },
+    { label: "Self-heals light scratches", values: ["no", "no", "no", "yes", "yes"] },
+    { label: "Blocks brine & salt etching", values: ["no", "part", "yes", "yes", "yes"] },
+    { label: "UV fade & oxidation resistance", values: ["no", "part", "yes", "yes", "yes"] },
+    { label: "Bug acid & bird dropping defence", values: ["no", "part", "yes", "yes", "yes"] },
+    { label: "Hydrophobic — easy winter washing", values: ["no", "part", "yes", "part", "yes"] },
+    { label: "Protects resale / lease turn-in value", values: ["no", "part", "part", "yes", "yes"] },
+    { label: "Typical lifespan", values: ["—", "2–4 months", "2–7 years", "10 years", "10 years"] },
+  ],
+};
+
+const GUARANTEES = [
+  { icon: Sun, title: "No Yellowing", desc: "UV stabilizers keep the film optically clear. Yellowing or staining inside 10 years is replaced under warranty." },
+  { icon: Layers, title: "No Peeling or Lifting", desc: "Edges are wrapped behind panels after disassembly. If an edge ever lifts from our fitment, we re-fit it free for the life of the film." },
+  { icon: ShieldCheck, title: "No Cracking or Bubbling", desc: "Manufacturer-backed against cracking, blistering and delamination — registered to your VIN, not to a receipt." },
+  { icon: Droplets, title: "Self-Healing Top Coat", desc: "Wash swirls and fingernail marks disappear with sun or warm water. The finish stays showroom, not just protected." },
+];
+
+const CREDENTIALS = [
+  { title: "XPEL Certified Installer", desc: "Factory-trained on Ultimate Plus and DAP pattern cutting — every install registered with XPEL." },
+  { title: "3M Pro Series Authorized", desc: "Approved to install and warranty 3M Scotchgard Pro Series film." },
+  { title: "Indoor Controlled Bay", desc: "Dust-controlled, temperature-managed installation bay — the number one factor in film that lasts." },
+  { title: "Fully Documented Install", desc: "Photo record of prep, correction and install, plus warranty registration handed over at pickup." },
 ];
 
 
