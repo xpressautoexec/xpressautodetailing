@@ -5,8 +5,8 @@ import Footer from "@/components/Footer";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal from "@/components/ScrollReveal";
-import { Shield, Zap, Check, Phone, ArrowRight, Award, Sparkles, AlertTriangle } from "lucide-react";
-import ppfHero from "@/assets/ppf-hero.jpg";
+import { Shield, Zap, Check, Phone, ArrowRight, Award, Sparkles, AlertTriangle, Clock, BadgeCheck, X, Minus, Layers, ShieldCheck, Droplets, Sun } from "lucide-react";
+import ppfHero from "@/assets/ppf-hero-premium.jpg";
 import PPFCoverageDiagram from "@/components/PPFCoverageDiagram";
 import xpelLogo from "@/assets/xpel-ultimate-plus.png.asset.json";
 import threeMLogo from "@/assets/3m-science.jpg.asset.json";
@@ -19,6 +19,9 @@ interface Package {
   price: string;
   tagline: string;
   includes: string[];
+  panels: string;
+  install: string;
+  bestFor: string;
   popular?: boolean;
 }
 
@@ -29,14 +32,20 @@ const PACKAGES: Package[] = [
     name: "Partial Front",
     price: "$999",
     tagline: "Full bumper, 1/3 hood, 1/3 fenders and mirrors.",
-    includes: ["Full bumper", "1/3 hood", "1/3 fenders", "Mirror caps", "10-year warranty"],
+    includes: ["Full front bumper wrapped & tucked", "Leading 1/3 of hood", "Leading 1/3 of front fenders", "Mirror caps", "10-year film warranty"],
+    panels: "5 zones",
+    install: "1 day in-shop",
+    bestFor: "Budget-conscious protection of the highest-impact strike zone.",
   },
   {
     id: "full",
     name: "Full Front",
     price: "$1,899",
     tagline: "The industry standard — full hood, fenders, bumper, mirrors.",
-    includes: ["Full bumper", "Full hood", "Full fenders", "Mirror caps", "Headlights", "10-year warranty"],
+    includes: ["Full front bumper", "Full hood — no cut line", "Full front fenders", "Mirror caps", "Headlights & fog lights", "10-year film warranty"],
+    panels: "7 zones",
+    install: "2 days in-shop",
+    bestFor: "Daily drivers and new vehicles — the coverage 8 of 10 clients choose.",
     popular: true,
   },
   {
@@ -44,15 +53,49 @@ const PACKAGES: Package[] = [
     name: "Track Pack",
     price: "$2,899",
     tagline: "Full front + rocker panels and front pillars.",
-    includes: ["Everything in Full Front", "Rocker panels", "Front pillars", "Door cups & handle area", "Rear luggage / boot area"],
+    includes: ["Everything in Full Front", "Rocker panels", "A-pillars & roof leading edge", "Door cups & handle cavities", "Rear luggage / loading edge"],
+    panels: "12 zones",
+    install: "3 days in-shop",
+    bestFor: "Highway commuters, lowered cars and anyone tired of rocker sandblasting.",
   },
   {
     id: "body",
     name: "Full Vehicle",
     price: "$5,999",
     tagline: "Complete vehicle protection — every painted panel wrapped in film.",
-    includes: ["Every painted body panel", "Full doors, quarters, roof", "Rear bumper & trunk", "10-year warranty", "Concours-level install"],
+    includes: ["Every painted body panel", "Doors, quarters and roof", "Rear bumper & trunk lid", "Edges wrapped after disassembly", "10-year film warranty"],
+    panels: "Every panel",
+    install: "5–7 days in-shop",
+    bestFor: "Exotics, collector cars and paint codes you never want to respray.",
   },
+];
+
+const PROTECTION_MATRIX = {
+  columns: ["No Protection", "Wax / Sealant", "Ceramic Coating", "PPF", "PPF + Ceramic"],
+  rows: [
+    { label: "Stops rock chips & gravel impact", values: ["no", "no", "no", "yes", "yes"] },
+    { label: "Self-heals light scratches", values: ["no", "no", "no", "yes", "yes"] },
+    { label: "Blocks brine & salt etching", values: ["no", "part", "yes", "yes", "yes"] },
+    { label: "UV fade & oxidation resistance", values: ["no", "part", "yes", "yes", "yes"] },
+    { label: "Bug acid & bird dropping defence", values: ["no", "part", "yes", "yes", "yes"] },
+    { label: "Hydrophobic — easy winter washing", values: ["no", "part", "yes", "part", "yes"] },
+    { label: "Protects resale / lease turn-in value", values: ["no", "part", "part", "yes", "yes"] },
+    { label: "Typical lifespan", values: ["—", "2–4 months", "2–7 years", "10 years", "10 years"] },
+  ],
+};
+
+const GUARANTEES = [
+  { icon: Sun, title: "No Yellowing", desc: "UV stabilizers keep the film optically clear. Yellowing or staining inside 10 years is replaced under warranty." },
+  { icon: Layers, title: "No Peeling or Lifting", desc: "Edges are wrapped behind panels after disassembly. If an edge ever lifts from our fitment, we re-fit it free for the life of the film." },
+  { icon: ShieldCheck, title: "No Cracking or Bubbling", desc: "Manufacturer-backed against cracking, blistering and delamination — registered to your VIN, not to a receipt." },
+  { icon: Droplets, title: "Self-Healing Top Coat", desc: "Wash swirls and fingernail marks disappear with sun or warm water. The finish stays showroom, not just protected." },
+];
+
+const CREDENTIALS = [
+  { title: "XPEL Certified Installer", desc: "Factory-trained on Ultimate Plus and DAP pattern cutting — every install registered with XPEL." },
+  { title: "3M Pro Series Authorized", desc: "Approved to install and warranty 3M Scotchgard Pro Series film." },
+  { title: "Indoor Controlled Bay", desc: "Dust-controlled, temperature-managed installation bay — the number one factor in film that lasts." },
+  { title: "Fully Documented Install", desc: "Photo record of prep, correction and install, plus warranty registration handed over at pickup." },
 ];
 
 
@@ -160,52 +203,78 @@ const PaintProtectionFilm = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative h-[520px] sm:h-[600px] overflow-hidden">
-        <img src={ppfHero} alt="Paint protection film installation" width={1920} height={1080} className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-brand-dark/40" />
-        <div className="relative z-10 container h-full flex flex-col justify-end pb-14 md:pb-20">
-          <span className="inline-flex items-center gap-2 self-start bg-primary/20 border border-primary/40 backdrop-blur-md px-4 py-1.5 rounded-full mb-4">
+      <section className="relative min-h-[620px] sm:min-h-[720px] flex overflow-hidden bg-brand-dark">
+        <img src={ppfHero} alt="XPEL paint protection film being installed on a black luxury car hood in a Calgary detailing bay" width={1920} height={1088} className="absolute inset-0 w-full h-full object-cover opacity-70" fetchPriority="high" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/85 to-brand-dark/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-brand-dark/60" />
+        <div className="relative z-10 container flex flex-col justify-center py-20">
+          <span className="inline-flex items-center gap-2 self-start bg-primary/20 border border-primary/40 backdrop-blur-md px-4 py-1.5 rounded-full mb-5">
             <Award className="w-4 h-4 text-primary" />
             <span className="text-white font-heading font-bold text-[10px] uppercase tracking-widest">
-              XPEL Ultimate Plus & 3M Pro Series
+              XPEL Certified &amp; 3M Pro Series Authorized
             </span>
           </span>
-          <h1 className="font-heading font-black text-3xl sm:text-5xl md:text-6xl uppercase text-white leading-[1.05] max-w-3xl">
+          <h1 className="font-heading font-black text-4xl sm:text-6xl md:text-7xl uppercase text-white leading-[0.95] max-w-4xl">
             Paint Protection <span className="text-primary">Film</span>
+            <span className="block text-white/90 text-2xl sm:text-3xl md:text-4xl mt-3">Calgary&apos;s Invisible Armour</span>
           </h1>
-          <p className="text-white/85 text-base md:text-lg max-w-xl mt-4 leading-relaxed">
-            10 years of invisible, self-healing protection against rock chips, road rash and etching. Concours-grade install on every panel.
+          <p className="text-white/85 text-base md:text-lg max-w-2xl mt-5 leading-relaxed">
+            A decade of self-healing, optically-clear protection against rock chips, road rash, brine and UV — installed
+            indoors, wrapped around every edge, and warrantied against yellowing, cracking and peeling.
           </p>
-          <div className="flex flex-wrap gap-3 mt-6">
-            <a href="tel:5875004523" className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-brand-blue-deep transition shadow-lg shadow-primary/30">
-              <Phone className="w-4 h-4" /> Call for Quote
+
+          <div className="flex flex-wrap gap-x-8 gap-y-3 mt-7">
+            {[
+              { icon: Shield, label: "10-Year Warranty" },
+              { icon: Zap, label: "Self-Healing Film" },
+              { icon: BadgeCheck, label: "Lifetime Workmanship" },
+              { icon: Sparkles, label: "Invisible Finish" },
+            ].map((s) => (
+              <span key={s.label} className="inline-flex items-center gap-2 text-white/90 text-xs sm:text-sm font-heading font-bold uppercase tracking-wider">
+                <s.icon className="w-4 h-4 text-primary" /> {s.label}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap gap-3 mt-8">
+            <a href="tel:5875004523" className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-7 py-3.5 rounded-lg text-sm hover:bg-brand-blue-deep transition shadow-lg shadow-primary/30">
+              <Phone className="w-4 h-4" /> Call for a Free Quote
             </a>
-            <a href="#coverage" className="inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-white/20 backdrop-blur-md transition">
-              See Coverage <ArrowRight className="w-4 h-4" />
+            <a href="#packages" className="inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white font-heading font-bold uppercase tracking-wider px-7 py-3.5 rounded-lg text-sm hover:bg-white/20 backdrop-blur-md transition">
+              See Packages &amp; Pricing <ArrowRight className="w-4 h-4" />
             </a>
           </div>
         </div>
       </section>
 
-      {/* Manufacturer logos */}
-      <section className="py-10 bg-card border-b border-border">
+      {/* Certifications */}
+      <section className="py-14 bg-card border-b border-border">
         <div className="container">
-          <p className="text-center text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-6">
-            Certified Installers Of
+          <p className="text-center text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-8">
+            Certified &amp; Authorized Installers
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-16">
+          <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-20 mb-12">
             <img
               src={xpelLogo.url}
-              alt="XPEL Ultimate Plus Paint Protection Film"
+              alt="XPEL Ultimate Plus certified paint protection film installer"
               className="h-16 sm:h-20 w-auto object-contain"
               loading="lazy"
             />
             <img
               src={threeMLogo.url}
-              alt="3M Science. Applied to Life."
+              alt="3M Pro Series authorized paint protection film installer"
               className="h-12 sm:h-14 w-auto object-contain"
               loading="lazy"
             />
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+            {CREDENTIALS.map((c) => (
+              <div key={c.title} className="h-full rounded-xl border border-border bg-background p-5">
+                <BadgeCheck className="w-5 h-5 text-primary mb-3" />
+                <h3 className="font-heading font-black text-sm uppercase mb-1.5">{c.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">{c.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -281,6 +350,24 @@ const PaintProtectionFilm = () => {
                   </div>
                 </div>
 
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <span className="inline-flex items-center gap-1.5 bg-white/15 rounded-full px-3 py-1 text-[11px] font-heading font-bold uppercase tracking-wider">
+                    <Layers className="w-3.5 h-3.5" /> {current.panels}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 bg-white/15 rounded-full px-3 py-1 text-[11px] font-heading font-bold uppercase tracking-wider">
+                    <Clock className="w-3.5 h-3.5" /> {current.install}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 bg-white/15 rounded-full px-3 py-1 text-[11px] font-heading font-bold uppercase tracking-wider">
+                    <Shield className="w-3.5 h-3.5" /> 10-Year Warranty
+                  </span>
+                </div>
+
+                <p className="text-white/85 text-sm mb-6 leading-relaxed">
+                  <span className="font-heading font-bold uppercase tracking-wider">Best for: </span>
+                  {current.bestFor}
+                </p>
+
+
                 <div className="grid sm:grid-cols-2 gap-x-6 gap-y-3 mb-7">
                   {current.includes.map((f) => (
                     <div key={f} className="flex items-start gap-3 text-sm">
@@ -311,6 +398,176 @@ const PaintProtectionFilm = () => {
           </p>
         </div>
       </section>
+
+      {/* Package detail grid */}
+      <section id="packages" className="py-16 bg-brand-dark">
+        <div className="container">
+          <ScrollReveal className="text-center mb-10">
+            <p className="text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-2">Packages &amp; Pricing</p>
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-white">
+              Every Package, <span className="text-primary">In Full Detail</span>
+            </h2>
+            <p className="text-white/70 text-sm mt-3 max-w-2xl mx-auto leading-relaxed">
+              All pricing includes decontamination, edge wrapping after disassembly, indoor install, 24-hour cure and
+              manufacturer warranty registration. No hidden prep fees.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-7xl mx-auto">
+            {PACKAGES.map((p) => (
+              <ScrollReveal key={p.id}>
+                <div
+                  className={`relative h-full flex flex-col rounded-2xl p-6 backdrop-blur-sm transition-all hover:-translate-y-1 ${
+                    p.popular
+                      ? "bg-gradient-to-b from-primary/25 to-white/5 border-2 border-primary shadow-2xl shadow-primary/20"
+                      : "bg-white/5 border border-white/10 hover:border-primary/40"
+                  }`}
+                >
+                  {p.popular && (
+                    <span className="absolute -top-3 left-6 bg-urgency text-urgency-foreground text-[9px] font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                      Most Popular
+                    </span>
+                  )}
+                  <h3 className="font-heading font-black text-lg uppercase text-white">{p.name}</h3>
+                  <p className="font-heading font-black text-4xl text-primary mt-1">{p.price}</p>
+                  <p className="text-white/70 text-xs mt-2 leading-relaxed">{p.tagline}</p>
+
+                  <div className="flex flex-wrap gap-2 my-4">
+                    <span className="inline-flex items-center gap-1.5 bg-white/10 text-white/85 rounded-full px-2.5 py-1 text-[10px] font-heading font-bold uppercase tracking-wider">
+                      <Layers className="w-3 h-3 text-primary" /> {p.panels}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 bg-white/10 text-white/85 rounded-full px-2.5 py-1 text-[10px] font-heading font-bold uppercase tracking-wider">
+                      <Clock className="w-3 h-3 text-primary" /> {p.install}
+                    </span>
+                  </div>
+
+                  <ul className="space-y-2 mb-4">
+                    {p.includes.map((f) => (
+                      <li key={f} className="flex items-start gap-2 text-xs text-white/85">
+                        <Check className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" strokeWidth={3} />
+                        <span className="leading-snug">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <p className="text-[11px] text-white/60 leading-relaxed border-t border-white/10 pt-3 mb-4">
+                    <span className="font-heading font-bold uppercase tracking-wider text-white/80">Best for: </span>
+                    {p.bestFor}
+                  </p>
+
+                  <div className="mt-auto space-y-2">
+                    <p className="flex items-center gap-1.5 text-[10px] font-heading font-bold uppercase tracking-wider text-primary">
+                      <Shield className="w-3.5 h-3.5" /> 10-yr film + lifetime workmanship
+                    </p>
+                    <a
+                      href="tel:5875004523"
+                      className="flex items-center justify-center gap-2 w-full bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-4 py-3 rounded-lg text-xs hover:bg-brand-blue-deep transition"
+                    >
+                      <Phone className="w-3.5 h-3.5" /> Get This Quote
+                    </a>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <p className="text-center text-xs text-white/60 mt-8 flex items-center justify-center gap-2">
+            <AlertTriangle className="w-3.5 h-3.5" />
+            Trucks / SUVs +15%. Exotics +25%. Confirmed on your free quote before booking.
+          </p>
+        </div>
+      </section>
+
+      {/* Protection level comparison */}
+      <section className="py-16 bg-background">
+        <div className="container max-w-6xl">
+          <ScrollReveal className="text-center mb-10">
+            <p className="text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-2">Protection Levels</p>
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase">
+              Nothing vs Wax vs Ceramic vs <span className="text-gradient">PPF</span>
+            </h2>
+            <p className="text-muted-foreground text-sm mt-3 max-w-2xl mx-auto leading-relaxed">
+              Every level of paint protection does something different. Only film physically stops gravel — everything
+              else is a chemical layer over bare clear coat.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="overflow-x-auto rounded-2xl border border-border">
+              <table className="w-full text-sm min-w-[760px]">
+                <thead>
+                  <tr className="bg-muted/60">
+                    <th className="text-left font-heading font-bold uppercase text-xs tracking-wider p-4">Protection Against</th>
+                    {PROTECTION_MATRIX.columns.map((c, i) => (
+                      <th
+                        key={c}
+                        className={`text-center font-heading font-bold uppercase text-xs tracking-wider p-4 ${
+                          i >= 3 ? "text-primary bg-primary/5" : ""
+                        }`}
+                      >
+                        {c}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  {PROTECTION_MATRIX.rows.map((row) => (
+                    <tr key={row.label} className="bg-card">
+                      <td className="p-4 font-medium text-foreground">{row.label}</td>
+                      {row.values.map((v, i) => (
+                        <td key={i} className={`p-4 text-center ${i >= 3 ? "bg-primary/5" : ""}`}>
+                          {v === "yes" ? (
+                            <Check className="w-4 h-4 text-success mx-auto" strokeWidth={3} aria-label="Yes" />
+                          ) : v === "no" ? (
+                            <X className="w-4 h-4 text-muted-foreground/60 mx-auto" strokeWidth={3} aria-label="No" />
+                          ) : v === "part" ? (
+                            <Minus className="w-4 h-4 text-urgency mx-auto" strokeWidth={3} aria-label="Partial" />
+                          ) : (
+                            <span className="text-xs font-semibold text-foreground">{v}</span>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </ScrollReveal>
+
+          <div className="flex flex-wrap items-center justify-center gap-6 mt-5 text-xs text-muted-foreground">
+            <span className="inline-flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-success" strokeWidth={3} /> Full protection</span>
+            <span className="inline-flex items-center gap-1.5"><Minus className="w-3.5 h-3.5 text-urgency" strokeWidth={3} /> Partial / short-lived</span>
+            <span className="inline-flex items-center gap-1.5"><X className="w-3.5 h-3.5" strokeWidth={3} /> No protection</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Guarantees */}
+      <section className="py-16 bg-muted/30">
+        <div className="container max-w-6xl">
+          <ScrollReveal className="text-center mb-10">
+            <p className="text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-2">The Guarantee</p>
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase">
+              No Peeling. No Yellowing. <span className="text-gradient">No Excuses.</span>
+            </h2>
+          </ScrollReveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {GUARANTEES.map((g) => (
+              <ScrollReveal key={g.title}>
+                <div className="h-full bg-card border border-border rounded-2xl p-6 hover:border-primary/40 transition">
+                  <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 mb-4">
+                    <g.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-heading font-black text-base uppercase mb-2">{g.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{g.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
 
       {/* Add-ons */}
       <section className="py-16 bg-muted/30">
