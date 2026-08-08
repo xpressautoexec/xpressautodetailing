@@ -399,6 +399,176 @@ const PaintProtectionFilm = () => {
         </div>
       </section>
 
+      {/* Package detail grid */}
+      <section id="packages" className="py-16 bg-brand-dark">
+        <div className="container">
+          <ScrollReveal className="text-center mb-10">
+            <p className="text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-2">Packages &amp; Pricing</p>
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-white">
+              Every Package, <span className="text-primary">In Full Detail</span>
+            </h2>
+            <p className="text-white/70 text-sm mt-3 max-w-2xl mx-auto leading-relaxed">
+              All pricing includes decontamination, edge wrapping after disassembly, indoor install, 24-hour cure and
+              manufacturer warranty registration. No hidden prep fees.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-7xl mx-auto">
+            {PACKAGES.map((p) => (
+              <ScrollReveal key={p.id}>
+                <div
+                  className={`relative h-full flex flex-col rounded-2xl p-6 backdrop-blur-sm transition-all hover:-translate-y-1 ${
+                    p.popular
+                      ? "bg-gradient-to-b from-primary/25 to-white/5 border-2 border-primary shadow-2xl shadow-primary/20"
+                      : "bg-white/5 border border-white/10 hover:border-primary/40"
+                  }`}
+                >
+                  {p.popular && (
+                    <span className="absolute -top-3 left-6 bg-urgency text-urgency-foreground text-[9px] font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                      Most Popular
+                    </span>
+                  )}
+                  <h3 className="font-heading font-black text-lg uppercase text-white">{p.name}</h3>
+                  <p className="font-heading font-black text-4xl text-primary mt-1">{p.price}</p>
+                  <p className="text-white/70 text-xs mt-2 leading-relaxed">{p.tagline}</p>
+
+                  <div className="flex flex-wrap gap-2 my-4">
+                    <span className="inline-flex items-center gap-1.5 bg-white/10 text-white/85 rounded-full px-2.5 py-1 text-[10px] font-heading font-bold uppercase tracking-wider">
+                      <Layers className="w-3 h-3 text-primary" /> {p.panels}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 bg-white/10 text-white/85 rounded-full px-2.5 py-1 text-[10px] font-heading font-bold uppercase tracking-wider">
+                      <Clock className="w-3 h-3 text-primary" /> {p.install}
+                    </span>
+                  </div>
+
+                  <ul className="space-y-2 mb-4">
+                    {p.includes.map((f) => (
+                      <li key={f} className="flex items-start gap-2 text-xs text-white/85">
+                        <Check className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" strokeWidth={3} />
+                        <span className="leading-snug">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <p className="text-[11px] text-white/60 leading-relaxed border-t border-white/10 pt-3 mb-4">
+                    <span className="font-heading font-bold uppercase tracking-wider text-white/80">Best for: </span>
+                    {p.bestFor}
+                  </p>
+
+                  <div className="mt-auto space-y-2">
+                    <p className="flex items-center gap-1.5 text-[10px] font-heading font-bold uppercase tracking-wider text-primary">
+                      <Shield className="w-3.5 h-3.5" /> 10-yr film + lifetime workmanship
+                    </p>
+                    <a
+                      href="tel:5875004523"
+                      className="flex items-center justify-center gap-2 w-full bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-4 py-3 rounded-lg text-xs hover:bg-brand-blue-deep transition"
+                    >
+                      <Phone className="w-3.5 h-3.5" /> Get This Quote
+                    </a>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <p className="text-center text-xs text-white/60 mt-8 flex items-center justify-center gap-2">
+            <AlertTriangle className="w-3.5 h-3.5" />
+            Trucks / SUVs +15%. Exotics +25%. Confirmed on your free quote before booking.
+          </p>
+        </div>
+      </section>
+
+      {/* Protection level comparison */}
+      <section className="py-16 bg-background">
+        <div className="container max-w-6xl">
+          <ScrollReveal className="text-center mb-10">
+            <p className="text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-2">Protection Levels</p>
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase">
+              Nothing vs Wax vs Ceramic vs <span className="text-gradient">PPF</span>
+            </h2>
+            <p className="text-muted-foreground text-sm mt-3 max-w-2xl mx-auto leading-relaxed">
+              Every level of paint protection does something different. Only film physically stops gravel — everything
+              else is a chemical layer over bare clear coat.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="overflow-x-auto rounded-2xl border border-border">
+              <table className="w-full text-sm min-w-[760px]">
+                <thead>
+                  <tr className="bg-muted/60">
+                    <th className="text-left font-heading font-bold uppercase text-xs tracking-wider p-4">Protection Against</th>
+                    {PROTECTION_MATRIX.columns.map((c, i) => (
+                      <th
+                        key={c}
+                        className={`text-center font-heading font-bold uppercase text-xs tracking-wider p-4 ${
+                          i >= 3 ? "text-primary bg-primary/5" : ""
+                        }`}
+                      >
+                        {c}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  {PROTECTION_MATRIX.rows.map((row) => (
+                    <tr key={row.label} className="bg-card">
+                      <td className="p-4 font-medium text-foreground">{row.label}</td>
+                      {row.values.map((v, i) => (
+                        <td key={i} className={`p-4 text-center ${i >= 3 ? "bg-primary/5" : ""}`}>
+                          {v === "yes" ? (
+                            <Check className="w-4 h-4 text-success mx-auto" strokeWidth={3} aria-label="Yes" />
+                          ) : v === "no" ? (
+                            <X className="w-4 h-4 text-muted-foreground/60 mx-auto" strokeWidth={3} aria-label="No" />
+                          ) : v === "part" ? (
+                            <Minus className="w-4 h-4 text-urgency mx-auto" strokeWidth={3} aria-label="Partial" />
+                          ) : (
+                            <span className="text-xs font-semibold text-foreground">{v}</span>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </ScrollReveal>
+
+          <div className="flex flex-wrap items-center justify-center gap-6 mt-5 text-xs text-muted-foreground">
+            <span className="inline-flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-success" strokeWidth={3} /> Full protection</span>
+            <span className="inline-flex items-center gap-1.5"><Minus className="w-3.5 h-3.5 text-urgency" strokeWidth={3} /> Partial / short-lived</span>
+            <span className="inline-flex items-center gap-1.5"><X className="w-3.5 h-3.5" strokeWidth={3} /> No protection</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Guarantees */}
+      <section className="py-16 bg-muted/30">
+        <div className="container max-w-6xl">
+          <ScrollReveal className="text-center mb-10">
+            <p className="text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-2">The Guarantee</p>
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase">
+              No Peeling. No Yellowing. <span className="text-gradient">No Excuses.</span>
+            </h2>
+          </ScrollReveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {GUARANTEES.map((g) => (
+              <ScrollReveal key={g.title}>
+                <div className="h-full bg-card border border-border rounded-2xl p-6 hover:border-primary/40 transition">
+                  <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 mb-4">
+                    <g.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-heading font-black text-base uppercase mb-2">{g.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{g.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+
       {/* Add-ons */}
       <section className="py-16 bg-muted/30">
         <div className="container max-w-4xl">
