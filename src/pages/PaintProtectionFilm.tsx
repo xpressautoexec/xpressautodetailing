@@ -350,6 +350,24 @@ const PaintProtectionFilm = () => {
                   </div>
                 </div>
 
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <span className="inline-flex items-center gap-1.5 bg-white/15 rounded-full px-3 py-1 text-[11px] font-heading font-bold uppercase tracking-wider">
+                    <Layers className="w-3.5 h-3.5" /> {current.panels}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 bg-white/15 rounded-full px-3 py-1 text-[11px] font-heading font-bold uppercase tracking-wider">
+                    <Clock className="w-3.5 h-3.5" /> {current.install}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 bg-white/15 rounded-full px-3 py-1 text-[11px] font-heading font-bold uppercase tracking-wider">
+                    <Shield className="w-3.5 h-3.5" /> 10-Year Warranty
+                  </span>
+                </div>
+
+                <p className="text-white/85 text-sm mb-6 leading-relaxed">
+                  <span className="font-heading font-bold uppercase tracking-wider">Best for: </span>
+                  {current.bestFor}
+                </p>
+
+
                 <div className="grid sm:grid-cols-2 gap-x-6 gap-y-3 mb-7">
                   {current.includes.map((f) => (
                     <div key={f} className="flex items-start gap-3 text-sm">
