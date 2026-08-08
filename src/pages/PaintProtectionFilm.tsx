@@ -203,52 +203,78 @@ const PaintProtectionFilm = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative h-[520px] sm:h-[600px] overflow-hidden">
-        <img src={ppfHero} alt="Paint protection film installation" width={1920} height={1080} className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-brand-dark/40" />
-        <div className="relative z-10 container h-full flex flex-col justify-end pb-14 md:pb-20">
-          <span className="inline-flex items-center gap-2 self-start bg-primary/20 border border-primary/40 backdrop-blur-md px-4 py-1.5 rounded-full mb-4">
+      <section className="relative min-h-[620px] sm:min-h-[720px] flex overflow-hidden bg-brand-dark">
+        <img src={ppfHero} alt="XPEL paint protection film being installed on a black luxury car hood in a Calgary detailing bay" width={1920} height={1088} className="absolute inset-0 w-full h-full object-cover opacity-70" fetchPriority="high" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/85 to-brand-dark/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-brand-dark/60" />
+        <div className="relative z-10 container flex flex-col justify-center py-20">
+          <span className="inline-flex items-center gap-2 self-start bg-primary/20 border border-primary/40 backdrop-blur-md px-4 py-1.5 rounded-full mb-5">
             <Award className="w-4 h-4 text-primary" />
             <span className="text-white font-heading font-bold text-[10px] uppercase tracking-widest">
-              XPEL Ultimate Plus & 3M Pro Series
+              XPEL Certified &amp; 3M Pro Series Authorized
             </span>
           </span>
-          <h1 className="font-heading font-black text-3xl sm:text-5xl md:text-6xl uppercase text-white leading-[1.05] max-w-3xl">
+          <h1 className="font-heading font-black text-4xl sm:text-6xl md:text-7xl uppercase text-white leading-[0.95] max-w-4xl">
             Paint Protection <span className="text-primary">Film</span>
+            <span className="block text-white/90 text-2xl sm:text-3xl md:text-4xl mt-3">Calgary&apos;s Invisible Armour</span>
           </h1>
-          <p className="text-white/85 text-base md:text-lg max-w-xl mt-4 leading-relaxed">
-            10 years of invisible, self-healing protection against rock chips, road rash and etching. Concours-grade install on every panel.
+          <p className="text-white/85 text-base md:text-lg max-w-2xl mt-5 leading-relaxed">
+            A decade of self-healing, optically-clear protection against rock chips, road rash, brine and UV — installed
+            indoors, wrapped around every edge, and warrantied against yellowing, cracking and peeling.
           </p>
-          <div className="flex flex-wrap gap-3 mt-6">
-            <a href="tel:5875004523" className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-brand-blue-deep transition shadow-lg shadow-primary/30">
-              <Phone className="w-4 h-4" /> Call for Quote
+
+          <div className="flex flex-wrap gap-x-8 gap-y-3 mt-7">
+            {[
+              { icon: Shield, label: "10-Year Warranty" },
+              { icon: Zap, label: "Self-Healing Film" },
+              { icon: BadgeCheck, label: "Lifetime Workmanship" },
+              { icon: Sparkles, label: "Invisible Finish" },
+            ].map((s) => (
+              <span key={s.label} className="inline-flex items-center gap-2 text-white/90 text-xs sm:text-sm font-heading font-bold uppercase tracking-wider">
+                <s.icon className="w-4 h-4 text-primary" /> {s.label}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap gap-3 mt-8">
+            <a href="tel:5875004523" className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-7 py-3.5 rounded-lg text-sm hover:bg-brand-blue-deep transition shadow-lg shadow-primary/30">
+              <Phone className="w-4 h-4" /> Call for a Free Quote
             </a>
-            <a href="#coverage" className="inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-white/20 backdrop-blur-md transition">
-              See Coverage <ArrowRight className="w-4 h-4" />
+            <a href="#packages" className="inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white font-heading font-bold uppercase tracking-wider px-7 py-3.5 rounded-lg text-sm hover:bg-white/20 backdrop-blur-md transition">
+              See Packages &amp; Pricing <ArrowRight className="w-4 h-4" />
             </a>
           </div>
         </div>
       </section>
 
-      {/* Manufacturer logos */}
-      <section className="py-10 bg-card border-b border-border">
+      {/* Certifications */}
+      <section className="py-14 bg-card border-b border-border">
         <div className="container">
-          <p className="text-center text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-6">
-            Certified Installers Of
+          <p className="text-center text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-8">
+            Certified &amp; Authorized Installers
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-16">
+          <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-20 mb-12">
             <img
               src={xpelLogo.url}
-              alt="XPEL Ultimate Plus Paint Protection Film"
+              alt="XPEL Ultimate Plus certified paint protection film installer"
               className="h-16 sm:h-20 w-auto object-contain"
               loading="lazy"
             />
             <img
               src={threeMLogo.url}
-              alt="3M Science. Applied to Life."
+              alt="3M Pro Series authorized paint protection film installer"
               className="h-12 sm:h-14 w-auto object-contain"
               loading="lazy"
             />
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+            {CREDENTIALS.map((c) => (
+              <div key={c.title} className="h-full rounded-xl border border-border bg-background p-5">
+                <BadgeCheck className="w-5 h-5 text-primary mb-3" />
+                <h3 className="font-heading font-black text-sm uppercase mb-1.5">{c.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">{c.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
