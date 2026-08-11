@@ -1,5 +1,6 @@
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import SEO from "@/components/SEO";
@@ -16,6 +17,7 @@ const GiftCards = () => (
       canonical="/gift-cards"
     />
     <Navbar />
+    <AutoBreadcrumbs />
     <ServicePageHero title="Car Detailing Gift Cards Calgary" image={giftcardHero} />
 
     <section className="py-16 bg-background">

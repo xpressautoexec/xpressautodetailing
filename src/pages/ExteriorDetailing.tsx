@@ -1,6 +1,7 @@
 import PageTransition from "@/components/PageTransition";
 import SeasonalPromoPopup from "@/components/SeasonalPromoPopup";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import GalleryCarousel from "@/components/GalleryCarousel";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
@@ -49,6 +50,7 @@ const ExteriorDetailing = () => (
       ]}
     />
     <Navbar />
+    <AutoBreadcrumbs />
     <ServicePageHero title="Exterior Detailing Services in Calgary and Surrounding Areas" image={exteriorHero} />
     <TrustStats />
 

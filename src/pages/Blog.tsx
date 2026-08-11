@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import interiorImg from "@/assets/gallery-bmw-red-interior.jpg";
@@ -126,6 +127,7 @@ const Blog = () => (
       }}
     />
     <Navbar />
+    <AutoBreadcrumbs />
 
     <section className="py-20 bg-background">
       <div className="container">

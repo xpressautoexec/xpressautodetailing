@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import SEO, { buildFAQJsonLd, localBusinessJsonLd } from "@/components/SEO";
 import ServiceFAQ from "@/components/ServiceFAQ";
@@ -170,6 +171,7 @@ const PriceComparison = () => (
         ]}
       />
       <Navbar />
+    <AutoBreadcrumbs />
 
       {/* Hero */}
       <section className="pt-28 pb-16 bg-foreground">

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
@@ -201,6 +202,7 @@ const PaintProtectionFilm = () => {
         ]}
       />
       <Navbar />
+    <AutoBreadcrumbs />
 
       {/* Hero */}
       <section className="relative min-h-[620px] sm:min-h-[720px] flex overflow-hidden bg-brand-dark">

@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import PageTransition from "@/components/PageTransition";
@@ -12,6 +13,7 @@ const TermsOfService = () => (
         canonical="/terms-of-service"
       />
       <Navbar />
+    <AutoBreadcrumbs />
       <section className="py-16 bg-background">
         <div className="container max-w-3xl">
           <h1 className="font-heading font-black text-3xl md:text-4xl uppercase text-foreground mb-4">Terms & Conditions</h1>

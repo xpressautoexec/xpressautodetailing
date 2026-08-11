@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import PackageCard from "@/components/PackageCard";
 import ServiceFAQ from "@/components/ServiceFAQ";
@@ -29,6 +30,7 @@ const Training = () => (
         jsonLd={[buildFAQJsonLd(trainingFAQs)]}
       />
       <Navbar />
+    <AutoBreadcrumbs />
 
       {/* Hero */}
       <section className="relative h-[340px] sm:h-[400px] overflow-hidden bg-gradient-to-br from-brand-dark via-brand-dark to-brand-dark-surface">

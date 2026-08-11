@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
@@ -122,6 +123,7 @@ const MarineDetailing = () => {
         ]}
       />
       <Navbar />
+    <AutoBreadcrumbs />
 
       {/* Hero */}
       <section className="relative h-[520px] sm:h-[600px] overflow-hidden">

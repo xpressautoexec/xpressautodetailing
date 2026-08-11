@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import TrustStats from "@/components/TrustStats";
@@ -55,6 +56,7 @@ const Contact = () => {
         jsonLd={buildFAQJsonLd(contactFAQs)}
       />
       <Navbar />
+    <AutoBreadcrumbs />
 
       {/* Hero */}
       <section className="py-20 bg-background">

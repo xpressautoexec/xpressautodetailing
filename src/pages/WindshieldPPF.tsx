@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback, useMemo } from "react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
@@ -274,6 +275,7 @@ const WindshieldPPF = () => {
           ]}
         />
         <Navbar />
+    <AutoBreadcrumbs />
         <ServicePageHero
           title="Windshield PPF Rock Chip Defense"
           image={windshieldHero}

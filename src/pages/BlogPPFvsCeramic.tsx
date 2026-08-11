@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import heroImg from "@/assets/gallery-bmw-emblem.jpg";
@@ -79,6 +80,7 @@ const BlogPPFvsCeramic = () => (
         ]}
       />
       <Navbar />
+    <AutoBreadcrumbs />
 
       <article>
         {/* Hero */}

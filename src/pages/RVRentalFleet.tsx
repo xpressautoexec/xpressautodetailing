@@ -1,5 +1,6 @@
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
@@ -137,6 +138,7 @@ const RVRentalFleet = () => {
           ]}
         />
         <Navbar />
+    <AutoBreadcrumbs />
         <ServicePageHero
           title="RV Rental Fleet Care — Guest-Ready Every Turnover"
           image={rvHero}

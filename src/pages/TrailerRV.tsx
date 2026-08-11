@@ -1,6 +1,7 @@
 import PageTransition from "@/components/PageTransition";
 import RVPromoPopup from "@/components/RVPromoPopup";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import TestimonialBlock from "@/components/TestimonialBlock";
@@ -162,6 +163,7 @@ const TrailerRV = () => {
         ]}
       />
       <Navbar />
+    <AutoBreadcrumbs />
 
       {/* Premium Hero */}
       <section className="relative min-h-[520px] sm:min-h-[560px] overflow-hidden">
