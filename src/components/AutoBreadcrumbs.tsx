@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -92,24 +93,32 @@ const AutoBreadcrumbs = ({ className, currentLabel }: Props) => {
     ? segments.map((s, i) => (i === segments.length - 1 ? { ...s, label: currentLabel } : s))
     : segments;
 
+  const jsonLd = useMemo(() => buildBreadcrumbJsonLd(displaySegments), [displaySegments]);
+
   return (
-    <Breadcrumb className={cn("py-4", className)}>
-      <BreadcrumbList className="container text-xs sm:text-sm text-muted-foreground">
-        {displaySegments.map((segment, index) => (
-          <BreadcrumbItem key={segment.path}>
-            {segment.isLast ? (
-              <BreadcrumbPage>{segment.label}</BreadcrumbPage>
-            ) : (
-              <BreadcrumbLink asChild>
-                <Link to={segment.path}>{segment.label}</Link>
-              </BreadcrumbLink>
-            )}
-            {index < displaySegments.length - 1 && <BreadcrumbSeparator />}
-          </BreadcrumbItem>
-        ))}
-      </BreadcrumbList>
-    </Breadcrumb>
+    <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      </Helmet>
+      <Breadcrumb className={cn("py-4 bg-background border-b border-border", className)}>
+        <BreadcrumbList className="container text-xs sm:text-sm text-muted-foreground">
+          {displaySegments.map((segment, index) => (
+            <BreadcrumbItem key={segment.path}>
+              {segment.isLast ? (
+                <BreadcrumbPage>{segment.label}</BreadcrumbPage>
+              ) : (
+                <BreadcrumbLink asChild>
+                  <Link to={segment.path}>{segment.label}</Link>
+                </BreadcrumbLink>
+              )}
+              {index < displaySegments.length - 1 && <BreadcrumbSeparator />}
+            </BreadcrumbItem>
+          ))}
+        </BreadcrumbList>
+      </Breadcrumb>
+    </>
   );
 };
 
 export default AutoBreadcrumbs;
+
