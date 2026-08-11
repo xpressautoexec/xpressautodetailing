@@ -2,10 +2,17 @@ import { motion } from "framer-motion";
 import { ArrowRight, Star, Clock, Shield, Zap } from "lucide-react";
 import vanImage from "@/assets/xpress-van.png";
 import QuickBookWidget from "@/components/QuickBookWidget";
+import { useHydrated } from "@/hooks/use-hydrated";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const HeroSection = () => {
+  const hydrated = useHydrated();
+  // Skip enter animations for the prerendered/first paint so crawlers (and users
+  // with JS disabled) get fully visible hero copy.
+  const anim = (initial: Record<string, number>, transition: Record<string, unknown>) =>
+    hydrated ? { initial, animate: { opacity: 1, y: 0 }, transition } : {};
+
   return (
     <section id="home" className="relative min-h-[85vh] flex items-center overflow-hidden">
       <img
@@ -23,9 +30,7 @@ const HeroSection = () => {
         <div className="max-w-2xl mx-auto text-center md:text-left md:mx-0">
           {/* Urgency badge */}
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            {...anim({ opacity: 0, y: -10 }, { duration: 0.5 })}
             className="inline-flex items-center gap-2 bg-urgency text-urgency-foreground font-heading font-bold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full mb-4"
           >
             <span className="relative flex h-2 w-2">
@@ -36,9 +41,7 @@ const HeroSection = () => {
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+            {...anim({ opacity: 0, y: 30 }, { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] })}
             className="font-heading font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase leading-tight text-white mb-2"
           >
             Calgary Mobile Car Detailing{" "}
@@ -46,9 +49,7 @@ const HeroSection = () => {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
+            {...anim({ opacity: 0, y: 20 }, { duration: 0.6, delay: 0.15 })}
             className="text-white/80 text-sm sm:text-base mb-3 max-w-lg"
           >
             Calgary's top-rated mobile detailing — at your door in 24 hours. No drop-offs. No waiting. Just results.
@@ -56,9 +57,7 @@ const HeroSection = () => {
 
           {/* Social proof */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
+            {...anim({ opacity: 0, y: 0 }, { delay: 0.3 })}
             className="flex items-center gap-3 mb-5 justify-center md:justify-start flex-wrap"
           >
             <div className="flex items-center gap-1" role="img" aria-label="Rated 4.9 out of 5 stars from over 100 Google reviews">
@@ -74,9 +73,7 @@ const HeroSection = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            {...anim({ opacity: 0, y: 20 }, { duration: 0.6, delay: 0.4 })}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start"
           >
             <a
