@@ -7,6 +7,7 @@ interface SEOProps {
   ogImage?: string;
   ogType?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  breadcrumbJsonLd?: Record<string, unknown>;
 }
 
 const SITE_NAME = "Xpress Auto Detailing";
@@ -20,10 +21,18 @@ const SEO = ({
   ogImage,
   ogType = "website",
   jsonLd,
+  breadcrumbJsonLd,
 }: SEOProps) => {
   const fullTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
   const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
   const image = ogImage || DEFAULT_OG_IMAGE;
+
+  const mergedJsonLd = (() => {
+    const base: Record<string, unknown>[] = [];
+    if (jsonLd) base.push(...(Array.isArray(jsonLd) ? jsonLd : [jsonLd]));
+    if (breadcrumbJsonLd) base.push(breadcrumbJsonLd);
+    return base.length ? base : undefined;
+  })();
 
   return (
     <Helmet>
@@ -47,9 +56,9 @@ const SEO = ({
       <meta name="twitter:image" content={image} />
 
       {/* JSON-LD */}
-      {jsonLd && (
+      {mergedJsonLd && (
         <script type="application/ld+json">
-          {JSON.stringify(Array.isArray(jsonLd) ? jsonLd : jsonLd)}
+          {JSON.stringify(mergedJsonLd.length === 1 ? mergedJsonLd[0] : mergedJsonLd)}
         </script>
       )}
     </Helmet>
@@ -115,3 +124,4 @@ export const buildFAQJsonLd = (faqs: { q: string; a: string }[]) => ({
     },
   })),
 });
+
