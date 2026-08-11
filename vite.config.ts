@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({ mode, isSsrBuild }) => ({
   server: {
     host: "::",
     port: 8080,
@@ -20,15 +20,23 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ["react", "react-dom", "react-router-dom"],
-          animations: ["framer-motion"],
-          ui: ["@radix-ui/react-accordion", "@radix-ui/react-dialog", "@radix-ui/react-dropdown-menu", "@radix-ui/react-tooltip"],
-        },
-      },
+      output: isSsrBuild
+        ? {}
+        : {
+            manualChunks: {
+              vendor: ["react", "react-dom", "react-router-dom"],
+              animations: ["framer-motion"],
+              ui: [
+                "@radix-ui/react-accordion",
+                "@radix-ui/react-dialog",
+                "@radix-ui/react-dropdown-menu",
+                "@radix-ui/react-tooltip",
+              ],
+            },
+          },
     },
     cssMinify: true,
     minify: "esbuild",
   },
 }));
+
