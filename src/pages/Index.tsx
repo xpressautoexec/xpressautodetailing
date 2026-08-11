@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Shield, Clock, Zap } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import HeroSection from "@/components/HeroSection";
 import TrustStats from "@/components/TrustStats";
 import TrustBadges from "@/components/TrustBadges";
@@ -67,6 +68,7 @@ const Index = () => {
           jsonLd={localBusinessJsonLd}
         />
         <Navbar />
+        <AutoBreadcrumbs />
         <HeroSection />
         <TrustStats />
         <TrustBadges />

@@ -1,6 +1,7 @@
 import PageTransition from "@/components/PageTransition";
 import CeramicPromoPopup from "@/components/CeramicPromoPopup";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import PackageCard from "@/components/PackageCard";
@@ -48,7 +49,7 @@ const PaintCeramics = () => (
       ]}
     />
     <Navbar />
-
+        <AutoBreadcrumbs />
     {/* Premium Hero */}
     <section className="relative min-h-[600px] sm:min-h-[640px] overflow-hidden">
       <img

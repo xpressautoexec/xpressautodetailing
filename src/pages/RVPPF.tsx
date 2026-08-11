@@ -1,5 +1,6 @@
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
@@ -270,7 +271,7 @@ const RVPPF = () => {
           ]}
         />
         <Navbar />
-
+        <AutoBreadcrumbs />
         {/* HERO */}
         <section className="relative min-h-[560px] sm:min-h-[640px] overflow-hidden">
           <div

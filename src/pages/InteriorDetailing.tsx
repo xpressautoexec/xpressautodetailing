@@ -1,6 +1,7 @@
 import PageTransition from "@/components/PageTransition";
 import InteriorPromoPopup from "@/components/InteriorPromoPopup";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import GalleryCarousel from "@/components/GalleryCarousel";
 import BeforeAfterCard from "@/components/BeforeAfterCard";
 import Footer from "@/components/Footer";
@@ -52,6 +53,7 @@ const InteriorDetailing = () => (
       ]}
     />
     <Navbar />
+        <AutoBreadcrumbs />
     <ServicePageHero title="Interior Detailing Services in Calgary and Surrounding Areas" image={interiorHero} />
     <TrustStats />
 

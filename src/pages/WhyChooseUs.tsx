@@ -1,5 +1,6 @@
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import FloatingContact from "@/components/FloatingContact";
@@ -49,7 +50,7 @@ const WhyChooseUs = () => {
           canonical="/why-choose-us"
         />
         <Navbar />
-
+        <AutoBreadcrumbs />
         {/* Hero */}
         <section className="bg-brand-dark py-20 md:py-28">
           <div className="container text-center">

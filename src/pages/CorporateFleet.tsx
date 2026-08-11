@@ -1,5 +1,6 @@
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
@@ -46,6 +47,7 @@ const CorporateFleet = () => {
         ]}
       />
       <Navbar />
+        <AutoBreadcrumbs />
       <ServicePageHero title="Dealership, Fleet & Company Detailing in Calgary and Surrounding Areas" image={fleetHero} ctaType="call" />
       <TrustStats />
 

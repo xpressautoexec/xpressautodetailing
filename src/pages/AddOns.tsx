@@ -1,5 +1,6 @@
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import TrustStats from "@/components/TrustStats";
@@ -91,6 +92,7 @@ const AddOns = () => (
         )}
       />
       <Navbar />
+        <AutoBreadcrumbs />
       <ServicePageHero
         title="Add-On Detailing Services"
         image={galleryHero}

@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -112,7 +113,7 @@ const TrainingSignup = () => {
           canonical="/training/signup"
         />
         <Navbar />
-
+        <AutoBreadcrumbs />
         {/* Hero */}
         <section className="py-16 sm:py-20 bg-background">
           <div className="container max-w-4xl text-center px-6">

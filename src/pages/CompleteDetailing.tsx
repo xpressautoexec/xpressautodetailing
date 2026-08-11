@@ -1,6 +1,7 @@
 import PageTransition from "@/components/PageTransition";
 import SeasonalPromoPopup from "@/components/SeasonalPromoPopup";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import GalleryCarousel from "@/components/GalleryCarousel";
 import BeforeAfterCard from "@/components/BeforeAfterCard";
 import Footer from "@/components/Footer";
@@ -45,6 +46,7 @@ const CompleteDetailing = () => (
       ]}
     />
     <Navbar />
+        <AutoBreadcrumbs />
     <ServicePageHero title="Complete Detailing Services in Calgary and Surrounding Areas" image={completeHero} />
     <TrustStats />
 

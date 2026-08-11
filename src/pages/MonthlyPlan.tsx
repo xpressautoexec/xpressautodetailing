@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import SEO, { buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -177,7 +178,7 @@ const MonthlyPlan = () => {
           jsonLd={[buildFAQJsonLd(monthlyFAQs)]}
         />
         <Navbar />
-
+        <AutoBreadcrumbs />
         {/* Hero */}
         <section className="relative bg-brand-dark text-primary-foreground overflow-hidden">
           <div className="absolute inset-0">
