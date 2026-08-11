@@ -68,7 +68,7 @@ const Index = () => {
           jsonLd={localBusinessJsonLd}
         />
         <Navbar />
-    <AutoBreadcrumbs />
+        <AutoBreadcrumbs />
         <HeroSection />
         <TrustStats />
         <TrustBadges />

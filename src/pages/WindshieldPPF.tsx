@@ -275,7 +275,7 @@ const WindshieldPPF = () => {
           ]}
         />
         <Navbar />
-    <AutoBreadcrumbs />
+        <AutoBreadcrumbs />
         <ServicePageHero
           title="Windshield PPF Rock Chip Defense"
           image={windshieldHero}

@@ -75,8 +75,7 @@ const WindowTinting = () => {
         ]}
       />
       <Navbar />
-    <AutoBreadcrumbs />
-
+        <AutoBreadcrumbs />
       {/* Hero */}
       <section className="relative h-[520px] sm:h-[600px] overflow-hidden">
         <img src={tintHero} alt="Window tint installation" width={1920} height={1080} className="absolute inset-0 w-full h-full object-cover" fetchPriority="high" />

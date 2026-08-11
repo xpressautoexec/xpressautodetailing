@@ -56,8 +56,7 @@ const Contact = () => {
         jsonLd={buildFAQJsonLd(contactFAQs)}
       />
       <Navbar />
-    <AutoBreadcrumbs />
-
+        <AutoBreadcrumbs />
       {/* Hero */}
       <section className="py-20 bg-background">
         <div className="container text-center">

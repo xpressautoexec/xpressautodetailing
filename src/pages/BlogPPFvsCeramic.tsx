@@ -80,8 +80,7 @@ const BlogPPFvsCeramic = () => (
         ]}
       />
       <Navbar />
-    <AutoBreadcrumbs />
-
+        <AutoBreadcrumbs />
       <article>
         {/* Hero */}
         <header className="bg-brand-dark py-16 md:py-24">

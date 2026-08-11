@@ -163,8 +163,7 @@ const TrailerRV = () => {
         ]}
       />
       <Navbar />
-    <AutoBreadcrumbs />
-
+        <AutoBreadcrumbs />
       {/* Premium Hero */}
       <section className="relative min-h-[520px] sm:min-h-[560px] overflow-hidden">
         <div

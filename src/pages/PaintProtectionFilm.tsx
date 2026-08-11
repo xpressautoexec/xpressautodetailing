@@ -202,8 +202,7 @@ const PaintProtectionFilm = () => {
         ]}
       />
       <Navbar />
-    <AutoBreadcrumbs />
-
+        <AutoBreadcrumbs />
       {/* Hero */}
       <section className="relative min-h-[620px] sm:min-h-[720px] flex overflow-hidden bg-brand-dark">
         <img src={ppfHero} alt="XPEL paint protection film being installed on a black luxury car hood in a Calgary detailing bay" width={1920} height={1088} className="absolute inset-0 w-full h-full object-cover opacity-70" fetchPriority="high" />

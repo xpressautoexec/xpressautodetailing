@@ -50,8 +50,7 @@ const WhyChooseUs = () => {
           canonical="/why-choose-us"
         />
         <Navbar />
-    <AutoBreadcrumbs />
-
+        <AutoBreadcrumbs />
         {/* Hero */}
         <section className="bg-brand-dark py-20 md:py-28">
           <div className="container text-center">

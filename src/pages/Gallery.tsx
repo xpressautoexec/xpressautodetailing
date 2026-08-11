@@ -194,7 +194,7 @@ const Gallery = () => (
       }}
     />
     <Navbar />
-    <AutoBreadcrumbs />
+        <AutoBreadcrumbs />
     <ServicePageHero title="Calgary Detailing Before & After Gallery" image={galleryHero} />
     <TrustStats />
 

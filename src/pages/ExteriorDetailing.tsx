@@ -50,7 +50,7 @@ const ExteriorDetailing = () => (
       ]}
     />
     <Navbar />
-    <AutoBreadcrumbs />
+        <AutoBreadcrumbs />
     <ServicePageHero title="Exterior Detailing Services in Calgary and Surrounding Areas" image={exteriorHero} />
     <TrustStats />
 

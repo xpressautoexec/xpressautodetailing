@@ -113,8 +113,7 @@ const TrainingSignup = () => {
           canonical="/training/signup"
         />
         <Navbar />
-    <AutoBreadcrumbs />
-
+        <AutoBreadcrumbs />
         {/* Hero */}
         <section className="py-16 sm:py-20 bg-background">
           <div className="container max-w-4xl text-center px-6">

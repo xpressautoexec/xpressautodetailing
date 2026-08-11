@@ -46,7 +46,7 @@ const CompleteDetailing = () => (
       ]}
     />
     <Navbar />
-    <AutoBreadcrumbs />
+        <AutoBreadcrumbs />
     <ServicePageHero title="Complete Detailing Services in Calgary and Surrounding Areas" image={completeHero} />
     <TrustStats />
 

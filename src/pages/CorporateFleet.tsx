@@ -47,7 +47,7 @@ const CorporateFleet = () => {
         ]}
       />
       <Navbar />
-    <AutoBreadcrumbs />
+        <AutoBreadcrumbs />
       <ServicePageHero title="Dealership, Fleet & Company Detailing in Calgary and Surrounding Areas" image={fleetHero} ctaType="call" />
       <TrustStats />
 

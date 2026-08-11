@@ -178,8 +178,7 @@ const MonthlyPlan = () => {
           jsonLd={[buildFAQJsonLd(monthlyFAQs)]}
         />
         <Navbar />
-    <AutoBreadcrumbs />
-
+        <AutoBreadcrumbs />
         {/* Hero */}
         <section className="relative bg-brand-dark text-primary-foreground overflow-hidden">
           <div className="absolute inset-0">

@@ -127,8 +127,7 @@ const Blog = () => (
       }}
     />
     <Navbar />
-    <AutoBreadcrumbs />
-
+        <AutoBreadcrumbs />
     <section className="py-20 bg-background">
       <div className="container">
         <h1 className="font-heading font-black text-3xl md:text-4xl uppercase text-foreground text-center mb-4">Car Detailing Tips & Guides — Calgary</h1>

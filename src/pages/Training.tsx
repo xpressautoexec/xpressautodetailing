@@ -30,8 +30,7 @@ const Training = () => (
         jsonLd={[buildFAQJsonLd(trainingFAQs)]}
       />
       <Navbar />
-    <AutoBreadcrumbs />
-
+        <AutoBreadcrumbs />
       {/* Hero */}
       <section className="relative h-[340px] sm:h-[400px] overflow-hidden bg-gradient-to-br from-brand-dark via-brand-dark to-brand-dark-surface">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--primary)/0.15),transparent_60%)]" />

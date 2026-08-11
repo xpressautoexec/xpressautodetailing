@@ -123,8 +123,7 @@ const MarineDetailing = () => {
         ]}
       />
       <Navbar />
-    <AutoBreadcrumbs />
-
+        <AutoBreadcrumbs />
       {/* Hero */}
       <section className="relative h-[520px] sm:h-[600px] overflow-hidden">
         <img

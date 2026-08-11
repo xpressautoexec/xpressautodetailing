@@ -271,8 +271,7 @@ const RVPPF = () => {
           ]}
         />
         <Navbar />
-    <AutoBreadcrumbs />
-
+        <AutoBreadcrumbs />
         {/* HERO */}
         <section className="relative min-h-[560px] sm:min-h-[640px] overflow-hidden">
           <div

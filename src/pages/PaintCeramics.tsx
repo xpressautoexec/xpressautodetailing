@@ -49,8 +49,7 @@ const PaintCeramics = () => (
       ]}
     />
     <Navbar />
-    <AutoBreadcrumbs />
-
+        <AutoBreadcrumbs />
     {/* Premium Hero */}
     <section className="relative min-h-[600px] sm:min-h-[640px] overflow-hidden">
       <img

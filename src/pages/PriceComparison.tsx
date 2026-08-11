@@ -171,8 +171,7 @@ const PriceComparison = () => (
         ]}
       />
       <Navbar />
-    <AutoBreadcrumbs />
-
+        <AutoBreadcrumbs />
       {/* Hero */}
       <section className="pt-28 pb-16 bg-foreground">
         <div className="container max-w-4xl text-center px-4">

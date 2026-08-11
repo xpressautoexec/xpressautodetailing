@@ -92,7 +92,7 @@ const AddOns = () => (
         )}
       />
       <Navbar />
-    <AutoBreadcrumbs />
+        <AutoBreadcrumbs />
       <ServicePageHero
         title="Add-On Detailing Services"
         image={galleryHero}

@@ -53,7 +53,7 @@ const InteriorDetailing = () => (
       ]}
     />
     <Navbar />
-    <AutoBreadcrumbs />
+        <AutoBreadcrumbs />
     <ServicePageHero title="Interior Detailing Services in Calgary and Surrounding Areas" image={interiorHero} />
     <TrustStats />
 
