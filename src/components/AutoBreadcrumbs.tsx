@@ -51,16 +51,7 @@ export const useBreadcrumbSegments = () => {
     const clean = pathname.replace(/^\/|\/$/g, "");
     if (!clean) return [{ path: "/", label: "Home", isLast: true }];
 
-    // Try full path first (e.g. blog/ppf-vs-ceramic-coating-calgary)
-    const fullPathLabel = ROUTE_LABELS[clean] || ROUTE_LABELS[`/${clean}`];
-    if (fullPathLabel) {
-      return [
-        { path: "/", label: "Home", isLast: false },
-        { path: `/${clean}`, label: fullPathLabel, isLast: true },
-      ];
-    }
-
-    // Build nested segments
+    // Build nested segments so every parent page is shown
     const parts = clean.split("/");
     const segments = [{ path: "/", label: "Home", isLast: false }];
     let accumulated = "";
@@ -68,13 +59,17 @@ export const useBreadcrumbSegments = () => {
       accumulated += `/${part}`;
       const isLast = index === parts.length - 1;
       const key = accumulated.replace(/^\//, "");
-      const label = ROUTE_LABELS[key] || ROUTE_LABELS[accumulated] || part.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+      const label =
+        ROUTE_LABELS[key] ||
+        ROUTE_LABELS[accumulated] ||
+        part.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
       segments.push({ path: accumulated, label, isLast });
     });
 
     return segments;
   }, [pathname]);
 };
+
 
 export const buildBreadcrumbJsonLd = (segments: { path: string; label: string }[]) => ({
   "@context": "https://schema.org",
