@@ -1,5 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import { type ReactNode } from "react";
+import { useHydrated } from "@/hooks/use-hydrated";
 
 type Direction = "up" | "down" | "left" | "right" | "none";
 
@@ -43,18 +44,25 @@ const ScrollReveal = ({
   className,
   once = true,
   amount = 0.15,
-}: ScrollRevealProps) => (
-  <motion.div
-    variants={getVariants(direction, duration)}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once, amount }}
-    transition={{ delay }}
-    className={className}
-  >
-    {children}
-  </motion.div>
-);
+}: ScrollRevealProps) => {
+  const hydrated = useHydrated();
+
+  // Prerendered HTML must contain visible, readable content for crawlers.
+  if (!hydrated) return <div className={className}>{children}</div>;
+
+  return (
+    <motion.div
+      variants={getVariants(direction, duration)}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once, amount }}
+      transition={{ delay }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 export default ScrollReveal;
 
@@ -67,17 +75,23 @@ export const StaggerContainer = ({
   children: ReactNode;
   className?: string;
   staggerDelay?: number;
-}) => (
-  <motion.div
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, amount: 0.1 }}
-    transition={{ staggerChildren: staggerDelay }}
-    className={className}
-  >
-    {children}
-  </motion.div>
-);
+}) => {
+  const hydrated = useHydrated();
+
+  if (!hydrated) return <div className={className}>{children}</div>;
+
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ staggerChildren: staggerDelay }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 export const StaggerItem = ({
   children,
@@ -87,8 +101,14 @@ export const StaggerItem = ({
   children: ReactNode;
   className?: string;
   direction?: Direction;
-}) => (
-  <motion.div variants={getVariants(direction, 0.5)} className={className}>
-    {children}
-  </motion.div>
-);
+}) => {
+  const hydrated = useHydrated();
+
+  if (!hydrated) return <div className={className}>{children}</div>;
+
+  return (
+    <motion.div variants={getVariants(direction, 0.5)} className={className}>
+      {children}
+    </motion.div>
+  );
+};
