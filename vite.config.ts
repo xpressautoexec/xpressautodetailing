@@ -4,7 +4,9 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode, isSsrBuild }) => ({
+const isSsrBuild = process.argv.includes("--ssr");
+
+export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
