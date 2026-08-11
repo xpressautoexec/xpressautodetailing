@@ -1,14 +1,7 @@
 import { useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import {
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+import { Home, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const ROUTE_LABELS: Record<string, string> = {
@@ -101,25 +94,59 @@ const AutoBreadcrumbs = ({ className, currentLabel }: Props) => {
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
-      <Breadcrumb className={cn("py-4 bg-background border-b border-border", className)}>
-        <BreadcrumbList className="container text-xs sm:text-sm text-muted-foreground">
-          {displaySegments.map((segment, index) => (
-            <BreadcrumbItem key={segment.path}>
-              {segment.isLast ? (
-                <BreadcrumbPage>{segment.label}</BreadcrumbPage>
-              ) : (
-                <BreadcrumbLink asChild>
-                  <Link to={segment.path}>{segment.label}</Link>
-                </BreadcrumbLink>
-              )}
-              {index < displaySegments.length - 1 && <BreadcrumbSeparator />}
-            </BreadcrumbItem>
-          ))}
-        </BreadcrumbList>
-      </Breadcrumb>
+      <div className={cn("py-4", className)}>
+        <div className="container">
+          <nav
+            aria-label="breadcrumb"
+            className="inline-flex items-center px-4 sm:px-5 py-2.5 bg-card border border-border rounded-full shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_4px_6px_-2px_rgba(0,0,0,0.05)]"
+          >
+            <ol className="flex items-center space-x-1 sm:space-x-2">
+              {displaySegments.map((segment, index) => (
+                <li key={segment.path} className="flex items-center">
+                  {index === 0 ? (
+                    <Link
+                      to={segment.path}
+                      className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200"
+                    >
+                      <Home className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                      <span className="hidden sm:inline">{segment.label}</span>
+                    </Link>
+                  ) : segment.isLast ? (
+                    <span
+                      className="text-xs sm:text-sm font-semibold text-foreground tracking-tight"
+                      aria-current="page"
+                    >
+                      {segment.label}
+                    </span>
+                  ) : (
+                    <Link
+                      to={segment.path}
+                      className="text-xs sm:text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200"
+                    >
+                      {segment.label}
+                    </Link>
+                  )}
+                  {index < displaySegments.length - 1 && (
+                    <ChevronRight
+                      className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground/50 ml-1.5 sm:ml-2 flex-shrink-0"
+                      aria-hidden="true"
+                    />
+                  )}
+                </li>
+              ))}
+            </ol>
+
+            {/* Brand marker */}
+            <div className="ml-5 sm:ml-6 pl-5 sm:pl-6 border-l border-border hidden sm:block">
+              <span className="text-[10px] uppercase tracking-widest text-muted-foreground/70 font-bold">
+                Xpress Auto Detailing
+              </span>
+            </div>
+          </nav>
+        </div>
+      </div>
     </>
   );
 };
 
 export default AutoBreadcrumbs;
-
