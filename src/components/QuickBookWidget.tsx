@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, Zap, CheckCircle, Car, Truck, Bus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useHydrated } from "@/hooks/use-hydrated";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -39,14 +40,15 @@ const services: ServiceOption[] = [
 ];
 
 const QuickBookWidget = () => {
+  const hydrated = useHydrated();
+  const anim = (initial: Record<string, number>, transition?: Record<string, unknown>) =>
+    hydrated ? { initial, animate: { opacity: 1, y: 0 }, transition } : {};
   const [vehicle, setVehicle] = useState<VehicleSize>("sedan");
   const [selectedService, setSelectedService] = useState(2); // default to Complete
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.5 }}
+      {...anim({ opacity: 0, y: 20 }, { duration: 0.6, delay: 0.5 })}
       className="mt-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-5 max-w-xl"
     >
       {/* Step 1: Vehicle */}
@@ -106,8 +108,7 @@ const QuickBookWidget = () => {
             <AnimatePresence mode="wait">
               <motion.span
                 key={`${s.label}-${vehicle}`}
-                initial={{ opacity: 0, y: -5 }}
-                animate={{ opacity: 1, y: 0 }}
+                {...anim({ opacity: 0, y: -5 })}
                 exit={{ opacity: 0, y: 5 }}
                 className="text-primary font-bold text-sm sm:text-base"
               >
