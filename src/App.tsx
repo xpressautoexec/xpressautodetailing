@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, type ReactNode } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { AnimatePresence } from "framer-motion";
 import Index from "./pages/Index";
@@ -34,17 +34,26 @@ const MarineDetailing = lazy(() => import("./pages/MarineDetailing"));
 const PaintProtectionFilm = lazy(() => import("./pages/PaintProtectionFilm"));
 const WindowTinting = lazy(() => import("./pages/WindowTinting"));
 const PriceComparison = lazy(() => import("./pages/PriceComparison"));
+const ExteriorDetailing = lazy(() => import("./pages/ExteriorDetailing"));
+
+/* Dedicated, individually prerendered landing routes */
+const AutoDetailing = lazy(() => import("./pages/AutoDetailing"));
+const RVDetailing = lazy(() => import("./pages/RVDetailing"));
+const CeramicCoating = lazy(() => import("./pages/CeramicCoating"));
+const PaintCorrection = lazy(() => import("./pages/PaintCorrection"));
+const Reviews = lazy(() => import("./pages/Reviews"));
 
 const queryClient = new QueryClient();
 
-const AnimatedRoutes = () => {
+export const AnimatedRoutes = () => {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Index />} />
         <Route path="/interior-detailing" element={<InteriorDetailing />} />
-        
+        <Route path="/exterior-detailing" element={<ExteriorDetailing />} />
+
         <Route path="/complete-detailing" element={<CompleteDetailing />} />
         <Route path="/paint-ceramics" element={<PaintCeramics />} />
         <Route path="/corporate-fleet" element={<CorporateFleet />} />
@@ -62,32 +71,49 @@ const AnimatedRoutes = () => {
         <Route path="/add-ons" element={<AddOns />} />
         <Route path="/training" element={<Training />} />
         <Route path="/training/signup" element={<TrainingSignup />} />
-        
+
         <Route path="/windshield-ppf" element={<WindshieldPPF />} />
         <Route path="/monthly-plan" element={<MonthlyPlan />} />
         <Route path="/marine" element={<MarineDetailing />} />
         <Route path="/ppf" element={<PaintProtectionFilm />} />
         <Route path="/window-tinting" element={<WindowTinting />} />
         <Route path="/calgary-detailing-price-comparison" element={<PriceComparison />} />
+
+        {/* Dedicated landing routes */}
+        <Route path="/auto-detailing" element={<AutoDetailing />} />
+        <Route path="/rv-detailing" element={<RVDetailing />} />
+        <Route path="/ceramic-coating" element={<CeramicCoating />} />
+        <Route path="/paint-correction" element={<PaintCorrection />} />
+        <Route path="/reviews" element={<Reviews />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
   );
 };
 
+/** Providers shared by the browser entry and the prerender (SSR) entry. */
+export const AppProviders = ({ children }: { children: ReactNode }) => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      {children}
+    </TooltipProvider>
+  </QueryClientProvider>
+);
+
+export const RouteFallback = () => <div className="min-h-screen bg-brand-dark" />;
+
 const App = () => (
   <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Suspense fallback={<div className="min-h-screen bg-brand-dark" />}>
-            <AnimatedRoutes />
-          </Suspense>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <AppProviders>
+      <BrowserRouter>
+        <Suspense fallback={<RouteFallback />}>
+          <AnimatedRoutes />
+        </Suspense>
+      </BrowserRouter>
+    </AppProviders>
   </HelmetProvider>
 );
 
