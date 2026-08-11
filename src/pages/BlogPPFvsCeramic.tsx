@@ -85,14 +85,10 @@ const BlogPPFvsCeramic = () => (
         {/* Hero */}
         <header className="bg-brand-dark py-16 md:py-24">
           <div className="container max-w-3xl">
-            <nav aria-label="Breadcrumb" className="mb-6 text-primary-foreground/70 text-xs font-heading uppercase tracking-wider">
-              <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
-              <span className="mx-2">/</span>
-              <span>Paint Protection</span>
-            </nav>
             <h1 className="font-heading font-black text-3xl md:text-5xl uppercase text-primary-foreground mb-5">
               PPF vs Ceramic Coating for <span className="text-primary">Calgary Winters</span>
             </h1>
+
             <p className="text-primary-foreground/80 text-lg leading-relaxed">
               Six months of brine, mag chloride and gravel does two completely different kinds of damage to your paint.
               One product stops impacts, the other stops chemistry. Here's how to choose — or combine — them for
