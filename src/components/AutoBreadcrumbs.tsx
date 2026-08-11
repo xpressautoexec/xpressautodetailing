@@ -37,7 +37,13 @@ const ROUTE_LABELS: Record<string, string> = {
   "window-tinting": "Window Tinting",
   "calgary-detailing-price-comparison": "Calgary Detailing Price Comparison",
   "exterior-detailing": "Exterior Detailing",
+  "auto-detailing": "Auto Detailing",
+  "rv-detailing": "RV Detailing",
+  "ceramic-coating": "Ceramic Coating",
+  "paint-correction": "Paint Correction",
+  "reviews": "Reviews",
 };
+
 
 interface Props {
   className?: string;
