@@ -97,7 +97,24 @@ async function main() {
   }
 
   const template = readFileSync(TEMPLATE_PATH, "utf-8");
+
+  // Browser-only globals referenced at module scope by some client libraries.
+  if (typeof globalThis.localStorage === "undefined") {
+    const store = new Map();
+    globalThis.localStorage = {
+      getItem: (k) => (store.has(k) ? store.get(k) : null),
+      setItem: (k, v) => void store.set(k, String(v)),
+      removeItem: (k) => void store.delete(k),
+      clear: () => store.clear(),
+      key: (i) => [...store.keys()][i] ?? null,
+      get length() {
+        return store.size;
+      },
+    };
+  }
+
   const { render } = await import(pathToFileURL(SSR_ENTRY).href);
+
 
   let rendered = 0;
   for (const route of ROUTES) {
