@@ -10,16 +10,11 @@ interface Concern {
 }
 
 const concerns: Concern[] = [
-  { value: "interior", label: "My interior is dirty, stained or smells", to: "/detailing?tab=interior", result: "Interior Detailing packages" },
-  { value: "complete", label: "I want the whole car cleaned inside & out", to: "/detailing?tab=complete", result: "Complete Detailing packages" },
-  { value: "exterior", label: "The paint looks dull and dirty", to: "/detailing?tab=exterior", result: "Exterior Detailing packages" },
-  { value: "correction", label: "There are swirls, scratches or oxidation", to: "/paint-correction", result: "Paint Correction packages" },
-  { value: "ceramic", label: "I want long-term gloss & easier washing", to: "/ceramic-coating", result: "Ceramic Coating packages" },
-  { value: "ppf", label: "I'm worried about rock chips on the highway", to: "/ppf", result: "Paint Protection Film packages" },
-  { value: "tint", label: "Too much sun, heat or not enough privacy", to: "/window-tinting", result: "Window Tinting packages" },
-  { value: "marine", label: "My boat or pontoon needs work", to: "/marine", result: "Marine & Pontoon packages" },
-  { value: "rv", label: "My RV or trailer needs a detail", to: "/trailer-rv", result: "RV & Trailer packages" },
-  { value: "fleet", label: "I have work trucks or a company fleet", to: "/corporate-fleet", result: "Corporate Fleet options" },
+  { value: "interior", label: "Clean or restore my interior", to: "/detailing?tab=interior", result: "Interior Detailing packages" },
+  { value: "complete", label: "Detail the entire vehicle", to: "/detailing?tab=complete", result: "Complete Detailing packages" },
+  { value: "paint", label: "Improve or protect the paint", to: "/paint-correction", result: "Paint Correction and Protection options" },
+  { value: "rv-marine", label: "Detail an RV, trailer or boat", to: "/trailer-rv", result: "RV, Trailer and Marine services" },
+  { value: "fleet", label: "Care for work trucks or a fleet", to: "/corporate-fleet", result: "Commercial Fleet options" },
 ];
 
 const ConcernFinder = () => {
