@@ -9,12 +9,10 @@ import { AnimatePresence } from "framer-motion";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
-const InteriorDetailing = lazy(() => import("./pages/InteriorDetailing"));
+const Detailing = lazy(() => import("./pages/Detailing"));
 
-const CompleteDetailing = lazy(() => import("./pages/CompleteDetailing"));
 const PaintCeramics = lazy(() => import("./pages/PaintCeramics"));
-const CorporateFleet = lazy(() => import("./pages/CorporateFleet"));
-const GiftCards = lazy(() => import("./pages/GiftCards"));
+
 const Gallery = lazy(() => import("./pages/Gallery"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
