@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Star, Clock, Shield, Zap } from "lucide-react";
 import vanImage from "@/assets/xpress-van.png";
-import QuickBookWidget from "@/components/QuickBookWidget";
+import ConcernFinder from "@/components/ConcernFinder";
 import { useHydrated } from "@/hooks/use-hydrated";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
@@ -87,8 +87,8 @@ const HeroSection = () => {
             </a>
           </motion.div>
 
-          {/* Quick Book Widget */}
-          <QuickBookWidget />
+          {/* Concern-based package finder */}
+          <ConcernFinder />
 
         </div>
       </div>
