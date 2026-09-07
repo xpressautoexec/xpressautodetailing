@@ -145,7 +145,7 @@ const PaintCorrection = () => (
               { to: "/ceramic-coating", label: "Ceramic Coating" },
               { to: "/paint-ceramics", label: "Paint & Ceramics" },
               { to: "/ppf", label: "Paint Protection Film" },
-              { to: "/exterior-detailing", label: "Exterior Detailing" },
+              { to: "/detailing?tab=exterior", label: "Exterior Detailing" },
               { to: "/auto-detailing", label: "Auto Detailing" },
               { to: "/gallery", label: "Gallery" },
             ].map((link) => (

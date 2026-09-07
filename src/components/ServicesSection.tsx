@@ -18,7 +18,7 @@ const services = [
     title: "Complete Detailing",
     description: "Inside & out — a full refresh for your entire vehicle. Our #1 most booked service.",
     image: completeImg,
-    link: "/complete-detailing",
+    link: "/detailing?tab=complete",
     tag: "Most Popular",
   },
   {
@@ -67,7 +67,7 @@ const detailedServices = [
     title: "Interior Detailing",
     description: "Deep-clean every crevice, eliminate odours, remove stains, and restore your cabin to a like-new condition. Your steering wheel has 4× more bacteria than a toilet seat — we fix that.",
     image: interiorImg,
-    link: "/interior-detailing",
+    link: "/detailing?tab=interior",
     price: "From $169",
   },
   {
