@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
 
 const ROUTE_LABELS: Record<string, string> = {
   "/": "Home",
-  "interior-detailing": "Interior Detailing",
-  "complete-detailing": "Complete Detailing",
+  "detailing": "Car Detailing",
+
   "paint-ceramics": "Paint & Ceramics",
   "corporate-fleet": "Corporate Fleet",
   "gift-cards": "Gift Cards",
