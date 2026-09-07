@@ -66,43 +66,15 @@ const Index = () => {
         <Navbar />
         <AutoBreadcrumbs />
         <HeroSection />
-        <TrustStats />
-        <TrustBadges />
-        <BrandPartners />
-        <CompanyLogos />
+        <FeatureRow />
+        <ServicesSection />
         <HowItWorks />
         <GoogleReviewBadge />
-        <ServicesSection />
-
-        {/* Mid-page conversion break */}
-        <section className="py-8 bg-urgency">
-          <div className="container flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
-            <div className="flex items-center gap-2 text-urgency-foreground">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-urgency-foreground opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-urgency-foreground"></span>
-              </span>
-              <span className="font-heading font-bold text-sm uppercase tracking-wider">
-                Limited spots — Summer schedule filling fast
-              </span>
-            </div>
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-urgency font-heading font-bold uppercase tracking-wider text-xs px-6 py-2.5 rounded-lg hover:bg-white/90 transition-all group shadow-lg"
-            >
-              <Zap className="w-3.5 h-3.5" />
-              Book Now
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-            </a>
-          </div>
-        </section>
-
+        <BrandPartners />
         <AboutSection />
-        <AppShowcase />
         <ReviewsSection />
         <InstagramFeed />
+
 
 
         {/* Service Areas */}
