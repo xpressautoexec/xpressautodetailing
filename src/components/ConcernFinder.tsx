@@ -52,7 +52,7 @@ const ConcernFinder = () => {
           type="button"
           disabled={!selected}
           onClick={() => selected && navigate(selected.to)}
-          className="group inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-xl text-xs sm:text-sm transition-all hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="group inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-xl text-xs sm:text-sm whitespace-nowrap transition-all hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Show Packages
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
