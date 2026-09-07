@@ -23,10 +23,10 @@ const Footer = () => {
             <h4 className="font-heading font-bold text-primary-foreground uppercase tracking-wider text-sm mb-4">Services</h4>
             <div className="flex flex-col gap-2">
               {[
-                { label: "Interior Detailing", to: "/interior-detailing" },
-                { label: "Complete Detailing", to: "/complete-detailing" },
+                { label: "Interior Detailing", to: "/detailing?tab=interior" },
+                { label: "Complete Detailing", to: "/detailing?tab=complete" },
                 { label: "The Xpress Pass", to: "/monthly-plan" },
-                { label: "Add-Ons", to: "/add-ons" },
+                { label: "Add-Ons", to: "/detailing?tab=add-ons" },
                 { label: "Paint & Ceramics", to: "/paint-ceramics" },
                 { label: "Paint Protection Film", to: "/ppf" },
                 { label: "Window Tinting", to: "/window-tinting" },

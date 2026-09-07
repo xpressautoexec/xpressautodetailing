@@ -9,13 +9,13 @@ import { AnimatePresence } from "framer-motion";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
-const InteriorDetailing = lazy(() => import("./pages/InteriorDetailing"));
+const Detailing = lazy(() => import("./pages/Detailing"));
 
-const CompleteDetailing = lazy(() => import("./pages/CompleteDetailing"));
 const PaintCeramics = lazy(() => import("./pages/PaintCeramics"));
 const CorporateFleet = lazy(() => import("./pages/CorporateFleet"));
 const GiftCards = lazy(() => import("./pages/GiftCards"));
 const Gallery = lazy(() => import("./pages/Gallery"));
+
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPPFvsCeramic = lazy(() => import("./pages/BlogPPFvsCeramic"));
@@ -24,7 +24,6 @@ const RVRentalFleet = lazy(() => import("./pages/RVRentalFleet"));
 const RVPPF = lazy(() => import("./pages/RVPPF"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const WhyChooseUs = lazy(() => import("./pages/WhyChooseUs"));
-const AddOns = lazy(() => import("./pages/AddOns"));
 const Training = lazy(() => import("./pages/Training"));
 const TrainingSignup = lazy(() => import("./pages/TrainingSignup"));
 
@@ -34,7 +33,6 @@ const MarineDetailing = lazy(() => import("./pages/MarineDetailing"));
 const PaintProtectionFilm = lazy(() => import("./pages/PaintProtectionFilm"));
 const WindowTinting = lazy(() => import("./pages/WindowTinting"));
 const PriceComparison = lazy(() => import("./pages/PriceComparison"));
-const ExteriorDetailing = lazy(() => import("./pages/ExteriorDetailing"));
 
 /* Dedicated, individually prerendered landing routes */
 const AutoDetailing = lazy(() => import("./pages/AutoDetailing"));
@@ -51,10 +49,11 @@ export const AnimatedRoutes = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Index />} />
-        <Route path="/interior-detailing" element={<InteriorDetailing />} />
-        <Route path="/exterior-detailing" element={<ExteriorDetailing />} />
-
-        <Route path="/complete-detailing" element={<CompleteDetailing />} />
+        <Route path="/detailing" element={<Detailing />} />
+        <Route path="/interior-detailing" element={<Navigate to="/detailing?tab=interior" replace />} />
+        <Route path="/exterior-detailing" element={<Navigate to="/detailing?tab=exterior" replace />} />
+        <Route path="/complete-detailing" element={<Navigate to="/detailing?tab=complete" replace />} />
+        <Route path="/add-ons" element={<Navigate to="/detailing?tab=add-ons" replace />} />
         <Route path="/paint-ceramics" element={<PaintCeramics />} />
         <Route path="/corporate-fleet" element={<CorporateFleet />} />
         <Route path="/gift-cards" element={<GiftCards />} />
@@ -68,7 +67,6 @@ export const AnimatedRoutes = () => {
         <Route path="/terms-conditions" element={<Navigate to="/terms-of-service" replace />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/why-choose-us" element={<WhyChooseUs />} />
-        <Route path="/add-ons" element={<AddOns />} />
         <Route path="/training" element={<Training />} />
         <Route path="/training/signup" element={<TrainingSignup />} />
 

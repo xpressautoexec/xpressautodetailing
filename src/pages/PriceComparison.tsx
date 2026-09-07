@@ -28,21 +28,21 @@ const priceRows = [
     ours: "$169.99",
     shop: "$150 – $250",
     note: "Steam clean, extraction, leather conditioning. SUV +$50, 3-row +$70.",
-    link: "/interior-detailing",
+    link: "/detailing?tab=interior",
   },
   {
     service: "Interior Deep Clean (sedan)",
     ours: "$199.99",
     shop: "$220 – $320",
     note: "Adds full shampoo extraction and a free interior protectant treatment.",
-    link: "/interior-detailing",
+    link: "/detailing?tab=interior",
   },
   {
     service: "Complete Detail — interior + exterior",
     ours: "$269.00",
     shop: "$280 – $400",
     note: "Foam pre-wash, clay bar decon, wax, full interior reset. ~2.58–3.08 hrs.",
-    link: "/complete-detailing",
+    link: "/detailing?tab=complete",
   },
   {
     service: "1-Step Enhancement + 1 Yr Ceramic",
@@ -297,7 +297,7 @@ const PriceComparison = () => (
             </div>
             <p className="text-muted-foreground text-sm text-center mt-6">
               Full list on the{" "}
-              <Link to="/add-ons" className="text-primary font-semibold hover:underline">
+              <Link to="/detailing?tab=add-ons" className="text-primary font-semibold hover:underline">
                 add-ons page
               </Link>
               .
@@ -391,7 +391,7 @@ const PriceComparison = () => (
                 title: "Selling or trading in",
                 pick: "Complete Showroom Reset — $269",
                 desc: "A full inside-and-out reset before photos and appraisal. Clients regularly report $1,500–$3,000 more on their sale price.",
-                to: "/complete-detailing",
+                to: "/detailing?tab=complete",
               },
               {
                 icon: ShieldCheck,

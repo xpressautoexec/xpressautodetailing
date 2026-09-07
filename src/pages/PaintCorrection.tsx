@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
-import FloatingContact from "@/components/FloatingContact";
 import ChatWidget from "@/components/ChatWidget";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 
@@ -146,7 +145,7 @@ const PaintCorrection = () => (
               { to: "/ceramic-coating", label: "Ceramic Coating" },
               { to: "/paint-ceramics", label: "Paint & Ceramics" },
               { to: "/ppf", label: "Paint Protection Film" },
-              { to: "/exterior-detailing", label: "Exterior Detailing" },
+              { to: "/detailing?tab=exterior", label: "Exterior Detailing" },
               { to: "/auto-detailing", label: "Auto Detailing" },
               { to: "/gallery", label: "Gallery" },
             ].map((link) => (
@@ -169,7 +168,6 @@ const PaintCorrection = () => (
       <Footer />
       <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
-      <FloatingContact />
       <ChatWidget />
     </div>
   </PageTransition>

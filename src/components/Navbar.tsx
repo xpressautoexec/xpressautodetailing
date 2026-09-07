@@ -16,17 +16,7 @@ interface DesktopNavItem {
 }
 
 const desktopLinks: DesktopNavItem[] = [
-  { label: "Home", href: "/" },
-  { label: "Why Choose Us", href: "/why-choose-us" },
-  {
-    label: "Detailing",
-    children: [
-      { label: "Interior Detailing", href: "/interior-detailing" },
-      { label: "Complete Detailing", href: "/complete-detailing" },
-      { label: "The Xpress Pass", href: "/monthly-plan" },
-      { label: "Add-Ons", href: "/add-ons" },
-    ],
-  },
+  { label: "Detailing", href: "/detailing" },
   {
     label: "Protection",
     children: [
@@ -36,11 +26,11 @@ const desktopLinks: DesktopNavItem[] = [
       { label: "Windshield PPF", href: "/windshield-ppf" },
     ],
   },
+  { label: "Marine", href: "/marine" },
   {
-    label: "Marine & RV",
+    label: "RV & Trailer",
     children: [
-      { label: "Marine & Pontoon Detailing", href: "/marine" },
-      { label: "Trailer & RV Detailing", href: "/trailer-rv" },
+      { label: "RV & Trailer Detailing", href: "/trailer-rv" },
       { label: "RV Rental Fleet Care", href: "/rv-rental-fleet" },
     ],
   },
@@ -49,10 +39,12 @@ const desktopLinks: DesktopNavItem[] = [
     label: "More",
     children: [
       { label: "Gallery", href: "/gallery" },
+      { label: "Reviews", href: "/reviews" },
+      { label: "The Xpress Pass", href: "/monthly-plan" },
       { label: "Gift Cards", href: "/gift-cards" },
-      { label: "Contact Us", href: "/contact" },
+      { label: "Training", href: "/training" },
       { label: "Blog", href: "/blog" },
-      { label: "Terms & Conditions", href: "/terms-of-service" },
+      { label: "Contact", href: "/contact" },
     ],
   },
 ];
@@ -65,18 +57,7 @@ interface MobileNavItem {
 
 const mobileLinks: MobileNavItem[] = [
   { label: "Home", href: "/" },
-  {
-    label: "Detailing",
-    href: "#",
-    children: [
-      { label: "Interior Detailing", href: "/interior-detailing" },
-      
-      { label: "Complete Detailing", href: "/complete-detailing" },
-      { label: "The Xpress Pass", href: "/monthly-plan" },
-      { label: "Add-Ons", href: "/add-ons" },
-      { label: "Trailer & RV", href: "/trailer-rv" },
-    ],
-  },
+  { label: "Detailing", href: "/detailing" },
   {
     label: "Protection",
     href: "#",
@@ -87,29 +68,31 @@ const mobileLinks: MobileNavItem[] = [
       { label: "Windshield PPF", href: "/windshield-ppf" },
     ],
   },
+  { label: "Marine", href: "/marine" },
   {
-    label: "Marine & RV",
+    label: "RV & Trailer",
     href: "#",
     children: [
-      { label: "Marine & Pontoon Detailing", href: "/marine" },
-      { label: "Trailer & RV Detailing", href: "/trailer-rv" },
+      { label: "RV & Trailer Detailing", href: "/trailer-rv" },
       { label: "RV Rental Fleet Care", href: "/rv-rental-fleet" },
     ],
   },
-  { label: "Corporate & Fleet", href: "/corporate-fleet" },
+  { label: "Fleet", href: "/corporate-fleet" },
   {
     label: "More",
     href: "#",
     children: [
-      { label: "Gift Cards", href: "/gift-cards" },
-      { label: "Why Choose Us", href: "/why-choose-us" },
       { label: "Gallery", href: "/gallery" },
-      { label: "Contact Us", href: "/contact" },
+      { label: "Reviews", href: "/reviews" },
+      { label: "The Xpress Pass", href: "/monthly-plan" },
+      { label: "Gift Cards", href: "/gift-cards" },
+      { label: "Training", href: "/training" },
       { label: "Blog", href: "/blog" },
-      { label: "Terms & Conditions", href: "/terms-of-service" },
+      { label: "Contact", href: "/contact" },
     ],
   },
 ];
+
 
 const TopBar = () => (
   <div className="bg-primary text-primary-foreground text-sm py-2">

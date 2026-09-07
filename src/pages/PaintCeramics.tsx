@@ -1,5 +1,4 @@
 import PageTransition from "@/components/PageTransition";
-import CeramicPromoPopup from "@/components/CeramicPromoPopup";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
@@ -500,7 +499,6 @@ const PaintCeramics = () => (
     </section>
 
     <Footer />
-    <CeramicPromoPopup />
   </div></PageTransition>
 );
 

@@ -21,6 +21,7 @@ const SSR_ENTRY = resolve(SSR_DIST, "entry-server.js");
 /** Every public route that should get its own static HTML file. */
 const ROUTES = [
   "/",
+  "/detailing",
   "/auto-detailing",
   "/rv-detailing",
   "/ceramic-coating",
@@ -28,9 +29,6 @@ const ROUTES = [
   "/gallery",
   "/reviews",
   "/contact",
-  "/interior-detailing",
-  "/exterior-detailing",
-  "/complete-detailing",
   "/paint-ceramics",
   "/ppf",
   "/windshield-ppf",
@@ -41,7 +39,6 @@ const ROUTES = [
   "/rv-rental-fleet",
   "/corporate-fleet",
   "/monthly-plan",
-  "/add-ons",
   "/gift-cards",
   "/why-choose-us",
   "/training",

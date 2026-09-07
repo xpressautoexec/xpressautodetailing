@@ -28,17 +28,8 @@ const HeroSection = () => {
 
       <div className="container relative z-10 px-6 sm:px-8 py-12">
         <div className="max-w-2xl mx-auto text-center md:text-left md:mx-0">
-          {/* Urgency badge */}
-          <motion.div
-            {...anim({ opacity: 0, y: -10 }, { duration: 0.5 })}
-            className="inline-flex items-center gap-2 bg-urgency text-urgency-foreground font-heading font-bold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full mb-4"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-urgency-foreground opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-urgency-foreground"></span>
-            </span>
-            Only 3 Spots Left This Week
-          </motion.div>
+
+
 
           <motion.h1
             {...anim({ opacity: 0, y: 30 }, { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] })}

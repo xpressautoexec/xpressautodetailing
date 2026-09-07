@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
-import FloatingContact from "@/components/FloatingContact";
 import ChatWidget from "@/components/ChatWidget";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 
@@ -17,21 +16,21 @@ const packages = [
     price: "$169",
     time: "~2 hrs",
     points: ["Full vacuum, doors and trunk", "Steam-cleaned touch points", "Interior glass, plastics and vents", "Light stain treatment"],
-    href: "/interior-detailing",
+    href: "/detailing?tab=interior",
   },
   {
     name: "Exterior Restore",
     price: "$149",
     time: "~2 hrs",
     points: ["Two-bucket hand wash", "Iron and tar decontamination", "Clay bar as required", "6-month spray sealant"],
-    href: "/exterior-detailing",
+    href: "/detailing?tab=exterior",
   },
   {
     name: "Complete Showroom Reset",
     price: "$269",
     time: "~3.5 hrs",
     points: ["Everything interior and exterior", "Wheel wells, jambs and grilles", "Sealant on paint and glass", "Best value per hour"],
-    href: "/complete-detailing",
+    href: "/detailing?tab=complete",
   },
 ];
 
@@ -201,13 +200,13 @@ const AutoDetailing = () => (
           </h2>
           <div className="flex flex-wrap gap-3">
             {[
-              { to: "/interior-detailing", label: "Interior Detailing" },
-              { to: "/exterior-detailing", label: "Exterior Detailing" },
-              { to: "/complete-detailing", label: "Complete Detailing" },
+              { to: "/detailing?tab=interior", label: "Interior Detailing" },
+              { to: "/detailing?tab=exterior", label: "Exterior Detailing" },
+              { to: "/detailing?tab=complete", label: "Complete Detailing" },
               { to: "/ceramic-coating", label: "Ceramic Coating" },
               { to: "/paint-correction", label: "Paint Correction" },
               { to: "/monthly-plan", label: "The Xpress Pass" },
-              { to: "/add-ons", label: "Add-Ons" },
+              { to: "/detailing?tab=add-ons", label: "Add-Ons" },
               { to: "/calgary-detailing-price-comparison", label: "Calgary Price Comparison" },
             ].map((link) => (
               <Link
@@ -229,7 +228,6 @@ const AutoDetailing = () => (
       <Footer />
       <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
-      <FloatingContact />
       <ChatWidget />
     </div>
   </PageTransition>
