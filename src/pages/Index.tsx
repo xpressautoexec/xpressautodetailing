@@ -19,13 +19,9 @@ import BrandPartners from "@/components/BrandPartners";
 import CompanyLogos from "@/components/CompanyLogos";
 import GoogleReviewBadge from "@/components/GoogleReviewBadge";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
-import StickyBookingBar from "@/components/StickyBookingBar";
-import SocialProofToast from "@/components/SocialProofToast";
-import FloatingContact from "@/components/FloatingContact";
 import ChatWidget from "@/components/ChatWidget";
 import SEO, { localBusinessJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
-import HomePromoPopup from "@/components/HomePromoPopup";
 import InstagramFeed from "@/components/InstagramFeed";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
@@ -239,11 +235,7 @@ const Index = () => {
         <Footer />
         <div className="h-24 lg:hidden" />
         <StickyMobileCTA />
-        <StickyBookingBar />
-        <SocialProofToast />
-        <FloatingContact />
         <ChatWidget />
-        <HomePromoPopup />
       </div>
     </PageTransition>
   );

@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
-import FloatingContact from "@/components/FloatingContact";
 import ChatWidget from "@/components/ChatWidget";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 
@@ -196,7 +195,6 @@ const CeramicCoating = () => (
       <Footer />
       <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
-      <FloatingContact />
       <ChatWidget />
     </div>
   </PageTransition>

@@ -1,5 +1,4 @@
 import PageTransition from "@/components/PageTransition";
-import SeasonalPromoPopup from "@/components/SeasonalPromoPopup";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import GalleryCarousel from "@/components/GalleryCarousel";
@@ -247,7 +246,6 @@ const CompleteDetailing = () => (
     </section>
 
     <Footer />
-    <SeasonalPromoPopup />
   </div></PageTransition>
 );
 

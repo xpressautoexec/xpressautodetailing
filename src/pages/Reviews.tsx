@@ -6,7 +6,6 @@ import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import GoogleReviewBadge from "@/components/GoogleReviewBadge";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
-import FloatingContact from "@/components/FloatingContact";
 import ChatWidget from "@/components/ChatWidget";
 import SEO from "@/components/SEO";
 
@@ -151,7 +150,6 @@ const Reviews = () => (
       <Footer />
       <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
-      <FloatingContact />
       <ChatWidget />
     </div>
   </PageTransition>

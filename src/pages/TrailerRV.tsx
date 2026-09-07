@@ -1,5 +1,4 @@
 import PageTransition from "@/components/PageTransition";
-import RVPromoPopup from "@/components/RVPromoPopup";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
@@ -806,7 +805,6 @@ const TrailerRV = () => {
       </section>
 
       <Footer />
-      <RVPromoPopup />
     </div></PageTransition>
   );
 };
