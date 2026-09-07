@@ -100,6 +100,13 @@
 }
 
 @layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-brand-blue-glow;
   }
