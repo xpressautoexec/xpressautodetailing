@@ -51,3 +51,10 @@ More whitespace between sections, consistent section padding, one accent color f
 - New `src/pages/Detailing.tsx` with tab state driven by `?tab=` / hash; old routes become `<Navigate replace>`
 - Update `Navbar.tsx` desktop + mobile arrays, `Footer.tsx`, `sitemap.xml`, breadcrumb `ROUTE_LABELS`
 - SEO preserved: canonical on `/detailing`, JSON-LD kept per service section
+
+## 7. Look & feel from the references
+
+- Dark, photographic hero with a single quiet booking strip underneath — one primary action, no stacked buttons or countdowns.
+- Calm white feature row on the dark section edge: four circular soft-teal icons with a short label and one line of text (rounded card, generous padding, subtle shadow).
+- Restrained accent: the existing brand blue/teal only. Retire the orange "urgency" banners, orange pills and orange countdown strips everywhere they appear (hero, package cards, sticky bars, service pages). The `--urgency` token is dropped from use so nothing can reintroduce it.
+- Buttons: one solid pill for the primary action, one outlined pill for the secondary. No third variant.
