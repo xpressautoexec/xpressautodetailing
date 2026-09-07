@@ -12,8 +12,10 @@ import NotFound from "./pages/NotFound";
 const Detailing = lazy(() => import("./pages/Detailing"));
 
 const PaintCeramics = lazy(() => import("./pages/PaintCeramics"));
-
+const CorporateFleet = lazy(() => import("./pages/CorporateFleet"));
+const GiftCards = lazy(() => import("./pages/GiftCards"));
 const Gallery = lazy(() => import("./pages/Gallery"));
+
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPPFvsCeramic = lazy(() => import("./pages/BlogPPFvsCeramic"));
