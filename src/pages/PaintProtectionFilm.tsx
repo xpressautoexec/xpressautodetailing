@@ -96,17 +96,21 @@ const faqs = [
   },
 ];
 
-const PaintProtectionFilm = () => (
+const PaintProtectionFilm = () => {
+  const [film, setFilm] = useState<(typeof TINT_FILMS)[number]["id"]>("carbon");
+  const activeFilm = TINT_FILMS.find((f) => f.id === film)!;
+
+  return (
   <PageTransition>
     <div className="min-h-screen pb-16 lg:pb-0">
       <SEO
-        title="Paint Protection Film Calgary | PPF"
-        description="Paint protection film in Calgary. Partial front, full front, track pack and full vehicle coverage with a 10-year no-yellow, no-peel warranty."
+        title="PPF & Window Tint Calgary | Xpress"
+        description="Paint protection film and window tinting in Calgary. PPF coverage with a 10-year no-yellow warranty, carbon and ceramic IR tint at one price."
         canonical="/protection/ppf"
         jsonLd={[
           buildServiceJsonLd(
-            "Paint Protection Film",
-            "Self-healing paint protection film installation in Calgary and area.",
+            "Paint Protection Film & Window Tinting",
+            "Self-healing paint protection film and carbon/ceramic window tint installation in Calgary and area.",
             "/protection/ppf",
           ),
           buildFAQJsonLd(faqs),
@@ -114,7 +118,7 @@ const PaintProtectionFilm = () => (
       />
       <Navbar />
       <AutoBreadcrumbs />
-      <ServicePageHero title="Paint Protection Film" image={ppfHero} ctaType="call" />
+      <ServicePageHero title="PPF & Window Tint" image={ppfHero} ctaType="call" />
 
       {/* Intro */}
       <section className="py-14 sm:py-20 bg-background">

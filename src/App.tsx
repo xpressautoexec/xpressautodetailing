@@ -31,7 +31,6 @@ const WindshieldPPF = lazy(() => import("./pages/WindshieldPPF"));
 const MonthlyPlan = lazy(() => import("./pages/MonthlyPlan"));
 const MarineDetailing = lazy(() => import("./pages/MarineDetailing"));
 const PaintProtectionFilm = lazy(() => import("./pages/PaintProtectionFilm"));
-const WindowTinting = lazy(() => import("./pages/WindowTinting"));
 const PriceComparison = lazy(() => import("./pages/PriceComparison"));
 
 /* Dedicated, individually prerendered landing routes */
