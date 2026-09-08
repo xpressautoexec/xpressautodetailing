@@ -1,102 +1,90 @@
-import { Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Phone, Mail, Clock } from "lucide-react";
+import { FOOTER_SERVICES, FOOTER_COMPANY, NAP } from "@/data/copy";
 
-const BOOKING_URL = "https://xpressauto.fieldd.co/";
-
-const Footer = () => {
-  return (
-    <footer className="bg-brand-dark border-t border-brand-dark-surface py-12 relative">
-      <div className="container">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-          {/* Brand */}
-          <div className="col-span-2 md:col-span-1 text-center md:text-left">
-            <Link to="/" className="inline-flex items-center justify-center md:justify-start" aria-label="Xpress Auto Detailing home">
-              <img src="/xpress-logo-white.png" alt="Xpress Auto & RV Detailing" className="h-14 w-auto object-contain" loading="lazy" />
-            </Link>
-            <p className="text-brand-gray text-sm mt-3 leading-relaxed">
-              Convenient, affordable car detailing that comes to you. Mobile detailing made simple.
-            </p>
-          </div>
-
-          {/* Services */}
-          <div className="text-center md:text-left">
-            <h4 className="font-heading font-bold text-primary-foreground uppercase tracking-wider text-sm mb-4">Services</h4>
-            <div className="flex flex-col gap-2">
-              {[
-                { label: "Interior Detailing", to: "/detailing?tab=interior" },
-                { label: "Complete Detailing", to: "/detailing?tab=complete" },
-                { label: "The Xpress Pass", to: "/monthly-plan" },
-                { label: "Add-Ons", to: "/detailing?tab=add-ons" },
-                { label: "Paint & Ceramics", to: "/paint-ceramics" },
-                { label: "Paint Protection Film", to: "/ppf" },
-                { label: "Window Tinting", to: "/window-tinting" },
-                { label: "Windshield PPF", to: "/windshield-ppf" },
-                { label: "Marine & Pontoon Detailing", to: "/marine" },
-                { label: "Trailer & RV Detailing", to: "/trailer-rv" },
-                { label: "RV Rental Fleet Care", to: "/rv-rental-fleet" },
-                { label: "Corporate & Fleet", to: "/corporate-fleet" },
-              ].map((link) => (
-                <Link key={link.label} to={link.to} className="text-brand-gray text-sm hover:text-primary transition-colors">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className="text-center md:text-left">
-            <h4 className="font-heading font-bold text-primary-foreground uppercase tracking-wider text-sm mb-4">Company</h4>
-            <div className="flex flex-col gap-2">
-              {[
-                { label: "Why Choose Us", to: "/why-choose-us" },
-                { label: "Gift Cards", to: "/gift-cards" },
-                { label: "Gallery", to: "/gallery" },
-                { label: "Blog", to: "/blog" },
-                { label: "Training", to: "/training" },
-                { label: "Contact Us", to: "/contact" },
-                { label: "Terms & Conditions", to: "/terms-of-service" },
-              ].map((link) => (
-                <Link key={link.label} to={link.to} className="text-brand-gray text-sm hover:text-primary transition-colors">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Contact */}
-          <div className="text-center md:text-left">
-            <h4 className="font-heading font-bold text-primary-foreground uppercase tracking-wider text-sm mb-4">Contact Us</h4>
-            <div className="flex flex-col gap-3 items-center md:items-start">
-              <a href="tel:5875004523" className="text-brand-gray text-sm hover:text-primary transition-colors flex items-center gap-2">
-                <Phone className="w-4 h-4" /> 587-500-4523
-              </a>
-              <a href="mailto:support@xpressautodetail.ca" className="text-brand-gray text-sm hover:text-primary transition-colors flex items-center gap-2">
-                <Mail className="w-4 h-4" /> support@xpressautodetail.ca
-              </a>
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Book a car detailing appointment online"
-                className="mt-2 inline-block bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-2.5 rounded text-sm text-center hover:bg-brand-blue-deep transition-colors w-fit"
-              >
-                Book Now
-              </a>
-            </div>
-          </div>
+const Footer = () => (
+  <footer className="bg-brand-dark border-t border-white/10 pt-14 pb-24 lg:pb-10">
+    <div className="container">
+      <div className="grid gap-10 md:grid-cols-4">
+        <div>
+          <Link to="/" aria-label="Xpress Auto & RV Detailing home">
+            <img
+              src="/xpress-logo-white.png"
+              alt="Xpress Auto & RV Detailing"
+              className="h-12 w-auto object-contain"
+              loading="lazy"
+            />
+          </Link>
+          <p className="mt-4 text-sm leading-relaxed text-brand-gray">
+            Mobile auto, RV and marine detailing. Our vans carry their own water and power, so we work
+            wherever your vehicle sits.
+          </p>
+          <p className="mt-4 text-sm text-brand-gray">
+            Serving {NAP.areas.join(", ")}.
+          </p>
         </div>
 
-        <div className="border-t border-brand-dark-surface pt-6 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-brand-gray text-xs">
-            © {new Date().getFullYear()} Xpress Auto Detailing. All rights reserved.
-          </p>
-          <Link to="/terms-of-service" className="text-brand-gray text-xs hover:text-primary transition-colors">
-            Terms & Conditions
-          </Link>
+        <nav aria-label="Services">
+          <h2 className="font-heading text-sm font-bold uppercase tracking-wider text-white">Services</h2>
+          <ul className="mt-4 space-y-2">
+            {FOOTER_SERVICES.map((l) => (
+              <li key={l.href + l.label}>
+                <Link to={l.href} className="text-sm text-brand-gray hover:text-primary transition-colors">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <nav aria-label="Company">
+          <h2 className="font-heading text-sm font-bold uppercase tracking-wider text-white">Company</h2>
+          <ul className="mt-4 space-y-2">
+            {FOOTER_COMPANY.map((l) => (
+              <li key={l.href}>
+                <Link to={l.href} className="text-sm text-brand-gray hover:text-primary transition-colors">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link to="/why-choose-us" className="text-sm text-brand-gray hover:text-primary transition-colors">
+                Why Choose Us
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2 className="font-heading text-sm font-bold uppercase tracking-wider text-white">Contact</h2>
+          <ul className="mt-4 space-y-3">
+            <li>
+              <a href={NAP.phoneHref} className="flex items-center gap-2 text-sm text-brand-gray hover:text-primary transition-colors">
+                <Phone className="w-4 h-4" aria-hidden="true" /> {NAP.phone}
+              </a>
+            </li>
+            <li>
+              <a href={NAP.emailHref} className="flex items-center gap-2 text-sm text-brand-gray hover:text-primary transition-colors">
+                <Mail className="w-4 h-4" aria-hidden="true" /> {NAP.email}
+              </a>
+            </li>
+            <li className="flex items-start gap-2 text-sm text-brand-gray">
+              <Clock className="w-4 h-4 mt-0.5 shrink-0" aria-hidden="true" /> {NAP.hours}
+            </li>
+          </ul>
         </div>
       </div>
-    </footer>
-  );
-};
+
+      <div className="mt-12 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <p className="text-xs text-brand-gray">
+          © {new Date().getFullYear()} {NAP.name}. All rights reserved.
+        </p>
+        <Link to="/terms-of-service" className="text-xs text-brand-gray hover:text-primary transition-colors">
+          Terms of Service
+        </Link>
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;
