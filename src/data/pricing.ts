@@ -79,7 +79,7 @@ export const AUTO_PACKAGES: AutoPackage[] = [
     duration: "8 hrs",
     premium: true,
     includes: [
-      "Everything in Showroom Reset",
+      "Everything in Deep Clean & Seal",
       "1-step machine paint correction",
       "1-year ceramic coating",
       "Coating registered",
