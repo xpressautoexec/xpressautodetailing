@@ -263,11 +263,91 @@ const PaintProtectionFilm = () => {
         </div>
       </section>
 
+      {/* Window Tinting */}
+      <section id="tint" className="py-14 sm:py-20 bg-foreground scroll-mt-24">
+        <div className="container max-w-4xl px-4 sm:px-6">
+          <ScrollReveal>
+            <div className="text-center mb-10">
+              <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-background">
+                Window Tinting
+              </h2>
+              <p className="mt-4 mx-auto max-w-2xl text-sm sm:text-base text-background/60">
+                Carbon or ceramic IR — the price is the same either way, so pick on performance, not budget.
+                Carbon for looks, privacy and UV. Ceramic IR when you want the cabin to actually stay cool.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div
+            role="tablist"
+            aria-label="Film type"
+            className="mx-auto mb-8 flex w-fit gap-1 rounded-full bg-background/10 p-1"
+          >
+            {TINT_FILMS.map((f) => (
+              <button
+                key={f.id}
+                role="tab"
+                aria-selected={film === f.id}
+                onClick={() => setFilm(f.id)}
+                className={`rounded-full px-5 sm:px-7 py-2.5 text-sm font-semibold transition-colors ${
+                  film === f.id
+                    ? "bg-primary text-primary-foreground"
+                    : "text-background/70 hover:text-background"
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="mx-auto mb-10 max-w-2xl text-center">
+            <p className="text-sm sm:text-base text-background/70">{activeFilm.blurb}</p>
+            <ul className="mt-4 flex flex-wrap justify-center gap-2">
+              {activeFilm.points.map((p) => (
+                <li
+                  key={p}
+                  className="rounded-full border border-background/20 px-4 py-1.5 text-xs font-semibold text-background/70"
+                >
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <ul className="divide-y divide-background/10 overflow-hidden rounded-2xl border border-background/15 bg-background/[0.04]">
+            {TINT.map((t) => (
+              <li key={t.name} className="flex items-center justify-between gap-4 p-4 sm:px-6">
+                <span className="text-sm sm:text-base text-background/85">{t.name}</span>
+                <span className="font-heading font-black text-lg sm:text-xl text-background tabular-nums">
+                  {money(t.price)}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <p className="mt-6 text-center text-xs text-background/50">
+            Prices are for standard vehicles. Steep rear glass, coupes with wraparound windows and commercial
+            vans are quoted after we see the car. Lifetime warranty against bubbling, peeling and colour change.
+          </p>
+
+          <div className="mt-8 text-center">
+            <a
+              href={`tel:${PHONE.replace(/-/g, "")}`}
+              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              <Phone className="h-4 w-4" aria-hidden="true" />
+              Book your tint
+            </a>
+          </div>
+        </div>
+      </section>
+
       <Footer />
       <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
     </div>
   </PageTransition>
-);
+  );
+};
 
 export default PaintProtectionFilm;
