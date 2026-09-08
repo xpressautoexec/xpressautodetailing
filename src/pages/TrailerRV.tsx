@@ -194,27 +194,54 @@ const TrailerRV = () => (
         </div>
       </section>
 
-      {/* Related */}
-      <section className="pb-4 bg-background">
-        <div className="container max-w-3xl px-6 flex flex-wrap justify-center gap-3">
-          <Link
-            to="/rv-trailer/ppf"
-            className="rounded-full border border-border px-5 py-2.5 text-sm font-semibold text-foreground hover:border-primary"
-          >
-            RV Paint Protection Film
-          </Link>
-          <Link
-            to="/rv-trailer/rental-fleet"
-            className="rounded-full border border-border px-5 py-2.5 text-sm font-semibold text-foreground hover:border-primary"
-          >
-            RV Rental Fleet Care
-          </Link>
-          <Link
-            to="/marine"
-            className="rounded-full border border-border px-5 py-2.5 text-sm font-semibold text-foreground hover:border-primary"
-          >
-            Marine &amp; Pontoon
-          </Link>
+      {/* Featured: RV PPF + Fleet */}
+      <section className="py-14 sm:py-20 bg-foreground">
+        <div className="container max-w-4xl px-4 sm:px-6">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-background text-center mb-10">
+            More for your RV
+          </h2>
+          <div className="grid gap-5 sm:grid-cols-2">
+            <Link
+              to="/rv-trailer/ppf"
+              className="group flex flex-col rounded-2xl border border-primary/40 bg-background/[0.06] p-7 transition-colors hover:border-primary hover:bg-background/[0.09]"
+            >
+              <h3 className="font-heading font-black text-xl uppercase text-background">
+                RV Paint Protection Film
+              </h3>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-background/65">
+                Protect the front cap and leading edges from gravel and highway sandblasting. Priced per
+                coverage zone with a 10-year warranty.
+              </p>
+              <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-primary">
+                See RV PPF pricing
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </span>
+            </Link>
+            <Link
+              to="/rv-trailer/rental-fleet"
+              className="group flex flex-col rounded-2xl border border-primary/40 bg-background/[0.06] p-7 transition-colors hover:border-primary hover:bg-background/[0.09]"
+            >
+              <h3 className="font-heading font-black text-xl uppercase text-background">
+                RV Rental Fleet Care
+              </h3>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-background/65">
+                Turnover cleaning and scheduled care for rental fleets. Fully customizable programs — every
+                quote is built around your units and your calendar.
+              </p>
+              <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-primary">
+                Get a fleet quote
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </span>
+            </Link>
+          </div>
+          <div className="mt-8 text-center">
+            <Link
+              to="/marine"
+              className="text-sm font-semibold text-background/60 underline-offset-4 hover:text-background hover:underline"
+            >
+              Boat or pontoon? See Marine &amp; Pontoon detailing
+            </Link>
+          </div>
         </div>
       </section>
 

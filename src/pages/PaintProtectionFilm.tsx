@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
@@ -9,7 +10,24 @@ import ScrollReveal from "@/components/ScrollReveal";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ppfHero from "@/assets/ppf-hero.jpg";
 import { Check, Phone, ArrowRight } from "lucide-react";
-import { AUTO_PPF, PPF_UPCHARGE, PHONE, money } from "@/data/pricing";
+import { AUTO_PPF, PPF_UPCHARGE, TINT, PHONE, money } from "@/data/pricing";
+
+const TINT_FILMS = [
+  {
+    id: "carbon",
+    label: "Carbon",
+    blurb:
+      "A solid, fade-resistant carbon film. Cuts glare, blocks UV and never turns purple. The right choice if you mainly want privacy and a clean look.",
+    points: ["99% UV rejection", "No signal interference", "Lifetime no-fade warranty"],
+  },
+  {
+    id: "ceramic",
+    label: "Ceramic IR",
+    blurb:
+      "Nano-ceramic film with infrared rejection. Same shade, far less heat — the cabin stays noticeably cooler in July and the A/C works less.",
+    points: ["Up to 90% infrared heat rejection", "99% UV rejection", "Highest clarity, no haze"],
+  },
+] as const;
 
 const coverage: Record<string, string[]> = {
   "Partial Front": [
@@ -78,17 +96,21 @@ const faqs = [
   },
 ];
 
-const PaintProtectionFilm = () => (
+const PaintProtectionFilm = () => {
+  const [film, setFilm] = useState<(typeof TINT_FILMS)[number]["id"]>("carbon");
+  const activeFilm = TINT_FILMS.find((f) => f.id === film)!;
+
+  return (
   <PageTransition>
     <div className="min-h-screen pb-16 lg:pb-0">
       <SEO
-        title="Paint Protection Film Calgary | PPF"
-        description="Paint protection film in Calgary. Partial front, full front, track pack and full vehicle coverage with a 10-year no-yellow, no-peel warranty."
+        title="PPF & Window Tint Calgary | Xpress"
+        description="Paint protection film and window tinting in Calgary. PPF coverage with a 10-year no-yellow warranty, carbon and ceramic IR tint at one price."
         canonical="/protection/ppf"
         jsonLd={[
           buildServiceJsonLd(
-            "Paint Protection Film",
-            "Self-healing paint protection film installation in Calgary and area.",
+            "Paint Protection Film & Window Tinting",
+            "Self-healing paint protection film and carbon/ceramic window tint installation in Calgary and area.",
             "/protection/ppf",
           ),
           buildFAQJsonLd(faqs),
@@ -96,7 +118,7 @@ const PaintProtectionFilm = () => (
       />
       <Navbar />
       <AutoBreadcrumbs />
-      <ServicePageHero title="Paint Protection Film" image={ppfHero} ctaType="call" />
+      <ServicePageHero title="PPF & Window Tint" image={ppfHero} ctaType="call" />
 
       {/* Intro */}
       <section className="py-14 sm:py-20 bg-background">
@@ -241,11 +263,91 @@ const PaintProtectionFilm = () => (
         </div>
       </section>
 
+      {/* Window Tinting */}
+      <section id="tint" className="py-14 sm:py-20 bg-foreground scroll-mt-24">
+        <div className="container max-w-4xl px-4 sm:px-6">
+          <ScrollReveal>
+            <div className="text-center mb-10">
+              <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-background">
+                Window Tinting
+              </h2>
+              <p className="mt-4 mx-auto max-w-2xl text-sm sm:text-base text-background/60">
+                Carbon or ceramic IR — the price is the same either way, so pick on performance, not budget.
+                Carbon for looks, privacy and UV. Ceramic IR when you want the cabin to actually stay cool.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div
+            role="tablist"
+            aria-label="Film type"
+            className="mx-auto mb-8 flex w-fit gap-1 rounded-full bg-background/10 p-1"
+          >
+            {TINT_FILMS.map((f) => (
+              <button
+                key={f.id}
+                role="tab"
+                aria-selected={film === f.id}
+                onClick={() => setFilm(f.id)}
+                className={`rounded-full px-5 sm:px-7 py-2.5 text-sm font-semibold transition-colors ${
+                  film === f.id
+                    ? "bg-primary text-primary-foreground"
+                    : "text-background/70 hover:text-background"
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="mx-auto mb-10 max-w-2xl text-center">
+            <p className="text-sm sm:text-base text-background/70">{activeFilm.blurb}</p>
+            <ul className="mt-4 flex flex-wrap justify-center gap-2">
+              {activeFilm.points.map((p) => (
+                <li
+                  key={p}
+                  className="rounded-full border border-background/20 px-4 py-1.5 text-xs font-semibold text-background/70"
+                >
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <ul className="divide-y divide-background/10 overflow-hidden rounded-2xl border border-background/15 bg-background/[0.04]">
+            {TINT.map((t) => (
+              <li key={t.name} className="flex items-center justify-between gap-4 p-4 sm:px-6">
+                <span className="text-sm sm:text-base text-background/85">{t.name}</span>
+                <span className="font-heading font-black text-lg sm:text-xl text-background tabular-nums">
+                  {money(t.price)}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <p className="mt-6 text-center text-xs text-background/50">
+            Prices are for standard vehicles. Steep rear glass, coupes with wraparound windows and commercial
+            vans are quoted after we see the car. Lifetime warranty against bubbling, peeling and colour change.
+          </p>
+
+          <div className="mt-8 text-center">
+            <a
+              href={`tel:${PHONE.replace(/-/g, "")}`}
+              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              <Phone className="h-4 w-4" aria-hidden="true" />
+              Book your tint
+            </a>
+          </div>
+        </div>
+      </section>
+
       <Footer />
       <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
     </div>
   </PageTransition>
-);
+  );
+};
 
 export default PaintProtectionFilm;
