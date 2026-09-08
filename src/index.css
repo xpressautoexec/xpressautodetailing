@@ -152,6 +152,20 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+  .num {
+    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+  .prose-cap {
+    max-width: 68ch;
+  }
+  .shell {
+    max-width: 1120px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-brand-blue-glow;
   }
