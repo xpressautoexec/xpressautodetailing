@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import HeroSection from "@/components/HeroSection";
 import FeatureRow from "@/components/FeatureRow";
+import TrustBar from "@/components/TrustBar";
 import HowItWorks from "@/components/HowItWorks";
 import AboutSection from "@/components/AboutSection";
 import AppShowcase from "@/components/AppShowcase";
@@ -63,6 +64,7 @@ const Index = () => {
         <Navbar />
         <AutoBreadcrumbs />
         <HeroSection />
+        <TrustBar />
         <FeatureRow />
         <BrandPartners />
         <CompanyLogos />
