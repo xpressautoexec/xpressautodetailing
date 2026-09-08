@@ -76,13 +76,14 @@ export const localBusinessJsonLd = {
   url: "https://xpressautodetail.ca",
   telephone: "+1-587-500-4523",
   email: "support@xpressautodetail.ca",
-  description: "Calgary's mobile car detailing service. Mobile detailing for cars, trucks, RVs, trailers, fleets — interior, exterior, paint correction, ceramic coating and oxidation removal. We come to you across Calgary, Airdrie, Cochrane and Chestermere.",
+  description: "Calgary's mobile car detailing service. Mobile detailing for cars, trucks, RVs, trailers, fleets — interior, exterior, paint correction, ceramic coating and oxidation removal. We come to you across Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County.",
   areaServed: [
     { "@type": "City", name: "Calgary" },
     { "@type": "City", name: "Airdrie" },
     { "@type": "City", name: "Cochrane" },
     { "@type": "City", name: "Chestermere" },
     { "@type": "City", name: "Okotoks" },
+    { "@type": "AdministrativeArea", name: "Rocky View County" },
   ],
   address: {
     "@type": "PostalAddress",

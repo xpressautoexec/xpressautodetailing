@@ -323,7 +323,7 @@ export const TRAINING = [
 export const GIFT_CARD_TIERS = [50, 100, 250, 379, 500];
 
 // ---------- CONSTANTS ----------
-export const SERVICE_AREAS = ["Calgary", "Airdrie", "Cochrane", "Chestermere"];
+export const SERVICE_AREAS = ["Calgary", "Airdrie", "Cochrane", "Chestermere", "Okotoks", "Rocky View County"];
 export const PHONE = "587-500-4523";
 export const EMAIL = "support@xpressautodetail.ca";
 export const BOOKING_URL = "https://xpressauto.fieldd.co/";

@@ -93,7 +93,7 @@ const mobileWins = [
   {
     icon: MapPin,
     title: "We work where you already are",
-    desc: "Driveway, condo parkade, office lot, acreage in Springbank. We service Calgary, Airdrie, Chestermere and Cochrane with our own water and power.",
+    desc: "Driveway, condo parkade, office lot, acreage in Springbank. We service Calgary, Airdrie, Chestermere, Cochrane, Okotoks and Rocky View County with our own water and power.",
   },
   {
     icon: DollarSign,
@@ -136,7 +136,7 @@ const faqs = [
   },
   {
     q: "Do you charge extra to travel in Calgary?",
-    a: "No travel fee within Calgary, Airdrie, Chestermere and Cochrane. Call 587-500-4523 if you're further out and we'll confirm before booking.",
+    a: "No travel fee within Calgary, Airdrie, Chestermere, Cochrane, Okotoks and Rocky View County. Call 587-500-4523 if you're further out and we'll confirm before booking.",
   },
 ];
 
@@ -435,7 +435,7 @@ const PriceComparison = () => (
             </h2>
             <ul className="grid sm:grid-cols-2 gap-3">
               {[
-                "Travel within Calgary, Airdrie, Chestermere & Cochrane",
+                "Travel within Calgary, Airdrie, Chestermere, Cochrane, Okotoks & Rocky View County",
                 "Our own water and power supply",
                 "Professional-grade P&S, Ducan and System X products",
                 "Published size surcharges — no surprises on arrival",

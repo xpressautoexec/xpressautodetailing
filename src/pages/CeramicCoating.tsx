@@ -187,7 +187,7 @@ const CeramicCoating = () => (
           </div>
           <p className="flex items-center gap-2 text-sm text-muted-foreground mt-8">
             <MapPin className="w-4 h-4 text-primary" />
-            Coatings installed for clients in Calgary, Airdrie, Chestermere, Cochrane and Okotoks.
+            Coatings installed for clients in Calgary, Airdrie, Chestermere, Cochrane, Okotoks and Rocky View County.
           </p>
         </div>
       </section>

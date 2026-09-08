@@ -27,7 +27,7 @@ const vehicles = [
 ];
 
 const faqs = [
-  { q: "Do you detail RVs at storage lots?", a: "Yes. We regularly service RVs at storage compounds, seasonal campgrounds and private acreages around Calgary, Airdrie, Cochrane and Chestermere. We bring our own water and power, so no site hookups are required." },
+  { q: "Do you detail RVs at storage lots?", a: "Yes. We regularly service RVs at storage compounds, seasonal campgrounds and private acreages around Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County. We bring our own water and power, so no site hookups are required." },
   { q: "How much does RV detailing cost?", a: "RV work is priced per foot because a 21-foot trailer and a 40-foot Class A are entirely different jobs. Exterior wash and sealant packages start in the lower per-foot tiers, while full oxidation removal with a ceramic coating sits at the top. We quote after seeing photos or the unit itself." },
   { q: "Can badly oxidized fibreglass actually be restored?", a: "In most cases, yes. Oxidation is a degraded surface layer. Machine compounding removes it and exposes sound gel coat underneath. Units that have been left uncoated for many seasons may need two correction stages." },
   { q: "How long does an RV detail take?", a: "A wash and sealant on a mid-size trailer is typically a single day. Full oxidation removal with a coating on a large motorhome can take two to three days." },
@@ -157,7 +157,7 @@ const RVDetailing = () => (
           </div>
           <p className="flex items-center gap-2 text-sm text-muted-foreground mt-8">
             <MapPin className="w-4 h-4 text-primary" />
-            Serving RV storage lots and campgrounds across Calgary, Airdrie, Chestermere, Cochrane and Okotoks.
+            Serving RV storage lots and campgrounds across Calgary, Airdrie, Chestermere, Cochrane, Okotoks and Rocky View County.
           </p>
         </div>
       </section>

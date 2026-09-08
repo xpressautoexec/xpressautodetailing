@@ -264,7 +264,7 @@ const RVPPF = () => {
           jsonLd={[
             buildServiceJsonLd(
               "RV Paint Protection Film (PPF)",
-              "Premium paint protection film installation for RVs, motorhomes, travel trailers and 5th wheels in Calgary, Airdrie, Cochrane and Chestermere.",
+              "Premium paint protection film installation for RVs, motorhomes, travel trailers and 5th wheels in Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County.",
               "/trailer-rv/ppf"
             ),
             buildFAQJsonLd(faqs),
@@ -692,7 +692,7 @@ const RVPPF = () => {
               <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
             <p className="text-background/50 text-xs mt-4 uppercase tracking-wider font-semibold">
-              Calgary · Airdrie · Cochrane · Chestermere
+              Calgary · Airdrie · Cochrane · Chestermere · Okotoks · Rocky View County
             </p>
           </div>
         </section>

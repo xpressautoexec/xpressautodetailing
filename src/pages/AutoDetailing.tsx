@@ -53,7 +53,7 @@ const faqs = [
   { q: "Do you need access to water and power?", a: "No. Our mobile unit carries its own water supply and generator, so we can detail your vehicle at a house, condo parkade, or job site with no hookups." },
   { q: "How long does a full auto detail take in Calgary?", a: "An interior-only detail runs roughly 2 to 2.75 hours. A complete interior and exterior detail runs roughly 3.5 to 4 hours depending on vehicle size and condition." },
   { q: "Do you charge more for SUVs and trucks?", a: "Yes. Pricing is tiered by sedan/coupe, SUV/pickup and 3-row SUV/minivan because the surface area and interior volume differ significantly." },
-  { q: "Which areas do you serve?", a: "Calgary, Airdrie, Chestermere, Cochrane, Okotoks and the surrounding communities in Southern Alberta." },
+  { q: "Which areas do you serve?", a: "Calgary, Airdrie, Chestermere, Cochrane, Okotoks, Rocky View County and the surrounding communities in Southern Alberta." },
 ];
 
 const AutoDetailing = () => (
@@ -78,7 +78,7 @@ const AutoDetailing = () => (
       <section className="bg-brand-dark py-16 md:py-24">
         <div className="container max-w-4xl">
           <p className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-primary mb-4">
-            Calgary · Airdrie · Chestermere · Cochrane
+            Calgary · Airdrie · Chestermere · Cochrane · Okotoks · Rocky View County
           </p>
           <h1 className="font-heading font-black text-3xl md:text-5xl uppercase text-primary-foreground mb-5">
             Auto Detailing in Calgary <span className="text-primary">That Comes To You</span>
@@ -220,7 +220,7 @@ const AutoDetailing = () => (
           </div>
           <p className="flex items-center gap-2 text-sm text-muted-foreground mt-8">
             <MapPin className="w-4 h-4 text-primary" />
-            Serving Calgary, Airdrie, Chestermere, Cochrane and Okotoks.
+            Serving Calgary, Airdrie, Chestermere, Cochrane, Okotoks and Rocky View County.
           </p>
         </div>
       </section>

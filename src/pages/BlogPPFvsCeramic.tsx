@@ -92,7 +92,7 @@ const BlogPPFvsCeramic = () => (
             <p className="text-primary-foreground/80 text-lg leading-relaxed">
               Six months of brine, mag chloride and gravel does two completely different kinds of damage to your paint.
               One product stops impacts, the other stops chemistry. Here's how to choose — or combine — them for
-              Calgary, Airdrie, Cochrane and Chestermere roads.
+              Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County roads.
             </p>
             <p className="text-primary-foreground/60 text-xs font-heading uppercase tracking-wider mt-6">
               Published July 30, 2026 · Xpress Auto Detailing
