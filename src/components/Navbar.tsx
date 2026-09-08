@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
-import { NAV_LINKS, NAV_CTA_LINKS } from "@/data/copy";
+import { NAV_LINKS } from "@/data/copy";
 import { BOOKING_URL, PHONE } from "@/data/pricing";
 
 const telHref = `tel:${PHONE.replace(/-/g, "")}`;
@@ -96,23 +96,6 @@ const Navbar = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          {NAV_CTA_LINKS.map((cta) => {
-            const ctaActive = isActive(pathname, cta.href);
-            return (
-              <Link
-                key={cta.href}
-                to={cta.href}
-                aria-current={ctaActive ? "page" : undefined}
-                className={`rounded-full px-4 py-2 text-xs font-semibold transition-colors ${
-                  ctaActive
-                    ? "bg-white text-brand-dark"
-                    : "bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground ring-1 ring-primary/30"
-                }`}
-              >
-                {cta.label}
-              </Link>
-            );
-          })}
           <a href={telHref} className="flex items-center gap-2 text-sm font-medium text-white hover:text-primary transition-colors">
             <Phone className="w-4 h-4" aria-hidden="true" />
             {PHONE}
@@ -140,19 +123,6 @@ const Navbar = () => {
       {isOpen && (
         <nav aria-label="Mobile" className="lg:hidden border-t border-white/10 bg-brand-dark">
           <div className="container flex flex-col py-3">
-            <div className="grid grid-cols-2 gap-2 mb-3">
-              {NAV_CTA_LINKS.map((cta) => (
-                <Link
-                  key={cta.href}
-                  to={cta.href}
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground"
-                >
-                  {cta.label}
-                </Link>
-              ))}
-            </div>
-
             {NAV_LINKS.map((link: NavLink) => {
               const active = isActive(pathname, link.href);
               const hasChildren = !!link.children?.length;

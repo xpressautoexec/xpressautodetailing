@@ -51,8 +51,8 @@ export const NAV_LINKS = [
     label: "Protection",
     href: "/protection/ppf",
     children: [
-      { label: "Paint Protection Film", href: "/protection/ppf" },
-      { label: "Window Tinting", href: "/protection/window-tint" },
+      { label: "PPF & Window Tint", href: "/protection/ppf" },
+      { label: "Windshield PPF", href: "/protection/windshield-ppf" },
     ],
   },
   { label: "Detailing", href: "/detailing" },
@@ -71,12 +71,6 @@ export const NAV_LINKS = [
       { label: "Terms of Service", href: "/terms-of-service" },
     ],
   },
-];
-
-/** Prominent nav CTAs shown beside the main menu. */
-export const NAV_CTA_LINKS = [
-  { label: "RV Fleet Care", href: "/rv-trailer/rental-fleet" },
-  { label: "PPF", href: "/protection/ppf" },
 ];
 
 export const SERVICE_AREA_LINKS = [
