@@ -61,7 +61,7 @@ const AutoDetailing = () => (
     <div className="min-h-screen pb-16 lg:pb-0">
       <SEO
         title="Auto Detailing Calgary — Mobile Car Detailing"
-        description="Professional mobile auto detailing in Calgary. Interior, exterior and complete packages from $149. We bring water, power and pro-grade products to your door."
+        description="Professional mobile auto detailing in Calgary. Upkeep, Inside & Out and Deep Clean & Seal packages from $119. We bring water, power and pro-grade products to your door."
         canonical="/auto-detailing"
         jsonLd={[
           buildServiceJsonLd(

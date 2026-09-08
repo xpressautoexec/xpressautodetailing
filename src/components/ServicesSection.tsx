@@ -68,14 +68,14 @@ const detailedServices = [
     description: "Deep-clean every crevice, eliminate odours, remove stains, and restore your cabin to a like-new condition. Your steering wheel has 4× more bacteria than a toilet seat — we fix that.",
     image: interiorImg,
     link: "/detailing?tab=interior",
-    price: "From $169",
+    price: "From $119",
   },
   {
     title: "Paint Correction",
     description: "Remove swirl marks, scratches, and oxidation with our meticulous multi-stage polishing process. Restore clarity and depth to your paint permanently.",
     image: paintImg,
     link: "/paint-ceramics",
-    price: "From $299",
+    price: "From $549",
   },
 ];
 
