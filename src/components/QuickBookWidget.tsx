@@ -22,19 +22,19 @@ interface ServiceOption {
 
 const services: ServiceOption[] = [
   {
-    label: "Interior — Fresh Start",
-    base: { sedan: "$169.99", small_suv: "$219.99", large_suv: "$239.99" },
-    time: "~1.83–2.33 hrs",
+    label: "Upkeep",
+    base: { sedan: "$119", small_suv: "$139", large_suv: "$149" },
+    time: "45 min",
   },
   {
-    label: "Interior — Deep Clean + Shield",
-    base: { sedan: "$199.99", small_suv: "$249.99", large_suv: "$269.99" },
-    time: "~2.33–2.83 hrs",
+    label: "Inside & Out",
+    base: { sedan: "$229", small_suv: "$279", large_suv: "$309" },
+    time: "2.5–3 hrs",
   },
   {
-    label: "Complete Showroom Reset",
-    base: { sedan: "$269.00", small_suv: "$329.00", large_suv: "$349.00" },
-    time: "~3.33–3.83 hrs",
+    label: "Deep Clean & Seal",
+    base: { sedan: "$379", small_suv: "$429", large_suv: "$459" },
+    time: "3.5–4 hrs",
     popular: true,
   },
 ];

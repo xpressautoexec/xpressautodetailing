@@ -24,71 +24,64 @@ const PHONE = "587-500-4523";
 
 const priceRows = [
   {
-    service: "Interior Detail (sedan)",
-    ours: "$169.99",
-    shop: "$150 – $250",
-    note: "Steam clean, extraction, leather conditioning. SUV +$50, 3-row +$70.",
-    link: "/detailing?tab=interior",
+    service: "Upkeep (sedan)",
+    ours: "$119",
+    shop: "$120 – $180",
+    note: "Hand wash, wheels, glass and interior tidy. 45 minutes. SUV +$20, 3-row +$30.",
+    link: "/detailing",
   },
   {
-    service: "Interior Deep Clean (sedan)",
-    ours: "$199.99",
+    service: "Inside & Out (sedan)",
+    ours: "$229",
     shop: "$220 – $320",
-    note: "Adds full shampoo extraction and a free interior protectant treatment.",
-    link: "/detailing?tab=interior",
+    note: "Full interior and exterior reset — steam, jambs, leather wipe-down. SUV +$50, 3-row +$80.",
+    link: "/detailing",
   },
   {
-    service: "Complete Detail — interior + exterior",
-    ours: "$269.00",
-    shop: "$280 – $400",
-    note: "Foam pre-wash, clay bar decon, wax, full interior reset. ~2.58–3.08 hrs.",
-    link: "/detailing?tab=complete",
+    service: "Deep Clean & Seal (sedan)",
+    ours: "$379",
+    shop: "$380 – $550",
+    note: "Full extraction, salt removal, leather conditioning and 6-month ceramic sealant. SUV +$50, 3-row +$80.",
+    link: "/detailing",
   },
   {
-    service: "1-Step Enhancement + 1 Yr Ceramic",
-    ours: "$474.99",
-    shop: "$500 – $700",
-    note: "Machine gloss enhancement sealed with a 1-year ceramic.",
-    link: "/paint-ceramics",
-  },
-  {
-    service: "2-Step Correction + 5 Yr Ceramic",
-    ours: "$849.99",
+    service: "Correct & Coat (sedan)",
+    ours: "$899",
     shop: "$900 – $1,400",
-    note: "Menzerna two-stage correction plus 5-year ceramic protection.",
-    link: "/paint-ceramics",
+    note: "Deep Clean & Seal plus 1-step machine correction and a registered 1-year ceramic coating.",
+    link: "/detailing",
   },
   {
-    service: "System X 9-Year Graphene Coating",
-    ours: "Custom quote",
-    shop: "$1,500 – $3,000+",
-    note: "Authorized-installer graphene coating with a 9-year manufacturer warranty.",
+    service: "Ceramic Coating Packages",
+    ours: "$549 – $1,499",
+    shop: "$700 – $3,000+",
+    note: "1-year, 5-year or 9-year System X graphene. Certified System X, Gtechniq and Gyeon installer.",
     link: "/paint-ceramics",
   },
   {
     service: "Paint Protection Film (PPF)",
-    ours: "Custom quote",
+    ours: "$999 – $5,999",
     shop: "$900 – $6,000+",
-    note: "XPEL and 3M film — partial front, full front, track pack or full body.",
+    note: "XPEL and 3M film — partial front, full front, track pack or full body. 10-year warranty.",
     link: "/ppf",
   },
   {
     service: "Window Tinting",
-    ours: "Custom quote",
+    ours: "$119 – $629",
     shop: "$250 – $900",
-    note: "Carbon or ceramic IR film, priced by coverage and vehicle.",
+    note: "Carbon or ceramic IR at the same price, priced by coverage. Lifetime warranty.",
     link: "/window-tinting",
   },
 ];
 
 const addOnRows = [
-  { name: "Pet Hair Removal", price: "$55" },
-  { name: "Ozone Odour Elimination", price: "$75" },
-  { name: "Headlight Restoration", price: "$80" },
-  { name: "Ceramic Spray Sealant Upgrade", price: "$110" },
-  { name: "Wheel Ceramic Coating", price: "$120 / wheel" },
-  { name: "All Glass Ceramic Coating", price: "$230" },
-  { name: "Interior Ceramic Coating", price: "$350" },
+  { name: "Pet Hair Removal (light / moderate / heavy)", price: "$45 / $75 / $115" },
+  { name: "Strong Odour Removal", price: "$85" },
+  { name: "Headlight Restoration", price: "$79" },
+  { name: "Ceramic Sealant Upgrade", price: "$110" },
+  { name: "Clay Bar Treatment", price: "$120" },
+  { name: "Engine Bay Detail", price: "$50" },
+  { name: "Excessively Soiled Interior", price: "$135" },
 ];
 
 const mobileWins = [
@@ -123,7 +116,7 @@ const shopWins = [
 const faqs = [
   {
     q: "How much does car detailing cost in Calgary?",
-    a: "Most Calgary detailers price a full interior detail between $150 and $250 for a sedan, and a complete interior-plus-exterior detail between $280 and $400. Our published mobile pricing starts at $169.99 for an interior detail and $269 for the Complete Showroom Reset, with size surcharges of $50–$80 for SUVs, trucks and 3-row vehicles.",
+    a: "Most Calgary detailers price a full interior-and-exterior detail between $220 and $400 for a sedan. Our published mobile pricing is $119 for Upkeep, $229 for Inside & Out and $379 for Deep Clean & Seal, with size surcharges of $20–$80 for SUVs, trucks and 3-row vehicles.",
   },
   {
     q: "Is mobile detailing more expensive than a detailing shop?",
@@ -131,7 +124,7 @@ const faqs = [
   },
   {
     q: "Why do SUVs and trucks cost more to detail?",
-    a: "More carpet, more glass, more panels and deeper crevices — a 3-row SUV can take an extra hour of labour and noticeably more product. We publish those surcharges up front rather than adjusting the price on arrival: $50–$60 for SUVs and trucks, $70–$80 for 3-row SUVs and minivans.",
+    a: "More carpet, more glass, more panels and deeper crevices — a 3-row SUV can take an extra hour of labour and noticeably more product. We publish those surcharges up front rather than adjusting the price on arrival: $20–$100 for SUVs and trucks, $30–$180 for 3-row SUVs and minivans depending on the package.",
   },
   {
     q: "What is the cheapest way to keep a car clean in Calgary year-round?",
@@ -266,8 +259,8 @@ const PriceComparison = () => (
               </table>
             </div>
             <p className="text-muted-foreground text-xs mt-4">
-              Sedan pricing shown. Size surcharges: SUVs and trucks +$50–$150,
-              3-row SUVs and minivans +$70–$200 depending on the package.
+              Sedan pricing shown. Size surcharges: SUVs and trucks +$20–$150,
+              3-row SUVs and minivans +$30–$200 depending on the package.
             </p>
           </ScrollReveal>
         </div>
@@ -389,9 +382,9 @@ const PriceComparison = () => (
               {
                 icon: Sparkles,
                 title: "Selling or trading in",
-                pick: "Complete Showroom Reset — $269",
+                pick: "Deep Clean & Seal — $379",
                 desc: "A full inside-and-out reset before photos and appraisal. Clients regularly report $1,500–$3,000 more on their sale price.",
-                to: "/detailing?tab=complete",
+                to: "/detailing",
               },
               {
                 icon: ShieldCheck,

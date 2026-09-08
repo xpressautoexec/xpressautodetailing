@@ -24,7 +24,7 @@ const FILMS = [
   {
     id: "ceramic",
     label: "Ceramic IR",
-    multiplier: 1.45,
+    multiplier: 1,
     blurb:
       "Nano-ceramic film with infrared rejection. Same shade, far less heat — the cabin stays noticeably cooler in July and the A/C works less.",
     points: ["Up to 90% infrared heat rejection", "99% UV rejection", "Highest clarity, no haze"],
@@ -83,11 +83,11 @@ const WindowTinting = () => {
           <div className="container max-w-3xl px-6 text-center">
             <ScrollReveal>
               <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-5">
-                Pick your film. Prices update.
+                Pick your film. One price.
               </h2>
               <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-                Two films, same clean install. Carbon for looks, privacy and UV. Ceramic IR when you want the
-                cabin to actually stay cool.
+                Carbon or ceramic IR — the price is the same either way, so pick on performance, not budget.
+                Carbon for looks, privacy and UV. Ceramic IR when you want the cabin to actually stay cool.
               </p>
             </ScrollReveal>
           </div>

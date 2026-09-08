@@ -12,25 +12,25 @@ const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const packages = [
   {
-    name: "Interior Fresh Start",
-    price: "$169",
-    time: "~2 hrs",
-    points: ["Full vacuum, doors and trunk", "Steam-cleaned touch points", "Interior glass, plastics and vents", "Light stain treatment"],
-    href: "/detailing?tab=interior",
+    name: "Upkeep",
+    price: "$119",
+    time: "45 min",
+    points: ["Exterior hand wash, high-foam", "Wheels, tires and arches", "Glass in and out, streak-free", "Full interior vacuum and dash wipe-down"],
+    href: "/detailing",
   },
   {
-    name: "Exterior Restore",
-    price: "$149",
-    time: "~2 hrs",
-    points: ["Two-bucket hand wash", "Iron and tar decontamination", "Clay bar as required", "6-month spray sealant"],
-    href: "/detailing?tab=exterior",
+    name: "Inside & Out",
+    price: "$229",
+    time: "2.5–3 hrs",
+    points: ["Everything in Upkeep", "Steam clean of vents and touchpoints", "Door jambs, inside and out", "Leather wipe-down and deodorise"],
+    href: "/detailing",
   },
   {
-    name: "Complete Showroom Reset",
-    price: "$269",
-    time: "~3.5 hrs",
-    points: ["Everything interior and exterior", "Wheel wells, jambs and grilles", "Sealant on paint and glass", "Best value per hour"],
-    href: "/detailing?tab=complete",
+    name: "Deep Clean & Seal",
+    price: "$379",
+    time: "3.5–4 hrs",
+    points: ["Everything in Inside & Out", "Carpet and seat shampoo with hot-water extraction", "Salt stain removal", "Ceramic spray sealant on all paint — up to 6 months"],
+    href: "/detailing",
   },
 ];
 
@@ -61,7 +61,7 @@ const AutoDetailing = () => (
     <div className="min-h-screen pb-16 lg:pb-0">
       <SEO
         title="Auto Detailing Calgary — Mobile Car Detailing"
-        description="Professional mobile auto detailing in Calgary. Interior, exterior and complete packages from $149. We bring water, power and pro-grade products to your door."
+        description="Professional mobile auto detailing in Calgary. Upkeep, Inside & Out and Deep Clean & Seal packages from $119. We bring water, power and pro-grade products to your door."
         canonical="/auto-detailing"
         jsonLd={[
           buildServiceJsonLd(

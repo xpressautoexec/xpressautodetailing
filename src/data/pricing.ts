@@ -28,8 +28,8 @@ export interface AutoPackage {
 export const AUTO_PACKAGES: AutoPackage[] = [
   {
     id: "maintain",
-    name: "Xpress Maintain",
-    tagline: "Keep it clean between details",
+    name: "Upkeep",
+    tagline: "For the car that's already been detailed properly and you want to keep it that way.",
     duration: "45 min",
     memberOnly: true,
     includes: [
@@ -43,8 +43,8 @@ export const AUTO_PACKAGES: AutoPackage[] = [
   },
   {
     id: "refresh",
-    name: "Xpress Refresh",
-    tagline: "Full interior and exterior in one visit",
+    name: "Inside & Out",
+    tagline: "For a car that's been lived in for a few months and needs a proper reset — not a wash.",
     duration: "2.5–3 hrs",
     includes: [
       "Everything in Maintain",
@@ -54,12 +54,12 @@ export const AUTO_PACKAGES: AutoPackage[] = [
       "Exterior hand wash & dry",
       "Tire dressing",
     ],
-    price: { sedan: 229, suv: 279, minivan: 299 },
+    price: { sedan: 229, suv: 279, minivan: 309 },
   },
   {
     id: "showroom",
-    name: "Xpress Showroom Reset",
-    tagline: "Deep clean inside, sealed outside",
+    name: "Deep Clean & Seal",
+    tagline: "For a Calgary winter car: salt on the carpets, something spilled in the back, paint unprotected.",
     duration: "3.5–4 hrs",
     popular: true,
     includes: [
@@ -74,12 +74,12 @@ export const AUTO_PACKAGES: AutoPackage[] = [
   },
   {
     id: "restore",
-    name: "Xpress Restore",
-    tagline: "Showroom Reset plus corrected, coated paint",
+    name: "Correct & Coat",
+    tagline: "For someone who wants the paint fixed, not just cleaned — and protected for a year, not a season.",
     duration: "8 hrs",
     premium: true,
     includes: [
-      "Everything in Showroom Reset",
+      "Everything in Deep Clean & Seal",
       "1-step machine paint correction",
       "1-year ceramic coating",
       "Coating registered",
@@ -250,6 +250,13 @@ export const PET_HAIR_TIERS = [
   { label: "Heavy — matted, seats + trunk", price: 115 },
 ];
 
+// ---------- CONDITION ADJUSTMENTS (chosen by the customer at booking) ----------
+export const CONDITION_TIERS = [
+  { label: "Normal use", price: 0 },
+  { label: "Kids, pets or a work truck", price: 75 },
+  { label: "It's rough — be honest with us", price: 135 },
+];
+
 // ---------- XPRESS PASS ----------
 export const XPRESS_PASS = [
   {
@@ -258,7 +265,7 @@ export const XPRESS_PASS = [
     frequency: "Every month",
     discount: 20,
     popular: true,
-    service: "Xpress Maintain",
+    service: "Upkeep",
     memberPrice: { sedan: 95.2, suv: 111.2, minivan: 119.2 },
   },
   {
@@ -266,15 +273,15 @@ export const XPRESS_PASS = [
     name: "Refresh",
     frequency: "Every 2 months",
     discount: 15,
-    service: "Xpress Refresh",
-    memberPrice: { sedan: 194.65, suv: 237.15, minivan: 254.15 },
+    service: "Inside & Out",
+    memberPrice: { sedan: 194.65, suv: 237.15, minivan: 262.65 },
   },
   {
     id: "restore",
     name: "Restore",
     frequency: "Every 3 months",
     discount: 12,
-    service: "Xpress Showroom Reset",
+    service: "Deep Clean & Seal",
     memberPrice: { sedan: 333.52, suv: 377.52, minivan: 403.92 },
   },
 ];

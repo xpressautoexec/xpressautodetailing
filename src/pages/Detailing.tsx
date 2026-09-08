@@ -22,11 +22,11 @@ const detailingFAQs = [
   },
   {
     q: "How long does a detail take?",
-    a: "Xpress Maintain is about 45 minutes, Refresh 2.5–3 hours, Showroom Reset 3.5–4 hours, and Restore is a full 8-hour day.",
+    a: "Upkeep is about 45 minutes, Inside & Out 2.5–3 hours, Deep Clean & Seal 3.5–4 hours, and Correct & Coat is a full 8-hour day.",
   },
   {
     q: "Which package should I book?",
-    a: "If the car is generally clean, book Refresh. If it hasn't been detailed in a year, or there are stains, salt or pet hair, book the Showroom Reset. If the paint is swirled and you want it protected, book Restore.",
+    a: "If the car is generally clean, book Inside & Out. If it hasn't been detailed in a year, or there are stains, salt or pet hair, book Deep Clean & Seal. If the paint is swirled and you want it protected, book Correct & Coat.",
   },
   {
     q: "Do I have to be there?",
