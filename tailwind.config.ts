@@ -86,7 +86,22 @@ export default {
           DEFAULT: "hsl(var(--success))",
           foreground: "hsl(var(--success-foreground))",
         },
+        electric: {
+          DEFAULT: "hsl(var(--electric))",
+          2: "hsl(var(--electric-2))",
+          soft: "hsl(var(--electric-soft))",
+        },
+        ink: {
+          DEFAULT: "hsl(var(--ink))",
+          2: "hsl(var(--ink-2))",
+        },
+        "muted-ink": "hsl(var(--muted-ink))",
+        line: "hsl(var(--line))",
+        surface: "hsl(var(--surface))",
+        canvas: "hsl(var(--canvas))",
+        good: "hsl(var(--good))",
       },
+
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
