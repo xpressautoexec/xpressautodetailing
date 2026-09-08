@@ -60,7 +60,20 @@
     --urgency-foreground: 0 0% 100%;
     --success: 152 70% 30%;
     --success-foreground: 0 0% 100%;
+
+    /* ---- Rebuild design system (all tokens defined here first) ---- */
+    --electric: 215 90% 45%;
+    --electric-2: 216 91% 34%;
+    --electric-soft: 218 92% 95%;
+    --ink: 212 32% 8%;
+    --ink-2: 211 17% 26%;
+    --muted-ink: 214 10% 47%;
+    --line: 212 25% 90%;
+    --surface: 0 0% 100%;
+    --canvas: 216 33% 97%;
+    --good: 153 71% 28%;
   }
+
 
   .dark {
     --background: 215 30% 10%;
