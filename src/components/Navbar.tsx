@@ -1,14 +1,29 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Phone, Menu, X } from "lucide-react";
-import { NAV_LINKS } from "@/data/copy";
+import { Phone, Menu, X, ChevronDown } from "lucide-react";
+import { NAV_LINKS, NAV_CTA_LINKS } from "@/data/copy";
 import { BOOKING_URL, PHONE } from "@/data/pricing";
 
 const telHref = `tel:${PHONE.replace(/-/g, "")}`;
 
+type NavLink = {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+};
+
+const isActive = (pathname: string, href: string) =>
+  pathname === href || pathname.startsWith(`${href}/`);
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDesktop, setOpenDesktop] = useState<string | null>(null);
+  const [openMobile, setOpenMobile] = useState<Record<string, boolean>>({});
   const { pathname } = useLocation();
+
+  const toggleMobileGroup = (label: string) => {
+    setOpenMobile((prev) => ({ ...prev, [label]: !prev[label] }));
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-brand-dark border-b border-white/10">
@@ -22,25 +37,82 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop */}
-        <nav aria-label="Main" className="hidden lg:flex items-center gap-6">
-          {NAV_LINKS.map((link) => {
-            const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
+        <nav aria-label="Main" className="hidden lg:flex items-center gap-1">
+          {NAV_LINKS.map((link: NavLink) => {
+            const active = isActive(pathname, link.href);
+            const hasChildren = !!link.children?.length;
+
             return (
-              <Link
+              <div
                 key={link.href}
-                to={link.href}
-                aria-current={active ? "page" : undefined}
-                className={`text-sm font-medium transition-colors ${
-                  active ? "text-white" : "text-brand-gray hover:text-white"
-                }`}
+                className="relative"
+                onMouseEnter={() => hasChildren && setOpenDesktop(link.label)}
+                onMouseLeave={() => setOpenDesktop(null)}
               >
-                {link.label}
-              </Link>
+                <Link
+                  to={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors rounded-md ${
+                    active ? "text-white" : "text-brand-gray hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  {link.label}
+                  {hasChildren && (
+                    <ChevronDown
+                      className={`w-3.5 h-3.5 transition-transform ${
+                        openDesktop === link.label ? "rotate-180" : ""
+                      }`}
+                      aria-hidden="true"
+                    />
+                  )}
+                </Link>
+
+                {hasChildren && openDesktop === link.label && (
+                  <div className="absolute left-0 top-full pt-1 min-w-[16rem]">
+                    <div className="rounded-lg border border-white/10 bg-brand-dark/95 backdrop-blur shadow-2xl overflow-hidden py-1">
+                      {link.children!.map((child) => {
+                        const childActive = isActive(pathname, child.href);
+                        return (
+                          <Link
+                            key={child.href}
+                            to={child.href}
+                            aria-current={childActive ? "page" : undefined}
+                            className={`block px-4 py-2.5 text-sm transition-colors ${
+                              childActive
+                                ? "text-white bg-white/10"
+                                : "text-brand-gray hover:text-white hover:bg-white/5"
+                            }`}
+                          >
+                            {child.label}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
             );
           })}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-3">
+          {NAV_CTA_LINKS.map((cta) => {
+            const ctaActive = isActive(pathname, cta.href);
+            return (
+              <Link
+                key={cta.href}
+                to={cta.href}
+                aria-current={ctaActive ? "page" : undefined}
+                className={`rounded-full px-4 py-2 text-xs font-semibold transition-colors ${
+                  ctaActive
+                    ? "bg-white text-brand-dark"
+                    : "bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground ring-1 ring-primary/30"
+                }`}
+              >
+                {cta.label}
+              </Link>
+            );
+          })}
           <a href={telHref} className="flex items-center gap-2 text-sm font-medium text-white hover:text-primary transition-colors">
             <Phone className="w-4 h-4" aria-hidden="true" />
             {PHONE}
@@ -67,17 +139,76 @@ const Navbar = () => {
 
       {isOpen && (
         <nav aria-label="Mobile" className="lg:hidden border-t border-white/10 bg-brand-dark">
-          <div className="container flex flex-col py-2">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                onClick={() => setIsOpen(false)}
-                className="min-h-[44px] flex items-center text-base font-medium text-brand-gray hover:text-white"
-              >
-                {link.label}
-              </Link>
-            ))}
+          <div className="container flex flex-col py-3">
+            <div className="grid grid-cols-2 gap-2 mb-3">
+              {NAV_CTA_LINKS.map((cta) => (
+                <Link
+                  key={cta.href}
+                  to={cta.href}
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-center rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground"
+                >
+                  {cta.label}
+                </Link>
+              ))}
+            </div>
+
+            {NAV_LINKS.map((link: NavLink) => {
+              const active = isActive(pathname, link.href);
+              const hasChildren = !!link.children?.length;
+              const expanded = openMobile[link.label];
+
+              return (
+                <div key={link.href} className="border-b border-white/5 last:border-b-0">
+                  <div className="flex items-center justify-between">
+                    <Link
+                      to={link.href}
+                      onClick={() => setIsOpen(false)}
+                      aria-current={active ? "page" : undefined}
+                      className={`min-h-[44px] flex-1 flex items-center text-base font-medium ${
+                        active ? "text-white" : "text-brand-gray hover:text-white"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                    {hasChildren && (
+                      <button
+                        onClick={() => toggleMobileGroup(link.label)}
+                        className="p-2 text-brand-gray hover:text-white"
+                        aria-label={`${expanded ? "Collapse" : "Expand"} ${link.label} submenu`}
+                        aria-expanded={expanded}
+                      >
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform ${expanded ? "rotate-180" : ""}`}
+                          aria-hidden="true"
+                        />
+                      </button>
+                    )}
+                  </div>
+
+                  {hasChildren && expanded && (
+                    <div className="pl-4 pb-2 flex flex-col">
+                      {link.children!.map((child) => {
+                        const childActive = isActive(pathname, child.href);
+                        return (
+                          <Link
+                            key={child.href}
+                            to={child.href}
+                            onClick={() => setIsOpen(false)}
+                            aria-current={childActive ? "page" : undefined}
+                            className={`min-h-[40px] flex items-center text-sm ${
+                              childActive ? "text-white" : "text-brand-gray hover:text-white"
+                            }`}
+                          >
+                            {child.label}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
             <a
               href={telHref}
               className="min-h-[44px] flex items-center gap-2 text-base font-medium text-white"
