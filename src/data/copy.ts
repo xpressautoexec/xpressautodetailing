@@ -34,14 +34,36 @@ export const NAP = {
   areas: SERVICE_AREAS,
 };
 
-/** Nav order is deliberate. Do not reorder. */
+/** Nav order is deliberate. */
 export const NAV_LINKS = [
-  { label: "RV & Trailer", href: "/rv-trailer" },
+  {
+    label: "RV & Trailer",
+    href: "/rv-trailer",
+    children: [
+      { label: "RV Detailing", href: "/rv-trailer" },
+      { label: "RV Paint Protection Film", href: "/rv-trailer/ppf" },
+      { label: "RV Rental Fleet Care", href: "/rv-trailer/rental-fleet" },
+      { label: "Marine & Pontoon", href: "/marine" },
+    ],
+  },
   { label: "Ceramic & Paint", href: "/ceramic-paint-correction" },
+  {
+    label: "Protection",
+    href: "/protection/ppf",
+    children: [
+      { label: "Paint Protection Film", href: "/protection/ppf" },
+      { label: "Window Tinting", href: "/protection/window-tint" },
+    ],
+  },
   { label: "Detailing", href: "/detailing" },
-  { label: "Protection", href: "/protection/ppf" },
   { label: "Fleet", href: "/fleet" },
   { label: "Xpress Pass", href: "/xpress-pass" },
+];
+
+/** Prominent nav CTAs shown beside the main menu. */
+export const NAV_CTA_LINKS = [
+  { label: "RV Fleet Care", href: "/rv-trailer/rental-fleet" },
+  { label: "PPF", href: "/protection/ppf" },
 ];
 
 export const SERVICE_AREA_LINKS = [
