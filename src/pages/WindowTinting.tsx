@@ -83,11 +83,11 @@ const WindowTinting = () => {
           <div className="container max-w-3xl px-6 text-center">
             <ScrollReveal>
               <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-5">
-                Pick your film. Prices update.
+                Pick your film. One price.
               </h2>
               <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-                Two films, same clean install. Carbon for looks, privacy and UV. Ceramic IR when you want the
-                cabin to actually stay cool.
+                Carbon or ceramic IR — the price is the same either way, so pick on performance, not budget.
+                Carbon for looks, privacy and UV. Ceramic IR when you want the cabin to actually stay cool.
               </p>
             </ScrollReveal>
           </div>
