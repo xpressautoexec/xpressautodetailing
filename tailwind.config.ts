@@ -14,9 +14,15 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Montserrat", "sans-serif"],
-        body: ["Open Sans", "sans-serif"],
+        heading: ["Archivo", "Montserrat", "system-ui", "sans-serif"],
+        body: ["Inter", "Open Sans", "system-ui", "sans-serif"],
+        mono: ["IBM Plex Mono", "ui-monospace", "SFMono-Regular", "monospace"],
       },
+      maxWidth: {
+        shell: "1120px",
+        prose: "68ch",
+      },
+
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -80,7 +86,22 @@ export default {
           DEFAULT: "hsl(var(--success))",
           foreground: "hsl(var(--success-foreground))",
         },
+        electric: {
+          DEFAULT: "hsl(var(--electric))",
+          2: "hsl(var(--electric-2))",
+          soft: "hsl(var(--electric-soft))",
+        },
+        ink: {
+          DEFAULT: "hsl(var(--ink))",
+          2: "hsl(var(--ink-2))",
+        },
+        "muted-ink": "hsl(var(--muted-ink))",
+        line: "hsl(var(--line))",
+        surface: "hsl(var(--surface))",
+        canvas: "hsl(var(--canvas))",
+        good: "hsl(var(--good))",
       },
+
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
