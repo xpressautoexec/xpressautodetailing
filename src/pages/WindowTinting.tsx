@@ -24,7 +24,7 @@ const FILMS = [
   {
     id: "ceramic",
     label: "Ceramic IR",
-    multiplier: 1.45,
+    multiplier: 1,
     blurb:
       "Nano-ceramic film with infrared rejection. Same shade, far less heat — the cabin stays noticeably cooler in July and the A/C works less.",
     points: ["Up to 90% infrared heat rejection", "99% UV rejection", "Highest clarity, no haze"],
