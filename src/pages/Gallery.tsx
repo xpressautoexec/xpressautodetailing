@@ -190,7 +190,7 @@ const Gallery = () => (
         name: "Xpress Auto Detailing — Before & After Gallery",
         description: "Portfolio of real Calgary mobile detailing transformations: interior deep cleans, paint corrections, ceramic coatings, and RV restorations.",
         url: "https://xpressautodetail.ca/gallery",
-        about: "Mobile car detailing transformations in Calgary, Airdrie, Chestermere, and Cochrane.",
+        about: "Mobile car detailing transformations in Calgary, Airdrie, Chestermere, Cochrane, Okotoks and Rocky View County.",
       }}
     />
     <Navbar />

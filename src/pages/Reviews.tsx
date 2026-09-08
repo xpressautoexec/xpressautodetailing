@@ -34,7 +34,7 @@ const Reviews = () => (
     <div className="min-h-screen pb-16 lg:pb-0">
       <SEO
         title="Reviews — Xpress Auto Detailing Calgary"
-        description="Read real customer reviews of Xpress Auto Detailing. 4.9 stars on Google from 100+ Calgary, Airdrie, Cochrane and Chestermere clients."
+        description="Read real customer reviews of Xpress Auto Detailing. 4.9 stars on Google from 100+ Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County clients."
         canonical="/reviews"
       />
       <Navbar />

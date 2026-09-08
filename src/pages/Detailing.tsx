@@ -43,7 +43,7 @@ const Detailing = () => (
     <div className="min-h-screen pb-16 lg:pb-0">
       <SEO
         title="Car Detailing Calgary | Mobile Packages"
-        description="Mobile car detailing in Calgary, Airdrie, Cochrane and Chestermere. Four packages from a 45-minute maintain to a full correct-and-coat. We bring our own water and power."
+        description="Mobile car detailing in Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County. Four packages from a 45-minute maintain to a full correct-and-coat. We bring our own water and power."
         canonical="/detailing"
         jsonLd={[
           buildServiceJsonLd(

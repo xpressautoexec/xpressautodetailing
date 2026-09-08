@@ -26,7 +26,7 @@ const Index = () => (
     <div className="min-h-screen pb-16 lg:pb-0">
       <SEO
         title="Mobile Car & RV Detailing Calgary"
-        description="Mobile detailing in Calgary, Airdrie, Cochrane and Chestermere. Cars, RVs, boats and fleets — our vans carry their own water and power, so we work wherever you park."
+        description="Mobile detailing in Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County. Cars, RVs, boats and fleets — our vans carry their own water and power, so we work wherever you park."
         canonical="/"
         jsonLd={localBusinessJsonLd}
       />
@@ -125,7 +125,7 @@ const Index = () => (
               Book your detail
             </h2>
             <p className="mx-auto mb-8 max-w-xl text-sm sm:text-base text-background/60">
-              We come to you anywhere in Calgary, Airdrie, Cochrane and Chestermere.
+              We come to you anywhere in Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County.
             </p>
             <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a

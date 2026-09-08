@@ -9,7 +9,7 @@ const TermsOfService = () => (
     <div className="min-h-screen">
       <SEO
         title="Terms & Conditions — Xpress Auto Detailing"
-        description="Terms and conditions for Xpress Auto Detailing mobile services across Calgary, Airdrie, Chestermere and Cochrane — booking, cancellation, coatings, PPF, tint, marine and RV policies."
+        description="Terms and conditions for Xpress Auto Detailing mobile services across Calgary, Airdrie, Chestermere, Cochrane, Okotoks and Rocky View County — booking, cancellation, coatings, PPF, tint, marine and RV policies."
         canonical="/terms-of-service"
       />
       <Navbar />
@@ -23,7 +23,7 @@ const TermsOfService = () => (
 
             <div>
               <h2 className="font-heading font-bold text-lg text-foreground uppercase mb-3">1. General Agreement</h2>
-              <p>By booking any service with Xpress Auto Detailing ("the Company"), the client ("the Client") agrees to the following Terms & Conditions. These policies apply to all mobile and shop-based services performed across our service area — including Calgary, Airdrie, Chestermere, and Cochrane — and cover auto detailing, ceramic coatings, paint protection film (PPF), window tinting, marine and pontoon detailing, RV and trailer services, fleet programs, and detailing training.</p>
+              <p>By booking any service with Xpress Auto Detailing ("the Company"), the client ("the Client") agrees to the following Terms & Conditions. These policies apply to all mobile and shop-based services performed across our service area — including Calgary, Airdrie, Chestermere, Cochrane, Okotoks and Rocky View County — and cover auto detailing, ceramic coatings, paint protection film (PPF), window tinting, marine and pontoon detailing, RV and trailer services, fleet programs, and detailing training.</p>
             </div>
 
             <div>

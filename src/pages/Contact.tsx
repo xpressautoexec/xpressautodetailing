@@ -51,7 +51,7 @@ const Contact = () => {
     <PageTransition><div className="min-h-screen">
       <SEO
         title="Contact — Calgary Mobile Detailing"
-        description="Get a free car detailing quote in Calgary. Call 587-500-4523 or send a message — we reply within 2 hours. Serving Calgary, Airdrie, Cochrane & Chestermere."
+        description="Get a free car detailing quote in Calgary. Call 587-500-4523 or send a message — we reply within 2 hours. Serving Calgary, Airdrie, Cochrane, Chestermere, Okotoks & Rocky View County."
         canonical="/contact"
         jsonLd={buildFAQJsonLd(contactFAQs)}
       />
