@@ -84,6 +84,23 @@ export const AnimatedRoutes = () => {
         <Route path="/paint-correction" element={<PaintCorrection />} />
         <Route path="/reviews" element={<Reviews />} />
 
+        {/* New URL structure */}
+        <Route path="/rv-trailer" element={<TrailerRV />} />
+        <Route path="/rv-trailer/ppf" element={<RVPPF />} />
+        <Route path="/rv-trailer/rental-fleet" element={<RVRentalFleet />} />
+        <Route path="/ceramic-paint-correction" element={<PaintCeramics />} />
+        <Route path="/protection/ppf" element={<PaintProtectionFilm />} />
+        <Route path="/protection/window-tint" element={<WindowTinting />} />
+        <Route path="/protection/windshield-ppf" element={<WindshieldPPF />} />
+        <Route path="/fleet" element={<CorporateFleet />} />
+        <Route path="/xpress-pass" element={<MonthlyPlan />} />
+        <Route path="/pricing" element={<Navigate to="/detailing" replace />} />
+        <Route path="/detailing/interior" element={<Navigate to="/detailing?tab=interior" replace />} />
+        <Route path="/detailing/exterior" element={<Navigate to="/detailing?tab=exterior" replace />} />
+        <Route path="/detailing/complete" element={<Navigate to="/detailing?tab=complete" replace />} />
+        <Route path="/detailing/add-ons" element={<Navigate to="/detailing?tab=add-ons" replace />} />
+
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
