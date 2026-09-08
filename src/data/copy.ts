@@ -58,6 +58,19 @@ export const NAV_LINKS = [
   { label: "Detailing", href: "/detailing" },
   { label: "Fleet", href: "/fleet" },
   { label: "Xpress Pass", href: "/xpress-pass" },
+  {
+    label: "More",
+    href: "/contact",
+    children: [
+      { label: "Gift Cards", href: "/gift-cards" },
+      { label: "Gallery", href: "/gallery" },
+      { label: "Full Price List", href: "/pricing" },
+      { label: "Training", href: "/training" },
+      { label: "Blog", href: "/blog" },
+      { label: "Contact", href: "/contact" },
+      { label: "Terms of Service", href: "/terms-of-service" },
+    ],
+  },
 ];
 
 /** Prominent nav CTAs shown beside the main menu. */
