@@ -1,490 +1,195 @@
-import { useState } from "react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
+import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
-import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 import ScrollReveal from "@/components/ScrollReveal";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Anchor, Waves, Sparkles, Shield, Phone, ArrowRight, Check, MapPin, Award, Droplets } from "lucide-react";
+import PerFootCalculator from "@/components/PerFootCalculator";
+import AssessmentForm from "@/components/AssessmentForm";
+import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
+import { Phone, ArrowRight } from "lucide-react";
 import marineHeroAsset from "@/assets/marine-pontoon-sunset.jpg.asset.json";
 import marineTubesAsset from "@/assets/marine-pontoon-tubes.jpg.asset.json";
-import sunchaserDecalAsset from "@/assets/sunchaser-decal-closeup.png.asset.json";
-import marineDecalAsset from "@/assets/marine-decal-detail.jpg.asset.json";
 import marineInteriorAsset from "@/assets/marine-interior-seats.jpg.asset.json";
 import marineLoungeAsset from "@/assets/marine-seating-lounge.jpg.asset.json";
-import marineHelmAsset from "@/assets/marine-helm-seat.jpg.asset.json";
-import marineBenchAsset from "@/assets/marine-bench-detail.jpg.asset.json";
-import marineMotorAsset from "@/assets/marine-mercury-motor.jpg.asset.json";
-import marineBadgeAsset from "@/assets/marine-sport-badge.jpg.asset.json";
 import marineSideAsset from "@/assets/marine-side-profile.jpg.asset.json";
+import marineDecalAsset from "@/assets/marine-decal-detail.jpg.asset.json";
 import boatAquaholicAsset from "@/assets/boat-aquaholic-side.jpg.asset.json";
-import boatSunchaserDecalCloseupAsset from "@/assets/boat-sunchaser-decal-closeup.jpg.asset.json";
-const marineHero = marineSideAsset.url;
-const marineTubes = marineTubesAsset.url;
-const GALLERY = [
-  { src: marineHeroAsset.url, alt: "SunChaser pontoon at sunset" },
-  { src: boatAquaholicAsset.url, alt: "Aquaholic SunChaser Sport pontoon side profile" },
-  { src: boatSunchaserDecalCloseupAsset.url, alt: "SunChaser decal closeup" },
-  { src: marineSideAsset.url, alt: "SunChaser Sport pontoon side profile" },
-  { src: marineMotorAsset.url, alt: "Mercury outboard motor" },
-  { src: marineBadgeAsset.url, alt: "SunChaser Sport badge" },
-  { src: marineInteriorAsset.url, alt: "Pontoon interior vinyl seating" },
-  { src: marineLoungeAsset.url, alt: "Pontoon rear lounge" },
-  { src: marineHelmAsset.url, alt: "Pontoon helm and dashboard" },
-  { src: marineBenchAsset.url, alt: "Pontoon bench seating" },
-  { src: marineTubesAsset.url, alt: "Polished aluminum pontoon tubes" },
-  { src: marineDecalAsset.url, alt: "Chrome SunChaser decal" },
-];
-
-
-const PACKAGES = [
-  {
-    name: "Wash & Wax",
-    price: 12,
-    tagline: "Fast refresh — hand wash, decontamination, and a coat of marine wax.",
-    features: ["Hand wash exterior", "Iron & salt decontamination", "Rail & hardware polish", "Marine spray wax topcoat"],
-    image: marineBadgeAsset.url,
-    imageAlt: "Chrome badge shining after wash and wax",
-
-  },
-  {
-    name: "Interior Detail",
-    price: 18,
-    tagline: "Deep clean of vinyl seating, floors, storage compartments, and helm.",
-    features: ["Vinyl seat deep clean & UV protectant", "Carpet / snap-in floor extraction", "Compartments & console detail", "Windows, gauges & helm dusted"],
-    image: marineHelmAsset.url,
-    imageAlt: "Detailed captain's helm seat and dashboard",
-  },
-  {
-    name: "Exterior Polish & Seal",
-    price: 28,
-    tagline: "Machine polish to bring gelcoat or paint back — sealed for the season.",
-    features: ["1-step machine polish", "Oxidation & light scratch removal", "Marine polymer sealant (6-month)", "Rails, cleats & hardware polish"],
-    popular: false,
-    image: boatAquaholicAsset.url,
-    imageAlt: "Pontoon exterior polished and sealed",
-
-  },
-  {
-    name: "Full Interior + Exterior",
-    price: 42,
-    tagline: "The complete reset — inside, outside, top to bottom. Our #1 marine package.",
-    features: ["Everything in Interior Detail", "Everything in Polish & Seal", "Bimini / canopy cleaning", "Bilge wipe-down"],
-    popular: true,
-    image: marineHeroAsset.url,
-    imageAlt: "SunChaser pontoon fully detailed inside and out at sunset",
-
-  },
-  {
-    name: "Marine Ceramic Coating",
-    price: 55,
-    tagline: "2-year professional ceramic coating for gelcoat, paint, and metal.",
-    features: ["Full paint correction prep", "2-year marine-grade ceramic", "Hydrophobic UV protection", "Slick, easy-clean finish"],
-    image: sunchaserDecalAsset.url,
-    imageAlt: "SunChaser pontoon decal with mirror-gloss ceramic finish",
-  },
-];
-
-const interiorSeatImage = marineInteriorAsset.url;
+import marineHelmAsset from "@/assets/marine-helm-seat.jpg.asset.json";
+import { MARINE_SERVICES, PHONE, money } from "@/data/pricing";
+import { WATER_LINE, GUARANTEES } from "@/data/copy";
 
 const faqs = [
-  { q: "Do you really come to me?", a: "Yes — we're the only mobile marine detailer serving Southern Alberta. We service boats at your home, storage yard, marina, or launch. All water and power are self-contained." },
-  { q: "How is per-foot pricing measured?", a: "Length overall (LOA) — bow to stern. We measure on arrival and confirm before starting. No surprises." },
-  { q: "Can you restore oxidized aluminum pontoons?", a: "Yes. Our acid restoration + polish process removes years of oxidation, water staining, and chalking. Most tubes look factory-new when we're done." },
-  { q: "What areas do you cover?", a: "Calgary, Airdrie, Chestermere, Cochrane, Okotoks and surrounding lakes — Ghost, Chestermere, Sikome, Glenmore, Gleniffer, Sylvan." },
-  { q: "How long does a typical detail take?", a: "A 20 ft boat wash & wax is 2.33–3.33 hours. A full Interior + Exterior on a 24 ft pontoon runs 5.33–7.33 hours. Ceramic coatings are usually a 2-day process." },
+  {
+    q: "How is boat detailing priced?",
+    a: "Per foot of length for wash, interior, polish and coating work. A 22 ft pontoon on Full Interior + Exterior at $42/ft is $924. Aluminum pontoon acid restoration is priced per side, not per foot.",
+  },
+  {
+    q: "What is aluminum pontoon acid restoration?",
+    a: "Pontoon tubes oxidize and stain below the waterline. An acid restoration strips that film and brings the aluminum back to a bright, even finish. It is a standalone service at $300 per side.",
+  },
+  {
+    q: "Do you come to the marina or my storage lot?",
+    a: `Yes. ${WATER_LINE} We detail on the trailer, on the hoist or in the yard.`,
+  },
+  {
+    q: "How long does a marine ceramic coating last?",
+    a: "Two to three seasons on gelcoat with normal use, longer if the boat is covered or stored indoors. It keeps water spotting and UV chalking off the hull and makes wash-downs far quicker.",
+  },
+  {
+    q: "Can you clean vinyl seating and mildew?",
+    a: "Yes. Vinyl seating is cleaned and conditioned as part of interior work. For boats that keep growing mildew, interior seat ceramic coating at $650 seals the vinyl so it stops taking hold.",
+  },
 ];
 
-const MarineDetailing = () => {
-  const [length, setLength] = useState(22);
-  const [selectedPkgs, setSelectedPkgs] = useState<number[]>([3]); // Full Interior + Exterior
+const GALLERY = [
+  { src: marineSideAsset.url, alt: "Pontoon boat side profile after full detail in Calgary" },
+  { src: marineTubesAsset.url, alt: "Restored aluminum pontoon tubes after acid restoration" },
+  { src: marineInteriorAsset.url, alt: "Cleaned and conditioned marine vinyl seating" },
+  { src: marineLoungeAsset.url, alt: "Boat lounge seating after interior detail" },
+  { src: boatAquaholicAsset.url, alt: "Detailed boat hull with polished gelcoat" },
+  { src: marineDecalAsset.url, alt: "Close-up of restored boat decal and gelcoat" },
+  { src: marineHelmAsset.url, alt: "Detailed marine helm seat and console" },
+];
 
-  const togglePkg = (i: number) =>
-    setSelectedPkgs((prev) => (prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i]));
-
-  const perFootTotal = selectedPkgs.reduce((sum, i) => sum + PACKAGES[i].price, 0);
-  const estimate = perFootTotal * length;
-
-  return (
-    <PageTransition>
+const MarineDetailing = () => (
+  <PageTransition>
+    <div className="min-h-screen pb-16 lg:pb-0">
       <SEO
-        title="Mobile Marine & Pontoon Detailing"
-        description="The only mobile marine detailer in Southern Alberta. Boat wash, polish, ceramic coating, and aluminum pontoon acid restoration — we come to you."
+        title="Boat & Pontoon Detailing Calgary"
+        description="Mobile marine detailing in Calgary: wash and wax, gelcoat polish, marine ceramic coating and aluminum pontoon acid restoration. Priced per foot."
         canonical="/marine"
         jsonLd={[
           buildServiceJsonLd(
-            "Mobile Marine & Pontoon Detailing",
-            "Mobile boat and pontoon detailing across Southern Alberta — wash, polish, ceramic coating, aluminum pontoon acid restoration.",
+            "Marine & Pontoon Detailing",
+            "Mobile boat and pontoon detailing, polishing and ceramic coating in Calgary and area.",
             "/marine",
           ),
           buildFAQJsonLd(faqs),
         ]}
       />
       <Navbar />
-        <AutoBreadcrumbs />
-      {/* Hero */}
-      <section className="relative h-[520px] sm:h-[600px] overflow-hidden">
-        <img
-          src={marineHero}
-          alt="Mobile marine detailing on a pontoon boat at sunset"
-          width={1920}
-          height={1080}
-          className="absolute inset-0 w-full h-full object-cover"
-          fetchPriority="high"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-brand-dark/30" />
-        <div className="relative z-10 container h-full flex flex-col justify-end pb-14 md:pb-20">
-          <span className="inline-flex items-center gap-2 self-start bg-primary/20 border border-primary/40 backdrop-blur-md px-4 py-1.5 rounded-full mb-4">
-            <Waves className="w-4 h-4 text-primary" />
-            <span className="text-white font-heading font-bold text-[10px] uppercase tracking-widest">
-              Only Mobile Marine Crew in Southern Alberta
-            </span>
-          </span>
-          <h1 className="font-heading font-black text-3xl sm:text-5xl md:text-6xl uppercase text-white leading-[1.05] max-w-3xl">
-            Mobile Marine <span className="text-primary">Detailing</span>
-          </h1>
-          <p className="text-white/85 text-base md:text-lg max-w-xl mt-4 leading-relaxed">
-            Skip the tow. Skip the marina wait. We bring pro marine detailing, polishing and aluminum pontoon restoration to your dock, driveway or storage yard.
-          </p>
-          <div className="flex flex-wrap gap-3 mt-6">
-            <a
-              href="tel:5875004523"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-brand-blue-deep transition shadow-lg shadow-primary/30"
-            >
-              <Phone className="w-4 h-4" /> Call for Quote
-            </a>
-            <a
-              href="#packages"
-              className="inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-white/20 backdrop-blur-md transition"
-            >
-              View Packages <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-      </section>
+      <AutoBreadcrumbs />
+      <ServicePageHero title="Marine & Pontoon Detailing" image={marineHeroAsset.url} ctaType="call" />
 
-      {/* Trust strip */}
-      <section className="bg-brand-dark border-y border-brand-dark-surface">
-        <div className="container grid grid-cols-2 md:grid-cols-4 gap-6 py-8">
-          {[
-            { icon: Anchor, label: "100+ boats this year" },
-            { icon: Award, label: "Pro compounds & polishes" },
-            { icon: Shield, label: "Marine-grade sealants" },
-            { icon: MapPin, label: "We come to you" },
-          ].map(({ icon: Icon, label }) => (
-            <div key={label} className="flex items-center gap-3 text-white">
-              <Icon className="w-6 h-6 text-primary shrink-0" />
-              <span className="font-heading font-bold text-xs sm:text-sm uppercase tracking-wider">{label}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Positioning */}
-      <section className="py-16 bg-background">
-        <div className="container max-w-4xl text-center">
+      <section className="py-14 sm:py-20 bg-background">
+        <div className="container max-w-3xl px-6 text-center">
           <ScrollReveal>
-            <p className="text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-3">Why Xpress Marine</p>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-5">
-              The Only <span className="text-gradient">Mobile Marine Detailers</span> in Southern Alberta
-            </h2>
-            <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
-              Every other option means towing your 5th wheel or driving your motorhome-sized pontoon across the city. We eliminate that entirely. Our mobile rig runs its own water, power, and inverter systems — the exact same pro-grade compounds, polishers and marine sealants a top shop uses, brought directly to your slip.
+            <h1 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-5">
+              Gelcoat, vinyl and aluminum — back to new.
+            </h1>
+            <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
+              Alberta boats sit dry, dusty and in hard sun. We polish chalked gelcoat, clean and protect vinyl,
+              and restore stained pontoon tubes — at the marina, the storage yard or your driveway.
             </p>
+            <ul className="mt-6 flex flex-wrap justify-center gap-2">
+              {GUARANTEES.map((g) => (
+                <li
+                  key={g}
+                  className="rounded-full border border-border px-4 py-1.5 text-xs font-semibold text-muted-foreground"
+                >
+                  {g}
+                </li>
+              ))}
+            </ul>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Packages */}
-      <section id="packages" className="py-16 bg-muted/30">
-        <div className="container">
-          <ScrollReveal className="text-center mb-10">
-            <p className="text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-2">Per-Foot Pricing</p>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground">
-              Marine <span className="text-gradient">Packages</span>
-            </h2>
-            <p className="text-muted-foreground text-sm mt-3 max-w-2xl mx-auto">
-              Priced per foot of length overall. Includes all supplies, water, and mobile fee.
-            </p>
-          </ScrollReveal>
+      {/* Services & pricing */}
+      <section className="py-14 sm:py-20 bg-foreground">
+        <div className="container max-w-3xl px-4 sm:px-6">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-background text-center mb-8">
+            Marine pricing
+          </h2>
+          <ul className="divide-y divide-background/10 overflow-hidden rounded-2xl border border-background/15 bg-background/[0.04]">
+            {MARINE_SERVICES.map((s) => (
+              <li key={s.name} className="flex items-center justify-between gap-4 p-4 sm:px-6">
+                <span className="text-sm sm:text-base text-background/85">{s.name}</span>
+                <span className="whitespace-nowrap font-heading text-lg font-black text-background tabular-nums">
+                  {money(s.price)}
+                  <span className="ml-1 text-sm font-semibold text-background/60">{s.unit}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-center text-xs text-background/50">
+            Per-foot services are multiplied by overall length. Aluminum restoration is per pontoon side.
+          </p>
+        </div>
+      </section>
 
-          <div className="flex flex-wrap justify-center gap-5 mb-10">
-            {PACKAGES.map((p, i) => (
-              <div
-                key={p.name}
-                className={`relative rounded-2xl bg-card border overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.834rem)] ${
-                  p.popular ? "border-primary/50 shadow-xl shadow-primary/10 ring-1 ring-primary/30" : "border-border hover:border-primary/30 hover:shadow-lg"
-                }`}
-              >
-                {p.popular && (
-                  <div className="absolute top-0 right-0 z-10 bg-urgency text-urgency-foreground font-heading font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-bl-xl">
-                    Most Popular
-                  </div>
-                )}
-                <div className="relative aspect-[16/9] overflow-hidden bg-muted">
-                  <img
-                    src={p.image}
-                    alt={p.imageAlt}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                </div>
-                <div className="p-6 pb-4">
-                  <h3 className="font-heading font-black text-lg uppercase text-foreground mb-1">{p.name}</h3>
-                  <p className="font-heading font-black text-3xl text-primary">${p.price}<span className="text-base text-muted-foreground font-bold">/ft</span></p>
-                  <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{p.tagline}</p>
-                </div>
-                <div className="px-6 pb-6 flex-1 flex flex-col">
-                  <ul className="space-y-2 mb-5 flex-1">
-                    {p.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm text-foreground/85">
-                        <Check className="w-4 h-4 text-success shrink-0 mt-0.5" /> <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <button
-                    onClick={() => togglePkg(i)}
-                    className={`font-heading font-bold text-xs uppercase tracking-wider text-left transition ${
-                      selectedPkgs.includes(i) ? "text-success" : "text-primary hover:underline"
-                    }`}
-                  >
-                    {selectedPkgs.includes(i) ? "✓ Added to Estimate" : "+ Add to Estimate ↓"}
-                  </button>
-                </div>
-              </div>
+      {/* Estimator */}
+      <section className="py-14 sm:py-20 bg-secondary/40">
+        <div className="container max-w-3xl px-4 sm:px-6">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-8">
+            Estimate your boat
+          </h2>
+          <PerFootCalculator
+            services={MARINE_SERVICES}
+            defaultLength={22}
+            minLength={14}
+            maxLength={40}
+            lengthLabel="Boat length (feet)"
+            title="Marine estimator"
+            note="Estimate only. Aluminum restoration is per side and seat coating is a flat add. Final price confirmed after we see the boat."
+          />
+        </div>
+      </section>
+
+      {/* Gallery */}
+      <section className="py-14 sm:py-20 bg-background">
+        <div className="container px-4 sm:px-6">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-8">
+            Recent marine work
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+            {GALLERY.map((g) => (
+              <img
+                key={g.alt}
+                src={g.src}
+                alt={g.alt}
+                loading="lazy"
+                width={800}
+                height={600}
+                className="aspect-[4/3] w-full rounded-2xl object-cover"
+              />
             ))}
           </div>
-
-          {/* Estimator */}
-          <ScrollReveal>
-            <div className="bg-gradient-to-br from-primary to-brand-blue-deep text-primary-foreground rounded-2xl p-6 sm:p-8 shadow-xl">
-              <p className="font-heading font-bold text-[10px] uppercase tracking-widest text-primary-foreground/70 mb-2">
-                Quick Estimator
-              </p>
-              <h3 className="font-heading font-black text-2xl sm:text-3xl uppercase mb-6">
-                Get a Ballpark in 5 Seconds
-              </h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block font-heading font-bold text-xs uppercase tracking-wider mb-2 text-primary-foreground/80">
-                    Boat length: <span className="text-white">{length} ft</span>
-                  </label>
-                  <input
-                    type="range"
-                    min={14}
-                    max={40}
-                    value={length}
-                    onChange={(e) => setLength(Number(e.target.value))}
-                    className="w-full accent-white cursor-pointer"
-                  />
-                  <div className="flex justify-between text-[10px] mt-1 text-primary-foreground/60 font-heading uppercase tracking-wider">
-                    <span>14 ft</span><span>40 ft</span>
-                  </div>
-                  <label className="block font-heading font-bold text-xs uppercase tracking-wider mt-6 mb-2 text-primary-foreground/80">
-                    Services ({selectedPkgs.length} selected)
-                  </label>
-                  <div className="space-y-1.5 max-h-56 overflow-y-auto pr-1">
-                    {PACKAGES.map((p, i) => {
-                      const checked = selectedPkgs.includes(i);
-                      return (
-                        <label
-                          key={p.name}
-                          className={`flex items-center justify-between gap-3 px-3 py-2 rounded-lg cursor-pointer border transition ${
-                            checked ? "bg-white/20 border-white/60" : "bg-white/5 border-white/15 hover:bg-white/10"
-                          }`}
-                        >
-                          <div className="flex items-center gap-2 min-w-0">
-                            <input
-                              type="checkbox"
-                              checked={checked}
-                              onChange={() => togglePkg(i)}
-                              className="accent-white shrink-0"
-                            />
-                            <span className="text-sm font-heading font-semibold text-white truncate">{p.name}</span>
-                          </div>
-                          <span className="text-xs font-heading font-bold text-white/90 shrink-0">${p.price}/ft</span>
-                        </label>
-                      );
-                    })}
-                  </div>
-                </div>
-                <div className="flex flex-col justify-center">
-                  <p className="font-heading font-bold text-[10px] uppercase tracking-widest text-primary-foreground/70 mb-1">Estimated</p>
-                  <p className="font-heading font-black text-5xl md:text-6xl">${estimate}</p>
-                  <p className="text-primary-foreground/80 text-xs mt-1">
-                    ${perFootTotal}/ft × {length} ft · {selectedPkgs.length} service{selectedPkgs.length === 1 ? "" : "s"}
-                  </p>
-                  <p className="text-primary-foreground/75 text-xs mt-2">Final price confirmed on arrival after we measure LOA.</p>
-                  <a
-                    href="tel:5875004523"
-                    className="inline-flex items-center justify-center gap-2 bg-white text-primary font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm mt-4 hover:bg-white/90 transition"
-                  >
-                    <Phone className="w-4 h-4" /> Lock in Your Booking
-                  </a>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
-      {/* Aluminum pontoon feature */}
-      <section className="py-16 bg-background">
-        <div className="container grid md:grid-cols-2 gap-10 items-center">
-          <ScrollReveal direction="left">
-            <p className="text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-3">Signature Service</p>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase mb-4">
-              Aluminum Pontoon <span className="text-gradient">Acid Restoration</span>
-            </h2>
-            <p className="text-muted-foreground leading-relaxed mb-5">
-              Years of hard water, algae and oxidation leave pontoon tubes chalky, gray and pitted. Our marine-grade acid wash and multi-stage polish process strips it all — and brings the aluminum back to a bright factory finish.
-            </p>
-            <div className="rounded-xl border border-primary/30 bg-primary/5 p-4 mb-6">
-              <div className="flex items-baseline gap-2 mb-1">
-                <span className="font-heading font-black text-3xl text-primary">$300</span>
-                <span className="font-heading font-bold text-sm uppercase tracking-wider text-foreground">/ pontoon side</span>
-              </div>
-              <p className="text-xs text-muted-foreground">Priced per face — most pontoons have 2 sides (outer tubes). We confirm on arrival.</p>
-            </div>
-            <ul className="space-y-3 mb-6">
-              {[
-                "Safe, controlled marine acid wash",
-                "Two-stage aluminum compound & polish",
-                "Waterline stain & scale removal",
-                "Protective sealant for lasting shine",
-              ].map((f) => (
-                <li key={f} className="flex items-start gap-3 text-sm">
-                  <Droplets className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-foreground/85">{f}</span>
-                </li>
-              ))}
-            </ul>
-            <a
-              href="tel:5875004523"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-brand-blue-deep transition"
-            >
-              <Phone className="w-4 h-4" /> Call to Book
-            </a>
-          </ScrollReveal>
-          <ScrollReveal direction="right">
-            <div className="rounded-2xl overflow-hidden shadow-xl">
-              <img src={marineTubes} alt="Polished aluminum pontoon tubes after mobile acid restoration" className="w-full aspect-[4/3] object-cover" loading="lazy" />
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      <ServiceFAQ title="Marine detailing FAQs" faqs={faqs} />
 
-      {/* Real work gallery */}
-      <section className="py-16 bg-muted/20">
-        <div className="container">
-          <ScrollReveal className="text-center mb-10">
-            <p className="text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-2">Recent Work</p>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase">Pontoons We've <span className="text-gradient">Brought Back</span></h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto mt-3 text-sm sm:text-base">
-              Real jobs, done on-site in Southern Alberta. Aluminum restored, vinyl reset, decals polished — no tow required.
-            </p>
-          </ScrollReveal>
-          <Carousel opts={{ loop: true, align: "start" }} className="w-full">
-            <CarouselContent className="-ml-3 sm:-ml-4">
-              {GALLERY.map((g) => (
-                <CarouselItem key={g.src} className="pl-3 sm:pl-4 basis-4/5 sm:basis-1/2 lg:basis-1/3">
-                  <div className="group relative rounded-xl overflow-hidden shadow-lg aspect-[4/3] bg-muted">
-                    <img
-                      src={g.src}
-                      alt={g.alt}
-                      loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-
-
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden sm:flex -left-2 lg:-left-6" />
-            <CarouselNext className="hidden sm:flex -right-2 lg:-right-6" />
-          </Carousel>
-        </div>
-      </section>
-
-      {/* Interior Seat Ceramic Coating */}
-      <section className="py-16 bg-muted/30">
-        <div className="container grid md:grid-cols-2 gap-10 items-center">
-          <ScrollReveal direction="left">
-            <div className="rounded-2xl overflow-hidden shadow-xl">
-              <img
-                src={interiorSeatImage}
-                alt="Vinyl marine seating protected with ceramic coating"
-                className="w-full aspect-[4/3] object-cover"
-                loading="lazy"
-              />
-            </div>
-          </ScrollReveal>
-          <ScrollReveal direction="right">
-            <p className="text-primary font-heading font-bold text-xs uppercase tracking-[0.2em] mb-3">Premium Protection</p>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase mb-4">
-              Interior Seat <span className="text-gradient">Ceramic Coating</span>
-            </h2>
-            <p className="text-muted-foreground leading-relaxed mb-5">
-              Marine vinyl takes a beating from UV, sunscreen, lake water, and mildew. Our ceramic coating forms a hydrophobic barrier on your seats and interior surfaces so spills wipe off, stains don't set, and your vinyl stays supple season after season.
-            </p>
-            <div className="rounded-xl border border-primary/30 bg-primary/5 p-4 mb-6">
-              <div className="flex items-baseline gap-2 mb-1">
-                <span className="font-heading font-black text-3xl text-primary">$650</span>
-                <span className="font-heading font-bold text-sm uppercase tracking-wider text-foreground">Starting at</span>
-              </div>
-              <p className="text-xs text-muted-foreground">Final price depends on number of seats, lounges, and helm upholstery. We quote before starting.</p>
-            </div>
-            <ul className="space-y-3 mb-6">
-              {[
-                "Ceramic coating for vinyl, leather, and synthetic seats",
-                "UV & mildew-resistant protection",
-                "Hydrophobic barrier against spills and lake water",
-                "Easier cleanups all season long",
-              ].map((f) => (
-                <li key={f} className="flex items-start gap-3 text-sm">
-                  <Shield className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-foreground/85">{f}</span>
-                </li>
-              ))}
-            </ul>
-            <a
-              href="tel:5875004523"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg text-sm hover:bg-brand-blue-deep transition"
-            >
-              <Phone className="w-4 h-4" /> Call to Book
-            </a>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      <ServiceFAQ title="Frequently Asked Questions" faqs={faqs} />
-
-      {/* CTA */}
-      <section className="py-16 bg-brand-dark">
-        <div className="container max-w-3xl text-center">
-          <Sparkles className="w-10 h-10 text-primary mx-auto mb-4" />
-          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-white mb-4">
-            Ready to Get Your Boat Detailed?
+      <section className="py-14 sm:py-20 bg-secondary/40">
+        <div className="container max-w-2xl px-4 sm:px-6">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-6">
+            Book a look at your boat
           </h2>
-          <p className="text-white/75 mb-8">
-            Every quote is free. Most jobs booked within 3–5 days. We come to your driveway, storage yard, or the launch.
-          </p>
+          <AssessmentForm />
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20 bg-background">
+        <div className="container px-6 text-center">
           <a
-            href="tel:5875004523"
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-brand-blue-deep transition shadow-xl shadow-primary/30"
+            href={`tel:${PHONE.replace(/-/g, "")}`}
+            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            <Phone className="w-4 h-4" /> Call (587) 500-4523
+            <Phone className="h-4 w-4" aria-hidden="true" />
+            Call {PHONE}
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
         </div>
       </section>
 
       <Footer />
-    </PageTransition>
-  );
-};
+      <div className="h-20 lg:hidden" />
+      <StickyMobileCTA />
+    </div>
+  </PageTransition>
+);
 
 export default MarineDetailing;
