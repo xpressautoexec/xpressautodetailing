@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
@@ -9,7 +10,24 @@ import ScrollReveal from "@/components/ScrollReveal";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ppfHero from "@/assets/ppf-hero.jpg";
 import { Check, Phone, ArrowRight } from "lucide-react";
-import { AUTO_PPF, PPF_UPCHARGE, PHONE, money } from "@/data/pricing";
+import { AUTO_PPF, PPF_UPCHARGE, TINT, PHONE, money } from "@/data/pricing";
+
+const TINT_FILMS = [
+  {
+    id: "carbon",
+    label: "Carbon",
+    blurb:
+      "A solid, fade-resistant carbon film. Cuts glare, blocks UV and never turns purple. The right choice if you mainly want privacy and a clean look.",
+    points: ["99% UV rejection", "No signal interference", "Lifetime no-fade warranty"],
+  },
+  {
+    id: "ceramic",
+    label: "Ceramic IR",
+    blurb:
+      "Nano-ceramic film with infrared rejection. Same shade, far less heat — the cabin stays noticeably cooler in July and the A/C works less.",
+    points: ["Up to 90% infrared heat rejection", "99% UV rejection", "Highest clarity, no haze"],
+  },
+] as const;
 
 const coverage: Record<string, string[]> = {
   "Partial Front": [
