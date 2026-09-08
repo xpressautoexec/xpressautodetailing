@@ -250,6 +250,13 @@ export const PET_HAIR_TIERS = [
   { label: "Heavy — matted, seats + trunk", price: 115 },
 ];
 
+// ---------- CONDITION ADJUSTMENTS (chosen by the customer at booking) ----------
+export const CONDITION_TIERS = [
+  { label: "Normal use", price: 0 },
+  { label: "Kids, pets or a work truck", price: 75 },
+  { label: "It's rough — be honest with us", price: 135 },
+];
+
 // ---------- XPRESS PASS ----------
 export const XPRESS_PASS = [
   {
@@ -258,7 +265,7 @@ export const XPRESS_PASS = [
     frequency: "Every month",
     discount: 20,
     popular: true,
-    service: "Xpress Maintain",
+    service: "Upkeep",
     memberPrice: { sedan: 95.2, suv: 111.2, minivan: 119.2 },
   },
   {
@@ -266,15 +273,15 @@ export const XPRESS_PASS = [
     name: "Refresh",
     frequency: "Every 2 months",
     discount: 15,
-    service: "Xpress Refresh",
-    memberPrice: { sedan: 194.65, suv: 237.15, minivan: 254.15 },
+    service: "Inside & Out",
+    memberPrice: { sedan: 194.65, suv: 237.15, minivan: 262.65 },
   },
   {
     id: "restore",
     name: "Restore",
     frequency: "Every 3 months",
     discount: 12,
-    service: "Xpress Showroom Reset",
+    service: "Deep Clean & Seal",
     memberPrice: { sedan: 333.52, suv: 377.52, minivan: 403.92 },
   },
 ];
