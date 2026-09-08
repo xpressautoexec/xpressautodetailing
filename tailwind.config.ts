@@ -14,9 +14,15 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Montserrat", "sans-serif"],
-        body: ["Open Sans", "sans-serif"],
+        heading: ["Archivo", "Montserrat", "system-ui", "sans-serif"],
+        body: ["Inter", "Open Sans", "system-ui", "sans-serif"],
+        mono: ["IBM Plex Mono", "ui-monospace", "SFMono-Regular", "monospace"],
       },
+      maxWidth: {
+        shell: "1120px",
+        prose: "68ch",
+      },
+
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
