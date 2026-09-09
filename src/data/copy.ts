@@ -56,8 +56,8 @@ export const NAV_LINKS = [
     ],
   },
   { label: "Detailing", href: "/detailing" },
-  { label: "Fleet", href: "/fleet" },
   { label: "Xpress Pass", href: "/xpress-pass" },
+  { label: "Fleet", href: "/fleet" },
   {
     label: "More",
     href: "/contact",
