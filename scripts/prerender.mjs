@@ -32,7 +32,6 @@ const ROUTES = [
   "/paint-ceramics",
   "/ppf",
   "/windshield-ppf",
-  "/window-tinting",
   "/marine",
   "/trailer-rv",
   "/trailer-rv/ppf",
