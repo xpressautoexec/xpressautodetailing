@@ -53,6 +53,11 @@ const PERKS = [
     title: "Love it? Lock it in — rebate your first service",
     desc: "Just had a detail, or planning one soon? If you love the result, come back and join the Xpress Pass within 7 days. We'll refund the plan discount on the service you already had — 20% on Maintain, 15% on Refresh, or 12% on Restore.",
   },
+  {
+    icon: Star,
+    title: "Real metal membership card",
+    desc: "Every member gets the metal Xpress Pass card you see here — not a digital-only badge. Show it, flash it, keep it in the car.",
+  },
 ];
 
 const monthlyFAQs = [
@@ -159,7 +164,7 @@ const MonthlyPlan = () => {
               </div>
             </div>
 
-            <div className="relative flex justify-center lg:justify-end">
+            <div className="relative flex flex-col items-center lg:items-end">
               <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" aria-hidden />
               <img
                 src={xpressPassCard}
@@ -169,6 +174,9 @@ const MonthlyPlan = () => {
                 width={1024}
                 height={1024}
               />
+              <p className="relative mt-4 text-xs sm:text-sm text-brand-gray/80 font-heading font-bold uppercase tracking-widest text-center lg:text-right">
+                Real metal card · shipped to every member
+              </p>
             </div>
           </div>
         </section>
