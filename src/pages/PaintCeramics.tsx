@@ -173,7 +173,9 @@ const PaintCeramics = () => {
                 )}
                 <h3 className="font-heading font-black text-xl uppercase text-background">{p.name}</h3>
                 <p className="mt-1 text-sm text-background/60">{p.coating}</p>
-                <p className="mt-4 font-heading font-black text-3xl text-background">{money(p.price)}</p>
+                <p className="mt-4 font-heading font-black text-3xl text-background">
+                  {money(p.price + upcharge)}
+                </p>
                 <p className="mt-1 text-xs uppercase tracking-wider text-background/50">{p.correction}</p>
 
                 <ul className="mt-6 flex-1 space-y-2.5">
