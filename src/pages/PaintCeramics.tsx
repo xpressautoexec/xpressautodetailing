@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
@@ -58,7 +59,17 @@ const faqs = [
   },
 ];
 
-const PaintCeramics = () => (
+const SIZE_OPTIONS = [
+  { id: "sedan" as const, label: "Sedan / Coupe", add: 0 },
+  { id: "suv" as const, label: "SUV / Pickup", add: CERAMIC_UPCHARGE.suv },
+  { id: "minivan" as const, label: "3-Row / Van", add: CERAMIC_UPCHARGE.minivan },
+];
+
+const PaintCeramics = () => {
+  const [size, setSize] = useState<(typeof SIZE_OPTIONS)[number]["id"]>("sedan");
+  const upcharge = SIZE_OPTIONS.find((s) => s.id === size)?.add ?? 0;
+
+  return (
   <PageTransition>
     <div className="min-h-screen pb-16 lg:pb-0">
       <SEO
@@ -117,11 +128,33 @@ const PaintCeramics = () => (
                 Coating Packages
               </h2>
               <p className="mt-4 mx-auto max-w-2xl text-sm sm:text-base text-background/60">
-                Prices are for a sedan or coupe. Add {money(CERAMIC_UPCHARGE.suv)} for an SUV or pickup,{" "}
-                {money(CERAMIC_UPCHARGE.minivan)} for a 3-row or van. Exotics {CERAMIC_UPCHARGE.exoticPct}% more.
+                Pick your vehicle size — every price below updates. Exotics and heavily modified paint are{" "}
+                {CERAMIC_UPCHARGE.exoticPct}% more.
               </p>
+              <div
+                role="group"
+                aria-label="Vehicle size"
+                className="mt-6 inline-flex flex-wrap justify-center gap-1.5 rounded-full border border-background/15 bg-background/[0.06] p-1.5"
+              >
+                {SIZE_OPTIONS.map((s) => (
+                  <button
+                    key={s.id}
+                    type="button"
+                    onClick={() => setSize(s.id)}
+                    aria-pressed={size === s.id}
+                    className={`min-h-[40px] rounded-full px-4 text-xs sm:text-sm font-bold uppercase tracking-wide transition-colors ${
+                      size === s.id
+                        ? "bg-primary text-primary-foreground"
+                        : "text-background/70 hover:text-background"
+                    }`}
+                  >
+                    {s.label}
+                  </button>
+                ))}
+              </div>
             </div>
           </ScrollReveal>
+
 
           <div className="grid gap-5 md:grid-cols-3">
             {CERAMIC_PACKAGES.map((p) => (
@@ -140,7 +173,9 @@ const PaintCeramics = () => (
                 )}
                 <h3 className="font-heading font-black text-xl uppercase text-background">{p.name}</h3>
                 <p className="mt-1 text-sm text-background/60">{p.coating}</p>
-                <p className="mt-4 font-heading font-black text-3xl text-background">{money(p.price)}</p>
+                <p className="mt-4 font-heading font-black text-3xl text-background">
+                  {money(p.price + upcharge)}
+                </p>
                 <p className="mt-1 text-xs uppercase tracking-wider text-background/50">{p.correction}</p>
 
                 <ul className="mt-6 flex-1 space-y-2.5">
@@ -157,7 +192,7 @@ const PaintCeramics = () => (
                   className="mt-7 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
                 >
                   <Phone className="h-4 w-4" aria-hidden="true" />
-                  Call for {p.name}
+                  Book {p.name} — {money(p.price + upcharge)}
                 </a>
               </div>
             ))}
@@ -220,6 +255,7 @@ const PaintCeramics = () => (
       <StickyMobileCTA />
     </div>
   </PageTransition>
-);
+  );
+};
 
 export default PaintCeramics;
