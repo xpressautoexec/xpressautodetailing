@@ -192,7 +192,7 @@ const PaintCeramics = () => {
                   className="mt-7 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
                 >
                   <Phone className="h-4 w-4" aria-hidden="true" />
-                  Call for {p.name}
+                  Book {p.name} — {money(p.price + upcharge)}
                 </a>
               </div>
             ))}
