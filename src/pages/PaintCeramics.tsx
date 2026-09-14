@@ -128,11 +128,33 @@ const PaintCeramics = () => {
                 Coating Packages
               </h2>
               <p className="mt-4 mx-auto max-w-2xl text-sm sm:text-base text-background/60">
-                Prices are for a sedan or coupe. Add {money(CERAMIC_UPCHARGE.suv)} for an SUV or pickup,{" "}
-                {money(CERAMIC_UPCHARGE.minivan)} for a 3-row or van. Exotics {CERAMIC_UPCHARGE.exoticPct}% more.
+                Pick your vehicle size — every price below updates. Exotics and heavily modified paint are{" "}
+                {CERAMIC_UPCHARGE.exoticPct}% more.
               </p>
+              <div
+                role="group"
+                aria-label="Vehicle size"
+                className="mt-6 inline-flex flex-wrap justify-center gap-1.5 rounded-full border border-background/15 bg-background/[0.06] p-1.5"
+              >
+                {SIZE_OPTIONS.map((s) => (
+                  <button
+                    key={s.id}
+                    type="button"
+                    onClick={() => setSize(s.id)}
+                    aria-pressed={size === s.id}
+                    className={`min-h-[40px] rounded-full px-4 text-xs sm:text-sm font-bold uppercase tracking-wide transition-colors ${
+                      size === s.id
+                        ? "bg-primary text-primary-foreground"
+                        : "text-background/70 hover:text-background"
+                    }`}
+                  >
+                    {s.label}
+                  </button>
+                ))}
+              </div>
             </div>
           </ScrollReveal>
+
 
           <div className="grid gap-5 md:grid-cols-3">
             {CERAMIC_PACKAGES.map((p) => (
