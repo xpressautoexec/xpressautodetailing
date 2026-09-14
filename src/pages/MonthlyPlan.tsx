@@ -49,8 +49,9 @@ const PERKS = [
   },
   {
     icon: ShieldCheck,
-    title: "Just had a service? Join within 7 days",
-    desc: "We'll refund the plan discount on the job you just had. On a $379 Deep Clean & Seal, that's $45.48 back.",
+    featured: true,
+    title: "Love it? Lock it in — rebate your first service",
+    desc: "Just had a detail, or planning one soon? If you love the result, come back and join the Xpress Pass within 7 days. We'll refund the plan discount on the service you already had — 20% on Maintain, 15% on Refresh, or 12% on Restore.",
   },
 ];
 
