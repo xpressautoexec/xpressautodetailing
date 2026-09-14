@@ -255,6 +255,7 @@ const PaintCeramics = () => {
       <StickyMobileCTA />
     </div>
   </PageTransition>
-);
+  );
+};
 
 export default PaintCeramics;
