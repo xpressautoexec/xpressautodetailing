@@ -58,7 +58,17 @@ const faqs = [
   },
 ];
 
-const PaintCeramics = () => (
+const SIZE_OPTIONS = [
+  { id: "sedan" as const, label: "Sedan / Coupe", add: 0 },
+  { id: "suv" as const, label: "SUV / Pickup", add: CERAMIC_UPCHARGE.suv },
+  { id: "minivan" as const, label: "3-Row / Van", add: CERAMIC_UPCHARGE.minivan },
+];
+
+const PaintCeramics = () => {
+  const [size, setSize] = useState<(typeof SIZE_OPTIONS)[number]["id"]>("sedan");
+  const upcharge = SIZE_OPTIONS.find((s) => s.id === size)?.add ?? 0;
+
+  return (
   <PageTransition>
     <div className="min-h-screen pb-16 lg:pb-0">
       <SEO
