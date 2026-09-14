@@ -49,8 +49,9 @@ const PERKS = [
   },
   {
     icon: ShieldCheck,
-    title: "Just had a service? Join within 7 days",
-    desc: "We'll refund the plan discount on the job you just had. On a $379 Deep Clean & Seal, that's $45.48 back.",
+    featured: true,
+    title: "Love it? Lock it in — rebate your first service",
+    desc: "Just had a detail, or planning one soon? If you love the result, come back and join the Xpress Pass within 7 days. We'll refund the plan discount on the service you already had — 20% on Maintain, 15% on Refresh, or 12% on Restore.",
   },
 ];
 
@@ -293,11 +294,28 @@ const MonthlyPlan = () => {
             </ScrollReveal>
             <div className="grid sm:grid-cols-2 gap-5">
               {PERKS.map((p, i) => (
-                <ScrollReveal key={p.title} delay={0.05 * i}>
-                  <div className="h-full bg-card border border-border rounded-xl p-6 hover:border-primary/40 transition-colors">
-                    <p.icon className="w-6 h-6 text-primary mb-3" />
-                    <h3 className="font-heading font-bold text-foreground mb-1.5">{p.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{p.desc}</p>
+                <ScrollReveal key={p.title} delay={0.05 * i} className={p.featured ? "sm:col-span-2" : ""}>
+                  <div className={`h-full rounded-xl p-6 transition-colors ${
+                    p.featured
+                      ? "bg-primary/5 border-2 border-primary shadow-lg shadow-primary/10"
+                      : "bg-card border border-border hover:border-primary/40"
+                  }`}>
+                    <div className="flex items-start gap-4">
+                      <div className={`shrink-0 rounded-lg p-2.5 ${p.featured ? "bg-primary/15" : ""}`}>
+                        <p.icon className={`w-6 h-6 ${p.featured ? "text-primary" : "text-primary"}`} />
+                      </div>
+                      <div>
+                        {p.featured && (
+                          <span className="inline-flex items-center gap-1 bg-primary text-primary-foreground font-heading font-bold text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full mb-2">
+                            <Star className="w-3 h-3" /> Most valuable perk
+                          </span>
+                        )}
+                        <h3 className="font-heading font-bold text-foreground mb-1.5">{p.title}</h3>
+                        <p className={`text-sm leading-relaxed ${p.featured ? "text-foreground/85" : "text-muted-foreground"}`}>
+                          {p.desc}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </ScrollReveal>
               ))}
