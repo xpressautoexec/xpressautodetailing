@@ -39,7 +39,7 @@ export const AUTO_PACKAGES: AutoPackage[] = [
       "Interior vacuum",
       "Dash & console wipe-down",
     ],
-    price: { sedan: 119, suv: 139, minivan: 149 },
+    price: { sedan: 149, suv: 169, minivan: 179 },
   },
   {
     id: "refresh",
@@ -266,7 +266,7 @@ export const XPRESS_PASS = [
     discount: 20,
     popular: true,
     service: "Upkeep",
-    memberPrice: { sedan: 95.2, suv: 111.2, minivan: 119.2 },
+    memberPrice: { sedan: 119, suv: 135, minivan: 143 },
   },
   {
     id: "refresh",
