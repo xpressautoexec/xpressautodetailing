@@ -19,6 +19,18 @@ const concerns: Concern[] = [
   { value: "fleet", label: "Care for work trucks or a fleet", to: "/corporate-fleet", result: "Commercial Fleet options" },
 ];
 
+type FinderVehicleId = VehicleSizeId | "truck" | "rv" | "marine" | "other";
+
+const VEHICLE_OPTIONS: { id: FinderVehicleId; label: string; icon: React.ElementType }[] = [
+  { id: "sedan", label: "Sedan / Coupe", icon: CarFront },
+  { id: "suv", label: "SUV / Pickup", icon: CarFront },
+  { id: "truck", label: "Truck", icon: Truck },
+  { id: "minivan", label: "3-Row SUV / Minivan", icon: CarFront },
+  { id: "rv", label: "RV / Trailer", icon: Truck },
+  { id: "marine", label: "Boat / Marine", icon: Sailboat },
+  { id: "other", label: "Other", icon: HelpCircle },
+];
+
 const ConcernFinder = () => {
   const navigate = useNavigate();
   const [value, setValue] = useState("");
