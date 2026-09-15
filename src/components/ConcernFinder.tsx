@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowRight, CarFront, CheckCircle2, Clock3, Sparkles } from "lucide-react";
+import { ArrowRight, CarFront, CheckCircle2, Clock3, HelpCircle, Sailboat, Sparkles, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { VEHICLE_SIZES, type VehicleSizeId } from "@/data/pricing";
 
