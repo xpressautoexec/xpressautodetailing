@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowRight, Search } from "lucide-react";
+import { ArrowRight, CarFront, CheckCircle2, Clock3, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { VEHICLE_SIZES, type VehicleSizeId } from "@/data/pricing";
 
 interface Concern {
   value: string;
@@ -20,43 +22,87 @@ const concerns: Concern[] = [
 const ConcernFinder = () => {
   const navigate = useNavigate();
   const [value, setValue] = useState("");
+  const [vehicle, setVehicle] = useState<VehicleSizeId>("sedan");
   const selected = concerns.find((c) => c.value === value);
 
+  const showPackages = () => {
+    if (!selected) return;
+    const separator = selected.to.includes("?") ? "&" : "?";
+    navigate(`${selected.to}${separator}size=${vehicle}`);
+  };
+
   return (
-    <div className="mt-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-5 max-w-xl">
-      <p className="text-white/90 font-heading font-bold text-[11px] uppercase tracking-widest mb-3 flex items-center gap-2">
-        <Search className="w-3.5 h-3.5 text-primary" />
-        What's your main concern?
-      </p>
+    <div className="mt-6 max-w-3xl overflow-hidden rounded-lg border border-background/70 bg-background shadow-2xl shadow-foreground/30">
+      <div className="h-1 bg-primary" />
+      <div className="p-4 sm:p-5">
+        <div className="mb-4 flex items-start justify-between gap-4">
+          <div>
+            <p className="font-heading text-sm font-black uppercase text-foreground sm:text-base">
+              Find Your Detail
+            </p>
+            <p className="mt-0.5 text-xs text-muted-foreground sm:text-sm">
+              Tell us what you drive and what it needs.
+            </p>
+          </div>
+          <span className="hidden shrink-0 items-center gap-1.5 rounded-full bg-accent px-3 py-1.5 text-[10px] font-bold uppercase text-accent-foreground sm:inline-flex">
+            <Clock3 className="h-3.5 w-3.5" />
+            Takes 30 seconds
+          </span>
+        </div>
 
-      <div className="flex flex-col sm:flex-row gap-2.5">
-        <label className="sr-only" htmlFor="concern">Choose your main concern</label>
-        <select
-          id="concern"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          className="flex-1 rounded-xl bg-white text-foreground text-sm px-4 py-3 border border-white/20 focus:outline-none focus:ring-2 focus:ring-primary"
-        >
-          <option value="">Select what's bothering you…</option>
-          {concerns.map((c) => (
-            <option key={c.value} value={c.value}>{c.label}</option>
-          ))}
-        </select>
+        <div className="grid gap-3 sm:grid-cols-[0.9fr_1.4fr_auto] sm:items-end">
+          <label className="block text-left" htmlFor="concern-vehicle">
+            <span className="mb-1.5 block text-[10px] font-bold uppercase text-muted-foreground">Your vehicle</span>
+            <span className="relative block">
+              <CarFront className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-primary" />
+              <select
+                id="concern-vehicle"
+                value={vehicle}
+                onChange={(event) => setVehicle(event.target.value as VehicleSizeId)}
+                className="h-12 w-full appearance-none rounded-md border border-border bg-card pl-10 pr-8 text-sm font-semibold text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
+              >
+                {VEHICLE_SIZES.map((size) => (
+                  <option key={size.id} value={size.id}>{size.label}</option>
+                ))}
+              </select>
+            </span>
+          </label>
 
-        <button
-          type="button"
-          disabled={!selected}
-          onClick={() => selected && navigate(selected.to)}
-          className="group inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-xl text-xs sm:text-sm whitespace-nowrap transition-all hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          Show Packages
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-        </button>
+          <label className="block text-left" htmlFor="concern">
+            <span className="mb-1.5 block text-[10px] font-bold uppercase text-muted-foreground">Main priority</span>
+            <span className="relative block">
+              <Sparkles className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-primary" />
+              <select
+                id="concern"
+                value={value}
+                onChange={(event) => setValue(event.target.value)}
+                className="h-12 w-full appearance-none rounded-md border border-border bg-card pl-10 pr-8 text-sm font-semibold text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
+              >
+                <option value="">What does it need?</option>
+                {concerns.map((concern) => (
+                  <option key={concern.value} value={concern.value}>{concern.label}</option>
+                ))}
+              </select>
+            </span>
+          </label>
+
+          <Button
+            type="button"
+            size="lg"
+            disabled={!selected}
+            onClick={showPackages}
+            className="group h-12 rounded-md px-5 font-heading text-xs font-black uppercase shadow-lg shadow-primary/20"
+          >
+            Find My Package
+            <ArrowRight className="transition-transform group-hover:translate-x-1" />
+          </Button>
+        </div>
+
+        <div className="mt-3 flex items-center gap-1.5 text-left text-[11px] text-muted-foreground">
+          <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-success" />
+          <span>{selected ? `Recommended: ${selected.result}` : "No commitment — see the right options and exact pricing."}</span>
+        </div>
       </div>
-
-      <p className="text-white/70 text-[11px] mt-2.5">
-        {selected ? `We'll take you to our ${selected.result}.` : "Answer one question and we'll point you to the right packages."}
-      </p>
     </div>
   );
 };
