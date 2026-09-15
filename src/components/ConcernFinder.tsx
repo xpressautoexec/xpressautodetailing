@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowRight, CarFront, CheckCircle2, Clock3, Sparkles } from "lucide-react";
+import { ArrowRight, CarFront, CheckCircle2, Clock3, HelpCircle, Sailboat, Sparkles, Truck, type LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { VEHICLE_SIZES, type VehicleSizeId } from "@/data/pricing";
 
@@ -19,11 +19,24 @@ const concerns: Concern[] = [
   { value: "fleet", label: "Care for work trucks or a fleet", to: "/corporate-fleet", result: "Commercial Fleet options" },
 ];
 
+type FinderVehicleId = VehicleSizeId | "truck" | "rv" | "marine" | "other";
+
+const VEHICLE_OPTIONS: { id: FinderVehicleId; label: string; icon: LucideIcon }[] = [
+  { id: "sedan", label: "Sedan / Coupe", icon: CarFront },
+  { id: "suv", label: "SUV / Pickup", icon: CarFront },
+  { id: "truck", label: "Truck", icon: Truck },
+  { id: "minivan", label: "3-Row SUV / Minivan", icon: CarFront },
+  { id: "rv", label: "RV / Trailer", icon: Truck },
+  { id: "marine", label: "Boat / Marine", icon: Sailboat },
+  { id: "other", label: "Other", icon: HelpCircle },
+];
+
 const ConcernFinder = () => {
   const navigate = useNavigate();
   const [value, setValue] = useState("");
-  const [vehicle, setVehicle] = useState<VehicleSizeId>("sedan");
+  const [vehicle, setVehicle] = useState<FinderVehicleId>("sedan");
   const selected = concerns.find((c) => c.value === value);
+  const VehicleIcon = VEHICLE_OPTIONS.find((v) => v.id === vehicle)?.icon ?? CarFront;
 
   const showPackages = () => {
     if (!selected) return;
@@ -50,19 +63,19 @@ const ConcernFinder = () => {
           </span>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-[0.9fr_1.4fr_auto] sm:items-end">
-          <label className="block text-left" htmlFor="concern-vehicle">
+        <div className="grid gap-3 sm:grid-cols-[1.2fr_1.2fr_auto] sm:items-end">
+          <label className="block min-w-0 text-left" htmlFor="concern-vehicle">
             <span className="mb-1.5 block text-[10px] font-bold uppercase text-muted-foreground">Your vehicle</span>
             <span className="relative block">
-              <CarFront className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-primary" />
+              <VehicleIcon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-primary" />
               <select
                 id="concern-vehicle"
                 value={vehicle}
-                onChange={(event) => setVehicle(event.target.value as VehicleSizeId)}
+                onChange={(event) => setVehicle(event.target.value as FinderVehicleId)}
                 className="h-12 w-full appearance-none rounded-md border border-border bg-card pl-10 pr-8 text-sm font-semibold text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
               >
-                {VEHICLE_SIZES.map((size) => (
-                  <option key={size.id} value={size.id}>{size.label}</option>
+                {VEHICLE_OPTIONS.map((option) => (
+                  <option key={option.id} value={option.id}>{option.label}</option>
                 ))}
               </select>
             </span>
