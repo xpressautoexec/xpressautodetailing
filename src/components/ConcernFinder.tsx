@@ -21,7 +21,7 @@ const concerns: Concern[] = [
 
 type FinderVehicleId = VehicleSizeId | "truck" | "rv" | "marine" | "other";
 
-const VEHICLE_OPTIONS: { id: FinderVehicleId; label: string; icon: React.ElementType }[] = [
+const VEHICLE_OPTIONS: { id: FinderVehicleId; label: string; icon: LucideIcon }[] = [
   { id: "sedan", label: "Sedan / Coupe", icon: CarFront },
   { id: "suv", label: "SUV / Pickup", icon: CarFront },
   { id: "truck", label: "Truck", icon: Truck },
