@@ -306,61 +306,74 @@ const MonthlyPlan = () => {
               </div>
             </ScrollReveal>
 
-            <div className="grid gap-4 lg:grid-cols-12">
-              {PERKS.map((perk, index) => {
-                const isMetalCard = perk.title === "Real metal membership card";
-                const gridClass = perk.featured
-                  ? "lg:col-span-8"
-                  : isMetalCard
-                    ? "lg:col-span-4"
-                    : "lg:col-span-4";
-
-                return (
-                  <ScrollReveal key={perk.title} delay={0.05 * index} className={gridClass}>
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+              {/* Perk list */}
+              <div className="space-y-4">
+                {PERKS.map((perk, index) => (
+                  <ScrollReveal key={perk.title} delay={0.05 * index}>
                     <article
-                      className={`group relative h-full overflow-hidden rounded-lg border p-6 transition-colors duration-300 sm:p-8 ${
+                      className={`group flex gap-4 rounded-xl border p-5 transition-all duration-300 sm:gap-5 sm:p-6 ${
                         perk.featured
-                          ? "border-primary/70 bg-brand-dark-surface"
-                          : "border-primary-foreground/15 bg-primary-foreground/5 hover:border-primary/60"
+                          ? "border-primary/60 bg-primary/10 shadow-lg shadow-primary/10"
+                          : "border-primary-foreground/10 bg-primary-foreground/[0.03] hover:border-primary/50 hover:bg-primary-foreground/[0.06]"
                       }`}
                     >
-                      <div className="mb-7 flex items-center justify-between">
-                        <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/15 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                      <div className="flex shrink-0 flex-col items-center gap-2">
+                        <div
+                          className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors duration-300 ${
+                            perk.featured
+                              ? "bg-primary text-primary-foreground"
+                              : "bg-primary/15 text-primary group-hover:bg-primary group-hover:text-primary-foreground"
+                          }`}
+                        >
                           <perk.icon className="h-5 w-5" />
                         </div>
-                        <span className="font-mono text-xs text-brand-gray/70">0{index + 1}</span>
+                        <span className="font-mono text-[10px] font-bold text-brand-gray/50">0{index + 1}</span>
                       </div>
 
-                      {perk.featured && (
-                        <div className="mb-4 flex items-center gap-3">
-                          <span className="h-px w-8 bg-primary" aria-hidden />
-                          <span className="font-heading text-[10px] font-bold uppercase tracking-widest text-primary">
-                            First-service rebate
-                          </span>
+                      <div className="flex-1">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <h3 className="font-heading font-bold text-primary-foreground sm:text-lg">
+                            {perk.title}
+                          </h3>
+                          {perk.featured && (
+                            <span className="inline-flex items-center gap-1 rounded-full bg-primary/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary">
+                              <Star className="h-3 w-3" />
+                              Best perk
+                            </span>
+                          )}
                         </div>
-                      )}
-
-                      <h3 className={`font-heading font-bold text-primary-foreground ${perk.featured ? "max-w-2xl text-2xl sm:text-3xl" : "text-lg"}`}>
-                        {perk.title}
-                      </h3>
-                      <p className={`mt-3 leading-relaxed text-brand-gray ${perk.featured ? "max-w-3xl text-base" : "text-sm"}`}>
-                        {perk.desc}
-                      </p>
-
-                      {isMetalCard && (
-                        <img
-                          src={xpressPassCard}
-                          alt="Black metal Xpress Pass membership card"
-                          className="mx-auto mt-5 w-full max-w-56 transition-transform duration-300 group-hover:-translate-y-1"
-                          loading="lazy"
-                          width={1024}
-                          height={1024}
-                        />
-                      )}
+                        <p className="mt-1.5 leading-relaxed text-brand-gray text-sm sm:text-base">
+                          {perk.desc}
+                        </p>
+                      </div>
                     </article>
                   </ScrollReveal>
-                );
-              })}
+                ))}
+              </div>
+
+              {/* Metal card visual */}
+              <ScrollReveal delay={0.1} className="lg:sticky lg:top-28">
+                <div className="relative flex flex-col items-center justify-center rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.03] p-8 sm:p-12">
+                  <div className="absolute inset-0 bg-primary/10 blur-3xl rounded-full" aria-hidden />
+                  <img
+                    src={xpressPassCard}
+                    alt="Black metal Xpress Pass membership card"
+                    className="relative w-full max-w-xs drop-shadow-2xl animate-float"
+                    loading="lazy"
+                    width={1024}
+                    height={1024}
+                  />
+                  <div className="relative mt-6 text-center">
+                    <p className="font-heading font-black text-xl uppercase text-primary-foreground">
+                      Real Metal Card
+                    </p>
+                    <p className="mt-1 text-sm text-brand-gray">
+                      Shipped to every member — not a digital-only badge.
+                    </p>
+                  </div>
+                </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>
