@@ -63,19 +63,19 @@ const ConcernFinder = () => {
           </span>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-[0.9fr_1.4fr_auto] sm:items-end">
-          <label className="block text-left" htmlFor="concern-vehicle">
+        <div className="grid gap-3 sm:grid-cols-[1.2fr_1.2fr_auto] sm:items-end">
+          <label className="block min-w-0 text-left" htmlFor="concern-vehicle">
             <span className="mb-1.5 block text-[10px] font-bold uppercase text-muted-foreground">Your vehicle</span>
             <span className="relative block">
-              <CarFront className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-primary" />
+              <VehicleIcon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-primary" />
               <select
                 id="concern-vehicle"
                 value={vehicle}
-                onChange={(event) => setVehicle(event.target.value as VehicleSizeId)}
+                onChange={(event) => setVehicle(event.target.value as FinderVehicleId)}
                 className="h-12 w-full appearance-none rounded-md border border-border bg-card pl-10 pr-8 text-sm font-semibold text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
               >
-                {VEHICLE_SIZES.map((size) => (
-                  <option key={size.id} value={size.id}>{size.label}</option>
+                {VEHICLE_OPTIONS.map((option) => (
+                  <option key={option.id} value={option.id}>{option.label}</option>
                 ))}
               </select>
             </span>
