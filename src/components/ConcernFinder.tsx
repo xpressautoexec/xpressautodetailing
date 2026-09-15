@@ -34,8 +34,9 @@ const VEHICLE_OPTIONS: { id: FinderVehicleId; label: string; icon: LucideIcon }[
 const ConcernFinder = () => {
   const navigate = useNavigate();
   const [value, setValue] = useState("");
-  const [vehicle, setVehicle] = useState<VehicleSizeId>("sedan");
+  const [vehicle, setVehicle] = useState<FinderVehicleId>("sedan");
   const selected = concerns.find((c) => c.value === value);
+  const VehicleIcon = VEHICLE_OPTIONS.find((v) => v.id === vehicle)?.icon ?? CarFront;
 
   const showPackages = () => {
     if (!selected) return;
