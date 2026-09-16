@@ -42,6 +42,16 @@ const Reviews = lazy(() => import("./pages/Reviews"));
 
 const queryClient = new QueryClient();
 
+/** Resets scroll to the top on every route change (hash links keep their target). */
+const ScrollToTop = () => {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (hash) return;
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname, hash]);
+  return null;
+};
+
 export const AnimatedRoutes = () => {
   const location = useLocation();
   return (
