@@ -168,6 +168,7 @@ const Detailing = () => {
       <StickyMobileCTA />
     </div>
   </PageTransition>
-);
+  );
+};
 
 export default Detailing;
