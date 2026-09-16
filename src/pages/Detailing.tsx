@@ -104,7 +104,7 @@ const Detailing = () => {
       </section>
 
       {/* Packages */}
-      <section className="py-14 sm:py-20 bg-foreground">
+      <section id="packages" className="scroll-mt-24 py-14 sm:py-20 bg-foreground">
         <div className="container px-4 sm:px-6">
           <AutoPackages
             dark
