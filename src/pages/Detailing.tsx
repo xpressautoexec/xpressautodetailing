@@ -115,7 +115,7 @@ const Detailing = () => {
       </section>
 
       {/* Add-ons */}
-      <section className="py-14 sm:py-20 bg-background">
+      <section id="add-ons" className="scroll-mt-24 py-14 sm:py-20 bg-background">
         <div className="container max-w-4xl px-6">
           <ScrollReveal>
             <div className="mb-8 text-center">
