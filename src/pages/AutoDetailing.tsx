@@ -13,7 +13,7 @@ const BOOKING_URL = "https://xpressauto.fieldd.co/";
 const packages = [
   {
     name: "Upkeep",
-    price: "$119",
+    price: "$149",
     time: "45 min",
     points: ["Exterior hand wash, high-foam", "Wheels, tires and arches", "Glass in and out, streak-free", "Full interior vacuum and dash wipe-down"],
     href: "/detailing",
@@ -61,7 +61,7 @@ const AutoDetailing = () => (
     <div className="min-h-screen pb-16 lg:pb-0">
       <SEO
         title="Auto Detailing Calgary — Mobile Car Detailing"
-        description="Professional mobile auto detailing in Calgary. Upkeep, Inside & Out and Deep Clean & Seal packages from $119. We bring water, power and pro-grade products to your door."
+        description="Professional mobile auto detailing in Calgary. Upkeep, Inside & Out and Deep Clean & Seal packages from $149. We bring water, power and pro-grade products to your door."
         canonical="/auto-detailing"
         jsonLd={[
           buildServiceJsonLd(

@@ -23,7 +23,7 @@ interface ServiceOption {
 const services: ServiceOption[] = [
   {
     label: "Upkeep",
-    base: { sedan: "$119", small_suv: "$139", large_suv: "$149" },
+    base: { sedan: "$149", small_suv: "$169", large_suv: "$179" },
     time: "45 min",
   },
   {
