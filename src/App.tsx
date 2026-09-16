@@ -133,6 +133,7 @@ const App = () => (
   <HelmetProvider>
     <AppProviders>
       <BrowserRouter>
+        <ScrollToTop />
         <Suspense fallback={<RouteFallback />}>
           <AnimatedRoutes />
         </Suspense>
