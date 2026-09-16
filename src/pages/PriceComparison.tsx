@@ -25,7 +25,7 @@ const PHONE = "587-500-4523";
 const priceRows = [
   {
     service: "Upkeep (sedan)",
-    ours: "$119",
+    ours: "$149",
     shop: "$120 – $180",
     note: "Hand wash, wheels, glass and interior tidy. 45 minutes. SUV +$20, 3-row +$30.",
     link: "/detailing",
@@ -116,7 +116,7 @@ const shopWins = [
 const faqs = [
   {
     q: "How much does car detailing cost in Calgary?",
-    a: "Most Calgary detailers price a full interior-and-exterior detail between $220 and $400 for a sedan. Our published mobile pricing is $119 for Upkeep, $229 for Inside & Out and $379 for Deep Clean & Seal, with size surcharges of $20–$80 for SUVs, trucks and 3-row vehicles.",
+    a: "Most Calgary detailers price a full interior-and-exterior detail between $220 and $400 for a sedan. Our published mobile pricing is $149 for Upkeep, $229 for Inside & Out and $379 for Deep Clean & Seal, with size surcharges of $20–$80 for SUVs, trucks and 3-row vehicles.",
   },
   {
     q: "Is mobile detailing more expensive than a detailing shop?",

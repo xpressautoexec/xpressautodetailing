@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
-import { lazy, Suspense, type ReactNode } from "react";
+import { lazy, Suspense, useEffect, type ReactNode } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { AnimatePresence } from "framer-motion";
 import Index from "./pages/Index";
@@ -41,6 +41,16 @@ const PaintCorrection = lazy(() => import("./pages/PaintCorrection"));
 const Reviews = lazy(() => import("./pages/Reviews"));
 
 const queryClient = new QueryClient();
+
+/** Resets scroll to the top on every route change (hash links keep their target). */
+const ScrollToTop = () => {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (hash) return;
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname, hash]);
+  return null;
+};
 
 export const AnimatedRoutes = () => {
   const location = useLocation();
@@ -123,6 +133,7 @@ const App = () => (
   <HelmetProvider>
     <AppProviders>
       <BrowserRouter>
+        <ScrollToTop />
         <Suspense fallback={<RouteFallback />}>
           <AnimatedRoutes />
         </Suspense>

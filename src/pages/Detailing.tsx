@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
@@ -38,7 +40,28 @@ const detailingFAQs = [
   },
 ];
 
-const Detailing = () => (
+const TAB_TARGETS: Record<string, string> = {
+  interior: "packages",
+  exterior: "packages",
+  complete: "packages",
+  "add-ons": "add-ons",
+};
+
+const Detailing = () => {
+  const [searchParams] = useSearchParams();
+  const tab = searchParams.get("tab") ?? "";
+
+  useEffect(() => {
+    const targetId = TAB_TARGETS[tab];
+    if (!targetId) return;
+    const el = document.getElementById(targetId);
+    if (!el) return;
+    // Let the page paint before scrolling to the requested section.
+    const raf = requestAnimationFrame(() => el.scrollIntoView({ behavior: "smooth", block: "start" }));
+    return () => cancelAnimationFrame(raf);
+  }, [tab]);
+
+  return (
   <PageTransition>
     <div className="min-h-screen pb-16 lg:pb-0">
       <SEO
@@ -81,7 +104,7 @@ const Detailing = () => (
       </section>
 
       {/* Packages */}
-      <section className="py-14 sm:py-20 bg-foreground">
+      <section id="packages" className="scroll-mt-24 py-14 sm:py-20 bg-foreground">
         <div className="container px-4 sm:px-6">
           <AutoPackages
             dark
@@ -92,7 +115,7 @@ const Detailing = () => (
       </section>
 
       {/* Add-ons */}
-      <section className="py-14 sm:py-20 bg-background">
+      <section id="add-ons" className="scroll-mt-24 py-14 sm:py-20 bg-background">
         <div className="container max-w-4xl px-6">
           <ScrollReveal>
             <div className="mb-8 text-center">
@@ -145,6 +168,7 @@ const Detailing = () => (
       <StickyMobileCTA />
     </div>
   </PageTransition>
-);
+  );
+};
 
 export default Detailing;
