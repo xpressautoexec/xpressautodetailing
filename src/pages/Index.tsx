@@ -8,6 +8,7 @@ import BrandPartners from "@/components/BrandPartners";
 import CompanyLogos from "@/components/CompanyLogos";
 import ServicesSection from "@/components/ServicesSection";
 import AutoPackages from "@/components/AutoPackages";
+import WorkTruckSection from "@/components/WorkTruckSection";
 import GoogleReviewBadge from "@/components/GoogleReviewBadge";
 import AboutSection from "@/components/AboutSection";
 import AssessmentForm from "@/components/AssessmentForm";
@@ -38,6 +39,7 @@ const Index = () => (
       <BrandPartners />
       <CompanyLogos />
       <ServicesSection />
+      <WorkTruckSection />
 
       {/* Packages */}
       <section className="py-16 sm:py-20 bg-foreground">

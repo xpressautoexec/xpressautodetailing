@@ -1,96 +1,40 @@
-import { motion } from "framer-motion";
-import { ArrowRight, Star, Clock, Shield, Zap } from "lucide-react";
-import vanImage from "@/assets/xpress-van.png";
+import { ArrowRight, Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import ConcernFinder from "@/components/ConcernFinder";
-import { useHydrated } from "@/hooks/use-hydrated";
+import { BOOKING_URL, REVIEW_COUNT, REVIEW_SCORE } from "@/data/pricing";
+import completeImg from "@/assets/gallery-range-rover-exterior.jpg";
+import interiorImg from "@/assets/gallery-range-rover-interior.jpg";
+import ceramicImg from "@/assets/gallery-21.jpg";
+import truckImg from "@/assets/fleet-kls-truck.jpg";
+import rvImg from "@/assets/rv-hero.jpg";
 
-const BOOKING_URL = "https://xpressauto.fieldd.co/";
+const work = [
+  { src: completeImg, alt: "Detailed Range Rover exterior in Calgary" },
+  { src: interiorImg, alt: "Freshly detailed Range Rover interior" },
+  { src: ceramicImg, alt: "Ceramic-coated vehicle after mobile detailing" },
+  { src: truckImg, alt: "Work truck ready for on-site detailing" },
+  { src: rvImg, alt: "RV detailing at a customer's property" },
+];
 
 const HeroSection = () => {
-  const hydrated = useHydrated();
-  // Skip enter animations for the prerendered/first paint so crawlers (and users
-  // with JS disabled) get fully visible hero copy.
-  const anim = (initial: Record<string, number>, transition: Record<string, unknown>) =>
-    hydrated ? { initial, animate: { opacity: 1, y: 0 }, transition } : {};
-
   return (
-    <section id="home" className="relative min-h-[85vh] flex items-center overflow-hidden">
-      <img
-        src="/hero-audi-rs5.webp"
-        alt="Detailer applying ceramic coating to a black Audi RS5 at a Calgary customer's driveway"
-        className="absolute inset-0 w-full h-full object-cover"
-        width={682}
-        height={678}
-        fetchPriority="high"
-        decoding="sync"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/30" />
-
-      <div className="container relative z-10 px-6 sm:px-8 py-12">
-        <div className="max-w-2xl mx-auto text-center md:text-left md:mx-0">
-
-
-
-          <motion.h1
-            {...anim({ opacity: 0, y: 30 }, { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] })}
-            className="font-heading font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase leading-tight text-white mb-2"
-          >
-            Calgary Mobile Car Detailing{" "}
-            <span className="text-primary">That Comes to You</span>
-          </motion.h1>
-
-          <motion.p
-            {...anim({ opacity: 0, y: 20 }, { duration: 0.6, delay: 0.15 })}
-            className="text-white/80 text-sm sm:text-base mb-3 max-w-lg"
-          >
-            Calgary's top-rated mobile detailing — at your door in 24 hours. No drop-offs. No waiting. Just results.
-          </motion.p>
-
-          {/* Social proof */}
-          <motion.div
-            {...anim({ opacity: 0, y: 0 }, { delay: 0.3 })}
-            className="flex items-center gap-3 mb-5 justify-center md:justify-start flex-wrap"
-          >
-            <div className="flex items-center gap-1" role="img" aria-label="Rated 4.9 out of 5 stars from over 100 Google reviews">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-              ))}
-              <span className="text-white/80 text-sm ml-1.5 font-medium">4.9/5</span>
-            </div>
-            <span className="text-white/50 text-sm">•</span>
-            <span className="text-white/70 text-sm font-medium">100+ 5-Star Reviews</span>
-            <span className="text-white/50 text-sm">•</span>
-            <span className="text-white/70 text-sm font-medium">2,000+ Cars Detailed</span>
-          </motion.div>
-
-          <motion.div
-            {...anim({ opacity: 0, y: 20 }, { duration: 0.6, delay: 0.4 })}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start"
-          >
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Schedule a mobile car detailing appointment"
-              className="group inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg hover:bg-primary/90 transition-all text-xs sm:text-sm shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-[1.02]"
-            >
-              <Zap className="w-4 h-4" />
-              Book My Detail — Takes 60 Seconds
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="tel:5875004523"
-              aria-label="Call Xpress Auto Detailing at 587-500-4523"
-              className="inline-flex items-center justify-center gap-2 border-2 border-white/30 text-white font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg hover:border-white/60 hover:bg-white/10 transition-all text-xs sm:text-sm"
-            >
-              Call 587-500-4523
-            </a>
-          </motion.div>
-
-          {/* Concern-based package finder */}
-          <ConcernFinder />
-
+    <section id="home" className="overflow-hidden bg-home-ink text-home-paper">
+      <div className="container px-5 pb-10 pt-14 text-center sm:pb-14 sm:pt-20 lg:pt-24">
+        <p className="mb-5 text-xs font-bold uppercase text-primary">Calgary & surrounding communities · Mobile detailing</p>
+        <h1 className="mx-auto max-w-4xl font-heading text-3xl font-black uppercase leading-tight sm:text-5xl lg:text-6xl">
+          Xpress Auto Detailing.<br /> <span className="text-home-paper/65">We come to you.</span>
+        </h1>
+        <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-home-paper/75 sm:text-lg">
+          Cars, work trucks, RVs and fleets — detailed where you park. We bring our own water and power.
+        </p>
+        <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <Button asChild size="lg" className="w-full px-8 font-bold sm:w-auto"><a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Book your detail <ArrowRight /></a></Button>
+          <span className="flex items-center gap-2 text-sm text-home-paper/75"><Star className="h-4 w-4 fill-primary text-primary" /> {REVIEW_SCORE}/5 · {REVIEW_COUNT} Google reviews</span>
         </div>
+        <ConcernFinder />
+      </div>
+      <div className="grid h-40 grid-cols-3 gap-1 px-1 pb-1 sm:h-52 sm:grid-cols-5 lg:h-60" aria-label="Recent detailing work">
+        {work.map((item, i) => <img key={item.alt} src={item.src} alt={item.alt} loading={i < 3 ? "eager" : "lazy"} className={`h-full w-full object-cover ${i > 2 ? "hidden sm:block" : ""}`} />)}
       </div>
     </section>
   );

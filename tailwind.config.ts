@@ -24,6 +24,8 @@ export default {
       },
 
       colors: {
+        "home-ink": "hsl(var(--home-ink))",
+        "home-paper": "hsl(var(--home-paper))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

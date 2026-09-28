@@ -94,7 +94,7 @@ const CorporateFleet = () => (
       <AutoBreadcrumbs />
       <ServicePageHero title="Fleet & Dealership Detailing" image={fleetHero} ctaType="call" />
 
-      <section className="py-14 sm:py-20 bg-background">
+      <section id="quote" className="scroll-mt-24 py-14 sm:py-20 bg-background">
         <div className="container max-w-3xl px-6 text-center">
           <ScrollReveal>
             <h1 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-5">
