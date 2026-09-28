@@ -45,7 +45,7 @@ const ConcernFinder = () => {
   };
 
   return (
-    <div className="mx-auto mt-9 max-w-4xl overflow-hidden rounded-md border border-home-paper/20 bg-background text-foreground shadow-xl">
+    <div className="mx-auto mt-6 max-w-4xl overflow-hidden rounded-md border border-home-paper/20 bg-background text-foreground shadow-xl sm:mt-9">
       <div className="h-1 bg-primary" />
       <div className="p-4 sm:p-5">
         <div className="mb-4 flex items-start justify-between gap-4 text-left">

@@ -19,15 +19,15 @@ const work = [
 const HeroSection = () => {
   return (
     <section id="home" className="overflow-hidden bg-home-ink text-home-paper">
-      <div className="container px-5 pb-10 pt-14 text-center sm:pb-14 sm:pt-20 lg:pt-24">
+      <div className="container px-5 pb-10 pt-10 text-center sm:pb-14 sm:pt-20 lg:pt-24">
         <p className="mb-5 text-xs font-bold uppercase text-primary">Calgary & surrounding communities · Mobile detailing</p>
         <h1 className="mx-auto max-w-4xl font-heading text-3xl font-black uppercase leading-tight sm:text-5xl lg:text-6xl">
           Xpress Auto Detailing.<br /> <span className="text-home-paper/65">We come to you.</span>
         </h1>
-        <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-home-paper/75 sm:text-lg">
+        <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-home-paper/75 sm:text-lg">
           Cars, work trucks, RVs and fleets — detailed where you park. We bring our own water and power.
         </p>
-        <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:mt-7 sm:flex-row">
           <Button asChild size="lg" className="w-full px-8 font-bold sm:w-auto"><a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Book your detail <ArrowRight /></a></Button>
           <span className="flex items-center gap-2 text-sm text-home-paper/75"><Star className="h-4 w-4 fill-primary text-primary" /> {REVIEW_SCORE}/5 · {REVIEW_COUNT} Google reviews</span>
         </div>

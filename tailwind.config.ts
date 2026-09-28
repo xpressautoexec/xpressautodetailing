@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Archivo", "Montserrat", "system-ui", "sans-serif"],
-        body: ["Inter", "Open Sans", "system-ui", "sans-serif"],
+        heading: ["Archivo Black", "Archivo", "system-ui", "sans-serif"],
+        body: ["Hind", "system-ui", "sans-serif"],
         mono: ["IBM Plex Mono", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       maxWidth: {
