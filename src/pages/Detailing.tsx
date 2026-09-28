@@ -6,6 +6,7 @@ import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import AutoPackages from "@/components/AutoPackages";
+import WorkTruckSection from "@/components/WorkTruckSection";
 import AddOnList from "@/components/AddOnList";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import GalleryCarousel from "@/components/GalleryCarousel";
@@ -45,6 +46,7 @@ const TAB_TARGETS: Record<string, string> = {
   exterior: "packages",
   complete: "packages",
   "add-ons": "add-ons",
+  "work-trucks": "work-trucks",
 };
 
 const Detailing = () => {
@@ -113,6 +115,8 @@ const Detailing = () => {
           />
         </div>
       </section>
+
+      <WorkTruckSection />
 
       {/* Add-ons */}
       <section id="add-ons" className="scroll-mt-24 py-14 sm:py-20 bg-background">

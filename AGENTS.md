@@ -1,0 +1,3 @@
+Use `src/data/pricing.ts` as the single source for work-truck and other published service prices, so homepage and detailing rates remain aligned.
+Keep the homepage concern finder on its existing shared component and route work-truck selections into the detailing page, so discovery stays consistent with the rest of the booking flow.
+Use a section-scoped homepage primary color token instead of changing the global brand primary, so the charcoal-and-blue homepage refresh does not restyle unrelated pages.

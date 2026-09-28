@@ -131,7 +131,7 @@ const CorporateFleet = () => (
       </section>
 
       {/* How it works */}
-      <section className="py-14 sm:py-20 bg-background">
+      <section id="quote" className="scroll-mt-24 py-14 sm:py-20 bg-background">
         <div className="container max-w-3xl px-6">
           <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-8">
             How fleet accounts work
