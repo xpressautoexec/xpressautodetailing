@@ -7,8 +7,6 @@ import brandDirtt from "@/assets/brand-dirtt.png";
 import brandShell from "@/assets/brand-shell.png";
 import brandSilverhillAcura from "@/assets/brand-silverhill-acura.png";
 import brandLandform from "@/assets/brand-landform.png";
-import brandNewWestTruck from "@/assets/brand-new-west-truck.png.asset.json";
-import brandRanchmans from "@/assets/brand-ranchmans.png.asset.json";
 
 const partners = [
   { name: "Aecon", logo: brandAecon },
@@ -19,8 +17,8 @@ const partners = [
   { name: "Shell", logo: brandShell },
   { name: "Silverhill Acura", logo: brandSilverhillAcura },
   { name: "Landform", logo: brandLandform },
-  { name: "New West Truck Centres", logo: brandNewWestTruck.url },
-  { name: "Ranchman's", logo: brandRanchmans.url },
+  { name: "New West Truck Centres", logo: "" },
+  { name: "Ranchman's", logo: "" },
 ];
 
 const CompanyLogos = () => {
@@ -38,12 +36,12 @@ const CompanyLogos = () => {
         <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 max-w-5xl mx-auto" staggerDelay={0.06}>
           {partners.map((partner) => (
             <StaggerItem key={partner.name} className="flex items-center justify-center">
-              <div className="bg-white border-2 border-border rounded-xl px-6 py-6 w-full h-24 md:h-28 flex items-center justify-center shadow-sm hover:border-primary/50 hover:shadow-md transition-all duration-300">
-                <img
+              <div className="bg-card border border-border rounded-md px-4 py-5 w-full h-20 md:h-24 flex items-center justify-center transition-colors hover:border-primary/50">
+                {partner.logo ? <img
                   src={partner.logo}
                   alt={`${partner.name} — commercial fleet detailing client of Xpress Auto Detailing`}
                   className="max-h-12 md:max-h-14 w-auto max-w-[80%] object-contain"
-                />
+                /> : <span className="text-center font-heading text-sm text-foreground">{partner.name}</span>}
               </div>
             </StaggerItem>
           ))}
