@@ -18,7 +18,7 @@ const work = [
 
 const HeroSection = () => {
   return (
-    <section id="home" className="overflow-hidden bg-home-ink text-home-paper">
+    <section id="home" className="home-theme overflow-hidden bg-home-ink text-home-paper">
       <div className="container px-5 pb-10 pt-10 text-center sm:pb-14 sm:pt-20 lg:pt-24">
         <p className="mb-5 text-xs font-bold uppercase text-primary">Calgary & surrounding communities · Mobile detailing</p>
         <h1 className="mx-auto max-w-4xl font-heading text-3xl font-black uppercase leading-tight sm:text-5xl lg:text-6xl">
