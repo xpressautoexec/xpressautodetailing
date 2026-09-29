@@ -16,7 +16,7 @@ const concerns: Concern[] = [
   { value: "complete", label: "Detail the entire vehicle", to: "/detailing?tab=complete", result: "Complete Detailing packages" },
   { value: "paint", label: "Improve or protect the paint", to: "/paint-correction", result: "Paint Correction and Protection options" },
   { value: "rv-marine", label: "Detail an RV, trailer or boat", to: "/trailer-rv", result: "RV, Trailer and Marine services" },
-  { value: "fleet", label: "Clean a work truck", to: "/detailing?tab=work-trucks", result: "Work truck packages" },
+  { value: "fleet", label: "Care for work trucks or a fleet", to: "/corporate-fleet", result: "Commercial Fleet options" },
 ];
 
 type FinderVehicleId = VehicleSizeId | "truck" | "rv" | "marine" | "other";
@@ -45,13 +45,13 @@ const ConcernFinder = () => {
   };
 
   return (
-    <div className="mx-auto mt-4 max-w-4xl overflow-hidden rounded-md border border-home-paper/20 bg-background text-foreground shadow-xl sm:mt-9">
+    <div className="mt-6 max-w-3xl overflow-hidden rounded-lg border border-background/70 bg-background shadow-2xl shadow-foreground/30">
       <div className="h-1 bg-primary" />
-      <div className="p-3 sm:p-5">
-        <div className="mb-4 flex items-start justify-between gap-4 text-left">
+      <div className="p-4 sm:p-5">
+        <div className="mb-4 flex items-start justify-between gap-4">
           <div>
             <p className="font-heading text-sm font-black uppercase text-foreground sm:text-base">
-              What does your car need?
+              Find Your Detail
             </p>
             <p className="mt-0.5 text-xs text-muted-foreground sm:text-sm">
               Tell us what you drive and what it needs.

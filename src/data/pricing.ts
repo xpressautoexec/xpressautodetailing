@@ -88,22 +88,6 @@ export const AUTO_PACKAGES: AutoPackage[] = [
   },
 ];
 
-// ---------- WORK TRUCKS ----------
-export const WORK_TRUCK_PACKAGES = [
-  {
-    id: "work-truck-interior",
-    name: "Work Truck Interior",
-    price: 329,
-    includes: ["Cab vacuum and deep clean", "Seats and high-touch surfaces cleaned", "Floors, mats and workday buildup addressed"],
-  },
-  {
-    id: "work-truck-complete",
-    name: "Work Truck Inside & Out",
-    price: 450,
-    includes: ["Everything in Work Truck Interior", "Exterior hand wash and dry", "Wheels, tires and exterior glass"],
-  },
-] as const;
-
 // ---------- CERAMIC COATING (standalone) ----------
 export const CERAMIC_PACKAGES = [
   {

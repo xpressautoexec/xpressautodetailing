@@ -6,8 +6,6 @@
 @layer base {
   :root {
     --background: 216 30% 97%;
-    --home-ink: 210 16% 11%;
-    --home-paper: 210 20% 98%;
     --foreground: 215 30% 12%;
 
     --card: 0 0% 100%;
@@ -79,8 +77,6 @@
 
   .dark {
     --background: 215 30% 10%;
-    --home-ink: 210 16% 11%;
-    --home-paper: 210 20% 98%;
     --foreground: 210 40% 98%;
     --card: 215 25% 14%;
     --card-foreground: 210 40% 98%;
@@ -145,10 +141,6 @@
       scroll-behavior: auto !important;
     }
   }
-}
-
-.home-theme {
-  --primary: 204 70% 46%;
 }
 
 
