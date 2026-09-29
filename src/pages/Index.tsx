@@ -14,6 +14,8 @@ import AssessmentForm from "@/components/AssessmentForm";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
+import WorkTruckPackage from "@/components/WorkTruckPackage";
+
 import ChatWidget from "@/components/ChatWidget";
 import ScrollReveal from "@/components/ScrollReveal";
 import SEO, { localBusinessJsonLd } from "@/components/SEO";
@@ -58,6 +60,10 @@ const Index = () => (
           </div>
         </div>
       </section>
+
+      <WorkTruckPackage />
+
+
 
       {/* How it works */}
       <section className="py-16 sm:py-20 bg-background">

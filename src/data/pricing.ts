@@ -88,6 +88,46 @@ export const AUTO_PACKAGES: AutoPackage[] = [
   },
 ];
 
+// ---------- WORK TRUCK PACKAGE ----------
+export const WORK_TRUCK_PACKAGE = {
+  id: "work-truck",
+  name: "Work Truck Package",
+  tagline:
+    "Built for landscaping, construction, trades and service trucks — mud, sawdust, salt, coffee cups and a cab that gets used hard every day.",
+  tiers: [
+    {
+      id: "interior",
+      name: "Interior Only",
+      price: 329,
+      duration: "2.5–3 hrs",
+      includes: [
+        "Full cab clean-out and deep vacuum",
+        "Carpet and floor mat shampoo or extraction",
+        "Heavy dirt, mud and salt stain removal",
+        "Seats cleaned — cloth shampooed, leather conditioned",
+        "Dash, console, vents and door panels degreased",
+        "Interior glass streak-free",
+      ],
+    },
+    {
+      id: "full",
+      name: "Interior + Exterior",
+      price: 450,
+      duration: "4–4.5 hrs",
+      popular: true,
+      includes: [
+        "Everything in the interior package",
+        "Exterior hand wash and dry",
+        "Wheels, tires, arches and running boards",
+        "Bug, tar and road-film removal",
+        "Box and tailgate rinsed out",
+        "Tire dressing and exterior glass",
+      ],
+    },
+  ],
+};
+
+
 // ---------- CERAMIC COATING (standalone) ----------
 export const CERAMIC_PACKAGES = [
   {
