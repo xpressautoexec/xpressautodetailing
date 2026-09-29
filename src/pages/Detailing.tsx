@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import AutoPackages from "@/components/AutoPackages";
 import AddOnList from "@/components/AddOnList";
+import WorkTruckPackage from "@/components/WorkTruckPackage";
+
 import ServiceFAQ from "@/components/ServiceFAQ";
 import GalleryCarousel from "@/components/GalleryCarousel";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
@@ -113,6 +115,10 @@ const Detailing = () => {
           />
         </div>
       </section>
+
+      <WorkTruckPackage />
+
+
 
       {/* Add-ons */}
       <section id="add-ons" className="scroll-mt-24 py-14 sm:py-20 bg-background">
