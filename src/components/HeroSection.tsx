@@ -1,95 +1,98 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Star, Clock, Shield, Zap } from "lucide-react";
-import vanImage from "@/assets/xpress-van.png";
+import { ArrowRight, Phone } from "lucide-react";
 import ConcernFinder from "@/components/ConcernFinder";
 import { useHydrated } from "@/hooks/use-hydrated";
+import { BOOKING_URL, PHONE, REVIEW_COUNT, REVIEW_SCORE } from "@/data/pricing";
 
-const BOOKING_URL = "https://xpressauto.fieldd.co/";
+const STATS = [
+  { value: "2,000+", label: "Vehicles detailed" },
+  { value: `${REVIEW_SCORE} ★`, label: `${REVIEW_COUNT}+ Google reviews` },
+  { value: "6", label: "Communities served" },
+];
 
 const HeroSection = () => {
   const hydrated = useHydrated();
-  // Skip enter animations for the prerendered/first paint so crawlers (and users
-  // with JS disabled) get fully visible hero copy.
   const anim = (initial: Record<string, number>, transition: Record<string, unknown>) =>
     hydrated ? { initial, animate: { opacity: 1, y: 0 }, transition } : {};
 
   return (
-    <section id="home" className="relative min-h-[85vh] flex items-center overflow-hidden">
+    <section id="home" className="relative overflow-hidden bg-brand-dark">
       <img
         src="/hero-audi-rs5.webp"
         alt="Detailer applying ceramic coating to a black Audi RS5 at a Calgary customer's driveway"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover opacity-25"
         width={682}
         height={678}
         fetchPriority="high"
         decoding="sync"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/85 via-brand-dark/90 to-brand-dark" />
 
-      <div className="container relative z-10 px-6 sm:px-8 py-12">
-        <div className="max-w-2xl mx-auto text-center md:text-left md:mx-0">
-
-
+      <div className="container relative z-10 px-5 py-14 sm:px-8 sm:py-20">
+        <div className="mx-auto max-w-4xl text-center">
+          <motion.p
+            {...anim({ opacity: 0, y: 12 }, { duration: 0.5 })}
+            className="font-heading text-[11px] font-black uppercase tracking-[0.22em] text-primary sm:text-xs"
+          >
+            Calgary's most reviewed mobile detailer
+          </motion.p>
 
           <motion.h1
-            {...anim({ opacity: 0, y: 30 }, { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] })}
-            className="font-heading font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase leading-tight text-white mb-2"
+            {...anim({ opacity: 0, y: 24 }, { duration: 0.6, delay: 0.05, ease: [0.25, 0.1, 0.25, 1] })}
+            className="mt-4 font-heading text-3xl font-black uppercase leading-[1.05] text-white sm:text-5xl lg:text-6xl"
           >
-            Calgary Mobile Car Detailing{" "}
-            <span className="text-primary">That Comes to You</span>
+            Mobile car &amp; RV detailing
+            <br className="hidden sm:block" />{" "}
+            <span className="text-primary">that comes to you</span>
           </motion.h1>
 
           <motion.p
-            {...anim({ opacity: 0, y: 20 }, { duration: 0.6, delay: 0.15 })}
-            className="text-white/80 text-sm sm:text-base mb-3 max-w-lg"
+            {...anim({ opacity: 0, y: 16 }, { duration: 0.5, delay: 0.15 })}
+            className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-white/70 sm:text-lg"
           >
-            Calgary's top-rated mobile detailing — at your door in 24 hours. No drop-offs. No waiting. Just results.
+            Cars, trucks, RVs and boats detailed where they sit. Our vans carry their own water and power,
+            so there's nothing to drop off and nothing to wait for.
           </motion.p>
 
-          {/* Social proof */}
           <motion.div
-            {...anim({ opacity: 0, y: 0 }, { delay: 0.3 })}
-            className="flex items-center gap-3 mb-5 justify-center md:justify-start flex-wrap"
-          >
-            <div className="flex items-center gap-1" role="img" aria-label="Rated 4.9 out of 5 stars from over 100 Google reviews">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-              ))}
-              <span className="text-white/80 text-sm ml-1.5 font-medium">4.9/5</span>
-            </div>
-            <span className="text-white/50 text-sm">•</span>
-            <span className="text-white/70 text-sm font-medium">100+ 5-Star Reviews</span>
-            <span className="text-white/50 text-sm">•</span>
-            <span className="text-white/70 text-sm font-medium">2,000+ Cars Detailed</span>
-          </motion.div>
-
-          <motion.div
-            {...anim({ opacity: 0, y: 20 }, { duration: 0.6, delay: 0.4 })}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start"
+            {...anim({ opacity: 0, y: 16 }, { duration: 0.5, delay: 0.25 })}
+            className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
           >
             <a
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Schedule a mobile car detailing appointment"
-              className="group inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg hover:bg-primary/90 transition-all text-xs sm:text-sm shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-[1.02]"
+              aria-label="Book a mobile detailing appointment online"
+              className="group inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-full bg-primary px-8 font-heading text-sm font-black uppercase tracking-wider text-primary-foreground transition-colors hover:bg-primary/90 sm:w-auto"
             >
-              <Zap className="w-4 h-4" />
-              Book My Detail — Takes 60 Seconds
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              Book my detail
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <a
-              href="tel:5875004523"
-              aria-label="Call Xpress Auto Detailing at 587-500-4523"
-              className="inline-flex items-center justify-center gap-2 border-2 border-white/30 text-white font-heading font-bold uppercase tracking-wider px-6 py-3 rounded-lg hover:border-white/60 hover:bg-white/10 transition-all text-xs sm:text-sm"
+              href={`tel:${PHONE.replace(/-/g, "")}`}
+              aria-label={`Call Xpress Auto Detailing at ${PHONE}`}
+              className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-full border border-white/25 px-8 font-heading text-sm font-black uppercase tracking-wider text-white transition-colors hover:border-white/60 hover:bg-white/10 sm:w-auto"
             >
-              Call 587-500-4523
+              <Phone className="h-4 w-4" />
+              {PHONE}
             </a>
           </motion.div>
 
-          {/* Concern-based package finder */}
-          <ConcernFinder />
+          <motion.dl
+            {...anim({ opacity: 0, y: 16 }, { duration: 0.5, delay: 0.35 })}
+            className="mx-auto mt-10 grid max-w-2xl grid-cols-3 gap-4 border-t border-white/10 pt-8"
+          >
+            {STATS.map((stat) => (
+              <div key={stat.label} className="text-center">
+                <dt className="font-heading text-xl font-black text-white sm:text-3xl">{stat.value}</dt>
+                <dd className="mt-1 text-[11px] leading-tight text-white/55 sm:text-sm">{stat.label}</dd>
+              </div>
+            ))}
+          </motion.dl>
 
+          <div className="mx-auto mt-10 w-full">
+            <ConcernFinder />
+          </div>
         </div>
       </div>
     </section>
