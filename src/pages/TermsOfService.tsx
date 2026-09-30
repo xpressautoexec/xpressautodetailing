@@ -1,3 +1,4 @@
+import { TRAINING_TERMS, money } from "@/data/pricing";
 import CancellationPolicy from "@/components/CancellationPolicy";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -5,6 +6,7 @@ import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import PageTransition from "@/components/PageTransition";
+import { NAP } from "@/data/copy";
 
 const TermsOfService = () => (
   <PageTransition>
@@ -145,7 +147,7 @@ const TermsOfService = () => (
 
             <div>
               <h2 className="font-heading font-bold text-lg text-foreground mb-3">12. Detailing Training Program</h2>
-              <p>Training course fees are payable in full at the time of enrolment and are non-refundable once course materials have been accessed or the course start date has passed. Rescheduling of a training seat is permitted with at least 7 days' notice, subject to availability.</p>
+              <p>A {money(TRAINING_TERMS.deposit)} deposit holds a training seat and is applied to the course fee. The balance is due before the first day of class. Course fees are non-refundable once course materials have been accessed or the course start date has passed. A seat can be moved to another date with at least {TRAINING_TERMS.rescheduleDays} days' notice, subject to availability. Training is not covered by the service cancellation policy in section 3.</p>
             </div>
 
             <div>
@@ -168,7 +170,7 @@ const TermsOfService = () => (
             <div>
               <h2 className="font-heading font-bold text-lg text-foreground mb-3">15. Acceptance of Terms</h2>
               <p className="mb-3">By scheduling or receiving service, the Client acknowledges and agrees to all Terms & Conditions listed above.</p>
-              <p>Questions regarding these Terms can be directed to Xpress Auto Detailing at <a href="tel:5875004523" className="text-primary underline">587-500-4523</a> or <a href="mailto:support@xpressautodetail.ca" className="text-primary underline">support@xpressautodetail.ca</a>.</p>
+              <p>Questions regarding these Terms can be directed to Xpress Auto Detailing at <a href={NAP.phoneHref} className="text-primary underline">587-500-4523</a> or <a href="mailto:support@xpressautodetail.ca" className="text-primary underline">support@xpressautodetail.ca</a>.</p>
             </div>
 
           </div>

@@ -27,8 +27,9 @@ import {
   PHONE,
   money,
 } from "@/data/pricing";
+import { NAP } from "@/data/copy";
 
-const PHONE_HREF = "tel:5875004523";
+const PHONE_HREF = NAP.phoneHref;
 type SizeKey = "sedan" | "suv" | "minivan";
 
 const PERKS = [
@@ -114,7 +115,7 @@ const MonthlyPlan = () => {
         <SEO
           title="The Xpress Pass — Detailing Membership"
           description="Calgary's mobile detailing membership. Save up to 20% on Upkeep, Inside & Out and Deep Clean & Seal packages, plus 15% off every add-on. No contract, cancel anytime."
-          canonical="/monthly-plan"
+          canonical="/xpress-pass"
           jsonLd={[buildFAQJsonLd(monthlyFAQs)]}
         />
         <Navbar />

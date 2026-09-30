@@ -7,32 +7,18 @@ import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import ChatWidget from "@/components/ChatWidget";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
+import { BOOKING_URL, PHONE, AUTO_PACKAGES, money } from "@/data/pricing";
+import { NAP } from "@/data/copy";
 
-const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
-const packages = [
-  {
-    name: "Upkeep",
-    price: "$149",
-    time: "45 min",
-    points: ["Exterior hand wash, high-foam", "Wheels, tires and arches", "Glass in and out, streak-free", "Full interior vacuum and dash wipe-down"],
-    href: "/detailing",
-  },
-  {
-    name: "Inside & Out",
-    price: "$229",
-    time: "2.5–3 hrs",
-    points: ["Everything in Upkeep", "Steam clean of vents and touchpoints", "Door jambs, inside and out", "Leather wipe-down and deodorise"],
-    href: "/detailing",
-  },
-  {
-    name: "Deep Clean & Seal",
-    price: "$379",
-    time: "3.5–4 hrs",
-    points: ["Everything in Inside & Out", "Carpet and seat shampoo with hot-water extraction", "Salt stain removal", "Ceramic spray sealant on all paint — up to 6 months"],
-    href: "/detailing",
-  },
-];
+/** Publicly bookable packages, straight from pricing.ts. Upkeep is Xpress Pass-only. */
+const packages = AUTO_PACKAGES.filter((p) => !p.memberOnly).map((p) => ({
+  name: p.name,
+  price: `From ${money(p.price.sedan)}`,
+  time: p.duration,
+  points: p.includes,
+  href: "/detailing",
+}));
 
 const included = [
   { icon: Car, title: "We Come To You", desc: "Fully self-contained mobile unit with its own water and power. Your driveway, condo stall, or office parking lot works." },
@@ -51,9 +37,9 @@ const steps = [
 const faqs = [
   { q: "What is the difference between a car wash and auto detailing?", a: "A car wash removes loose surface dirt. Auto detailing is a full decontamination and restoration — bonded contaminants are chemically and mechanically removed, interior surfaces are extracted and steam cleaned, and paint is protected with a sealant or coating that lasts months rather than days." },
   { q: "Do you need access to water and power?", a: "No. Our mobile unit carries its own water supply and generator, so we can detail your vehicle at a house, condo parkade, or job site with no hookups." },
-  { q: "How long does a full auto detail take in Calgary?", a: "An interior-only detail runs roughly 2 to 2.75 hours. A complete interior and exterior detail runs roughly 3.5 to 4 hours depending on vehicle size and condition." },
+  { q: "How long does a full auto detail take in Calgary?", a: "Inside & Out runs about 2.5 to 3 hours and Deep Clean & Seal about 3.5 to 4 hours, depending on vehicle size and condition." },
   { q: "Do you charge more for SUVs and trucks?", a: "Yes. Pricing is tiered by sedan/coupe, SUV/pickup and 3-row SUV/minivan because the surface area and interior volume differ significantly." },
-  { q: "Which areas do you serve?", a: "Calgary, Airdrie, Chestermere, Cochrane, Okotoks, Rocky View County and the surrounding communities in Southern Alberta." },
+  { q: "Which areas do you serve?", a: "Calgary, Airdrie, Chestermere, Cochrane, Okotoks and Rocky View County. Just outside those areas? Call and ask." },
 ];
 
 const AutoDetailing = () => (
@@ -98,10 +84,10 @@ const AutoDetailing = () => (
               Book My Detail <ArrowRight className="w-4 h-4" />
             </a>
             <a
-              href="tel:5875004523"
+              href={NAP.phoneHref}
               className="inline-flex items-center justify-center gap-2 border border-primary-foreground/20 text-primary-foreground font-heading font-bold px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/10 transition-colors"
             >
-              Call 587-500-4523
+              Call {PHONE}
             </a>
           </div>
         </div>
@@ -205,7 +191,7 @@ const AutoDetailing = () => (
               { to: "/detailing?tab=complete", label: "Complete Detailing" },
               { to: "/ceramic-coating", label: "Ceramic Coating" },
               { to: "/paint-correction", label: "Paint Correction" },
-              { to: "/monthly-plan", label: "The Xpress Pass" },
+              { to: "/xpress-pass", label: "The Xpress Pass" },
               { to: "/detailing?tab=add-ons", label: "Add-Ons" },
               { to: "/calgary-detailing-price-comparison", label: "Calgary Price Comparison" },
             ].map((link) => (

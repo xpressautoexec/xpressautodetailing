@@ -1,5 +1,5 @@
 import { REAL_REVIEWS, GOOGLE_REVIEWS_URL } from "@/data/copy";
-import { SEASON_STATS } from "@/data/pricing";
+import { SEASON_STATS, BOOKING_URL } from "@/data/pricing";
 import { Link } from "react-router-dom";
 import { Star, ExternalLink, ArrowRight, MapPin } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
@@ -11,7 +11,6 @@ import StickyMobileCTA from "@/components/StickyMobileCTA";
 import ChatWidget from "@/components/ChatWidget";
 import SEO from "@/components/SEO";
 
-const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const reviews = REAL_REVIEWS;
 

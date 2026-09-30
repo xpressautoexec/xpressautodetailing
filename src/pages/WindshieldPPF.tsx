@@ -32,8 +32,9 @@ import windshieldSedan from "@/assets/windshield-ppf-sedan.jpg";
 import windshieldSuv from "@/assets/windshield-ppf-suv.jpg";
 import windshieldTruck from "@/assets/windshield-ppf-truck.jpg";
 import windshieldRv from "@/assets/windshield-ppf-rv.jpg";
+import { BOOKING_URL, PHONE } from "@/data/pricing";
+import { NAP } from "@/data/copy";
 
-const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const faqs = [
   {
@@ -241,12 +242,12 @@ const WindshieldPPF = () => {
         <SEO
           title="Windshield PPF Calgary"
           description="Windshield protection film in Calgary. Lasts up to 10 years, prevents $350-$800 replacements, ADAS-safe install. One-and-done. Pricing by vehicle size."
-          canonical="/windshield-ppf"
+          canonical="/protection/windshield-ppf"
           jsonLd={[
             buildServiceJsonLd(
               "Windshield Paint Protection Film",
               "Optically clear self-healing windshield protection film professionally installed in Calgary.",
-              "/windshield-ppf",
+              "/protection/windshield-ppf",
             ),
             buildFAQJsonLd(faqs),
           ]}
@@ -466,7 +467,7 @@ const WindshieldPPF = () => {
 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
-                    href="tel:5875004523"
+                    href={NAP.phoneHref}
                     className="group flex-1 inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold px-6 py-4 rounded-xl text-sm hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/20"
                   >
                     <Phone className="w-4 h-4" />
@@ -474,11 +475,11 @@ const WindshieldPPF = () => {
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </a>
                   <a
-                    href="tel:5875004523"
+                    href={NAP.phoneHref}
                     className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary font-heading font-bold px-6 py-4 rounded-xl text-sm hover:bg-primary hover:text-primary-foreground transition-all"
                   >
                     <Phone className="w-4 h-4" />
-                    587-500-4523
+                    {PHONE}
                   </a>
                 </div>
 
@@ -575,11 +576,11 @@ const WindshieldPPF = () => {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
-                href="tel:5875004523"
+                href={NAP.phoneHref}
                 className="inline-flex items-center justify-center gap-2 border-2 border-primary-foreground text-primary-foreground font-heading font-bold px-8 py-4 rounded-xl text-sm hover:bg-primary-foreground hover:text-primary transition-all"
               >
                 <Phone className="w-4 h-4" />
-                587-500-4523
+                {PHONE}
               </a>
             </div>
           </div>

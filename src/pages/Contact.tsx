@@ -1,4 +1,4 @@
-import { CANCELLATION_SUMMARY } from "@/data/copy";
+import { CANCELLATION_SUMMARY, NAP } from "@/data/copy";
 import { useState } from "react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
@@ -10,6 +10,7 @@ import SEO, { buildFAQJsonLd } from "@/components/SEO";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, Clock, MapPin, MessageCircle } from "lucide-react";
+import { PHONE, BOOKING_URL } from "@/data/pricing";
 
 
 const contactFAQs = [
@@ -94,8 +95,8 @@ const Contact = () => {
                 <p className="text-muted-foreground">We love our customers, so feel free to contact us anytime. We typically respond within 1–2 hours during business hours.</p>
               </div>
               <div className="space-y-4">
-                <a href="tel:5875004523" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
-                  <Phone className="w-5 h-5 text-primary" /> 587-500-4523
+                <a href={NAP.phoneHref} className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+                  <Phone className="w-5 h-5 text-primary" /> {PHONE}
                 </a>
                 <a href="mailto:support@xpressautodetail.ca" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
                   <Mail className="w-5 h-5 text-primary" /> support@xpressautodetail.ca
@@ -131,7 +132,7 @@ const Contact = () => {
           <p className="text-primary-foreground/80 max-w-lg mx-auto mb-6">
             Skip the form and book your detail instantly through our online booking system. Choose your package, pick a time, and we'll be there.
           </p>
-          <a href="https://xpressauto.fieldd.co/" target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-foreground text-primary font-heading font-bold px-8 py-3 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-foreground text-primary font-heading font-bold px-8 py-3 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
             Book Online Now
           </a>
         </div>

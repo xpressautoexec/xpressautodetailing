@@ -13,8 +13,8 @@ import gallery3 from "@/assets/gallery-3.jpg";
 import rvSurveyorFull from "@/assets/gallery-rv-surveyor-full.jpg";
 import catExcavatorExt1 from "@/assets/gallery-cat-excavator-exterior-1.jpg";
 import bmwHeadlight from "@/assets/gallery-bmw-headlight.jpg";
+import { BOOKING_URL } from "@/data/pricing";
 
-const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const posts = [
   {

@@ -1,42 +1,25 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import ScrollReveal from "@/components/ScrollReveal";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 interface FAQ {
   q: string;
   a: string;
 }
 
-const ServiceFAQ = ({ title, faqs }: { title: string; faqs: FAQ[] }) => (
-  <section className="py-16 bg-muted/30">
-    <div className="container max-w-3xl">
-      <ScrollReveal>
-        <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground text-center mb-12">
-          {title}
-        </h2>
-      </ScrollReveal>
-      <ScrollReveal delay={0.15}>
-        <Accordion type="single" collapsible className="space-y-3">
-          {faqs.map((faq, i) => (
-            <AccordionItem
-              key={i}
-              value={`faq-${i}`}
-              className="bg-background rounded-lg border border-border px-6"
-            >
-              <AccordionTrigger className="font-heading font-semibold text-foreground text-left hover:no-underline hover:text-primary py-5">
-                {faq.q}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
-                {faq.a}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </ScrollReveal>
+/** The one FAQ layout used site-wide: heading left, accordion right. */
+const ServiceFAQ = ({ title, faqs, id = "faq" }: { title: string; faqs: FAQ[]; id?: string }) => (
+  <section id={id} className="scroll-mt-24 border-t border-line bg-canvas py-16 sm:py-24">
+    <div className="shell grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+      <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{title}</h2>
+      <Accordion type="single" collapsible className="border-t border-line">
+        {faqs.map((faq) => (
+          <AccordionItem key={faq.q} value={faq.q} className="border-line">
+            <AccordionTrigger className="py-5 text-left font-heading text-base font-semibold text-ink hover:no-underline">
+              {faq.q}
+            </AccordionTrigger>
+            <AccordionContent className="pb-5 text-[15px] leading-relaxed text-ink-2">{faq.a}</AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
     </div>
   </section>
 );

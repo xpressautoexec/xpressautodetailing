@@ -1,4 +1,4 @@
-import { REAL_REVIEWS } from "@/data/copy";
+import { REAL_REVIEWS, NAP } from "@/data/copy";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
@@ -287,7 +287,7 @@ const Gallery = () => (
         <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8">
           Every vehicle in our gallery started just like yours. Book your detail today and your car could be our next showcase.
         </p>
-        <a href="tel:5875004523" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold px-8 py-4 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
+        <a href={NAP.phoneHref} className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold px-8 py-4 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
           Call Now
         </a>
       </div>

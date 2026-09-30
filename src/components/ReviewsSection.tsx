@@ -1,8 +1,8 @@
 import { Star, ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { REAL_REVIEWS } from "@/data/copy";
+import { BOOKING_URL } from "@/data/pricing";
 
-const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const ReviewsSection = () => {
   return (

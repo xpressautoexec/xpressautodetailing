@@ -26,9 +26,10 @@ import {
   DollarSign,
 } from "lucide-react";
 import rvPPFHero from "@/assets/gallery-rv-paint-correction-closeup.jpg";
+import { NAP } from "@/data/copy";
 
-const PHONE = "tel:5875004523";
-const PHONE_DISPLAY = "587-500-4523";
+const PHONE = NAP.phoneHref;
+const PHONE_DISPLAY = NAP.phone;
 
 const faqs = [
   {
@@ -260,12 +261,12 @@ const RVPPF = () => {
         <SEO
           title="RV Paint Protection Film Calgary"
           description="RV paint protection film in Calgary. Self-healing PPF for front caps, hoods, rockers & full wraps. Stop rock chips, bugs & UV damage. Call for a free quote."
-          canonical="/trailer-rv/ppf"
+          canonical="/rv-trailer/ppf"
           jsonLd={[
             buildServiceJsonLd(
               "RV Paint Protection Film (PPF)",
               "Premium paint protection film installation for RVs, motorhomes, travel trailers and 5th wheels in Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County.",
-              "/trailer-rv/ppf"
+              "/rv-trailer/ppf"
             ),
             buildFAQJsonLd(faqs),
           ]}

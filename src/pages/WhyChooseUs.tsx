@@ -10,11 +10,10 @@ import BenefitsSection from "@/components/BenefitsSection";
 import TestimonialBlock from "@/components/TestimonialBlock";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 
-import { HOURS, SEASON_STATS } from "@/data/pricing";
+import { HOURS, SEASON_STATS, BOOKING_URL } from "@/data/pricing";
 import { CERAMIC_CERTIFICATIONS, REAL_REVIEWS } from "@/data/copy";
 import { Star, ShieldCheck, Award, ThumbsUp, Heart, Leaf, Clock, Users, CheckCircle } from "lucide-react";
 
-const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const testimonials = REAL_REVIEWS.map((r) => ({ quote: r.text, name: r.name, service: r.service }));
 

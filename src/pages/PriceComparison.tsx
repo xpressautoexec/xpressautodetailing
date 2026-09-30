@@ -18,70 +18,91 @@ import Footer from "@/components/Footer";
 import SEO, { buildFAQJsonLd, localBusinessJsonLd } from "@/components/SEO";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import ScrollReveal from "@/components/ScrollReveal";
+import {
+  ADDONS,
+  AUTO_PACKAGES,
+  AUTO_PPF,
+  BOOKING_URL,
+  CERAMIC_PACKAGES,
+  CERAMIC_UPCHARGE,
+  PET_HAIR_TIERS,
+  PHONE,
+  TINT,
+  money,
+} from "@/data/pricing";
+import { CERAMIC_CERTIFICATIONS } from "@/data/copy";
 
-const BOOKING_URL = "https://xpressauto.fieldd.co/";
-const PHONE = "587-500-4523";
+const pkg = (id: string) => AUTO_PACKAGES.find((p) => p.id === id)!;
+const upcharges = (id: string) => {
+  const p = pkg(id).price;
+  return `SUV +${money(p.suv - p.sedan)}, 3-row +${money(p.minivan - p.sedan)}.`;
+};
+const range = (xs: number[]) => `${money(Math.min(...xs))} – ${money(Math.max(...xs))}`;
+const suvRange = range(AUTO_PACKAGES.map((p) => p.price.suv - p.price.sedan));
+const rowRange = range(AUTO_PACKAGES.map((p) => p.price.minivan - p.price.sedan));
 
+/** "ours" is always computed from pricing.ts. "shop" is the Calgary market range and is editorial. */
 const priceRows = [
   {
-    service: "Upkeep (sedan)",
-    ours: "$149",
+    service: `${pkg("maintain").name} (sedan, Xpress Pass only)`,
+    ours: money(pkg("maintain").price.sedan),
     shop: "$120 – $180",
-    note: "Hand wash, wheels, glass and interior tidy. 45 minutes. SUV +$20, 3-row +$30.",
-    link: "/detailing",
+    note: `Hand wash, wheels, glass and interior tidy. ${pkg("maintain").duration}. ${upcharges("maintain")}`,
+    link: "/xpress-pass",
   },
   {
-    service: "Inside & Out (sedan)",
-    ours: "$229",
+    service: `${pkg("refresh").name} (sedan)`,
+    ours: money(pkg("refresh").price.sedan),
     shop: "$220 – $320",
-    note: "Full interior and exterior reset — steam, jambs, leather wipe-down. SUV +$50, 3-row +$80.",
+    note: `Full interior and exterior reset: shampoo, jambs, plastics dressed. ${upcharges("refresh")}`,
     link: "/detailing",
   },
   {
-    service: "Deep Clean & Seal (sedan)",
-    ours: "$379",
+    service: `${pkg("showroom").name} (sedan)`,
+    ours: money(pkg("showroom").price.sedan),
     shop: "$380 – $550",
-    note: "Full extraction, salt removal, leather conditioning and 6-month ceramic sealant. SUV +$50, 3-row +$80.",
+    note: `Deep extraction, salt stain removal, leather conditioning and ceramic spray sealant. ${upcharges("showroom")}`,
     link: "/detailing",
   },
   {
-    service: "Correct & Coat (sedan)",
-    ours: "$899",
+    service: `${pkg("restore").name} (sedan)`,
+    ours: money(pkg("restore").price.sedan),
     shop: "$900 – $1,400",
-    note: "Deep Clean & Seal plus 1-step machine correction and a registered 1-year ceramic coating.",
+    note: `${pkg("showroom").name} plus 1-step machine correction and a registered 1-year ceramic coating.`,
     link: "/detailing",
   },
   {
-    service: "Ceramic Coating Packages",
-    ours: "$549 – $1,499",
+    service: "Ceramic coating packages",
+    ours: range(CERAMIC_PACKAGES.map((p) => p.price)),
     shop: "$700 – $3,000+",
-    note: "1-year, 5-year or 9-year System X graphene. Certified System X, Gtechniq and Gyeon installer.",
-    link: "/paint-ceramics",
+    note: `1-year, 5-year or 9-year System X graphene. ${CERAMIC_CERTIFICATIONS.join(", ")} coatings.`,
+    link: "/ceramic-paint-correction",
   },
   {
-    service: "Paint Protection Film (PPF)",
-    ours: "$999 – $5,999",
+    service: "Paint protection film",
+    ours: range(AUTO_PPF.filter((p) => !/Windshield|Screen/.test(p.name)).map((p) => p.price)),
     shop: "$900 – $6,000+",
-    note: "XPEL and 3M film — partial front, full front, track pack or full body. 10-year warranty.",
-    link: "/ppf",
+    note: "Partial front, full front, track pack or full body. 10-year manufacturer film warranty.",
+    link: "/protection/ppf",
   },
   {
-    service: "Window Tinting",
-    ours: "$119 – $629",
+    service: "Window tint",
+    ours: range(TINT.map((t) => t.price)),
     shop: "$250 – $900",
-    note: "Carbon or ceramic IR at the same price, priced by coverage. Lifetime warranty.",
-    link: "/window-tinting",
+    note: "Carbon or ceramic IR, priced by coverage. Lifetime warranty against bubbling, peeling and colour change.",
+    link: "/protection/ppf#tint",
   },
 ];
 
+const addon = (name: string) => money(ADDONS.find((a) => a.name === name)!.price);
 const addOnRows = [
-  { name: "Pet Hair Removal (light / moderate / heavy)", price: "$45 / $75 / $115" },
-  { name: "Strong Odour Removal", price: "$85" },
-  { name: "Headlight Restoration", price: "$79" },
-  { name: "Ceramic Sealant Upgrade", price: "$110" },
-  { name: "Clay Bar Treatment", price: "$120" },
-  { name: "Engine Bay Detail", price: "$50" },
-  { name: "Excessively Soiled Interior", price: "$135" },
+  { name: "Pet hair removal (light / moderate / heavy)", price: PET_HAIR_TIERS.map((t) => money(t.price)).join(" / ") },
+  { name: "Strong odour removal", price: addon("Strong Odour Removal") },
+  { name: "Headlight restoration", price: addon("Headlight Restoration") },
+  { name: "Ceramic sealant upgrade", price: addon("Ceramic Sealant Upgrade") },
+  { name: "Clay bar treatment", price: addon("Clay Bar Treatment") },
+  { name: "Engine bay detail", price: addon("Engine Bay Detail") },
+  { name: "Excessively soiled interior", price: addon("Excessively Soiled Interior") },
 ];
 
 const mobileWins = [
@@ -116,7 +137,7 @@ const shopWins = [
 const faqs = [
   {
     q: "How much does car detailing cost in Calgary?",
-    a: "Most Calgary detailers price a full interior-and-exterior detail between $220 and $400 for a sedan. Our published mobile pricing is $149 for Upkeep, $229 for Inside & Out and $379 for Deep Clean & Seal, with size surcharges of $20–$80 for SUVs, trucks and 3-row vehicles.",
+    a: `Most Calgary detailers price a full interior-and-exterior detail between $220 and $400 for a sedan. Our published mobile pricing is ${money(pkg("refresh").price.sedan)} for ${pkg("refresh").name} and ${money(pkg("showroom").price.sedan)} for ${pkg("showroom").name}, with size surcharges of ${suvRange} for SUVs and trucks and ${rowRange} for 3-row vehicles.`,
   },
   {
     q: "Is mobile detailing more expensive than a detailing shop?",
@@ -124,7 +145,7 @@ const faqs = [
   },
   {
     q: "Why do SUVs and trucks cost more to detail?",
-    a: "More carpet, more glass, more panels and deeper crevices — a 3-row SUV can take an extra hour of labour and noticeably more product. We publish those surcharges up front rather than adjusting the price on arrival: $20–$100 for SUVs and trucks, $30–$180 for 3-row SUVs and minivans depending on the package.",
+    a: `More carpet, more glass, more panels and deeper crevices — a 3-row SUV can take an extra hour of labour and noticeably more product. We publish those surcharges up front rather than adjusting the price on arrival: ${suvRange} for SUVs and trucks, ${rowRange} for 3-row SUVs and minivans depending on the package.`,
   },
   {
     q: "What is the cheapest way to keep a car clean in Calgary year-round?",
@@ -259,8 +280,8 @@ const PriceComparison = () => (
               </table>
             </div>
             <p className="text-muted-foreground text-xs mt-4">
-              Sedan pricing shown. Size surcharges: SUVs and trucks +$20–$150,
-              3-row SUVs and minivans +$30–$200 depending on the package.
+              Sedan pricing shown. Car package surcharges: SUVs and trucks {suvRange}, 3-row SUVs and minivans{" "}
+              {rowRange}. Ceramic coating: SUVs +{money(CERAMIC_UPCHARGE.suv)}, 3-row +{money(CERAMIC_UPCHARGE.minivan)}.
             </p>
           </ScrollReveal>
         </div>
@@ -352,12 +373,12 @@ const PriceComparison = () => (
               For everything else — interior resets, complete details, paint
               correction, ceramic coatings and maintenance — mobile service
               delivers the same result at your address. Our{" "}
-              <Link to="/ppf" className="text-primary font-semibold hover:underline">
+              <Link to="/protection/ppf" className="text-primary font-semibold hover:underline">
                 PPF work
               </Link>{" "}
               and{" "}
               <Link
-                to="/window-tinting"
+                to="/protection/ppf#tint"
                 className="text-primary font-semibold hover:underline"
               >
                 window tinting
@@ -382,8 +403,8 @@ const PriceComparison = () => (
               {
                 icon: Sparkles,
                 title: "Selling or trading in",
-                pick: "Deep Clean & Seal — $379",
-                desc: "A full inside-and-out reset before photos and appraisal. Clients regularly report $1,500–$3,000 more on their sale price.",
+                pick: `${pkg("showroom").name}, ${money(pkg("showroom").price.sedan)}`,
+                desc: "A full inside-and-out reset before photos and appraisal, so the car shows at its best to buyers and dealers.",
                 to: "/detailing",
               },
               {
@@ -391,14 +412,14 @@ const PriceComparison = () => (
                 title: "Keeping a car long-term",
                 pick: "System X 9-Year Graphene",
                 desc: "Lowest cost per year of protection if you hold vehicles 5+ years, and salt rinses off far easier through Calgary winters.",
-                to: "/paint-ceramics",
+                to: "/ceramic-paint-correction",
               },
               {
                 icon: Clock,
                 title: "Staying clean year-round",
                 pick: "The Xpress Pass monthly plan",
                 desc: "Recurring maintenance beats repeated one-off deep cleans on price per visit, plus discounts on every add-on.",
-                to: "/monthly-plan",
+                to: "/xpress-pass",
               },
             ].map((c, i) => (
               <ScrollReveal key={c.title} delay={0.05 * i}>

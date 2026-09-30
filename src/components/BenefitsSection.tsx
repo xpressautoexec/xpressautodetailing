@@ -1,8 +1,8 @@
 import { Clock, MapPin, Sparkles, Shield, Wrench, Briefcase, ArrowRight } from "lucide-react";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import benefitImg from "@/assets/gallery-5.jpg";
+import { BOOKING_URL } from "@/data/pricing";
 
-const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
 const benefits = [
   { icon: MapPin, title: "Unmatched Convenience", description: "We bring the detail shop to your location — driveway, office, or job site. No waiting rooms." },

@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import ChatWidget from "@/components/ChatWidget";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
+import { NAP } from "@/data/copy";
 
 const services = [
   { icon: Sun, title: "Oxidation Removal", desc: "Chalky, faded fibreglass and gel coat is compounded back to gloss. This is the single most requested RV service we perform in Alberta." },
@@ -66,13 +67,13 @@ const RVDetailing = () => (
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a
-              href="tel:5875004523"
+              href={NAP.phoneHref}
               className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold px-8 py-4 rounded-lg text-sm hover:bg-primary/90 transition-colors"
             >
               Get My RV Quote <ArrowRight className="w-4 h-4" />
             </a>
             <Link
-              to="/trailer-rv"
+              to="/rv-trailer"
               className="inline-flex items-center justify-center gap-2 border border-primary-foreground/20 text-primary-foreground font-heading font-bold px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/10 transition-colors"
             >
               See Per-Foot Pricing
@@ -137,12 +138,12 @@ const RVDetailing = () => (
           </h2>
           <div className="flex flex-wrap gap-3">
             {[
-              { to: "/trailer-rv", label: "Trailer & RV Detailing" },
-              { to: "/trailer-rv/ppf", label: "RV Paint Protection Film" },
-              { to: "/rv-rental-fleet", label: "RV Rental Fleet Care" },
+              { to: "/rv-trailer", label: "Trailer & RV Detailing" },
+              { to: "/rv-trailer/ppf", label: "RV Paint Protection Film" },
+              { to: "/rv-trailer/rental-fleet", label: "RV Rental Fleet Care" },
               { to: "/marine", label: "Marine & Pontoon Detailing" },
               { to: "/ceramic-coating", label: "Ceramic Coating" },
-              { to: "/corporate-fleet", label: "Corporate & Fleet" },
+              { to: "/fleet", label: "Corporate & Fleet" },
             ].map((link) => (
               <Link
                 key={link.to}

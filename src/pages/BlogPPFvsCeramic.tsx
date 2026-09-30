@@ -6,8 +6,8 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import heroImg from "@/assets/gallery-bmw-emblem.jpg";
 import { Snowflake, ShieldCheck, Droplets, CheckCircle } from "lucide-react";
+import { BOOKING_URL } from "@/data/pricing";
 
-const BOOKING_URL = "https://xpressauto.fieldd.co/";
 const PUBLISHED = "2026-07-30";
 
 const faqs = [
@@ -250,17 +250,17 @@ const BlogPPFvsCeramic = () => (
             <h2 className="font-heading font-semibold text-xl text-foreground mb-4">Keep reading</h2>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/ppf" className="text-primary font-heading font-bold hover:underline">
+                <Link to="/protection/ppf" className="text-primary font-heading font-bold hover:underline">
                   Paint Protection Film coverage &amp; pricing
                 </Link>
               </li>
               <li>
-                <Link to="/paint-ceramics" className="text-primary font-heading font-bold hover:underline">
+                <Link to="/ceramic-paint-correction" className="text-primary font-heading font-bold hover:underline">
                   Ceramic coating packages
                 </Link>
               </li>
               <li>
-                <Link to="/windshield-ppf" className="text-primary font-heading font-bold hover:underline">
+                <Link to="/protection/windshield-ppf" className="text-primary font-heading font-bold hover:underline">
                   Windshield protection film
                 </Link>
               </li>

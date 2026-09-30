@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import ChatWidget from "@/components/ChatWidget";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
+import { NAP } from "@/data/copy";
 
 const benefits = [
   { icon: Droplets, title: "Hydrophobic Surface", desc: "Water, brine and slush bead and sheet off instead of clinging. Winter grime rinses away with far less effort." },
@@ -63,13 +64,13 @@ const CeramicCoating = () => (
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a
-              href="tel:5875004523"
+              href={NAP.phoneHref}
               className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold px-8 py-4 rounded-lg text-sm hover:bg-primary/90 transition-colors"
             >
               Get A Coating Quote <ArrowRight className="w-4 h-4" />
             </a>
             <Link
-              to="/paint-ceramics"
+              to="/ceramic-paint-correction"
               className="inline-flex items-center justify-center gap-2 border border-primary-foreground/20 text-primary-foreground font-heading font-bold px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/10 transition-colors"
             >
               See Packages &amp; Pricing
@@ -167,10 +168,10 @@ const CeramicCoating = () => (
           </h2>
           <div className="flex flex-wrap gap-3">
             {[
-              { to: "/paint-ceramics", label: "Paint & Ceramics" },
+              { to: "/ceramic-paint-correction", label: "Paint & Ceramics" },
               { to: "/paint-correction", label: "Paint Correction" },
-              { to: "/ppf", label: "Paint Protection Film" },
-              { to: "/window-tinting", label: "Window Tinting" },
+              { to: "/protection/ppf", label: "Paint Protection Film" },
+              { to: "/protection/ppf#tint", label: "Window Tinting" },
               { to: "/auto-detailing", label: "Auto Detailing" },
               { to: "/rv-detailing", label: "RV Detailing" },
             ].map((link) => (
