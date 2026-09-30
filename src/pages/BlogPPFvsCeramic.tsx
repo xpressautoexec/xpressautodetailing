@@ -85,8 +85,8 @@ const BlogPPFvsCeramic = () => (
         {/* Hero */}
         <header className="bg-brand-dark py-16 md:py-24">
           <div className="container max-w-3xl">
-            <h1 className="font-heading font-black text-3xl md:text-5xl uppercase text-primary-foreground mb-5">
-              PPF vs Ceramic Coating for <span className="text-primary">Calgary Winters</span>
+            <h1 className="font-heading font-semibold text-3xl md:text-5xl text-primary-foreground mb-5">
+              PPF vs Ceramic Coating for Calgary Winters
             </h1>
 
             <p className="text-primary-foreground/80 text-lg leading-relaxed">
@@ -94,7 +94,7 @@ const BlogPPFvsCeramic = () => (
               One product stops impacts, the other stops chemistry. Here's how to choose — or combine — them for
               Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County roads.
             </p>
-            <p className="text-primary-foreground/60 text-xs font-heading uppercase tracking-wider mt-6">
+            <p className="text-primary-foreground/60 text-xs font-heading mt-6">
               Published July 30, 2026 · Xpress Auto Detailing
             </p>
           </div>
@@ -114,7 +114,7 @@ const BlogPPFvsCeramic = () => (
         {/* Body */}
         <div className="container max-w-3xl pb-16 space-y-12">
           <section>
-            <h2 className="font-heading font-black text-2xl uppercase text-foreground mb-4">
+            <h2 className="font-heading font-semibold text-2xl text-foreground mb-4">
               What Calgary winter actually does to your paint
             </h2>
             <div className="space-y-4 text-foreground/80 leading-relaxed">
@@ -139,11 +139,11 @@ const BlogPPFvsCeramic = () => (
           </section>
 
           <section>
-            <h2 className="font-heading font-black text-2xl uppercase text-foreground mb-6">Side-by-side comparison</h2>
+            <h2 className="font-heading font-semibold text-2xl text-foreground mb-6">Side-by-side comparison</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="rounded-lg border border-border p-6">
                 <ShieldCheck className="w-9 h-9 text-primary mb-3" />
-                <h3 className="font-heading font-bold uppercase text-foreground mb-3">Paint Protection Film (PPF)</h3>
+                <h3 className="font-heading font-bold text-foreground mb-3">Paint Protection Film (PPF)</h3>
                 <ul className="space-y-2 text-sm text-foreground/80">
                   <li>Thick self-healing urethane film, roughly 8 mil</li>
                   <li>Absorbs gravel strikes, sand blasting and road debris</li>
@@ -154,7 +154,7 @@ const BlogPPFvsCeramic = () => (
               </div>
               <div className="rounded-lg border border-border p-6">
                 <Droplets className="w-9 h-9 text-primary mb-3" />
-                <h3 className="font-heading font-bold uppercase text-foreground mb-3">Ceramic Coating</h3>
+                <h3 className="font-heading font-bold text-foreground mb-3">Ceramic Coating</h3>
                 <ul className="space-y-2 text-sm text-foreground/80">
                   <li>Hard, slick chemical barrier bonded to the clear coat</li>
                   <li>Stops salt, brine and mag chloride from etching or staining</li>
@@ -178,7 +178,7 @@ const BlogPPFvsCeramic = () => (
           </section>
 
           <section>
-            <h2 className="font-heading font-black text-2xl uppercase text-foreground mb-4">
+            <h2 className="font-heading font-semibold text-2xl text-foreground mb-4">
               What we recommend by vehicle and driving pattern
             </h2>
             <div className="space-y-4">
@@ -207,7 +207,7 @@ const BlogPPFvsCeramic = () => (
                 <div key={item.title} className="flex gap-4 rounded-lg border border-border p-5">
                   <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-heading font-bold uppercase text-sm text-foreground mb-1">{item.title}</h3>
+                    <h3 className="font-heading font-bold text-sm text-foreground mb-1">{item.title}</h3>
                     <p className="text-sm text-foreground/80 leading-relaxed">{item.body}</p>
                   </div>
                 </div>
@@ -216,7 +216,7 @@ const BlogPPFvsCeramic = () => (
           </section>
 
           <section>
-            <h2 className="font-heading font-black text-2xl uppercase text-foreground mb-4">
+            <h2 className="font-heading font-semibold text-2xl text-foreground mb-4">
               Timing it right in Alberta
             </h2>
             <div className="space-y-4 text-foreground/80 leading-relaxed">
@@ -235,7 +235,7 @@ const BlogPPFvsCeramic = () => (
           </section>
 
           <section>
-            <h2 className="font-heading font-black text-2xl uppercase text-foreground mb-6">Common questions</h2>
+            <h2 className="font-heading font-semibold text-2xl text-foreground mb-6">Common questions</h2>
             <div className="space-y-5">
               {faqs.map((f) => (
                 <div key={f.q} className="rounded-lg border border-border p-5">
@@ -247,25 +247,25 @@ const BlogPPFvsCeramic = () => (
           </section>
 
           <section className="rounded-lg border border-border p-6">
-            <h2 className="font-heading font-black text-xl uppercase text-foreground mb-4">Keep reading</h2>
+            <h2 className="font-heading font-semibold text-xl text-foreground mb-4">Keep reading</h2>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/ppf" className="text-primary font-heading font-bold uppercase tracking-wider hover:underline">
+                <Link to="/ppf" className="text-primary font-heading font-bold hover:underline">
                   Paint Protection Film coverage &amp; pricing
                 </Link>
               </li>
               <li>
-                <Link to="/paint-ceramics" className="text-primary font-heading font-bold uppercase tracking-wider hover:underline">
+                <Link to="/paint-ceramics" className="text-primary font-heading font-bold hover:underline">
                   Ceramic coating packages
                 </Link>
               </li>
               <li>
-                <Link to="/windshield-ppf" className="text-primary font-heading font-bold uppercase tracking-wider hover:underline">
+                <Link to="/windshield-ppf" className="text-primary font-heading font-bold hover:underline">
                   Windshield protection film
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-primary font-heading font-bold uppercase tracking-wider hover:underline">
+                <Link to="/blog" className="text-primary font-heading font-bold hover:underline">
                   All detailing guides
                 </Link>
               </li>
@@ -276,7 +276,7 @@ const BlogPPFvsCeramic = () => (
         {/* CTA */}
         <section className="py-14 bg-primary">
           <div className="container text-center">
-            <h2 className="font-heading font-black text-2xl uppercase text-primary-foreground mb-4">
+            <h2 className="font-heading font-semibold text-2xl text-primary-foreground mb-4">
               Protect it before the first snowfall
             </h2>
             <p className="text-primary-foreground/80 max-w-xl mx-auto mb-6">
@@ -286,7 +286,7 @@ const BlogPPFvsCeramic = () => (
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-3 rounded text-sm hover:bg-primary-foreground/90 transition-colors"
+              className="inline-block bg-primary-foreground text-primary font-heading font-bold px-8 py-3 rounded text-sm hover:bg-primary-foreground/90 transition-colors"
             >
               Book a Consultation
             </a>

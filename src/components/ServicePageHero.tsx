@@ -1,41 +1,70 @@
-import { ArrowRight, Phone } from "lucide-react";
-
-const BOOKING_URL = "https://xpressauto.fieldd.co/";
+import { Phone } from "lucide-react";
+import { BOOKING_URL, PHONE } from "@/data/pricing";
 
 interface ServicePageHeroProps {
   title: string;
   image: string;
+  /** Primary action. "call" suits quoted work (RV, PPF, fleet); "book" suits fixed-price packages. */
   ctaType?: "book" | "call";
+  subtitle?: string;
+  /** Use "p" when the page already renders its own <h1> further down. */
+  titleAs?: "h1" | "p";
 }
 
-const ServicePageHero = ({ title, image, ctaType = "book" }: ServicePageHeroProps) => {
-  const isCall = ctaType === "call";
-  const href = isCall ? "tel:5875004523" : BOOKING_URL;
-  const label = isCall ? "Call Now" : "Book Now";
+const telHref = `tel:${PHONE.replace(/-/g, "")}`;
+
+const primary =
+  "inline-flex min-h-[52px] items-center justify-center gap-2 rounded-md bg-electric px-7 text-sm font-semibold text-primary-foreground transition-colors hover:bg-electric-2";
+const secondary =
+  "inline-flex min-h-[52px] items-center justify-center gap-2 rounded-md border border-primary-foreground/30 px-7 text-sm font-semibold text-primary-foreground transition-colors hover:border-primary-foreground/70";
+
+/** Full-bleed photo header shared by service pages. Left-aligned, two actions. */
+const ServicePageHero = ({ title, image, ctaType = "book", subtitle, titleAs = "h1" }: ServicePageHeroProps) => {
+  const Title = titleAs;
+  const call = (
+    <a key="call" href={telHref} className={ctaType === "call" ? primary : secondary}>
+      <Phone className="h-4 w-4" aria-hidden="true" />
+      {ctaType === "call" ? `Call ${PHONE}` : PHONE}
+    </a>
+  );
+  const book = (
+    <a
+      key="book"
+      href={BOOKING_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={ctaType === "book" ? primary : secondary}
+    >
+      Book online
+    </a>
+  );
 
   return (
-    <a
-      href={href}
-      {...(!isCall && { target: "_blank", rel: "noopener noreferrer" })}
-      className="relative block h-[340px] sm:h-[400px] overflow-hidden group cursor-pointer"
-    >
-      <div
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-        style={{ backgroundImage: `url(${image})` }}
+    <section className="relative isolate overflow-hidden bg-brand-dark">
+      <img
+        src={image}
+        alt=""
+        fetchPriority="high"
+        className="absolute inset-0 -z-10 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/40 to-foreground/20" />
-
-      <div className="relative z-10 h-full flex flex-col items-center justify-end pb-12 sm:pb-14 px-6">
-        <h1 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase text-background text-center leading-tight mb-6 max-w-4xl">
-          {title}
-        </h1>
-        <span className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm group-hover:bg-brand-blue-deep transition-all duration-300 group-hover:gap-3 shadow-lg shadow-primary/30">
-          {isCall && <Phone className="w-4 h-4" />}
-          {label}
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-        </span>
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-dark via-brand-dark/80 to-brand-dark/25"
+      />
+      <div className="shell py-20 sm:py-28">
+        <div className="max-w-[40rem]">
+          <Title className="font-heading text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-primary-foreground sm:text-5xl">
+            {title}
+          </Title>
+          {subtitle && (
+            <p className="mt-5 max-w-[34rem] text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
+              {subtitle}
+            </p>
+          )}
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">{ctaType === "call" ? [call, book] : [book, call]}</div>
+        </div>
       </div>
-    </a>
+    </section>
   );
 };
 

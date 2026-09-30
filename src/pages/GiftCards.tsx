@@ -22,8 +22,8 @@ const GiftCards = () => (
 
     <section className="py-16 bg-background">
       <div className="container max-w-4xl text-center">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground mb-4">
-          Give the Gift of a <span className="text-primary">Clean Ride</span>
+        <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground mb-4">
+          Give the Gift of a Clean Ride
         </h2>
         <p className="text-muted-foreground leading-relaxed mb-4">
           Know someone whose car could use some love? Our gift cards make the perfect present for birthdays, holidays, or just because. Let them choose their perfect detailing package — from a quick interior refresh to a full ceramic coating transformation.
@@ -39,7 +39,7 @@ const GiftCards = () => (
           ].map((item) => (
             <div key={item.title} className="p-6 rounded-lg border border-border text-center">
               <item.icon className="w-10 h-10 text-primary mx-auto mb-4" />
-              <h3 className="font-heading font-bold text-foreground uppercase text-sm mb-2">{item.title}</h3>
+              <h3 className="font-heading font-bold text-foreground text-sm mb-2">{item.title}</h3>
               <p className="text-muted-foreground text-sm">{item.desc}</p>
             </div>
           ))}
@@ -50,7 +50,7 @@ const GiftCards = () => (
     {/* Popular Gift Options */}
     <section className="py-16 bg-muted/30">
       <div className="container max-w-4xl">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground text-center mb-12">
+        <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground text-center mb-12">
           Popular Gift Options
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
@@ -61,8 +61,8 @@ const GiftCards = () => (
           ].map((item) => (
             <div key={item.title} className="p-6 rounded-lg border border-border bg-background text-center">
               <item.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-              <h3 className="font-heading font-bold text-foreground uppercase text-sm mb-1">{item.title}</h3>
-              <p className="font-heading font-black text-primary text-xl mb-2">{item.amount}</p>
+              <h3 className="font-heading font-bold text-foreground text-sm mb-1">{item.title}</h3>
+              <p className="font-heading font-semibold text-primary text-xl mb-2">{item.amount}</p>
               <p className="text-muted-foreground text-sm">{item.desc}</p>
             </div>
           ))}
@@ -73,7 +73,7 @@ const GiftCards = () => (
     {/* Perfect For */}
     <section className="py-16 bg-background">
       <div className="container max-w-4xl">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground text-center mb-8">
+        <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground text-center mb-8">
           Perfect For Every Occasion
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -89,7 +89,7 @@ const GiftCards = () => (
           ].map((item) => (
             <div key={item.label} className="flex flex-col items-center gap-2 p-4 rounded-lg border border-border text-center">
               <item.icon className="w-6 h-6 text-primary" />
-              <span className="font-heading font-semibold text-foreground text-xs uppercase tracking-wider">{item.label}</span>
+              <span className="font-heading font-semibold text-foreground text-xs">{item.label}</span>
             </div>
           ))}
         </div>
@@ -114,8 +114,8 @@ const GiftCards = () => (
     <section className="py-16 bg-muted/30">
       <div className="container max-w-2xl text-center">
         <Sparkles className="w-12 h-12 text-primary mx-auto mb-4" />
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground mb-4">
-          Purchase a <span className="text-primary">Gift Card</span>
+        <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground mb-4">
+          Purchase a Gift Card
         </h2>
         <p className="text-muted-foreground mb-8">
           Select your amount and checkout instantly. Digital delivery available.

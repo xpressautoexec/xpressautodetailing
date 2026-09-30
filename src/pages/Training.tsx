@@ -37,14 +37,14 @@ const Training = () => (
         <div className="relative z-10 h-full flex flex-col items-center justify-end pb-12 sm:pb-14 px-6">
           <div className="flex items-center gap-3 mb-4">
             <GraduationCap className="w-8 h-8 text-primary" />
-            <span className="font-heading font-bold text-xs uppercase tracking-widest text-primary">Professional Training</span>
+            <span className="font-heading font-bold text-xs text-primary">Professional Training</span>
           </div>
-          <h1 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase text-primary-foreground text-center leading-tight mb-6 max-w-4xl">
-            Master the Art of <span className="text-primary">Auto Detailing</span>
+          <h1 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-foreground text-center leading-tight mb-6 max-w-4xl">
+            Master the Art of Auto Detailing
           </h1>
           <Link
             to="/training/signup"
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-brand-blue-deep transition-all duration-300 shadow-lg shadow-primary/30 group"
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold px-8 py-3.5 rounded-lg text-sm hover:bg-brand-blue-deep transition-all duration-300 shadow-lg shadow-primary/30 group"
           >
             View Course Schedule
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -56,8 +56,8 @@ const Training = () => (
       <section className="py-16 sm:py-20 bg-background">
         <div className="container max-w-4xl text-center px-6">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-6">
-              Turn Your Passion Into a <span className="text-primary">Career</span>
+            <h2 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-foreground mb-6">
+              Turn Your Passion Into a Career
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-5 text-sm sm:text-base">
               Whether you're starting from scratch or levelling up your skills, our hands-on training programs give you the real-world expertise to detail like a pro — or launch your own detailing business.
@@ -73,8 +73,8 @@ const Training = () => (
       <section className="py-16 sm:py-20 bg-muted/30">
         <div className="container max-w-5xl px-4 sm:px-6">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-12">
-              Why Train With <span className="text-primary">Xpress</span>?
+            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-12">
+              Why Train With Xpress?
             </h2>
           </ScrollReveal>
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" staggerDelay={0.08}>
@@ -89,7 +89,7 @@ const Training = () => (
               <StaggerItem key={item.title}>
                 <div className="p-5 sm:p-6 rounded-xl border border-border bg-background hover:border-primary/30 hover:shadow-md transition-all duration-300 h-full">
                   <item.icon className="w-8 h-8 text-primary mb-3" />
-                  <h3 className="font-heading font-bold text-foreground uppercase text-xs sm:text-sm mb-2">{item.title}</h3>
+                  <h3 className="font-heading font-bold text-foreground text-xs sm:text-sm mb-2">{item.title}</h3>
                   <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </StaggerItem>
@@ -102,10 +102,10 @@ const Training = () => (
       <section className="py-16 sm:py-20 bg-background">
         <div className="container">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-4">
-              Training <span className="text-primary">Packages</span>
+            <h2 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-foreground text-center mb-4">
+              Training Packages
             </h2>
-            <p className="text-center text-muted-foreground font-heading text-sm uppercase tracking-widest mb-12">
+            <p className="text-center text-muted-foreground font-heading text-sm mb-12">
               Choose the course that matches your goals
             </p>
           </ScrollReveal>
@@ -233,8 +233,8 @@ const Training = () => (
       <section className="py-10 sm:py-14 bg-primary">
         <div className="container text-center">
           <ScrollReveal>
-            <p className="text-primary-foreground/80 font-heading uppercase tracking-wider text-sm mb-3">Limited Spots Per Session</p>
-            <h3 className="font-heading font-black text-xl sm:text-2xl uppercase text-primary-foreground mb-4">
+            <p className="text-primary-foreground/80 font-heading text-sm mb-3">Limited Spots Per Session</p>
+            <h3 className="font-heading font-semibold text-xl sm:text-2xl text-primary-foreground mb-4">
               Ready to Level Up Your Skills?
             </h3>
             <p className="text-primary-foreground/70 max-w-lg mx-auto mb-6 text-sm">
@@ -242,7 +242,7 @@ const Training = () => (
             </p>
             <Link
               to="/training/signup"
-              className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all group"
+              className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all group"
             >
               Reserve My Spot
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -258,7 +258,7 @@ const Training = () => (
         <div className="container text-center px-4 sm:px-6">
           <ScrollReveal>
             <GraduationCap className="w-12 h-12 text-primary-foreground/80 mx-auto mb-4" />
-            <h3 className="font-heading font-black text-2xl sm:text-3xl uppercase text-primary-foreground mb-4">
+            <h3 className="font-heading font-semibold text-2xl sm:text-3xl text-primary-foreground mb-4">
               Invest in Yourself
             </h3>
             <p className="text-primary-foreground/80 leading-relaxed mb-4 text-sm sm:text-base max-w-2xl mx-auto">
@@ -269,7 +269,7 @@ const Training = () => (
             </p>
             <Link
               to="/training/signup"
-              className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-lg group"
+              className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all hover:shadow-lg group"
             >
               Enroll Now
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

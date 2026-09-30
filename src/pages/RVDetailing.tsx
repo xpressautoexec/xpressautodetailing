@@ -55,11 +55,9 @@ const RVDetailing = () => (
 
       <section className="bg-brand-dark py-16 md:py-24">
         <div className="container max-w-4xl">
-          <p className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-primary mb-4">
-            Mobile RV specialists · Southern Alberta
-          </p>
-          <h1 className="font-heading font-black text-3xl md:text-5xl uppercase text-primary-foreground mb-5">
-            RV Detailing in Calgary <span className="text-primary">Done Where You Store It</span>
+          
+          <h1 className="font-heading font-semibold text-3xl md:text-5xl text-primary-foreground mb-5">
+            RV Detailing in Calgary Done Where You Store It
           </h1>
           <p className="text-primary-foreground/80 text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
             Alberta sun, hail and road brine are brutal on gel coat. We restore oxidized fibreglass, strip black
@@ -69,13 +67,13 @@ const RVDetailing = () => (
           <div className="flex flex-col sm:flex-row gap-3">
             <a
               href="tel:5875004523"
-              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold px-8 py-4 rounded-lg text-sm hover:bg-primary/90 transition-colors"
             >
               Get My RV Quote <ArrowRight className="w-4 h-4" />
             </a>
             <Link
               to="/trailer-rv"
-              className="inline-flex items-center justify-center gap-2 border border-primary-foreground/20 text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/10 transition-colors"
+              className="inline-flex items-center justify-center gap-2 border border-primary-foreground/20 text-primary-foreground font-heading font-bold px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/10 transition-colors"
             >
               See Per-Foot Pricing
             </Link>
@@ -85,14 +83,14 @@ const RVDetailing = () => (
 
       <section className="py-14 bg-background">
         <div className="container max-w-5xl">
-          <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground mb-8">
+          <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground mb-8">
             RV Services We Perform
           </h2>
           <div className="grid sm:grid-cols-2 gap-5">
             {services.map((item) => (
               <div key={item.title} className="p-6 rounded-xl border border-border bg-card">
                 <item.icon className="w-8 h-8 text-primary mb-3" />
-                <h3 className="font-heading font-bold uppercase text-sm text-foreground mb-2">{item.title}</h3>
+                <h3 className="font-heading font-bold text-sm text-foreground mb-2">{item.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -102,7 +100,7 @@ const RVDetailing = () => (
 
       <section className="py-14 bg-muted/30">
         <div className="container max-w-4xl">
-          <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground mb-6">
+          <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground mb-6">
             Units We Service
           </h2>
           <ul className="grid sm:grid-cols-2 gap-3">
@@ -118,13 +116,13 @@ const RVDetailing = () => (
 
       <section className="py-14 bg-background">
         <div className="container max-w-3xl">
-          <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground mb-8">
+          <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground mb-8">
             RV Detailing FAQs
           </h2>
           <div className="space-y-4">
             {faqs.map((faq) => (
               <div key={faq.q} className="p-5 rounded-xl border border-border bg-card">
-                <h3 className="font-heading font-bold text-sm uppercase text-foreground mb-2">{faq.q}</h3>
+                <h3 className="font-heading font-bold text-sm text-foreground mb-2">{faq.q}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
@@ -134,7 +132,7 @@ const RVDetailing = () => (
 
       <section className="py-14 bg-muted/30">
         <div className="container max-w-4xl">
-          <h2 className="font-heading font-black text-xl md:text-2xl uppercase text-foreground mb-5">
+          <h2 className="font-heading font-semibold text-xl md:text-2xl text-foreground mb-5">
             Related RV Services
           </h2>
           <div className="flex flex-wrap gap-3">

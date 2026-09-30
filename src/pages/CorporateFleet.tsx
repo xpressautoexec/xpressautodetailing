@@ -92,12 +92,12 @@ const CorporateFleet = () => (
       />
       <Navbar />
       <AutoBreadcrumbs />
-      <ServicePageHero title="Fleet & Dealership Detailing" image={fleetHero} ctaType="call" />
+      <ServicePageHero title="Fleet & Dealership Detailing" image={fleetHero} ctaType="call" titleAs="p" />
 
       <section className="py-14 sm:py-20 bg-background">
         <div className="container max-w-3xl px-6 text-center">
           <ScrollReveal>
-            <h1 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-5">
+            <h1 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-foreground mb-5">
               Your vehicles stay working. We come to them.
             </h1>
             <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
@@ -113,7 +113,7 @@ const CorporateFleet = () => (
       {/* What we service */}
       <section className="py-14 sm:py-20 bg-foreground">
         <div className="container px-4 sm:px-6">
-          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-background text-center mb-10">
+          <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-background text-center mb-10">
             What we service
           </h2>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
@@ -133,13 +133,13 @@ const CorporateFleet = () => (
       {/* How it works */}
       <section className="py-14 sm:py-20 bg-background">
         <div className="container max-w-3xl px-6">
-          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-8">
+          <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-8">
             How fleet accounts work
           </h2>
           <ol className="space-y-4">
             {HOW.map((h, i) => (
               <li key={h} className="flex gap-4 rounded-2xl border border-border bg-card p-5">
-                <span className="font-heading text-sm font-black text-primary tabular-nums">
+                <span className="font-heading text-sm font-semibold text-primary tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="text-sm sm:text-base text-foreground">{h}</span>
@@ -155,7 +155,7 @@ const CorporateFleet = () => (
       {/* Gallery */}
       <section className="py-14 sm:py-20 bg-secondary/40">
         <div className="container px-4 sm:px-6">
-          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-8">
+          <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-8">
             Recent fleet work
           </h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
@@ -179,7 +179,7 @@ const CorporateFleet = () => (
       {/* Quote */}
       <section className="py-14 sm:py-20 bg-background">
         <div className="container max-w-2xl px-4 sm:px-6">
-          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-3">
+          <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-3">
             Request a fleet quote
           </h2>
           <p className="mb-6 text-center text-sm text-muted-foreground">
@@ -189,14 +189,14 @@ const CorporateFleet = () => (
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <a
               href={`tel:${PHONE.replace(/-/g, "")}`}
-              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
+              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-md bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
             >
               <Phone className="h-4 w-4" aria-hidden="true" />
               Call {PHONE}
             </a>
             <a
               href={`mailto:${EMAIL}`}
-              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-border px-8 text-sm font-bold text-foreground transition-colors hover:border-primary"
+              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-md border border-border px-8 text-sm font-bold text-foreground transition-colors hover:border-primary"
             >
               <Check className="h-4 w-4" aria-hidden="true" />
               {EMAIL}

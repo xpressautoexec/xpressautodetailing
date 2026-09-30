@@ -169,12 +169,12 @@ const PriceComparison = () => (
       <section className="pt-28 pb-16 bg-foreground">
         <div className="container max-w-4xl text-center px-4">
           <ScrollReveal>
-            <span className="inline-flex items-center gap-2 text-primary font-heading font-bold text-xs uppercase tracking-widest mb-4">
+            <span className="inline-flex items-center gap-2 text-primary font-heading font-bold text-xs mb-4">
               <DollarSign className="w-4 h-4" /> Calgary Pricing Guide · 2026
             </span>
-            <h1 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-background mb-5 leading-tight">
+            <h1 className="font-heading font-semibold text-3xl sm:text-4xl md:text-5xl text-background mb-5 leading-tight">
               Car Detailing Prices in Calgary:{" "}
-              <span className="text-primary">Mobile vs Shop</span>
+              Mobile vs Shop
             </h1>
             <p className="text-background/70 leading-relaxed max-w-2xl mx-auto mb-8">
               Every detailing package we offer, what a comparable Calgary shop
@@ -187,13 +187,13 @@ const PriceComparison = () => (
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold px-8 py-3.5 rounded-lg text-sm hover:bg-primary/90 transition-colors"
               >
                 Book Online <ArrowRight className="w-4 h-4" />
               </a>
               <a
                 href={`tel:${PHONE}`}
-                className="inline-flex items-center justify-center gap-2 border border-background/30 text-background font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-background/10 transition-colors"
+                className="inline-flex items-center justify-center gap-2 border border-background/30 text-background font-heading font-bold px-8 py-3.5 rounded-lg text-sm hover:bg-background/10 transition-colors"
               >
                 <Phone className="w-4 h-4" /> {PHONE}
               </a>
@@ -206,7 +206,7 @@ const PriceComparison = () => (
       <section className="py-16 bg-background">
         <div className="container max-w-5xl px-4">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-3">
+            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-3">
               Side-by-Side Price Comparison
             </h2>
             <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-10 text-sm">
@@ -222,13 +222,13 @@ const PriceComparison = () => (
               <table className="w-full text-left min-w-[640px]">
                 <thead className="bg-muted">
                   <tr>
-                    <th className="p-4 font-heading font-bold text-xs uppercase tracking-wider text-foreground">
+                    <th className="p-4 font-heading font-bold text-xs text-foreground">
                       Service
                     </th>
-                    <th className="p-4 font-heading font-bold text-xs uppercase tracking-wider text-primary">
+                    <th className="p-4 font-heading font-bold text-xs text-primary">
                       Xpress (Mobile)
                     </th>
-                    <th className="p-4 font-heading font-bold text-xs uppercase tracking-wider text-foreground">
+                    <th className="p-4 font-heading font-bold text-xs text-foreground">
                       Typical Calgary Shop
                     </th>
                   </tr>
@@ -247,7 +247,7 @@ const PriceComparison = () => (
                           {row.note}
                         </p>
                       </td>
-                      <td className="p-4 font-heading font-black text-lg text-primary whitespace-nowrap">
+                      <td className="p-4 font-heading font-semibold text-lg text-primary whitespace-nowrap">
                         {row.ours}
                       </td>
                       <td className="p-4 font-heading font-semibold text-sm text-muted-foreground whitespace-nowrap">
@@ -270,7 +270,7 @@ const PriceComparison = () => (
       <section className="py-16 bg-muted/40">
         <div className="container max-w-4xl px-4">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-10">
+            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-10">
               Add-On Pricing, Published Up Front
             </h2>
           </ScrollReveal>
@@ -303,7 +303,7 @@ const PriceComparison = () => (
       <section className="py-16 bg-background">
         <div className="container max-w-5xl px-4">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-3">
+            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-3">
               Where Mobile Detailing Actually Saves You Money
             </h2>
             <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-10 text-sm">
@@ -333,7 +333,7 @@ const PriceComparison = () => (
       <section className="py-16 bg-foreground">
         <div className="container max-w-3xl px-4">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-background text-center mb-4">
+            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-background text-center mb-4">
               When a Shop Is the Better Choice
             </h2>
             <p className="text-background/60 text-center text-sm mb-8">
@@ -373,7 +373,7 @@ const PriceComparison = () => (
       <section className="py-16 bg-background">
         <div className="container max-w-5xl px-4">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-10">
+            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-10">
               Best Value by What You're Trying to Do
             </h2>
           </ScrollReveal>
@@ -407,7 +407,7 @@ const PriceComparison = () => (
                   <h3 className="font-heading font-bold text-foreground mb-1">
                     {c.title}
                   </h3>
-                  <p className="font-heading font-black text-primary text-sm uppercase mb-3">
+                  <p className="font-heading font-semibold text-primary text-sm mb-3">
                     {c.pick}
                   </p>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-1">
@@ -415,7 +415,7 @@ const PriceComparison = () => (
                   </p>
                   <Link
                     to={c.to}
-                    className="inline-flex items-center gap-1.5 text-primary font-heading font-bold text-xs uppercase tracking-wider hover:gap-2.5 transition-all"
+                    className="inline-flex items-center gap-1.5 text-primary font-heading font-bold text-xs hover:gap-2.5 transition-all"
                   >
                     See details <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
@@ -430,7 +430,7 @@ const PriceComparison = () => (
       <section className="py-16 bg-muted/40">
         <div className="container max-w-3xl px-4">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-8">
+            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-8">
               What's Included in Every Price
             </h2>
             <ul className="grid sm:grid-cols-2 gap-3">
@@ -457,7 +457,7 @@ const PriceComparison = () => (
       {/* CTA */}
       <section className="py-14 bg-primary">
         <div className="container text-center px-4">
-          <h2 className="font-heading font-black text-xl sm:text-2xl uppercase text-primary-foreground mb-3">
+          <h2 className="font-heading font-semibold text-xl sm:text-2xl text-primary-foreground mb-3">
             Know the Price Before You Book
           </h2>
           <p className="text-primary-foreground/80 max-w-lg mx-auto mb-6 text-sm">
@@ -469,13 +469,13 @@ const PriceComparison = () => (
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/90 transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-primary-foreground text-primary font-heading font-bold px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/90 transition-colors"
             >
               Book Now <ArrowRight className="w-4 h-4" />
             </a>
             <a
               href={`tel:${PHONE}`}
-              className="inline-flex items-center justify-center gap-2 border border-primary-foreground/40 text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/10 transition-colors"
+              className="inline-flex items-center justify-center gap-2 border border-primary-foreground/40 text-primary-foreground font-heading font-bold px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/10 transition-colors"
             >
               <Phone className="w-4 h-4" /> {PHONE}
             </a>

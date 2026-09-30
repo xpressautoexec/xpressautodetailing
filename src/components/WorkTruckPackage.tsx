@@ -9,10 +9,8 @@ const WorkTruckPackage = () => (
     <div className="container max-w-5xl px-6">
       <ScrollReveal>
         <div className="mb-10 text-center">
-          <p className="font-heading text-[11px] font-black uppercase tracking-[0.2em] text-primary">
-            Built for the trades
-          </p>
-          <h2 className="mt-3 font-heading text-2xl font-black uppercase text-foreground sm:text-3xl md:text-4xl">
+          
+          <h2 className="mt-3 font-heading text-2xl font-semibold text-foreground sm:text-3xl md:text-4xl">
             {WORK_TRUCK_PACKAGE.name}
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base">
@@ -30,7 +28,7 @@ const WorkTruckPackage = () => (
             }`}
           >
             {tier.popular && (
-              <span className="absolute -top-3 left-6 rounded-full bg-primary px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-primary-foreground">
+              <span className="absolute -top-3 left-6 rounded-full bg-primary px-3 py-1 text-[11px] font-bold text-primary-foreground">
                 Best value
               </span>
             )}
@@ -39,8 +37,8 @@ const WorkTruckPackage = () => (
               <h3 className="font-heading text-lg font-bold text-foreground">{tier.name}</h3>
             </div>
             <div className="mt-4 flex items-baseline gap-2">
-              <span className="font-heading text-4xl font-black text-foreground">{money(tier.price)}</span>
-              <span className="text-xs font-semibold uppercase text-muted-foreground">{tier.duration}</span>
+              <span className="font-heading text-4xl font-semibold text-foreground">{money(tier.price)}</span>
+              <span className="text-xs font-semibold text-muted-foreground">{tier.duration}</span>
             </div>
             <ul className="mt-5 flex-1 space-y-2.5">
               {tier.includes.map((item) => (
@@ -54,7 +52,7 @@ const WorkTruckPackage = () => (
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex min-h-[46px] items-center justify-center gap-2 rounded-full bg-primary px-6 font-heading text-xs font-black uppercase tracking-wider text-primary-foreground transition-colors hover:bg-primary/90"
+              className="mt-6 inline-flex min-h-[46px] items-center justify-center gap-2 rounded-md bg-primary px-6 font-heading text-xs font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
             >
               Book {tier.name} — {money(tier.price)}
               <ArrowRight className="h-4 w-4" />
@@ -70,7 +68,7 @@ const WorkTruckPackage = () => (
           className="group mt-6 flex flex-col items-start gap-4 rounded-2xl border border-primary/30 bg-brand-dark p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7"
         >
           <div>
-            <p className="font-heading text-lg font-black uppercase text-white sm:text-xl">
+            <p className="font-heading text-lg font-semibold text-white sm:text-xl">
               Have a fleet? Save up to 50%
             </p>
             <p className="mt-2 max-w-xl text-sm text-white/65">
@@ -78,7 +76,7 @@ const WorkTruckPackage = () => (
               Tell us what you run and we'll build the package around it.
             </p>
           </div>
-          <span className="inline-flex min-h-[46px] shrink-0 items-center gap-2 rounded-full bg-primary px-6 font-heading text-xs font-black uppercase tracking-wider text-primary-foreground transition-colors group-hover:bg-primary/90">
+          <span className="inline-flex min-h-[46px] shrink-0 items-center gap-2 rounded-md bg-primary px-6 font-heading text-xs font-semibold text-primary-foreground transition-colors group-hover:bg-primary/90">
             Fleet detailing packages
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </span>

@@ -15,7 +15,7 @@ const ServiceFAQ = ({ title, faqs }: { title: string; faqs: FAQ[] }) => (
   <section className="py-16 bg-muted/30">
     <div className="container max-w-3xl">
       <ScrollReveal>
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground text-center mb-12">
+        <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground text-center mb-12">
           {title}
         </h2>
       </ScrollReveal>

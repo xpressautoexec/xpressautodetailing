@@ -72,12 +72,12 @@ const MarineDetailing = () => (
       />
       <Navbar />
       <AutoBreadcrumbs />
-      <ServicePageHero title="Marine & Pontoon Detailing" image={marineHeroAsset.url} ctaType="call" />
+      <ServicePageHero title="Marine & Pontoon Detailing" image={marineHeroAsset.url} ctaType="call" titleAs="p" />
 
       <section className="py-14 sm:py-20 bg-background">
         <div className="container max-w-3xl px-6 text-center">
           <ScrollReveal>
-            <h1 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-5">
+            <h1 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-foreground mb-5">
               Gelcoat, vinyl and aluminum — back to new.
             </h1>
             <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
@@ -101,14 +101,14 @@ const MarineDetailing = () => (
       {/* Services & pricing */}
       <section className="py-14 sm:py-20 bg-foreground">
         <div className="container max-w-3xl px-4 sm:px-6">
-          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-background text-center mb-8">
+          <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-background text-center mb-8">
             Marine pricing
           </h2>
           <ul className="divide-y divide-background/10 overflow-hidden rounded-2xl border border-background/15 bg-background/[0.04]">
             {MARINE_SERVICES.map((s) => (
               <li key={s.name} className="flex items-center justify-between gap-4 p-4 sm:px-6">
                 <span className="text-sm sm:text-base text-background/85">{s.name}</span>
-                <span className="whitespace-nowrap font-heading text-lg font-black text-background tabular-nums">
+                <span className="whitespace-nowrap font-heading text-lg font-semibold text-background tabular-nums">
                   {money(s.price)}
                   <span className="ml-1 text-sm font-semibold text-background/60">{s.unit}</span>
                 </span>
@@ -124,7 +124,7 @@ const MarineDetailing = () => (
       {/* Estimator */}
       <section className="py-14 sm:py-20 bg-secondary/40">
         <div className="container max-w-3xl px-4 sm:px-6">
-          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-8">
+          <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-8">
             Estimate your boat
           </h2>
           <PerFootCalculator
@@ -142,7 +142,7 @@ const MarineDetailing = () => (
       {/* Gallery */}
       <section className="py-14 sm:py-20 bg-background">
         <div className="container px-4 sm:px-6">
-          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-8">
+          <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-8">
             Recent marine work
           </h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
@@ -165,7 +165,7 @@ const MarineDetailing = () => (
 
       <section className="py-14 sm:py-20 bg-secondary/40">
         <div className="container max-w-2xl px-4 sm:px-6">
-          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-6">
+          <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-6">
             Book a look at your boat
           </h2>
           <AssessmentForm />
@@ -176,7 +176,7 @@ const MarineDetailing = () => (
         <div className="container px-6 text-center">
           <a
             href={`tel:${PHONE.replace(/-/g, "")}`}
-            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-md bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
           >
             <Phone className="h-4 w-4" aria-hidden="true" />
             Call {PHONE}

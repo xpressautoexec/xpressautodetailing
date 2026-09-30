@@ -89,12 +89,12 @@ const RVRentalFleet = () => (
       />
       <Navbar />
       <AutoBreadcrumbs />
-      <ServicePageHero title="RV Rental Fleet Care" image={rvHero} ctaType="call" />
+      <ServicePageHero title="RV Rental Fleet Care" image={rvHero} ctaType="call" titleAs="p" />
 
       <section className="py-14 sm:py-20 bg-background">
         <div className="container max-w-3xl px-6 text-center">
           <ScrollReveal>
-            <h1 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-5">
+            <h1 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-foreground mb-5">
               Fast turnovers. Consistent units.
             </h1>
             <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
@@ -118,7 +118,7 @@ const RVRentalFleet = () => (
                   <h2 className="font-heading text-lg font-bold text-background">{tier.name}</h2>
                   <div className="mt-3 flex items-baseline gap-2">
                     <span className="text-sm text-background/60">from</span>
-                    <span className="font-heading text-3xl font-black text-background tabular-nums">
+                    <span className="font-heading text-3xl font-semibold text-background tabular-nums">
                       {money(tier.price)}
                     </span>
                     <span className="text-sm text-background/60">{tier.unit}</span>
@@ -148,14 +148,14 @@ const RVRentalFleet = () => (
 
       <section className="py-14 sm:py-20 bg-secondary/40">
         <div className="container max-w-2xl px-4 sm:px-6">
-          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-6">
+          <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-6">
             Request a fleet quote
           </h2>
           <FleetQuoteForm />
           <div className="mt-8 text-center">
             <a
               href={`tel:${PHONE.replace(/-/g, "")}`}
-              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-border px-8 text-sm font-bold text-foreground transition-colors hover:border-primary"
+              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-md border border-border px-8 text-sm font-bold text-foreground transition-colors hover:border-primary"
             >
               <Phone className="h-4 w-4" aria-hidden="true" />
               Or call {PHONE}

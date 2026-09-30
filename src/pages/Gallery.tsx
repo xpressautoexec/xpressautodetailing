@@ -200,8 +200,8 @@ const Gallery = () => (
 
     <section className="py-16 bg-background">
       <div className="container">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground text-center mb-4">
-          See the <span className="text-primary">Transformation</span>
+        <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground text-center mb-4">
+          See the Transformation
         </h2>
         <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
           Browse through some of our recent projects. Every vehicle gets our full attention and the professional treatment it deserves. From quick maintenance washes to full paint corrections and ceramic coatings — these results speak for themselves.
@@ -210,7 +210,7 @@ const Gallery = () => (
           {sections.map((section) => (
             <div key={section.title}>
               <div className="mb-6 text-center">
-                <h3 className="font-heading font-black text-xl md:text-2xl uppercase text-foreground">
+                <h3 className="font-heading font-semibold text-xl md:text-2xl text-foreground">
                   {section.title}
                 </h3>
                 <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto mt-2">
@@ -227,7 +227,7 @@ const Gallery = () => (
                       loading="lazy"
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span className="text-white font-heading font-bold text-sm uppercase">{section.title}</span>
+                      <span className="text-white font-heading font-bold text-sm">{section.title}</span>
                     </div>
                   </div>
                 ))}
@@ -237,7 +237,7 @@ const Gallery = () => (
         </div>
 
         {/* Video Section */}
-        <h3 className="font-heading font-black text-xl md:text-2xl uppercase text-foreground text-center mt-16 mb-8">
+        <h3 className="font-heading font-semibold text-xl md:text-2xl text-foreground text-center mt-16 mb-8">
           Videos
         </h3>
         <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -258,7 +258,7 @@ const Gallery = () => (
     {/* Client Reactions */}
     <section className="py-16 bg-muted/30">
       <div className="container max-w-5xl">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground text-center mb-12">
+        <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground text-center mb-12">
           Client Reactions
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
@@ -284,13 +284,13 @@ const Gallery = () => (
 
     <section className="py-16 bg-primary">
       <div className="container text-center">
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-primary-foreground mb-4">
+        <h2 className="font-heading font-semibold text-2xl md:text-3xl text-primary-foreground mb-4">
           Want Results Like These?
         </h2>
         <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8">
           Every vehicle in our gallery started just like yours. Book your detail today and your car could be our next showcase.
         </p>
-        <a href="tel:5875004523" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-4 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
+        <a href="tel:5875004523" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold px-8 py-4 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
           Call Now
         </a>
       </div>

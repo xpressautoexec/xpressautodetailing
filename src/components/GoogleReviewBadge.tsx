@@ -1,7 +1,6 @@
-import { Star, ArrowRight, Clock, ExternalLink } from "lucide-react";
-import ScrollReveal from "@/components/ScrollReveal";
+import { Star, ExternalLink } from "lucide-react";
+import { FIVE_STAR_REVIEWS } from "@/data/pricing";
 
-const BOOKING_URL = "https://xpressauto.fieldd.co/";
 const GOOGLE_REVIEWS_URL = "https://g.page/r/CQ5ISLUTohBKEBM/review";
 
 const reviews = [
@@ -37,84 +36,49 @@ const GoogleLogo = () => (
   </svg>
 );
 
+/**
+ * Review quotes must be copied from real Google reviews. Owner to confirm the three below.
+ * No relative dates ("2 weeks ago") — they go stale the day they ship.
+ */
 const GoogleReviewBadge = () => (
-  <section className="py-12 sm:py-14 bg-foreground">
-    <div className="container">
-      <ScrollReveal>
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 max-w-4xl mx-auto">
-          <div className="flex flex-col items-center md:items-start gap-2">
-            <div className="flex items-center gap-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-7 h-7 fill-yellow-400 text-yellow-400" />
-              ))}
-            </div>
-            <p className="font-heading font-black text-2xl md:text-3xl text-background uppercase">
-              100+ five-star reviews
-            </p>
-            <p className="text-background/70 text-sm">
-              From real customers on Google
-            </p>
+  <section className="bg-brand-dark py-16 sm:py-24">
+    <div className="shell">
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <div className="flex gap-1" aria-hidden="true">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="h-5 w-5 fill-current text-primary-foreground" />
+            ))}
           </div>
-          <div className="flex flex-col items-center gap-3">
-            <div className="flex items-center gap-2 text-urgency font-heading font-bold text-sm uppercase tracking-wider">
-              <Clock className="w-4 h-4" />
-              Limited Spots This Week
-            </div>
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-brand-blue-deep transition-all shadow-lg shadow-primary/30"
-            >
-              Claim Your Spot
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-          </div>
+          <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-primary-foreground sm:text-4xl">
+            {FIVE_STAR_REVIEWS} five-star Google reviews
+          </h2>
         </div>
-      </ScrollReveal>
+        <a
+          href={GOOGLE_REVIEWS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-primary-foreground/80 hover:text-primary-foreground"
+        >
+          <GoogleLogo />
+          Read them on Google
+          <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+        </a>
+      </div>
 
-      <ScrollReveal delay={0.15}>
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-          {reviews.map((r) => (
-            <div
-              key={r.name}
-              className="bg-background/[0.04] border border-background/10 rounded-xl p-5 backdrop-blur-sm hover:bg-background/[0.07] transition-colors"
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-full bg-primary/20 text-background flex items-center justify-center font-heading font-bold text-sm shrink-0">
-                  {r.initials}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-1.5">
-                    <p className="font-heading font-bold text-background text-sm truncate">{r.name}</p>
-                    <GoogleLogo />
-                  </div>
-                  <p className="text-background/50 text-xs">{r.timeAgo}</p>
-                </div>
-              </div>
-              <div className="flex gap-0.5 mb-2">
-                {[...Array(r.rating)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              <p className="text-background/80 text-sm leading-relaxed line-clamp-5">{r.text}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-6 flex justify-center">
-          <a
-            href={GOOGLE_REVIEWS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-background/80 hover:text-background font-heading font-semibold text-xs uppercase tracking-wider border border-background/20 hover:border-background/40 rounded-lg px-5 py-2.5 transition-colors"
-          >
-            <GoogleLogo />
-            Read all reviews on Google
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
-        </div>
-      </ScrollReveal>
+      <div className="mt-12 grid gap-px overflow-hidden rounded-[10px] bg-primary-foreground/10 md:grid-cols-3">
+        {reviews.map((r) => (
+          <figure key={r.name} className="flex flex-col bg-brand-dark p-7">
+            <blockquote className="flex-1 text-[15px] leading-relaxed text-primary-foreground/85">
+              {r.text}
+            </blockquote>
+            <figcaption className="mt-6 flex items-center gap-2 text-sm font-semibold text-primary-foreground">
+              {r.name}
+              <GoogleLogo />
+            </figcaption>
+          </figure>
+        ))}
+      </div>
     </div>
   </section>
 );

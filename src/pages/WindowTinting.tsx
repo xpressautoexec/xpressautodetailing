@@ -82,7 +82,7 @@ const WindowTinting = () => {
         <section className="py-14 sm:py-20 bg-background">
           <div className="container max-w-3xl px-6 text-center">
             <ScrollReveal>
-              <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-5">
+              <h2 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-foreground mb-5">
                 Pick your film. One price.
               </h2>
               <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
@@ -136,7 +136,7 @@ const WindowTinting = () => {
               {TINT.map((t) => (
                 <li key={t.name} className="flex items-center justify-between gap-4 p-4 sm:px-6">
                   <span className="text-sm sm:text-base text-background/85">{t.name}</span>
-                  <span className="font-heading font-black text-lg sm:text-xl text-background tabular-nums">
+                  <span className="font-heading font-semibold text-lg sm:text-xl text-background tabular-nums">
                     {money(Math.round(t.price * active.multiplier))}
                   </span>
                 </li>
@@ -151,7 +151,7 @@ const WindowTinting = () => {
             <div className="mt-8 text-center">
               <a
                 href={`tel:${PHONE.replace(/-/g, "")}`}
-                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
+                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-md bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
               >
                 <Phone className="h-4 w-4" aria-hidden="true" />
                 Book your tint
@@ -166,7 +166,7 @@ const WindowTinting = () => {
         <section className="py-16 sm:py-20 bg-background">
           <div className="container px-6 text-center">
             <ScrollReveal>
-              <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground mb-4">
+              <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground mb-4">
                 Not sure which shade?
               </h2>
               <p className="mx-auto mb-8 max-w-xl text-sm sm:text-base text-muted-foreground">
@@ -175,7 +175,7 @@ const WindowTinting = () => {
               </p>
               <a
                 href={`tel:${PHONE.replace(/-/g, "")}`}
-                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
+                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-md bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
               >
                 Call {PHONE}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />

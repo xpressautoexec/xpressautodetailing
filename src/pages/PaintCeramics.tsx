@@ -97,7 +97,7 @@ const PaintCeramics = () => {
       <section className="py-14 sm:py-20 bg-background">
         <div className="container max-w-3xl px-6 text-center">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-5">
+            <h2 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-foreground mb-5">
               Correct the paint. Then protect it.
             </h2>
             <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
@@ -124,7 +124,7 @@ const PaintCeramics = () => {
         <div className="container px-4 sm:px-6">
           <ScrollReveal>
             <div className="text-center mb-10">
-              <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-background">
+              <h2 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-background">
                 Coating Packages
               </h2>
               <p className="mt-4 mx-auto max-w-2xl text-sm sm:text-base text-background/60">
@@ -142,7 +142,7 @@ const PaintCeramics = () => {
                     type="button"
                     onClick={() => setSize(s.id)}
                     aria-pressed={size === s.id}
-                    className={`min-h-[40px] rounded-full px-4 text-xs sm:text-sm font-bold uppercase tracking-wide transition-colors ${
+                    className={`min-h-[40px] rounded-full px-4 text-xs sm:text-sm font-bold transition-colors ${
                       size === s.id
                         ? "bg-primary text-primary-foreground"
                         : "text-background/70 hover:text-background"
@@ -167,16 +167,16 @@ const PaintCeramics = () => {
                 }`}
               >
                 {p.popular && (
-                  <span className="absolute -top-3 left-6 rounded-full bg-primary px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-primary-foreground">
+                  <span className="absolute -top-3 left-6 rounded-full bg-primary px-3 py-1 text-[11px] font-bold text-primary-foreground">
                     Most booked
                   </span>
                 )}
-                <h3 className="font-heading font-black text-xl uppercase text-background">{p.name}</h3>
+                <h3 className="font-heading font-semibold text-xl text-background">{p.name}</h3>
                 <p className="mt-1 text-sm text-background/60">{p.coating}</p>
-                <p className="mt-4 font-heading font-black text-3xl text-background">
+                <p className="mt-4 font-heading font-semibold text-3xl text-background">
                   {money(p.price + upcharge)}
                 </p>
-                <p className="mt-1 text-xs uppercase tracking-wider text-background/50">{p.correction}</p>
+                <p className="mt-1 text-xs text-background/50">{p.correction}</p>
 
                 <ul className="mt-6 flex-1 space-y-2.5">
                   {p.includes.map((inc) => (
@@ -189,7 +189,7 @@ const PaintCeramics = () => {
 
                 <a
                   href={`tel:${PHONE.replace(/-/g, "")}`}
-                  className="mt-7 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
+                  className="mt-7 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-md bg-primary px-6 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
                 >
                   <Phone className="h-4 w-4" aria-hidden="true" />
                   Book {p.name} — {money(p.price + upcharge)}
@@ -208,16 +208,16 @@ const PaintCeramics = () => {
       <section className="py-14 sm:py-20 bg-background">
         <div className="container max-w-4xl px-6">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-10">
+            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-10">
               How the work is done
             </h2>
           </ScrollReveal>
           <ol className="space-y-4">
             {stages.map((s) => (
               <li key={s.n} className="flex gap-5 rounded-2xl border border-border bg-card p-5 sm:p-6">
-                <span className="font-heading font-black text-2xl text-primary/40 shrink-0">{s.n}</span>
+                <span className="font-heading font-semibold text-2xl text-primary/40 shrink-0">{s.n}</span>
                 <div>
-                  <h3 className="font-heading font-bold uppercase text-sm text-foreground mb-1">{s.title}</h3>
+                  <h3 className="font-heading font-bold text-sm text-foreground mb-1">{s.title}</h3>
                   <p className="text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
                 </div>
               </li>
@@ -232,7 +232,7 @@ const PaintCeramics = () => {
       <section className="py-16 sm:py-20 bg-foreground">
         <div className="container px-6 text-center">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-background mb-4">
+            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-background mb-4">
               Not sure which coating you need?
             </h2>
             <p className="mx-auto mb-8 max-w-xl text-sm sm:text-base text-background/60">
@@ -241,7 +241,7 @@ const PaintCeramics = () => {
             </p>
             <a
               href={`tel:${PHONE.replace(/-/g, "")}`}
-              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
+              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-md bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
             >
               Call {PHONE}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />

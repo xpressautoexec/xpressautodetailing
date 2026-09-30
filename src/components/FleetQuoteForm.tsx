@@ -93,7 +93,7 @@ const FleetQuoteForm = () => {
       </div>
 
       <button type="submit" disabled={loading}
-        className="mt-6 min-h-[44px] w-full rounded-full bg-primary px-6 font-semibold text-primary-foreground disabled:opacity-60">
+        className="mt-6 min-h-[44px] w-full rounded-md bg-primary px-6 font-semibold text-primary-foreground disabled:opacity-60">
         {loading ? "Sending…" : "Get my fleet quote"}
       </button>
     </form>

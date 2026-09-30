@@ -173,28 +173,28 @@ const PackageCardPPF = ({ pkg }: { pkg: Package }) => {
   return (
     <div className={`relative bg-card border-2 rounded-2xl p-6 sm:p-7 flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${accent}`}>
       {pkg.badge && (
-        <div className={`absolute -top-3 left-1/2 -translate-x-1/2 font-heading font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full whitespace-nowrap z-10 ${pkg.bestValue ? "bg-urgency text-urgency-foreground" : "bg-primary text-primary-foreground"}`}>
+        <div className={`absolute -top-3 left-1/2 -translate-x-1/2 font-heading font-bold text-[10px] px-3 py-1 rounded-full whitespace-nowrap z-10 ${pkg.bestValue ? "bg-urgency text-urgency-foreground" : "bg-primary text-primary-foreground"}`}>
           {pkg.badge}
         </div>
       )}
 
       {/* Coverage diagram */}
       <div className="rounded-xl bg-muted/40 border border-border/60 p-4 mb-5">
-        <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-muted-foreground mb-2 text-center">
+        <p className="text-[10px] font-heading font-bold text-muted-foreground mb-2 text-center">
           Coverage Map
         </p>
         <RVCoverageDiagram level={pkg.coverageLevel} />
       </div>
 
       {/* Title + tagline */}
-      <h3 className="font-heading font-black text-xl sm:text-2xl uppercase tracking-tight text-foreground mb-2 leading-tight">
+      <h3 className="font-heading font-semibold text-xl sm:text-2xl tracking-tight text-foreground mb-2 leading-tight">
         {pkg.name}
       </h3>
       <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{pkg.tagline}</p>
 
       {/* Price + duration */}
       <div className="flex items-baseline justify-between mb-5 pb-5 border-b border-border/50">
-        <span className="font-heading font-black text-3xl text-primary">{pkg.priceFrom}</span>
+        <span className="font-heading font-semibold text-3xl text-primary">{pkg.priceFrom}</span>
         <span className="flex items-center gap-1.5 text-xs text-muted-foreground font-medium">
           <Clock className="w-3.5 h-3.5" />
           {pkg.duration}
@@ -203,7 +203,7 @@ const PackageCardPPF = ({ pkg }: { pkg: Package }) => {
 
       {/* Coverage */}
       <div className="mb-5">
-        <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-primary mb-3 flex items-center gap-1.5">
+        <p className="text-[10px] font-heading font-bold text-primary mb-3 flex items-center gap-1.5">
           <Layers className="w-3 h-3" /> Areas Covered
         </p>
         <ul className="space-y-2">
@@ -218,7 +218,7 @@ const PackageCardPPF = ({ pkg }: { pkg: Package }) => {
 
       {/* Benefits */}
       <div className="mb-5 p-4 rounded-xl bg-primary/5 border border-primary/10">
-        <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-primary mb-2 flex items-center gap-1.5">
+        <p className="text-[10px] font-heading font-bold text-primary mb-2 flex items-center gap-1.5">
           <Sparkles className="w-3 h-3" /> Why It Wins
         </p>
         <ul className="space-y-1.5">
@@ -233,7 +233,7 @@ const PackageCardPPF = ({ pkg }: { pkg: Package }) => {
 
       {/* Ideal */}
       <div className="mb-6 text-xs text-muted-foreground italic leading-relaxed">
-        <span className="font-heading font-bold text-foreground not-italic uppercase tracking-wider text-[10px] mr-1">Ideal for:</span>
+        <span className="font-heading font-bold text-foreground not-italic text-[10px] mr-1">Ideal for:</span>
         {pkg.ideal}
       </div>
 
@@ -243,7 +243,7 @@ const PackageCardPPF = ({ pkg }: { pkg: Package }) => {
       {/* CTA */}
       <a
         href={PHONE}
-        className={`mt-auto inline-flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider px-5 py-3.5 rounded-lg text-sm transition-all ${pkg.bestValue ? "bg-urgency text-urgency-foreground hover:bg-urgency/90 shadow-lg shadow-urgency/20" : "bg-primary text-primary-foreground hover:bg-brand-blue-deep shadow-lg shadow-primary/20"}`}
+        className={`mt-auto inline-flex items-center justify-center gap-2 font-heading font-bold px-5 py-3.5 rounded-lg text-sm transition-all ${pkg.bestValue ? "bg-urgency text-urgency-foreground hover:bg-urgency/90 shadow-lg shadow-urgency/20" : "bg-primary text-primary-foreground hover:bg-brand-blue-deep shadow-lg shadow-primary/20"}`}
       >
         <Phone className="w-4 h-4" />
         Call for Free Quote
@@ -283,14 +283,14 @@ const RVPPF = () => {
 
           <div className="relative z-10 container flex flex-col justify-end min-h-[560px] sm:min-h-[640px] pb-14 sm:pb-20 pt-32 px-6">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 bg-primary/95 text-primary-foreground font-heading font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
+              <div className="inline-flex items-center gap-2 bg-primary/95 text-primary-foreground font-heading font-bold text-[10px] px-4 py-1.5 rounded-full mb-5">
                 <Shield className="w-3 h-3" />
                 Premium Self-Healing TPU Film
               </div>
 
-              <h1 className="font-heading font-black text-3xl sm:text-5xl md:text-6xl uppercase text-background leading-[1.05] mb-5">
+              <h1 className="font-heading font-semibold text-3xl sm:text-5xl md:text-6xl text-background leading-[1.05] mb-5">
                 RV Paint Protection Film<br />
-                <span className="text-primary">That Outlasts the Road</span>
+                That Outlasts the Road
               </h1>
 
               <p className="text-background/85 text-base sm:text-xl leading-relaxed mb-3 max-w-2xl">
@@ -303,14 +303,14 @@ const RVPPF = () => {
               <div className="flex flex-wrap gap-3 mb-6">
                 <a
                   href={PHONE}
-                  className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-7 py-4 rounded-lg text-sm sm:text-base hover:bg-brand-blue-deep transition-colors shadow-xl shadow-primary/30"
+                  className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold px-7 py-4 rounded-lg text-sm sm:text-base hover:bg-brand-blue-deep transition-colors shadow-xl shadow-primary/30"
                 >
                   <Phone className="w-5 h-5" />
                   Call Now: {PHONE_DISPLAY}
                 </a>
                 <a
                   href="#packages"
-                  className="inline-flex items-center gap-2 bg-background/10 backdrop-blur-sm border border-background/30 text-background font-heading font-bold uppercase tracking-wider px-7 py-4 rounded-lg text-sm sm:text-base hover:bg-background/20 transition-colors"
+                  className="inline-flex items-center gap-2 bg-background/10 backdrop-blur-sm border border-background/30 text-background font-heading font-bold px-7 py-4 rounded-lg text-sm sm:text-base hover:bg-background/20 transition-colors"
                 >
                   View Packages
                   <ArrowRight className="w-4 h-4" />
@@ -350,19 +350,19 @@ const RVPPF = () => {
         {/* TRUSTED SUPPLIERS */}
         <section className="bg-background border-b border-border py-8">
           <div className="container px-6">
-            <p className="text-center text-[10px] sm:text-xs font-heading font-bold uppercase tracking-[0.25em] text-muted-foreground mb-5">
+            <p className="text-center text-[10px] sm:text-xs font-heading font-bold text-muted-foreground mb-5">
               Trusted Film Suppliers
             </p>
             <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14">
               <div className="flex items-center gap-2 text-foreground">
                 <Shield className="w-5 h-5 text-primary" />
-                <span className="font-heading font-black text-2xl sm:text-3xl tracking-tight">XPEL</span>
+                <span className="font-heading font-semibold text-2xl sm:text-3xl tracking-tight">XPEL</span>
               </div>
               <div className="h-8 w-px bg-border hidden sm:block" />
               <div className="flex items-center gap-2 text-foreground">
                 <Shield className="w-5 h-5 text-primary" />
-                <span className="font-heading font-black text-2xl sm:text-3xl tracking-tight">3M</span>
-                <span className="font-heading font-bold text-xs uppercase tracking-widest text-muted-foreground ml-1">
+                <span className="font-heading font-semibold text-2xl sm:text-3xl tracking-tight">3M</span>
+                <span className="font-heading font-bold text-xs text-muted-foreground ml-1">
                   Scotchgard™
                 </span>
               </div>
@@ -378,12 +378,10 @@ const RVPPF = () => {
           <div className="container px-6">
             <ScrollReveal>
               <div className="text-center max-w-3xl mx-auto mb-12">
-                <p className="text-primary font-heading font-bold text-xs uppercase tracking-widest mb-3">
-                  The Math is Simple
-                </p>
-                <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-foreground leading-tight mb-4">
+                
+                <h2 className="font-heading font-semibold text-3xl sm:text-4xl md:text-5xl text-foreground leading-tight mb-4">
                   One Repaint Costs More Than<br />
-                  <span className="text-primary">Protecting the Whole RV</span>
+                  Protecting the Whole RV
                 </h2>
                 <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
                   A single front-cap respray on a Class A motorhome runs <span className="font-bold text-foreground">$8,000–$20,000+</span>. PPF is a one-time investment that saves you that bill — and protects resale value for the next decade.
@@ -414,7 +412,7 @@ const RVPPF = () => {
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
-                    <h3 className="font-heading font-black text-lg uppercase tracking-tight text-foreground mb-2">
+                    <h3 className="font-heading font-semibold text-lg tracking-tight text-foreground mb-2">
                       {title}
                     </h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
@@ -430,11 +428,11 @@ const RVPPF = () => {
           <div className="container px-6">
             <ScrollReveal>
               <div className="text-center max-w-3xl mx-auto mb-14">
-                <div className="inline-flex items-center gap-2 bg-urgency/10 text-urgency font-heading font-bold text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
+                <div className="inline-flex items-center gap-2 bg-urgency/10 text-urgency font-heading font-bold text-[10px] px-3 py-1.5 rounded-full mb-4">
                   <AlertTriangle className="w-3 h-3" />
                   Limited Install Slots Per Month
                 </div>
-                <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-foreground leading-tight mb-4">
+                <h2 className="font-heading font-semibold text-3xl sm:text-4xl md:text-5xl text-foreground leading-tight mb-4">
                   Choose Your Coverage
                 </h2>
                 <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
@@ -457,7 +455,7 @@ const RVPPF = () => {
               </p>
               <a
                 href={PHONE}
-                className="inline-flex items-center gap-2 bg-foreground text-background font-heading font-bold uppercase tracking-wider px-7 py-3.5 rounded-lg text-sm hover:bg-foreground/90 transition-colors"
+                className="inline-flex items-center gap-2 bg-foreground text-background font-heading font-bold px-7 py-3.5 rounded-lg text-sm hover:bg-foreground/90 transition-colors"
               >
                 <Phone className="w-4 h-4" />
                 Call for Custom Quote
@@ -471,10 +469,8 @@ const RVPPF = () => {
           <div className="container px-6">
             <ScrollReveal>
               <div className="text-center max-w-3xl mx-auto mb-10">
-                <p className="text-primary font-heading font-bold text-xs uppercase tracking-widest mb-3">
-                  Side-by-Side Comparison
-                </p>
-                <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl uppercase text-foreground leading-tight mb-4">
+                
+                <h2 className="font-heading font-semibold text-3xl sm:text-4xl md:text-5xl text-foreground leading-tight mb-4">
                   Compare Every Package at a Glance
                 </h2>
                 <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
@@ -509,7 +505,7 @@ const RVPPF = () => {
                   <table className="w-full text-sm min-w-[760px]">
                     <thead>
                       <tr className="bg-muted/40 border-b-2 border-border">
-                        <th className="text-left p-4 sm:p-5 font-heading font-black text-xs uppercase tracking-widest text-muted-foreground sticky left-0 bg-muted/40 z-10 min-w-[220px]">
+                        <th className="text-left p-4 sm:p-5 font-heading font-semibold text-xs text-muted-foreground sticky left-0 bg-muted/40 z-10 min-w-[220px]">
                           Coverage Area
                         </th>
                         {packages.map((pkg) => (
@@ -521,7 +517,7 @@ const RVPPF = () => {
                           >
                             {pkg.badge && (
                               <span
-                                className={`inline-block font-heading font-bold text-[9px] uppercase tracking-widest px-2 py-0.5 rounded-full mb-2 ${
+                                className={`inline-block font-heading font-bold text-[9px] px-2 py-0.5 rounded-full mb-2 ${
                                   pkg.bestValue
                                     ? "bg-urgency text-urgency-foreground"
                                     : "bg-primary text-primary-foreground"
@@ -530,10 +526,10 @@ const RVPPF = () => {
                                 {pkg.badge}
                               </span>
                             )}
-                            <div className="font-heading font-black text-sm sm:text-base uppercase text-foreground leading-tight">
+                            <div className="font-heading font-semibold text-sm sm:text-base text-foreground leading-tight">
                               {pkg.name}
                             </div>
-                            <div className="font-heading font-black text-lg sm:text-xl text-primary mt-1">
+                            <div className="font-heading font-semibold text-lg sm:text-xl text-primary mt-1">
                               {pkg.priceFrom}
                             </div>
                           </th>
@@ -543,7 +539,7 @@ const RVPPF = () => {
                     <tbody>
                       {/* Install Time row */}
                       <tr className="border-b border-border bg-muted/20">
-                        <td className="p-4 font-heading font-bold uppercase text-xs tracking-wider text-foreground sticky left-0 bg-muted/20 z-10 flex items-center gap-2">
+                        <td className="p-4 font-heading font-bold text-xs text-foreground sticky left-0 bg-muted/20 z-10 flex items-center gap-2">
                           <Clock className="w-4 h-4 text-primary" />
                           Install Time
                         </td>
@@ -587,7 +583,7 @@ const RVPPF = () => {
 
                       {/* Warranty row */}
                       <tr className="border-b border-border bg-muted/20">
-                        <td className="p-4 font-heading font-bold uppercase text-xs tracking-wider text-foreground sticky left-0 bg-muted/20 z-10 flex items-center gap-2">
+                        <td className="p-4 font-heading font-bold text-xs text-foreground sticky left-0 bg-muted/20 z-10 flex items-center gap-2">
                           <Shield className="w-4 h-4 text-primary" />
                           Film Warranty
                         </td>
@@ -615,7 +611,7 @@ const RVPPF = () => {
                           >
                             <a
                               href={PHONE}
-                              className={`inline-flex items-center justify-center gap-1.5 font-heading font-bold uppercase tracking-wider px-3 py-2 rounded-lg text-[11px] transition-all whitespace-nowrap ${
+                              className={`inline-flex items-center justify-center gap-1.5 font-heading font-bold px-3 py-2 rounded-lg text-[11px] transition-all whitespace-nowrap ${
                                 pkg.bestValue
                                   ? "bg-urgency text-urgency-foreground hover:bg-urgency/90"
                                   : "bg-primary text-primary-foreground hover:bg-brand-blue-deep"
@@ -644,10 +640,8 @@ const RVPPF = () => {
           <div className="container px-6">
             <ScrollReveal>
               <div className="text-center max-w-2xl mx-auto mb-12">
-                <p className="text-primary font-heading font-bold text-xs uppercase tracking-widest mb-3">
-                  Our Process
-                </p>
-                <h2 className="font-heading font-black text-3xl sm:text-4xl uppercase text-foreground leading-tight">
+                
+                <h2 className="font-heading font-semibold text-3xl sm:text-4xl text-foreground leading-tight">
                   Engineered for Long-Term Protection
                 </h2>
               </div>
@@ -661,10 +655,10 @@ const RVPPF = () => {
                 { n: "04", t: "Cure & QC", d: "Film cures 24–48 hrs, then a final inspection before your rig leaves." },
               ].map(({ n, t, d }) => (
                 <div key={n} className="relative bg-card border border-border rounded-xl p-6 hover:border-primary/40 transition-colors">
-                  <div className="absolute -top-3 -left-3 w-12 h-12 rounded-xl bg-primary text-primary-foreground font-heading font-black text-lg flex items-center justify-center shadow-lg">
+                  <div className="absolute -top-3 -left-3 w-12 h-12 rounded-xl bg-primary text-primary-foreground font-heading font-semibold text-lg flex items-center justify-center shadow-lg">
                     {n}
                   </div>
-                  <h3 className="font-heading font-black text-base uppercase tracking-tight text-foreground mb-2 mt-4">
+                  <h3 className="font-heading font-semibold text-base tracking-tight text-foreground mb-2 mt-4">
                     {t}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{d}</p>
@@ -677,21 +671,21 @@ const RVPPF = () => {
         {/* FINAL CTA */}
         <section className="py-16 sm:py-20 bg-foreground">
           <div className="container px-6 text-center max-w-3xl">
-            <h2 className="font-heading font-black text-3xl sm:text-5xl uppercase text-background leading-tight mb-4">
-              Ready to Protect Your <span className="text-primary">Investment?</span>
+            <h2 className="font-heading font-semibold text-3xl sm:text-5xl text-background leading-tight mb-4">
+              Ready to Protect Your Investment?
             </h2>
             <p className="text-background/70 text-base sm:text-lg mb-8 leading-relaxed">
               Free in-person quote. No-pressure assessment. We'll show you exactly what coverage your rig needs — and what it'll save you long-term.
             </p>
             <a
               href={PHONE}
-              className="inline-flex items-center gap-3 bg-primary text-primary-foreground font-heading font-black uppercase tracking-wider px-8 py-4 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg hover:bg-brand-blue-deep transition-colors shadow-2xl shadow-primary/40"
+              className="inline-flex items-center gap-3 bg-primary text-primary-foreground font-heading font-semibold px-8 py-4 sm:px-10 sm:py-5 rounded-xl text-base sm:text-lg hover:bg-brand-blue-deep transition-colors shadow-2xl shadow-primary/40"
             >
               <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
               Call {PHONE_DISPLAY}
               <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
-            <p className="text-background/50 text-xs mt-4 uppercase tracking-wider font-semibold">
+            <p className="text-background/50 text-xs mt-4 font-semibold">
               Calgary · Airdrie · Cochrane · Chestermere · Okotoks · Rocky View County
             </p>
           </div>

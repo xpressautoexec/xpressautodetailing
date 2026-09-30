@@ -1,31 +1,51 @@
+import { Link } from "react-router-dom";
+import { Phone } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import HeroSection from "@/components/HeroSection";
-import TrustBar from "@/components/TrustBar";
-import FeatureRow from "@/components/FeatureRow";
-import BrandPartners from "@/components/BrandPartners";
+import StatBand from "@/components/StatBand";
 import CompanyLogos from "@/components/CompanyLogos";
-import ServicesSection from "@/components/ServicesSection";
+import HomeSectors from "@/components/home/HomeSectors";
 import AutoPackages from "@/components/AutoPackages";
 import GoogleReviewBadge from "@/components/GoogleReviewBadge";
-import AboutSection from "@/components/AboutSection";
 import AssessmentForm from "@/components/AssessmentForm";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import WorkTruckPackage from "@/components/WorkTruckPackage";
-
 import ChatWidget from "@/components/ChatWidget";
-import ScrollReveal from "@/components/ScrollReveal";
 import SEO, { localBusinessJsonLd } from "@/components/SEO";
-import { ArrowRight } from "lucide-react";
-import { HOW_IT_WORKS, WATER_LINE } from "@/data/copy";
-import { BOOKING_URL, PHONE, SERVICE_AREAS } from "@/data/pricing";
+import { HOW_IT_WORKS } from "@/data/copy";
+import {
+  BOOKING_URL,
+  PHONE,
+  SERVICE_AREAS,
+  FIVE_STAR_REVIEWS,
+  SEASON_STATS,
+  FINANCING,
+  RV_BUNDLES,
+  money,
+  monthlyPayment,
+} from "@/data/pricing";
+
+const STATS = [
+  { value: SEASON_STATS.cars, label: "Cars detailed this season" },
+  { value: SEASON_STATS.rvs, label: "RVs serviced this season" },
+  { value: FIVE_STAR_REVIEWS, label: "Five-star Google reviews" },
+  { value: String(SERVICE_AREAS.length), label: "Communities served" },
+];
+
+const restoration = RV_BUNDLES.find((b) => b.popular) ?? RV_BUNDLES[RV_BUNDLES.length - 1];
+const restorationMonthly = money(
+  Math.round(monthlyPayment(restoration.price * 30, FINANCING.representativeApr, FINANCING.defaultTerm)),
+);
+
+const telHref = `tel:${PHONE.replace(/-/g, "")}`;
 
 const Index = () => (
   <PageTransition>
-    <div className="min-h-screen pb-16 lg:pb-0">
+    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
       <SEO
         title="Mobile Car & RV Detailing Calgary"
         description="Mobile detailing in Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County. Cars, RVs, boats and fleets — our vans carry their own water and power, so we work wherever you park."
@@ -35,55 +55,79 @@ const Index = () => (
       <Navbar />
       <AutoBreadcrumbs />
       <HeroSection />
-      <TrustBar />
-      <FeatureRow />
-      <BrandPartners />
-      <CompanyLogos />
-      <ServicesSection />
+      <StatBand stats={STATS} />
 
-      {/* Packages */}
-      <section className="py-16 sm:py-20 bg-foreground">
-        <div className="container px-4 sm:px-6">
+      <div className="mt-14 sm:mt-20">
+        <CompanyLogos />
+      </div>
+
+      <HomeSectors />
+
+      {/* Car packages */}
+      <section className="bg-brand-dark py-16 sm:py-24">
+        <div className="shell">
           <AutoPackages
             dark
-            heading="Car Detailing Packages"
-            intro="Choose your vehicle size and the prices update. Full details, add-ons and everything else live on the detailing page."
+            heading="Car detailing packages"
+            intro="Pick your vehicle size and the prices update. Everything included and all add-ons are on the detailing page."
           />
-          <div className="mt-10 text-center">
-            <a
-              href="/detailing"
-              className="group inline-flex items-center gap-2 text-sm font-semibold text-background/70 transition-colors hover:text-background"
+          <div className="mt-10">
+            <Link
+              to="/detailing"
+              className="text-sm font-semibold text-primary-foreground/80 underline decoration-electric decoration-2 underline-offset-[6px] hover:text-primary-foreground"
             >
               See everything included and all add-ons
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
 
       <WorkTruckPackage />
 
-
+      {/* Financing */}
+      <section className="border-y border-line bg-surface">
+        <div className="shell grid gap-8 py-14 sm:py-16 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+          <div>
+            <h2 className="font-heading text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+              RV restoration from {restorationMonthly}/month
+            </h2>
+            <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-ink-2">
+              {restoration.name} on a 30 ft unit is {money(restoration.price * 30)}, or {restorationMonthly}/month over{" "}
+              {FINANCING.defaultTerm} months at a representative {FINANCING.representativeApr}% APR (
+              {money(Math.round(monthlyPayment(restoration.price * 30, FINANCING.representativeApr, FINANCING.defaultTerm) * FINANCING.defaultTerm))}{" "}
+              total). Subject to lender approval.
+            </p>
+          </div>
+          <div className="lg:justify-self-end">
+            <Link
+              to="/rv-trailer#financing"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-md bg-electric px-6 text-sm font-semibold text-primary-foreground transition-colors hover:bg-electric-2"
+            >
+              Estimate your payment
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* How it works */}
-      <section className="py-16 sm:py-20 bg-background">
-        <div className="container max-w-5xl px-6">
-          <ScrollReveal>
-            <div className="mb-10 text-center">
-              <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground">
-                How It Works
-              </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base text-muted-foreground">{WATER_LINE}</p>
-            </div>
-          </ScrollReveal>
-          <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="py-16 sm:py-24">
+        <div className="shell">
+          <h2 className="max-w-xl font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+            How it works
+          </h2>
+          <ol className="mt-12 grid gap-y-10 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-4">
             {HOW_IT_WORKS.map((step, i) => (
-              <li key={step.title} className="rounded-2xl border border-border bg-card p-6">
-                <span className="font-heading text-sm font-black text-primary tabular-nums">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-3 font-heading text-base font-bold text-foreground">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
+              <li key={step.title}>
+                <div className="flex items-center gap-3">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-ink font-heading text-sm font-semibold tabular-nums text-ink">
+                    {i + 1}
+                  </span>
+                  {i < HOW_IT_WORKS.length - 1 && (
+                    <span aria-hidden="true" className="hidden h-px flex-1 bg-line lg:block" />
+                  )}
+                </div>
+                <h3 className="mt-5 font-heading text-lg font-semibold text-ink">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-2">{step.body}</p>
               </li>
             ))}
           </ol>
@@ -91,66 +135,56 @@ const Index = () => (
       </section>
 
       <GoogleReviewBadge />
-      <AboutSection />
 
       {/* Free assessment */}
-      <section className="py-16 sm:py-20 bg-muted/30">
-        <div className="container grid max-w-5xl gap-10 px-6 lg:grid-cols-2 lg:items-center">
-          <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground">
+      <section id="assessment" className="scroll-mt-24 bg-surface py-16 sm:py-24">
+        <div className="shell grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
+          <div>
+            <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
               Not sure what it needs?
             </h2>
-            <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground">
-              Send us the basics and we'll come look at the vehicle, RV or boat in person — free, with no obligation.
-              You'll get a straight answer on what's worth doing and what isn't.
+            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ink-2">
+              Send us the basics and we'll look at the vehicle, RV or boat in person, free and with no obligation. You'll
+              get a straight answer on what's worth doing and what isn't.
             </p>
-            <ul className="mt-6 flex flex-wrap gap-2">
-              {SERVICE_AREAS.map((area) => (
-                <li
-                  key={area}
-                  className="rounded-full border border-border bg-background px-4 py-1.5 text-xs font-semibold text-muted-foreground"
-                >
-                  {area}
-                </li>
-              ))}
-            </ul>
-          </ScrollReveal>
-          <ScrollReveal delay={0.15}>
-            <AssessmentForm source="home-assessment" />
-          </ScrollReveal>
+            <p className="mt-8 text-sm text-muted-ink">Serving</p>
+            <p className="mt-1 max-w-md text-[15px] font-medium text-ink">{SERVICE_AREAS.join(", ")}</p>
+          </div>
+          <AssessmentForm source="home-assessment" />
         </div>
       </section>
 
       <FAQSection />
 
-      {/* Final CTA */}
-      <section className="py-16 sm:py-20 bg-foreground">
-        <div className="container px-6 text-center">
-          <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-background mb-4">
+      {/* Closing */}
+      <section className="bg-brand-dark py-16 sm:py-20">
+        <div className="shell flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <h2 className="font-heading text-3xl font-semibold tracking-tight text-primary-foreground sm:text-4xl">
               Book your detail
             </h2>
-            <p className="mx-auto mb-8 max-w-xl text-sm sm:text-base text-background/60">
-              We come to you anywhere in Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County.
+            <p className="mt-3 max-w-xl text-[15px] text-primary-foreground/70">
+              We come to you anywhere in {SERVICE_AREAS.slice(0, -1).join(", ")} and{" "}
+              {SERVICE_AREAS[SERVICE_AREAS.length - 1]}.
             </p>
-            <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex min-h-[44px] items-center gap-2 rounded-full bg-primary px-10 text-sm font-bold uppercase tracking-wider text-primary-foreground transition-colors hover:bg-primary/90"
-              >
-                Book Now
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
-              <a
-                href={`tel:${PHONE.replace(/-/g, "")}`}
-                className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-background/25 px-10 text-sm font-bold uppercase tracking-wider text-background transition-colors hover:border-background/60"
-              >
-                Call {PHONE}
-              </a>
-            </div>
-          </ScrollReveal>
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[52px] items-center justify-center rounded-md bg-electric px-7 text-sm font-semibold text-primary-foreground transition-colors hover:bg-electric-2"
+            >
+              Book a detail
+            </a>
+            <a
+              href={telHref}
+              className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-md border border-primary-foreground/30 px-7 text-sm font-semibold text-primary-foreground transition-colors hover:border-primary-foreground/70"
+            >
+              <Phone className="h-4 w-4" aria-hidden="true" />
+              {PHONE}
+            </a>
+          </div>
         </div>
       </section>
 

@@ -46,8 +46,8 @@ const Reviews = () => (
               <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" aria-hidden="true" />
             ))}
           </div>
-          <h1 className="font-heading font-black text-3xl md:text-5xl uppercase text-primary-foreground mb-5">
-            Xpress Auto Detailing <span className="text-primary">Customer Reviews</span>
+          <h1 className="font-heading font-semibold text-3xl md:text-5xl text-primary-foreground mb-5">
+            Xpress Auto Detailing Customer Reviews
           </h1>
           <p className="text-primary-foreground/80 text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
             Every review below comes from a real Calgary-area customer. We have earned more than one hundred
@@ -59,7 +59,7 @@ const Reviews = () => (
               href={GOOGLE_REVIEWS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold px-8 py-4 rounded-lg text-sm hover:bg-primary/90 transition-colors"
             >
               Read Reviews On Google <ExternalLink className="w-4 h-4" />
             </a>
@@ -67,7 +67,7 @@ const Reviews = () => (
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 border border-primary-foreground/20 text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/10 transition-colors"
+              className="inline-flex items-center justify-center gap-2 border border-primary-foreground/20 text-primary-foreground font-heading font-bold px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/10 transition-colors"
             >
               Book My Detail <ArrowRight className="w-4 h-4" />
             </a>
@@ -79,8 +79,8 @@ const Reviews = () => (
         <div className="container grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((stat) => (
             <div key={stat.label}>
-              <p className="font-heading font-black text-2xl md:text-3xl text-primary-foreground">{stat.value}</p>
-              <p className="text-primary-foreground/80 font-heading text-xs uppercase tracking-wider mt-1">
+              <p className="font-heading font-semibold text-2xl md:text-3xl text-primary-foreground">{stat.value}</p>
+              <p className="text-primary-foreground/80 font-heading text-xs mt-1">
                 {stat.label}
               </p>
             </div>
@@ -90,7 +90,7 @@ const Reviews = () => (
 
       <section className="py-14 bg-background">
         <div className="container max-w-5xl">
-          <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground mb-8">
+          <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground mb-8">
             What Calgary Drivers Say
           </h2>
           <div className="grid md:grid-cols-2 gap-5">
@@ -102,7 +102,7 @@ const Reviews = () => (
                   ))}
                 </div>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">{review.text}</p>
-                <footer className="font-heading font-bold uppercase text-xs tracking-wider text-foreground">
+                <footer className="font-heading font-bold text-xs text-foreground">
                   {review.name} · {review.location}
                   <span className="block text-muted-foreground font-normal normal-case tracking-normal mt-0.5">
                     {review.service}
@@ -118,7 +118,7 @@ const Reviews = () => (
 
       <section className="py-14 bg-background">
         <div className="container max-w-4xl">
-          <h2 className="font-heading font-black text-xl md:text-2xl uppercase text-foreground mb-5">
+          <h2 className="font-heading font-semibold text-xl md:text-2xl text-foreground mb-5">
             See The Work Behind The Reviews
           </h2>
           <div className="flex flex-wrap gap-3">

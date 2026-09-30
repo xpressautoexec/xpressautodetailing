@@ -12,7 +12,7 @@ const TestimonialBlock = ({ testimonials }: { testimonials: Testimonial[] }) => 
   <section className="py-16 bg-muted/30">
     <div className="container max-w-5xl">
       <ScrollReveal>
-        <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground text-center mb-10">
+        <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground text-center mb-10">
           What Our Clients Say
         </h2>
       </ScrollReveal>
