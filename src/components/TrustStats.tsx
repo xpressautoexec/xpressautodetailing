@@ -1,10 +1,11 @@
 import { Star, Car, Award, ThumbsUp } from "lucide-react";
+import { SEASON_STATS, FIVE_STAR_REVIEWS } from "@/data/pricing";
 import { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 
 const stats = [
-  { icon: Star, value: "100+", label: "5-Star Reviews" },
-  { icon: Car, value: "2,000+", label: "Cars Detailed" },
-  { icon: Award, value: "5+", label: "Years Experience" },
+  { icon: Star, value: FIVE_STAR_REVIEWS, label: "5-Star Reviews" },
+  { icon: Car, value: SEASON_STATS.cars, label: "Cars This Season" },
+  { icon: Award, value: SEASON_STATS.rvs, label: "RVs This Season" },
   { icon: ThumbsUp, value: "100%", label: "Satisfaction Guarantee" },
 ];
 

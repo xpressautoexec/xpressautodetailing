@@ -11,19 +11,12 @@ import TestimonialBlock from "@/components/TestimonialBlock";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 
 import { HOURS, SEASON_STATS } from "@/data/pricing";
-import { CERAMIC_CERTIFICATIONS } from "@/data/copy";
+import { CERAMIC_CERTIFICATIONS, REAL_REVIEWS } from "@/data/copy";
 import { Star, ShieldCheck, Award, ThumbsUp, Heart, Leaf, Clock, Users, CheckCircle } from "lucide-react";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
-const testimonials = [
-  { quote: "Best detailing service in Calgary, hands down. They came to my office and had my SUV looking brand new by the time I was done work.", name: "Mike T.", location: "Calgary", service: "Complete Detail" },
-  { quote: "I've tried 4 different detailing services in the city. Xpress is the only one I keep coming back to. Consistent quality every single time.", name: "Priya S.", location: "Airdrie", service: "Monthly Client" },
-  { quote: "Got my truck ceramic coated before winter. Best decision I ever made — the salt and grime just washes right off. Still looks incredible 6 months later.", name: "Brandon L.", location: "Cochrane", service: "Ceramic Coating" },
-  { quote: "They detailed my minivan after a road trip with 3 kids. I didn't think it was possible to make it look that clean again. Absolutely worth every penny.", name: "Jessica H.", location: "Chestermere", service: "Deep Clean + Shield" },
-  { quote: "Xpress handled our entire company fleet — 12 trucks detailed in a single day. On-site, on-time, and every vehicle looked showroom fresh.", name: "Dave R.", location: "Calgary", service: "Fleet Detailing" },
-  { quote: "The paint correction on my black BMW was flawless. Swirl marks gone, deep gloss restored. These guys know what they're doing.", name: "Sarah K.", location: "Okotoks", service: "Paint Correction" },
-];
+const testimonials = REAL_REVIEWS.map((r) => ({ quote: r.text, name: r.name, service: r.service }));
 
 const commitments = [
   { icon: ShieldCheck, title: "Satisfaction guarantee", desc: "You walk the vehicle with us before we leave. If something isn't right, we fix it on the spot." },

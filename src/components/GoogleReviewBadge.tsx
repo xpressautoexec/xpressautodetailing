@@ -1,31 +1,8 @@
 import { Star, ExternalLink } from "lucide-react";
 import { FIVE_STAR_REVIEWS } from "@/data/pricing";
+import { REAL_REVIEWS, GOOGLE_REVIEWS_URL } from "@/data/copy";
 
-const GOOGLE_REVIEWS_URL = "https://g.page/r/CQ5ISLUTohBKEBM/review";
-
-const reviews = [
-  {
-    name: "Mike T.",
-    initials: "MT",
-    rating: 5,
-    timeAgo: "2 weeks ago",
-    text: "Best detailing service in Calgary, hands down. They came to my office and had my SUV looking brand new by the time I was done work. Worth every penny.",
-  },
-  {
-    name: "Priya S.",
-    initials: "PS",
-    rating: 5,
-    timeAgo: "1 month ago",
-    text: "I've tried 4 different detailers in the city. Xpress is the only one I keep coming back to. Consistent quality every single time and incredibly professional.",
-  },
-  {
-    name: "Brandon L.",
-    initials: "BL",
-    rating: 5,
-    timeAgo: "3 weeks ago",
-    text: "Got my truck ceramic coated before winter. Best decision I made — the salt and grime just washes right off. Still looks incredible 6 months later.",
-  },
-];
+const reviews = REAL_REVIEWS;
 
 const GoogleLogo = () => (
   <svg viewBox="0 0 48 48" className="w-4 h-4" aria-hidden="true">
@@ -36,10 +13,7 @@ const GoogleLogo = () => (
   </svg>
 );
 
-/**
- * Review quotes must be copied from real Google reviews. Owner to confirm the three below.
- * No relative dates ("2 weeks ago") — they go stale the day they ship.
- */
+/** Verbatim Google reviews from REAL_REVIEWS. No relative dates — they go stale. */
 const GoogleReviewBadge = () => (
   <section className="bg-brand-dark py-16 sm:py-24">
     <div className="shell">

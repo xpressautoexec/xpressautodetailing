@@ -1,5 +1,6 @@
 import { Star, ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import { REAL_REVIEWS } from "@/data/copy";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
 
@@ -20,10 +21,10 @@ const ReviewsSection = () => {
         <ScrollReveal delay={0.2}>
           <div className="max-w-2xl mx-auto bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-8 mb-8 border border-primary-foreground/10">
             <p className="text-primary-foreground/90 italic leading-relaxed mb-6 text-sm sm:text-base">
-              "Absolutely blown away by this mobile detailing service! They came right to me — super convenient, on time, and fully prepared. The team was professional, friendly, and completely customer-focused. They did an incredible job on the interior of my car — it looks and feels brand new! If you're looking for high-quality, hassle-free interior detailing — this is the one. Highly recommend!"
+              "{REAL_REVIEWS[0].text}"
             </p>
             <p className="font-heading font-bold text-primary-foreground text-sm">
-              — Debb A.
+              — {REAL_REVIEWS[0].name}
             </p>
           </div>
         </ScrollReveal>
@@ -34,7 +35,7 @@ const ReviewsSection = () => {
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/90 transition-all shadow-lg"
           >
-            Join 2,000+ Happy Clients
+            Book a detail
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
         </ScrollReveal>

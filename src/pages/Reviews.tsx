@@ -1,3 +1,5 @@
+import { REAL_REVIEWS, GOOGLE_REVIEWS_URL } from "@/data/copy";
+import { SEASON_STATS } from "@/data/pricing";
 import { Link } from "react-router-dom";
 import { Star, ExternalLink, ArrowRight, MapPin } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
@@ -10,22 +12,13 @@ import ChatWidget from "@/components/ChatWidget";
 import SEO from "@/components/SEO";
 
 const BOOKING_URL = "https://xpressauto.fieldd.co/";
-const GOOGLE_REVIEWS_URL = "https://g.page/r/CQ5ISLUTohBKEBM/review";
 
-const reviews = [
-  { name: "Debb A.", location: "Calgary", service: "Interior Detailing", text: "Absolutely blown away by this mobile detailing service. They came right to me — super convenient, on time, and fully prepared. The team was professional, friendly, and completely customer-focused. They did an incredible job on the interior of my car; it looks and feels brand new." },
-  { name: "Mike T.", location: "Calgary", service: "Complete Detail", text: "Best detailing service in Calgary, hands down. They came to my office and had my SUV looking brand new by the time I was done work. Worth every penny." },
-  { name: "Priya S.", location: "Airdrie", service: "Monthly Client", text: "I've tried four different detailers in the city. Xpress is the only one I keep coming back to. Consistent quality every single time and incredibly professional." },
-  { name: "Brandon L.", location: "Cochrane", service: "Ceramic Coating", text: "Got my truck ceramic coated before winter. Best decision I made — the salt and grime just washes right off. Still looks incredible six months later." },
-  { name: "Jessica H.", location: "Chestermere", service: "Deep Clean + Shield", text: "They detailed my minivan after a road trip with three kids. I didn't think it was possible to make it look that clean again. Absolutely worth every penny." },
-  { name: "Dave R.", location: "Calgary", service: "Fleet Detailing", text: "Xpress handled our entire company fleet — twelve trucks detailed in a single day. On-site, on-time, and every vehicle looked showroom fresh." },
-  { name: "Sarah K.", location: "Okotoks", service: "Paint Correction", text: "The paint correction on my black BMW was flawless. Swirl marks gone, deep gloss restored. These guys know what they're doing." },
-];
+const reviews = REAL_REVIEWS;
 
 const stats = [
     { value: "100+", label: "Five-star reviews" },
-  { value: "2,000+", label: "Vehicles detailed" },
-  { value: "40+", label: "RVs this season" },
+  { value: SEASON_STATS.cars, label: "Cars this season" },
+  { value: SEASON_STATS.rvs, label: "RVs this season" },
 ];
 
 const Reviews = () => (
@@ -103,7 +96,7 @@ const Reviews = () => (
                 </div>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">{review.text}</p>
                 <footer className="font-heading font-bold text-xs text-foreground">
-                  {review.name} · {review.location}
+                  {review.name}
                   <span className="block text-muted-foreground font-normal normal-case tracking-normal mt-0.5">
                     {review.service}
                   </span>

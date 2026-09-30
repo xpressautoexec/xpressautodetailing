@@ -367,7 +367,7 @@ export const SERVICE_AREAS = ["Calgary", "Airdrie", "Cochrane", "Chestermere", "
 export const PHONE = "587-500-4523";
 export const EMAIL = "support@xpressautodetail.ca";
 export const BOOKING_URL = "https://xpressauto.fieldd.co/";
-export const REVIEW_COUNT = 112;
+export const REVIEW_COUNT = 116; // Google Maps, Sept 30 2026
 /** Kept for internal reference only. The site advertises five-star count, not the average. */
 export const REVIEW_SCORE = 4.8;
 /** Public review claim. Verified by owner: 100+ five-star Google reviews. */

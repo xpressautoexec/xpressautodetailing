@@ -5,7 +5,6 @@ import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
-import TestimonialBlock from "@/components/TestimonialBlock";
 import TrustStats from "@/components/TrustStats";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
@@ -63,29 +62,7 @@ const faqs = [
   },
 ];
 
-const testimonials = [
-  {
-    quote:
-      "Took two big rock hits on Deerfoot in the first month. Both would've cracked my old windshield — instead just little marks on the film. Already paid for itself.",
-    name: "Devon M.",
-    location: "Calgary SE",
-    service: "Windshield PPF — SUV",
-  },
-  {
-    quote:
-      "ADAS cameras and HUD on my Tucson all still work perfectly. You can't tell the film is even there until you look at the edge.",
-    name: "Priya S.",
-    location: "Airdrie",
-    service: "Windshield PPF — Crossover",
-  },
-  {
-    quote:
-      "Replaced my last windshield twice in two years. Got the PPF on my new F-150 and haven't had a single chip get through in 18 months.",
-    name: "Cory R.",
-    location: "Cochrane",
-    service: "Windshield PPF — Truck",
-  },
-];
+
 
 type VehicleSize = {
   id: string;
@@ -570,7 +547,6 @@ const WindshieldPPF = () => {
         </section>
 
         {/* Testimonials */}
-        <TestimonialBlock testimonials={testimonials} />
 
         {/* FAQ */}
         <ServiceFAQ

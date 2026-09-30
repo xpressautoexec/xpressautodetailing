@@ -1,3 +1,4 @@
+import { REAL_REVIEWS } from "@/data/copy";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
@@ -262,18 +263,14 @@ const Gallery = () => (
           Client Reactions
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
-          {[
-            { quote: "I didn't know my white car could be this white again. The transformation was unreal.", name: "Sandra K.", service: "Complete Detail" },
-            { quote: "My 10-year-old Civic looks better now than it did when I bought it. The paint correction was worth every dollar.", name: "Matt P.", service: "Paint Correction" },
-            { quote: "The before and after on my interior was jaw-dropping. Years of coffee stains, gone in 2 hours.", name: "Nina R.", service: "Deep Clean + Shield" },
-          ].map((t, i) => (
+          {REAL_REVIEWS.map((t, i) => (
             <div key={i} className="p-6 rounded-lg border border-border bg-background">
               <div className="flex gap-0.5 mb-3">
                 {[...Array(5)].map((_, j) => (
                   <Star key={j} className="w-3.5 h-3.5 fill-primary text-primary" />
                 ))}
               </div>
-              <p className="text-muted-foreground italic text-sm leading-relaxed mb-3">"{t.quote}"</p>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-3">{t.text}</p>
               <p className="font-heading font-bold text-foreground text-xs">{t.name}</p>
               <p className="text-muted-foreground text-xs">{t.service}</p>
             </div>
