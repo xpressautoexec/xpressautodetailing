@@ -1,3 +1,4 @@
+import { CANCELLATION_SUMMARY } from "@/data/copy";
 import { useState } from "react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
@@ -14,7 +15,7 @@ import { Phone, Mail, Clock, MapPin, MessageCircle } from "lucide-react";
 const contactFAQs = [
   { q: "What areas do you serve?", a: "We serve Calgary and all surrounding communities including Airdrie, Cochrane, Chestermere, Okotoks, Rocky View County, Strathmore, High River, Crossfield, Langdon, and Bearspaw. If you're within 30 minutes of Calgary, we can likely come to you." },
   { q: "How far in advance should I book?", a: "We recommend booking 2–3 days in advance for regular services. For ceramic coating and paint correction, we suggest booking at least a week ahead. Same-day and next-day availability is sometimes possible — just ask!" },
-  { q: "What's your cancellation policy?", a: "We understand plans change. We ask for at least 24 hours' notice for cancellations. Late cancellations (under 24 hours) may incur a 25% fee to cover our scheduling costs." },
+  { q: "What's your cancellation policy?", a: CANCELLATION_SUMMARY },
   { q: "Do you offer recurring service discounts?", a: "Yes! Clients who book monthly or bi-weekly receive preferential pricing and priority scheduling. Contact us for a custom recurring plan." },
   { q: "What payment methods do you accept?", a: "We accept cash, credit/debit cards, e-Transfer, and can arrange invoicing for corporate/fleet clients. Payment is collected after the service is complete and you're satisfied." },
 ];

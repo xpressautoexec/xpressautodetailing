@@ -17,7 +17,7 @@ export const WATER_LINE =
   "Our vans carry their own water and power — storage lot, campground, dealership or driveway, we arrive ready to work.";
 
 export const GUARANTEES = [
-  "Free cancellation",
+  "Free changes 24 hours ahead",
   "No payment until service",
   "Satisfaction guarantee",
 ];
@@ -68,6 +68,7 @@ export const NAV_LINKS = [
       { label: "Training", href: "/training" },
       { label: "Blog", href: "/blog" },
       { label: "Contact", href: "/contact" },
+      { label: "Cancellation Policy", href: "/cancellation-policy" },
       { label: "Terms of Service", href: "/terms-of-service" },
     ],
   },
@@ -102,6 +103,7 @@ export const FOOTER_COMPANY = [
   { label: "Gift Cards", href: "/gift-cards" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
+  { label: "Cancellation Policy", href: "/cancellation-policy" },
   { label: "Terms of Service", href: "/terms-of-service" },
 ];
 
@@ -164,3 +166,108 @@ export const ASSESS_DISCLAIMER =
 
 export const ASSESS_SUCCESS =
   "Got it. We'll call you within one business day to lock in a time.";
+
+
+// ---------- CANCELLATION & RESCHEDULING ----------
+/**
+ * SINGLE SOURCE for the cancellation and rescheduling policy.
+ * Terms of Service, /cancellation-policy, every FAQ and the booking chips read from here.
+ * Change a number here and it changes everywhere. Do not restate the policy by hand in a page.
+ */
+export const CANCELLATION = {
+  effective: "October 1, 2026",
+  standardHours: 24,
+  extendedHours: 48,
+  lateReschedulePct: 10,
+  lateRescheduleMin: 25,
+  lateCancelPct: 25,
+  noShowPct: 50,
+  accessWaitMinutes: 30,
+  invoiceDays: 14,
+  standardServices: "Car detailing packages, add-ons, work truck packages and Xpress Pass visits",
+  extendedServices:
+    "RV and trailer, marine, paint correction, ceramic coating, paint protection film, window tint and fleet bookings",
+};
+
+const C = CANCELLATION;
+
+/** One-sentence version for FAQs and booking widgets. */
+export const CANCELLATION_SUMMARY = `Cancel or reschedule free up to ${C.standardHours} hours before your appointment (${C.extendedHours} hours for RV, marine, correction, coating, PPF, tint and fleet work). Inside that window a late fee applies, and we waive one late change per customer each year.`;
+
+export const CANCELLATION_TIERS = [
+  {
+    label: "Standard services",
+    services: C.standardServices,
+    window: `${C.standardHours} hours`,
+  },
+  {
+    label: "Extended services",
+    services: C.extendedServices,
+    window: `${C.extendedHours} hours`,
+  },
+];
+
+export const CANCELLATION_FEES = [
+  { when: "Change made before the notice window", fee: "Free" },
+  {
+    when: "Reschedule inside the notice window",
+    fee: `${C.lateReschedulePct}% of the booked service (minimum $${C.lateRescheduleMin})`,
+  },
+  { when: "Cancel inside the notice window", fee: `${C.lateCancelPct}% of the booked service` },
+  { when: "No-show or no access to the vehicle", fee: `${C.noShowPct}% of the booked service` },
+  { when: "Weather reschedule, either side", fee: "Free" },
+  { when: "We reschedule you", fee: "Free, with priority rebooking" },
+];
+
+export const CANCELLATION_SECTIONS: { title: string; body: string[] }[] = [
+  {
+    title: "Why there's a notice window",
+    body: [
+      "Every booking reserves a crew, a van and a block of the day that we turn other customers away for. Extended jobs like RV restoration or ceramic coating hold a crew for most or all of a day, so they need more notice.",
+    ],
+  },
+  {
+    title: "One late change a year, on us",
+    body: [
+      "Plans change. Once per customer each calendar year, we waive the late reschedule or late cancellation fee. No explanation needed. We also waive fees for genuine emergencies at our discretion.",
+    ],
+  },
+  {
+    title: "No-shows and access",
+    body: [
+      `If we arrive and can't reach the vehicle (it isn't at the booked address, it's locked with no keys arranged, or we can't get into the storage lot) we'll call and text you and wait ${C.accessWaitMinutes} minutes. If we still can't start, the booking counts as a no-show.`,
+      "For storage lots, gated communities and job sites, please arrange access or a gate code before the appointment.",
+    ],
+  },
+  {
+    title: "Weather",
+    body: [
+      "We work outdoors, and rain, snow, hail, high wind or temperatures outside a product's application range can make work unsafe or affect the result. If the forecast looks wrong for your service, we'll contact you, usually the day before, to move it at no charge.",
+      "You can also reschedule for weather at no charge at any time, even inside the notice window.",
+    ],
+  },
+  {
+    title: "If we need to reschedule",
+    body: [
+      "If we have to move your appointment, for weather, equipment or crew availability, there's never a fee to you and you get first pick of the next open slots. If we're running more than 30 minutes behind your arrival window, we'll text you with an updated time.",
+    ],
+  },
+  {
+    title: "Xpress Pass members",
+    body: [
+      `Member visits follow the ${C.standardHours}-hour rule. Skipping or moving a cycle with notice is always free. Missing two cycles in a row may pause your plan, and you can resume any time.`,
+    ],
+  },
+  {
+    title: "How to cancel or reschedule",
+    body: [
+      `Call or text ${PHONE}, email ${EMAIL}, or use the link in your booking confirmation. Notice counts from when we receive your message, and we'll confirm every change in writing.`,
+    ],
+  },
+  {
+    title: "How fees are charged",
+    body: [
+      `We never take payment at booking. Any late or no-show fee is calculated on the booked service total before tax, invoiced by email, and due within ${C.invoiceDays} days. GST applies.`,
+    ],
+  },
+];

@@ -55,6 +55,7 @@ const ROUTES = [
   "/protection/windshield-ppf",
   "/fleet",
   "/xpress-pass",
+  "/cancellation-policy",
 ];
 
 /**

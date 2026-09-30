@@ -38,7 +38,7 @@ const detailingFAQs = [
   },
   {
     q: "When do I pay?",
-    a: "After the work is done and you've looked it over. Nothing up front, and cancellations are free.",
+    a: "After the work is done and you've looked it over. Nothing up front, and changes are free up to 24 hours before.",
   },
 ];
 

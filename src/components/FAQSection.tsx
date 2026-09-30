@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { CANCELLATION_SUMMARY } from "@/data/copy";
 
 const faqs = [
   { q: "How long does a full car detailing take?", a: "It depends on the package and condition of your vehicle. On average, a full detail takes between 2.33 to 4.33 hours. Heavily soiled vehicles may take longer." },
@@ -15,7 +16,8 @@ const faqs = [
   { q: "Is car detailing worth it in Calgary?", a: "Yes. Detailing protects your car from Alberta's harsh seasons, maintains resale value, and makes your vehicle more enjoyable to drive." },
   { q: "What does car detailing include?", a: "Detailing is a deep cleaning of your vehicle, inside and out. It includes vacuuming, steam cleaning, polishing, shampooing, and more, depending on your package." },
   { q: "Do you come to me?", a: "Yes. We're fully mobile and bring everything we need so we can detail your vehicle anywhere in Calgary." },
-  { q: "Do you require a deposit?", a: "No deposit is required upon booking, but a late cancelation fee of 25% may apply." },
+  { q: "Do you require a deposit?", a: "No. Nothing is taken at booking, and you pay once the work is done." },
+  { q: "What's your cancellation policy?", a: CANCELLATION_SUMMARY },
   { q: "When do I pay?", a: "Once the service is complete and you're satisfied with it." },
 ];
 

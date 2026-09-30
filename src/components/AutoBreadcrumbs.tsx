@@ -22,6 +22,7 @@ const ROUTE_LABELS: Record<string, string> = {
   "rv-rental-fleet": "RV Rental Fleet Care",
   "trailer-rv/ppf": "RV PPF",
   "terms-of-service": "Terms of Service",
+  "cancellation-policy": "Cancellation Policy",
   "why-choose-us": "Why Choose Us",
   "add-ons": "Add-Ons",
   "training": "Training",

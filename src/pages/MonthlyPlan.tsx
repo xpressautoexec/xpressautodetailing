@@ -83,7 +83,7 @@ const monthlyFAQs = [
   },
   {
     q: "What if I miss a scheduled service?",
-    a: "Life happens — we'll reschedule. Missing more than two cycles in a row may pause your plan, but you can resume anytime.",
+    a: "Moving or skipping a visit is free with 24 hours' notice. Missing two cycles in a row may pause your plan, and you can resume any time. Full details are in our cancellation policy.",
   },
 ];
 

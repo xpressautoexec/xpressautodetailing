@@ -39,6 +39,7 @@ const RVDetailing = lazy(() => import("./pages/RVDetailing"));
 const CeramicCoating = lazy(() => import("./pages/CeramicCoating"));
 const PaintCorrection = lazy(() => import("./pages/PaintCorrection"));
 const Reviews = lazy(() => import("./pages/Reviews"));
+const CancellationPolicyPage = lazy(() => import("./pages/CancellationPolicyPage"));
 
 const queryClient = new QueryClient();
 
@@ -92,6 +93,7 @@ export const AnimatedRoutes = () => {
         <Route path="/ceramic-coating" element={<CeramicCoating />} />
         <Route path="/paint-correction" element={<PaintCorrection />} />
         <Route path="/reviews" element={<Reviews />} />
+        <Route path="/cancellation-policy" element={<CancellationPolicyPage />} />
 
         {/* New URL structure */}
         <Route path="/rv-trailer" element={<TrailerRV />} />

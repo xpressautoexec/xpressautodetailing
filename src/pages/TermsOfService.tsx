@@ -1,3 +1,5 @@
+import CancellationPolicy from "@/components/CancellationPolicy";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
@@ -49,22 +51,16 @@ const TermsOfService = () => (
 
             <div>
               <h2 className="font-heading font-bold text-lg text-foreground mb-3">3. Scheduling, Rescheduling & Cancellation</h2>
-
-              <h3 className="font-heading font-bold text-foreground text-sm mb-2">3.1 Rescheduling Policy</h3>
-              <p className="mb-2">Rescheduling fees apply to compensate for reserved technician time and scheduling impacts.</p>
-              <ul className="list-disc pl-5 space-y-1 mb-4">
-                <li><strong>Within 24 hours:</strong> $20 or 10% of the service cost — whichever is greater.</li>
-                <li><strong>Within 12 hours:</strong> $50 or 25% of the service cost — whichever is greater.</li>
-              </ul>
-              <p className="mb-4">Rescheduling more than 24 hours before the appointment incurs no fee.</p>
-
-              <h3 className="font-heading font-bold text-foreground text-sm mb-2">3.2 Cancellation Policy</h3>
-              <p className="mb-2">Due to the nature of mobile services and time allocation, cancellations trigger the following charges:</p>
-              <ul className="list-disc pl-5 space-y-1 mb-2">
-                <li><strong>Within 24 hours:</strong> 50% of the service total will be billed.</li>
-                <li><strong>Within 12 hours:</strong> 75% of the service total will be billed.</li>
-              </ul>
-              <p>No-shows are considered cancellations within 12 hours and will be charged at 100%.</p>
+              <div className="mt-2">
+                <CancellationPolicy headingLevel={3} />
+              </div>
+              <p className="mt-6">
+                This section is also published on its own at{" "}
+                <Link to="/cancellation-policy" className="font-semibold text-electric hover:underline">
+                  xpressautodetail.ca/cancellation-policy
+                </Link>
+                .
+              </p>
             </div>
 
             <div>
@@ -154,7 +150,7 @@ const TermsOfService = () => (
 
             <div>
               <h2 className="font-heading font-bold text-lg text-foreground mb-3">13. Deposit & Payment Requirements</h2>
-              <p className="mb-3">To secure an appointment, the Client may be required to pay a non-refundable booking deposit at the time of booking. This deposit confirms the reservation and is applied toward the total cost of the service.</p>
+              <p className="mb-3">No payment or deposit is taken for standard bookings. For quoted work that requires materials to be ordered in advance, such as paint protection film or window tint, a deposit may be requested; if so, the amount and terms are stated on your written quote and applied toward the total.</p>
               <p className="mb-2">The remaining balance is due upon completion of service unless alternative terms have been agreed in writing. Failure to submit payment may result in:</p>
               <ul className="list-disc pl-5 space-y-1 mb-2">
                 <li>Suspension of future bookings;</li>
