@@ -3,12 +3,12 @@
  * Anything not in here that makes a claim about the business must be verified first.
  */
 
-import { PHONE, EMAIL, HOURS, REVIEW_COUNT, REVIEW_SCORE, SERVICE_AREAS } from "./pricing";
+import { PHONE, EMAIL, HOURS, FIVE_STAR_REVIEWS, SEASON_STATS, SERVICE_AREAS } from "./pricing";
 
 /** The ONLY four trust claims allowed in the trust bar. All verified true. */
 export const TRUST_CLAIMS = [
-  `${REVIEW_SCORE} ★`,
-  `${REVIEW_COUNT} Google reviews`,
+  `${FIVE_STAR_REVIEWS} five-star Google reviews`,
+  `${SEASON_STATS.rvs} RVs this season`,
   "Serving Calgary since 2024",
   "Our vans carry their own water",
 ];

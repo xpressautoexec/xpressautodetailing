@@ -35,8 +35,8 @@ const commitments = [
 const stats = [
   { value: "2,000+", label: "Vehicles Detailed" },
   { value: "100+", label: "5-Star Reviews" },
-  { value: "4.9/5", label: "Average Rating" },
-  { value: "5+", label: "Years Experience" },
+  { value: "40+", label: "RVs This Season" },
+  { value: "6", label: "Communities Served" },
 ];
 
 const WhyChooseUs = () => {
@@ -45,7 +45,7 @@ const WhyChooseUs = () => {
       <div className="min-h-screen pb-16 lg:pb-0">
         <SEO
       title="Why Choose Us — Calgary Detailing"
-      description="4.9-star rated with 200+ Google reviews. Transparent pricing, mobile convenience & real results. See why Calgary trusts Xpress Auto Detailing."
+      description="100+ five-star Google reviews. Transparent pricing, mobile convenience & real results. See why Calgary trusts Xpress Auto Detailing."
           canonical="/why-choose-us"
         />
         <Navbar />

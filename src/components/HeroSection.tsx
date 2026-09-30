@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
 import ConcernFinder from "@/components/ConcernFinder";
 import { useHydrated } from "@/hooks/use-hydrated";
-import { BOOKING_URL, PHONE, REVIEW_COUNT, REVIEW_SCORE } from "@/data/pricing";
+import { BOOKING_URL, PHONE, FIVE_STAR_REVIEWS } from "@/data/pricing";
 
 const STATS = [
   { value: "2,000+", label: "Vehicles detailed" },
-  { value: `${REVIEW_SCORE} ★`, label: `${REVIEW_COUNT}+ Google reviews` },
+  { value: FIVE_STAR_REVIEWS, label: "Five-star Google reviews" },
   { value: "6", label: "Communities served" },
 ];
 

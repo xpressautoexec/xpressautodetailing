@@ -49,10 +49,10 @@ const GoogleReviewBadge = () => (
               ))}
             </div>
             <p className="font-heading font-black text-2xl md:text-3xl text-background uppercase">
-              4.9 / 5.0 on Google
+              100+ five-star reviews
             </p>
             <p className="text-background/70 text-sm">
-              Based on 100+ verified reviews from real customers
+              From real customers on Google
             </p>
           </div>
           <div className="flex flex-col items-center gap-3">

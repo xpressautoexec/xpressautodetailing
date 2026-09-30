@@ -23,10 +23,9 @@ const reviews = [
 ];
 
 const stats = [
-  { value: "4.9 / 5", label: "Average Google rating" },
-  { value: "100+", label: "Five-star reviews" },
+    { value: "100+", label: "Five-star reviews" },
   { value: "2,000+", label: "Vehicles detailed" },
-  { value: "5+", label: "Years serving Calgary" },
+  { value: "40+", label: "RVs this season" },
 ];
 
 const Reviews = () => (
@@ -34,7 +33,7 @@ const Reviews = () => (
     <div className="min-h-screen pb-16 lg:pb-0">
       <SEO
         title="Reviews — Xpress Auto Detailing Calgary"
-        description="Read real customer reviews of Xpress Auto Detailing. 4.9 stars on Google from 100+ Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County clients."
+        description="Read real customer reviews of Xpress Auto Detailing. 100+ five-star Google reviews from Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County clients."
         canonical="/reviews"
       />
       <Navbar />
@@ -42,7 +41,7 @@ const Reviews = () => (
 
       <section className="bg-brand-dark py-16 md:py-24">
         <div className="container max-w-4xl">
-          <div className="flex gap-1 mb-4" aria-label="Rated 4.9 out of 5 stars">
+          <div className="flex gap-1 mb-4" aria-label="Five-star Google reviews">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" aria-hidden="true" />
             ))}
@@ -51,8 +50,8 @@ const Reviews = () => (
             Xpress Auto Detailing <span className="text-primary">Customer Reviews</span>
           </h1>
           <p className="text-primary-foreground/80 text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
-            Every review below comes from a real Calgary-area customer. We have held a 4.9-star average across
-            more than one hundred Google reviews by doing the same thing every time: showing up when we say we
+            Every review below comes from a real Calgary-area customer. We have earned more than one hundred
+            five-star Google reviews by doing the same thing every time: showing up when we say we
             will, doing the work properly, and not leaving until the owner has inspected it.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
