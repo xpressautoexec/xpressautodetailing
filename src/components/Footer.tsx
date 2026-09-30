@@ -25,7 +25,7 @@ const Footer = () => (
         </div>
 
         <nav aria-label="Services">
-          <h2 className="font-heading text-sm font-bold uppercase tracking-wider text-white">Services</h2>
+          <h2 className="font-heading text-sm font-semibold text-primary-foreground">Services</h2>
           <ul className="mt-4 space-y-2">
             {FOOTER_SERVICES.map((l) => (
               <li key={l.href + l.label}>
@@ -38,7 +38,7 @@ const Footer = () => (
         </nav>
 
         <nav aria-label="Company">
-          <h2 className="font-heading text-sm font-bold uppercase tracking-wider text-white">Company</h2>
+          <h2 className="font-heading text-sm font-semibold text-primary-foreground">Company</h2>
           <ul className="mt-4 space-y-2">
             {FOOTER_COMPANY.map((l) => (
               <li key={l.href}>
@@ -56,7 +56,7 @@ const Footer = () => (
         </nav>
 
         <div>
-          <h2 className="font-heading text-sm font-bold uppercase tracking-wider text-white">Contact</h2>
+          <h2 className="font-heading text-sm font-semibold text-primary-foreground">Contact</h2>
           <ul className="mt-4 space-y-3">
             <li>
               <a href={NAP.phoneHref} className="flex items-center gap-2 text-sm text-brand-gray hover:text-primary transition-colors">

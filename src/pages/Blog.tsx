@@ -130,7 +130,7 @@ const Blog = () => (
         <AutoBreadcrumbs />
     <section className="py-20 bg-background">
       <div className="container">
-        <h1 className="font-heading font-black text-3xl md:text-4xl uppercase text-foreground text-center mb-4">Car Detailing Tips & Guides — Calgary</h1>
+        <h1 className="font-heading font-semibold text-3xl md:text-4xl text-foreground text-center mb-4">Car Detailing Tips & Guides — Calgary</h1>
         <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">Tips, insights, and news from Calgary's trusted mobile detailing experts. Stay informed about the best ways to protect and maintain your vehicle.</p>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -140,15 +140,15 @@ const Blog = () => (
                 <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
               </div>
               <div className="p-6">
-                <p className="text-primary text-xs font-heading font-semibold uppercase tracking-wider mb-2">{post.date}</p>
+                <p className="text-primary text-xs font-heading font-semibold mb-2">{post.date}</p>
                 <h3 className="font-heading font-bold text-lg text-foreground mb-3 group-hover:text-primary transition-colors">{post.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">{post.excerpt}</p>
                 {post.href ? (
-                  <Link to={post.href} className="text-primary font-heading font-bold text-sm uppercase tracking-wider hover:text-brand-blue-glow transition-colors">
+                  <Link to={post.href} className="text-primary font-heading font-bold text-sm hover:text-brand-blue-glow transition-colors">
                     Read More →
                   </Link>
                 ) : (
-                  <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="text-primary font-heading font-bold text-sm uppercase tracking-wider hover:text-brand-blue-glow transition-colors">
+                  <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="text-primary font-heading font-bold text-sm hover:text-brand-blue-glow transition-colors">
                     Read More →
                   </a>
                 )}
@@ -161,11 +161,11 @@ const Blog = () => (
 
     <section className="py-12 bg-primary">
       <div className="container text-center">
-        <h2 className="font-heading font-black text-xl uppercase text-primary-foreground mb-4">Ready to Experience the Difference?</h2>
+        <h2 className="font-heading font-semibold text-xl text-primary-foreground mb-4">Ready to Experience the Difference?</h2>
         <p className="text-primary-foreground/80 max-w-lg mx-auto mb-6">
           Stop reading about it and start experiencing it. Book your mobile detail today and see why Calgary trusts Xpress Auto Detailing.
         </p>
-        <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-3 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
+        <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-foreground text-primary font-heading font-bold px-8 py-3 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
           Book Now
         </a>
       </div>

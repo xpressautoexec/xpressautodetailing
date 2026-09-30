@@ -54,7 +54,7 @@ const PackageCard = ({
   >
     {/* Popular badge */}
     {isPrimary && (
-      <div className="absolute top-0 right-0 bg-urgency text-urgency-foreground font-heading font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-bl-xl z-10">
+      <div className="absolute top-0 right-0 bg-urgency text-urgency-foreground font-heading font-bold text-[10px] px-4 py-1.5 rounded-bl-xl z-10">
         Most Popular
       </div>
     )}
@@ -68,12 +68,12 @@ const PackageCard = ({
           <span className={isPrimary ? "text-primary-foreground" : "text-primary"}>{icon}</span>
         </div>
         <div className="flex-1 min-w-0">
-          <h3 className={`font-heading font-black text-lg md:text-xl uppercase leading-tight ${
+          <h3 className={`font-heading font-semibold text-lg md:text-xl leading-tight ${
             isPrimary ? "text-primary-foreground" : "text-foreground"
           }`}>
             {name}
           </h3>
-          <p className={`font-heading font-black text-3xl md:text-4xl mt-1 ${
+          <p className={`font-heading font-semibold text-3xl md:text-4xl mt-1 ${
             isPrimary ? "text-primary-foreground" : "text-primary"
           }`}>
             {price}
@@ -100,7 +100,7 @@ const PackageCard = ({
         <div className={`mb-5 ${featureGroups.length > 1 ? "grid sm:grid-cols-2 gap-x-6 gap-y-5" : "space-y-5"}`}>
           {featureGroups.map((group, gi) => (
             <div key={gi}>
-              <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-muted-foreground mb-3">
+              <p className="text-[10px] font-heading font-bold text-muted-foreground mb-3">
                 {group.label}
               </p>
               <ul className="space-y-2.5">
@@ -118,7 +118,7 @@ const PackageCard = ({
         </div>
       ) : (
         <div className="mb-5">
-          <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-muted-foreground mb-3">
+          <p className="text-[10px] font-heading font-bold text-muted-foreground mb-3">
             What's Included
           </p>
           <ul className="space-y-2.5">
@@ -137,7 +137,7 @@ const PackageCard = ({
       {/* Bonuses */}
       {bonuses && bonuses.length > 0 && (
         <div className="mb-5 p-4 rounded-xl bg-primary/5 border border-primary/10">
-          <p className="text-[10px] font-heading font-bold uppercase tracking-widest mb-2 text-primary/60">
+          <p className="text-[10px] font-heading font-bold mb-2 text-primary/60">
             Included Bonuses
           </p>
           {bonuses.map((b, i) => (
@@ -151,7 +151,7 @@ const PackageCard = ({
       {/* Add-ons */}
       {addOns && addOns.length > 0 && (
         <div className="mb-5 p-4 rounded-xl bg-muted/40 border border-border/50">
-          <p className="text-[10px] font-heading font-bold uppercase tracking-widest mb-3 text-muted-foreground">
+          <p className="text-[10px] font-heading font-bold mb-3 text-muted-foreground">
             Popular Add-Ons
           </p>
           <div className="space-y-2">
@@ -186,7 +186,7 @@ const PackageCard = ({
       {/* Surcharges — high visibility */}
       {surcharges && surcharges.length > 0 && (
         <div className="mb-5 p-3 rounded-lg bg-urgency/10 border border-urgency/30">
-          <p className="text-[10px] font-heading font-bold uppercase tracking-widest mb-1.5 text-urgency">
+          <p className="text-[10px] font-heading font-bold mb-1.5 text-urgency">
             Vehicle Size Pricing
           </p>
           <ul className="space-y-1">
@@ -205,7 +205,7 @@ const PackageCard = ({
         href={ctaLink}
         target={ctaExternal ? "_blank" : undefined}
         rel={ctaExternal ? "noopener noreferrer" : undefined}
-        className="group flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider px-6 py-3.5 rounded-xl text-sm transition-all duration-300 bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20"
+        className="group flex items-center justify-center gap-2 font-heading font-bold px-6 py-3.5 rounded-xl text-sm transition-all duration-300 bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20"
       >
         <CalendarCheck className="w-4 h-4" />
         {ctaText}

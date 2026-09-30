@@ -87,7 +87,7 @@ const Detailing = () => {
       <section className="py-14 sm:py-20 bg-background">
         <div className="container max-w-3xl px-6 text-center">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-5">
+            <h2 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-foreground mb-5">
               Four packages. One visit. No drop-off.
             </h2>
             <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{WATER_LINE}</p>
@@ -125,7 +125,7 @@ const Detailing = () => {
         <div className="container max-w-4xl px-6">
           <ScrollReveal>
             <div className="mb-8 text-center">
-              <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground">Add-Ons</h2>
+              <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground">Add-Ons</h2>
               <p className="mt-3 text-sm text-muted-foreground">
                 Add any of these to any package. Xpress Pass members take {PASS_ADDON_DISCOUNT}% off every add-on.
               </p>
@@ -142,7 +142,7 @@ const Detailing = () => {
       <section className="py-16 sm:py-20 bg-foreground">
         <div className="container px-6 text-center">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-background mb-4">
+            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-background mb-4">
               Ready when you are
             </h2>
             <p className="mx-auto mb-8 max-w-xl text-sm sm:text-base text-background/60">
@@ -153,14 +153,14 @@ const Detailing = () => {
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex min-h-[44px] items-center gap-2 rounded-full bg-primary px-8 text-sm font-bold uppercase tracking-wider text-primary-foreground transition-colors hover:bg-primary/90"
+                className="group inline-flex min-h-[44px] items-center gap-2 rounded-md bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
               >
                 Book Now
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
                 href={`tel:${PHONE.replace(/-/g, "")}`}
-                className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-background/25 px-8 text-sm font-bold uppercase tracking-wider text-background transition-colors hover:border-background/60"
+                className="inline-flex min-h-[44px] items-center gap-2 rounded-md border border-background/25 px-8 text-sm font-bold text-background transition-colors hover:border-background/60"
               >
                 Call {PHONE}
               </a>

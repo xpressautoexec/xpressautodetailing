@@ -3,12 +3,12 @@
  * Anything not in here that makes a claim about the business must be verified first.
  */
 
-import { PHONE, EMAIL, HOURS, REVIEW_COUNT, REVIEW_SCORE, SERVICE_AREAS } from "./pricing";
+import { PHONE, EMAIL, HOURS, FIVE_STAR_REVIEWS, SEASON_STATS, SERVICE_AREAS } from "./pricing";
 
 /** The ONLY four trust claims allowed in the trust bar. All verified true. */
 export const TRUST_CLAIMS = [
-  `${REVIEW_SCORE} ★`,
-  `${REVIEW_COUNT} Google reviews`,
+  `${FIVE_STAR_REVIEWS} five-star Google reviews`,
+  `${SEASON_STATS.rvs} RVs this season`,
   "Serving Calgary since 2024",
   "Our vans carry their own water",
 ];
@@ -125,12 +125,36 @@ export const HOW_IT_WORKS = [
   },
 ];
 
-/** Real reviews get pasted in by the owner. NEVER invent a testimonial. */
-export const REVIEW_PLACEHOLDERS = [
-  "{{REAL_REVIEW_1}}",
-  "{{REAL_REVIEW_2}}",
-  "{{REAL_REVIEW_3}}",
+/**
+ * Verbatim Google reviews (Xpress Auto & RV Detail, Google Maps), pulled Sept 30, 2026.
+ * NEVER invent or paraphrase a testimonial. Trim only with an ellipsis.
+ * Names shown as first name + last initial.
+ */
+export interface Review {
+  name: string;
+  service: string;
+  text: string;
+}
+
+export const REAL_REVIEWS: Review[] = [
+  {
+    name: "Claire E.",
+    service: "RV trailer paint correction",
+    text: "We are super impressed with the paint correction on our trailer. We didn’t expect for it to look as good as it does. It looks brand new. Omar and team were punctual, friendly and went above and beyond to make sure we had a great experience and we were happy with the final result. I would highly recommend them.",
+  },
+  {
+    name: "Kate L.",
+    service: "Complete detail, Jeep",
+    text: "These guys are great. … We had Youssef and Adam, both lovely and kind - and honestly could not be happier with their work. My 2014 jeep looks the way it did the day we drove it off the lot!! Thanks so much guys! We will recommend you to everyone we know!!!",
+  },
+  {
+    name: "Teni B.",
+    service: "Interior and exterior, Honda Civic",
+    text: "Omar did a great job of detailing my interior and exterior of my Honda civic. He offered a great price and was extremely professional throughout the entire service. Would definitely recommend Xpress Auto to any one that needs car detailing.",
+  },
 ];
+
+export const GOOGLE_REVIEWS_URL = "https://g.page/r/CQ5ISLUTohBKEBM/review";
 
 /** Certification claim on the PPF page is not yet verified. */
 export const PPF_CERTIFICATION_TBC = "{{PPF_CERTIFICATION_TBC}}";

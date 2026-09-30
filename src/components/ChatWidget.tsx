@@ -125,10 +125,10 @@ const ChatWidget = () => {
           {/* Header */}
           <div className="bg-brand-dark px-4 py-3 flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-              <span className="font-heading font-black text-primary text-xs">X</span>
+              <span className="font-heading font-semibold text-primary text-xs">X</span>
             </div>
             <div className="flex-1">
-              <p className="font-heading font-bold text-primary-foreground text-sm uppercase">
+              <p className="font-heading font-bold text-primary-foreground text-sm">
                 Xpress Auto
               </p>
               <p className="text-brand-gray text-xs flex items-center gap-1">

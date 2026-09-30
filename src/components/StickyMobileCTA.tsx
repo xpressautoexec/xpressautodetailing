@@ -8,7 +8,7 @@ const StickyMobileCTA = () => (
       <a
         href={`tel:${PHONE.replace(/-/g, "")}`}
         aria-label={`Call Xpress Auto Detailing at ${PHONE}`}
-        className="flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-white/25 px-5 text-sm font-semibold text-white"
+        className="flex min-h-[44px] items-center justify-center gap-2 rounded-md border border-white/25 px-5 text-sm font-semibold text-white"
       >
         <Phone className="w-4 h-4" aria-hidden="true" />
         Call
@@ -17,9 +17,9 @@ const StickyMobileCTA = () => (
         href={BOOKING_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex-1 min-h-[44px] flex items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground"
+        className="flex-1 min-h-[44px] flex items-center justify-center rounded-md bg-electric px-5 text-sm font-semibold text-primary-foreground"
       >
-        Book Now
+        Book a detail
       </a>
     </div>
   </div>

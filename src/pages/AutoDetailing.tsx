@@ -77,11 +77,11 @@ const AutoDetailing = () => (
 
       <section className="bg-brand-dark py-16 md:py-24">
         <div className="container max-w-4xl">
-          <p className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-primary mb-4">
+          <p className="font-heading font-bold text-xs text-primary mb-4">
             Calgary · Airdrie · Chestermere · Cochrane · Okotoks · Rocky View County
           </p>
-          <h1 className="font-heading font-black text-3xl md:text-5xl uppercase text-primary-foreground mb-5">
-            Auto Detailing in Calgary <span className="text-primary">That Comes To You</span>
+          <h1 className="font-heading font-semibold text-3xl md:text-5xl text-primary-foreground mb-5">
+            Auto Detailing in Calgary That Comes To You
           </h1>
           <p className="text-primary-foreground/80 text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
             Xpress Auto Detailing is a fully mobile detailing operation serving Calgary and the surrounding
@@ -93,13 +93,13 @@ const AutoDetailing = () => (
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold px-8 py-4 rounded-lg text-sm hover:bg-primary/90 transition-colors"
             >
               Book My Detail <ArrowRight className="w-4 h-4" />
             </a>
             <a
               href="tel:5875004523"
-              className="inline-flex items-center justify-center gap-2 border border-primary-foreground/20 text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/10 transition-colors"
+              className="inline-flex items-center justify-center gap-2 border border-primary-foreground/20 text-primary-foreground font-heading font-bold px-8 py-4 rounded-lg text-sm hover:bg-primary-foreground/10 transition-colors"
             >
               Call 587-500-4523
             </a>
@@ -109,14 +109,14 @@ const AutoDetailing = () => (
 
       <section className="py-14 bg-background">
         <div className="container max-w-5xl">
-          <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground mb-8">
+          <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground mb-8">
             What Every Xpress Detail Includes
           </h2>
           <div className="grid sm:grid-cols-2 gap-5">
             {included.map((item) => (
               <div key={item.title} className="p-6 rounded-xl border border-border bg-card">
                 <item.icon className="w-8 h-8 text-primary mb-3" />
-                <h3 className="font-heading font-bold uppercase text-sm text-foreground mb-2">{item.title}</h3>
+                <h3 className="font-heading font-bold text-sm text-foreground mb-2">{item.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -126,7 +126,7 @@ const AutoDetailing = () => (
 
       <section className="py-14 bg-muted/30">
         <div className="container max-w-5xl">
-          <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground mb-3">
+          <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground mb-3">
             Auto Detailing Packages &amp; Pricing
           </h2>
           <p className="text-muted-foreground mb-8 max-w-2xl text-sm md:text-base">
@@ -135,9 +135,9 @@ const AutoDetailing = () => (
           <div className="grid md:grid-cols-3 gap-5">
             {packages.map((pkg) => (
               <div key={pkg.name} className="p-6 rounded-xl border border-border bg-card flex flex-col">
-                <h3 className="font-heading font-bold uppercase text-base text-foreground mb-1">{pkg.name}</h3>
-                <p className="font-heading font-black text-3xl text-primary mb-1">{pkg.price}</p>
-                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-4">{pkg.time}</p>
+                <h3 className="font-heading font-bold text-base text-foreground mb-1">{pkg.name}</h3>
+                <p className="font-heading font-semibold text-3xl text-primary mb-1">{pkg.price}</p>
+                <p className="text-xs text-muted-foreground mb-4">{pkg.time}</p>
                 <ul className="space-y-2 mb-6 flex-1">
                   {pkg.points.map((point) => (
                     <li key={point} className="flex gap-2 text-sm text-muted-foreground">
@@ -148,7 +148,7 @@ const AutoDetailing = () => (
                 </ul>
                 <Link
                   to={pkg.href}
-                  className="font-heading font-bold uppercase text-xs tracking-wider text-primary hover:underline"
+                  className="font-heading font-bold text-xs text-primary hover:underline"
                 >
                   Full package details
                 </Link>
@@ -160,15 +160,15 @@ const AutoDetailing = () => (
 
       <section className="py-14 bg-background">
         <div className="container max-w-4xl">
-          <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground mb-8">
+          <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground mb-8">
             How Mobile Detailing Works
           </h2>
           <ol className="space-y-5">
             {steps.map((step) => (
               <li key={step.n} className="flex gap-5 p-5 rounded-xl border border-border bg-card">
-                <span className="font-heading font-black text-2xl text-primary/40 shrink-0">{step.n}</span>
+                <span className="font-heading font-semibold text-2xl text-primary/40 shrink-0">{step.n}</span>
                 <div>
-                  <h3 className="font-heading font-bold uppercase text-sm text-foreground mb-1">{step.title}</h3>
+                  <h3 className="font-heading font-bold text-sm text-foreground mb-1">{step.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </li>
@@ -179,13 +179,13 @@ const AutoDetailing = () => (
 
       <section className="py-14 bg-muted/30">
         <div className="container max-w-3xl">
-          <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground mb-8">
+          <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground mb-8">
             Auto Detailing FAQs
           </h2>
           <div className="space-y-4">
             {faqs.map((faq) => (
               <div key={faq.q} className="p-5 rounded-xl border border-border bg-card">
-                <h3 className="font-heading font-bold text-sm uppercase text-foreground mb-2">{faq.q}</h3>
+                <h3 className="font-heading font-bold text-sm text-foreground mb-2">{faq.q}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
@@ -195,7 +195,7 @@ const AutoDetailing = () => (
 
       <section className="py-14 bg-background">
         <div className="container max-w-4xl">
-          <h2 className="font-heading font-black text-xl md:text-2xl uppercase text-foreground mb-5">
+          <h2 className="font-heading font-semibold text-xl md:text-2xl text-foreground mb-5">
             Related Services
           </h2>
           <div className="flex flex-wrap gap-3">

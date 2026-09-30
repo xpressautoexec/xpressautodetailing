@@ -90,11 +90,9 @@ const GalleryCarousel = () => {
     <section className="py-16 sm:py-20 bg-muted/30 overflow-hidden">
       <div className="container max-w-6xl px-4 sm:px-6">
         <ScrollReveal>
-          <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs text-center mb-3">
-            Our Work Speaks
-          </p>
-          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-4">
-            See the <span className="text-primary">Results</span>
+          
+          <h2 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-foreground text-center mb-4">
+            See the Results
           </h2>
           <p className="text-muted-foreground text-center mb-10 max-w-xl mx-auto text-sm sm:text-base">
             Real vehicles, real transformations. Swipe through some of our recent work.

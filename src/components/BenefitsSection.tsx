@@ -18,11 +18,9 @@ const BenefitsSection = () => {
     <section className="py-16 sm:py-20 bg-card">
       <div className="container">
         <ScrollReveal>
-          <p className="text-center text-primary font-heading font-bold text-sm uppercase tracking-[0.2em] mb-2">
-            Why Mobile?
-          </p>
-          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-center text-foreground mb-10 md:mb-12 px-2">
-            Benefits of <span className="text-gradient">Mobile Detailing</span>
+          
+          <h2 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-center text-foreground mb-10 md:mb-12 px-2">
+            Benefits of Mobile Detailing
           </h2>
         </ScrollReveal>
         <div className="grid lg:grid-cols-3 gap-6 md:gap-8 mb-12 px-2 sm:px-0">
@@ -33,7 +31,7 @@ const BenefitsSection = () => {
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
                     <benefit.icon className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className="font-heading font-bold text-sm uppercase text-foreground mb-1.5">{benefit.title}</h3>
+                  <h3 className="font-heading font-bold text-sm text-foreground mb-1.5">{benefit.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
                 </div>
               </StaggerItem>
@@ -48,7 +46,7 @@ const BenefitsSection = () => {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-brand-blue-deep transition-all shadow-md hover:shadow-lg hover:shadow-primary/20"
+            className="group inline-flex items-center gap-2 bg-primary text-primary-foreground font-heading font-bold px-8 py-3.5 rounded-lg text-sm hover:bg-brand-blue-deep transition-all shadow-md hover:shadow-lg hover:shadow-primary/20"
           >
             Book Now — We Come to You
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

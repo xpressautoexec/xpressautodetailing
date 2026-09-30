@@ -367,8 +367,38 @@ export const SERVICE_AREAS = ["Calgary", "Airdrie", "Cochrane", "Chestermere", "
 export const PHONE = "587-500-4523";
 export const EMAIL = "support@xpressautodetail.ca";
 export const BOOKING_URL = "https://xpressauto.fieldd.co/";
-export const REVIEW_COUNT = 112;
+export const REVIEW_COUNT = 116; // Google Maps, Sept 30 2026
+/** Kept for internal reference only. The site advertises five-star count, not the average. */
 export const REVIEW_SCORE = 4.8;
+/** Public review claim. Verified by owner: 100+ five-star Google reviews. */
+export const FIVE_STAR_REVIEWS = "100+";
+
+/** Season volume, verified by owner (2026 season). */
+export const SEASON_STATS = { cars: "300+", rvs: "40+" };
+
+// ---------- FINANCING ----------
+/**
+ * Third-party consumer financing for RV restoration work.
+ * `lender` / `applyUrl` stay null until a provider agreement is signed.
+ * While null, the CTA routes to the assessment form instead of an application.
+ * `representativeApr` must be replaced with the signed lender's representative rate —
+ * Alberta cost-of-credit disclosure requires APR, term and total cost beside any payment figure.
+ */
+export const FINANCING = {
+  lender: null as string | null,
+  applyUrl: null as string | null,
+  representativeApr: 19.99,
+  terms: [12, 24, 36, 48, 60],
+  defaultTerm: 24,
+  minAmount: 1000,
+};
+
+/** Standard amortized monthly payment. */
+export const monthlyPayment = (principal: number, aprPct: number, months: number) => {
+  const r = aprPct / 100 / 12;
+  if (r === 0) return principal / months;
+  return (principal * r) / (1 - Math.pow(1 + r, -months));
+};
 export const HOURS = "Monday–Sunday, 7:00 AM – 9:00 PM";
 
 /** Money formatter — whole dollars unless cents are meaningful. */

@@ -31,7 +31,7 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
     <div>
       {heading && (
         <div className="text-center mb-8">
-          <h2 className={`font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase ${text}`}>
+          <h2 className={`font-heading font-semibold text-2xl sm:text-3xl md:text-4xl ${text}`}>
             {heading}
           </h2>
           {intro && <p className={`mt-4 max-w-2xl mx-auto text-sm sm:text-base ${sub}`}>{intro}</p>}
@@ -78,12 +78,12 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
             } ${dark ? "bg-background/[0.04]" : "bg-card"}`}
           >
             {p.popular && (
-              <span className="absolute -top-3 left-6 rounded-full bg-primary px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-primary-foreground">
+              <span className="absolute -top-3 left-6 rounded-full bg-primary px-3 py-1 text-[11px] font-bold text-primary-foreground">
                 Most booked
               </span>
             )}
             {p.memberOnly && (
-              <span className={`absolute -top-3 left-6 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider ${dark ? "bg-background/20 text-background" : "bg-muted text-foreground"}`}>
+              <span className={`absolute -top-3 left-6 rounded-full px-3 py-1 text-[11px] font-bold ${dark ? "bg-background/20 text-background" : "bg-muted text-foreground"}`}>
                 Xpress Pass only
               </span>
             )}
@@ -92,7 +92,7 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
             <p className={`mt-1 text-sm ${sub}`}>{p.tagline}</p>
 
             <div className="mt-4 flex items-baseline gap-2">
-              <span className={`font-heading text-3xl font-black ${text}`}>{money(p.price[size])}</span>
+              <span className={`font-heading text-3xl font-semibold ${text}`}>{money(p.price[size])}</span>
             </div>
             <p className={`mt-1 flex items-center gap-1.5 text-xs ${sub}`}>
               <Clock className="h-3.5 w-3.5" aria-hidden="true" />

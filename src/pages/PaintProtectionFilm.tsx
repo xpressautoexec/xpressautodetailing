@@ -124,7 +124,7 @@ const PaintProtectionFilm = () => {
       <section className="py-14 sm:py-20 bg-background">
         <div className="container max-w-3xl px-6 text-center">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-5">
+            <h2 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-foreground mb-5">
               The only thing that actually stops rock chips
             </h2>
             <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
@@ -141,7 +141,7 @@ const PaintProtectionFilm = () => {
         <div className="container px-4 sm:px-6">
           <ScrollReveal>
             <div className="text-center mb-10">
-              <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-background">
+              <h2 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-background">
                 Coverage & Pricing
               </h2>
               <p className="mt-4 mx-auto max-w-2xl text-sm sm:text-base text-background/60">
@@ -162,12 +162,12 @@ const PaintProtectionFilm = () => {
                 }`}
               >
                 {p.popular && (
-                  <span className="absolute -top-3 left-6 rounded-full bg-primary px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-primary-foreground">
+                  <span className="absolute -top-3 left-6 rounded-full bg-primary px-3 py-1 text-[11px] font-bold text-primary-foreground">
                     Most booked
                   </span>
                 )}
-                <h3 className="font-heading font-black text-lg uppercase text-background">{p.name}</h3>
-                <p className="mt-3 font-heading font-black text-3xl text-background">{money(p.price)}</p>
+                <h3 className="font-heading font-semibold text-lg text-background">{p.name}</h3>
+                <p className="mt-3 font-heading font-semibold text-3xl text-background">{money(p.price)}</p>
                 <ul className="mt-5 flex-1 space-y-2.5">
                   {(coverage[p.name] ?? []).map((c) => (
                     <li key={c} className="flex gap-2 text-sm text-background/75">
@@ -178,7 +178,7 @@ const PaintProtectionFilm = () => {
                 </ul>
                 <a
                   href={`tel:${PHONE.replace(/-/g, "")}`}
-                  className="mt-6 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-background/25 px-6 text-sm font-bold text-background transition-colors hover:bg-background/10"
+                  className="mt-6 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-md border border-background/25 px-6 text-sm font-bold text-background transition-colors hover:bg-background/10"
                 >
                   <Phone className="h-4 w-4" aria-hidden="true" />
                   Get a quote
@@ -193,26 +193,26 @@ const PaintProtectionFilm = () => {
       <section className="py-14 sm:py-20 bg-background">
         <div className="container max-w-4xl px-4 sm:px-6">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-8">
+            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-8">
               Film vs coating vs wax
             </h2>
             <div className="overflow-x-auto rounded-2xl border border-border">
               <table className="w-full min-w-[560px] text-sm">
                 <thead className="bg-muted/60">
                   <tr className="text-left">
-                    <th scope="col" className="p-4 font-heading font-bold uppercase text-xs text-foreground">
+                    <th scope="col" className="p-4 font-heading font-bold text-xs text-foreground">
                       Protection
                     </th>
-                    <th scope="col" className="p-4 font-heading font-bold uppercase text-xs text-foreground">
+                    <th scope="col" className="p-4 font-heading font-bold text-xs text-foreground">
                       Rock chips
                     </th>
-                    <th scope="col" className="p-4 font-heading font-bold uppercase text-xs text-foreground">
+                    <th scope="col" className="p-4 font-heading font-bold text-xs text-foreground">
                       Scratches
                     </th>
-                    <th scope="col" className="p-4 font-heading font-bold uppercase text-xs text-foreground">
+                    <th scope="col" className="p-4 font-heading font-bold text-xs text-foreground">
                       Gloss
                     </th>
-                    <th scope="col" className="p-4 font-heading font-bold uppercase text-xs text-foreground">
+                    <th scope="col" className="p-4 font-heading font-bold text-xs text-foreground">
                       Lifespan
                     </th>
                   </tr>
@@ -245,7 +245,7 @@ const PaintProtectionFilm = () => {
       <section className="py-16 sm:py-20 bg-foreground">
         <div className="container px-6 text-center">
           <ScrollReveal>
-            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-background mb-4">
+            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-background mb-4">
               Get a film quote
             </h2>
             <p className="mx-auto mb-8 max-w-xl text-sm sm:text-base text-background/60">
@@ -254,7 +254,7 @@ const PaintProtectionFilm = () => {
             </p>
             <a
               href={`tel:${PHONE.replace(/-/g, "")}`}
-              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
+              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-md bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
             >
               Call {PHONE}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -268,7 +268,7 @@ const PaintProtectionFilm = () => {
         <div className="container max-w-4xl px-4 sm:px-6">
           <ScrollReveal>
             <div className="text-center mb-10">
-              <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-background">
+              <h2 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-background">
                 Window Tinting
               </h2>
               <p className="mt-4 mx-auto max-w-2xl text-sm sm:text-base text-background/60">
@@ -318,7 +318,7 @@ const PaintProtectionFilm = () => {
             {TINT.map((t) => (
               <li key={t.name} className="flex items-center justify-between gap-4 p-4 sm:px-6">
                 <span className="text-sm sm:text-base text-background/85">{t.name}</span>
-                <span className="font-heading font-black text-lg sm:text-xl text-background tabular-nums">
+                <span className="font-heading font-semibold text-lg sm:text-xl text-background tabular-nums">
                   {money(t.price)}
                 </span>
               </li>
@@ -333,7 +333,7 @@ const PaintProtectionFilm = () => {
           <div className="mt-8 text-center">
             <a
               href={`tel:${PHONE.replace(/-/g, "")}`}
-              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
+              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-md bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
             >
               <Phone className="h-4 w-4" aria-hidden="true" />
               Book your tint

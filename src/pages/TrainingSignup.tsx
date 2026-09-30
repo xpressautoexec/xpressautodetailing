@@ -117,11 +117,11 @@ const TrainingSignup = () => {
         {/* Hero */}
         <section className="py-16 sm:py-20 bg-background">
           <div className="container max-w-4xl text-center px-6">
-            <Link to="/training" className="inline-flex items-center gap-2 text-primary text-sm font-heading font-bold uppercase tracking-wider mb-6 hover:underline">
+            <Link to="/training" className="inline-flex items-center gap-2 text-primary text-sm font-heading font-bold mb-6 hover:underline">
               <ArrowLeft className="w-4 h-4" /> Back to Training
             </Link>
-            <h1 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-4">
-              Reserve Your <span className="text-primary">Training Spot</span>
+            <h1 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-foreground mb-4">
+              Reserve Your Training Spot
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Choose your course, pick a date, and secure your seat. Class sizes are limited to 4–6 students for maximum hands-on learning.
@@ -136,7 +136,7 @@ const TrainingSignup = () => {
               {/* Left: Course + Dates */}
               <div className="lg:col-span-2 space-y-6">
                 <ScrollReveal>
-                  <h2 className="font-heading font-bold text-lg uppercase text-foreground mb-4">1. Choose Your Course</h2>
+                  <h2 className="font-heading font-bold text-lg text-foreground mb-4">1. Choose Your Course</h2>
                   <div className="space-y-3">
                     {COURSES.map((c) => (
                       <button
@@ -152,11 +152,11 @@ const TrainingSignup = () => {
                           <div className="flex items-center gap-3">
                             <span>{courseIcons[c.icon] || c.icon}</span>
                             <div>
-                              <p className="font-heading font-bold text-sm uppercase text-foreground">{c.name}</p>
+                              <p className="font-heading font-bold text-sm text-foreground">{c.name}</p>
                               <p className="text-xs text-muted-foreground">{c.duration}</p>
                             </div>
                           </div>
-                          <span className="font-heading font-black text-lg text-primary">{c.price}</span>
+                          <span className="font-heading font-semibold text-lg text-primary">{c.price}</span>
                         </div>
                       </button>
                     ))}
@@ -165,7 +165,7 @@ const TrainingSignup = () => {
 
                 {course && (
                   <ScrollReveal>
-                    <h2 className="font-heading font-bold text-lg uppercase text-foreground mb-4">2. Select a Date</h2>
+                    <h2 className="font-heading font-bold text-lg text-foreground mb-4">2. Select a Date</h2>
                     <div className="space-y-2">
                       {course.dates.map((d) => (
                         <button
@@ -182,7 +182,7 @@ const TrainingSignup = () => {
                               <CalendarDays className="w-5 h-5 text-primary" />
                               <span className="font-heading font-bold text-sm text-foreground">{d.start}</span>
                             </div>
-                            <span className={`text-xs font-bold uppercase tracking-wider ${d.spotsLeft <= 2 ? "text-red-400" : "text-muted-foreground"}`}>
+                            <span className={`text-xs font-bold ${d.spotsLeft <= 2 ? "text-red-400" : "text-muted-foreground"}`}>
                               {d.spotsLeft} spot{d.spotsLeft !== 1 ? "s" : ""} left
                             </span>
                           </div>
@@ -212,7 +212,7 @@ const TrainingSignup = () => {
                   <div className="bg-background border border-border rounded-2xl p-6 sm:p-8">
                     <div className="flex items-center gap-3 mb-6">
                       <GraduationCap className="w-6 h-6 text-primary" />
-                      <h2 className="font-heading font-bold text-lg uppercase text-foreground">3. Your Details</h2>
+                      <h2 className="font-heading font-bold text-lg text-foreground">3. Your Details</h2>
                     </div>
 
                     {course && selectedDate && (
@@ -225,19 +225,19 @@ const TrainingSignup = () => {
 
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div>
-                        <label className="block text-xs font-heading font-bold uppercase tracking-wider text-muted-foreground mb-1.5">Full Name *</label>
+                        <label className="block text-xs font-heading font-bold text-muted-foreground mb-1.5">Full Name *</label>
                         <input type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full bg-background border border-border text-foreground rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary" required maxLength={100} />
                       </div>
                       <div>
-                        <label className="block text-xs font-heading font-bold uppercase tracking-wider text-muted-foreground mb-1.5">Email *</label>
+                        <label className="block text-xs font-heading font-bold text-muted-foreground mb-1.5">Email *</label>
                         <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full bg-background border border-border text-foreground rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary" required maxLength={255} />
                       </div>
                       <div>
-                        <label className="block text-xs font-heading font-bold uppercase tracking-wider text-muted-foreground mb-1.5">Phone</label>
+                        <label className="block text-xs font-heading font-bold text-muted-foreground mb-1.5">Phone</label>
                         <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full bg-background border border-border text-foreground rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary" maxLength={20} />
                       </div>
                       <div>
-                        <label className="block text-xs font-heading font-bold uppercase tracking-wider text-muted-foreground mb-1.5">Detailing Experience</label>
+                        <label className="block text-xs font-heading font-bold text-muted-foreground mb-1.5">Detailing Experience</label>
                         <select value={form.experience} onChange={(e) => setForm({ ...form, experience: e.target.value })} className="w-full bg-background border border-border text-foreground rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
                           <option value="">Select your level</option>
                           <option value="none">No experience</option>
@@ -250,7 +250,7 @@ const TrainingSignup = () => {
                       <button
                         type="submit"
                         disabled={loading || !selectedCourse || !selectedDate}
-                        className="w-full bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3.5 rounded-lg text-sm hover:bg-brand-blue-deep transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                        className="w-full bg-primary text-primary-foreground font-heading font-bold px-6 py-3.5 rounded-lg text-sm hover:bg-brand-blue-deep transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
                       >
                         {loading ? "Submitting..." : "Reserve My Spot"}
                         {!loading && <Check className="w-4 h-4" />}

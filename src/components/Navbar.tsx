@@ -104,9 +104,9 @@ const Navbar = () => {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-brand-blue-deep transition-colors"
+            className="rounded-md bg-electric px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-electric-2 transition-colors"
           >
-            Book Now
+            Book a detail
           </a>
         </div>
 
@@ -190,9 +190,9 @@ const Navbar = () => {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="my-3 min-h-[44px] flex items-center justify-center rounded-full bg-primary px-6 text-base font-semibold text-primary-foreground"
+              className="my-3 min-h-[44px] flex items-center justify-center rounded-md bg-electric px-6 text-base font-semibold text-primary-foreground"
             >
-              Book Now
+              Book a detail
             </a>
           </div>
         </nav>

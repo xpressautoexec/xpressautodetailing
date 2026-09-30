@@ -60,7 +60,7 @@ const Contact = () => {
       {/* Hero */}
       <section className="py-20 bg-background">
         <div className="container text-center">
-          <h1 className="font-heading font-black text-3xl md:text-4xl uppercase text-foreground mb-4">
+          <h1 className="font-heading font-semibold text-3xl md:text-4xl text-foreground mb-4">
             Contact Us
           </h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -75,13 +75,13 @@ const Contact = () => {
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             <div>
-              <h2 className="font-heading font-bold text-xl text-foreground uppercase mb-6">Send Us a Message</h2>
+              <h2 className="font-heading font-bold text-xl text-foreground mb-6">Send Us a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <input type="text" aria-label="Your name" placeholder="Name *" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full bg-background border border-border text-foreground rounded px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary" required maxLength={100} />
                 <input type="email" aria-label="Your email address" placeholder="Email *" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="w-full bg-background border border-border text-foreground rounded px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary" required maxLength={255} />
                 <input type="tel" aria-label="Your phone number" placeholder="Phone" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full bg-background border border-border text-foreground rounded px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary" maxLength={20} />
                 <textarea aria-label="How can we help?" placeholder="How can we help? *" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={5} className="w-full bg-background border border-border text-foreground rounded px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary resize-none" required maxLength={1000} />
-                <button type="submit" disabled={loading} className="w-full bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors disabled:opacity-50">
+                <button type="submit" disabled={loading} className="w-full bg-primary text-primary-foreground font-heading font-bold px-6 py-3 rounded text-sm hover:bg-brand-blue-deep transition-colors disabled:opacity-50">
                   {loading ? "Sending..." : "Send Message"}
                 </button>
               </form>
@@ -89,7 +89,7 @@ const Contact = () => {
 
             <div className="flex flex-col justify-center space-y-8">
               <div>
-                <h3 className="font-heading font-bold text-xl text-foreground uppercase mb-2">Get In Touch</h3>
+                <h3 className="font-heading font-bold text-xl text-foreground mb-2">Get In Touch</h3>
                 <p className="text-muted-foreground">We love our customers, so feel free to contact us anytime. We typically respond within 1–2 hours during business hours.</p>
               </div>
               <div className="space-y-4">
@@ -111,7 +111,7 @@ const Contact = () => {
               </div>
 
               <div className="p-6 rounded-lg border border-primary/30 bg-primary/5">
-                <h4 className="font-heading font-bold text-foreground uppercase text-sm mb-2">💡 Quick Tip</h4>
+                <h4 className="font-heading font-bold text-foreground text-sm mb-2">💡 Quick Tip</h4>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   For the fastest service, include your vehicle type, preferred date/time, and the service you're interested in. We'll get back to you with a confirmed booking right away!
                 </p>
@@ -126,11 +126,11 @@ const Contact = () => {
       {/* CTA */}
       <section className="py-12 bg-primary">
         <div className="container text-center">
-          <h2 className="font-heading font-black text-xl uppercase text-primary-foreground mb-4">Prefer to Book Online?</h2>
+          <h2 className="font-heading font-semibold text-xl text-primary-foreground mb-4">Prefer to Book Online?</h2>
           <p className="text-primary-foreground/80 max-w-lg mx-auto mb-6">
             Skip the form and book your detail instantly through our online booking system. Choose your package, pick a time, and we'll be there.
           </p>
-          <a href="https://xpressauto.fieldd.co/" target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-foreground text-primary font-heading font-bold uppercase tracking-wider px-8 py-3 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
+          <a href="https://xpressauto.fieldd.co/" target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-foreground text-primary font-heading font-bold px-8 py-3 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
             Book Online Now
           </a>
         </div>

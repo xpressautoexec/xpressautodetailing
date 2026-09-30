@@ -34,8 +34,8 @@ const BeforeAfterSlider = () => {
     <section className="py-20 bg-background">
       <div className="container max-w-4xl">
         <ScrollReveal>
-          <h2 className="font-heading font-black text-3xl md:text-4xl uppercase text-center text-foreground mb-3">
-            See the <span className="text-primary">Difference</span>
+          <h2 className="font-heading font-semibold text-3xl md:text-4xl text-center text-foreground mb-3">
+            See the Difference
           </h2>
           <p className="text-muted-foreground text-center mb-10 max-w-xl mx-auto">
             Drag the slider to reveal the transformation our detailing delivers.
@@ -92,10 +92,10 @@ const BeforeAfterSlider = () => {
             </div>
 
             {/* Labels */}
-            <span className="absolute top-4 left-4 bg-brand-dark/70 text-primary-foreground font-heading font-bold text-xs uppercase tracking-wider px-3 py-1.5 rounded z-20">
+            <span className="absolute top-4 left-4 bg-brand-dark/70 text-primary-foreground font-heading font-bold text-xs px-3 py-1.5 rounded z-20">
               Before
             </span>
-            <span className="absolute top-4 right-4 bg-primary/90 text-primary-foreground font-heading font-bold text-xs uppercase tracking-wider px-3 py-1.5 rounded z-20">
+            <span className="absolute top-4 right-4 bg-primary/90 text-primary-foreground font-heading font-bold text-xs px-3 py-1.5 rounded z-20">
               After
             </span>
           </div>

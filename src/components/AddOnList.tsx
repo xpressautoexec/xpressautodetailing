@@ -28,12 +28,12 @@ const AddOnList = ({ dark = false }: Props) => {
       </div>
 
       <div className={`rounded-2xl border ${border} ${card} p-5 sm:p-6`}>
-        <h3 className={`font-heading text-base font-bold uppercase ${text}`}>Pet hair removal</h3>
+        <h3 className={`font-heading text-base font-bold ${text}`}>Pet hair removal</h3>
         <p className={`mt-1 text-sm ${sub}`}>Priced by how much there is. We'll confirm the tier on arrival.</p>
         <ul className="mt-4 grid gap-3 sm:grid-cols-3">
           {PET_HAIR_TIERS.map((t) => (
             <li key={t.label} className={`rounded-xl border ${border} p-4`}>
-              <span className={`font-heading text-xl font-black ${text}`}>{money(t.price)}</span>
+              <span className={`font-heading text-xl font-semibold ${text}`}>{money(t.price)}</span>
               <p className={`mt-1 text-xs ${sub}`}>{t.label}</p>
             </li>
           ))}

@@ -135,12 +135,12 @@ const MonthlyPlan = () => {
             <div className="text-center lg:text-left">
               <div className="inline-flex items-center gap-2 bg-primary/15 border border-primary/30 rounded-full px-4 py-1.5 mb-6">
                 <Users className="w-3.5 h-3.5 text-primary" />
-                <span className="text-xs font-heading font-bold uppercase tracking-widest text-primary">
+                <span className="text-xs font-heading font-bold text-primary">
                   No contract · No sign-up fee · Cancel any time
                 </span>
               </div>
-              <h1 className="font-heading font-black text-4xl sm:text-5xl lg:text-6xl uppercase leading-[1.05] mb-5">
-                The <span className="text-primary">Xpress</span> Pass
+              <h1 className="font-heading font-semibold text-4xl sm:text-5xl lg:text-6xl leading-[1.05] mb-5">
+                The Xpress Pass
               </h1>
               <p className="text-base sm:text-lg text-brand-gray max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8">
                 Save up to <span className="text-primary font-bold">20%</span> on every visit
@@ -149,14 +149,14 @@ const MonthlyPlan = () => {
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center">
                 <a
                   href={PHONE_HREF}
-                  className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider text-sm px-6 py-3.5 rounded-xl hover:bg-brand-blue-deep transition-colors w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold text-sm px-6 py-3.5 rounded-xl hover:bg-brand-blue-deep transition-colors w-full sm:w-auto"
                 >
                   <Phone className="w-4 h-4" />
                   Claim Your Pass — {PHONE}
                 </a>
                 <a
                   href="#plans"
-                  className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/20 text-primary-foreground font-heading font-bold uppercase tracking-wider text-sm px-6 py-3.5 rounded-xl hover:bg-white/15 transition-colors w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/20 text-primary-foreground font-heading font-bold text-sm px-6 py-3.5 rounded-xl hover:bg-white/15 transition-colors w-full sm:w-auto"
                 >
                   See the Plans
                   <ArrowRight className="w-4 h-4" />
@@ -174,7 +174,7 @@ const MonthlyPlan = () => {
                 width={1024}
                 height={1024}
               />
-              <p className="relative mt-4 text-xs sm:text-sm text-brand-gray/80 font-heading font-bold uppercase tracking-widest text-center lg:text-right">
+              <p className="relative mt-4 text-xs sm:text-sm text-brand-gray/80 font-heading font-bold text-center lg:text-right">
                 Real metal card · shipped to every member
               </p>
             </div>
@@ -186,11 +186,9 @@ const MonthlyPlan = () => {
           <div className="container max-w-5xl px-6">
             <ScrollReveal>
               <div className="text-center mb-10">
-                <p className="text-sm font-heading font-bold uppercase tracking-widest text-primary mb-3">
-                  Three plans
-                </p>
-                <h2 className="font-heading font-black text-3xl sm:text-4xl uppercase">
-                  Pick Your <span className="text-gradient">Plan &amp; Vehicle Size</span>
+                
+                <h2 className="font-heading font-semibold text-3xl sm:text-4xl">
+                  Pick Your Plan &amp; Vehicle Size
                 </h2>
                 <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
                   The price shown is the price you pay, per visit. Nothing due until the work is done.
@@ -232,21 +230,21 @@ const MonthlyPlan = () => {
                       }`}
                     >
                       {plan.popular && (
-                        <span className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 bg-primary text-primary-foreground font-heading font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full">
+                        <span className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 bg-primary text-primary-foreground font-heading font-bold text-[10px] px-3 py-1 rounded-full">
                           <Star className="w-3 h-3" /> Most popular
                         </span>
                       )}
-                      <p className="font-heading font-bold text-xs uppercase tracking-widest text-primary mb-1">
+                      <p className="font-heading font-bold text-xs text-primary mb-1">
                         {plan.frequency}
                       </p>
-                      <h3 className="font-heading font-black text-2xl uppercase text-foreground mb-1">
+                      <h3 className="font-heading font-semibold text-2xl text-foreground mb-1">
                         {plan.name}
                       </h3>
                       <p className="text-sm text-muted-foreground mb-5">
                         {plan.service} · save {plan.discount}% every visit
                       </p>
                       <div className="mb-5">
-                        <span className="font-heading font-black text-4xl text-foreground tabular-nums">
+                        <span className="font-heading font-semibold text-4xl text-foreground tabular-nums">
                           {money(plan.memberPrice[size])}
                         </span>
                         <span className="text-muted-foreground text-sm"> / visit</span>
@@ -270,7 +268,7 @@ const MonthlyPlan = () => {
                       </ul>
                       <a
                         href={PHONE_HREF}
-                        className={`inline-flex items-center justify-center gap-2 font-heading font-bold uppercase tracking-wider text-sm px-5 py-3 rounded-xl transition-colors ${
+                        className={`inline-flex items-center justify-center gap-2 font-heading font-bold text-sm px-5 py-3 rounded-xl transition-colors ${
                           plan.popular
                             ? "bg-primary text-primary-foreground hover:bg-brand-blue-deep"
                             : "bg-muted text-foreground hover:bg-muted/70 border border-border"
@@ -297,10 +295,8 @@ const MonthlyPlan = () => {
           <div className="container max-w-6xl px-6">
             <ScrollReveal>
               <div className="mb-10 text-center sm:mb-14">
-                <p className="mb-3 font-heading text-xs font-bold uppercase tracking-widest text-primary">
-                  The membership experience
-                </p>
-                <h2 className="font-heading text-3xl font-black uppercase sm:text-4xl">
+                
+                <h2 className="font-heading text-3xl font-semibold sm:text-4xl">
                   Every Plan Includes
                 </h2>
               </div>
@@ -337,7 +333,7 @@ const MonthlyPlan = () => {
                             {perk.title}
                           </h3>
                           {perk.featured && (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-primary/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary">
+                            <span className="inline-flex items-center gap-1 rounded-full bg-primary/20 px-2 py-0.5 text-[10px] font-bold text-primary">
                               <Star className="h-3 w-3" />
                               Best perk
                             </span>
@@ -365,7 +361,7 @@ const MonthlyPlan = () => {
                     height={1024}
                   />
                   <div className="relative mt-6 text-center">
-                    <p className="font-heading font-black text-xl uppercase text-primary-foreground">
+                    <p className="font-heading font-semibold text-xl text-primary-foreground">
                       Real Metal Card
                     </p>
                     <p className="mt-1 text-sm text-brand-gray">
@@ -382,15 +378,15 @@ const MonthlyPlan = () => {
         <section className="py-16 sm:py-20 bg-background">
           <div className="container max-w-5xl px-6">
             <ScrollReveal>
-              <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-center mb-12">
-                How It <span className="text-gradient">Works</span>
+              <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-center mb-12">
+                How It Works
               </h2>
             </ScrollReveal>
             <div className="grid sm:grid-cols-3 gap-5">
               {PROCESS.map((s, i) => (
                 <ScrollReveal key={s.step} delay={0.05 * i}>
                   <div className="h-full bg-card border border-border rounded-xl p-6">
-                    <span className="font-heading font-black text-3xl text-primary/30">{s.step}</span>
+                    <span className="font-heading font-semibold text-3xl text-primary/30">{s.step}</span>
                     <h3 className="font-heading font-bold text-foreground mt-2 mb-1.5">{s.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">{s.body}</p>
                   </div>
@@ -404,8 +400,8 @@ const MonthlyPlan = () => {
         <section className="py-16 sm:py-20 bg-muted/40">
           <div className="container max-w-3xl px-6">
             <ScrollReveal>
-              <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-center mb-10">
-                Xpress Pass <span className="text-gradient">FAQ</span>
+              <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-center mb-10">
+                Xpress Pass FAQ
               </h2>
             </ScrollReveal>
             <div className="space-y-4">
@@ -425,15 +421,15 @@ const MonthlyPlan = () => {
         <section className="py-16 sm:py-24 bg-brand-dark text-primary-foreground">
           <div className="container max-w-3xl px-6 text-center">
             <ScrollReveal>
-              <h2 className="font-heading font-black text-3xl sm:text-4xl uppercase mb-4">
-                Ready to Stop <span className="text-primary">Thinking About It?</span>
+              <h2 className="font-heading font-semibold text-3xl sm:text-4xl mb-4">
+                Ready to Stop Thinking About It?
               </h2>
               <p className="text-brand-gray mb-8 max-w-xl mx-auto">
                 One call and your car stays clean on autopilot — at member rates, with priority booking.
               </p>
               <a
                 href={PHONE_HREF}
-                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider text-sm px-8 py-4 rounded-xl hover:bg-brand-blue-deep transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold text-sm px-8 py-4 rounded-xl hover:bg-brand-blue-deep transition-colors"
               >
                 <Phone className="w-4 h-4" />
                 Call {PHONE}

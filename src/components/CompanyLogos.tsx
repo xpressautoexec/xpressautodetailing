@@ -1,4 +1,3 @@
-import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/ScrollReveal";
 import brandAecon from "@/assets/brand-aecon.png";
 import brandWoodsHomes from "@/assets/brand-woods-homes.png";
 import brandTruman from "@/assets/brand-truman.png";
@@ -23,34 +22,29 @@ const partners = [
   { name: "Ranchman's", logo: brandRanchmans.url },
 ];
 
-const CompanyLogos = () => {
-  return (
-    <section className="py-14 sm:py-16 bg-background border-y border-border">
-      <div className="container">
-        <ScrollReveal>
-          <p className="text-center text-muted-foreground font-heading text-xs uppercase tracking-widest mb-2">
-            Trusted By
-          </p>
-          <h2 className="text-center font-heading font-black text-2xl md:text-3xl uppercase text-foreground mb-10">
-            Companies We've <span className="text-primary">Worked With</span>
-          </h2>
-        </ScrollReveal>
-        <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 max-w-5xl mx-auto" staggerDelay={0.06}>
-          {partners.map((partner) => (
-            <StaggerItem key={partner.name} className="flex items-center justify-center">
-              <div className="bg-white border-2 border-border rounded-xl px-6 py-6 w-full h-24 md:h-28 flex items-center justify-center shadow-sm hover:border-primary/50 hover:shadow-md transition-all duration-300">
-                <img
-                  src={partner.logo}
-                  alt={`${partner.name} — commercial fleet detailing client of Xpress Auto Detailing`}
-                  className="max-h-12 md:max-h-14 w-auto max-w-[80%] object-contain"
-                />
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </div>
-    </section>
-  );
-};
+const CompanyLogos = () => (
+  <section className="border-y border-line bg-surface py-14 sm:py-16">
+    <div className="shell grid gap-8 lg:grid-cols-[14rem_1fr] lg:items-center lg:gap-12">
+      <h2 className="font-heading text-lg font-semibold leading-snug tracking-tight text-ink">
+        Trusted by Calgary builders, contractors and dealers
+      </h2>
+      <ul className="grid grid-cols-2 border-l border-t border-line sm:grid-cols-3 md:grid-cols-5">
+        {partners.map((partner) => (
+          <li
+            key={partner.name}
+            className="flex h-20 items-center justify-center border-b border-r border-line px-4 md:h-24"
+          >
+            <img
+              src={partner.logo}
+              alt={`${partner.name}, commercial detailing client`}
+              loading="lazy"
+              className="max-h-10 w-auto max-w-[80%] object-contain opacity-80 grayscale transition hover:opacity-100 hover:grayscale-0"
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+);
 
 export default CompanyLogos;

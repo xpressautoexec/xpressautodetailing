@@ -32,12 +32,12 @@ const InstagramFeed = () => {
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-[#f09433]/10 via-[#dc2743]/10 to-[#bc1888]/10 border border-[#dc2743]/20 mb-3">
                 <Instagram className="w-3.5 h-3.5 text-[#dc2743]" />
-                <span className="font-heading font-bold text-[10px] uppercase tracking-wider text-[#dc2743]">
+                <span className="font-heading font-bold text-[10px] text-[#dc2743]">
                   Latest From Instagram
                 </span>
               </div>
-              <h2 className="font-heading font-black text-2xl md:text-3xl uppercase text-foreground">
-                Recent Work <span className="text-gradient">@{IG_HANDLE}</span>
+              <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground">
+                Recent Work @{IG_HANDLE}
               </h2>
               <p className="text-muted-foreground text-sm mt-2 max-w-lg">
                 Fresh details, ceramic reveals, and before/afters from around Calgary. Follow along and tag us in your ride.
@@ -47,7 +47,7 @@ const InstagramFeed = () => {
               href={IG_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 self-start sm:self-auto bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888] text-white font-heading font-bold uppercase tracking-wider text-xs px-5 py-3 rounded-lg hover:opacity-90 transition-all group shadow-lg"
+              className="inline-flex items-center justify-center gap-2 self-start sm:self-auto bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888] text-white font-heading font-bold text-xs px-5 py-3 rounded-lg hover:opacity-90 transition-all group shadow-lg"
             >
               <Instagram className="w-4 h-4" />
               Follow on Instagram
@@ -104,7 +104,7 @@ const InstagramFeed = () => {
             href={IG_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-heading font-bold uppercase tracking-wider text-primary hover:text-primary/80 transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-heading font-bold text-primary hover:text-primary/80 transition-colors"
           >
             View all posts on Instagram
             <ArrowRight className="w-4 h-4" />

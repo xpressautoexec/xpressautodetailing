@@ -17,6 +17,8 @@ interface Props {
   lengthLabel?: string;
   title?: string;
   note?: string;
+  /** Service ids selected on first render, so the total is not $0. */
+  defaultSelected?: string[];
 }
 
 /**
@@ -31,9 +33,10 @@ const PerFootCalculator = ({
   lengthLabel = "Length (feet)",
   title = "Estimate your price",
   note = "Estimate only. Final price is confirmed after we see the unit.",
+  defaultSelected = [],
 }: Props) => {
   const [length, setLength] = useState(defaultLength);
-  const [selected, setSelected] = useState<string[]>([]);
+  const [selected, setSelected] = useState<string[]>(defaultSelected);
 
   const key = (s: PerFootService) => s.id ?? s.name;
 

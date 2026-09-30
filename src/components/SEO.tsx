@@ -92,11 +92,6 @@ export const localBusinessJsonLd = {
     addressCountry: "CA",
   },
   priceRange: "$$",
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "200",
-  },
 };
 
 export const buildServiceJsonLd = (name: string, description: string, url: string) => ({

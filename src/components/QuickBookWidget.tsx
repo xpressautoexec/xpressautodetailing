@@ -52,8 +52,8 @@ const QuickBookWidget = () => {
       className="mt-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-5 max-w-xl"
     >
       {/* Step 1: Vehicle */}
-      <p className="text-white/90 font-heading font-bold text-[10px] uppercase tracking-widest mb-2 flex items-center gap-2">
-        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-black">1</span>
+      <p className="text-white/90 font-heading font-bold text-[10px] mb-2 flex items-center gap-2">
+        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-semibold">1</span>
         Your Vehicle
       </p>
       <div className="grid grid-cols-3 gap-2 mb-4">
@@ -74,8 +74,8 @@ const QuickBookWidget = () => {
       </div>
 
       {/* Step 2: Service */}
-      <p className="text-white/90 font-heading font-bold text-[10px] uppercase tracking-widest mb-2 flex items-center gap-2">
-        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-black">2</span>
+      <p className="text-white/90 font-heading font-bold text-[10px] mb-2 flex items-center gap-2">
+        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-semibold">2</span>
         Pick Your Service
       </p>
       <div className="space-y-2 mb-4">
@@ -97,7 +97,7 @@ const QuickBookWidget = () => {
                 <span className="flex items-center gap-2">
                   <span className="font-heading font-bold text-xs sm:text-sm">{s.label}</span>
                   {s.popular && (
-                    <span className="bg-urgency text-urgency-foreground text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full">
+                    <span className="bg-urgency text-urgency-foreground text-[8px] font-bold px-1.5 py-0.5 rounded-full">
                       Popular
                     </span>
                   )}
@@ -124,7 +124,7 @@ const QuickBookWidget = () => {
         href={BOOKING_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex items-center justify-center gap-2 w-full bg-primary text-primary-foreground font-heading font-bold uppercase tracking-wider px-6 py-3.5 rounded-xl text-sm hover:bg-primary/90 transition-all shadow-lg shadow-primary/30 hover:scale-[1.02]"
+        className="group flex items-center justify-center gap-2 w-full bg-primary text-primary-foreground font-heading font-bold px-6 py-3.5 rounded-xl text-sm hover:bg-primary/90 transition-all shadow-lg shadow-primary/30 hover:scale-[1.02]"
       >
         <Zap className="w-4 h-4" />
         Book Now — {services[selectedService].base[vehicle]}

@@ -2,27 +2,51 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
-import ServicePageHero from "@/components/ServicePageHero";
-import ServiceFAQ from "@/components/ServiceFAQ";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
-import ScrollReveal from "@/components/ScrollReveal";
 import PerFootCalculator from "@/components/PerFootCalculator";
 import AssessmentForm from "@/components/AssessmentForm";
+import FinancingEstimator from "@/components/rv/FinancingEstimator";
+import StatBand from "@/components/StatBand";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
-import { Check, Phone, ArrowRight, Star } from "lucide-react";
+import { Check, Minus, Phone, ArrowUpRight } from "lucide-react";
 import rvHero from "@/assets/rv-hero.jpg";
 import rvOxidation from "@/assets/gallery-rv-oxidation-correction.jpg";
 import rvSurveyorFront from "@/assets/gallery-rv-surveyor-front.jpg";
 import rvSurveyorFull from "@/assets/gallery-rv-surveyor-full.jpg";
 import rvPaintCloseup from "@/assets/gallery-rv-paint-correction-closeup.jpg";
-import { RV_SERVICES, RV_BUNDLES, PHONE, money } from "@/data/pricing";
-import { WATER_LINE, GUARANTEES } from "@/data/copy";
+import logoGtechniq from "@/assets/brand-gtechniq.png";
+import logoMenzerna from "@/assets/brand-menzerna.png";
+import logo3m from "@/assets/brand-3m.png";
+import logoSystemX from "@/assets/systemx-logo.png";
+import {
+  RV_SERVICES,
+  RV_BUNDLES,
+  PHONE,
+  EMAIL,
+  HOURS,
+  FINANCING,
+  FIVE_STAR_REVIEWS,
+  SEASON_STATS,
+  money,
+  monthlyPayment,
+} from "@/data/pricing";
+import { WATER_LINE } from "@/data/copy";
+
+const telHref = `tel:${PHONE.replace(/-/g, "")}`;
+const EXAMPLE_FT = 30;
 
 const faqs = [
   {
-    q: "How is RV and trailer detailing priced?",
-    a: "By the foot. You pick the services you want, we multiply by the length of the unit. A 30 ft trailer wash and seal at $24/ft is $720. Interior work is billed hourly at $90/hr.",
+    q: "How is RV and trailer work priced?",
+    a: "By the foot. Pick a package or individual services and we multiply by the length of the unit. A 30 ft trailer on Wash & Seal at $24/ft is $720. Interior work is billed at $90/hr.",
+  },
+  {
+    q: "Can I finance an RV restoration?",
+    a: `Yes. Jobs over ${money(FINANCING.minAmount)} can be spread over ${FINANCING.terms[0]} to ${
+      FINANCING.terms[FINANCING.terms.length - 1]
+    } monthly payments through a third-party lender, subject to credit approval. Ask for financing when you request your assessment and we'll send the application with your written quote.`,
   },
   {
     q: "Do you come to my storage lot?",
@@ -30,36 +54,122 @@ const faqs = [
   },
   {
     q: "What is oxidation removal?",
-    a: "Alberta sun chalks the gelcoat and fibreglass until the sidewalls go dull and white residue rubs off on your hand. Oxidation removal machine-polishes that layer back to gloss, then we seal it so it stays that way.",
+    a: "Alberta sun chalks gelcoat and fibreglass until the sidewalls go dull and white residue rubs off on your hand. Oxidation removal machine-compounds that layer back to gloss, with wet sanding on the worst panels, then we seal it so it stays that way.",
   },
   {
     q: "When should I book storage prep?",
-    a: "October and November, before the unit is parked for winter. Washing off road film and bugs and sealing the sidewalls stops them from etching over the cold months.",
+    a: "October and November, before the unit is parked for winter. Washing off road film and bugs and sealing the sidewalls stops them etching over the cold months.",
   },
   {
-    q: "How long does an RV detail take?",
+    q: "How long does an RV job take?",
     a: "A wash and seal on a 30 ft unit is roughly half a day. Full oxidation removal and restoration on the same unit is a one to two day job.",
   },
 ];
 
-const GALLERY = [
-  { src: rvSurveyorFull, alt: "Travel trailer after full exterior detail in Calgary" },
-  { src: rvOxidation, alt: "RV sidewall during oxidation removal and gloss restoration" },
-  { src: rvPaintCloseup, alt: "Close-up of corrected RV paint after polishing" },
-  { src: rvSurveyorFront, alt: "Front cap of a detailed travel trailer" },
+const STATS = [
+  { value: SEASON_STATS.rvs, label: "RVs serviced this season" },
+  { value: SEASON_STATS.cars, label: "Cars detailed this season" },
+  { value: FIVE_STAR_REVIEWS, label: "Five-star Google reviews" },
+  { value: "On site", label: "Storage lot, campground or driveway" },
 ];
+
+const SECTORS = [
+  {
+    title: "RV owners",
+    body: "Travel trailers, fifth wheels and motorhomes, serviced where they're parked.",
+    href: "#packages",
+    cta: "See packages",
+  },
+  {
+    title: "Dealerships",
+    body: "Reconditioning for pre-owned units so they're lot-ready without a trip to the shop.",
+    href: "/fleet",
+    cta: "Dealer programs",
+  },
+  {
+    title: "Rental fleets",
+    body: "Turnover cleaning and scheduled exterior care, planned around your booking calendar.",
+    href: "/rv-trailer/rental-fleet",
+    cta: "Fleet care",
+  },
+];
+
+const STEPS = [
+  {
+    title: "Walkaround assessment",
+    body: "We measure the unit and check the gelcoat for chalking, fading and stress cracks. Free, no obligation.",
+  },
+  {
+    title: "Written quote by the foot",
+    body: "Per-foot rate times length, in writing, before any work starts. Financing options come with it if you ask.",
+  },
+  {
+    title: "Decontamination wash",
+    body: "Road film, bugs and black streaks come off first, so correction works on clean gelcoat.",
+  },
+  {
+    title: "Correction",
+    body: "Compound and polish to cut out oxidation. Heavily chalked panels are wet sanded before polishing.",
+  },
+  {
+    title: "Seal and walkthrough",
+    body: "Ceramic sealant and UV protectant go on, then we walk the unit with you before we leave.",
+  },
+];
+
+const SPEC_COLUMNS = [
+  { key: "Exterior Wash", label: "Wash" },
+  { key: "Ceramic Sealant", label: "Ceramic sealant" },
+  { key: "UV Protectant", label: "UV protectant" },
+  { key: "Oxidation Removal", label: "Oxidation removal" },
+];
+
+const GALLERY = [
+  { src: rvOxidation, alt: "RV sidewall mid-way through oxidation removal, taped to show before and after" },
+  { src: rvSurveyorFull, alt: "Travel trailer front cap after full exterior restoration" },
+  { src: rvPaintCloseup, alt: "Close-up of corrected gelcoat beside an untouched section" },
+  { src: rvSurveyorFront, alt: "Front cap of a travel trailer during gloss restoration" },
+];
+
+const BRANDS = [
+  { src: logoGtechniq, alt: "Gtechniq" },
+  { src: logoMenzerna, alt: "Menzerna" },
+  { src: logo3m, alt: "3M" },
+  { src: logoSystemX, alt: "System X" },
+];
+
+const perMonth = (perFoot: number) =>
+  money(Math.round(monthlyPayment(perFoot * EXAMPLE_FT, FINANCING.representativeApr, FINANCING.defaultTerm)));
+
+const FinancingCTA = ({ tone = "dark" }: { tone?: "dark" | "light" }) => {
+  const cls =
+    tone === "dark"
+      ? "bg-primary-foreground text-ink hover:bg-primary-foreground/90"
+      : "bg-electric text-primary-foreground hover:bg-electric-2";
+  const base = `inline-flex min-h-[48px] items-center justify-center gap-2 rounded-md px-6 text-sm font-semibold transition-colors ${cls}`;
+  return FINANCING.applyUrl ? (
+    <a href={FINANCING.applyUrl} target="_blank" rel="noopener noreferrer" className={base}>
+      Check your rate
+      <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+    </a>
+  ) : (
+    <a href="#assessment" className={base}>
+      Ask about financing
+    </a>
+  );
+};
 
 const TrailerRV = () => (
   <PageTransition>
-    <div className="min-h-screen pb-16 lg:pb-0">
+    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
       <SEO
-        title="RV & Trailer Detailing Calgary | Mobile"
-        description="Mobile RV and trailer detailing in Calgary. Per-foot pricing for wash, ceramic sealant, UV protection and oxidation removal. We come to your storage lot."
+        title="RV Detailing & Gelcoat Restoration Calgary | Financing Available"
+        description="Mobile RV detailing and gelcoat oxidation removal in Calgary, Airdrie, Cochrane and Chestermere. Per-foot pricing, done at your storage lot, with monthly financing on restoration work."
         canonical="/rv-trailer"
         jsonLd={[
           buildServiceJsonLd(
-            "RV & Trailer Detailing",
-            "Mobile RV, trailer and motorhome detailing priced per foot across Calgary and area.",
+            "RV Detailing & Gelcoat Restoration",
+            "Mobile RV, trailer and motorhome detailing and oxidation removal, priced per foot across Calgary and area.",
             "/rv-trailer",
           ),
           buildFAQJsonLd(faqs),
@@ -67,99 +177,299 @@ const TrailerRV = () => (
       />
       <Navbar />
       <AutoBreadcrumbs />
-      <ServicePageHero title="RV & Trailer Detailing" image={rvHero} ctaType="call" />
 
-      {/* Intro */}
-      <section className="py-14 sm:py-20 bg-background">
-        <div className="container max-w-3xl px-6 text-center">
-          <ScrollReveal>
-            <h1 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground mb-5">
-              Priced by the foot. Done where it's parked.
+      {/* Hero */}
+      <section className="relative isolate overflow-hidden bg-brand-dark">
+        <img
+          src={rvHero}
+          alt="Xpress technician restoring the sidewall of a Class A motorhome in a Calgary driveway"
+          width={1920}
+          height={1080}
+          fetchPriority="high"
+          className="absolute inset-0 -z-10 h-full w-full object-cover object-[70%_center]"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-dark via-brand-dark/85 to-brand-dark/20"
+        />
+        <div className="shell pb-32 pt-20 sm:pb-40 sm:pt-28 lg:pb-44 lg:pt-32">
+          <div className="max-w-[40rem]">
+            <h1 className="font-heading text-[2.4rem] font-semibold leading-[1.04] tracking-[-0.03em] text-primary-foreground sm:text-5xl lg:text-[3.6rem]">
+              RV detailing and gelcoat restoration, done where it's parked.
             </h1>
-            <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-              {WATER_LINE} Wash, seal, UV protect or bring chalked sidewalls all the way back — pick only the
-              services your unit needs.
+            <p className="mt-6 max-w-[34rem] text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
+              Per-foot pricing, a crew that brings its own water and power, and monthly financing on restoration
+              work. Serving Calgary, Airdrie, Cochrane and Chestermere.
             </p>
-            <ul className="mt-6 flex flex-wrap justify-center gap-2">
-              {GUARANTEES.map((g) => (
-                <li
-                  key={g}
-                  className="rounded-full border border-border px-4 py-1.5 text-xs font-semibold text-muted-foreground"
-                >
-                  {g}
-                </li>
-              ))}
-            </ul>
-          </ScrollReveal>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#assessment"
+                className="inline-flex min-h-[52px] items-center justify-center rounded-md bg-electric px-7 text-sm font-semibold text-primary-foreground transition-colors hover:bg-electric-2"
+              >
+                Book a free RV assessment
+              </a>
+              <a
+                href={telHref}
+                className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-md border border-primary-foreground/30 px-7 text-sm font-semibold text-primary-foreground transition-colors hover:border-primary-foreground/70"
+              >
+                <Phone className="h-4 w-4" aria-hidden="true" />
+                {PHONE}
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Bundles */}
-      <section className="py-14 sm:py-20 bg-foreground">
-        <div className="container px-4 sm:px-6">
-          <div className="mx-auto max-w-2xl text-center mb-10">
-            <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-background">
-              Packages
-            </h2>
-            <p className="mt-3 text-sm sm:text-base text-background/70">
-              Bundled per-foot rates. Cheaper than booking the same services separately.
-            </p>
+      <StatBand stats={STATS} />
+
+      {/* Products */}
+      <section className="shell flex flex-col gap-6 py-14 sm:flex-row sm:items-center sm:justify-between">
+        <p className="max-w-[16rem] text-sm leading-snug text-muted-ink">
+          Professional compounds, polishes and coatings from
+        </p>
+        <ul className="flex flex-wrap items-center gap-x-10 gap-y-6">
+          {BRANDS.map((b) => (
+            <li key={b.alt}>
+              <img
+                src={b.src}
+                alt={b.alt}
+                loading="lazy"
+                className="h-8 w-auto max-w-[120px] object-contain opacity-70 grayscale"
+              />
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Who we work with */}
+      <section className="border-y border-line bg-surface py-16 sm:py-24">
+        <div className="shell">
+          <h2 className="max-w-xl font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+            Built for owners, dealers and fleets
+          </h2>
+          <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+            {SECTORS.map((s) => {
+              const inner = (
+                <>
+                  <h3 className="font-heading text-xl font-semibold text-ink">{s.title}</h3>
+                  <p className="mt-3 flex-1 text-[15px] leading-relaxed text-ink-2">{s.body}</p>
+                  <span className="mt-6 text-sm font-semibold text-electric group-hover:underline group-hover:underline-offset-4">
+                    {s.cta}
+                  </span>
+                </>
+              );
+              const cls = "group flex flex-col border-t-2 border-ink pt-6";
+              return s.href.startsWith("#") ? (
+                <a key={s.title} href={s.href} className={cls}>
+                  {inner}
+                </a>
+              ) : (
+                <Link key={s.title} to={s.href} className={cls}>
+                  {inner}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Packages — spec table */}
+      <section id="packages" className="scroll-mt-24 py-16 sm:py-24">
+        <div className="shell">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-xl">
+              <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                Packages, priced by the foot
+              </h2>
+              <p className="mt-4 text-[15px] leading-relaxed text-ink-2">
+                Bundled rates cost less than booking the same services separately. Totals shown for a {EXAMPLE_FT} ft
+                unit.
+              </p>
+            </div>
+            <a href="#build" className="text-sm font-semibold text-electric hover:underline hover:underline-offset-4">
+              Or build your own from individual services
+            </a>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
-            {RV_BUNDLES.map((b) => (
-              <article
-                key={b.id}
-                className={`relative flex flex-col rounded-2xl border p-6 ${
-                  b.popular
-                    ? "border-primary bg-primary/10"
-                    : "border-background/15 bg-background/[0.04]"
-                }`}
-              >
-                {b.popular && (
-                  <span className="absolute -top-3 left-6 inline-flex items-center gap-1 rounded-full bg-primary px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-primary-foreground">
-                    <Star className="h-3 w-3" aria-hidden="true" /> Most booked
-                  </span>
-                )}
-                {b.seasonal && !b.popular && (
-                  <span className="absolute -top-3 left-6 rounded-full border border-background/25 bg-foreground px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-background/80">
-                    {b.seasonal}
-                  </span>
-                )}
-                <h3 className="font-heading text-lg font-bold text-background">{b.name}</h3>
-                <div className="mt-3 flex items-baseline gap-2">
-                  <span className="font-heading text-3xl font-black text-background tabular-nums">
-                    {money(b.price)}
-                  </span>
-                  <span className="text-sm text-background/60">{b.unit}</span>
-                </div>
-                <p className="mt-1 text-xs text-background/50">
-                  <span className="line-through">{money(b.listPrice)}{b.unit}</span> · save {b.save}
-                </p>
-                <ul className="mt-5 space-y-2">
-                  {b.includes.map((i) => (
-                    <li key={i} className="flex gap-2 text-sm text-background/80">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-                      {i}
-                    </li>
+          {/* Desktop table */}
+          <div className="mt-10 hidden overflow-hidden rounded-[10px] border border-line bg-surface lg:block">
+            <table className="w-full text-left text-sm">
+              <caption className="sr-only">RV package comparison</caption>
+              <thead className="border-b border-line bg-canvas text-muted-ink">
+                <tr>
+                  <th scope="col" className="px-6 py-4 font-medium">
+                    Package
+                  </th>
+                  {SPEC_COLUMNS.map((c) => (
+                    <th key={c.key} scope="col" className="whitespace-nowrap px-3 py-4 text-center font-medium">
+                      {c.label}
+                    </th>
                   ))}
-                </ul>
-              </article>
-            ))}
+                  <th scope="col" className="whitespace-nowrap px-4 py-4 text-right font-medium">
+                    Per foot
+                  </th>
+                  <th scope="col" className="whitespace-nowrap px-4 py-4 text-right font-medium">
+                    {EXAMPLE_FT} ft unit
+                  </th>
+                  <th scope="col" className="whitespace-nowrap px-6 py-4 text-right font-medium">
+                    Or from
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {RV_BUNDLES.map((b) => {
+                  const total = b.price * EXAMPLE_FT;
+                  const financeable = total >= FINANCING.minAmount;
+                  return (
+                    <tr
+                      key={b.id}
+                      className={`border-b border-line last:border-b-0 ${b.popular ? "bg-electric-soft/60" : ""}`}
+                    >
+                      <th scope="row" className="relative px-6 py-5 font-normal">
+                        {b.popular && <span aria-hidden="true" className="absolute inset-y-0 left-0 w-1 bg-electric" />}
+                        <span className="block font-heading text-base font-semibold text-ink">{b.name}</span>
+                        <span className="mt-0.5 block text-xs text-muted-ink">
+                          {b.popular ? "Most booked" : b.seasonal ? b.seasonal : `Save ${b.save}`}
+                          {b.popular || b.seasonal ? ` · save ${b.save}` : ""}
+                        </span>
+                      </th>
+                      {SPEC_COLUMNS.map((c) => {
+                        const has = b.includes.includes(c.key);
+                        return (
+                          <td key={c.key} className="px-3 py-5 text-center">
+                            {has ? (
+                              <Check className="mx-auto h-4 w-4 text-electric" aria-label="Included" />
+                            ) : (
+                              <Minus className="mx-auto h-4 w-4 text-line" aria-label="Not included" />
+                            )}
+                          </td>
+                        );
+                      })}
+                      <td className="px-4 py-5 text-right tabular-nums">
+                        <span className="font-semibold text-ink">{money(b.price)}</span>
+                        <span className="block text-xs text-muted-ink line-through">{money(b.listPrice)}</span>
+                      </td>
+                      <td className="px-4 py-5 text-right font-semibold tabular-nums text-ink">{money(total)}</td>
+                      <td className="px-6 py-5 text-right tabular-nums text-ink-2">
+                        {financeable ? `${perMonth(b.price)}/mo` : "—"}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
 
-          <p className="mt-8 text-center text-xs text-background/50">
-            Example: a 30 ft trailer on Wash &amp; Seal is {money(24 * 30)}.
+          {/* Mobile list */}
+          <ul className="mt-8 divide-y divide-line overflow-hidden rounded-[10px] border border-line bg-surface lg:hidden">
+            {RV_BUNDLES.map((b) => {
+              const total = b.price * EXAMPLE_FT;
+              return (
+                <li key={b.id} className={`relative p-5 ${b.popular ? "bg-electric-soft/60" : ""}`}>
+                  {b.popular && <span aria-hidden="true" className="absolute inset-y-0 left-0 w-1 bg-electric" />}
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="font-heading text-base font-semibold text-ink">{b.name}</h3>
+                      <p className="mt-0.5 text-xs text-muted-ink">
+                        {b.popular ? "Most booked" : b.seasonal ?? `Save ${b.save}`}
+                      </p>
+                    </div>
+                    <p className="text-right tabular-nums">
+                      <span className="font-semibold text-ink">{money(b.price)}/ft</span>
+                      <span className="block text-xs text-muted-ink">
+                        {money(total)} at {EXAMPLE_FT} ft
+                      </span>
+                    </p>
+                  </div>
+                  <p className="mt-3 text-sm text-ink-2">{b.includes.join(", ")}</p>
+                  {total >= FINANCING.minAmount && (
+                    <p className="mt-2 text-sm text-ink-2">
+                      Or from <span className="font-semibold tabular-nums text-ink">{perMonth(b.price)}/mo</span>
+                    </p>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+
+          <p className="mt-4 text-xs leading-relaxed text-muted-ink">
+            Monthly figures: {EXAMPLE_FT} ft unit over {FINANCING.defaultTerm} months at a representative{" "}
+            {FINANCING.representativeApr}% APR, before tax, subject to lender approval. See the estimator below for
+            total cost of borrowing.
           </p>
         </div>
       </section>
 
-      {/* Estimator + à la carte */}
-      <section className="py-14 sm:py-20 bg-secondary/40">
-        <div className="container max-w-3xl px-4 sm:px-6">
-          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-8">
-            Build your own
+      {/* Process */}
+      <section className="border-y border-line bg-surface py-16 sm:py-24">
+        <div className="shell">
+          <h2 className="max-w-xl font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+            How a restoration runs
           </h2>
+          <ol className="mt-12 grid gap-y-10 md:grid-cols-5 md:gap-x-6">
+            {STEPS.map((s, i) => (
+              <li key={s.title} className="relative md:pr-2">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-ink font-heading text-sm font-semibold tabular-nums text-ink">
+                    {i + 1}
+                  </span>
+                  {i < STEPS.length - 1 && (
+                    <span aria-hidden="true" className="hidden h-px flex-1 bg-line md:block" />
+                  )}
+                </div>
+                <h3 className="mt-5 font-heading text-lg font-semibold text-ink">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-2">{s.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Financing */}
+      <section id="financing" className="scroll-mt-24 bg-brand-dark py-16 sm:py-24">
+        <div className="shell grid items-start gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+          <div className="lg:sticky lg:top-28">
+            <h2 className="font-heading text-3xl font-semibold tracking-tight text-primary-foreground sm:text-4xl">
+              Restore it now, pay monthly
+            </h2>
+            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-primary-foreground/70">
+              Gelcoat restoration is a once-in-several-seasons job, and oxidation only gets harder to cut the longer it
+              sits. Financing lets you do it properly this year instead of patching it every spring.
+            </p>
+            <ul className="mt-8 space-y-4 text-[15px] text-primary-foreground/85">
+              {[
+                `Jobs from ${money(FINANCING.minAmount)}, over ${FINANCING.terms[0]} to ${
+                  FINANCING.terms[FINANCING.terms.length - 1]
+                } months`,
+                "Applied for with your written quote, before any work starts",
+                "Same crew, same per-foot price as paying up front",
+              ].map((t) => (
+                <li key={t} className="flex gap-3">
+                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-electric" aria-hidden="true" />
+                  {t}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-10">
+              <FinancingCTA tone="dark" />
+            </div>
+          </div>
+          <FinancingEstimator />
+        </div>
+      </section>
+
+      {/* Build your own */}
+      <section id="build" className="scroll-mt-24 py-16 sm:py-24">
+        <div className="shell grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
+          <div>
+            <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              Build your own
+            </h2>
+            <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-ink-2">
+              Only need a wash, or just the front cap corrected? Pick individual services and set the length of your
+              unit.
+            </p>
+          </div>
           <PerFootCalculator
             services={RV_SERVICES}
             defaultLength={30}
@@ -167,107 +477,123 @@ const TrailerRV = () => (
             maxLength={45}
             lengthLabel="Unit length (feet)"
             title="RV & trailer estimator"
+            defaultSelected={["wash", "sealant"]}
             note="Estimate only. Interior detailing is billed at $90/hr and decals are per decal. Final price confirmed after we see the unit."
           />
         </div>
       </section>
 
-      {/* Gallery */}
-      <section className="py-14 sm:py-20 bg-background">
-        <div className="container px-4 sm:px-6">
-          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-8">
-            Recent RV work
-          </h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+      {/* Work */}
+      <section className="border-t border-line bg-surface py-16 sm:py-24">
+        <div className="shell">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <h2 className="max-w-xl font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              Recent RV work
+            </h2>
+            <Link to="/gallery" className="text-sm font-semibold text-electric hover:underline hover:underline-offset-4">
+              Full gallery
+            </Link>
+          </div>
+          <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-ink-2">
+            The tape line marks where correction stops. Everything on one side is the unit as we found it.
+          </p>
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
             {GALLERY.map((g) => (
-              <img
-                key={g.alt}
-                src={g.src}
-                alt={g.alt}
-                loading="lazy"
-                width={800}
-                height={600}
-                className="aspect-[4/3] w-full rounded-2xl object-cover"
-              />
+              <figure key={g.alt}>
+                <img
+                  src={g.src}
+                  alt={g.alt}
+                  loading="lazy"
+                  width={1179}
+                  height={1500}
+                  className="aspect-[4/5] w-full rounded-[4px] object-cover"
+                />
+              </figure>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Featured: RV PPF + Fleet */}
-      <section className="py-14 sm:py-20 bg-foreground">
-        <div className="container max-w-4xl px-4 sm:px-6">
-          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-background text-center mb-10">
-            More for your RV
-          </h2>
-          <div className="grid gap-5 sm:grid-cols-2">
+          <div className="mt-12 grid gap-4 sm:grid-cols-2">
             <Link
               to="/rv-trailer/ppf"
-              className="group flex flex-col rounded-2xl border border-primary/40 bg-background/[0.06] p-7 transition-colors hover:border-primary hover:bg-background/[0.09]"
+              className="group flex items-center justify-between rounded-[10px] border border-line px-6 py-5 transition-colors hover:border-ink-2"
             >
-              <h3 className="font-heading font-black text-xl uppercase text-background">
-                RV Paint Protection Film
-              </h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-background/65">
-                Protect the front cap and leading edges from gravel and highway sandblasting. Priced per
-                coverage zone with a 10-year warranty.
-              </p>
-              <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-primary">
-                See RV PPF pricing
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              <span>
+                <span className="block font-heading font-semibold text-ink">RV paint protection film</span>
+                <span className="mt-0.5 block text-sm text-muted-ink">Front caps and leading edges, 10-year warranty</span>
               </span>
+              <ArrowUpRight className="h-5 w-5 text-muted-ink group-hover:text-ink" aria-hidden="true" />
             </Link>
-            <Link
-              to="/rv-trailer/rental-fleet"
-              className="group flex flex-col rounded-2xl border border-primary/40 bg-background/[0.06] p-7 transition-colors hover:border-primary hover:bg-background/[0.09]"
-            >
-              <h3 className="font-heading font-black text-xl uppercase text-background">
-                RV Rental Fleet Care
-              </h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-background/65">
-                Turnover cleaning and scheduled care for rental fleets. Fully customizable programs — every
-                quote is built around your units and your calendar.
-              </p>
-              <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-primary">
-                Get a fleet quote
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-              </span>
-            </Link>
-          </div>
-          <div className="mt-8 text-center">
             <Link
               to="/marine"
-              className="text-sm font-semibold text-background/60 underline-offset-4 hover:text-background hover:underline"
+              className="group flex items-center justify-between rounded-[10px] border border-line px-6 py-5 transition-colors hover:border-ink-2"
             >
-              Boat or pontoon? See Marine &amp; Pontoon detailing
+              <span>
+                <span className="block font-heading font-semibold text-ink">Marine and pontoon</span>
+                <span className="mt-0.5 block text-sm text-muted-ink">Same gelcoat process, on the water side</span>
+              </span>
+              <ArrowUpRight className="h-5 w-5 text-muted-ink group-hover:text-ink" aria-hidden="true" />
             </Link>
           </div>
         </div>
       </section>
 
-      <ServiceFAQ title="RV detailing FAQs" faqs={faqs} />
-
-      {/* Assessment */}
-      <section className="py-14 sm:py-20 bg-secondary/40">
-        <div className="container max-w-2xl px-4 sm:px-6">
-          <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase text-foreground text-center mb-6">
-            Not sure what it needs?
+      {/* FAQ */}
+      <section className="border-t border-line py-16 sm:py-24">
+        <div className="shell grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+          <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+            Questions RV owners ask
           </h2>
-          <AssessmentForm />
+          <Accordion type="single" collapsible className="border-t border-line">
+            {faqs.map((f) => (
+              <AccordionItem key={f.q} value={f.q} className="border-line">
+                <AccordionTrigger className="py-5 text-left font-heading text-base font-semibold text-ink hover:no-underline">
+                  {f.q}
+                </AccordionTrigger>
+                <AccordionContent className="pb-5 text-[15px] leading-relaxed text-ink-2">{f.a}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </section>
 
-      {/* Closing CTA */}
-      <section className="py-16 sm:py-20 bg-background">
-        <div className="container px-6 text-center">
-          <a
-            href={`tel:${PHONE.replace(/-/g, "")}`}
-            className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            <Phone className="h-4 w-4" aria-hidden="true" />
-            Call {PHONE}
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </a>
+      {/* Assessment */}
+      <section id="assessment" className="scroll-mt-24 border-t border-line bg-surface py-16 sm:py-24">
+        <div className="shell grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
+          <div>
+            <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              Book a free RV assessment
+            </h2>
+            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ink-2">
+              We'll look at the unit, measure it and give you a written per-foot quote. Mention financing and the
+              application comes with it.
+            </p>
+            <dl className="mt-10 space-y-5 text-[15px]">
+              <div>
+                <dt className="text-sm text-muted-ink">Phone</dt>
+                <dd>
+                  <a href={telHref} className="font-semibold text-ink hover:text-electric">
+                    {PHONE}
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-sm text-muted-ink">Email</dt>
+                <dd>
+                  <a href={`mailto:${EMAIL}`} className="font-semibold text-ink hover:text-electric">
+                    {EMAIL}
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-sm text-muted-ink">Hours</dt>
+                <dd className="font-semibold text-ink">{HOURS}</dd>
+              </div>
+            </dl>
+          </div>
+          <AssessmentForm
+            source="rv-assessment"
+            title="Tell us about your unit"
+            subtitle="Year, make and length is plenty to start."
+          />
         </div>
       </section>
 

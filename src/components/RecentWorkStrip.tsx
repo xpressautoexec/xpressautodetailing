@@ -18,11 +18,8 @@ const RecentWorkStrip = ({ eyebrow = "Recent Work", title, highlight, descriptio
     <section className="py-16 bg-muted/30">
       <div className="container px-4 sm:px-6">
         <ScrollReveal>
-          <p className="text-primary font-heading font-bold uppercase tracking-[0.2em] text-xs text-center mb-3">
-            {eyebrow}
-          </p>
-          <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-foreground text-center mb-4">
-            {title} {highlight && <span className="text-primary">{highlight}</span>}
+          <h2 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-foreground text-center mb-4">
+            {title}{highlight ? ` ${highlight}` : ""}
           </h2>
           {description && (
             <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-10 text-sm sm:text-base">
