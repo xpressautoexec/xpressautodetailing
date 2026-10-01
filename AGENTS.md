@@ -23,6 +23,12 @@ Build: `npm run build` = client build + SSR build of `src/entry-server.tsx` +
 7. Keep it uncluttered: no new popups/toasts/floating widgets without asking.
    Mobile-first.
 
+## Blog
+
+Posts are JSON files in `src/content/blog/<slug>.json` (schema in `src/data/blog.ts`). Adding a
+file is all it takes: page, /blog card, prerender and sitemap entry are automatic. No prices,
+invented stats, testimonials or case studies in posts; link to the service page instead.
+
 ## Layout
 
 `src/App.tsx` routes + `ScrollToTop` + legacy redirects. `src/pages/` route pages
