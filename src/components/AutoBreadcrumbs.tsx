@@ -4,7 +4,23 @@ import { Helmet } from "react-helmet-async";
 import { Home, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+/** Path prefixes that group URLs but have no page of their own; skipped in the trail. */
+const NO_PAGE = new Set(["protection"]);
+
 const ROUTE_LABELS: Record<string, string> = {
+  "protection/windshield-ppf": "Windshield PPF",
+  "xpress-pass": "Xpress Pass",
+  "fleet": "Fleet & Dealership",
+  "ceramic-paint-correction": "Ceramic & Paint Correction",
+  "cancellation-policy": "Cancellation Policy",
+  "calgary-detailing-price-comparison": "Price Comparison",
+  "auto-detailing": "Auto Detailing",
+  "rv-detailing": "RV Detailing",
+  "ceramic-coating": "Ceramic Coating",
+  "paint-correction": "Paint Correction",
+  "reviews": "Reviews",
+  "training/signup": "Request a Seat",
+  "why-choose-us": "Why Xpress",
   "/": "Home",
   "detailing": "Car Detailing",
 
@@ -22,21 +38,12 @@ const ROUTE_LABELS: Record<string, string> = {
   "rv-rental-fleet": "RV Rental Fleet Care",
   "trailer-rv/ppf": "RV PPF",
   "terms-of-service": "Terms of Service",
-  "cancellation-policy": "Cancellation Policy",
-  "why-choose-us": "Why Choose Us",
   "add-ons": "Add-Ons",
   "training": "Training",
-  "training/signup": "Training Signup",
   "windshield-ppf": "Windshield PPF",
   "monthly-plan": "The Xpress Pass",
   "marine": "Marine & Pontoon Detailing",
-  "calgary-detailing-price-comparison": "Calgary Detailing Price Comparison",
   "exterior-detailing": "Exterior Detailing",
-  "auto-detailing": "Auto Detailing",
-  "rv-detailing": "RV Detailing",
-  "ceramic-coating": "Ceramic Coating",
-  "paint-correction": "Paint Correction",
-  "reviews": "Reviews",
 };
 
 
@@ -60,6 +67,7 @@ export const useBreadcrumbSegments = () => {
       accumulated += `/${part}`;
       const isLast = index === parts.length - 1;
       const key = accumulated.replace(/^\//, "");
+      if (NO_PAGE.has(key)) return;
       const label =
         ROUTE_LABELS[key] ||
         ROUTE_LABELS[accumulated] ||
@@ -97,7 +105,7 @@ const AutoBreadcrumbs = ({ className, currentLabel }: Props) => {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
       <div className={cn("bg-brand-dark border-b border-primary-foreground/10", className)}>
-        <div className="container">
+        <div className="shell">
           <nav aria-label="breadcrumb" className="flex items-center h-7 overflow-x-auto no-scrollbar">
             <ol className="flex items-center gap-1 whitespace-nowrap">
               {displaySegments.map((segment, index) => (

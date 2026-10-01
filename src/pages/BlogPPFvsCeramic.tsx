@@ -1,3 +1,5 @@
+import ClosingCTA from "@/components/site/ClosingCTA";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 import { Link } from "react-router-dom";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
@@ -6,7 +8,6 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import heroImg from "@/assets/gallery-bmw-emblem.jpg";
 import { Snowflake, ShieldCheck, Droplets, CheckCircle } from "lucide-react";
-import { BOOKING_URL } from "@/data/pricing";
 
 const PUBLISHED = "2026-07-30";
 
@@ -21,17 +22,17 @@ const faqs = [
   },
   {
     q: "Can PPF be installed in Calgary winter?",
-    a: "Film installs need a controlled, heated environment. We schedule PPF work indoors year-round, but the ideal time is before the first snowfall so the front end is protected for the full sanding and salting season.",
+    a: "Film installs need a controlled, heated environment, so the ideal time is before the first snowfall. We install windshield film and RV film; for paint film on a car, choose an installer with a heated bay.",
   },
   {
     q: "How long does each last on Alberta roads?",
-    a: "Quality PPF like XPEL or 3M typically lasts 7-10 years. A professional ceramic coating lasts 2-5 years depending on the product tier and how the vehicle is washed and stored through winter.",
+    a: "Quality paint protection film typically lasts 7 to 10 years. A professional ceramic coating lasts 1 to 9 years depending on the product tier and how the vehicle is washed and stored through winter.",
   },
 ];
 
 const BlogPPFvsCeramic = () => (
   <PageTransition>
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
       <SEO
         title="PPF vs Ceramic Coating for Calgary Winters"
         description="Road salt, mag chloride and Deerfoot gravel attack paint differently. Here's how PPF and ceramic coating compare — and why Calgary drivers often need both."
@@ -47,10 +48,10 @@ const BlogPPFvsCeramic = () => (
             datePublished: PUBLISHED,
             dateModified: PUBLISHED,
             mainEntityOfPage: "https://xpressautodetail.ca/blog/ppf-vs-ceramic-coating-calgary",
-            author: { "@type": "Organization", name: "Xpress Auto Detailing" },
+            author: { "@type": "Organization", name: "Xpress Auto & RV Detailing" },
             publisher: {
               "@type": "Organization",
-              name: "Xpress Auto Detailing",
+              name: "Xpress Auto & RV Detailing",
               url: "https://xpressautodetail.ca",
             },
           },
@@ -84,7 +85,7 @@ const BlogPPFvsCeramic = () => (
       <article>
         {/* Hero */}
         <header className="bg-brand-dark py-16 md:py-24">
-          <div className="container max-w-3xl">
+          <div className="shell max-w-3xl">
             <h1 className="font-heading font-semibold text-3xl md:text-5xl text-primary-foreground mb-5">
               PPF vs Ceramic Coating for Calgary Winters
             </h1>
@@ -94,30 +95,30 @@ const BlogPPFvsCeramic = () => (
               One product stops impacts, the other stops chemistry. Here's how to choose — or combine — them for
               Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County roads.
             </p>
-            <p className="text-primary-foreground/60 text-xs font-heading mt-6">
-              Published July 30, 2026 · Xpress Auto Detailing
+            <p className="mt-6 text-sm text-primary-foreground/60">
+              Published July 30, 2026 by Xpress Auto &amp; RV Detailing
             </p>
           </div>
         </header>
 
-        <div className="container max-w-3xl py-6">
+        <div className="shell max-w-3xl py-8">
           <img
             src={heroImg}
             alt="Freshly protected vehicle paint after ceramic coating in Calgary"
             width={1200}
             height={800}
             loading="eager"
-            className="w-full rounded-lg object-cover"
+            className="w-full rounded-[10px] object-cover"
           />
         </div>
 
         {/* Body */}
-        <div className="container max-w-3xl pb-16 space-y-12">
+        <div className="shell max-w-3xl space-y-14 pb-20">
           <section>
-            <h2 className="font-heading font-semibold text-2xl text-foreground mb-4">
+            <h2 className="font-heading font-semibold text-2xl tracking-tight text-ink mb-4">
               What Calgary winter actually does to your paint
             </h2>
-            <div className="space-y-4 text-foreground/80 leading-relaxed">
+            <div className="space-y-4 text-ink-2 leading-relaxed">
               <p>
                 Alberta doesn't use plain rock salt alone. The City of Calgary runs an anti-icing program built around
                 salt brine and magnesium chloride, sprayed before and during storms. Mag chloride is hygroscopic — it
@@ -139,35 +140,35 @@ const BlogPPFvsCeramic = () => (
           </section>
 
           <section>
-            <h2 className="font-heading font-semibold text-2xl text-foreground mb-6">Side-by-side comparison</h2>
+            <h2 className="font-heading font-semibold text-2xl text-ink mb-6">Side-by-side comparison</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="rounded-lg border border-border p-6">
+              <div className="rounded-[10px] border border-line p-6">
                 <ShieldCheck className="w-9 h-9 text-primary mb-3" />
-                <h3 className="font-heading font-bold text-foreground mb-3">Paint Protection Film (PPF)</h3>
-                <ul className="space-y-2 text-sm text-foreground/80">
+                <h3 className="font-heading font-semibold text-ink mb-3">Paint Protection Film (PPF)</h3>
+                <ul className="space-y-2 text-sm text-ink-2">
                   <li>Thick self-healing urethane film, roughly 8 mil</li>
                   <li>Absorbs gravel strikes, sand blasting and road debris</li>
                   <li>Best on front bumper, hood, fenders, mirrors, rockers, headlights</li>
-                  <li>Typically 7-10 years with XPEL or 3M film</li>
+                  <li>Typically 7 to 10 years with quality film</li>
                   <li>Higher upfront cost, highest resale protection</li>
                 </ul>
               </div>
-              <div className="rounded-lg border border-border p-6">
+              <div className="rounded-[10px] border border-line p-6">
                 <Droplets className="w-9 h-9 text-primary mb-3" />
-                <h3 className="font-heading font-bold text-foreground mb-3">Ceramic Coating</h3>
-                <ul className="space-y-2 text-sm text-foreground/80">
+                <h3 className="font-heading font-semibold text-ink mb-3">Ceramic Coating</h3>
+                <ul className="space-y-2 text-sm text-ink-2">
                   <li>Hard, slick chemical barrier bonded to the clear coat</li>
                   <li>Stops salt, brine and mag chloride from etching or staining</li>
                   <li>Covers the whole vehicle, including glass and wheels</li>
-                  <li>Typically 2-5 years depending on product tier</li>
+                  <li>Typically 1 to 9 years depending on product tier</li>
                   <li>Makes winter washes far faster — grime releases instead of bonding</li>
                 </ul>
               </div>
             </div>
-            <div className="mt-6 rounded-lg border border-primary/40 bg-primary/5 p-6">
+            <div className="mt-6 rounded-[10px] border border-electric/40 bg-electric-soft p-6">
               <div className="flex gap-3">
-                <Snowflake className="w-6 h-6 text-primary shrink-0 mt-0.5" />
-                <p className="text-sm text-foreground/85 leading-relaxed">
+                <Snowflake className="w-6 h-6 text-electric shrink-0 mt-0.5" />
+                <p className="text-sm text-ink/85 leading-relaxed">
                   <strong>The short answer:</strong> ceramic coating will not stop a rock chip, and PPF on the front end
                   leaves the other 70% of your paint bare to salt. They are complementary, not competing. Film handles
                   impact, coating handles chemistry — and coating can be applied over film so the whole car sheds brine
@@ -178,7 +179,7 @@ const BlogPPFvsCeramic = () => (
           </section>
 
           <section>
-            <h2 className="font-heading font-semibold text-2xl text-foreground mb-4">
+            <h2 className="font-heading font-semibold text-2xl tracking-tight text-ink mb-4">
               What we recommend by vehicle and driving pattern
             </h2>
             <div className="space-y-4">
@@ -204,11 +205,11 @@ const BlogPPFvsCeramic = () => (
                   body: "Rocker and lower-panel film plus a durable coating. Gravel roads and job sites hit low panels hardest, and clean fleet trucks hold resale value.",
                 },
               ].map((item) => (
-                <div key={item.title} className="flex gap-4 rounded-lg border border-border p-5">
-                  <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-1" />
+                <div key={item.title} className="flex gap-4 rounded-[10px] border border-line p-5">
+                  <CheckCircle className="w-5 h-5 text-electric shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-heading font-bold text-sm text-foreground mb-1">{item.title}</h3>
-                    <p className="text-sm text-foreground/80 leading-relaxed">{item.body}</p>
+                    <h3 className="font-heading font-semibold text-sm text-ink mb-1">{item.title}</h3>
+                    <p className="text-sm text-ink-2 leading-relaxed">{item.body}</p>
                   </div>
                 </div>
               ))}
@@ -216,10 +217,10 @@ const BlogPPFvsCeramic = () => (
           </section>
 
           <section>
-            <h2 className="font-heading font-semibold text-2xl text-foreground mb-4">
+            <h2 className="font-heading font-semibold text-2xl tracking-tight text-ink mb-4">
               Timing it right in Alberta
             </h2>
-            <div className="space-y-4 text-foreground/80 leading-relaxed">
+            <div className="space-y-4 text-ink-2 leading-relaxed">
               <p>
                 The ideal window is late September through October — before the first sanding trucks roll out. Paint has
                 to be decontaminated and, in most cases, machine polished before film or coating goes on, because both
@@ -235,66 +236,56 @@ const BlogPPFvsCeramic = () => (
           </section>
 
           <section>
-            <h2 className="font-heading font-semibold text-2xl text-foreground mb-6">Common questions</h2>
+            <h2 className="font-heading font-semibold text-2xl text-ink mb-6">Common questions</h2>
             <div className="space-y-5">
               {faqs.map((f) => (
-                <div key={f.q} className="rounded-lg border border-border p-5">
-                  <h3 className="font-heading font-bold text-foreground mb-2">{f.q}</h3>
-                  <p className="text-sm text-foreground/80 leading-relaxed">{f.a}</p>
+                <div key={f.q} className="rounded-[10px] border border-line p-5">
+                  <h3 className="font-heading font-semibold text-ink mb-2">{f.q}</h3>
+                  <p className="text-sm text-ink-2 leading-relaxed">{f.a}</p>
                 </div>
               ))}
             </div>
           </section>
 
-          <section className="rounded-lg border border-border p-6">
-            <h2 className="font-heading font-semibold text-xl text-foreground mb-4">Keep reading</h2>
+          <section className="rounded-[10px] border border-line p-6">
+            <h2 className="font-heading font-semibold text-xl text-ink mb-4">Keep reading</h2>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/protection/windshield-ppf" className="text-primary font-heading font-bold hover:underline">
+                <Link to="/protection/windshield-ppf" className="text-electric font-heading font-semibold hover:underline">
                   Windshield protection film
                 </Link>
               </li>
               <li>
-                <Link to="/ceramic-paint-correction" className="text-primary font-heading font-bold hover:underline">
+                <Link to="/ceramic-paint-correction" className="text-electric font-heading font-semibold hover:underline">
                   Ceramic coating packages
                 </Link>
               </li>
               <li>
-                <Link to="/protection/windshield-ppf" className="text-primary font-heading font-bold hover:underline">
+                <Link to="/protection/windshield-ppf" className="text-electric font-heading font-semibold hover:underline">
                   Windshield protection film
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-primary font-heading font-bold hover:underline">
+                <Link to="/blog" className="text-electric font-heading font-semibold hover:underline">
                   All detailing guides
                 </Link>
               </li>
             </ul>
           </section>
         </div>
-
-        {/* CTA */}
-        <section className="py-14 bg-primary">
-          <div className="container text-center">
-            <h2 className="font-heading font-semibold text-2xl text-primary-foreground mb-4">
-              Protect it before the first snowfall
-            </h2>
-            <p className="text-primary-foreground/80 max-w-xl mx-auto mb-6">
-              Tell us how you drive and we'll recommend the right mix of film and coating for your vehicle — no upsell.
-            </p>
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-primary-foreground text-primary font-heading font-bold px-8 py-3 rounded text-sm hover:bg-primary-foreground/90 transition-colors"
-            >
-              Book a Consultation
-            </a>
-          </div>
-        </section>
       </article>
 
+      <ClosingCTA
+        title="Protect it before the first snowfall"
+        body="Tell us how you drive and we'll recommend the right protection, with no upsell."
+        mode="quote"
+        quoteHref="/ceramic-paint-correction#assessment"
+        quoteLabel="Book a free paint inspection"
+      />
+
       <Footer />
+      <div className="h-20 lg:hidden" />
+      <StickyMobileCTA />
     </div>
   </PageTransition>
 );

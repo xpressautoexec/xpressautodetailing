@@ -3,176 +3,83 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
+import ClosingCTA from "@/components/site/ClosingCTA";
+import { Section, cardClass } from "@/components/site/Section";
 import SEO from "@/components/SEO";
-import interiorImg from "@/assets/gallery-bmw-red-interior.jpg";
-import exteriorImg from "@/assets/gallery-21.jpg";
+import pricesImg from "@/assets/gallery-1.jpg";
 import paintImg from "@/assets/gallery-bmw-emblem.jpg";
-import gallery5 from "@/assets/gallery-5.jpg";
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-import rvSurveyorFull from "@/assets/gallery-rv-surveyor-full.jpg";
-import catExcavatorExt1 from "@/assets/gallery-cat-excavator-exterior-1.jpg";
-import bmwHeadlight from "@/assets/gallery-bmw-headlight.jpg";
-import { BOOKING_URL } from "@/data/pricing";
 
-
+/** Only published articles belong here. Add a post when its page exists. */
 const posts = [
   {
-    title: "Calgary Car Detailing Prices: Mobile vs Shop Compared",
-    excerpt: "Every package price we charge, what a comparable Calgary shop typically quotes, and where the real cost difference hides. Interior, complete detail, paint correction, System X 9-year graphene — with add-on pricing published up front.",
-    image: gallery1,
+    title: "Calgary car detailing prices: mobile vs shop compared",
+    excerpt: "Every package price we charge, what a comparable Calgary shop typically quotes, and where the real cost difference is. Add-on pricing published up front.",
+    image: pricesImg,
     date: "July 30, 2026",
     href: "/calgary-detailing-price-comparison",
   },
   {
-    title: "PPF vs Ceramic Coating for Calgary Winters: Which Protects Your Paint?",
-    excerpt: "Calgary's salt brine and mag chloride attack paint chemically, while Deerfoot gravel attacks it mechanically. We break down what paint protection film stops, what ceramic coating stops, and how local drivers combine both before the first snowfall.",
+    title: "PPF vs ceramic coating for Calgary winters",
+    excerpt: "Salt brine and mag chloride attack paint chemically; Deerfoot gravel attacks it mechanically. What film stops, what a coating stops, and when each makes sense.",
     image: paintImg,
     date: "July 30, 2026",
     href: "/blog/ppf-vs-ceramic-coating-calgary",
   },
-  {
-    title: "The Xpress Pass: How a Monthly Detailing Membership Pays for Itself",
-    excerpt: "Over 200 Calgarians are already on The Xpress Pass — saving up to 20% on every detail and 15% on every add-on. We break down the real math: how often most owners book, what they actually save in a year, and why locking in your discount beats one-off bookings.",
-    image: bmwHeadlight,
-    date: "May 22, 2026",
-  },
-  {
-    title: "SUV vs Sedan: Why Detailing Larger Vehicles Costs More (And What You're Actually Paying For)",
-    excerpt: "A truck isn't just a bigger sedan — it's more carpet, more leather, deeper crevices, and double the exterior surface area. Here's an honest breakdown of why size-based pricing exists, what extra steps we take on SUVs and trucks, and how to keep larger vehicles in showroom shape for less.",
-    image: gallery3,
-    date: "May 10, 2026",
-  },
-
-  {
-    title: "Spring Paint Decontamination: Why Your Car Needs It After a Calgary Winter",
-    excerpt: "Six months of road salt, mag chloride, and gravel leaves microscopic contamination bonded to your clear coat. We walk through iron decon, clay bar treatment, and a one-step polish to reset your paint before sealing it for summer.",
-    image: bmwHeadlight,
-    date: "April 18, 2026",
-  },
-  {
-    title: "RV Oxidation Removal: Restoring Faded Fiberglass Before Camping Season",
-    excerpt: "That chalky white film on your trailer's gel coat isn't just ugly — it's failing UV protection. Here's the multi-stage compounding and sealing process we use to bring 10-year-old rigs back to a deep, wet gloss that lasts a full season.",
-    image: rvSurveyorFull,
-    date: "April 8, 2026",
-  },
-  {
-    title: "Fleet Detailing ROI: Why Calgary Companies Are Switching to Scheduled Service",
-    excerpt: "Clean trucks book more jobs, sell more units, and last longer between resale. We break down the real numbers behind monthly fleet detailing — including a case study from a 12-vehicle service company that cut their replacement cycle by 18 months.",
-    image: catExcavatorExt1,
-    date: "March 28, 2026",
-  },
-  {
-    title: "Why Mobile Detailing is the Future of Car Care in Calgary",
-    excerpt: "Discover why more Calgary drivers are choosing mobile detailing over traditional car washes — and how it saves you time, money, and hassle. From skipping the drive to the shop to getting dealership-quality results in your own driveway, mobile detailing is changing the game for busy Albertans.",
-    image: gallery5,
-    date: "January 15, 2026",
-  },
-  {
-    title: "Interior Detailing: What's Really Hiding in Your Car?",
-    excerpt: "From bacteria to allergens, learn what's lurking in your car's interior and why professional detailing is essential for your health. Studies show the average steering wheel has more bacteria than a public toilet — here's what you can do about it.",
-    image: interiorImg,
-    date: "January 8, 2026",
-  },
-  {
-    title: "Ceramic Coating vs. Wax: Which is Better for Calgary Winters?",
-    excerpt: "We break down the pros and cons of ceramic coating and wax to help you decide the best protection for Alberta's harsh weather. Spoiler: one of them lasts 50x longer than the other.",
-    image: paintImg,
-    date: "December 20, 2025",
-  },
-  {
-    title: "5 Signs Your Car Needs a Professional Detail",
-    excerpt: "Not sure if your car needs detailing? Here are five telltale signs it's time to book a professional service — from mystery smells to fading paint that's lost its sparkle.",
-    image: exteriorImg,
-    date: "December 10, 2025",
-  },
-  {
-    title: "How to Protect Your Car's Paint Through Calgary Winters",
-    excerpt: "Road salt, gravel, and freezing temperatures wreak havoc on your vehicle's finish. Learn the essential steps to protect your paint and keep it looking sharp from November to March.",
-    image: gallery1,
-    date: "November 28, 2025",
-  },
-  {
-    title: "The Complete Guide to Detailing Your Car Before Selling It",
-    excerpt: "Want to get top dollar for your trade-in or private sale? A professional detail can increase your vehicle's perceived value by $1,000–$3,000. Here's exactly what to do and why it works.",
-    image: gallery3,
-    date: "November 15, 2025",
-  },
 ];
 
 const Blog = () => (
-  <PageTransition><div className="min-h-screen">
-    <SEO
-      title="Car Detailing Blog Calgary"
-      description="Expert car detailing tips on paint protection, interior care, ceramic coatings & seasonal prep from Calgary's top-rated mobile detailers."
-      canonical="/blog"
-      jsonLd={{
-        "@context": "https://schema.org",
-        "@type": "Blog",
-        name: "Xpress Auto Detailing Blog",
-        description: "Tips, guides, and insights on car detailing, paint protection, ceramic coatings, and seasonal vehicle care from Calgary's mobile detailing experts.",
-        url: "https://xpressautodetail.ca/blog",
-        publisher: {
-          "@type": "Organization",
-          name: "Xpress Auto Detailing",
-          url: "https://xpressautodetail.ca",
-        },
-        blogPost: posts.map((p) => ({
-          "@type": "BlogPosting",
-          headline: p.title,
-          description: p.excerpt,
-          datePublished: p.date,
-          author: { "@type": "Organization", name: "Xpress Auto Detailing" },
-        })),
-      }}
-    />
-    <Navbar />
-        <AutoBreadcrumbs />
-    <section className="py-20 bg-background">
-      <div className="container">
-        <h1 className="font-heading font-semibold text-3xl md:text-4xl text-foreground text-center mb-4">Car Detailing Tips & Guides — Calgary</h1>
-        <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">Tips, insights, and news from Calgary's trusted mobile detailing experts. Stay informed about the best ways to protect and maintain your vehicle.</p>
-
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {posts.map((post, i) => (
-            <article key={i} className="bg-background rounded-lg overflow-hidden group border border-border hover:border-primary/30 transition-colors">
-              <div className="h-48 overflow-hidden">
-                <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+  <PageTransition>
+    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+      <SEO
+        title="Detailing Guides | Xpress Auto & RV Detailing"
+        description="Plain-language guides on detailing prices, paint protection and seasonal vehicle care in Calgary."
+        canonical="/blog"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          name: "Xpress Auto & RV Detailing guides",
+          url: "https://xpressautodetail.ca/blog",
+          blogPost: posts.map((p) => ({
+            "@type": "BlogPosting",
+            headline: p.title,
+            description: p.excerpt,
+            datePublished: "2026-07-30",
+            url: `https://xpressautodetail.ca${p.href}`,
+          })),
+        }}
+      />
+      <Navbar />
+      <AutoBreadcrumbs />
+      <section className="border-b border-line bg-surface py-14 sm:py-20">
+        <div className="shell">
+          <h1 className="font-heading text-4xl font-semibold tracking-[-0.03em] text-ink sm:text-5xl">Guides</h1>
+          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink-2">
+            Plain answers on pricing, paint protection and keeping a vehicle in shape through Calgary seasons.
+          </p>
+        </div>
+      </section>
+      <Section>
+        <div className="grid gap-6 md:grid-cols-2">
+          {posts.map((post) => (
+            <Link key={post.href} to={post.href} className={`${cardClass} group flex flex-col overflow-hidden transition-colors hover:border-ink-2`}>
+              <img src={post.image} alt="" loading="lazy" className="aspect-[16/9] w-full object-cover" />
+              <div className="flex flex-1 flex-col p-6">
+                <p className="text-sm text-muted-ink">{post.date}</p>
+                <h2 className="mt-2 font-heading text-xl font-semibold text-ink group-hover:text-electric">{post.title}</h2>
+                <p className="mt-3 flex-1 text-[15px] leading-relaxed text-ink-2">{post.excerpt}</p>
+                <span className="mt-5 text-sm font-semibold text-electric">Read the guide</span>
               </div>
-              <div className="p-6">
-                <p className="text-primary text-xs font-heading font-semibold mb-2">{post.date}</p>
-                <h3 className="font-heading font-bold text-lg text-foreground mb-3 group-hover:text-primary transition-colors">{post.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{post.excerpt}</p>
-                {post.href ? (
-                  <Link to={post.href} className="text-primary font-heading font-bold text-sm hover:text-brand-blue-glow transition-colors">
-                    Read More →
-                  </Link>
-                ) : (
-                  <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="text-primary font-heading font-bold text-sm hover:text-brand-blue-glow transition-colors">
-                    Read More →
-                  </a>
-                )}
-              </div>
-            </article>
+            </Link>
           ))}
         </div>
-      </div>
-    </section>
-
-    <section className="py-12 bg-primary">
-      <div className="container text-center">
-        <h2 className="font-heading font-semibold text-xl text-primary-foreground mb-4">Ready to Experience the Difference?</h2>
-        <p className="text-primary-foreground/80 max-w-lg mx-auto mb-6">
-          Stop reading about it and start experiencing it. Book your mobile detail today and see why Calgary trusts Xpress Auto Detailing.
-        </p>
-        <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-foreground text-primary font-heading font-bold px-8 py-3 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
-          Book Now
-        </a>
-      </div>
-    </section>
-
-    <Footer />
-  </div></PageTransition>
+      </Section>
+      <ClosingCTA />
+      <Footer />
+      <div className="h-20 lg:hidden" />
+      <StickyMobileCTA />
+    </div>
+  </PageTransition>
 );
 
 export default Blog;

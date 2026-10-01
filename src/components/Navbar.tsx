@@ -52,7 +52,7 @@ const Navbar = () => {
                 <Link
                   to={link.href}
                   aria-current={active ? "page" : undefined}
-                  className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors rounded-md ${
+                  className={`flex items-center gap-1 whitespace-nowrap px-2.5 py-2 text-sm font-medium transition-colors rounded-md ${
                     active ? "text-primary-foreground" : "text-brand-gray hover:text-primary-foreground hover:bg-primary-foreground/5"
                   }`}
                 >
@@ -96,15 +96,15 @@ const Navbar = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <a href={telHref} className="flex items-center gap-2 text-sm font-medium text-primary-foreground hover:text-primary transition-colors">
+          <a href={telHref} aria-label={`Call ${PHONE}`} className="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-primary-foreground hover:text-primary-foreground/80 transition-colors">
             <Phone className="w-4 h-4" aria-hidden="true" />
-            {PHONE}
+            <span className="hidden xl:inline">{PHONE}</span>
           </a>
           <a
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-md bg-electric px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-electric-2 transition-colors"
+            className="whitespace-nowrap rounded-md bg-electric px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-electric-2 transition-colors"
           >
             Book a detail
           </a>

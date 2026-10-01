@@ -34,13 +34,14 @@ import {
 } from "@/data/pricing";
 import { WATER_LINE } from "@/data/copy";
 
+const RV_INTERIOR_RATE = RV_SERVICES.find((s) => s.id === "interior")?.price ?? 0;
 const telHref = `tel:${PHONE.replace(/-/g, "")}`;
 const EXAMPLE_FT = 30;
 
 const faqs = [
   {
     q: "How is RV and trailer work priced?",
-    a: "By the foot. Pick a package or individual services and we multiply by the length of the unit. A 30 ft trailer on Wash & Seal at $24/ft is $720. Interior work is billed at $90/hr.",
+    a: `By the foot. Pick a package or individual services and we multiply by the length of the unit. A 30 ft trailer on ${RV_BUNDLES[0].name} at ${money(RV_BUNDLES[0].price)}/ft is ${money(RV_BUNDLES[0].price * 30)}. Interior work is billed at ${money(RV_INTERIOR_RATE)}/hr.`,
   },
   {
     q: "Can I finance an RV restoration?",
@@ -185,7 +186,7 @@ const TrailerRV = () => (
           alt="Xpress technician restoring the sidewall of a Class A motorhome in a Calgary driveway"
           width={1920}
           height={1080}
-          fetchPriority="high"
+          {...{ fetchpriority: "high" }}
           className="absolute inset-0 -z-10 h-full w-full object-cover object-[70%_center]"
         />
         <div
@@ -478,7 +479,7 @@ const TrailerRV = () => (
             lengthLabel="Unit length (feet)"
             title="RV & trailer estimator"
             defaultSelected={["wash", "sealant"]}
-            note="Estimate only. Interior detailing is billed at $90/hr and decals are per decal. Final price confirmed after we see the unit."
+            note={`Estimate only. Interior detailing is billed at ${money(RV_INTERIOR_RATE)}/hr and decals are per decal. Final price confirmed after we see the unit.`}
           />
         </div>
       </section>

@@ -44,7 +44,7 @@ const ServicePageHero = ({ title, image, ctaType = "book", subtitle, titleAs = "
       <img
         src={image}
         alt=""
-        fetchPriority="high"
+        {...{ fetchpriority: "high" }}
         className="absolute inset-0 -z-10 h-full w-full object-cover"
       />
       <div

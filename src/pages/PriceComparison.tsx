@@ -1,23 +1,14 @@
 import { Link } from "react-router-dom";
-import {
-  CheckCircle,
-  XCircle,
-  Clock,
-  MapPin,
-  DollarSign,
-  ShieldCheck,
-  Sparkles,
-  Car,
-  ArrowRight,
-  Phone,
-} from "lucide-react";
+import { Clock, MapPin, DollarSign, Car, Phone } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import SEO, { buildFAQJsonLd, localBusinessJsonLd } from "@/components/SEO";
 import ServiceFAQ from "@/components/ServiceFAQ";
-import ScrollReveal from "@/components/ScrollReveal";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
+import ClosingCTA from "@/components/site/ClosingCTA";
+import { Section, SectionHeading, btnPrimary, btnSecondaryDark, cardClass, textLink } from "@/components/site/Section";
 import {
   ADDONS,
   AUTO_PACKAGES,
@@ -28,7 +19,7 @@ import {
   PHONE,
   money,
 } from "@/data/pricing";
-import { CERAMIC_CERTIFICATIONS } from "@/data/copy";
+import { CERAMIC_CERTIFICATIONS, NAP, SERVICE_AREA_SENTENCE } from "@/data/copy";
 
 const pkg = (id: string) => AUTO_PACKAGES.find((p) => p.id === id)!;
 const upcharges = (id: string) => {
@@ -133,7 +124,7 @@ const faqs = [
   },
   {
     q: "What is the cheapest way to keep a car clean in Calgary year-round?",
-    a: "A monthly maintenance plan. Recurring service costs far less per visit than repeated one-off deep cleans, because the vehicle never gets far enough gone to need full decontamination each time. See our monthly plan for current pricing.",
+    a: "A scheduled plan like the Xpress Pass. Recurring service costs far less per visit than repeated one-off deep cleans, because the vehicle never gets far enough gone to need full decontamination each time.",
   },
   {
     q: "Is a 9-year graphene ceramic coating worth the price?",
@@ -141,13 +132,13 @@ const faqs = [
   },
   {
     q: "Do you charge extra to travel in Calgary?",
-    a: "No travel fee within Calgary, Airdrie, Chestermere, Cochrane, Okotoks and Rocky View County. Call 587-500-4523 if you're further out and we'll confirm before booking.",
+    a: `No travel fee within ${SERVICE_AREA_SENTENCE}. Call ${PHONE} if you're further out and we'll confirm before booking.`,
   },
 ];
 
 const PriceComparison = () => (
   <PageTransition>
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
       <SEO
         title="Calgary Car Detailing Prices Compared"
         description="Real 2026 car detailing prices in Calgary. Compare our mobile detailing packages against shop-based rates — interior, complete, correction and ceramic coating."
@@ -161,8 +152,8 @@ const PriceComparison = () => (
             headline: "Calgary Car Detailing Prices: Mobile vs Shop Comparison",
             description:
               "A transparent price comparison of mobile and shop-based car detailing in Calgary, including interior, complete, paint correction and ceramic coating.",
-            author: { "@type": "Organization", name: "Xpress Auto Detailing" },
-            publisher: { "@type": "Organization", name: "Xpress Auto Detailing" },
+            author: { "@type": "Organization", name: "Xpress Auto & RV Detailing" },
+            publisher: { "@type": "Organization", name: "Xpress Auto & RV Detailing" },
             mainEntityOfPage:
               "https://xpressautodetail.ca/calgary-detailing-price-comparison",
           },
@@ -170,314 +161,159 @@ const PriceComparison = () => (
       />
       <Navbar />
         <AutoBreadcrumbs />
-      {/* Hero */}
-      <section className="pt-28 pb-16 bg-foreground">
-        <div className="container max-w-4xl text-center px-4">
-          <ScrollReveal>
-            <span className="inline-flex items-center gap-2 text-primary font-heading font-bold text-xs mb-4">
-              <DollarSign className="w-4 h-4" /> Calgary Pricing Guide · 2026
-            </span>
-            <h1 className="font-heading font-semibold text-3xl sm:text-4xl md:text-5xl text-background mb-5 leading-tight">
-              Car Detailing Prices in Calgary:{" "}
-              Mobile vs Shop
-            </h1>
-            <p className="text-background/70 leading-relaxed max-w-2xl mx-auto mb-8">
-              Every detailing package we offer, what a comparable Calgary shop
-              typically charges, and where the real cost difference actually
-              shows up. No hidden fees, no "call for pricing" on standard
-              services.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold px-8 py-3.5 rounded-lg text-sm hover:bg-primary/90 transition-colors"
-              >
-                Book Online <ArrowRight className="w-4 h-4" />
-              </a>
-              <a
-                href={`tel:${PHONE}`}
-                className="inline-flex items-center justify-center gap-2 border border-background/30 text-background font-heading font-bold px-8 py-3.5 rounded-lg text-sm hover:bg-background/10 transition-colors"
-              >
-                <Phone className="w-4 h-4" /> {PHONE}
-              </a>
-            </div>
-          </ScrollReveal>
+      <section className="bg-brand-dark">
+        <div className="shell py-16 sm:py-24">
+          <h1 className="max-w-3xl font-heading text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-primary-foreground sm:text-5xl">
+            Car detailing prices in Calgary: mobile vs shop
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
+            Every package we offer, what a comparable Calgary shop typically charges, and where the real cost
+            difference shows up. No "call for pricing" on standard services.
+          </p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className={btnPrimary}>
+              Book a detail
+            </a>
+            <a href={NAP.phoneHref} className={btnSecondaryDark}>
+              <Phone className="h-4 w-4" aria-hidden="true" /> {PHONE}
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Price table */}
-      <section className="py-16 bg-background">
-        <div className="container max-w-5xl px-4">
-          <ScrollReveal>
-            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-3">
-              Side-by-Side Price Comparison
-            </h2>
-            <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-10 text-sm">
-              Our published sedan pricing versus the range Calgary shop-based
-              detailers typically quote for comparable work. Shop ranges are
-              market estimates gathered from published local menus and will vary
-              by provider and vehicle condition.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.1}>
-            <div className="overflow-x-auto rounded-xl border border-border">
-              <table className="w-full text-left min-w-[640px]">
-                <thead className="bg-muted">
-                  <tr>
-                    <th className="p-4 font-heading font-bold text-xs text-foreground">
-                      Service
-                    </th>
-                    <th className="p-4 font-heading font-bold text-xs text-primary">
-                      Xpress (Mobile)
-                    </th>
-                    <th className="p-4 font-heading font-bold text-xs text-foreground">
-                      Typical Calgary Shop
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {priceRows.map((row) => (
-                    <tr key={row.service} className="border-t border-border align-top">
-                      <td className="p-4">
-                        <Link
-                          to={row.link}
-                          className="font-heading font-bold text-sm text-foreground hover:text-primary transition-colors"
-                        >
-                          {row.service}
-                        </Link>
-                        <p className="text-muted-foreground text-xs mt-1.5 leading-relaxed max-w-sm">
-                          {row.note}
-                        </p>
-                      </td>
-                      <td className="p-4 font-heading font-semibold text-lg text-primary whitespace-nowrap">
-                        {row.ours}
-                      </td>
-                      <td className="p-4 font-heading font-semibold text-sm text-muted-foreground whitespace-nowrap">
-                        {row.shop}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className="text-muted-foreground text-xs mt-4">
-              Sedan pricing shown. Car package surcharges: SUVs and trucks {suvRange}, 3-row SUVs and minivans{" "}
-              {rowRange}. Ceramic coating: SUVs +{money(CERAMIC_UPCHARGE.suv)}, 3-row +{money(CERAMIC_UPCHARGE.minivan)}.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Add-ons */}
-      <section className="py-16 bg-muted/40">
-        <div className="container max-w-4xl px-4">
-          <ScrollReveal>
-            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-10">
-              Add-On Pricing, Published Up Front
-            </h2>
-          </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {addOnRows.map((a) => (
-                <div
-                  key={a.name}
-                  className="flex items-center justify-between gap-3 bg-background border border-border rounded-lg px-4 py-3"
-                >
-                  <span className="text-sm text-foreground font-medium">{a.name}</span>
-                  <span className="font-heading font-bold text-sm text-primary whitespace-nowrap">
-                    {a.price}
-                  </span>
-                </div>
+      <Section>
+        <SectionHeading
+          title="Side-by-side prices"
+          intro="Our published sedan pricing against the range Calgary shop-based detailers typically quote for comparable work. Shop ranges are estimates from published local menus and vary by provider and condition."
+        />
+        <div className={`${cardClass} overflow-x-auto`}>
+          <table className="w-full min-w-[640px] text-left text-sm">
+            <thead className="border-b border-line bg-canvas text-muted-ink">
+              <tr>
+                <th scope="col" className="px-5 py-3.5 font-medium">Service</th>
+                <th scope="col" className="px-5 py-3.5 text-right font-medium">Xpress (mobile)</th>
+                <th scope="col" className="px-5 py-3.5 text-right font-medium">Typical Calgary shop</th>
+              </tr>
+            </thead>
+            <tbody>
+              {priceRows.map((row) => (
+                <tr key={row.service} className="border-b border-line align-top last:border-b-0">
+                  <td className="px-5 py-4">
+                    <Link to={row.link} className="font-semibold text-ink hover:text-electric">
+                      {row.service}
+                    </Link>
+                    <p className="mt-1 max-w-md text-xs leading-relaxed text-muted-ink">{row.note}</p>
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-4 text-right font-heading text-lg font-semibold tabular-nums text-ink">{row.ours}</td>
+                  <td className="whitespace-nowrap px-5 py-4 text-right tabular-nums text-muted-ink">{row.shop}</td>
+                </tr>
               ))}
-            </div>
-            <p className="text-muted-foreground text-sm text-center mt-6">
-              Full list on the{" "}
-              <Link to="/detailing?tab=add-ons" className="text-primary font-semibold hover:underline">
-                add-ons page
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-4 text-xs text-muted-ink">
+          Sedan pricing shown. Car package surcharges: SUVs and trucks {suvRange}, 3-row SUVs and minivans {rowRange}.
+          Ceramic coating: SUVs +{money(CERAMIC_UPCHARGE.suv)}, 3-row +{money(CERAMIC_UPCHARGE.minivan)}.
+        </p>
+      </Section>
+
+      <Section tone="surface">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+          <div>
+            <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Add-on prices</h2>
+            <p className="mt-4 text-[15px] text-ink-2">
+              Published up front. Full list on the{" "}
+              <Link to="/detailing#add-ons" className={textLink}>
+                detailing page
               </Link>
               .
             </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Where mobile wins */}
-      <section className="py-16 bg-background">
-        <div className="container max-w-5xl px-4">
-          <ScrollReveal>
-            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-3">
-              Where Mobile Detailing Actually Saves You Money
-            </h2>
-            <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-10 text-sm">
-              The sticker price is only part of it. Here's the part that doesn't
-              show up on a shop invoice.
-            </p>
-          </ScrollReveal>
-          <div className="grid md:grid-cols-2 gap-5">
-            {mobileWins.map((w, i) => (
-              <ScrollReveal key={w.title} delay={0.05 * i}>
-                <div className="h-full bg-background border border-border rounded-xl p-6 hover:border-primary/40 transition-colors">
-                  <w.icon className="w-6 h-6 text-primary mb-3" />
-                  <h3 className="font-heading font-bold text-foreground mb-2">
-                    {w.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {w.desc}
-                  </p>
-                </div>
-              </ScrollReveal>
-            ))}
           </div>
+          <ul className={`${cardClass} divide-y divide-line`}>
+            {addOnRows.map((a) => (
+              <li key={a.name} className="flex items-center justify-between gap-4 px-5 py-3.5">
+                <span className="text-[15px] text-ink">{a.name}</span>
+                <span className="whitespace-nowrap font-heading font-semibold tabular-nums text-ink">{a.price}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-      </section>
+      </Section>
 
-      {/* Honest: when a shop is better */}
-      <section className="py-16 bg-foreground">
-        <div className="container max-w-3xl px-4">
-          <ScrollReveal>
-            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-background text-center mb-4">
-              When a Shop Is the Better Choice
+      <Section>
+        <SectionHeading title="Where mobile saves you money" intro="The sticker price is only part of it." />
+        <dl className="grid gap-x-8 gap-y-10 sm:grid-cols-2">
+          {mobileWins.map((w) => (
+            <div key={w.title} className="border-t-2 border-ink pt-6">
+              <dt className="font-heading text-lg font-semibold text-ink">{w.title}</dt>
+              <dd className="mt-2 text-[15px] leading-relaxed text-ink-2">{w.desc}</dd>
+            </div>
+          ))}
+        </dl>
+      </Section>
+
+      <Section tone="dark">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
+          <div>
+            <h2 className="font-heading text-3xl font-semibold tracking-tight text-primary-foreground sm:text-4xl">
+              When a shop is the better choice
             </h2>
-            <p className="text-background/60 text-center text-sm mb-8">
-              We'd rather tell you than sell you. Mobile isn't the answer for
-              everything.
-            </p>
-            <ul className="space-y-3">
+            <p className="mt-4 text-[15px] text-primary-foreground/65">We'd rather tell you than sell you.</p>
+          </div>
+          <div>
+            <ul className="space-y-4">
               {shopWins.map((s) => (
-                <li key={s} className="flex gap-3 items-start">
-                  <XCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-background/80 text-sm leading-relaxed">{s}</span>
+                <li key={s} className="border-b border-primary-foreground/10 pb-4 text-[15px] text-primary-foreground/85">
+                  {s}
                 </li>
               ))}
             </ul>
-            <p className="text-background/60 text-sm leading-relaxed mt-6">
-              For everything else — interior resets, complete details, paint
-              correction, ceramic coatings and maintenance — mobile service
-              delivers the same result at your address. Call and we'll
-              tell you honestly which service your vehicle needs.
+            <p className="mt-6 text-[15px] leading-relaxed text-primary-foreground/65">
+              For everything else (interior resets, complete details, correction, coatings and maintenance) mobile service
+              delivers the same result at your address.
             </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Value picks */}
-      <section className="py-16 bg-background">
-        <div className="container max-w-5xl px-4">
-          <ScrollReveal>
-            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-10">
-              Best Value by What You're Trying to Do
-            </h2>
-          </ScrollReveal>
-          <div className="grid md:grid-cols-3 gap-5">
-            {[
-              {
-                icon: Sparkles,
-                title: "Selling or trading in",
-                pick: `${pkg("showroom").name}, ${money(pkg("showroom").price.sedan)}`,
-                desc: "A full inside-and-out reset before photos and appraisal, so the car shows at its best to buyers and dealers.",
-                to: "/detailing",
-              },
-              {
-                icon: ShieldCheck,
-                title: "Keeping a car long-term",
-                pick: "System X 9-Year Graphene",
-                desc: "Lowest cost per year of protection if you hold vehicles 5+ years, and salt rinses off far easier through Calgary winters.",
-                to: "/ceramic-paint-correction",
-              },
-              {
-                icon: Clock,
-                title: "Staying clean year-round",
-                pick: "The Xpress Pass monthly plan",
-                desc: "Recurring maintenance beats repeated one-off deep cleans on price per visit, plus discounts on every add-on.",
-                to: "/xpress-pass",
-              },
-            ].map((c, i) => (
-              <ScrollReveal key={c.title} delay={0.05 * i}>
-                <div className="h-full flex flex-col bg-background border border-border rounded-xl p-6 hover:border-primary/40 transition-colors">
-                  <c.icon className="w-6 h-6 text-primary mb-3" />
-                  <h3 className="font-heading font-bold text-foreground mb-1">
-                    {c.title}
-                  </h3>
-                  <p className="font-heading font-semibold text-primary text-sm mb-3">
-                    {c.pick}
-                  </p>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-1">
-                    {c.desc}
-                  </p>
-                  <Link
-                    to={c.to}
-                    className="inline-flex items-center gap-1.5 text-primary font-heading font-bold text-xs hover:gap-2.5 transition-all"
-                  >
-                    See details <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </ScrollReveal>
-            ))}
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* What's included in every price */}
-      <section className="py-16 bg-muted/40">
-        <div className="container max-w-3xl px-4">
-          <ScrollReveal>
-            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-8">
-              What's Included in Every Price
-            </h2>
-            <ul className="grid sm:grid-cols-2 gap-3">
-              {[
-                "Travel within Calgary, Airdrie, Chestermere, Cochrane, Okotoks & Rocky View County",
-                "Our own water and power supply",
-                "Professional-grade P&S, Ducan and System X products",
-                "Published size surcharges — no surprises on arrival",
-                "One technician, start to finish",
-                "Online booking with a confirmed time slot",
-              ].map((item) => (
-                <li key={item} className="flex gap-2.5 items-start">
-                  <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-sm text-foreground leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </ScrollReveal>
+      <Section>
+        <SectionHeading title="Best value by goal" />
+        <div className="grid gap-5 md:grid-cols-3">
+          {[
+            {
+              title: "Selling or trading in",
+              pick: `${pkg("showroom").name}, ${money(pkg("showroom").price.sedan)}`,
+              desc: "A full inside-and-out reset before photos and appraisal, so the car shows at its best.",
+              to: "/detailing",
+            },
+            {
+              title: "Keeping a car long-term",
+              pick: "System X 9-year graphene coating",
+              desc: "Lowest cost per year of protection if you keep vehicles five years or more.",
+              to: "/ceramic-paint-correction",
+            },
+            {
+              title: "Staying clean year-round",
+              pick: "The Xpress Pass",
+              desc: "Scheduled visits at member rates beat repeated one-off deep cleans, plus discounts on every add-on.",
+              to: "/xpress-pass",
+            },
+          ].map((c) => (
+            <Link key={c.title} to={c.to} className={`${cardClass} group flex flex-col p-6 transition-colors hover:border-ink-2`}>
+              <h3 className="font-heading text-lg font-semibold text-ink">{c.title}</h3>
+              <p className="mt-1 text-sm font-semibold text-electric">{c.pick}</p>
+              <p className="mt-3 flex-1 text-[15px] leading-relaxed text-ink-2">{c.desc}</p>
+            </Link>
+          ))}
         </div>
-      </section>
+      </Section>
 
-      <ServiceFAQ title="Calgary Detailing Pricing FAQs" faqs={faqs} />
-
-      {/* CTA */}
-      <section className="py-14 bg-primary">
-        <div className="container text-center px-4">
-          <h2 className="font-heading font-semibold text-xl sm:text-2xl text-primary-foreground mb-3">
-            Know the Price Before You Book
-          </h2>
-          <p className="text-primary-foreground/80 max-w-lg mx-auto mb-6 text-sm">
-            Pick your package online, or call for a custom quote on ceramic
-            coating and correction.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-primary-foreground text-primary font-heading font-bold px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/90 transition-colors"
-            >
-              Book Now <ArrowRight className="w-4 h-4" />
-            </a>
-            <a
-              href={`tel:${PHONE}`}
-              className="inline-flex items-center justify-center gap-2 border border-primary-foreground/40 text-primary-foreground font-heading font-bold px-8 py-3.5 rounded-lg text-sm hover:bg-primary-foreground/10 transition-colors"
-            >
-              <Phone className="w-4 h-4" /> {PHONE}
-            </a>
-          </div>
-        </div>
-      </section>
+      <ServiceFAQ title="Pricing questions" faqs={faqs} />
+      <ClosingCTA title="Know the price before you book" body="Pick a package online, or call for a quote on coating and correction." />
 
       <Footer />
+      <div className="h-20 lg:hidden" />
+      <StickyMobileCTA />
     </div>
   </PageTransition>
 );

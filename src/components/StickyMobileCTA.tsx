@@ -7,7 +7,7 @@ const StickyMobileCTA = () => (
     <div className="flex items-center gap-3">
       <a
         href={`tel:${PHONE.replace(/-/g, "")}`}
-        aria-label={`Call Xpress Auto Detailing at ${PHONE}`}
+        aria-label={`Call Xpress Auto & RV Detailing at ${PHONE}`}
         className="flex min-h-[44px] items-center justify-center gap-2 rounded-md border border-primary-foreground/25 px-5 text-sm font-semibold text-primary-foreground"
       >
         <Phone className="w-4 h-4" aria-hidden="true" />
