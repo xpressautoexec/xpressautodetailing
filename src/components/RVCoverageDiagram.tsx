@@ -17,9 +17,9 @@ const RVCoverageDiagram = ({ level }: CoverageProps) => {
   const fullSides = level === "full-body";
   const rear = level === "full-body";
 
-  const ON = "hsl(var(--primary))";
-  const OFF = "hsl(var(--muted))";
-  const STROKE = "hsl(var(--foreground) / 0.25)";
+  const ON = "hsl(var(--electric))";
+  const OFF = "hsl(var(--line))";
+  const STROKE = "hsl(var(--ink) / 0.25)";
 
   return (
     <div className="w-full">

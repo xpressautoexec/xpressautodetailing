@@ -30,8 +30,6 @@ const ROUTE_LABELS: Record<string, string> = {
   "windshield-ppf": "Windshield PPF",
   "monthly-plan": "The Xpress Pass",
   "marine": "Marine & Pontoon Detailing",
-  "ppf": "Paint Protection Film",
-  "window-tinting": "Window Tinting",
   "calgary-detailing-price-comparison": "Calgary Detailing Price Comparison",
   "exterior-detailing": "Exterior Detailing",
   "auto-detailing": "Auto Detailing",

@@ -1,30 +1,28 @@
-# Xpress Auto Detailing
+# Xpress Auto & RV Detailing
 
-> Mobile auto detailing in Calgary, Airdrie, Chestermere, and Cochrane. Interior, complete, paint correction, ceramic coatings, PPF, RV/trailer detailing, fleet, and training.
-
-Xpress Auto Detailing is a Calgary-area mobile detailing company. We come to homes and businesses for interior cleaning, complete detailing packages, paint correction, ceramic coatings, windshield and full-vehicle paint protection film (PPF), trailer/RV detailing, RV rental fleet care, corporate fleet programs, gift cards, and a hands-on detailing training course.
+> Mobile auto, RV and marine detailing in Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County. Car detailing packages, paint correction, ceramic coating, RV gelcoat restoration with financing, RV and windshield protection film, fleet programs and training.
 
 Contact: 587-500-4523 · support@xpressautodetail.ca
 
 ## Pages
 
-- [Home](/): Overview of services, packages, and service areas.
-- [Car Detailing](/detailing): Interior, exterior, complete detailing packages and add-ons.
-- [Paint Correction & Ceramic Coatings](/paint-ceramics): Multi-stage paint correction and ceramic coating tiers.
-- [Windshield PPF](/windshield-ppf): Windshield paint protection film install.
-- [Trailer & RV Detailing](/trailer-rv): RV and trailer wash, polish, and detail packages.
-- [RV Rental Fleet Care](/rv-rental-fleet): Turnovers, deep cleans, and photo condition reports for RV rental fleets.
-- [RV PPF](/trailer-rv/ppf): Paint protection film for RVs and trailers.
-- [Monthly Plan](/monthly-plan): Recurring monthly detailing subscription.
-- [Corporate Fleet](/corporate-fleet): Fleet detailing programs for businesses.
-- [Gift Cards](/gift-cards): Purchase detailing gift cards.
-- [Gallery](/gallery): Before-and-after photos of recent work.
-- [Why Choose Us](/why-choose-us): Process, guarantee, and differentiators.
-- [Blog](/blog): Detailing tips, guides, and updates.
-- [Training](/training): Professional detailing training course overview.
-- [Training Signup](/training/signup): Enroll in the detailing training course.
-- [Contact](/contact): Get a quote or send a message.
+- [Home](/): Services, packages and service areas.
+- [RV & Trailer](/rv-trailer): RV detailing and gelcoat restoration, priced per foot, with monthly financing on restoration work.
+- [RV Paint Protection Film](/rv-trailer/ppf): Film packages for RV front caps, hoods, rockers and full bodies.
+- [RV Rental Fleet Care](/rv-trailer/rental-fleet): Turnover cleaning for RV rental fleets.
+- [Marine & Pontoon](/marine): Boat and pontoon detailing priced per foot.
+- [Car Detailing](/detailing): Detailing packages by vehicle size, work truck package and add-ons.
+- [Ceramic Coating & Paint Correction](/ceramic-paint-correction): Coating packages with machine correction.
+- [Windshield PPF](/protection/windshield-ppf): Windshield protection film by vehicle size.
+- [The Xpress Pass](/xpress-pass): Detailing membership with per-visit discounts.
+- [Fleet & Dealership](/fleet): On-site fleet and dealership programs.
+- [Reviews](/reviews): Verbatim Google reviews.
+- [Gallery](/gallery): Photos of recent work.
+- [Gift Cards](/gift-cards): Digital detailing gift cards.
+- [Training](/training): Hands-on detailing courses.
+- [Contact](/contact): Phone, email and message form.
 
 ## Optional
 
-- [Terms of Service](/terms-of-service): Legal terms and conditions.
+- [Cancellation Policy](/cancellation-policy): Notice windows and fees for changes.
+- [Terms of Service](/terms-of-service): Terms and conditions.

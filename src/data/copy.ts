@@ -50,14 +50,7 @@ export const NAV_LINKS = [
     ],
   },
   { label: "Ceramic & Paint", href: "/ceramic-paint-correction" },
-  {
-    label: "Protection",
-    href: "/protection/ppf",
-    children: [
-      { label: "PPF & Window Tint", href: "/protection/ppf" },
-      { label: "Windshield PPF", href: "/protection/windshield-ppf" },
-    ],
-  },
+  { label: "Windshield PPF", href: "/protection/windshield-ppf" },
   { label: "Detailing", href: "/detailing" },
   { label: "Xpress Pass", href: "/xpress-pass" },
   { label: "Fleet", href: "/fleet" },
@@ -91,7 +84,6 @@ export const FOOTER_SERVICES = [
   { label: "Marine & pontoon", href: "/marine" },
   { label: "Car detailing", href: "/detailing" },
   { label: "Ceramic coating & paint correction", href: "/ceramic-paint-correction" },
-  { label: "Paint protection film & tint", href: "/protection/ppf" },
   { label: "Windshield PPF", href: "/protection/windshield-ppf" },
   { label: "Fleet & dealership", href: "/fleet" },
   { label: "The Xpress Pass", href: "/xpress-pass" },
@@ -160,8 +152,6 @@ export const REAL_REVIEWS: Review[] = [
 
 export const GOOGLE_REVIEWS_URL = "https://g.page/r/CQ5ISLUTohBKEBM/review";
 
-/** Certification claim on the PPF page is not yet verified. */
-export const PPF_CERTIFICATION_TBC = "{{PPF_CERTIFICATION_TBC}}";
 
 export const ASSESS_DISCLAIMER =
   "No obligation. We'll tell you what it actually needs — including if that's less than you thought.";
@@ -186,15 +176,15 @@ export const CANCELLATION = {
   noShowPct: 50,
   accessWaitMinutes: 30,
   invoiceDays: 14,
-  standardServices: "Car detailing packages, add-ons, work truck packages and Xpress Pass visits",
+  standardServices: "Car detailing packages, add-ons, work truck packages, windshield film and Xpress Pass visits",
   extendedServices:
-    "RV and trailer, marine, paint correction, ceramic coating, paint protection film, window tint and fleet bookings",
+    "RV and trailer, marine, paint correction, ceramic coating, RV paint protection film and fleet bookings",
 };
 
 const C = CANCELLATION;
 
 /** One-sentence version for FAQs and booking widgets. */
-export const CANCELLATION_SUMMARY = `Cancel or reschedule free up to ${C.standardHours} hours before your appointment (${C.extendedHours} hours for RV, marine, correction, coating, PPF, tint and fleet work). Inside that window a late fee applies, and we waive one late change per customer each year.`;
+export const CANCELLATION_SUMMARY = `Cancel or reschedule free up to ${C.standardHours} hours before your appointment (${C.extendedHours} hours for RV, marine, correction, coating and fleet work). Inside that window a late fee applies, and we waive one late change per customer each year.`;
 
 export const CANCELLATION_TIERS = [
   {

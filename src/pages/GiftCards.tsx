@@ -42,7 +42,7 @@ const faqs = [
   },
   {
     q: "What can it be used for?",
-    a: "Any service we offer: car detailing packages, add-ons, ceramic coating, RV and marine work, protection film and tint. If the service costs more than the card, they pay the difference.",
+    a: "Any service we offer: car detailing packages, add-ons, ceramic coating, RV and marine work and windshield film. If the service costs more than the card, they pay the difference.",
   },
   {
     q: "Does it expire?",

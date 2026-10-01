@@ -19,7 +19,7 @@ import { BOOKING_URL } from "@/data/pricing";
 const posts = [
   {
     title: "Calgary Car Detailing Prices: Mobile vs Shop Compared",
-    excerpt: "Every package price we charge, what a comparable Calgary shop typically quotes, and where the real cost difference hides. Interior, complete detail, paint correction, System X 9-year graphene, PPF and tint — with add-on pricing published up front.",
+    excerpt: "Every package price we charge, what a comparable Calgary shop typically quotes, and where the real cost difference hides. Interior, complete detail, paint correction, System X 9-year graphene — with add-on pricing published up front.",
     image: gallery1,
     date: "July 30, 2026",
     href: "/calgary-detailing-price-comparison",

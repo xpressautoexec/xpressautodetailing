@@ -30,7 +30,6 @@ const TrainingSignup = lazy(() => import("./pages/TrainingSignup"));
 const WindshieldPPF = lazy(() => import("./pages/WindshieldPPF"));
 const MonthlyPlan = lazy(() => import("./pages/MonthlyPlan"));
 const MarineDetailing = lazy(() => import("./pages/MarineDetailing"));
-const PaintProtectionFilm = lazy(() => import("./pages/PaintProtectionFilm"));
 const PriceComparison = lazy(() => import("./pages/PriceComparison"));
 
 /* Dedicated, individually prerendered landing routes */
@@ -83,8 +82,8 @@ export const AnimatedRoutes = () => {
         <Route path="/windshield-ppf" element={<WindshieldPPF />} />
         <Route path="/monthly-plan" element={<MonthlyPlan />} />
         <Route path="/marine" element={<MarineDetailing />} />
-        <Route path="/ppf" element={<PaintProtectionFilm />} />
-        <Route path="/window-tinting" element={<Navigate to="/protection/ppf#tint" replace />} />
+        <Route path="/ppf" element={<Navigate to="/ceramic-paint-correction" replace />} />
+        <Route path="/window-tinting" element={<Navigate to="/ceramic-paint-correction" replace />} />
         <Route path="/calgary-detailing-price-comparison" element={<PriceComparison />} />
 
         {/* Dedicated landing routes */}
@@ -100,8 +99,8 @@ export const AnimatedRoutes = () => {
         <Route path="/rv-trailer/ppf" element={<RVPPF />} />
         <Route path="/rv-trailer/rental-fleet" element={<RVRentalFleet />} />
         <Route path="/ceramic-paint-correction" element={<PaintCeramics />} />
-        <Route path="/protection/ppf" element={<PaintProtectionFilm />} />
-        <Route path="/protection/window-tint" element={<Navigate to="/protection/ppf#tint" replace />} />
+        <Route path="/protection/ppf" element={<Navigate to="/ceramic-paint-correction" replace />} />
+        <Route path="/protection/window-tint" element={<Navigate to="/ceramic-paint-correction" replace />} />
         <Route path="/protection/windshield-ppf" element={<WindshieldPPF />} />
         <Route path="/fleet" element={<CorporateFleet />} />
         <Route path="/xpress-pass" element={<MonthlyPlan />} />

@@ -28,9 +28,9 @@ const TILES = [
     alt: "Black Tesla Model S after paint correction and ceramic coating",
   },
   {
-    title: "Paint protection film and tint",
-    body: "Self-healing film for high-impact panels, plus carbon and ceramic tint.",
-    href: "/protection/ppf",
+    title: "Windshield protection film",
+    body: "Clear, self-healing film that takes highway rock strikes instead of the glass.",
+    href: "/protection/windshield-ppf",
     img: protectionImg,
     alt: "Close-up of a BMW hood after protection work",
   },

@@ -170,8 +170,7 @@ const CeramicCoating = () => (
             {[
               { to: "/ceramic-paint-correction", label: "Paint & Ceramics" },
               { to: "/paint-correction", label: "Paint Correction" },
-              { to: "/protection/ppf", label: "Paint Protection Film" },
-              { to: "/protection/ppf#tint", label: "Window Tinting" },
+              { to: "/protection/windshield-ppf", label: "Windshield PPF" },
               { to: "/auto-detailing", label: "Auto Detailing" },
               { to: "/rv-detailing", label: "RV Detailing" },
             ].map((link) => (

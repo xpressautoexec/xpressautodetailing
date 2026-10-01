@@ -518,7 +518,7 @@ const TrailerRV = () => (
             >
               <span>
                 <span className="block font-heading font-semibold text-ink">RV paint protection film</span>
-                <span className="mt-0.5 block text-sm text-muted-ink">Front caps and leading edges, 10-year warranty</span>
+                <span className="mt-0.5 block text-sm text-muted-ink">Front caps and leading edges, up to a 10-year film warranty</span>
               </span>
               <ArrowUpRight className="h-5 w-5 text-muted-ink group-hover:text-ink" aria-hidden="true" />
             </Link>

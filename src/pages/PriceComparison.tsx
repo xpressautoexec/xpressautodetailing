@@ -21,13 +21,11 @@ import ScrollReveal from "@/components/ScrollReveal";
 import {
   ADDONS,
   AUTO_PACKAGES,
-  AUTO_PPF,
   BOOKING_URL,
   CERAMIC_PACKAGES,
   CERAMIC_UPCHARGE,
   PET_HAIR_TIERS,
   PHONE,
-  TINT,
   money,
 } from "@/data/pricing";
 import { CERAMIC_CERTIFICATIONS } from "@/data/copy";
@@ -77,20 +75,6 @@ const priceRows = [
     shop: "$700 – $3,000+",
     note: `1-year, 5-year or 9-year System X graphene. ${CERAMIC_CERTIFICATIONS.join(", ")} coatings.`,
     link: "/ceramic-paint-correction",
-  },
-  {
-    service: "Paint protection film",
-    ours: range(AUTO_PPF.filter((p) => !/Windshield|Screen/.test(p.name)).map((p) => p.price)),
-    shop: "$900 – $6,000+",
-    note: "Partial front, full front, track pack or full body. 10-year manufacturer film warranty.",
-    link: "/protection/ppf",
-  },
-  {
-    service: "Window tint",
-    ours: range(TINT.map((t) => t.price)),
-    shop: "$250 – $900",
-    note: "Carbon or ceramic IR, priced by coverage. Lifetime warranty against bubbling, peeling and colour change.",
-    link: "/protection/ppf#tint",
   },
 ];
 
@@ -166,7 +150,7 @@ const PriceComparison = () => (
     <div className="min-h-screen">
       <SEO
         title="Calgary Car Detailing Prices Compared"
-        description="Real 2026 car detailing prices in Calgary. Compare our mobile detailing packages against shop-based rates — interior, complete, ceramic coating, PPF and tint."
+        description="Real 2026 car detailing prices in Calgary. Compare our mobile detailing packages against shop-based rates — interior, complete, correction and ceramic coating."
         canonical="/calgary-detailing-price-comparison"
         jsonLd={[
           localBusinessJsonLd,
@@ -176,7 +160,7 @@ const PriceComparison = () => (
             "@type": "Article",
             headline: "Calgary Car Detailing Prices: Mobile vs Shop Comparison",
             description:
-              "A transparent price comparison of mobile and shop-based car detailing in Calgary, including interior, complete, ceramic coating, PPF and window tinting.",
+              "A transparent price comparison of mobile and shop-based car detailing in Calgary, including interior, complete, paint correction and ceramic coating.",
             author: { "@type": "Organization", name: "Xpress Auto Detailing" },
             publisher: { "@type": "Organization", name: "Xpress Auto Detailing" },
             mainEntityOfPage:
@@ -372,19 +356,8 @@ const PriceComparison = () => (
             <p className="text-background/60 text-sm leading-relaxed mt-6">
               For everything else — interior resets, complete details, paint
               correction, ceramic coatings and maintenance — mobile service
-              delivers the same result at your address. Our{" "}
-              <Link to="/protection/ppf" className="text-primary font-semibold hover:underline">
-                PPF work
-              </Link>{" "}
-              and{" "}
-              <Link
-                to="/protection/ppf#tint"
-                className="text-primary font-semibold hover:underline"
-              >
-                window tinting
-              </Link>{" "}
-              are scheduled with the right environment in mind — call and we'll
-              tell you honestly which setup your vehicle needs.
+              delivers the same result at your address. Call and we'll
+              tell you honestly which service your vehicle needs.
             </p>
           </ScrollReveal>
         </div>
@@ -483,7 +456,7 @@ const PriceComparison = () => (
           </h2>
           <p className="text-primary-foreground/80 max-w-lg mx-auto mb-6 text-sm">
             Pick your package online, or call for a custom quote on ceramic
-            coating, PPF and tint.
+            coating and correction.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a

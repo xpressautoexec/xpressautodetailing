@@ -329,26 +329,13 @@ export const XPRESS_PASS = [
 export const PASS_ADDON_DISCOUNT = 15; // % off every add-on, all tiers
 // NO 6-MONTH TIER. Do not add one.
 
-// ---------- AUTO PPF ----------
-export const AUTO_PPF = [
-  { name: "Partial Front", price: 999 },
-  { name: "Full Front", price: 1899, popular: true },
-  { name: "Track Pack", price: 2899 },
-  { name: "Full Vehicle", price: 5999 },
-  { name: "Windshield PPF", price: 549 },
-  { name: "Interior Screen PPF", price: 149 },
-];
-
-export const PPF_UPCHARGE = { truckSuvPct: 15, exoticPct: 25 };
-
-// ---------- WINDOW TINT ----------
-export const TINT = [
-  { name: "2 Front Windows", price: 219 },
-  { name: "Rear Windshield", price: 169 },
-  { name: "Full Car (no windshield)", price: 429 },
-  { name: "Full Car + Windshield", price: 629 },
-  { name: "Windshield Only", price: 279 },
-  { name: "Sunroof", price: 119 },
+// ---------- WINDSHIELD PPF ----------
+/** Windshield PPF by vehicle size. Car paint protection film and window tint are no longer offered. */
+export const WINDSHIELD_PPF = [
+  { id: "compact", label: "Compact / Sedan", price: 449, installTime: "2–3 hrs", examples: "Civic, Corolla, Mazda 3, Model 3" },
+  { id: "midsize", label: "Midsize SUV / Crossover", price: 549, installTime: "3–4 hrs", examples: "RAV4, CR-V, Tucson, Model Y, Outback" },
+  { id: "fullsize", label: "Full-size SUV / Truck", price: 649, installTime: "3–4 hrs", examples: "F-150, Silverado, Tahoe, RAM 1500" },
+  { id: "heavy", label: "HD Truck / Van / RV", price: 849, installTime: "4–5 hrs", examples: "F-250/350, Sprinter, Transit, Class A and C" },
 ];
 
 // ---------- TRAINING ----------

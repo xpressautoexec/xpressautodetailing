@@ -250,8 +250,8 @@ const BlogPPFvsCeramic = () => (
             <h2 className="font-heading font-semibold text-xl text-foreground mb-4">Keep reading</h2>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/protection/ppf" className="text-primary font-heading font-bold hover:underline">
-                  Paint Protection Film coverage &amp; pricing
+                <Link to="/protection/windshield-ppf" className="text-primary font-heading font-bold hover:underline">
+                  Windshield protection film
                 </Link>
               </li>
               <li>

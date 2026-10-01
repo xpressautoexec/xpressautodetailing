@@ -90,7 +90,7 @@ const TermsOfService = () => (
                 <li>Unsafe working environments;</li>
                 <li>Insufficient lighting, shelter, water, or space to perform the service.</li>
               </ul>
-              <p className="mb-2">The Client is responsible for providing safe, legal access to the vehicle at the booked address. Coatings, PPF, and tint installations are performed in controlled shop conditions and must be scheduled accordingly.</p>
+              <p className="mb-2">The Client is responsible for providing safe, legal access to the vehicle at the booked address. Coating and film installations need dry, sheltered conditions and are scheduled accordingly.</p>
               <p>The Company reserves the right to reschedule at no penalty to the Client.</p>
             </div>
 
@@ -123,15 +123,14 @@ const TermsOfService = () => (
             </div>
 
             <div>
-              <h2 className="font-heading font-bold text-lg text-foreground mb-3">8. Paint Protection Film (PPF)</h2>
-              <p className="mb-2">PPF installations are performed using XPEL and 3M films. Film warranty terms (including yellowing, cracking, and delamination coverage) follow the manufacturer's published warranty and are subject to registration.</p>
+              <h2 className="font-heading font-bold text-lg text-foreground mb-3">8. RV and Windshield Protection Film</h2>
+              <p className="mb-2">Film warranty terms (including yellowing, cracking, and delamination coverage) follow the manufacturer's published warranty and are subject to registration.</p>
               <p>Minor stretch marks, edge visibility, and relief cuts around complex panels are inherent to PPF installation and are not defects. The Company does not warrant against damage caused by impacts, improper washing, pressure washing at close range, harsh chemicals, or aftermarket modifications performed after installation.</p>
             </div>
 
             <div>
               <h2 className="font-heading font-bold text-lg text-foreground mb-3">9. Window Tinting</h2>
-              <p className="mb-2">Window tint installations are backed by the film manufacturer's warranty against bubbling, peeling, and colour change. Small dust particles, minor imperfections, and initial haze during the curing period (up to 30 days) are normal and are not considered defects.</p>
-              <p>Clients must not roll windows down or clean the interior glass for the manufacturer-recommended curing period. Tint darkness levels are selected by the Client; the Company is not responsible for compliance with jurisdictional VLT regulations on public roads.</p>
+              <p>The Company no longer offers window tinting. Tint installed before October 1, 2026 remains covered by the film manufacturer's warranty against bubbling, peeling and colour change.</p>
             </div>
 
             <div>
@@ -152,14 +151,14 @@ const TermsOfService = () => (
 
             <div>
               <h2 className="font-heading font-bold text-lg text-foreground mb-3">13. Deposit & Payment Requirements</h2>
-              <p className="mb-3">No payment or deposit is taken for standard bookings. For quoted work that requires materials to be ordered in advance, such as paint protection film or window tint, a deposit may be requested; if so, the amount and terms are stated on your written quote and applied toward the total.</p>
+              <p className="mb-3">No payment or deposit is taken for standard bookings. For quoted work that requires materials to be ordered in advance, such as RV paint protection film, a deposit may be requested; if so, the amount and terms are stated on your written quote and applied toward the total.</p>
               <p className="mb-2">The remaining balance is due upon completion of service unless alternative terms have been agreed in writing. Failure to submit payment may result in:</p>
               <ul className="list-disc pl-5 space-y-1 mb-2">
                 <li>Suspension of future bookings;</li>
                 <li>Application of outstanding balance fees;</li>
                 <li>Initiation of collection procedures as permitted by law.</li>
               </ul>
-              <p>All coatings, PPF, tint, and installed materials remain the property of Xpress Auto Detailing until payment is received in full.</p>
+              <p>All coatings, films and installed materials remain the property of Xpress Auto Detailing until payment is received in full.</p>
             </div>
 
             <div>
