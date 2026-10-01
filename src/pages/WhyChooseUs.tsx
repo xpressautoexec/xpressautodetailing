@@ -12,6 +12,7 @@ import { Section, SectionHeading, btnPrimary, btnSecondaryDark } from "@/compone
 import SEO from "@/components/SEO";
 import { BOOKING_URL, FIVE_STAR_REVIEWS, SEASON_STATS, SERVICE_AREAS } from "@/data/pricing";
 import { CERAMIC_CERTIFICATIONS, NAP, SERVICE_AREA_SENTENCE, WATER_LINE } from "@/data/copy";
+import QualityProducts from "@/components/site/QualityProducts";
 
 const STATS = [
   { value: SEASON_STATS.cars, label: "Cars detailed this season" },
@@ -90,6 +91,8 @@ const WhyChooseUs = () => (
       </Section>
 
       <GoogleReviewBadge />
+      <QualityProducts />
+
       <ClosingCTA />
 
       <Footer />

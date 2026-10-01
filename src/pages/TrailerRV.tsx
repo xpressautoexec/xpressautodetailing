@@ -95,26 +95,37 @@ const SECTORS = [
   },
 ];
 
-const STEPS = [
+/** 3M gelcoat restoration sequence. Product names must match what the crew actually carries. */
+const RESTORATION_STEPS = [
   {
-    title: "Walkaround assessment",
-    body: "We measure the unit and check the gelcoat for chalking, fading and stress cracks. Free, no obligation.",
-  },
-  {
-    title: "Written quote by the foot",
-    body: "Per-foot rate times length, in writing, before any work starts. Financing options come with it if you ask.",
+    title: "Assess and quote",
+    product: "Walkaround, measured by the foot",
+    body: "We check the gelcoat for chalking, fading and stress cracks, then quote per foot in writing before any work starts.",
   },
   {
     title: "Decontamination wash",
-    body: "Road film, bugs and black streaks come off first, so correction works on clean gelcoat.",
+    product: "3M Perfect-It Boat Wash",
+    body: "Road film, bugs and black streaks come off first, so every later step works on clean gelcoat.",
   },
   {
-    title: "Correction",
-    body: "Compound and polish to cut out oxidation. Heavily chalked panels are wet sanded before polishing.",
+    title: "Wet sand",
+    product: "3M Trizact abrasive discs",
+    body: "Heavily chalked panels are wet sanded in progressively finer grades to level the oxidized layer evenly.",
+  },
+  {
+    title: "Compound",
+    product: "3M Perfect-It Gelcoat Heavy Cutting Compound",
+    body: "Machine compounding cuts out the remaining oxidation and the sanding marks, bringing colour back to the surface.",
+  },
+  {
+    title: "Polish",
+    product: "3M Perfect-It Gelcoat finishing polish",
+    body: "A finer polish refines the compound haze into a clear, deep gloss across caps and sidewalls.",
   },
   {
     title: "Seal and walkthrough",
-    body: "Ceramic sealant and UV protectant go on, then we walk the unit with you before we leave.",
+    product: "Ceramic sealant and UV protectant",
+    body: "Protection goes on to slow the next round of oxidation, then we walk the unit with you before we leave.",
   },
 ];
 
@@ -401,25 +412,37 @@ const TrailerRV = () => (
         </div>
       </section>
 
-      {/* Process */}
-      <section className="border-y border-line bg-surface py-16 sm:py-24">
-        <div className="shell">
-          <h2 className="max-w-xl font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            How a restoration runs
-          </h2>
-          <ol className="mt-12 grid gap-y-10 md:grid-cols-5 md:gap-x-6">
-            {STEPS.map((s, i) => (
-              <li key={s.title} className="relative md:pr-2">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-ink font-heading text-sm font-semibold tabular-nums text-ink">
-                    {i + 1}
-                  </span>
-                  {i < STEPS.length - 1 && (
-                    <span aria-hidden="true" className="hidden h-px flex-1 bg-line md:block" />
-                  )}
+      {/* 3M restoration process */}
+      <section id="process" className="scroll-mt-24 border-y border-line bg-surface py-16 sm:py-24">
+        <div className="shell grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <img src={logo3m} alt="3M" loading="lazy" className="h-7 w-auto" />
+            <h2 className="mt-6 font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              The 3M gelcoat restoration process
+            </h2>
+            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-ink-2">
+              Oxidized gelcoat is restored, not just waxed over. We follow 3M's step-down sequence for gelcoat and
+              fibreglass: sand only where it's needed, cut, refine, then protect. Each step uses the 3M product built
+              for it, so the finish holds up through Alberta summers instead of fading again by fall.
+            </p>
+            <a
+              href="#assessment"
+              className="mt-8 inline-flex min-h-[48px] items-center justify-center rounded-md bg-electric px-6 text-sm font-semibold text-primary-foreground transition-colors hover:bg-electric-2"
+            >
+              Book a free assessment
+            </a>
+          </div>
+          <ol className="border-t border-line">
+            {RESTORATION_STEPS.map((s, i) => (
+              <li key={s.title} className="grid grid-cols-[2.5rem_1fr] gap-x-4 border-b border-line py-7">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-ink font-heading text-sm font-semibold tabular-nums text-ink">
+                  {i + 1}
+                </span>
+                <div>
+                  <h3 className="font-heading text-lg font-semibold text-ink">{s.title}</h3>
+                  <p className="mt-1 text-sm font-semibold text-electric">{s.product}</p>
+                  <p className="mt-2 text-[15px] leading-relaxed text-ink-2">{s.body}</p>
                 </div>
-                <h3 className="mt-5 font-heading text-lg font-semibold text-ink">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-2">{s.body}</p>
               </li>
             ))}
           </ol>

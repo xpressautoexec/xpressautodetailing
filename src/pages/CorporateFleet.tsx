@@ -17,6 +17,7 @@ import catExcavatorExt1 from "@/assets/gallery-cat-excavator-exterior-1.jpg";
 import catExcavatorExt2 from "@/assets/gallery-cat-excavator-exterior-2.jpg";
 import catExcavator3 from "@/assets/gallery-cat-excavator-3.jpg";
 import { NAP, WATER_LINE } from "@/data/copy";
+import QualityProducts from "@/components/site/QualityProducts";
 
 const WHAT_WE_SERVICE = [
   { title: "Work trucks and vans", body: "Service fleets, trades vans and pickups cleaned on site so they leave the yard presentable." },
@@ -139,6 +140,9 @@ const CorporateFleet = () => (
           <FleetQuoteForm />
         </div>
       </Section>
+
+      <QualityProducts />
+
 
       <ClosingCTA
         title="Keep the fleet on the road"

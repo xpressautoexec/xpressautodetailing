@@ -21,6 +21,7 @@ import marineHelmAsset from "@/assets/marine-helm-seat.jpg.asset.json";
 import marineDecalAsset from "@/assets/marine-decal-detail.jpg.asset.json";
 import { MARINE_SERVICES, money } from "@/data/pricing";
 import { WATER_LINE } from "@/data/copy";
+import QualityProducts from "@/components/site/QualityProducts";
 
 const svc = (name: string) => MARINE_SERVICES.find((s) => s.name === name)!;
 const full = svc("Full Interior + Exterior");
@@ -144,6 +145,9 @@ const MarineDetailing = () => (
           <AssessmentForm source="marine-assessment" title="Your boat" subtitle="Make, length and where it's stored is plenty to start." />
         </div>
       </Section>
+
+      <QualityProducts lines={["3m", "menzerna", "gtechniq", "systemx"]} />
+
 
       <ClosingCTA title="Get it ready for the water" mode="quote" quoteHref="#assessment" quoteLabel="Book a free assessment" />
 

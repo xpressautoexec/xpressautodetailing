@@ -39,6 +39,7 @@ const faqs = [
 
 const PaintCorrection = () => (
   <LandingPage
+    products={["menzerna", "systemx", "gtechniq", "gyeon"]}
     seo={{
       title: "Paint Correction Calgary | Swirl & Scratch Removal",
       description: "Machine paint correction in Calgary that removes swirls, buffer trails and etching, with paint depth readings on every panel.",

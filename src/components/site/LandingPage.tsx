@@ -10,6 +10,8 @@ import ServicePageHero from "@/components/ServicePageHero";
 import GuaranteeStrip from "@/components/site/GuaranteeStrip";
 import ProcessSteps from "@/components/site/ProcessSteps";
 import ClosingCTA from "@/components/site/ClosingCTA";
+import QualityProducts from "@/components/site/QualityProducts";
+import type { ProductLine } from "@/data/copy";
 import { Section, SectionHeading } from "@/components/site/Section";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 
@@ -28,6 +30,7 @@ const LandingPage = ({
   faqs,
   related,
   closing,
+  products,
 }: {
   seo: { title: string; description: string; canonical: string; serviceName: string; serviceDescription: string };
   hero: { title: string; subtitle: string; image: string; ctaType: "book" | "call" };
@@ -37,6 +40,8 @@ const LandingPage = ({
   faqs: { title: string; items: { q: string; a: string }[] };
   related: { label: string; to: string }[];
   closing: { title: string; body?: string; mode: "book" | "quote"; quoteHref?: string; quoteLabel?: string };
+  /** Product lines for the "products we use" band; defaults to the general set. */
+  products?: ProductLine[];
 }) => (
   <PageTransition>
     <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
@@ -86,6 +91,8 @@ const LandingPage = ({
           ))}
         </ul>
       </Section>
+
+      <QualityProducts lines={products} tone="canvas" />
 
       <ClosingCTA {...closing} />
 

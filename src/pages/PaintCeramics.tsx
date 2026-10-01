@@ -16,6 +16,7 @@ import ceramicHero from "@/assets/ceramic-hero.jpg";
 import { Check } from "lucide-react";
 import { CERAMIC_PACKAGES, CERAMIC_UPCHARGE, money } from "@/data/pricing";
 import { CERAMIC_CERTIFICATIONS, NAP } from "@/data/copy";
+import QualityProducts from "@/components/site/QualityProducts";
 
 const stages = [
   {
@@ -189,6 +190,9 @@ const PaintCeramics = () => {
             />
           </div>
         </Section>
+
+        <QualityProducts lines={["systemx", "gtechniq", "gyeon", "menzerna"]} />
+
 
         <ClosingCTA
           title="Not sure which coating you need?"

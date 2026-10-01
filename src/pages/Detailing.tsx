@@ -18,6 +18,7 @@ import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section } from "@/components/site/Section";
 import completeHero from "@/assets/complete-hero.jpg";
 import { AUTO_PACKAGES, PASS_ADDON_DISCOUNT } from "@/data/pricing";
+import QualityProducts from "@/components/site/QualityProducts";
 
 const detailingFAQs = [
   {
@@ -112,6 +113,8 @@ const Detailing = () => {
 
       <GalleryCarousel />
       <ServiceFAQ title="Detailing questions" faqs={detailingFAQs} />
+      <QualityProducts />
+
       <ClosingCTA body="Pick a package and a time. We come to your home, office or storage lot." />
 
       <Footer />

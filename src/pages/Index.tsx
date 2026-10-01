@@ -28,6 +28,7 @@ import {
   money,
   monthlyPayment,
 } from "@/data/pricing";
+import QualityProducts from "@/components/site/QualityProducts";
 
 const STATS = [
   { value: SEASON_STATS.cars, label: "Cars detailed this season" },
@@ -187,6 +188,9 @@ const Index = () => (
           </div>
         </div>
       </section>
+
+      <QualityProducts />
+
 
       <Footer />
       <div className="h-24 lg:hidden" />

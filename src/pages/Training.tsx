@@ -12,6 +12,7 @@ import { Section, SectionHeading, btnPrimary, btnSecondary, cardClass } from "@/
 import heroImg from "@/assets/ceramic-hero.jpg";
 import { TRAINING, TRAINING_TERMS, money } from "@/data/pricing";
 import { CERAMIC_CERTIFICATIONS, NAP, TRAINING_CERTIFICATION } from "@/data/copy";
+import QualityProducts from "@/components/site/QualityProducts";
 
 const trainingFAQs = [
   {
@@ -114,6 +115,12 @@ const Training = () => (
           </Link>
         </div>
       </Section>
+
+      <QualityProducts
+        title="The products you train on"
+        intro="The same professional lines our crews use on paid jobs, so what you learn carries straight into your own work."
+      />
+
 
       <Footer />
       <div className="h-20 lg:hidden" />

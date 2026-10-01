@@ -32,6 +32,7 @@ const COMPARE = [
 
 const CeramicCoating = () => (
   <LandingPage
+    products={["systemx", "gtechniq", "gyeon", "menzerna"]}
     seo={{
       title: "Ceramic Coating Calgary | System X, Gtechniq, Gyeon",
       description: `Ceramic coating in Calgary from ${money(from)}, with decontamination and machine correction included. Built for salt brine and Alberta winters.`,

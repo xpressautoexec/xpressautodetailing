@@ -14,6 +14,7 @@ import heroImg from "@/assets/complete-hero.jpg";
 import xpressPassCard from "@/assets/xpress-pass-card.png";
 import { XPRESS_PASS, PASS_ADDON_DISCOUNT, AUTO_PACKAGES, VEHICLE_SIZES, type VehicleSizeId, money } from "@/data/pricing";
 import { NAP, SERVICE_AREA_SENTENCE } from "@/data/copy";
+import QualityProducts from "@/components/site/QualityProducts";
 
 const maxDiscount = Math.max(...XPRESS_PASS.map((p) => p.discount));
 
@@ -200,6 +201,9 @@ const MonthlyPlan = () => {
         </Section>
 
         <ServiceFAQ title="Xpress Pass questions" faqs={monthlyFAQs} />
+
+        <QualityProducts />
+
 
         <ClosingCTA
           title="Keep it clean on a schedule"

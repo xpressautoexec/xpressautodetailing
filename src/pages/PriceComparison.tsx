@@ -20,6 +20,7 @@ import {
   money,
 } from "@/data/pricing";
 import { CERAMIC_CERTIFICATIONS, NAP, SERVICE_AREA_SENTENCE } from "@/data/copy";
+import QualityProducts from "@/components/site/QualityProducts";
 
 const pkg = (id: string) => AUTO_PACKAGES.find((p) => p.id === id)!;
 const upcharges = (id: string) => {
@@ -309,6 +310,8 @@ const PriceComparison = () => (
       </Section>
 
       <ServiceFAQ title="Pricing questions" faqs={faqs} />
+      <QualityProducts />
+
       <ClosingCTA title="Know the price before you book" body="Pick a package online, or call for a quote on coating and correction." />
 
       <Footer />

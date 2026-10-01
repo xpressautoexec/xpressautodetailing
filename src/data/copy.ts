@@ -30,6 +30,40 @@ export const CERAMIC_CERTIFICATIONS = ["System X", "Gtechniq", "Gyeon"];
 /** Protection film brand installed on RV PPF and windshield film jobs. */
 export const FILM_BRAND = "3M";
 
+/**
+ * Product lines shown in the "Products we use" section on service pages.
+ * Keep each line to what the brand is and what we use it for — no performance claims.
+ */
+export const PRODUCT_LINES = {
+  systemx: {
+    name: "System X",
+    role: "Graphene ceramic coatings",
+    body: "Our long-term paint protection. We're an authorized System X installer, so the 9-year coating carries a manufacturer warranty.",
+  },
+  gtechniq: {
+    name: "Gtechniq",
+    role: "Ceramic coatings and sealants",
+    body: "Coatings and sealants for paint, glass and trim, applied after correction so the finish lasts.",
+  },
+  gyeon: {
+    name: "Gyeon",
+    role: "Ceramic coatings and maintenance",
+    body: "Coatings and top-ups for vehicles already protected, so maintenance matches what's on the paint.",
+  },
+  menzerna: {
+    name: "Menzerna",
+    role: "Compounds and polishes",
+    body: "German-made cutting compounds and finishing polishes for paint correction on cars, trucks and boats.",
+  },
+  "3m": {
+    name: "3M",
+    role: "Protection film and restoration",
+    body: "3M film on RV and windshield installs, and 3M abrasives and compounds for gelcoat restoration.",
+  },
+} as const;
+
+export type ProductLine = keyof typeof PRODUCT_LINES;
+
 /** What every training graduate receives. */
 export const TRAINING_CERTIFICATION = "Xpress Auto & RV Detailing certification";
 

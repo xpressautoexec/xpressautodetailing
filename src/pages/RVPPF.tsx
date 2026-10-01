@@ -16,6 +16,7 @@ import { Check, Minus } from "lucide-react";
 import rvPPFHero from "@/assets/gallery-rv-paint-correction-closeup.jpg";
 import { RV_PPF, money } from "@/data/pricing";
 import { FILM_BRAND, NAP } from "@/data/copy";
+import QualityProducts from "@/components/site/QualityProducts";
 
 type Level = "front-cap" | "front-plus" | "high-impact" | "full-body";
 
@@ -241,6 +242,9 @@ const RVPPF = () => (
           <AssessmentForm source="rv-ppf-inspection" title="Your RV" subtitle="Year, make, length and where it's stored." />
         </div>
       </Section>
+
+      <QualityProducts lines={["3m", "systemx", "gtechniq"]} />
+
 
       <ClosingCTA
         title="Protect the front cap before the next trip"

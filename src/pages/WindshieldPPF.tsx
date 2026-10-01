@@ -21,6 +21,7 @@ import windshieldTruck from "@/assets/windshield-ppf-truck.jpg";
 import windshieldRv from "@/assets/windshield-ppf-rv.jpg";
 import { WINDSHIELD_PPF, money } from "@/data/pricing";
 import { FILM_BRAND, NAP } from "@/data/copy";
+import QualityProducts from "@/components/site/QualityProducts";
 
 const WINDSHIELD_IMAGES: Record<string, string> = {
   compact: windshieldSedan,
@@ -248,6 +249,9 @@ const WindshieldPPF = () => {
         </Section>
 
         <ServiceFAQ title="Windshield film questions" faqs={faqs} />
+
+        <QualityProducts lines={["3m", "systemx", "gtechniq"]} />
+
 
         <ClosingCTA
           title="One chip costs more than the film"

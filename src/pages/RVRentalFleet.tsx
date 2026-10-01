@@ -13,6 +13,7 @@ import { Check } from "lucide-react";
 import rvHero from "@/assets/gallery-rv-surveyor-full.jpg";
 import { RV_FLEET, money } from "@/data/pricing";
 import { NAP, WATER_LINE } from "@/data/copy";
+import QualityProducts from "@/components/site/QualityProducts";
 
 const TIER_DETAIL: Record<string, { blurb: string; includes: string[] }> = {
   "Turnover Basic": {
@@ -111,6 +112,9 @@ const RVRentalFleet = () => (
           <FleetQuoteForm title="Your rental fleet" subtitle="Unit count, lengths and how often they turn over." />
         </div>
       </Section>
+
+      <QualityProducts lines={["3m", "menzerna", "gtechniq", "systemx"]} />
+
 
       <ClosingCTA title="Units back out, ready" mode="quote" quoteHref="#quote" quoteLabel="Request a fleet quote" />
 

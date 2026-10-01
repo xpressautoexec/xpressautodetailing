@@ -28,6 +28,7 @@ const faqs = [
 
 const RVDetailing = () => (
   <LandingPage
+    products={["3m", "menzerna", "gtechniq", "systemx"]}
     seo={{
       title: "RV Detailing Calgary | Mobile RV & Trailer Detailing",
       description: `Mobile RV detailing in Calgary from ${money(from)}/ft: oxidation removal, black streak removal, sealant and interior cleaning, done at your storage lot.`,
