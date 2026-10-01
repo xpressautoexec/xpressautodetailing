@@ -3,12 +3,12 @@ import { BOOKING_URL, PHONE } from "@/data/pricing";
 
 /** One call link, one book button. No countdowns, no scarcity. */
 const StickyMobileCTA = () => (
-  <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-brand-dark/95 backdrop-blur-md border-t border-white/10 px-4 py-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))]">
+  <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-brand-dark/95 backdrop-blur-md border-t border-primary-foreground/10 px-4 py-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))]">
     <div className="flex items-center gap-3">
       <a
         href={`tel:${PHONE.replace(/-/g, "")}`}
         aria-label={`Call Xpress Auto Detailing at ${PHONE}`}
-        className="flex min-h-[44px] items-center justify-center gap-2 rounded-md border border-white/25 px-5 text-sm font-semibold text-white"
+        className="flex min-h-[44px] items-center justify-center gap-2 rounded-md border border-primary-foreground/25 px-5 text-sm font-semibold text-primary-foreground"
       >
         <Phone className="w-4 h-4" aria-hidden="true" />
         Call

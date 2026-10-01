@@ -13,6 +13,9 @@ export const TRUST_CLAIMS = [
   "Our vans carry their own water",
 ];
 
+/** "Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County" */
+export const SERVICE_AREA_SENTENCE = `${SERVICE_AREAS.slice(0, -1).join(", ")} and ${SERVICE_AREAS[SERVICE_AREAS.length - 1]}`;
+
 export const WATER_LINE =
   "Our vans carry their own water and power — storage lot, campground, dealership or driveway, we arrive ready to work.";
 
@@ -62,14 +65,14 @@ export const NAV_LINKS = [
     label: "More",
     href: "/contact",
     children: [
-      { label: "Gift Cards", href: "/gift-cards" },
+      { label: "Reviews", href: "/reviews" },
       { label: "Gallery", href: "/gallery" },
-      { label: "Full Price List", href: "/pricing" },
+      { label: "Why Xpress", href: "/why-choose-us" },
+      { label: "Gift cards", href: "/gift-cards" },
       { label: "Training", href: "/training" },
       { label: "Blog", href: "/blog" },
       { label: "Contact", href: "/contact" },
-      { label: "Cancellation Policy", href: "/cancellation-policy" },
-      { label: "Terms of Service", href: "/terms-of-service" },
+      { label: "Cancellation policy", href: "/cancellation-policy" },
     ],
   },
 ];
@@ -82,29 +85,28 @@ export const SERVICE_AREA_LINKS = [
 ];
 
 export const FOOTER_SERVICES = [
-  { label: "RV & Trailer Detailing", href: "/rv-trailer" },
-  { label: "RV Paint Protection Film", href: "/rv-trailer/ppf" },
-  { label: "RV Rental Fleet Care", href: "/rv-trailer/rental-fleet" },
-  { label: "Ceramic & Paint Correction", href: "/ceramic-paint-correction" },
-  { label: "Detailing", href: "/detailing" },
-  { label: "Interior Detailing", href: "/detailing/interior" },
-  { label: "Complete Detailing", href: "/detailing/complete" },
-  { label: "Paint Protection Film", href: "/protection/ppf" },
-  { label: "Window Tinting", href: "/protection/window-tint" },
-  { label: "Marine & Pontoon", href: "/marine" },
-  { label: "Fleet & Dealership", href: "/fleet" },
+  { label: "RV & trailer detailing", href: "/rv-trailer" },
+  { label: "RV paint protection film", href: "/rv-trailer/ppf" },
+  { label: "RV rental fleet care", href: "/rv-trailer/rental-fleet" },
+  { label: "Marine & pontoon", href: "/marine" },
+  { label: "Car detailing", href: "/detailing" },
+  { label: "Ceramic coating & paint correction", href: "/ceramic-paint-correction" },
+  { label: "Paint protection film & tint", href: "/protection/ppf" },
+  { label: "Windshield PPF", href: "/protection/windshield-ppf" },
+  { label: "Fleet & dealership", href: "/fleet" },
   { label: "The Xpress Pass", href: "/xpress-pass" },
 ];
 
 export const FOOTER_COMPANY = [
+  { label: "Reviews", href: "/reviews" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Full Price List", href: "/pricing" },
+  { label: "Why Xpress", href: "/why-choose-us" },
+  { label: "Price comparison", href: "/calgary-detailing-price-comparison" },
+  { label: "Gift cards", href: "/gift-cards" },
   { label: "Training", href: "/training" },
-  { label: "Gift Cards", href: "/gift-cards" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
-  { label: "Cancellation Policy", href: "/cancellation-policy" },
-  { label: "Terms of Service", href: "/terms-of-service" },
+  { label: "Cancellation policy", href: "/cancellation-policy" },
 ];
 
 /** How it works — used on the home page. */

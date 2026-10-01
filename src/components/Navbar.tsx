@@ -26,8 +26,8 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-brand-dark border-b border-white/10">
-      <div className="container flex items-center justify-between py-3">
+    <header className="sticky top-0 z-50 bg-brand-dark border-b border-primary-foreground/10">
+      <div className="shell flex items-center justify-between py-3">
         <Link to="/" className="shrink-0" aria-label="Xpress Auto & RV Detailing home">
           <img
             src="/xpress-logo-white.png"
@@ -53,7 +53,7 @@ const Navbar = () => {
                   to={link.href}
                   aria-current={active ? "page" : undefined}
                   className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors rounded-md ${
-                    active ? "text-white" : "text-brand-gray hover:text-white hover:bg-white/5"
+                    active ? "text-primary-foreground" : "text-brand-gray hover:text-primary-foreground hover:bg-primary-foreground/5"
                   }`}
                 >
                   {link.label}
@@ -69,7 +69,7 @@ const Navbar = () => {
 
                 {hasChildren && openDesktop === link.label && (
                   <div className="absolute left-0 top-full pt-1 min-w-[16rem]">
-                    <div className="rounded-lg border border-white/10 bg-brand-dark/95 backdrop-blur shadow-2xl overflow-hidden py-1">
+                    <div className="rounded-lg border border-primary-foreground/10 bg-brand-dark/95 backdrop-blur shadow-2xl overflow-hidden py-1">
                       {link.children!.map((child) => {
                         const childActive = isActive(pathname, child.href);
                         return (
@@ -79,8 +79,8 @@ const Navbar = () => {
                             aria-current={childActive ? "page" : undefined}
                             className={`block px-4 py-2.5 text-sm transition-colors ${
                               childActive
-                                ? "text-white bg-white/10"
-                                : "text-brand-gray hover:text-white hover:bg-white/5"
+                                ? "text-primary-foreground bg-primary-foreground/10"
+                                : "text-brand-gray hover:text-primary-foreground hover:bg-primary-foreground/5"
                             }`}
                           >
                             {child.label}
@@ -96,7 +96,7 @@ const Navbar = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <a href={telHref} className="flex items-center gap-2 text-sm font-medium text-white hover:text-primary transition-colors">
+          <a href={telHref} className="flex items-center gap-2 text-sm font-medium text-primary-foreground hover:text-primary transition-colors">
             <Phone className="w-4 h-4" aria-hidden="true" />
             {PHONE}
           </a>
@@ -112,7 +112,7 @@ const Navbar = () => {
 
         <button
           onClick={() => setIsOpen((v) => !v)}
-          className="lg:hidden text-white p-2 -mr-2"
+          className="lg:hidden text-primary-foreground p-2 -mr-2"
           aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={isOpen}
         >
@@ -121,22 +121,22 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <nav aria-label="Mobile" className="lg:hidden border-t border-white/10 bg-brand-dark">
-          <div className="container flex flex-col py-3">
+        <nav aria-label="Mobile" className="lg:hidden border-t border-primary-foreground/10 bg-brand-dark">
+          <div className="shell flex flex-col py-3">
             {NAV_LINKS.map((link: NavLink) => {
               const active = isActive(pathname, link.href);
               const hasChildren = !!link.children?.length;
               const expanded = openMobile[link.label];
 
               return (
-                <div key={link.href} className="border-b border-white/5 last:border-b-0">
+                <div key={link.href} className="border-b border-primary-foreground/5 last:border-b-0">
                   <div className="flex items-center justify-between">
                     <Link
                       to={link.href}
                       onClick={() => setIsOpen(false)}
                       aria-current={active ? "page" : undefined}
                       className={`min-h-[44px] flex-1 flex items-center text-base font-medium ${
-                        active ? "text-white" : "text-brand-gray hover:text-white"
+                        active ? "text-primary-foreground" : "text-brand-gray hover:text-primary-foreground"
                       }`}
                     >
                       {link.label}
@@ -144,7 +144,7 @@ const Navbar = () => {
                     {hasChildren && (
                       <button
                         onClick={() => toggleMobileGroup(link.label)}
-                        className="p-2 text-brand-gray hover:text-white"
+                        className="p-2 text-brand-gray hover:text-primary-foreground"
                         aria-label={`${expanded ? "Collapse" : "Expand"} ${link.label} submenu`}
                         aria-expanded={expanded}
                       >
@@ -167,7 +167,7 @@ const Navbar = () => {
                             onClick={() => setIsOpen(false)}
                             aria-current={childActive ? "page" : undefined}
                             className={`min-h-[40px] flex items-center text-sm ${
-                              childActive ? "text-white" : "text-brand-gray hover:text-white"
+                              childActive ? "text-primary-foreground" : "text-brand-gray hover:text-primary-foreground"
                             }`}
                           >
                             {child.label}
@@ -181,7 +181,7 @@ const Navbar = () => {
             })}
             <a
               href={telHref}
-              className="min-h-[44px] flex items-center gap-2 text-base font-medium text-white"
+              className="min-h-[44px] flex items-center gap-2 text-base font-medium text-primary-foreground"
             >
               <Phone className="w-4 h-4" aria-hidden="true" />
               {PHONE}

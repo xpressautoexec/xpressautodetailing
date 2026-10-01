@@ -228,7 +228,7 @@ const Gallery = () => (
                       loading="lazy"
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span className="text-white font-heading font-bold text-sm">{section.title}</span>
+                      <span className="text-primary-foreground font-heading font-bold text-sm">{section.title}</span>
                     </div>
                   </div>
                 ))}

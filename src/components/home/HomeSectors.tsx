@@ -22,7 +22,7 @@ const TILES = [
   },
   {
     title: "Ceramic coating and paint correction",
-    body: "Machine correction and multi-year coatings, applied on site.",
+    body: "Machine correction and multi-year coatings, from a 1-year to a 9-year graphene.",
     href: "/ceramic-paint-correction",
     img: ceramicImg,
     alt: "Black Tesla Model S after paint correction and ceramic coating",
