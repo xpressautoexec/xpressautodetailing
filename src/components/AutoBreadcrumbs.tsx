@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils";
 const NO_PAGE = new Set(["protection"]);
 
 const ROUTE_LABELS: Record<string, string> = {
-  "protection/windshield-ppf": "Windshield PPF",
   "xpress-pass": "Xpress Pass",
   "fleet": "Fleet & Dealership",
   "ceramic-paint-correction": "Ceramic & Paint Correction",
@@ -18,9 +17,8 @@ const ROUTE_LABELS: Record<string, string> = {
   "rv-detailing": "RV Detailing",
   "ceramic-coating": "Ceramic Coating",
   "paint-correction": "Paint Correction",
-  "reviews": "Reviews",
+  "reviews": "Reviews & Why Xpress",
   "training/signup": "Request a Seat",
-  "why-choose-us": "Why Xpress",
   "/": "Home",
   "detailing": "Car Detailing",
 
@@ -40,7 +38,6 @@ const ROUTE_LABELS: Record<string, string> = {
   "terms-of-service": "Terms of Service",
   "add-ons": "Add-Ons",
   "training": "Training",
-  "windshield-ppf": "Windshield PPF",
   "monthly-plan": "The Xpress Pass",
   "marine": "Marine & Pontoon Detailing",
   "exterior-detailing": "Exterior Detailing",

@@ -7,26 +7,7 @@ import StickyMobileCTA from "@/components/StickyMobileCTA";
 import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section, cardClass } from "@/components/site/Section";
 import SEO from "@/components/SEO";
-import pricesImg from "@/assets/gallery-1.jpg";
-import paintImg from "@/assets/gallery-bmw-emblem.jpg";
-
-/** Only published articles belong here. Add a post when its page exists. */
-const posts = [
-  {
-    title: "Calgary car detailing prices: mobile vs shop compared",
-    excerpt: "Every package price we charge, what a comparable Calgary shop typically quotes, and where the real cost difference is. Add-on pricing published up front.",
-    image: pricesImg,
-    date: "July 30, 2026",
-    href: "/calgary-detailing-price-comparison",
-  },
-  {
-    title: "PPF vs ceramic coating for Calgary winters",
-    excerpt: "Salt brine and mag chloride attack paint chemically; Deerfoot gravel attacks it mechanically. What film stops, what a coating stops, and when each makes sense.",
-    image: paintImg,
-    date: "July 30, 2026",
-    href: "/blog/ppf-vs-ceramic-coating-calgary",
-  },
-];
+import { BLOG_CARDS, formatDate, imageFor } from "@/data/blog";
 
 const Blog = () => (
   <PageTransition>
@@ -40,11 +21,11 @@ const Blog = () => (
           "@type": "Blog",
           name: "Xpress Auto & RV Detailing guides",
           url: "https://xpressautodetail.ca/blog",
-          blogPost: posts.map((p) => ({
+          blogPost: BLOG_CARDS.map((p) => ({
             "@type": "BlogPosting",
             headline: p.title,
             description: p.excerpt,
-            datePublished: "2026-07-30",
+            datePublished: p.date,
             url: `https://xpressautodetail.ca${p.href}`,
           })),
         }}
@@ -60,12 +41,12 @@ const Blog = () => (
         </div>
       </section>
       <Section>
-        <div className="grid gap-6 md:grid-cols-2">
-          {posts.map((post) => (
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {BLOG_CARDS.map((post) => (
             <Link key={post.href} to={post.href} className={`${cardClass} group flex flex-col overflow-hidden transition-colors hover:border-ink-2`}>
-              <img src={post.image} alt="" loading="lazy" className="aspect-[16/9] w-full object-cover" />
+              <img src={imageFor(post.image)} alt="" loading="lazy" className="aspect-[16/9] w-full object-cover" />
               <div className="flex flex-1 flex-col p-6">
-                <p className="text-sm text-muted-ink">{post.date}</p>
+                <p className="text-sm text-muted-ink">{formatDate(post.date)}</p>
                 <h2 className="mt-2 font-heading text-xl font-semibold text-ink group-hover:text-electric">{post.title}</h2>
                 <p className="mt-3 flex-1 text-[15px] leading-relaxed text-ink-2">{post.excerpt}</p>
                 <span className="mt-5 text-sm font-semibold text-electric">Read the guide</span>

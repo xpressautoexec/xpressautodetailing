@@ -1,0 +1,47 @@
+{
+  "slug": "spring-paint-decontamination-calgary",
+  "date": "2026-04-18",
+  "image": "gallery-acura-grey.jpg",
+  "imageAlt": "Grey Acura paint after spring decontamination and polish",
+  "title": "Spring paint decontamination after a Calgary winter",
+  "description": "Why paint feels rough after a Calgary winter, how iron decon and clay remove bonded contamination, and why to do it before sealing for summer.",
+  "excerpt": "Six months of brine, mag chloride and gravel leaves contamination bonded to the clear coat. Iron decon, clay and a light polish reset the paint before summer.",
+  "sections": [
+    {
+      "heading": "Run your hand over the hood",
+      "paragraphs": [
+        "After a wash, slide your fingertips across the hood inside a plastic sandwich bag. If it feels like fine sandpaper, the paint is carrying bonded contamination that a normal wash won't move.",
+        "Most of it is iron: brake dust and rail dust that embeds in the clear coat and rusts in place. The rest is tar, tree sap and road film baked on through freeze and thaw cycles."
+      ]
+    },
+    {
+      "heading": "Step one: iron decontamination",
+      "paragraphs": [
+        "An iron remover reacts with embedded ferrous particles and dissolves them, usually turning purple as it works. It's the safest way to remove the worst contamination without scrubbing."
+      ]
+    },
+    {
+      "heading": "Step two: clay",
+      "paragraphs": [
+        "A clay bar or clay mitt glides over lubricated paint and pulls out what's left above the surface. When it's done, the paint feels like glass. Skipping this step means any wax, sealant or coating sits on top of contamination instead of bonding to the paint."
+      ]
+    },
+    {
+      "heading": "Step three: polish and protect",
+      "paragraphs": [
+        "Winter washing at gas stations leaves light swirls. A one-step polish takes out the haze and brings back the gloss. Then the paint gets sealed, so summer bugs, sap and UV have something to hit besides the clear coat.",
+        "April and May are the best window. The roads are clean enough that the work lasts, and the paint is protected before the summer sun does its own damage."
+      ]
+    }
+  ],
+  "related": [
+    {
+      "label": "Paint correction",
+      "to": "/paint-correction"
+    },
+    {
+      "label": "Ceramic coating",
+      "to": "/ceramic-coating"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "slug": "mobile-detailing-calgary",
+  "date": "2026-01-15",
+  "image": "gallery-5.jpg",
+  "imageAlt": "Xpress detailing van set up in a Calgary driveway",
+  "title": "Why more Calgary drivers choose mobile detailing",
+  "description": "How mobile detailing works in Calgary, what you need to provide (nothing), and how it compares with a car wash or a drop-off detail shop.",
+  "excerpt": "No drive to the shop, no waiting room, no hose or outlet needed. How mobile detailing works and how it compares with a car wash or a drop-off shop.",
+  "sections": [
+    {
+      "heading": "The time cost of a shop",
+      "paragraphs": [
+        "A drop-off detail usually means two trips across town, a ride or a wait, and a car that's gone for most of the day. For a lot of people that's the real reason the detail never gets booked."
+      ]
+    },
+    {
+      "heading": "How mobile detailing works",
+      "paragraphs": [
+        "We arrive at your home, office or storage lot with a self-contained van that carries its own water and power. You don't need to provide a hose or an outlet. The crew works where the vehicle is parked and walks it with you before leaving."
+      ]
+    },
+    {
+      "heading": "Mobile vs a car wash",
+      "paragraphs": [
+        "An automatic wash is fast and cheap but uses the same brushes on every vehicle, which is where most swirl marks come from, and it doesn't touch the interior. A detail is hand work: decontamination, proper drying, interior extraction and protection."
+      ]
+    },
+    {
+      "heading": "Is the quality the same as a shop?",
+      "paragraphs": [
+        "The equipment and products are the same professional lines a shop uses. What changes is where the work happens. In winter, heavier correction and coating work still needs a sheltered space, and we'll tell you when that applies."
+      ]
+    }
+  ],
+  "related": [
+    {
+      "label": "Car detailing packages",
+      "to": "/detailing"
+    },
+    {
+      "label": "Reviews & why Xpress",
+      "to": "/reviews"
+    }
+  ]
+}

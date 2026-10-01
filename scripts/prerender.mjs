@@ -9,7 +9,7 @@
  * Output: dist/<route>/index.html (dist/index.html for "/").
  */
 
-import { mkdirSync, readFileSync, writeFileSync, rmSync, existsSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync, rmSync, existsSync, readdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
@@ -29,16 +29,8 @@ const ROUTES = [
   "/gallery",
   "/reviews",
   "/contact",
-  "/paint-ceramics",
-  "/windshield-ppf",
   "/marine",
-  "/trailer-rv",
-  "/trailer-rv/ppf",
-  "/rv-rental-fleet",
-  "/corporate-fleet",
-  "/monthly-plan",
   "/gift-cards",
-  "/why-choose-us",
   "/training",
   "/training/signup",
   "/blog",
@@ -50,11 +42,35 @@ const ROUTES = [
   "/rv-trailer/ppf",
   "/rv-trailer/rental-fleet",
   "/ceramic-paint-correction",
-  "/protection/windshield-ppf",
   "/fleet",
   "/xpress-pass",
   "/cancellation-policy",
 ];
+
+/** Published blog posts (src/content/blog/*.json, dated today or earlier in Calgary). */
+const TODAY = new Date().toLocaleDateString("en-CA", { timeZone: "America/Edmonton" });
+const BLOG_DIR = resolve("src/content/blog");
+const BLOG_ROUTES = readdirSync(BLOG_DIR)
+  .filter((f) => f.endsWith(".json"))
+  .map((f) => JSON.parse(readFileSync(resolve(BLOG_DIR, f), "utf-8")))
+  .filter((p) => p.date <= TODAY)
+  .map((p) => ({ route: `/blog/${p.slug}`, date: p.date }));
+ROUTES.push(...BLOG_ROUTES.map((b) => b.route));
+
+/** Adds any blog post missing from dist/sitemap.xml so new posts are indexed without hand edits. */
+const addBlogPostsToSitemap = () => {
+  const path = resolve(DIST, "sitemap.xml");
+  if (!existsSync(path)) return;
+  let xml = readFileSync(path, "utf-8");
+  const entries = BLOG_ROUTES.filter((b) => !xml.includes(`https://xpressautodetail.ca${b.route}<`))
+    .map(
+      (b) =>
+        `  <url><loc>https://xpressautodetail.ca${b.route}</loc><lastmod>${b.date}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>`,
+    )
+    .join("\n");
+  if (entries) xml = xml.replace("</urlset>", `${entries}\n</urlset>`);
+  writeFileSync(path, xml);
+};
 
 /**
  * Head tags the per-route Helmet output also emits. They are removed from the
@@ -134,6 +150,8 @@ async function main() {
     rendered += 1;
     console.log(`prerendered ${route} -> ${target.replace(`${DIST}/`, "dist/")}`);
   }
+
+  addBlogPostsToSitemap();
 
   // The SSR bundle is a build artifact only; it must never ship.
   rmSync(SSR_DIST, { recursive: true, force: true });

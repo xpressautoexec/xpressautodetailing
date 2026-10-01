@@ -69,7 +69,6 @@ const CeramicCoating = () => (
     related={[
       { label: "Ceramic coating packages", to: "/ceramic-paint-correction" },
       { label: "Paint correction", to: "/paint-correction" },
-      { label: "Windshield PPF", to: "/protection/windshield-ppf" },
       { label: "Car detailing", to: "/detailing" },
     ]}
     closing={{ title: "Find the right coating", body: "Free paint inspection, no obligation.", mode: "quote", quoteHref: "/ceramic-paint-correction#assessment", quoteLabel: "Book a free paint inspection" }}

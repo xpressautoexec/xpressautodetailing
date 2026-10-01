@@ -28,11 +28,11 @@ const TILES = [
     alt: "Black Tesla Model S after paint correction and ceramic coating",
   },
   {
-    title: "Windshield protection film",
-    body: "Clear, self-healing film that takes highway rock strikes instead of the glass.",
-    href: "/protection/windshield-ppf",
+    title: "The Xpress Pass",
+    body: "A monthly detailing membership with member pricing on every visit and add-on.",
+    href: "/xpress-pass",
     img: protectionImg,
-    alt: "Close-up of a BMW hood after protection work",
+    alt: "Close-up of a BMW hood after a maintenance detail",
   },
   {
     title: "Fleet and dealership",
@@ -45,7 +45,7 @@ const TILES = [
 
 const MORE = [
   { label: "Marine and pontoon", href: "/marine" },
-  { label: "The Xpress Pass", href: "/xpress-pass" },
+  { label: "RV paint protection film", href: "/rv-trailer/ppf" },
   { label: "RV rental fleet care", href: "/rv-trailer/rental-fleet" },
   { label: "Gift cards", href: "/gift-cards" },
 ];

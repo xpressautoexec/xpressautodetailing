@@ -19,15 +19,14 @@ const Gallery = lazy(() => import("./pages/Gallery"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPPFvsCeramic = lazy(() => import("./pages/BlogPPFvsCeramic"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
 const TrailerRV = lazy(() => import("./pages/TrailerRV"));
 const RVRentalFleet = lazy(() => import("./pages/RVRentalFleet"));
 const RVPPF = lazy(() => import("./pages/RVPPF"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
-const WhyChooseUs = lazy(() => import("./pages/WhyChooseUs"));
 const Training = lazy(() => import("./pages/Training"));
 const TrainingSignup = lazy(() => import("./pages/TrainingSignup"));
 
-const WindshieldPPF = lazy(() => import("./pages/WindshieldPPF"));
 const MonthlyPlan = lazy(() => import("./pages/MonthlyPlan"));
 const MarineDetailing = lazy(() => import("./pages/MarineDetailing"));
 const PriceComparison = lazy(() => import("./pages/PriceComparison"));
@@ -63,24 +62,25 @@ export const AnimatedRoutes = () => {
         <Route path="/exterior-detailing" element={<Navigate to="/detailing?tab=exterior" replace />} />
         <Route path="/complete-detailing" element={<Navigate to="/detailing?tab=complete" replace />} />
         <Route path="/add-ons" element={<Navigate to="/detailing?tab=add-ons" replace />} />
-        <Route path="/paint-ceramics" element={<PaintCeramics />} />
-        <Route path="/corporate-fleet" element={<CorporateFleet />} />
+        <Route path="/paint-ceramics" element={<Navigate to="/ceramic-paint-correction" replace />} />
+        <Route path="/corporate-fleet" element={<Navigate to="/fleet" replace />} />
         <Route path="/gift-cards" element={<GiftCards />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/ppf-vs-ceramic-coating-calgary" element={<BlogPPFvsCeramic />} />
-        <Route path="/trailer-rv" element={<TrailerRV />} />
-        <Route path="/rv-rental-fleet" element={<RVRentalFleet />} />
-        <Route path="/trailer-rv/ppf" element={<RVPPF />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/trailer-rv" element={<Navigate to="/rv-trailer" replace />} />
+        <Route path="/rv-rental-fleet" element={<Navigate to="/rv-trailer/rental-fleet" replace />} />
+        <Route path="/trailer-rv/ppf" element={<Navigate to="/rv-trailer/ppf" replace />} />
         <Route path="/terms-conditions" element={<Navigate to="/terms-of-service" replace />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
-        <Route path="/why-choose-us" element={<WhyChooseUs />} />
+        <Route path="/why-choose-us" element={<Navigate to="/reviews" replace />} />
         <Route path="/training" element={<Training />} />
         <Route path="/training/signup" element={<TrainingSignup />} />
 
-        <Route path="/windshield-ppf" element={<WindshieldPPF />} />
-        <Route path="/monthly-plan" element={<MonthlyPlan />} />
+        <Route path="/windshield-ppf" element={<Navigate to="/rv-trailer/ppf" replace />} />
+        <Route path="/monthly-plan" element={<Navigate to="/xpress-pass" replace />} />
         <Route path="/marine" element={<MarineDetailing />} />
         <Route path="/ppf" element={<Navigate to="/ceramic-paint-correction" replace />} />
         <Route path="/window-tinting" element={<Navigate to="/ceramic-paint-correction" replace />} />
@@ -101,7 +101,7 @@ export const AnimatedRoutes = () => {
         <Route path="/ceramic-paint-correction" element={<PaintCeramics />} />
         <Route path="/protection/ppf" element={<Navigate to="/ceramic-paint-correction" replace />} />
         <Route path="/protection/window-tint" element={<Navigate to="/ceramic-paint-correction" replace />} />
-        <Route path="/protection/windshield-ppf" element={<WindshieldPPF />} />
+        <Route path="/protection/windshield-ppf" element={<Navigate to="/rv-trailer/ppf" replace />} />
         <Route path="/fleet" element={<CorporateFleet />} />
         <Route path="/xpress-pass" element={<MonthlyPlan />} />
         <Route path="/pricing" element={<Navigate to="/detailing" replace />} />

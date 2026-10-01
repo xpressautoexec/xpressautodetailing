@@ -1,0 +1,45 @@
+{
+  "slug": "protect-car-paint-calgary-winter",
+  "date": "2025-11-28",
+  "image": "gallery-1.jpg",
+  "imageAlt": "Car paint being washed and protected ahead of winter",
+  "title": "How to protect your car's paint through a Calgary winter",
+  "description": "What brine, mag chloride, gravel and cold do to car paint in Calgary, and the steps that keep a finish in shape from November to March.",
+  "excerpt": "Brine and mag chloride attack paint chemically, gravel attacks it physically, and the cold makes washing harder. The steps that get a finish through to spring.",
+  "sections": [
+    {
+      "heading": "Protect before the first snow",
+      "paragraphs": [
+        "Anything you put on the paint has to be on before the roads turn white. A sealant or ceramic coating gives salt and mag chloride something to sit on besides the clear coat, and makes every winter wash easier."
+      ]
+    },
+    {
+      "heading": "Wash on the warm days",
+      "paragraphs": [
+        "Mag chloride stays damp and keeps working well below freezing. Rinse the vehicle, including the wheel wells and lower panels, whenever there's a stretch above zero. A touchless rinse is better than letting it sit."
+      ]
+    },
+    {
+      "heading": "Watch the front end",
+      "paragraphs": [
+        "Traction gravel at highway speed chips bumpers, hood edges and mirrors. Coatings don't stop impacts. If the vehicle is new or you're keeping it long-term, film on the high-impact areas is the only real defence."
+      ]
+    },
+    {
+      "heading": "Don't forget the inside",
+      "paragraphs": [
+        "Salt walks in on boots and dries into white rings on the carpet. Rubber floor liners catch most of it, and a deep interior clean in spring removes what got through before it stiffens and stains the fibres."
+      ]
+    }
+  ],
+  "related": [
+    {
+      "label": "Ceramic coating",
+      "to": "/ceramic-coating"
+    },
+    {
+      "label": "PPF vs ceramic coating",
+      "to": "/blog/ppf-vs-ceramic-coating-calgary"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "slug": "interior-detailing-whats-hiding-in-your-car",
+  "date": "2026-01-08",
+  "image": "gallery-bmw-red-interior.jpg",
+  "imageAlt": "Red leather BMW interior after a deep interior detail",
+  "title": "Interior detailing: what's really hiding in your car",
+  "description": "What builds up inside a vehicle between cleanings, why vacuuming isn't enough, and what a professional interior detail actually removes.",
+  "excerpt": "Spilled coffee in the carpet pad, grit in the seat tracks, film on the inside of the glass. What builds up inside a car and what a proper interior detail removes.",
+  "sections": [
+    {
+      "heading": "What a vacuum misses",
+      "paragraphs": [
+        "A vacuum gets loose debris. It doesn't get the spill that soaked into the carpet pad, the grit packed into seat tracks, or the body oils on the steering wheel and door pulls. Those build up into the smell and grime people notice but can't pin down."
+      ]
+    },
+    {
+      "heading": "The film on your glass",
+      "paragraphs": [
+        "The haze on the inside of the windshield is mostly plastics off-gassing from the dashboard, plus whatever gets breathed and touched. It's why night glare feels worse in an older car, and it takes proper glass cleaning to remove."
+      ]
+    },
+    {
+      "heading": "What an interior detail does",
+      "paragraphs": [
+        "Seats and carpets get shampooed and hot-water extracted, which pulls dirt out instead of pushing it deeper. Hard surfaces are cleaned with brushes into the seams and vents, leather is cleaned and conditioned, and glass is cleaned inside and out.",
+        "For kids, pets or work trucks, there's an add-on for heavier soil. It's priced up front, so there's no surprise at the end."
+      ]
+    },
+    {
+      "heading": "How often it makes sense",
+      "paragraphs": [
+        "For most daily drivers, a full interior detail two to four times a year keeps things from getting past the point of no return. Families and pet owners usually go more often, which is where a membership starts to pay off."
+      ]
+    }
+  ],
+  "related": [
+    {
+      "label": "Car detailing packages",
+      "to": "/detailing"
+    },
+    {
+      "label": "The Xpress Pass",
+      "to": "/xpress-pass"
+    }
+  ]
+}

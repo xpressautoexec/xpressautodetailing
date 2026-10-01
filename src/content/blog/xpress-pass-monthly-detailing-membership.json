@@ -1,0 +1,48 @@
+{
+  "slug": "xpress-pass-monthly-detailing-membership",
+  "date": "2026-05-22",
+  "image": "gallery-bmw-headlight.jpg",
+  "imageAlt": "Headlight and front bumper of a BMW after a maintenance detail",
+  "title": "The Xpress Pass: how a detailing membership pays for itself",
+  "description": "How the Xpress Pass works, which tier fits how you drive, and how to work out whether a membership costs less than booking one-off details.",
+  "excerpt": "Three tiers, booked on a schedule, with member pricing on every visit and every add-on. How to tell if it beats booking one-off details for the way you drive.",
+  "sections": [
+    {
+      "heading": "Why a schedule beats a rescue",
+      "paragraphs": [
+        "Most cars get detailed when they've hit a breaking point: salt crusted on the rockers, crumbs in every seat track, a smell nobody can place. A rescue detail takes longer and costs more because the dirt has had months to bond.",
+        "Regular visits keep the vehicle in a state where each detail is upkeep, not recovery. The paint stays sealed, the interior never gets past lived-in, and nobody has to remember to book."
+      ]
+    },
+    {
+      "heading": "How the three tiers work",
+      "paragraphs": [
+        "Maintain is a monthly visit, built for daily drivers, commuters and anyone with kids or pets in the back. Refresh comes every two months with a full inside-and-out detail. Restore comes every three months and includes a deep clean and seal.",
+        "Every tier gets member pricing on the visit itself plus a discount on add-ons like odour removal or headlight restoration. Current rates are on the Xpress Pass page, and they update there first."
+      ]
+    },
+    {
+      "heading": "Doing the math for your own car",
+      "paragraphs": [
+        "Count how many times you actually booked a detail last year, then compare that against the tier that matches your habits. If you already book every couple of months, a membership at the same frequency costs less for the same work.",
+        "If you book once a year, a membership probably isn't for you. A single complete detail before winter or before a sale is the better buy, and we'll tell you that if you ask."
+      ]
+    },
+    {
+      "heading": "What members tell us they value",
+      "paragraphs": [
+        "Not having to think about it. The visit is booked, the crew shows up with its own water and power, and the car is done in the driveway or the office parkade while the owner works."
+      ]
+    }
+  ],
+  "related": [
+    {
+      "label": "The Xpress Pass",
+      "to": "/xpress-pass"
+    },
+    {
+      "label": "Car detailing packages",
+      "to": "/detailing"
+    }
+  ]
+}

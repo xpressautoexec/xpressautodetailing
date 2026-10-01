@@ -251,18 +251,13 @@ const BlogPPFvsCeramic = () => (
             <h2 className="font-heading font-semibold text-xl text-ink mb-4">Keep reading</h2>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/protection/windshield-ppf" className="text-electric font-heading font-semibold hover:underline">
-                  Windshield protection film
+                <Link to="/rv-trailer/ppf" className="text-electric font-heading font-semibold hover:underline">
+                  RV paint protection film
                 </Link>
               </li>
               <li>
                 <Link to="/ceramic-paint-correction" className="text-electric font-heading font-semibold hover:underline">
                   Ceramic coating packages
-                </Link>
-              </li>
-              <li>
-                <Link to="/protection/windshield-ppf" className="text-electric font-heading font-semibold hover:underline">
-                  Windshield protection film
                 </Link>
               </li>
               <li>

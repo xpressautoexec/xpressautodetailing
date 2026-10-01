@@ -27,7 +27,7 @@ export const GUARANTEES = [
 
 export const CERAMIC_CERTIFICATIONS = ["System X", "Gtechniq", "Gyeon"];
 
-/** Protection film brand installed on RV PPF and windshield film jobs. */
+/** Protection film brand installed on RV PPF and windshield film jobs (no standalone page). */
 export const FILM_BRAND = "3M";
 
 /**
@@ -58,7 +58,7 @@ export const PRODUCT_LINES = {
   "3m": {
     name: "3M",
     role: "Protection film and restoration",
-    body: "3M film on RV and windshield installs, and 3M abrasives and compounds for gelcoat restoration.",
+    body: "3M film on RV front caps, and 3M abrasives and compounds for gelcoat restoration.",
   },
 } as const;
 
@@ -90,20 +90,18 @@ export const NAV_LINKS = [
     ],
   },
   { label: "Ceramic & Paint", href: "/ceramic-paint-correction" },
-  { label: "Windshield PPF", href: "/protection/windshield-ppf" },
   { label: "Detailing", href: "/detailing" },
   { label: "Xpress Pass", href: "/xpress-pass" },
   { label: "Fleet", href: "/fleet" },
+  { label: "Reviews", href: "/reviews" },
+  { label: "Gallery", href: "/gallery" },
   {
     label: "More",
-    href: "/contact",
+    href: "/blog",
     children: [
-      { label: "Reviews", href: "/reviews" },
-      { label: "Gallery", href: "/gallery" },
-      { label: "Why Xpress", href: "/why-choose-us" },
-      { label: "Gift cards", href: "/gift-cards" },
-      { label: "Training", href: "/training" },
       { label: "Blog", href: "/blog" },
+      { label: "Training", href: "/training" },
+      { label: "Gift cards", href: "/gift-cards" },
       { label: "Contact", href: "/contact" },
       { label: "Cancellation policy", href: "/cancellation-policy" },
     ],
@@ -124,15 +122,13 @@ export const FOOTER_SERVICES = [
   { label: "Marine & pontoon", href: "/marine" },
   { label: "Car detailing", href: "/detailing" },
   { label: "Ceramic coating & paint correction", href: "/ceramic-paint-correction" },
-  { label: "Windshield PPF", href: "/protection/windshield-ppf" },
   { label: "Fleet & dealership", href: "/fleet" },
   { label: "The Xpress Pass", href: "/xpress-pass" },
 ];
 
 export const FOOTER_COMPANY = [
-  { label: "Reviews", href: "/reviews" },
+  { label: "Reviews & why Xpress", href: "/reviews" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Why Xpress", href: "/why-choose-us" },
   { label: "Price comparison", href: "/calgary-detailing-price-comparison" },
   { label: "Gift cards", href: "/gift-cards" },
   { label: "Training", href: "/training" },

@@ -1,0 +1,45 @@
+{
+  "slug": "detailing-before-selling-your-car",
+  "date": "2025-11-15",
+  "image": "gallery-range-rover-interior.jpg",
+  "imageAlt": "Range Rover interior detailed and ready for sale photos",
+  "title": "Detailing your car before selling it",
+  "description": "Why a professional detail helps a private sale or trade-in, what buyers and appraisers look at first, and what to do before listing photos.",
+  "excerpt": "Buyers and appraisers decide in the first minute. What they look at, what a pre-sale detail fixes, and when to book it relative to your listing photos.",
+  "sections": [
+    {
+      "heading": "First impressions do the pricing",
+      "paragraphs": [
+        "A buyer opening the door decides in seconds whether the car was looked after. Stained seats, a smell, or dull paint make them assume the mechanicals were neglected too, and they negotiate accordingly. Appraisers work the same way."
+      ]
+    },
+    {
+      "heading": "What a pre-sale detail covers",
+      "paragraphs": [
+        "A complete detail inside and out, with interior extraction and the paint decontaminated and sealed. Worth adding for a sale: odour removal if it needs it, an engine bay detail, a full body polish to bring back the gloss, and headlight restoration if the lenses are yellowed."
+      ]
+    },
+    {
+      "heading": "Book it before the photos",
+      "paragraphs": [
+        "Listing photos are the first showing. Detail the vehicle first, photograph it the same day in good light, and the listing does more of the selling."
+      ]
+    },
+    {
+      "heading": "Don't oversell it",
+      "paragraphs": [
+        "A detail makes a well-kept car look like one. It won't hide real damage, and it shouldn't. Disclose known issues, and let the condition of everything else make the case."
+      ]
+    }
+  ],
+  "related": [
+    {
+      "label": "Car detailing packages",
+      "to": "/detailing"
+    },
+    {
+      "label": "Paint correction",
+      "to": "/paint-correction"
+    }
+  ]
+}

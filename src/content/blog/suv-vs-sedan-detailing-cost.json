@@ -1,0 +1,47 @@
+{
+  "slug": "suv-vs-sedan-detailing-cost",
+  "date": "2026-05-10",
+  "image": "gallery-3.jpg",
+  "imageAlt": "Full-size SUV interior during a complete detail",
+  "title": "SUV vs sedan: why larger vehicles cost more to detail",
+  "description": "An honest breakdown of why detailing prices go up with vehicle size, what extra work an SUV, truck or minivan takes, and how to keep a bigger vehicle clean for less.",
+  "excerpt": "A truck isn't just a bigger sedan. More carpet, more seats, deeper crevices and more paint. Here's what size-based pricing actually pays for.",
+  "sections": [
+    {
+      "heading": "It's surface area and time",
+      "paragraphs": [
+        "Detailing is priced on labour. A three-row SUV has a third row to vacuum and shampoo, more door jambs, more glass and a cargo area that often takes as long as a sedan's whole back seat.",
+        "Outside, a full-size truck or SUV has far more paint to wash, decontaminate and seal. Every step that takes ten minutes on a Civic takes fifteen or twenty on a Tahoe."
+      ]
+    },
+    {
+      "heading": "Where the extra time goes",
+      "paragraphs": [
+        "Seat tracks and fold-down mechanisms in larger vehicles trap more debris. Running boards, tow hitches and wheel wells collect the worst of the road grime. Minivans have sliding door tracks that need cleaning by hand.",
+        "On larger interiors we often put two people on the job so it still gets done in a reasonable window, which is part of why the price steps up."
+      ]
+    },
+    {
+      "heading": "Why we publish prices by size",
+      "paragraphs": [
+        "Flat prices either overcharge sedan owners or underpay the crew on trucks, and the second one usually shows up as rushed work. Pricing by size keeps it fair both ways, and you know the number before you book."
+      ]
+    },
+    {
+      "heading": "Keeping a big vehicle clean for less",
+      "paragraphs": [
+        "Rubber floor liners save more carpet than anything else. A quick vacuum every couple of weeks stops grit from grinding into the fibres. And a sealant or coating on the paint makes every wash faster, which matters most on the vehicles with the most paint."
+      ]
+    }
+  ],
+  "related": [
+    {
+      "label": "Car detailing packages",
+      "to": "/detailing"
+    },
+    {
+      "label": "Price comparison",
+      "to": "/calgary-detailing-price-comparison"
+    }
+  ]
+}

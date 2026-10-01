@@ -1,0 +1,45 @@
+{
+  "slug": "fleet-detailing-scheduled-service",
+  "date": "2026-03-28",
+  "image": "gallery-cat-excavator-exterior-1.jpg",
+  "imageAlt": "Heavy equipment cab after an on-site fleet detail",
+  "title": "Fleet detailing: why scheduled service beats one-offs",
+  "description": "How scheduled on-site detailing helps Calgary companies keep work trucks, company vehicles and equipment presentable, protected and ready for resale.",
+  "excerpt": "Clean trucks represent the company on every job site. Here's how scheduled, on-site fleet care works and what it protects beyond appearance.",
+  "sections": [
+    {
+      "heading": "Your trucks are a moving billboard",
+      "paragraphs": [
+        "Customers judge a contractor by the truck that pulls into their driveway. A clean, maintained fleet says the work will be done the same way. A filthy one says the opposite, whether it's fair or not."
+      ]
+    },
+    {
+      "heading": "Protection, not just appearance",
+      "paragraphs": [
+        "Salt and mag chloride left on a truck through winter attacks paint, wheels and undercarriage components. Interiors that never get cleaned wear out faster, with grit grinding into seats and carpets. Both show up at trade-in time."
+      ]
+    },
+    {
+      "heading": "Why on-site matters for fleets",
+      "paragraphs": [
+        "Every hour a truck spends driving to a shop and waiting is an hour it isn't working. Our vans carry their own water and power, so we detail vehicles in your yard or shop bay, on a schedule set around your crews."
+      ]
+    },
+    {
+      "heading": "How a fleet program is set up",
+      "paragraphs": [
+        "We start with a walk of the fleet, agree on a service level per vehicle type, and set a recurring schedule. You get one invoice and one contact, and vehicles that need extra attention get flagged instead of quietly getting worse."
+      ]
+    }
+  ],
+  "related": [
+    {
+      "label": "Fleet & dealership programs",
+      "to": "/fleet"
+    },
+    {
+      "label": "RV rental fleet care",
+      "to": "/rv-trailer/rental-fleet"
+    }
+  ]
+}

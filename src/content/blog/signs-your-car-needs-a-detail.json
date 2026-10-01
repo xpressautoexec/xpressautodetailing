@@ -1,0 +1,52 @@
+{
+  "slug": "signs-your-car-needs-a-detail",
+  "date": "2025-12-10",
+  "image": "gallery-lexus-is.jpg",
+  "imageAlt": "Lexus IS exterior after a complete detail",
+  "title": "5 signs your car needs a professional detail",
+  "description": "Five signs it's time for a professional detail, from paint that feels rough to a smell you can't place, and what each one tells you about the vehicle.",
+  "excerpt": "Rough paint, water that won't bead, a smell you can't place, hazy glass and stained seats. What each sign means and what fixes it.",
+  "sections": [
+    {
+      "heading": "1. The paint feels rough after a wash",
+      "paragraphs": [
+        "Bonded contamination. Iron decon and clay remove it, and sealing afterward keeps it from coming straight back."
+      ]
+    },
+    {
+      "heading": "2. Water sits flat instead of beading",
+      "paragraphs": [
+        "The protection is gone and the clear coat is exposed. Salt and sun go straight to the paint until it's sealed again."
+      ]
+    },
+    {
+      "heading": "3. A smell you can't place",
+      "paragraphs": [
+        "Usually a spill that soaked into the carpet pad or seat foam. Air fresheners cover it for a day. Hot-water extraction removes the source."
+      ]
+    },
+    {
+      "heading": "4. Hazy glass and glare at night",
+      "paragraphs": [
+        "Film on the inside of the windshield. It builds up slowly, so most drivers don't notice how bad it was until it's cleaned properly."
+      ]
+    },
+    {
+      "heading": "5. Stains and shine on the seats",
+      "paragraphs": [
+        "Fabric stains and shiny, slick spots on leather are dirt and body oils worked into the surface. Cleaning and conditioning bring the material back and slow the wear.",
+        "If you're seeing two or more of these, a complete detail resets everything at once and usually costs less than booking the pieces separately."
+      ]
+    }
+  ],
+  "related": [
+    {
+      "label": "Car detailing packages",
+      "to": "/detailing"
+    },
+    {
+      "label": "Paint correction",
+      "to": "/paint-correction"
+    }
+  ]
+}
