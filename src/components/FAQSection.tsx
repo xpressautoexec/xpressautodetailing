@@ -1,9 +1,4 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import ServiceFAQ from "@/components/ServiceFAQ";
 import { CANCELLATION_SUMMARY } from "@/data/copy";
 
 const faqs = [
@@ -21,22 +16,6 @@ const faqs = [
   { q: "When do I pay?", a: "Once the service is complete and you're satisfied with it." },
 ];
 
-const FAQSection = () => (
-  <section id="faq" className="border-t border-line py-16 sm:py-24">
-    <div className="shell grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
-      <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Common questions</h2>
-      <Accordion type="single" collapsible className="border-t border-line">
-        {faqs.map((faq, i) => (
-          <AccordionItem key={i} value={`faq-${i}`} className="border-line">
-            <AccordionTrigger className="py-5 text-left font-heading text-base font-semibold text-ink hover:no-underline">
-              {faq.q}
-            </AccordionTrigger>
-            <AccordionContent className="pb-5 text-[15px] leading-relaxed text-ink-2">{faq.a}</AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
-    </div>
-  </section>
-);
+const FAQSection = () => <ServiceFAQ title="Common questions" faqs={faqs} />;
 
 export default FAQSection;

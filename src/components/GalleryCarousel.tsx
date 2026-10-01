@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import ScrollReveal from "@/components/ScrollReveal";
+import { Link } from "react-router-dom";
 
 
 import gallery7 from "@/assets/gallery-7.jpg";
@@ -86,67 +86,46 @@ const GalleryCarousel = () => {
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
+  const arrow =
+    "flex h-11 w-11 items-center justify-center rounded-md border border-line bg-surface text-ink transition-colors hover:border-ink-2";
+
   return (
-    <section className="py-16 sm:py-20 bg-muted/30 overflow-hidden">
-      <div className="container max-w-6xl px-4 sm:px-6">
-        <ScrollReveal>
-          
-          <h2 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-foreground text-center mb-4">
-            See the Results
-          </h2>
-          <p className="text-muted-foreground text-center mb-10 max-w-xl mx-auto text-sm sm:text-base">
-            Real vehicles, real transformations. Swipe through some of our recent work.
-          </p>
-        </ScrollReveal>
-
-        <div className="relative">
-          <div className="overflow-hidden rounded-2xl" ref={emblaRef}>
-            <div className="flex">
-              {images.map((src, i) => (
-                <div
-                  key={i}
-                  className="flex-[0_0_85%] sm:flex-[0_0_70%] md:flex-[0_0_55%] min-w-0 px-2 sm:px-3"
-                >
-                  <div className="rounded-xl overflow-hidden shadow-lg border border-border">
-                    <img
-                      src={src}
-                      alt={`Detailing result ${i + 1}`}
-                      className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
+    <section className="overflow-hidden border-y border-line bg-surface py-16 sm:py-24">
+      <div className="shell">
+        <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-2xl">
+            <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Recent work</h2>
+            <p className="mt-4 text-[15px] leading-relaxed text-ink-2">
+              Customer vehicles, photographed on site by our crew.{" "}
+              <Link to="/gallery" className="font-semibold text-electric hover:underline">
+                Full gallery
+              </Link>
+            </p>
           </div>
+          <div className="flex items-center gap-3">
+            <span className="mr-2 text-sm tabular-nums text-muted-ink" aria-live="polite">
+              {selectedIndex + 1} / {images.length}
+            </span>
+            <button onClick={scrollPrev} className={arrow} aria-label="Previous photo">
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button onClick={scrollNext} className={arrow} aria-label="Next photo">
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
 
-          <button
-            onClick={scrollPrev}
-            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-background/90 backdrop-blur-sm border border-border shadow-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 z-10"
-            aria-label="Previous image"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={scrollNext}
-            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-background/90 backdrop-blur-sm border border-border shadow-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 z-10"
-            aria-label="Next image"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-
-          <div className="flex items-center justify-center gap-2 mt-6">
-            {images.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => emblaApi?.scrollTo(i)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  i === selectedIndex
-                    ? "bg-primary w-6"
-                    : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                }`}
-                aria-label={`Go to image ${i + 1}`}
-              />
+        <div className="-mx-2 overflow-hidden sm:-mx-3" ref={emblaRef}>
+          <div className="flex">
+            {images.map((src, i) => (
+              <div key={i} className="min-w-0 flex-[0_0_85%] px-2 sm:flex-[0_0_45%] sm:px-3 lg:flex-[0_0_33.333%]">
+                <img
+                  src={src}
+                  alt={`Detailing result ${i + 1}`}
+                  loading="lazy"
+                  className="aspect-[4/5] w-full rounded-[4px] object-cover"
+                />
+              </div>
             ))}
           </div>
         </div>

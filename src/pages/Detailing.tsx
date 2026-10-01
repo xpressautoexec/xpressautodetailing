@@ -13,11 +13,11 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import GalleryCarousel from "@/components/GalleryCarousel";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
-import ScrollReveal from "@/components/ScrollReveal";
+import GuaranteeStrip from "@/components/site/GuaranteeStrip";
+import ClosingCTA from "@/components/site/ClosingCTA";
+import { Section } from "@/components/site/Section";
 import completeHero from "@/assets/complete-hero.jpg";
-import { ArrowRight } from "lucide-react";
-import { BOOKING_URL, PHONE, PASS_ADDON_DISCOUNT } from "@/data/pricing";
-import { WATER_LINE, GUARANTEES } from "@/data/copy";
+import { AUTO_PACKAGES, PASS_ADDON_DISCOUNT } from "@/data/pricing";
 
 const detailingFAQs = [
   {
@@ -65,10 +65,10 @@ const Detailing = () => {
 
   return (
   <PageTransition>
-    <div className="min-h-screen pb-16 lg:pb-0">
+    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
       <SEO
         title="Car Detailing Calgary | Mobile Packages"
-        description="Mobile car detailing in Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County. Four packages from a 45-minute maintain to a full correct-and-coat. We bring our own water and power."
+        description="Mobile car detailing in Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County. Packages from a 45-minute Upkeep to a full-day Correct & Coat. We bring our own water and power."
         canonical="/detailing"
         jsonLd={[
           buildServiceJsonLd(
@@ -81,96 +81,41 @@ const Detailing = () => {
       />
       <Navbar />
       <AutoBreadcrumbs />
-      <ServicePageHero title="Mobile Car Detailing in Calgary" image={completeHero} />
+      <ServicePageHero
+        title="Mobile car detailing"
+        subtitle={`${AUTO_PACKAGES.length} packages priced by vehicle size, done in your driveway, parkade or office lot. Our vans bring their own water and power.`}
+        image={completeHero}
+      />
+      <GuaranteeStrip />
 
-      {/* Intro */}
-      <section className="py-14 sm:py-20 bg-background">
-        <div className="container max-w-3xl px-6 text-center">
-          <ScrollReveal>
-            <h2 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-foreground mb-5">
-              Four packages. One visit. No drop-off.
-            </h2>
-            <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{WATER_LINE}</p>
-            <ul className="mt-6 flex flex-wrap justify-center gap-2">
-              {GUARANTEES.map((g) => (
-                <li
-                  key={g}
-                  className="rounded-full border border-border px-4 py-1.5 text-xs font-semibold text-muted-foreground"
-                >
-                  {g}
-                </li>
-              ))}
-            </ul>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Packages */}
-      <section id="packages" className="scroll-mt-24 py-14 sm:py-20 bg-foreground">
-        <div className="container px-4 sm:px-6">
-          <AutoPackages
-            dark
-            heading="Detailing Packages"
-            intro="Pick your vehicle size — the prices update. Everything below is the full price, taxes aside. No hidden trip charge."
-          />
-        </div>
-      </section>
+      <Section tone="dark" id="packages">
+        <AutoPackages
+          dark
+          heading="Detailing packages"
+          intro="Pick your vehicle size and the prices update. Prices are before tax, with no travel charge in our service area."
+        />
+      </Section>
 
       <WorkTruckPackage />
 
-
-
-      {/* Add-ons */}
-      <section id="add-ons" className="scroll-mt-24 py-14 sm:py-20 bg-background">
-        <div className="container max-w-4xl px-6">
-          <ScrollReveal>
-            <div className="mb-8 text-center">
-              <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground">Add-Ons</h2>
-              <p className="mt-3 text-sm text-muted-foreground">
-                Add any of these to any package. Xpress Pass members take {PASS_ADDON_DISCOUNT}% off every add-on.
-              </p>
-            </div>
-            <AddOnList />
-          </ScrollReveal>
+      <Section id="add-ons">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+          <div>
+            <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Add-ons</h2>
+            <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-ink-2">
+              Add any of these to any package. Xpress Pass members take {PASS_ADDON_DISCOUNT}% off every add-on.
+            </p>
+          </div>
+          <AddOnList />
         </div>
-      </section>
+      </Section>
 
       <GalleryCarousel />
-      <ServiceFAQ title="Detailing FAQs" faqs={detailingFAQs} />
-
-      {/* Closing CTA */}
-      <section className="py-16 sm:py-20 bg-foreground">
-        <div className="container px-6 text-center">
-          <ScrollReveal>
-            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-background mb-4">
-              Ready when you are
-            </h2>
-            <p className="mx-auto mb-8 max-w-xl text-sm sm:text-base text-background/60">
-              Pick a package and a time. We come to your home, office or storage lot.
-            </p>
-            <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex min-h-[44px] items-center gap-2 rounded-md bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
-              >
-                Book Now
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
-              <a
-                href={`tel:${PHONE.replace(/-/g, "")}`}
-                className="inline-flex min-h-[44px] items-center gap-2 rounded-md border border-background/25 px-8 text-sm font-bold text-background transition-colors hover:border-background/60"
-              >
-                Call {PHONE}
-              </a>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      <ServiceFAQ title="Detailing questions" faqs={detailingFAQs} />
+      <ClosingCTA body="Pick a package and a time. We come to your home, office or storage lot." />
 
       <Footer />
-      <div className="h-24 lg:hidden" />
+      <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
     </div>
   </PageTransition>

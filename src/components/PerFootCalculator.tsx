@@ -52,13 +52,13 @@ const PerFootCalculator = ({
   );
 
   return (
-    <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
-      <h3 className="font-heading text-xl font-bold text-foreground">{title}</h3>
+    <div className="rounded-[10px] border border-line bg-surface p-6 sm:p-8">
+      <h3 className="font-heading text-xl font-semibold text-ink">{title}</h3>
 
       <div className="mt-6">
-        <label htmlFor="pf-length" className="flex items-center justify-between text-sm font-medium text-foreground">
+        <label htmlFor="pf-length" className="flex items-center justify-between text-sm font-medium text-ink-2">
           <span>{lengthLabel}</span>
-          <span className="font-mono text-base text-primary">{length} ft</span>
+          <span className="tabular-nums text-ink">{length} ft</span>
         </label>
         <input
           id="pf-length"
@@ -68,12 +68,12 @@ const PerFootCalculator = ({
           step={1}
           value={length}
           onChange={(e) => setLength(Number(e.target.value))}
-          className="mt-3 w-full accent-[hsl(var(--primary))]"
+          className="mt-3 w-full accent-electric"
         />
       </div>
 
       <fieldset className="mt-6">
-        <legend className="text-sm font-medium text-foreground">Select the services you want</legend>
+        <legend className="text-sm font-medium text-ink-2">Select the services you want</legend>
         <div className="mt-3 grid gap-2 sm:grid-cols-2">
           {services.map((s) => {
             const id = key(s);
@@ -85,14 +85,14 @@ const PerFootCalculator = ({
                 type="button"
                 aria-pressed={isOn}
                 onClick={() => toggle(id)}
-                className={`flex min-h-[44px] items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left transition-colors ${
-                  isOn ? "border-primary bg-primary/5" : "border-border bg-background hover:border-primary/40"
+                className={`flex min-h-[44px] items-center justify-between gap-3 rounded-md border px-4 py-3 text-left transition-colors ${
+                  isOn ? "border-electric bg-electric-soft" : "border-line bg-surface hover:border-ink-2"
                 }`}
               >
-                <span className="text-sm text-foreground">{s.name}</span>
-                <span className="font-mono text-sm text-muted-foreground whitespace-nowrap">
+                <span className="text-sm text-ink">{s.name}</span>
+                <span className="whitespace-nowrap text-sm tabular-nums text-muted-ink">
                   {money(s.price)}
-                  {s.unit ?? "/ft"} {isOn && <span className="text-primary">· {money(line)}</span>}
+                  {s.unit ?? "/ft"} {isOn && <span className="font-semibold text-ink">· {money(line)}</span>}
                 </span>
               </button>
             );
@@ -100,11 +100,11 @@ const PerFootCalculator = ({
         </div>
       </fieldset>
 
-      <div className="mt-6 flex items-center justify-between border-t border-border pt-5">
-        <span className="text-sm text-muted-foreground">Estimated total</span>
-        <span className="font-mono text-2xl font-bold text-foreground">{money(Math.round(total))}</span>
+      <div className="mt-6 flex items-center justify-between border-t border-line pt-5">
+        <span className="text-sm text-muted-ink">Estimated total</span>
+        <span className="font-heading text-3xl font-semibold tabular-nums text-ink">{money(Math.round(total))}</span>
       </div>
-      <p className="mt-2 text-xs text-muted-foreground">{note}</p>
+      <p className="mt-2 text-xs leading-relaxed text-muted-ink">{note}</p>
     </div>
   );
 };

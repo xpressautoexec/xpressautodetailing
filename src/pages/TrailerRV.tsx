@@ -8,7 +8,7 @@ import AssessmentForm from "@/components/AssessmentForm";
 import FinancingEstimator from "@/components/rv/FinancingEstimator";
 import StatBand from "@/components/StatBand";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import ServiceFAQ from "@/components/ServiceFAQ";
 import { Link } from "react-router-dom";
 import { Check, Minus, Phone, ArrowUpRight } from "lucide-react";
 import rvHero from "@/assets/rv-hero.jpg";
@@ -34,13 +34,14 @@ import {
 } from "@/data/pricing";
 import { WATER_LINE } from "@/data/copy";
 
+const RV_INTERIOR_RATE = RV_SERVICES.find((s) => s.id === "interior")?.price ?? 0;
 const telHref = `tel:${PHONE.replace(/-/g, "")}`;
 const EXAMPLE_FT = 30;
 
 const faqs = [
   {
     q: "How is RV and trailer work priced?",
-    a: "By the foot. Pick a package or individual services and we multiply by the length of the unit. A 30 ft trailer on Wash & Seal at $24/ft is $720. Interior work is billed at $90/hr.",
+    a: `By the foot. Pick a package or individual services and we multiply by the length of the unit. A 30 ft trailer on ${RV_BUNDLES[0].name} at ${money(RV_BUNDLES[0].price)}/ft is ${money(RV_BUNDLES[0].price * 30)}. Interior work is billed at ${money(RV_INTERIOR_RATE)}/hr.`,
   },
   {
     q: "Can I finance an RV restoration?",
@@ -185,7 +186,7 @@ const TrailerRV = () => (
           alt="Xpress technician restoring the sidewall of a Class A motorhome in a Calgary driveway"
           width={1920}
           height={1080}
-          fetchPriority="high"
+          {...{ fetchpriority: "high" }}
           className="absolute inset-0 -z-10 h-full w-full object-cover object-[70%_center]"
         />
         <div
@@ -478,7 +479,7 @@ const TrailerRV = () => (
             lengthLabel="Unit length (feet)"
             title="RV & trailer estimator"
             defaultSelected={["wash", "sealant"]}
-            note="Estimate only. Interior detailing is billed at $90/hr and decals are per decal. Final price confirmed after we see the unit."
+            note={`Estimate only. Interior detailing is billed at ${money(RV_INTERIOR_RATE)}/hr and decals are per decal. Final price confirmed after we see the unit.`}
           />
         </div>
       </section>
@@ -518,7 +519,7 @@ const TrailerRV = () => (
             >
               <span>
                 <span className="block font-heading font-semibold text-ink">RV paint protection film</span>
-                <span className="mt-0.5 block text-sm text-muted-ink">Front caps and leading edges, 10-year warranty</span>
+                <span className="mt-0.5 block text-sm text-muted-ink">Front caps and leading edges, up to a 10-year film warranty</span>
               </span>
               <ArrowUpRight className="h-5 w-5 text-muted-ink group-hover:text-ink" aria-hidden="true" />
             </Link>
@@ -536,24 +537,7 @@ const TrailerRV = () => (
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="border-t border-line py-16 sm:py-24">
-        <div className="shell grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
-          <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            Questions RV owners ask
-          </h2>
-          <Accordion type="single" collapsible className="border-t border-line">
-            {faqs.map((f) => (
-              <AccordionItem key={f.q} value={f.q} className="border-line">
-                <AccordionTrigger className="py-5 text-left font-heading text-base font-semibold text-ink hover:no-underline">
-                  {f.q}
-                </AccordionTrigger>
-                <AccordionContent className="pb-5 text-[15px] leading-relaxed text-ink-2">{f.a}</AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
+      <ServiceFAQ title="Questions RV owners ask" faqs={faqs} />
 
       {/* Assessment */}
       <section id="assessment" className="scroll-mt-24 border-t border-line bg-surface py-16 sm:py-24">

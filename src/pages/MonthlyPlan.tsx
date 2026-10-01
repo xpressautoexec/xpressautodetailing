@@ -3,442 +3,215 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
+import ServiceFAQ from "@/components/ServiceFAQ";
+import ProcessSteps from "@/components/site/ProcessSteps";
+import ClosingCTA from "@/components/site/ClosingCTA";
+import { Section, SectionHeading, btnPrimary, btnSecondary, btnSecondaryDark } from "@/components/site/Section";
 import SEO, { buildFAQJsonLd } from "@/components/SEO";
-import ScrollReveal from "@/components/ScrollReveal";
-import {
-  CheckCircle2,
-  Phone,
-  Users,
-  ShieldCheck,
-  ArrowRight,
-  Calendar,
-  Tag,
-  Car,
-  Star,
-  Sparkles,
-} from "lucide-react";
+import { Check, Phone } from "lucide-react";
 import heroImg from "@/assets/complete-hero.jpg";
 import xpressPassCard from "@/assets/xpress-pass-card.png";
-import {
-  XPRESS_PASS,
-  PASS_ADDON_DISCOUNT,
-  AUTO_PACKAGES,
-  VEHICLE_SIZES,
-  PHONE,
-  money,
-} from "@/data/pricing";
+import { XPRESS_PASS, PASS_ADDON_DISCOUNT, AUTO_PACKAGES, VEHICLE_SIZES, type VehicleSizeId, money } from "@/data/pricing";
+import { NAP, SERVICE_AREA_SENTENCE } from "@/data/copy";
 
-const PHONE_HREF = "tel:5875004523";
-type SizeKey = "sedan" | "suv" | "minivan";
+const maxDiscount = Math.max(...XPRESS_PASS.map((p) => p.discount));
 
 const PERKS = [
   {
-    icon: ShieldCheck,
-    featured: true,
-    title: "Love it? Lock it in — rebate your first service",
-    desc: "Just had a detail, or planning one soon? If you love the result, come back and join the Xpress Pass within 7 days. We'll refund the plan discount on the service you already had — 20% on Maintain, 15% on Refresh, or 12% on Restore.",
+    title: "Love it? Lock it in",
+    body: `Join within 7 days of a regular detail and we'll refund the plan discount on that visit: ${XPRESS_PASS.map(
+      (p) => `${p.discount}% on ${p.name}`,
+    ).join(", ")}.`,
   },
-  {
-    icon: Star,
-    title: "Real metal membership card",
-    desc: "Every member gets the metal Xpress Pass card you see here — not a digital-only badge. Show it, flash it, keep it in the car.",
-  },
-  {
-    icon: Tag,
-    title: `${PASS_ADDON_DISCOUNT}% off every add-on`,
-    desc: "Pet hair, odour removal, clay bar, headlight restoration — every add-on, every visit, member pricing.",
-  },
-  {
-    icon: Calendar,
-    title: "Priority scheduling",
-    desc: "Members book ahead of non-members. Your slot is held before the calendar opens to everyone else.",
-  },
-  {
-    icon: Sparkles,
-    title: "A fresh Xpress air freshener every visit",
-    desc: "A small thing, but it's ours. Every visit ends with one.",
-  },
+  { title: `${PASS_ADDON_DISCOUNT}% off every add-on`, body: "Pet hair, odour removal, clay bar, headlight restoration. Every add-on, every visit." },
+  { title: "Priority scheduling", body: "Members get first pick of slots before the calendar opens to everyone else." },
+  { title: "A metal membership card", body: "Every member gets the black metal Xpress Pass card. Keep it in the glovebox." },
+  { title: "An Xpress air freshener", body: "A small thing, but it's ours. Every visit ends with a fresh one." },
 ];
 
 const monthlyFAQs = [
   {
     q: "How does the Xpress Pass work?",
-    a: "Pick the plan that matches how you use the car — Maintain every month, Refresh every 2 months, or Restore every 3 months. We auto-schedule your detail at the same approximate window each cycle and the member rate is applied automatically.",
+    a: `Pick the plan that matches how you use the car: ${XPRESS_PASS.map((p) => `${p.name} ${p.frequency.toLowerCase()}`).join(", ")}. We schedule each visit in about the same window every cycle, and the member rate is applied automatically.`,
   },
   {
-    q: "Can I cancel or pause anytime?",
-    a: "Yes. There's no contract and no sign-up fee. Pause for winter, vacation or any reason — just give us a heads-up before your next scheduled service.",
+    q: "Can I cancel or pause any time?",
+    a: "Yes. There's no contract and no sign-up fee. Pause for winter, a vacation or any reason. Just tell us before your next visit.",
   },
   {
     q: "Does the discount apply to add-ons?",
-    a: `Yes. Members save ${PASS_ADDON_DISCOUNT}% on every add-on on every visit — pet hair removal, odour treatment, clay bar, engine bay, headlight restoration and more.`,
+    a: `Yes. Members save ${PASS_ADDON_DISCOUNT}% on every add-on, every visit.`,
   },
   {
     q: "What about SUVs and trucks?",
-    a: "Larger vehicles carry the same published size surcharge as our regular packages — your member rate is the discounted version of that same price. Nothing is adjusted on arrival.",
+    a: "Larger vehicles carry the same published size surcharge as our regular packages, and your member rate is the discounted version of that price. Nothing is adjusted on arrival.",
   },
   {
-    q: "Is there a sign-up fee?",
-    a: "No sign-up fee, no contract. You only pay per service at your member rate, after the work is done.",
+    q: "When do I pay?",
+    a: "Per visit, at your member rate, after the work is done. Nothing up front.",
   },
   {
-    q: "What if I miss a scheduled service?",
+    q: "What if I miss a visit?",
     a: "Moving or skipping a visit is free with 24 hours' notice. Missing two cycles in a row may pause your plan, and you can resume any time. Full details are in our cancellation policy.",
   },
 ];
 
 const PROCESS = [
-  {
-    step: "01",
-    title: "Call to Enroll",
-    body: "Quick 3-minute call. Pick your plan, your vehicle size, and your preferred service window.",
-  },
-  {
-    step: "02",
-    title: "We Schedule For You",
-    body: "We reach out before each cycle. You confirm or reschedule — no tracking dates.",
-  },
-  {
-    step: "03",
-    title: "We Come To You",
-    body: "Mobile service across Calgary, Airdrie, Chestermere and Cochrane. Member rate auto-applied.",
-  },
+  { title: "Call to join", body: "A three-minute call. Pick your plan, your vehicle size and your preferred time window." },
+  { title: "We schedule for you", body: "We reach out before each cycle. You confirm or move it, and never have to track dates." },
+  { title: "We come to you", body: `Anywhere in ${SERVICE_AREA_SENTENCE}, with your member rate applied.` },
 ];
 
 const MonthlyPlan = () => {
-  const [size, setSize] = useState<SizeKey>("sedan");
+  const [size, setSize] = useState<VehicleSizeId>("sedan");
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
         <SEO
-          title="The Xpress Pass — Detailing Membership"
-          description="Calgary's mobile detailing membership. Save up to 20% on Upkeep, Inside & Out and Deep Clean & Seal packages, plus 15% off every add-on. No contract, cancel anytime."
-          canonical="/monthly-plan"
+          title="The Xpress Pass | Detailing Membership Calgary"
+          description={`Calgary's mobile detailing membership. Save up to ${maxDiscount}% on every visit plus ${PASS_ADDON_DISCOUNT}% off every add-on. No contract, cancel any time.`}
+          canonical="/xpress-pass"
           jsonLd={[buildFAQJsonLd(monthlyFAQs)]}
         />
         <Navbar />
         <AutoBreadcrumbs />
 
-        {/* Hero */}
-        <section className="relative bg-brand-dark text-primary-foreground overflow-hidden">
-          <div className="absolute inset-0">
-            <img
-              src={heroImg}
-              alt="Detailed vehicle reflecting Xpress Pass membership results"
-              className="w-full h-full object-cover opacity-20"
-              loading="eager"
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-dark via-brand-dark/90 to-brand-dark/70" />
-          </div>
-          <div className="container relative max-w-6xl px-6 py-20 sm:py-28 grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 bg-primary/15 border border-primary/30 rounded-full px-4 py-1.5 mb-6">
-                <Users className="w-3.5 h-3.5 text-primary" />
-                <span className="text-xs font-heading font-bold text-primary">
-                  No contract · No sign-up fee · Cancel any time
-                </span>
-              </div>
-              <h1 className="font-heading font-semibold text-4xl sm:text-5xl lg:text-6xl leading-[1.05] mb-5">
+        <section className="relative isolate overflow-hidden bg-brand-dark">
+          <img src={heroImg} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover opacity-25" />
+          <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-dark via-brand-dark/90 to-brand-dark/60" />
+          <div className="shell grid items-center gap-12 py-20 sm:py-28 lg:grid-cols-[1.1fr_1fr]">
+            <div className="max-w-[38rem]">
+              <h1 className="font-heading text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-primary-foreground sm:text-5xl lg:text-[3.5rem]">
                 The Xpress Pass
               </h1>
-              <p className="text-base sm:text-lg text-brand-gray max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8">
-                Save up to <span className="text-primary font-bold">20%</span> on every visit
-                and <span className="text-primary font-bold">{PASS_ADDON_DISCOUNT}% off all add-ons</span> — for as long as you're a member.
+              <p className="mt-6 text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
+                A detailing membership that keeps the car clean on a schedule. Save up to {maxDiscount}% on every visit
+                and {PASS_ADDON_DISCOUNT}% on every add-on. No contract, no sign-up fee, cancel any time.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center">
-                <a
-                  href={PHONE_HREF}
-                  className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold text-sm px-6 py-3.5 rounded-xl hover:bg-brand-blue-deep transition-colors w-full sm:w-auto"
-                >
-                  <Phone className="w-4 h-4" />
-                  Claim Your Pass — {PHONE}
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <a href={NAP.phoneHref} className={btnPrimary}>
+                  <Phone className="h-4 w-4" aria-hidden="true" />
+                  Call to join
                 </a>
-                <a
-                  href="#plans"
-                  className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/20 text-primary-foreground font-heading font-bold text-sm px-6 py-3.5 rounded-xl hover:bg-white/15 transition-colors w-full sm:w-auto"
-                >
-                  See the Plans
-                  <ArrowRight className="w-4 h-4" />
+                <a href="#plans" className={btnSecondaryDark}>
+                  See the plans
                 </a>
               </div>
             </div>
-
-            <div className="relative flex flex-col items-center lg:items-end">
-              <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" aria-hidden />
-              <img
-                src={xpressPassCard}
-                alt="The Xpress Pass — premium black membership card"
-                className="relative w-full max-w-md drop-shadow-2xl animate-float"
-                loading="eager"
-                width={1024}
-                height={1024}
-              />
-              <p className="relative mt-4 text-xs sm:text-sm text-brand-gray/80 font-heading font-bold text-center lg:text-right">
-                Real metal card · shipped to every member
-              </p>
-            </div>
+            <img
+              src={xpressPassCard}
+              alt="The black metal Xpress Pass membership card"
+              className="mx-auto w-full max-w-sm drop-shadow-2xl lg:max-w-md"
+              width={1024}
+              height={1024}
+            />
           </div>
         </section>
 
-        {/* Plans */}
-        <section id="plans" className="py-16 sm:py-20 bg-background scroll-mt-24">
-          <div className="container max-w-5xl px-6">
-            <ScrollReveal>
-              <div className="text-center mb-10">
-                
-                <h2 className="font-heading font-semibold text-3xl sm:text-4xl">
-                  Pick Your Plan &amp; Vehicle Size
-                </h2>
-                <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
-                  The price shown is the price you pay, per visit. Nothing due until the work is done.
-                </p>
-              </div>
-            </ScrollReveal>
-
-            {/* Size switch */}
-            <div
-              role="tablist"
-              aria-label="Vehicle size"
-              className="mx-auto mb-10 flex w-fit max-w-full flex-wrap justify-center gap-1 rounded-full bg-muted p-1"
-            >
+        <Section id="plans">
+          <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-xl">
+              <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Plans</h2>
+              <p className="mt-4 text-[15px] leading-relaxed text-ink-2">
+                The member price is what you pay per visit, after the work is done.
+              </p>
+            </div>
+            <div role="tablist" aria-label="Vehicle size" className="flex w-full shrink-0 gap-1 rounded-md border border-line bg-surface p-1 sm:w-fit">
               {VEHICLE_SIZES.map((s) => (
                 <button
                   key={s.id}
                   role="tab"
                   aria-selected={size === s.id}
-                  onClick={() => setSize(s.id as SizeKey)}
-                  className={`rounded-full px-4 sm:px-6 py-2.5 text-xs sm:text-sm font-semibold whitespace-nowrap transition-colors ${
-                    size === s.id
-                      ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:text-foreground"
+                  onClick={() => setSize(s.id)}
+                  className={`flex-1 rounded px-3 py-2 text-xs font-semibold transition-colors sm:flex-none sm:px-4 sm:text-sm ${
+                    size === s.id ? "bg-electric text-primary-foreground" : "text-ink-2 hover:text-ink"
                   }`}
                 >
                   {s.label}
                 </button>
               ))}
             </div>
-
-            <div className="grid md:grid-cols-3 gap-5">
-              {XPRESS_PASS.map((plan) => {
-                const pkg = AUTO_PACKAGES.find((p) => p.name === plan.service);
-                return (
-                  <ScrollReveal key={plan.id}>
-                    <div
-                      className={`relative h-full flex flex-col rounded-2xl border-2 bg-card p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
-                        plan.popular ? "border-primary shadow-lg shadow-primary/10" : "border-border"
-                      }`}
-                    >
-                      {plan.popular && (
-                        <span className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 bg-primary text-primary-foreground font-heading font-bold text-[10px] px-3 py-1 rounded-full">
-                          <Star className="w-3 h-3" /> Most popular
-                        </span>
-                      )}
-                      <p className="font-heading font-bold text-xs text-primary mb-1">
-                        {plan.frequency}
-                      </p>
-                      <h3 className="font-heading font-semibold text-2xl text-foreground mb-1">
-                        {plan.name}
-                      </h3>
-                      <p className="text-sm text-muted-foreground mb-5">
-                        {plan.service} · save {plan.discount}% every visit
-                      </p>
-                      <div className="mb-5">
-                        <span className="font-heading font-semibold text-4xl text-foreground tabular-nums">
-                          {money(plan.memberPrice[size])}
-                        </span>
-                        <span className="text-muted-foreground text-sm"> / visit</span>
-                        {pkg && (
-                          <span className="ml-2 text-sm text-muted-foreground line-through">
-                            {money(pkg.price[size])}
-                          </span>
-                        )}
-                      </div>
-                      <ul className="space-y-2.5 mb-6 flex-1">
-                        {(pkg?.includes ?? []).slice(0, 5).map((inc) => (
-                          <li key={inc} className="flex items-start gap-2 text-sm text-foreground/85">
-                            <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                            {inc}
-                          </li>
-                        ))}
-                        <li className="flex items-start gap-2 text-sm font-semibold text-foreground">
-                          <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                          {PASS_ADDON_DISCOUNT}% off every add-on
-                        </li>
-                      </ul>
-                      <a
-                        href={PHONE_HREF}
-                        className={`inline-flex items-center justify-center gap-2 font-heading font-bold text-sm px-5 py-3 rounded-xl transition-colors ${
-                          plan.popular
-                            ? "bg-primary text-primary-foreground hover:bg-brand-blue-deep"
-                            : "bg-muted text-foreground hover:bg-muted/70 border border-border"
-                        }`}
-                      >
-                        <Phone className="w-4 h-4" />
-                        Join {plan.name}
-                      </a>
-                    </div>
-                  </ScrollReveal>
-                );
-              })}
-            </div>
-
-            <p className="text-center text-xs text-muted-foreground mt-8 flex items-center justify-center gap-2">
-              <Car className="w-3.5 h-3.5" />
-              Member prices shown for {VEHICLE_SIZES.find((s) => s.id === size)?.label}. Switch size above.
-            </p>
           </div>
-        </section>
 
-        {/* Perks */}
-        <section className="bg-brand-dark py-16 text-primary-foreground sm:py-24">
-          <div className="container max-w-6xl px-6">
-            <ScrollReveal>
-              <div className="mb-10 text-center sm:mb-14">
-                
-                <h2 className="font-heading text-3xl font-semibold sm:text-4xl">
-                  Every Plan Includes
-                </h2>
+          <div className="grid gap-5 md:grid-cols-3">
+            {XPRESS_PASS.map((plan) => {
+              const pkg = AUTO_PACKAGES.find((p) => p.name === plan.service);
+              return (
+                <article
+                  key={plan.id}
+                  className={`relative flex flex-col overflow-hidden rounded-[10px] border bg-surface p-6 sm:p-7 ${
+                    plan.popular ? "border-electric" : "border-line"
+                  }`}
+                >
+                  {plan.popular && <span aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-electric" />}
+                  <p className={`text-xs font-medium ${plan.popular ? "text-electric" : "text-muted-ink"}`}>
+                    {plan.frequency}
+                    {plan.popular ? ", most popular" : ""}
+                  </p>
+                  <h3 className="mt-1 font-heading text-2xl font-semibold text-ink">{plan.name}</h3>
+                  <p className="mt-1 text-sm text-ink-2">
+                    {plan.service}, {plan.discount}% off every visit
+                  </p>
+                  <p className="mt-5">
+                    <span className="font-heading text-4xl font-semibold tracking-tight tabular-nums text-ink">
+                      {money(plan.memberPrice[size])}
+                    </span>
+                    <span className="text-sm text-muted-ink"> / visit</span>
+                    {pkg && <span className="ml-2 text-sm text-muted-ink line-through">{money(pkg.price[size])}</span>}
+                  </p>
+                  <ul className="mt-6 flex-1 space-y-2.5">
+                    {(pkg?.includes ?? []).map((inc) => (
+                      <li key={inc} className="flex gap-2 text-sm text-ink-2">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-electric" aria-hidden="true" />
+                        {inc}
+                      </li>
+                    ))}
+                    <li className="flex gap-2 text-sm font-semibold text-ink">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-electric" aria-hidden="true" />
+                      {PASS_ADDON_DISCOUNT}% off every add-on
+                    </li>
+                  </ul>
+                  <a href={NAP.phoneHref} className={`${plan.popular ? btnPrimary : btnSecondary} mt-7`}>
+                    Join {plan.name}
+                  </a>
+                </article>
+              );
+            })}
+          </div>
+        </Section>
+
+        <Section tone="dark">
+          <SectionHeading dark title="Every plan includes" />
+          <dl className="grid gap-px overflow-hidden rounded-[10px] bg-primary-foreground/10 sm:grid-cols-2">
+            {PERKS.map((p) => (
+              <div key={p.title} className="bg-brand-dark p-7 first:sm:col-span-2">
+                <dt className="font-heading text-lg font-semibold text-primary-foreground">{p.title}</dt>
+                <dd className="mt-2 text-[15px] leading-relaxed text-primary-foreground/70">{p.body}</dd>
               </div>
-            </ScrollReveal>
+            ))}
+          </dl>
+        </Section>
 
-            <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-              {/* Perk list */}
-              <div className="space-y-4">
-                {PERKS.map((perk, index) => (
-                  <ScrollReveal key={perk.title} delay={0.05 * index}>
-                    <article
-                      className={`group flex gap-4 rounded-xl border p-5 transition-all duration-300 sm:gap-5 sm:p-6 ${
-                        perk.featured
-                          ? "border-primary/60 bg-primary/10 shadow-lg shadow-primary/10"
-                          : "border-primary-foreground/10 bg-primary-foreground/[0.03] hover:border-primary/50 hover:bg-primary-foreground/[0.06]"
-                      }`}
-                    >
-                      <div className="flex shrink-0 flex-col items-center gap-2">
-                        <div
-                          className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors duration-300 ${
-                            perk.featured
-                              ? "bg-primary text-primary-foreground"
-                              : "bg-primary/15 text-primary group-hover:bg-primary group-hover:text-primary-foreground"
-                          }`}
-                        >
-                          <perk.icon className="h-5 w-5" />
-                        </div>
-                        <span className="font-mono text-[10px] font-bold text-brand-gray/50">0{index + 1}</span>
-                      </div>
+        <Section tone="surface">
+          <SectionHeading title="How it works" />
+          <ProcessSteps steps={PROCESS} />
+        </Section>
 
-                      <div className="flex-1">
-                        <div className="flex flex-wrap items-center gap-2">
-                          <h3 className="font-heading font-bold text-primary-foreground sm:text-lg">
-                            {perk.title}
-                          </h3>
-                          {perk.featured && (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-primary/20 px-2 py-0.5 text-[10px] font-bold text-primary">
-                              <Star className="h-3 w-3" />
-                              Best perk
-                            </span>
-                          )}
-                        </div>
-                        <p className="mt-1.5 leading-relaxed text-brand-gray text-sm sm:text-base">
-                          {perk.desc}
-                        </p>
-                      </div>
-                    </article>
-                  </ScrollReveal>
-                ))}
-              </div>
+        <ServiceFAQ title="Xpress Pass questions" faqs={monthlyFAQs} />
 
-              {/* Metal card visual */}
-              <ScrollReveal delay={0.1} className="lg:sticky lg:top-28">
-                <div className="relative flex flex-col items-center justify-center rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.03] p-8 sm:p-12">
-                  <div className="absolute inset-0 bg-primary/10 blur-3xl rounded-full" aria-hidden />
-                  <img
-                    src={xpressPassCard}
-                    alt="Black metal Xpress Pass membership card"
-                    className="relative w-full max-w-xs drop-shadow-2xl animate-float"
-                    loading="lazy"
-                    width={1024}
-                    height={1024}
-                  />
-                  <div className="relative mt-6 text-center">
-                    <p className="font-heading font-semibold text-xl text-primary-foreground">
-                      Real Metal Card
-                    </p>
-                    <p className="mt-1 text-sm text-brand-gray">
-                      Shipped to every member — not a digital-only badge.
-                    </p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
-
-        {/* How it works */}
-        <section className="py-16 sm:py-20 bg-background">
-          <div className="container max-w-5xl px-6">
-            <ScrollReveal>
-              <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-center mb-12">
-                How It Works
-              </h2>
-            </ScrollReveal>
-            <div className="grid sm:grid-cols-3 gap-5">
-              {PROCESS.map((s, i) => (
-                <ScrollReveal key={s.step} delay={0.05 * i}>
-                  <div className="h-full bg-card border border-border rounded-xl p-6">
-                    <span className="font-heading font-semibold text-3xl text-primary/30">{s.step}</span>
-                    <h3 className="font-heading font-bold text-foreground mt-2 mb-1.5">{s.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{s.body}</p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section className="py-16 sm:py-20 bg-muted/40">
-          <div className="container max-w-3xl px-6">
-            <ScrollReveal>
-              <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-center mb-10">
-                Xpress Pass FAQ
-              </h2>
-            </ScrollReveal>
-            <div className="space-y-4">
-              {monthlyFAQs.map((f, i) => (
-                <ScrollReveal key={f.q} delay={0.04 * i}>
-                  <div className="bg-card border border-border rounded-xl p-5 sm:p-6">
-                    <h3 className="font-heading font-bold text-foreground mb-2">{f.q}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{f.a}</p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="py-16 sm:py-24 bg-brand-dark text-primary-foreground">
-          <div className="container max-w-3xl px-6 text-center">
-            <ScrollReveal>
-              <h2 className="font-heading font-semibold text-3xl sm:text-4xl mb-4">
-                Ready to Stop Thinking About It?
-              </h2>
-              <p className="text-brand-gray mb-8 max-w-xl mx-auto">
-                One call and your car stays clean on autopilot — at member rates, with priority booking.
-              </p>
-              <a
-                href={PHONE_HREF}
-                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-bold text-sm px-8 py-4 rounded-xl hover:bg-brand-blue-deep transition-colors"
-              >
-                <Phone className="w-4 h-4" />
-                Call {PHONE}
-              </a>
-            </ScrollReveal>
-          </div>
-        </section>
+        <ClosingCTA
+          title="Keep it clean on a schedule"
+          body="One call and your car is looked after every cycle, at member rates with priority booking."
+          mode="quote"
+          quoteHref="#plans"
+          quoteLabel="See the plans"
+        />
 
         <Footer />
+        <div className="h-20 lg:hidden" />
+        <StickyMobileCTA />
       </div>
     </PageTransition>
   );

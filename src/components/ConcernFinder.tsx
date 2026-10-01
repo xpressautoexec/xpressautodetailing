@@ -15,8 +15,8 @@ const concerns: Concern[] = [
   { value: "interior", label: "Clean or restore my interior", to: "/detailing?tab=interior", result: "Interior Detailing packages" },
   { value: "complete", label: "Detail the entire vehicle", to: "/detailing?tab=complete", result: "Complete Detailing packages" },
   { value: "paint", label: "Improve or protect the paint", to: "/paint-correction", result: "Paint Correction and Protection options" },
-  { value: "rv-marine", label: "Detail an RV, trailer or boat", to: "/trailer-rv", result: "RV, Trailer and Marine services" },
-  { value: "fleet", label: "Care for work trucks or a fleet", to: "/corporate-fleet", result: "Commercial Fleet options" },
+  { value: "rv-marine", label: "Detail an RV, trailer or boat", to: "/rv-trailer", result: "RV, Trailer and Marine services" },
+  { value: "fleet", label: "Care for work trucks or a fleet", to: "/fleet", result: "Commercial Fleet options" },
 ];
 
 type FinderVehicleId = VehicleSizeId | "truck" | "rv" | "marine" | "other";

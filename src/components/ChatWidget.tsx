@@ -1,5 +1,15 @@
 import { useState, useRef, useEffect } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
+import {
+  AUTO_PACKAGES,
+  BOOKING_URL,
+  CERAMIC_PACKAGES,
+  EMAIL,
+  PHONE,
+  RV_BUNDLES,
+  SERVICE_AREAS,
+  money,
+} from "@/data/pricing";
 
 interface Message {
   id: string;
@@ -15,14 +25,20 @@ const quickReplies = [
   "Do you offer ceramic coating?",
 ];
 
+const bookable = AUTO_PACKAGES.filter((p) => !p.memberOnly);
+const ceramicFrom = Math.min(...CERAMIC_PACKAGES.map((p) => p.price));
+const rvFrom = Math.min(...RV_BUNDLES.map((b) => b.price));
+
 const botResponses: Record<string, string> = {
-  "I'd like to book a detail": "Awesome! You can book instantly through our online system — it only takes 60 seconds! [Book Now](https://xpressauto.fieldd.co/)\n\nOr tell me your preferred date/time and vehicle type, and we'll get you set up!",
-  "What are your prices?": "Here's a quick overview:\n\n• **Exterior Detailing** — from $139\n• **Interior Detailing** — from $159\n• **Complete Detail** — from $259\n• **Ceramic Coating** — from $499\n\nPrices vary by vehicle size. Want a custom quote? Just tell us your vehicle!",
-  "What areas do you serve?": "We serve **Calgary** and all surrounding areas including Airdrie, Cochrane, Chestermere, Okotoks, Strathmore, High River, Crossfield, Langdon, and Bearspaw. If you're within 30 min of Calgary, we can come to you!",
-  "Do you offer ceramic coating?": "Yes! We use industry-leading ceramic coating products for lasting protection and a mirror-like finish. Packages start from **$499**.\n\nCeramic coating protects against UV, salt, bird droppings, and more. Want to book? [Book Now](https://xpressauto.fieldd.co/)",
+  "I'd like to book a detail": `You can book online in about a minute: [Book a detail](${BOOKING_URL})\n\nOr call or text ${PHONE} and we'll set it up.`,
+  "What are your prices?": `Starting prices for a sedan or coupe:\n\n${bookable
+    .map((p) => `• **${p.name}**: ${money(p.price.sedan)}`)
+    .join("\n")}\n• **Ceramic coating**: from ${money(ceramicFrom)}\n• **RV and trailer**: from ${money(rvFrom)}/ft\n\nSUVs, pickups and 3-row vehicles are priced a little higher.`,
+  "What areas do you serve?": `We come to you anywhere in ${SERVICE_AREAS.slice(0, -1).join(", ")} and ${SERVICE_AREAS[SERVICE_AREAS.length - 1]}. Just outside those areas? Call ${PHONE} and ask.`,
+  "Do you offer ceramic coating?": `Yes. Ceramic packages start at ${money(ceramicFrom)} and include decontamination and machine correction before the coating goes on. [See ceramic packages](/ceramic-paint-correction)`,
 };
 
-const defaultResponse = "Thanks for reaching out! For the fastest response, you can:\n\nCall us: **587-500-4523**\nEmail: **support@xpressautodetail.ca**\n[Book Online](https://xpressauto.fieldd.co/)\n\nWe typically respond within 1–2 hours!";
+const defaultResponse = `For the fastest answer:\n\nCall or text **${PHONE}**\nEmail **${EMAIL}**\n[Book online](${BOOKING_URL})`;
 
 const ChatWidget = () => {
   const [open, setOpen] = useState(false);
@@ -68,7 +84,7 @@ const ChatWidget = () => {
       setMessages([
         {
           id: crypto.randomUUID(),
-          text: "Hey there! 👋 Welcome to Xpress Auto Detailing. How can we help you today?",
+          text: "Hi, this is Xpress Auto & RV Detailing. How can we help?",
           sender: "bot",
           time: getTime(),
         },
@@ -111,11 +127,10 @@ const ChatWidget = () => {
       {!open && (
         <button
           onClick={handleOpen}
-          className="fixed bottom-20 lg:bottom-6 left-4 z-50 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-xl flex items-center justify-center hover:bg-brand-blue-deep transition-all hover:scale-110"
+          className="fixed bottom-20 lg:bottom-6 left-4 z-50 w-14 h-14 rounded-full bg-electric text-primary-foreground shadow-xl flex items-center justify-center hover:bg-electric-2 transition-colors"
           aria-label="Open chat"
         >
           <MessageCircle className="w-6 h-6" />
-          <span className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-primary" />
         </button>
       )}
 
@@ -129,11 +144,10 @@ const ChatWidget = () => {
             </div>
             <div className="flex-1">
               <p className="font-heading font-bold text-primary-foreground text-sm">
-                Xpress Auto
+                Xpress Auto & RV Detailing
               </p>
               <p className="text-brand-gray text-xs flex items-center gap-1">
-                <span className="w-2 h-2 bg-green-500 rounded-full inline-block" />
-                We'll reply as soon as we can
+                Quick answers. For anything else, call or text {PHONE}
               </p>
             </div>
             <button

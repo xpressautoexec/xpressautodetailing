@@ -47,7 +47,7 @@ export const AUTO_PACKAGES: AutoPackage[] = [
     tagline: "For a car that's been lived in for a few months and needs a proper reset — not a wash.",
     duration: "2.5–3 hrs",
     includes: [
-      "Everything in Maintain",
+      "Everything in Upkeep",
       "Full interior vacuum & shampoo",
       "Door jambs",
       "Plastics & vinyl dressed",
@@ -63,7 +63,7 @@ export const AUTO_PACKAGES: AutoPackage[] = [
     duration: "3.5–4 hrs",
     popular: true,
     includes: [
-      "Everything in Refresh",
+      "Everything in Inside & Out",
       "Deep interior extraction",
       "Leather clean & condition",
       "Salt stain removal",
@@ -329,35 +329,93 @@ export const XPRESS_PASS = [
 export const PASS_ADDON_DISCOUNT = 15; // % off every add-on, all tiers
 // NO 6-MONTH TIER. Do not add one.
 
-// ---------- AUTO PPF ----------
-export const AUTO_PPF = [
-  { name: "Partial Front", price: 999 },
-  { name: "Full Front", price: 1899, popular: true },
-  { name: "Track Pack", price: 2899 },
-  { name: "Full Vehicle", price: 5999 },
-  { name: "Windshield PPF", price: 549 },
-  { name: "Interior Screen PPF", price: 149 },
-];
-
-export const PPF_UPCHARGE = { truckSuvPct: 15, exoticPct: 25 };
-
-// ---------- WINDOW TINT ----------
-export const TINT = [
-  { name: "2 Front Windows", price: 219 },
-  { name: "Rear Windshield", price: 169 },
-  { name: "Full Car (no windshield)", price: 429 },
-  { name: "Full Car + Windshield", price: 629 },
-  { name: "Windshield Only", price: 279 },
-  { name: "Sunroof", price: 119 },
+// ---------- WINDSHIELD PPF ----------
+/** Windshield PPF by vehicle size. Car paint protection film and window tint are no longer offered. */
+export const WINDSHIELD_PPF = [
+  { id: "compact", label: "Compact / Sedan", price: 449, installTime: "2–3 hrs", examples: "Civic, Corolla, Mazda 3, Model 3" },
+  { id: "midsize", label: "Midsize SUV / Crossover", price: 549, installTime: "3–4 hrs", examples: "RAV4, CR-V, Tucson, Model Y, Outback" },
+  { id: "fullsize", label: "Full-size SUV / Truck", price: 649, installTime: "3–4 hrs", examples: "F-150, Silverado, Tahoe, RAM 1500" },
+  { id: "heavy", label: "HD Truck / Van / RV", price: 849, installTime: "4–5 hrs", examples: "F-250/350, Sprinter, Transit, Class A and C" },
 ];
 
 // ---------- TRAINING ----------
+/**
+ * Course list for /training and /training/signup. Claims here must be true:
+ * no manufacturer certifications or installer listings unless the manufacturer grants them.
+ */
 export const TRAINING = [
-  { name: "Detailing Fundamentals", price: 349, duration: "2 days" },
-  { name: "Paint Correction Mastery", price: 549, duration: "3 days" },
-  { name: "Ceramic Coating Certification", price: 699, duration: "3 days" },
-  { name: "PPF Installation", price: 899, duration: "5 days" },
+  {
+    id: "detailing-fundamentals",
+    name: "Detailing Fundamentals",
+    price: 349,
+    duration: "2 days",
+    hours: 16,
+    forWho: "Beginners who want to learn proper detailing from the ground up.",
+    includes: [
+      "Interior deep cleaning and hot-water extraction",
+      "Exterior wash, clay bar and decontamination",
+      "Product selection and dilution ratios",
+      "Paint-safe washing technique",
+      "Wheels, tires, leather and fabric care",
+      "Pricing and startup basics",
+    ],
+  },
+  {
+    id: "paint-correction",
+    name: "Paint Correction Mastery",
+    price: 549,
+    duration: "3 days",
+    hours: 24,
+    forWho: "Detailers ready to add machine correction to their services.",
+    includes: [
+      "Paint thickness measurement and assessment",
+      "Single-stage and multi-stage correction",
+      "Rotary and dual-action polisher technique",
+      "Compound, polish and pad selection",
+      "Swirl, scratch and oxidation removal",
+      "Wet sanding fundamentals",
+    ],
+  },
+  {
+    id: "ceramic-coating",
+    name: "Ceramic Coating",
+    price: 699,
+    duration: "3 days",
+    hours: 24,
+    forWho: "Detailers who want to offer ceramic coatings properly, from prep to cure.",
+    includes: [
+      "Surface preparation and decontamination",
+      "Correction before coating",
+      "Coating application across several product lines",
+      "Curing, environment and layering",
+      "Maintenance coatings and aftercare",
+      "Setting client expectations",
+    ],
+  },
+  {
+    id: "ppf-installation",
+    name: "PPF Installation",
+    price: 899,
+    duration: "5 days",
+    hours: 40,
+    forWho: "Detailers ready to learn paint protection film installation.",
+    includes: [
+      "Pre-cut kit installation",
+      "Bulk film cutting and custom wrapping",
+      "Complex curves and edges",
+      "Headlights, mirrors and high-impact areas",
+      "Full front-end installation",
+      "Removal and re-application",
+    ],
+  },
 ];
+
+/** Training seat terms. Shown on /training/signup and in Terms of Service section 12. */
+export const TRAINING_TERMS = {
+  deposit: 50,
+  classSize: "4 to 6 students",
+  rescheduleDays: 7,
+};
 
 // ---------- GIFT CARDS ----------
 export const GIFT_CARD_TIERS = [50, 100, 250, 379, 500];

@@ -6,33 +6,33 @@ import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
-import ScrollReveal from "@/components/ScrollReveal";
+import AssessmentForm from "@/components/AssessmentForm";
+import GuaranteeStrip from "@/components/site/GuaranteeStrip";
+import ProcessSteps from "@/components/site/ProcessSteps";
+import ClosingCTA from "@/components/site/ClosingCTA";
+import { Section, SectionHeading, btnPrimary, btnSecondaryDark } from "@/components/site/Section";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ceramicHero from "@/assets/ceramic-hero.jpg";
-import { Check, Phone, ArrowRight } from "lucide-react";
-import { CERAMIC_PACKAGES, CERAMIC_UPCHARGE, PHONE, money } from "@/data/pricing";
-import { CERAMIC_CERTIFICATIONS, GUARANTEES } from "@/data/copy";
+import { Check } from "lucide-react";
+import { CERAMIC_PACKAGES, CERAMIC_UPCHARGE, money } from "@/data/pricing";
+import { CERAMIC_CERTIFICATIONS, NAP } from "@/data/copy";
 
 const stages = [
   {
-    n: "01",
     title: "Decontamination",
-    desc: "Full hand wash, iron and tar removal, then clay bar. Coating over bonded contamination locks the dirt in — so it comes off first.",
+    body: "Hand wash, iron and tar removal, then clay bar. Coating over bonded contamination locks the dirt in, so it comes off first.",
   },
   {
-    n: "02",
     title: "Correction",
-    desc: "Machine polishing to remove swirls, wash marks and light scratches. One step for gloss, two steps when the paint needs real cutting.",
+    body: "Machine polishing removes swirls, wash marks and light scratches. One step for gloss, two when the paint needs real cutting.",
   },
   {
-    n: "03",
     title: "Panel prep",
-    desc: "Every panel is wiped down so no polishing oils are left behind. This is the step that decides whether a coating actually bonds.",
+    body: "Every panel is wiped down so no polishing oils are left. This step decides whether a coating actually bonds.",
   },
   {
-    n: "04",
-    title: "Coating & cure",
-    desc: "Coating applied panel by panel, levelled, then left to cure. Keep it dry for 24 hours and out of the car wash for a week.",
+    title: "Coating and cure",
+    body: "Applied panel by panel, levelled, then left to cure. Keep it dry for 24 hours and out of the car wash for a week.",
   },
 ];
 
@@ -47,15 +47,19 @@ const faqs = [
   },
   {
     q: "Is paint correction included?",
-    a: "Every package includes machine work. Essential is a one-step enhancement, Signature and Elite are full two-step cut and polish. Correction is permanent, so it is worth doing properly before the coating goes on.",
+    a: "Every package includes machine work. Essential is a one-step enhancement, Signature and Elite are full two-step cut and polish. Correction is permanent, so it's worth doing properly before the coating goes on.",
   },
   {
     q: "How long does it take?",
-    a: "Essential is a full day. Signature and Elite are two days, because the correction work and the cure time both need real time.",
+    a: "Essential is a full day. Signature and Elite are two days, because the correction and the cure both need real time.",
   },
   {
     q: "Does it cost more for a truck or SUV?",
-    a: `Yes — add ${money(CERAMIC_UPCHARGE.suv)} for an SUV or pickup and ${money(CERAMIC_UPCHARGE.minivan)} for a 3-row or van. Exotics and heavily modified paint are ${CERAMIC_UPCHARGE.exoticPct}% more.`,
+    a: `Yes. Add ${money(CERAMIC_UPCHARGE.suv)} for an SUV or pickup and ${money(CERAMIC_UPCHARGE.minivan)} for a 3-row or van. Exotics and heavily modified paint are ${CERAMIC_UPCHARGE.exoticPct}% more.`,
+  },
+  {
+    q: "Why do you inspect the paint before booking?",
+    a: "Paint condition decides how much correction a car needs. A free inspection means the price you're quoted is the price you pay, with no surprises on the day.",
   },
 ];
 
@@ -70,191 +74,135 @@ const PaintCeramics = () => {
   const upcharge = SIZE_OPTIONS.find((s) => s.id === size)?.add ?? 0;
 
   return (
-  <PageTransition>
-    <div className="min-h-screen pb-16 lg:pb-0">
-      <SEO
-        title="Ceramic Coating Calgary | Paint Correction"
-        description="Ceramic coating and machine paint correction in Calgary. 1-year, 5-year and 9-year graphene packages, decontaminated, corrected and registered."
-        canonical="/ceramic-paint-correction"
-        jsonLd={[
-          buildServiceJsonLd(
-            "Ceramic Coating & Paint Correction",
-            "Machine paint correction and certified ceramic coating packages in Calgary and area.",
-            "/ceramic-paint-correction",
-          ),
-          buildFAQJsonLd(faqs),
-        ]}
-      />
-      <Navbar />
-      <AutoBreadcrumbs />
-      <ServicePageHero
-        title="Ceramic Coating & Paint Correction"
-        image={ceramicHero}
-        ctaType="call"
-      />
+    <PageTransition>
+      <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+        <SEO
+          title="Ceramic Coating Calgary | Paint Correction"
+          description={`Ceramic coating and machine paint correction in Calgary, from ${money(
+            Math.min(...CERAMIC_PACKAGES.map((p) => p.price)),
+          )}. 1-year, 5-year and 9-year packages, decontaminated, corrected and registered.`}
+          canonical="/ceramic-paint-correction"
+          jsonLd={[
+            buildServiceJsonLd(
+              "Ceramic Coating & Paint Correction",
+              "Machine paint correction and ceramic coating packages in Calgary and area.",
+              "/ceramic-paint-correction",
+            ),
+            buildFAQJsonLd(faqs),
+          ]}
+        />
+        <Navbar />
+        <AutoBreadcrumbs />
+        <ServicePageHero
+          title="Ceramic coating and paint correction"
+          subtitle={`A coating locks in whatever the paint looks like the day it goes on, so every package starts with decontamination and machine correction. ${CERAMIC_CERTIFICATIONS.join(", ")} coatings.`}
+          image={ceramicHero}
+          ctaType="call"
+        />
+        <GuaranteeStrip />
 
-      {/* Intro */}
-      <section className="py-14 sm:py-20 bg-background">
-        <div className="container max-w-3xl px-6 text-center">
-          <ScrollReveal>
-            <h2 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-foreground mb-5">
-              Correct the paint. Then protect it.
-            </h2>
-            <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-              A coating locks in whatever the paint looks like on the day it goes on. That is why every package
-              here starts with decontamination and machine work, and only then gets coated. Certified with{" "}
-              {CERAMIC_CERTIFICATIONS.join(", ")}.
-            </p>
-            <ul className="mt-6 flex flex-wrap justify-center gap-2">
-              {GUARANTEES.map((g) => (
-                <li
-                  key={g}
-                  className="rounded-full border border-border px-4 py-1.5 text-xs font-semibold text-muted-foreground"
-                >
-                  {g}
-                </li>
-              ))}
-            </ul>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Packages */}
-      <section className="py-14 sm:py-20 bg-foreground">
-        <div className="container px-4 sm:px-6">
-          <ScrollReveal>
-            <div className="text-center mb-10">
-              <h2 className="font-heading font-semibold text-2xl sm:text-3xl md:text-4xl text-background">
-                Coating Packages
+        <Section tone="dark" id="packages">
+          <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-xl">
+              <h2 className="font-heading text-3xl font-semibold tracking-tight text-primary-foreground sm:text-4xl">
+                Coating packages
               </h2>
-              <p className="mt-4 mx-auto max-w-2xl text-sm sm:text-base text-background/60">
-                Pick your vehicle size — every price below updates. Exotics and heavily modified paint are{" "}
+              <p className="mt-4 text-[15px] leading-relaxed text-primary-foreground/65">
+                Pick your vehicle size and the prices update. Exotics and heavily modified paint are{" "}
                 {CERAMIC_UPCHARGE.exoticPct}% more.
               </p>
-              <div
-                role="group"
-                aria-label="Vehicle size"
-                className="mt-6 inline-flex flex-wrap justify-center gap-1.5 rounded-full border border-background/15 bg-background/[0.06] p-1.5"
-              >
-                {SIZE_OPTIONS.map((s) => (
-                  <button
-                    key={s.id}
-                    type="button"
-                    onClick={() => setSize(s.id)}
-                    aria-pressed={size === s.id}
-                    className={`min-h-[40px] rounded-full px-4 text-xs sm:text-sm font-bold transition-colors ${
-                      size === s.id
-                        ? "bg-primary text-primary-foreground"
-                        : "text-background/70 hover:text-background"
-                    }`}
-                  >
-                    {s.label}
-                  </button>
-                ))}
-              </div>
             </div>
-          </ScrollReveal>
-
+            <div role="group" aria-label="Vehicle size" className="flex w-full shrink-0 gap-1 rounded-md bg-primary-foreground/10 p-1 sm:w-fit">
+              {SIZE_OPTIONS.map((s) => (
+                <button
+                  key={s.id}
+                  type="button"
+                  onClick={() => setSize(s.id)}
+                  aria-pressed={size === s.id}
+                  className={`flex-1 rounded px-3 py-2 text-xs font-semibold transition-colors sm:flex-none sm:px-4 sm:text-sm ${
+                    size === s.id ? "bg-electric text-primary-foreground" : "text-primary-foreground/70 hover:text-primary-foreground"
+                  }`}
+                >
+                  {s.label}
+                </button>
+              ))}
+            </div>
+          </div>
 
           <div className="grid gap-5 md:grid-cols-3">
             {CERAMIC_PACKAGES.map((p) => (
-              <div
+              <article
                 key={p.id}
-                className={`relative flex h-full flex-col rounded-2xl border p-6 sm:p-7 ${
-                  p.popular
-                    ? "border-primary/60 bg-background/[0.06] shadow-lg shadow-primary/10"
-                    : "border-background/15 bg-background/[0.04]"
+                className={`relative flex flex-col overflow-hidden rounded-[10px] border bg-primary-foreground/[0.04] p-6 sm:p-7 ${
+                  p.popular ? "border-electric" : "border-primary-foreground/15"
                 }`}
               >
-                {p.popular && (
-                  <span className="absolute -top-3 left-6 rounded-full bg-primary px-3 py-1 text-[11px] font-bold text-primary-foreground">
-                    Most booked
-                  </span>
-                )}
-                <h3 className="font-heading font-semibold text-xl text-background">{p.name}</h3>
-                <p className="mt-1 text-sm text-background/60">{p.coating}</p>
-                <p className="mt-4 font-heading font-semibold text-3xl text-background">
+                {p.popular && <span aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-electric" />}
+                <p className="h-4 text-xs font-medium text-electric">{p.popular ? "Most booked" : ""}</p>
+                <h3 className="mt-1 font-heading text-xl font-semibold text-primary-foreground">{p.name}</h3>
+                <p className="mt-1 text-sm text-primary-foreground/60">{p.coating}</p>
+                <p className="mt-4 font-heading text-4xl font-semibold tracking-tight tabular-nums text-primary-foreground">
                   {money(p.price + upcharge)}
                 </p>
-                <p className="mt-1 text-xs text-background/50">{p.correction}</p>
-
+                <p className="mt-1 text-xs text-primary-foreground/50">{p.correction}</p>
                 <ul className="mt-6 flex-1 space-y-2.5">
                   {p.includes.map((inc) => (
-                    <li key={inc} className="flex gap-2 text-sm text-background/75">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-                      <span>{inc}</span>
+                    <li key={inc} className="flex gap-2 text-sm text-primary-foreground/75">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-electric" aria-hidden="true" />
+                      {inc}
                     </li>
                   ))}
                 </ul>
-
-                <a
-                  href={`tel:${PHONE.replace(/-/g, "")}`}
-                  className="mt-7 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-md bg-primary px-6 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
-                >
-                  <Phone className="h-4 w-4" aria-hidden="true" />
-                  Book {p.name} — {money(p.price + upcharge)}
+                <a href="#assessment" className={`${p.popular ? btnPrimary : btnSecondaryDark} mt-7`}>
+                  Book a free paint inspection
                 </a>
-              </div>
+              </article>
             ))}
           </div>
-
-          <p className="mt-8 text-center text-xs text-background/50">
-            Coating work is quoted after we see the paint — call {PHONE} and we will book an inspection.
+          <p className="mt-6 text-xs text-primary-foreground/50">
+            We confirm the package and price after a free paint inspection. Call or text {NAP.phone} to book one directly.
           </p>
-        </div>
-      </section>
+        </Section>
 
-      {/* Process */}
-      <section className="py-14 sm:py-20 bg-background">
-        <div className="container max-w-4xl px-6">
-          <ScrollReveal>
-            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-foreground text-center mb-10">
-              How the work is done
-            </h2>
-          </ScrollReveal>
-          <ol className="space-y-4">
-            {stages.map((s) => (
-              <li key={s.n} className="flex gap-5 rounded-2xl border border-border bg-card p-5 sm:p-6">
-                <span className="font-heading font-semibold text-2xl text-primary/40 shrink-0">{s.n}</span>
-                <div>
-                  <h3 className="font-heading font-bold text-sm text-foreground mb-1">{s.title}</h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+        <Section tone="surface">
+          <SectionHeading title="How the work is done" />
+          <ProcessSteps steps={stages} />
+        </Section>
 
-      <ServiceFAQ title="Coating FAQs" faqs={faqs} />
+        <ServiceFAQ title="Coating questions" faqs={faqs} />
 
-      {/* Closing CTA */}
-      <section className="py-16 sm:py-20 bg-foreground">
-        <div className="container px-6 text-center">
-          <ScrollReveal>
-            <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-background mb-4">
-              Not sure which coating you need?
-            </h2>
-            <p className="mx-auto mb-8 max-w-xl text-sm sm:text-base text-background/60">
-              Tell us the vehicle, the age of the paint and how long you plan to keep it. We will tell you
-              honestly which package is worth it.
-            </p>
-            <a
-              href={`tel:${PHONE.replace(/-/g, "")}`}
-              className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-md bg-primary px-8 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
-            >
-              Call {PHONE}
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
-          </ScrollReveal>
-        </div>
-      </section>
+        <Section tone="surface" id="assessment">
+          <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
+            <div>
+              <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                Book a free paint inspection
+              </h2>
+              <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ink-2">
+                Tell us the vehicle, how old the paint is and how long you plan to keep it. We'll look at it in person
+                and tell you honestly which package is worth it.
+              </p>
+            </div>
+            <AssessmentForm
+              source="ceramic-inspection"
+              title="Your vehicle"
+              subtitle="Year, make and model is plenty to start."
+            />
+          </div>
+        </Section>
 
-      <Footer />
-      <div className="h-20 lg:hidden" />
-      <StickyMobileCTA />
-    </div>
-  </PageTransition>
+        <ClosingCTA
+          title="Not sure which coating you need?"
+          body="Call or text and we'll talk it through. No obligation."
+          mode="quote"
+          quoteHref="#assessment"
+          quoteLabel="Book a free paint inspection"
+        />
+
+        <Footer />
+        <div className="h-20 lg:hidden" />
+        <StickyMobileCTA />
+      </div>
+    </PageTransition>
   );
 };
 

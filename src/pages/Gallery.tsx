@@ -1,10 +1,12 @@
-import { REAL_REVIEWS } from "@/data/copy";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
-import TrustStats from "@/components/TrustStats";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
+import GoogleReviewBadge from "@/components/GoogleReviewBadge";
+import ClosingCTA from "@/components/site/ClosingCTA";
+import { Section, SectionHeading } from "@/components/site/Section";
 
 import SEO from "@/components/SEO";
 import galleryHero from "@/assets/gallery-hero.jpg";
@@ -69,7 +71,6 @@ import gtiInterior from "@/assets/gallery-gti-interior.jpg";
 import acuraGarage from "@/assets/gallery-acura-garage.jpg";
 import acuraFloormat from "@/assets/gallery-acura-floormat.jpg";
 import acuraCargo from "@/assets/gallery-acura-cargo.jpg";
-import { Star } from "lucide-react";
 
 type GalleryImage = { src: string; alt: string };
 
@@ -179,122 +180,80 @@ const sections: { title: string; description: string; images: GalleryImage[] }[]
   },
 ];
 
+/** RV first: it's the largest line of work. */
+const ORDERED = [...sections.filter((s) => s.title === "RV & Trailer"), ...sections.filter((s) => s.title !== "RV & Trailer")];
+const slug = (t: string) => t.toLowerCase().replace(/[^a-z]+/g, "-").replace(/(^-|-$)/g, "");
+
 const Gallery = () => (
-  <PageTransition><div className="min-h-screen">
-    <SEO
-      title="Detailing Before & After Gallery"
-      description="Real before and after photos from Calgary mobile detailing jobs — interior cleans, paint corrections, ceramic coatings, RV oxidation removal & more."
-      canonical="/gallery"
-      jsonLd={{
-        "@context": "https://schema.org",
-        "@type": "ImageGallery",
-        name: "Xpress Auto Detailing — Before & After Gallery",
-        description: "Portfolio of real Calgary mobile detailing transformations: interior deep cleans, paint corrections, ceramic coatings, and RV restorations.",
-        url: "https://xpressautodetail.ca/gallery",
-        about: "Mobile car detailing transformations in Calgary, Airdrie, Chestermere, Cochrane, Okotoks and Rocky View County.",
-      }}
-    />
-    <Navbar />
-        <AutoBreadcrumbs />
-    <ServicePageHero title="Calgary Detailing Before & After Gallery" image={galleryHero} />
-    <TrustStats />
+  <PageTransition>
+    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+      <SEO
+        title="Detailing Before & After Gallery"
+        description="Photos from real Calgary mobile detailing jobs: RV oxidation removal, paint correction, ceramic coating, interiors, dealership and fleet work."
+        canonical="/gallery"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "ImageGallery",
+          name: "Xpress Auto & RV Detailing gallery",
+          description: "Photos from real Calgary mobile detailing jobs: RV restoration, paint correction, ceramic coating, interiors and fleet work.",
+          url: "https://xpressautodetail.ca/gallery",
+        }}
+      />
+      <Navbar />
+      <AutoBreadcrumbs />
+      <ServicePageHero
+        title="Our work"
+        subtitle="Every photo is a customer vehicle, shot on site by our crew. No stock images."
+        image={galleryHero}
+      />
 
-    <section className="py-16 bg-background">
-      <div className="container">
-        <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground text-center mb-4">
-          See the Transformation
-        </h2>
-        <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
-          Browse through some of our recent projects. Every vehicle gets our full attention and the professional treatment it deserves. From quick maintenance washes to full paint corrections and ceramic coatings — these results speak for themselves.
-        </p>
-        <div className="space-y-16">
-          {sections.map((section) => (
-            <div key={section.title}>
-              <div className="mb-6 text-center">
-                <h3 className="font-heading font-semibold text-xl md:text-2xl text-foreground">
-                  {section.title}
-                </h3>
-                <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto mt-2">
-                  {section.description}
-                </p>
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {section.images.map((img, i) => (
-                  <div key={i} className="overflow-hidden rounded-lg group aspect-square relative">
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span className="text-white font-heading font-bold text-sm">{section.title}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+      <nav aria-label="Gallery categories" className="sticky top-[60px] z-30 border-b border-line bg-surface/95 backdrop-blur lg:top-[68px]">
+        <ul className="shell no-scrollbar flex gap-6 overflow-x-auto py-3 text-sm">
+          {ORDERED.map((sec) => (
+            <li key={sec.title} className="shrink-0">
+              <a href={`#${slug(sec.title)}`} className="font-medium text-ink-2 hover:text-ink">
+                {sec.title}
+              </a>
+            </li>
+          ))}
+          <li className="shrink-0">
+            <a href="#videos" className="font-medium text-ink-2 hover:text-ink">
+              Videos
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      {ORDERED.map((sec, i) => (
+        <Section key={sec.title} id={slug(sec.title)} tone={i % 2 ? "surface" : "canvas"}>
+          <SectionHeading title={sec.title} intro={sec.description} />
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
+            {sec.images.map((img) => (
+              <img key={img.alt} src={img.src} alt={img.alt} loading="lazy" className="aspect-[4/5] w-full rounded-[4px] object-cover" />
+            ))}
+          </div>
+        </Section>
+      ))}
+
+      <Section tone="surface" id="videos">
+        <SectionHeading title="Videos" intro="RV restoration jobs, start to finish." />
+        <div className="grid grid-cols-2 gap-4 sm:max-w-xl">
+          {["/videos/rv-video-1.mp4", "/videos/rv-video-3.mp4"].map((v) => (
+            <video key={v} className="aspect-[9/16] w-full rounded-[4px] bg-brand-dark object-cover" controls muted playsInline preload="metadata">
+              <source src={v} type="video/mp4" />
+            </video>
           ))}
         </div>
+      </Section>
 
-        {/* Video Section */}
-        <h3 className="font-heading font-semibold text-xl md:text-2xl text-foreground text-center mt-16 mb-8">
-          Videos
-        </h3>
-        <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <div className="rounded-xl overflow-hidden shadow-lg border border-border">
-            <video className="w-full aspect-video object-cover" controls muted playsInline preload="metadata">
-              <source src="/videos/rv-video-1.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div className="rounded-xl overflow-hidden shadow-lg border border-border">
-            <video className="w-full aspect-video object-cover" controls muted playsInline preload="metadata">
-              <source src="/videos/rv-video-3.mp4" type="video/mp4" />
-            </video>
-          </div>
-        </div>
-      </div>
-    </section>
+      <GoogleReviewBadge />
+      <ClosingCTA title="Want results like these?" />
 
-    {/* Client Reactions */}
-    <section className="py-16 bg-muted/30">
-      <div className="container max-w-5xl">
-        <h2 className="font-heading font-semibold text-2xl md:text-3xl text-foreground text-center mb-12">
-          Client Reactions
-        </h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {REAL_REVIEWS.map((t, i) => (
-            <div key={i} className="p-6 rounded-lg border border-border bg-background">
-              <div className="flex gap-0.5 mb-3">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} className="w-3.5 h-3.5 fill-primary text-primary" />
-                ))}
-              </div>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-3">{t.text}</p>
-              <p className="font-heading font-bold text-foreground text-xs">{t.name}</p>
-              <p className="text-muted-foreground text-xs">{t.service}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section className="py-16 bg-primary">
-      <div className="container text-center">
-        <h2 className="font-heading font-semibold text-2xl md:text-3xl text-primary-foreground mb-4">
-          Want Results Like These?
-        </h2>
-        <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8">
-          Every vehicle in our gallery started just like yours. Book your detail today and your car could be our next showcase.
-        </p>
-        <a href="tel:5875004523" className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-bold px-8 py-4 rounded text-sm hover:bg-primary-foreground/90 transition-colors">
-          Call Now
-        </a>
-      </div>
-    </section>
-
-    <Footer />
-  </div></PageTransition>
+      <Footer />
+      <div className="h-20 lg:hidden" />
+      <StickyMobileCTA />
+    </div>
+  </PageTransition>
 );
 
 export default Gallery;

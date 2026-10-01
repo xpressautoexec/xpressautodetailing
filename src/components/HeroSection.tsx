@@ -11,7 +11,7 @@ const HeroSection = () => (
       alt="Xpress technician detailing a motorhome in a Calgary driveway"
       width={1920}
       height={1080}
-      fetchPriority="high"
+      {...{ fetchpriority: "high" }}
       className="absolute inset-0 -z-10 h-full w-full object-cover object-[70%_center]"
     />
     <div

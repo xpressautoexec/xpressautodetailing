@@ -8,9 +8,11 @@ interface SEOProps {
   ogType?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   breadcrumbJsonLd?: Record<string, unknown>;
+  /** Keep this page out of search results (404 etc). */
+  noindex?: boolean;
 }
 
-const SITE_NAME = "Xpress Auto Detailing";
+const SITE_NAME = "Xpress Auto & RV Detailing";
 const BASE_URL = "https://xpressautodetail.ca";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og-default.jpg`;
 
@@ -22,8 +24,10 @@ const SEO = ({
   ogType = "website",
   jsonLd,
   breadcrumbJsonLd,
+  noindex = false,
 }: SEOProps) => {
-  const fullTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
+  // Brand is appended once; titles that already name it are left alone.
+  const fullTitle = /xpress/i.test(title) ? title : `${title} | ${SITE_NAME}`;
   const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
   const image = ogImage || DEFAULT_OG_IMAGE;
 
@@ -39,6 +43,7 @@ const SEO = ({
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <meta name="author" content={SITE_NAME} />
+      {noindex && <meta name="robots" content="noindex" />}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
       {/* Open Graph */}
@@ -72,7 +77,7 @@ export default SEO;
 export const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "AutoDetailing",
-  name: "Xpress Auto Detailing",
+  name: "Xpress Auto & RV Detailing",
   url: "https://xpressautodetail.ca",
   telephone: "+1-587-500-4523",
   email: "support@xpressautodetail.ca",
@@ -102,7 +107,7 @@ export const buildServiceJsonLd = (name: string, description: string, url: strin
   url: `https://xpressautodetail.ca${url}`,
   provider: {
     "@type": "AutoDetailing",
-    name: "Xpress Auto Detailing",
+    name: "Xpress Auto & RV Detailing",
     telephone: "+1-587-500-4523",
     areaServed: { "@type": "City", name: "Calgary" },
   },
