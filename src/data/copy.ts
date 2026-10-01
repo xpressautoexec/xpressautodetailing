@@ -27,6 +27,12 @@ export const GUARANTEES = [
 
 export const CERAMIC_CERTIFICATIONS = ["System X", "Gtechniq", "Gyeon"];
 
+/** Protection film brand installed on RV PPF and windshield film jobs. */
+export const FILM_BRAND = "3M";
+
+/** What every training graduate receives. */
+export const TRAINING_CERTIFICATION = "Xpress Auto & RV Detailing certification";
+
 export const NAP = {
   name: "Xpress Auto & RV Detailing",
   phone: PHONE,

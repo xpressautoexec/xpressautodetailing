@@ -20,7 +20,7 @@ import windshieldSuv from "@/assets/windshield-ppf-suv.jpg";
 import windshieldTruck from "@/assets/windshield-ppf-truck.jpg";
 import windshieldRv from "@/assets/windshield-ppf-rv.jpg";
 import { WINDSHIELD_PPF, money } from "@/data/pricing";
-import { NAP } from "@/data/copy";
+import { FILM_BRAND, NAP } from "@/data/copy";
 
 const WINDSHIELD_IMAGES: Record<string, string> = {
   compact: windshieldSedan,
@@ -106,7 +106,7 @@ const WindshieldBeforeAfter = ({ beforeSrc, afterSrc, beforeAlt, afterAlt }: BAP
 const faqs = [
   {
     q: "How does windshield film protect against rock chips?",
-    a: "It's a 6 to 8 mil optically clear polyurethane layer that absorbs and spreads impact energy before it reaches the glass. Most strikes that would chip or crack bare glass mark the film instead.",
+    a: `We install ${FILM_BRAND} windshield film, a 6 to 8 mil optically clear polyurethane layer that absorbs and spreads impact energy before it reaches the glass. Most strikes that would chip or crack bare glass mark the film instead.`,
   },
   {
     q: "Will it affect visibility or the wipers?",
@@ -141,7 +141,7 @@ const STEPS = [
 ];
 
 const INCLUDED = [
-  "6–8 mil optically clear film",
+  `${FILM_BRAND} 6–8 mil optically clear film`,
   "Glass decontamination before install",
   "Custom-cut for your windshield",
   "Edge sealing",

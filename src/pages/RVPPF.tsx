@@ -15,7 +15,7 @@ import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import { Check, Minus } from "lucide-react";
 import rvPPFHero from "@/assets/gallery-rv-paint-correction-closeup.jpg";
 import { RV_PPF, money } from "@/data/pricing";
-import { NAP } from "@/data/copy";
+import { FILM_BRAND, NAP } from "@/data/copy";
 
 type Level = "front-cap" | "front-plus" | "high-impact" | "full-body";
 
@@ -78,7 +78,7 @@ const faqs = [
   },
   {
     q: "Will the film yellow or peel?",
-    a: "The films we install are non-yellowing, hydrophobic and self-healing under heat, with a 7 to 10 year manufacturer warranty against yellowing, cracking and delamination. They remove cleanly without damaging the original finish.",
+    a: `We install ${FILM_BRAND} paint protection film. It is non-yellowing, hydrophobic and self-healing under heat, with a 7 to 10 year manufacturer warranty against yellowing, cracking and delamination. It removes cleanly without damaging the original finish.`,
   },
   {
     q: "Can you install over gelcoat and decals?",
@@ -129,7 +129,7 @@ const RVPPF = () => (
       <Section id="packages">
         <SectionHeading
           title="Coverage packages"
-          intro="Starting prices. Final coverage and price are confirmed at a free in-person inspection, and every package carries a 7 to 10 year manufacturer film warranty."
+          intro={`Starting prices. Final coverage and price are confirmed at a free in-person inspection, and every package carries a 7 to 10 year ${FILM_BRAND} film warranty.`}
         />
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {packages.map((p) => (

@@ -11,7 +11,7 @@ import SEO, { buildFAQJsonLd } from "@/components/SEO";
 import { Section, SectionHeading, btnPrimary, btnSecondary, cardClass } from "@/components/site/Section";
 import heroImg from "@/assets/ceramic-hero.jpg";
 import { TRAINING, TRAINING_TERMS, money } from "@/data/pricing";
-import { CERAMIC_CERTIFICATIONS, NAP } from "@/data/copy";
+import { CERAMIC_CERTIFICATIONS, NAP, TRAINING_CERTIFICATION } from "@/data/copy";
 
 const trainingFAQs = [
   {
@@ -27,8 +27,8 @@ const trainingFAQs = [
     a: `${TRAINING_TERMS.classSize}, so you get real time on the machine and one-on-one feedback.`,
   },
   {
-    q: "Do I get a certificate?",
-    a: "Yes, every graduate gets an Xpress certificate of completion. Manufacturer certifications are issued by the manufacturers themselves and aren't part of these courses.",
+    q: "Do I get certified?",
+    a: `Yes. Every graduate who completes the course earns the ${TRAINING_CERTIFICATION}, with a certificate you can show clients and employers.`,
   },
   {
     q: "How do I reserve a seat?",
@@ -86,7 +86,7 @@ const Training = () => (
                 ))}
                 <li className="flex gap-2.5 text-sm text-ink-2">
                   <Check className="mt-0.5 h-4 w-4 shrink-0 text-electric" aria-hidden="true" />
-                  Xpress certificate of completion
+                  {TRAINING_CERTIFICATION}
                 </li>
               </ul>
               <Link to={`/training/signup?course=${c.id}`} className={`${btnSecondary} mt-7`}>

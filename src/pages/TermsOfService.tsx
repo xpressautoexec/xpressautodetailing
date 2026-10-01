@@ -124,7 +124,7 @@ const TermsOfService = () => (
 
             <div>
               <h2 className="font-heading text-xl font-semibold text-ink mb-3">8. RV and Windshield Protection Film</h2>
-              <p className="mb-2">Film warranty terms (including yellowing, cracking, and delamination coverage) follow the manufacturer's published warranty and are subject to registration.</p>
+              <p className="mb-2">Film warranty terms (including yellowing, cracking, and delamination coverage) follow 3M's published warranty and are subject to registration.</p>
               <p>Minor stretch marks, edge visibility, and relief cuts around complex panels are inherent to PPF installation and are not defects. The Company does not warrant against damage caused by impacts, improper washing, pressure washing at close range, harsh chemicals, or aftermarket modifications performed after installation.</p>
             </div>
 

@@ -341,7 +341,7 @@ export const WINDSHIELD_PPF = [
 // ---------- TRAINING ----------
 /**
  * Course list for /training and /training/signup. Claims here must be true:
- * no manufacturer certifications or installer listings unless the manufacturer grants them.
+ * Every graduate is certified by Xpress (TRAINING_CERTIFICATION in copy.ts).
  */
 export const TRAINING = [
   {
@@ -457,7 +457,7 @@ export const monthlyPayment = (principal: number, aprPct: number, months: number
   if (r === 0) return principal / months;
   return (principal * r) / (1 - Math.pow(1 + r, -months));
 };
-export const HOURS = "Monday–Sunday, 7:00 AM – 9:00 PM";
+export const HOURS = "Monday–Sunday, 9:00 AM – 5:00 PM";
 
 /** Money formatter — whole dollars unless cents are meaningful. */
 export const money = (n: number) =>
