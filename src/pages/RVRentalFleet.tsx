@@ -67,7 +67,6 @@ const RVRentalFleet = () => (
         subtitle="Rental reviews live and die on how the unit smelled and looked at pickup. We work at your lot on your turnover schedule so units go back out ready."
         image={rvHero}
         ctaType="call"
-        video={CLIPS.rvCrewWash}
       />
 
       <Section tone="dark">

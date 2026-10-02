@@ -14,7 +14,7 @@ import { Section, SectionHeading, btnPrimary, btnSecondary, cardClass } from "@/
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import { Check, Minus } from "lucide-react";
 import rvPPFHero from "@/assets/jobs/hero-rv-ppf.webp";
-import { PHOTOS, CLIPS } from "@/data/photos";
+import { PHOTOS } from "@/data/photos";
 import WorkShowcase from "@/components/site/WorkShowcase";
 import { RV_PPF, money } from "@/data/pricing";
 import { FILM_BRAND, NAP } from "@/data/copy";
@@ -126,7 +126,6 @@ const RVPPF = () => (
         subtitle={`A front-cap respray can cost $8,000 to $20,000. Self-healing film takes the rock chips, bug acid and UV instead, for a fraction of that. Packages from ${money(from)}.`}
         image={rvPPFHero}
         ctaType="call"
-        video={CLIPS.rvWalkaround}
       />
       <GuaranteeStrip />
 

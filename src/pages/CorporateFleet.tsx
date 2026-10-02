@@ -12,7 +12,7 @@ import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section, SectionHeading } from "@/components/site/Section";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import fleetHero from "@/assets/fleet-kls-truck.jpg";
-import { PHOTOS, CLIPS } from "@/data/photos";
+import { PHOTOS } from "@/data/photos";
 import WorkShowcase from "@/components/site/WorkShowcase";
 import { NAP, WATER_LINE } from "@/data/copy";
 import QualityProducts from "@/components/site/QualityProducts";

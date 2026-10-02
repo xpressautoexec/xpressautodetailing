@@ -12,7 +12,6 @@ import ProcessSteps from "@/components/site/ProcessSteps";
 import ClosingCTA from "@/components/site/ClosingCTA";
 import QualityProducts from "@/components/site/QualityProducts";
 import type { ProductLine } from "@/data/copy";
-import type { Clip } from "@/data/photos";
 import WorkShowcase, { type Work } from "@/components/site/WorkShowcase";
 import { Section, SectionHeading } from "@/components/site/Section";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
@@ -36,7 +35,7 @@ const LandingPage = ({
   work,
 }: {
   seo: { title: string; description: string; canonical: string; serviceName: string; serviceDescription: string };
-  hero: { title: string; subtitle: string; image: string; ctaType: "book" | "call"; video?: Clip; imagePosition?: string };
+  hero: { title: string; subtitle: string; image: string; ctaType: "book" | "call"; imagePosition?: string };
   features: { title: string; intro?: string; items: Item[] };
   children?: ReactNode;
   steps?: { title: string; items: Item[] };
@@ -63,7 +62,6 @@ const LandingPage = ({
         subtitle={hero.subtitle}
         image={hero.image}
         ctaType={hero.ctaType}
-        video={hero.video}
         imagePosition={hero.imagePosition}
       />
       <GuaranteeStrip />
