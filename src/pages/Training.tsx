@@ -9,7 +9,9 @@ import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO, { buildFAQJsonLd } from "@/components/SEO";
 import { Section, SectionHeading, btnPrimary, btnSecondary, cardClass } from "@/components/site/Section";
-import heroImg from "@/assets/ceramic-hero.jpg";
+import heroImg from "@/assets/jobs/hero-training.webp";
+import { PHOTOS, CLIPS } from "@/data/photos";
+import WorkShowcase from "@/components/site/WorkShowcase";
 import { TRAINING, TRAINING_TERMS, money } from "@/data/pricing";
 import { CERAMIC_CERTIFICATIONS, NAP, TRAINING_CERTIFICATION } from "@/data/copy";
 import QualityProducts from "@/components/site/QualityProducts";
@@ -53,6 +55,7 @@ const Training = () => (
         subtitle={`Hands-on courses taught by the crew that does the work every day. Real vehicles, professional products, classes of ${TRAINING_TERMS.classSize}.`}
         image={heroImg}
         ctaType="call"
+        video={CLIPS.paintCorrection}
       />
 
       <Section>
@@ -97,6 +100,13 @@ const Training = () => (
           ))}
         </div>
       </Section>
+
+      <WorkShowcase
+        title="The work you'll learn"
+        intro="Correction, coating and detailing on real customer vehicles, the same standard we teach."
+        photos={[...PHOTOS.ceramic, ...PHOTOS.exterior.slice(0, 6), ...PHOTOS.interior.slice(0, 4)]}
+        tone="surface"
+      />
 
       <ServiceFAQ title="Training questions" faqs={trainingFAQs} />
 

@@ -3,6 +3,8 @@ import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
+import { PhotoRail } from "@/components/site/PhotoRail";
+import { PHOTOS } from "@/data/photos";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import PerFootCalculator from "@/components/PerFootCalculator";
@@ -12,13 +14,6 @@ import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section, SectionHeading, cardDarkClass } from "@/components/site/Section";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import marineHeroAsset from "@/assets/marine-pontoon-sunset.jpg.asset.json";
-import marineTubesAsset from "@/assets/marine-pontoon-tubes.jpg.asset.json";
-import marineInteriorAsset from "@/assets/marine-interior-seats.jpg.asset.json";
-import marineLoungeAsset from "@/assets/marine-seating-lounge.jpg.asset.json";
-import marineSideAsset from "@/assets/marine-side-profile.jpg.asset.json";
-import boatAquaholicAsset from "@/assets/boat-aquaholic-side.jpg.asset.json";
-import marineHelmAsset from "@/assets/marine-helm-seat.jpg.asset.json";
-import marineDecalAsset from "@/assets/marine-decal-detail.jpg.asset.json";
 import { MARINE_SERVICES, money } from "@/data/pricing";
 import { WATER_LINE } from "@/data/copy";
 import QualityProducts from "@/components/site/QualityProducts";
@@ -48,17 +43,6 @@ const faqs = [
     q: "Can you clean vinyl seating and mildew?",
     a: `Yes. Vinyl seating is cleaned and conditioned as part of interior work. For boats that keep growing mildew, interior seat ceramic coating from ${money(seat.price)} seals the vinyl so it stops taking hold.`,
   },
-];
-
-const GALLERY = [
-  { src: marineSideAsset.url, alt: "Pontoon boat side profile after a full detail" },
-  { src: marineTubesAsset.url, alt: "Aluminum pontoon tubes after acid restoration" },
-  { src: marineInteriorAsset.url, alt: "Cleaned and conditioned marine vinyl seating" },
-  { src: boatAquaholicAsset.url, alt: "Boat hull with polished gelcoat" },
-  { src: marineLoungeAsset.url, alt: "Boat lounge seating after interior detail" },
-  { src: marineHelmAsset.url, alt: "Detailed helm seat and console" },
-  { src: marineDecalAsset.url, alt: "Restored boat decal and gelcoat" },
-  { src: marineHeroAsset.url, alt: "Pontoon on the water at sunset after a full detail" },
 ];
 
 const MarineDetailing = () => (
@@ -125,11 +109,7 @@ const MarineDetailing = () => (
 
       <Section tone="surface">
         <SectionHeading title="Recent marine work" />
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
-          {GALLERY.map((g) => (
-            <img key={g.alt} src={g.src} alt={g.alt} loading="lazy" className="aspect-[4/5] w-full rounded-[4px] object-cover" />
-          ))}
-        </div>
+        <PhotoRail photos={PHOTOS.marine} label="Recent marine photos" />
       </Section>
 
       <ServiceFAQ title="Marine questions" faqs={faqs} />

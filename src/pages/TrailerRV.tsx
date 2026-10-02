@@ -11,11 +11,10 @@ import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import { Link } from "react-router-dom";
 import { Check, Minus, Phone, ArrowUpRight } from "lucide-react";
-import rvHero from "@/assets/rv-hero.jpg";
-import rvOxidation from "@/assets/gallery-rv-oxidation-correction.jpg";
-import rvSurveyorFront from "@/assets/gallery-rv-surveyor-front.jpg";
-import rvSurveyorFull from "@/assets/gallery-rv-surveyor-full.jpg";
-import rvPaintCloseup from "@/assets/gallery-rv-paint-correction-closeup.jpg";
+import rvHero from "@/assets/jobs/hero-rv-trailer.webp";
+import { PHOTOS, CLIPS } from "@/data/photos";
+import { PhotoRail } from "@/components/site/PhotoRail";
+import { VideoReel } from "@/components/site/VideoReel";
 import logoGtechniq from "@/assets/brand-gtechniq.png";
 import logoMenzerna from "@/assets/brand-menzerna.png";
 import logo3m from "@/assets/brand-3m.png";
@@ -136,13 +135,6 @@ const SPEC_COLUMNS = [
   { key: "Oxidation Removal", label: "Oxidation removal" },
 ];
 
-const GALLERY = [
-  { src: rvOxidation, alt: "RV sidewall mid-way through oxidation removal, taped to show before and after" },
-  { src: rvSurveyorFull, alt: "Travel trailer front cap after full exterior restoration" },
-  { src: rvPaintCloseup, alt: "Close-up of corrected gelcoat beside an untouched section" },
-  { src: rvSurveyorFront, alt: "Front cap of a travel trailer during gloss restoration" },
-];
-
 const BRANDS = [
   { src: logoGtechniq, alt: "Gtechniq" },
   { src: logoMenzerna, alt: "Menzerna" },
@@ -194,11 +186,11 @@ const TrailerRV = () => (
       <section className="relative isolate overflow-hidden bg-brand-dark">
         <img
           src={rvHero}
-          alt="Xpress technician restoring the sidewall of a Class A motorhome in a Calgary driveway"
+          alt="Newmar Dutch Star motorhome in the service bay during an Xpress exterior detail"
           width={1920}
           height={1080}
           {...{ fetchpriority: "high" }}
-          className="absolute inset-0 -z-10 h-full w-full object-cover object-[70%_center]"
+          className="absolute inset-0 -z-10 h-full w-full object-cover object-[60%_center]"
         />
         <div
           aria-hidden="true"
@@ -521,19 +513,14 @@ const TrailerRV = () => (
           <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-ink-2">
             The tape line marks where correction stops. Everything on one side is the unit as we found it.
           </p>
-          <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
-            {GALLERY.map((g) => (
-              <figure key={g.alt}>
-                <img
-                  src={g.src}
-                  alt={g.alt}
-                  loading="lazy"
-                  width={1179}
-                  height={1500}
-                  className="aspect-[4/5] w-full rounded-[4px] object-cover"
-                />
-              </figure>
-            ))}
+          <div className="mt-10">
+            <VideoReel
+              clips={[CLIPS.rvCrewWash, CLIPS.trailerPolish, CLIPS.rvWalkaround, CLIPS.rvInterior]}
+              label="RV job videos"
+            />
+          </div>
+          <div className="mt-10">
+            <PhotoRail photos={PHOTOS.rv} label="Recent RV photos" />
           </div>
           <div className="mt-12 grid gap-4 sm:grid-cols-2">
             <Link

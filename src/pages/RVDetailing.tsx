@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import LandingPage from "@/components/site/LandingPage";
 import { Section, SectionHeading, btnPrimary } from "@/components/site/Section";
-import rvHero from "@/assets/rv-hero.jpg";
+import rvHero from "@/assets/jobs/hero-rv-detailing.webp";
+import { PHOTOS, CLIPS } from "@/data/photos";
 import { RV_BUNDLES, money } from "@/data/pricing";
 import { SERVICE_AREA_SENTENCE, WATER_LINE } from "@/data/copy";
 
@@ -41,6 +42,13 @@ const RVDetailing = () => (
       subtitle: "Alberta sun, hail and road brine are hard on gelcoat. We restore oxidized fibreglass, strip black streaks, clean the living space and seal the unit at your storage lot, campground or driveway.",
       image: rvHero,
       ctaType: "call",
+      video: CLIPS.rvCrewWash,
+    }}
+    work={{
+      title: "Recent RV work",
+      intro: "Travel trailers, fifth wheels and Class A motorhomes, detailed at storage lots and driveways around Calgary.",
+      photos: PHOTOS.rv,
+      clips: [CLIPS.trailerPolish, CLIPS.rvWalkaround, CLIPS.rvInterior],
     }}
     features={{
       title: "RV services",

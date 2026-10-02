@@ -10,7 +10,9 @@ import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section, SectionHeading } from "@/components/site/Section";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import { Check } from "lucide-react";
-import rvHero from "@/assets/gallery-rv-surveyor-full.jpg";
+import rvHero from "@/assets/jobs/hero-rv-rental.webp";
+import { PHOTOS, CLIPS } from "@/data/photos";
+import WorkShowcase from "@/components/site/WorkShowcase";
 import { RV_FLEET, money } from "@/data/pricing";
 import { NAP, WATER_LINE } from "@/data/copy";
 import QualityProducts from "@/components/site/QualityProducts";
@@ -65,6 +67,7 @@ const RVRentalFleet = () => (
         subtitle="Rental reviews live and die on how the unit smelled and looked at pickup. We work at your lot on your turnover schedule so units go back out ready."
         image={rvHero}
         ctaType="call"
+        video={CLIPS.rvCrewWash}
       />
 
       <Section tone="dark">
@@ -98,6 +101,12 @@ const RVRentalFleet = () => (
           })}
         </div>
       </Section>
+
+      <WorkShowcase
+        title="Recent RV work"
+        photos={PHOTOS.rv}
+        clips={[CLIPS.rvInterior, CLIPS.trailerPolish, CLIPS.rvWalkaround]}
+      />
 
       <ServiceFAQ title="Rental fleet questions" faqs={faqs} />
 

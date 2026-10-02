@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import LandingPage from "@/components/site/LandingPage";
 import { Section, SectionHeading, btnPrimary } from "@/components/site/Section";
 import heroImg from "@/assets/gallery-paint-reflection.jpg";
+import { PHOTOS, CLIPS } from "@/data/photos";
 import { CERAMIC_PACKAGES, money } from "@/data/pricing";
 
 const from = Math.min(...CERAMIC_PACKAGES.map((p) => p.price));
@@ -52,6 +53,12 @@ const PaintCorrection = () => (
       subtitle: "Those spiderweb scratches you see in direct sun are wash swirls in the clear coat. Machine polishing removes them permanently. We measure paint depth first and correct under proper lighting.",
       image: heroImg,
       ctaType: "call",
+      video: CLIPS.paintCorrection,
+    }}
+    work={{
+      title: "Recent correction work",
+      intro: "Tape lines mark where correction stops, so you can see the difference on the same panel.",
+      photos: [...PHOTOS.ceramic, ...PHOTOS.exterior.slice(0, 6)],
     }}
     features={{
       title: "How correction works",

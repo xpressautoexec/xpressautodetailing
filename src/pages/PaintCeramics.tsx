@@ -11,7 +11,9 @@ import ProcessSteps from "@/components/site/ProcessSteps";
 import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section, SectionHeading, btnPrimary, btnSecondaryDark } from "@/components/site/Section";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
-import ceramicHero from "@/assets/ceramic-hero.jpg";
+import ceramicHero from "@/assets/jobs/hero-paint-ceramics.webp";
+import { PHOTOS, CLIPS } from "@/data/photos";
+import WorkShowcase from "@/components/site/WorkShowcase";
 import { Check } from "lucide-react";
 import { CERAMIC_PACKAGES, CERAMIC_UPCHARGE, money } from "@/data/pricing";
 import { CERAMIC_CERTIFICATIONS, NAP } from "@/data/copy";
@@ -99,6 +101,7 @@ const PaintCeramics = () => {
           subtitle={`A coating locks in whatever the paint looks like the day it goes on, so every package starts with decontamination and machine correction. ${CERAMIC_CERTIFICATIONS.join(", ")} coatings.`}
           image={ceramicHero}
           ctaType="call"
+          video={CLIPS.paintCorrection}
         />
         <GuaranteeStrip />
 
@@ -164,6 +167,13 @@ const PaintCeramics = () => {
             We confirm the package and price after a free paint inspection. Call or text {NAP.phone} to book one directly.
           </p>
         </Section>
+
+        <WorkShowcase
+          title="Recent coating and correction work"
+          intro="Tape lines mark where correction stops, so you can see the difference on the same panel."
+          photos={[...PHOTOS.ceramic, ...PHOTOS.exterior]}
+          clips={[CLIPS.paintCorrection, CLIPS.defenderShop, CLIPS.jeepShop]}
+        />
 
         <Section tone="surface">
           <SectionHeading title="How the work is done" />
