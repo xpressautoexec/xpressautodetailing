@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { Check } from "lucide-react";
-import { AUTO_PACKAGES, VEHICLE_SIZES, type VehicleSizeId, money, bookingUrl } from "@/data/pricing";
+import { AUTO_PACKAGES, VEHICLE_SIZES, money, bookingUrl } from "@/data/pricing";
+import { useSizeParam } from "@/hooks/useSizeParam";
 
 interface Props {
   /** Dark section background — switches card colours. */
@@ -13,7 +13,7 @@ interface Props {
 
 /** The auto packages, priced by vehicle size. Prices come from pricing.ts only. */
 const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
-  const [size, setSize] = useState<VehicleSizeId>("sedan");
+  const [size, setSize] = useSizeParam();
   const packages = only ? only.map((id) => AUTO_PACKAGES.find((p) => p.id === id)!).filter(Boolean) : AUTO_PACKAGES;
 
   const text = dark ? "text-primary-foreground" : "text-ink";

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
@@ -17,6 +16,7 @@ import { Check } from "lucide-react";
 import { CERAMIC_PACKAGES, CERAMIC_UPCHARGE, money } from "@/data/pricing";
 import { CERAMIC_CERTIFICATIONS, NAP } from "@/data/copy";
 import QualityProducts from "@/components/site/QualityProducts";
+import { useSizeParam } from "@/hooks/useSizeParam";
 
 const stages = [
   {
@@ -71,7 +71,7 @@ const SIZE_OPTIONS = [
 ];
 
 const PaintCeramics = () => {
-  const [size, setSize] = useState<(typeof SIZE_OPTIONS)[number]["id"]>("sedan");
+  const [size, setSize] = useSizeParam();
   const upcharge = SIZE_OPTIONS.find((s) => s.id === size)?.add ?? 0;
 
   return (

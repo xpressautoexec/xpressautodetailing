@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
-import { lazy, Suspense, useEffect, type ReactNode } from "react";
+import { lazy, Suspense, useEffect, useRef, type ReactNode } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { AnimatePresence } from "framer-motion";
 import Index from "./pages/Index";
@@ -44,9 +44,28 @@ const queryClient = new QueryClient();
 /** Resets scroll to the top on every route change (hash links keep their target). */
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
+  const prevPath = useRef(pathname);
   useEffect(() => {
-    if (hash) return;
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    const changedPage = prevPath.current !== pathname;
+    prevPath.current = pathname;
+    if (!hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      return;
+    }
+    // Lazy routes and page transitions mount late, so wait for the target section.
+    // The outgoing page can share the same section id while it fades out, so ignore
+    // anything that was already on screen when the navigation happened.
+    const id = decodeURIComponent(hash.slice(1));
+    const stale = changedPage ? document.getElementById(id) : null;
+    let tries = 0;
+    let timer: ReturnType<typeof setTimeout>;
+    const seek = () => {
+      const el = document.getElementById(id);
+      if (el && el !== stale) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      else if (tries++ < 40) timer = setTimeout(seek, 75);
+    };
+    seek();
+    return () => clearTimeout(timer);
   }, [pathname, hash]);
   return null;
 };

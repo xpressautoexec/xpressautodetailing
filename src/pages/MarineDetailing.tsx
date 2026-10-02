@@ -83,7 +83,7 @@ const MarineDetailing = () => (
       />
       <GuaranteeStrip />
 
-      <Section tone="dark">
+      <Section tone="dark" id="pricing">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
           <div>
             <h2 className="font-heading text-3xl font-semibold tracking-tight text-primary-foreground sm:text-4xl">Marine pricing</h2>
