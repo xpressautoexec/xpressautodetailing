@@ -1,47 +1,89 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CarFront, CheckCircle2, HelpCircle, Sailboat, Sparkles, Truck, type LucideIcon } from "lucide-react";
+import { Building2, CarFront, Caravan, CheckCircle2, HelpCircle, Sailboat, Sparkles, Truck, type LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { VEHICLE_SIZES, type VehicleSizeId } from "@/data/pricing";
+import type { VehicleSizeId } from "@/data/pricing";
+
+type FinderVehicleId = VehicleSizeId | "truck" | "rv" | "marine" | "fleet" | "other";
 
 interface Concern {
   value: string;
   label: string;
+  /** Where to send them. `{size}` is replaced with the chosen vehicle size. */
   to: string;
   result: string;
 }
 
-const concerns: Concern[] = [
-  { value: "interior", label: "Clean or restore my interior", to: "/detailing?tab=interior", result: "Interior Detailing packages" },
-  { value: "complete", label: "Detail the entire vehicle", to: "/detailing?tab=complete", result: "Complete Detailing packages" },
-  { value: "paint", label: "Improve or protect the paint", to: "/paint-correction", result: "Paint Correction and Protection options" },
-  { value: "rv-marine", label: "Detail an RV, trailer or boat", to: "/rv-trailer", result: "RV, Trailer and Marine services" },
-  { value: "fleet", label: "Care for work trucks or a fleet", to: "/fleet", result: "Commercial Fleet options" },
-];
-
-type FinderVehicleId = VehicleSizeId | "truck" | "rv" | "marine" | "other";
-
 const VEHICLE_OPTIONS: { id: FinderVehicleId; label: string; icon: LucideIcon }[] = [
   { id: "sedan", label: "Sedan / Coupe", icon: CarFront },
   { id: "suv", label: "SUV / Pickup", icon: CarFront },
-  { id: "truck", label: "Truck", icon: Truck },
   { id: "minivan", label: "3-Row SUV / Minivan", icon: CarFront },
-  { id: "rv", label: "RV / Trailer", icon: Truck },
-  { id: "marine", label: "Boat / Marine", icon: Sailboat },
+  { id: "truck", label: "Work Truck", icon: Truck },
+  { id: "fleet", label: "Fleet / Multiple Vehicles", icon: Building2 },
+  { id: "rv", label: "RV / Trailer", icon: Caravan },
+  { id: "marine", label: "Boat / Pontoon", icon: Sailboat },
   { id: "other", label: "Other", icon: HelpCircle },
 ];
+
+const FLEET: Concern = { value: "fleet", label: "Care for a fleet of vehicles", to: "/fleet#quote", result: "Commercial Fleet quote" };
+
+const carConcerns = (size: VehicleSizeId | ""): Concern[] => {
+  const q = size ? `&size=${size}` : "";
+  return [
+    { value: "interior", label: "Clean or restore my interior", to: `/detailing?tab=interior${q}`, result: "Interior Detailing packages" },
+    { value: "complete", label: "Detail the entire vehicle", to: `/detailing?tab=complete${q}`, result: "Complete Detailing packages" },
+    { value: "paint", label: "Correct or ceramic coat the paint", to: `/ceramic-paint-correction${size ? `?size=${size}` : ""}#packages`, result: "Paint Correction and Ceramic packages" },
+    FLEET,
+  ];
+};
+
+const CONCERNS: Record<FinderVehicleId, Concern[]> = {
+  sedan: carConcerns("sedan"),
+  suv: carConcerns("suv"),
+  minivan: carConcerns("minivan"),
+  truck: [
+    { value: "interior", label: "Clean out the cab", to: "/detailing#work-truck", result: "Work Truck Package" },
+    { value: "complete", label: "Detail the whole truck", to: "/detailing#work-truck", result: "Work Truck Package" },
+    { value: "paint", label: "Correct or ceramic coat the paint", to: "/ceramic-paint-correction?size=suv#packages", result: "Paint Correction and Ceramic packages" },
+    FLEET,
+  ],
+  fleet: [
+    { value: "trucks", label: "Work trucks and vans", to: "/fleet#quote", result: "Commercial Fleet quote" },
+    { value: "dealer", label: "Dealership lot or inventory", to: "/fleet#quote", result: "Commercial Fleet quote" },
+    { value: "equipment", label: "Heavy equipment", to: "/fleet#quote", result: "Commercial Fleet quote" },
+    { value: "rv-rental", label: "RV rental fleet", to: "/rv-trailer/rental-fleet", result: "RV Rental Fleet program" },
+  ],
+  rv: [
+    { value: "wash", label: "Wash and protect the exterior", to: "/rv-trailer#packages", result: "RV packages, priced by the foot" },
+    { value: "oxidation", label: "Remove oxidation and restore shine", to: "/rv-trailer#packages", result: "RV packages, priced by the foot" },
+    { value: "interior", label: "Clean the interior", to: "/rv-trailer#packages", result: "RV packages, priced by the foot" },
+    { value: "ppf", label: "Protect it with paint protection film", to: "/rv-trailer/ppf", result: "RV and windshield PPF" },
+    { value: "rental", label: "Care for an RV rental fleet", to: "/rv-trailer/rental-fleet", result: "RV Rental Fleet program" },
+  ],
+  marine: [
+    { value: "wash", label: "Wash, wax or polish my boat", to: "/marine#pricing", result: "Marine pricing, per foot" },
+    { value: "pontoon", label: "Restore pontoon tubes", to: "/marine#pricing", result: "Marine pricing, per foot" },
+    { value: "ceramic", label: "Ceramic coat the gelcoat", to: "/marine#pricing", result: "Marine pricing, per foot" },
+  ],
+  other: carConcerns(""),
+};
 
 const ConcernFinder = () => {
   const navigate = useNavigate();
   const [value, setValue] = useState("");
   const [vehicle, setVehicle] = useState<FinderVehicleId>("sedan");
+  const concerns = CONCERNS[vehicle];
   const selected = concerns.find((c) => c.value === value);
   const VehicleIcon = VEHICLE_OPTIONS.find((v) => v.id === vehicle)?.icon ?? CarFront;
 
+  const changeVehicle = (next: FinderVehicleId) => {
+    setVehicle(next);
+    // Keep the need if the new vehicle offers it, otherwise make them pick again.
+    if (!CONCERNS[next].some((c) => c.value === value)) setValue("");
+  };
+
   const showPackages = () => {
-    if (!selected) return;
-    const separator = selected.to.includes("?") ? "&" : "?";
-    navigate(`${selected.to}${separator}size=${vehicle}`);
+    if (selected) navigate(selected.to);
   };
 
   return (
@@ -66,7 +108,7 @@ const ConcernFinder = () => {
               <select
                 id="concern-vehicle"
                 value={vehicle}
-                onChange={(event) => setVehicle(event.target.value as FinderVehicleId)}
+                onChange={(event) => changeVehicle(event.target.value as FinderVehicleId)}
                 className="h-12 w-full appearance-none rounded-md border border-border bg-card pl-10 pr-8 text-sm font-semibold text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
               >
                 {VEHICLE_OPTIONS.map((option) => (
