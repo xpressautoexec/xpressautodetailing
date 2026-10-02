@@ -25,6 +25,20 @@ export const GUARANTEES = [
   "Satisfaction guarantee",
 ];
 
+/**
+ * Commercial account terms. Mirrors what /fleet already states (rate in writing,
+ * rotations outside business hours, monthly invoice with net terms).
+ */
+export const FLEET_TERMS = [
+  { title: "Per-unit rate in writing", body: "Set after a yard walk, with a proposed rotation schedule." },
+  { title: "Off-hours rotations", body: "Early mornings, evenings or weekends, so units stay on the road." },
+  { title: "Monthly invoicing, net terms", body: "One invoice with a per-unit breakdown for your accounts team." },
+  { title: "Self-sufficient on site", body: "Our vans bring their own water and power to your yard or lot." },
+];
+
+/** Owner-confirmed coverage amount. Do not reword to "Fully Insured" (banned) or add WCB. */
+export const COVERAGE = "$2M liability coverage";
+
 export const CERAMIC_CERTIFICATIONS = ["System X", "Gtechniq", "Gyeon"];
 
 /** Protection film brand installed on RV PPF and windshield film jobs (no standalone page). */
@@ -168,16 +182,17 @@ export interface Review {
   text: string;
 }
 
+/** Order matters: lead with reviews that name the crew, not just the owner. */
 export const REAL_REVIEWS: Review[] = [
-  {
-    name: "Claire E.",
-    service: "RV trailer paint correction",
-    text: "We are super impressed with the paint correction on our trailer. We didn’t expect for it to look as good as it does. It looks brand new. Omar and team were punctual, friendly and went above and beyond to make sure we had a great experience and we were happy with the final result. I would highly recommend them.",
-  },
   {
     name: "Kate L.",
     service: "Complete detail, Jeep",
     text: "These guys are great. … We had Youssef and Adam, both lovely and kind - and honestly could not be happier with their work. My 2014 jeep looks the way it did the day we drove it off the lot!! Thanks so much guys! We will recommend you to everyone we know!!!",
+  },
+  {
+    name: "Claire E.",
+    service: "RV trailer paint correction",
+    text: "We are super impressed with the paint correction on our trailer. We didn’t expect for it to look as good as it does. It looks brand new. Omar and team were punctual, friendly and went above and beyond to make sure we had a great experience and we were happy with the final result. I would highly recommend them.",
   },
   {
     name: "Teni B.",

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone } from "lucide-react";
+import { Phone, Check, ShieldCheck } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
@@ -15,9 +15,10 @@ import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import WorkTruckPackage from "@/components/WorkTruckPackage";
+import FleetAccounts from "@/components/home/FleetAccounts";
 import ChatWidget from "@/components/ChatWidget";
 import SEO, { localBusinessJsonLd } from "@/components/SEO";
-import { HOW_IT_WORKS } from "@/data/copy";
+import { HOW_IT_WORKS, GUARANTEES, COVERAGE } from "@/data/copy";
 import {
   BOOKING_URL,
   PHONE,
@@ -87,6 +88,8 @@ const Index = () => (
 
       <WorkTruckPackage />
 
+      <FleetAccounts />
+
       {/* Financing */}
       <section className="border-y border-line bg-surface">
         <div className="shell grid gap-8 py-14 sm:py-16 lg:grid-cols-[1.4fr_1fr] lg:items-center">
@@ -134,6 +137,23 @@ const Index = () => (
               </li>
             ))}
           </ol>
+          <ul className="mt-12 flex flex-col gap-3 border-t border-line pt-6 sm:flex-row sm:flex-wrap sm:gap-x-8">
+            {GUARANTEES.map((g) => (
+              <li key={g} className="flex items-center gap-2 text-sm font-medium text-ink-2">
+                <Check className="h-4 w-4 shrink-0 text-electric" aria-hidden="true" />
+                {g}
+              </li>
+            ))}
+            <li className="flex items-center gap-2 text-sm font-medium text-ink-2">
+              <ShieldCheck className="h-4 w-4 shrink-0 text-electric" aria-hidden="true" />
+              {COVERAGE}
+            </li>
+            <li className="sm:ml-auto">
+              <Link to="/cancellation-policy" className="text-sm font-medium text-muted-ink hover:text-ink hover:underline">
+                Cancellation policy
+              </Link>
+            </li>
+          </ul>
         </div>
       </section>
 
