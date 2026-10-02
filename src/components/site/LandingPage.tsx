@@ -12,6 +12,8 @@ import ProcessSteps from "@/components/site/ProcessSteps";
 import ClosingCTA from "@/components/site/ClosingCTA";
 import QualityProducts from "@/components/site/QualityProducts";
 import type { ProductLine } from "@/data/copy";
+import type { Clip } from "@/data/photos";
+import WorkShowcase, { type Work } from "@/components/site/WorkShowcase";
 import { Section, SectionHeading } from "@/components/site/Section";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 
@@ -31,9 +33,10 @@ const LandingPage = ({
   related,
   closing,
   products,
+  work,
 }: {
   seo: { title: string; description: string; canonical: string; serviceName: string; serviceDescription: string };
-  hero: { title: string; subtitle: string; image: string; ctaType: "book" | "call" };
+  hero: { title: string; subtitle: string; image: string; ctaType: "book" | "call"; video?: Clip; imagePosition?: string };
   features: { title: string; intro?: string; items: Item[] };
   children?: ReactNode;
   steps?: { title: string; items: Item[] };
@@ -42,6 +45,8 @@ const LandingPage = ({
   closing: { title: string; body?: string; mode: "book" | "quote"; quoteHref?: string; quoteLabel?: string };
   /** Product lines for the "products we use" band; defaults to the general set. */
   products?: ProductLine[];
+  /** Real job photos (and optional clips) shown after the features. */
+  work?: Work;
 }) => (
   <PageTransition>
     <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
@@ -53,7 +58,14 @@ const LandingPage = ({
       />
       <Navbar />
       <AutoBreadcrumbs />
-      <ServicePageHero title={hero.title} subtitle={hero.subtitle} image={hero.image} ctaType={hero.ctaType} />
+      <ServicePageHero
+        title={hero.title}
+        subtitle={hero.subtitle}
+        image={hero.image}
+        ctaType={hero.ctaType}
+        video={hero.video}
+        imagePosition={hero.imagePosition}
+      />
       <GuaranteeStrip />
 
       <Section>
@@ -67,6 +79,8 @@ const LandingPage = ({
           ))}
         </dl>
       </Section>
+
+      {work && <WorkShowcase {...work} tone="surface" />}
 
       {children}
 

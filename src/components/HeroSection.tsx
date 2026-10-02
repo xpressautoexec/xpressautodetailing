@@ -1,6 +1,6 @@
 import { Phone } from "lucide-react";
 import ConcernFinder from "@/components/ConcernFinder";
-import heroImg from "@/assets/rv-hero.jpg";
+import heroImg from "@/assets/jobs/hero-home.webp";
 import { BOOKING_URL, PHONE } from "@/data/pricing";
 
 /** Home hero: real job photo, left-aligned copy, package finder on the right. */
@@ -8,7 +8,7 @@ const HeroSection = () => (
   <section id="home" className="relative isolate overflow-hidden bg-brand-dark">
     <img
       src={heroImg}
-      alt="Xpress technician detailing a motorhome in a Calgary driveway"
+      alt="Newmar Dutch Star motorhome front cap after an Xpress exterior detail"
       width={1920}
       height={1080}
       {...{ fetchpriority: "high" }}

@@ -12,6 +12,8 @@ import QualityProducts from "@/components/site/QualityProducts";
 import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section, SectionHeading, btnPrimary, btnSecondaryDark, cardClass, textLink } from "@/components/site/Section";
 import SEO from "@/components/SEO";
+import { PhotoMarquee } from "@/components/site/PhotoRail";
+import { PHOTOS } from "@/data/photos";
 import { REAL_REVIEWS, GOOGLE_REVIEWS_URL, SERVICE_AREA_SENTENCE, CERAMIC_CERTIFICATIONS, WATER_LINE } from "@/data/copy";
 import { BOOKING_URL, FIVE_STAR_REVIEWS, SEASON_STATS, SERVICE_AREAS } from "@/data/pricing";
 
@@ -126,6 +128,16 @@ const Reviews = () => (
           ))}
         </dl>
       </Section>
+
+      <section className="overflow-hidden pb-16 sm:pb-24" aria-label="Recent jobs">
+        <div className="shell">
+          <SectionHeading title="The work behind the reviews" intro="Recent customer vehicles, photographed on site by our crew." />
+        </div>
+        <PhotoMarquee
+          photos={[...PHOTOS.rv.slice(0, 6), ...PHOTOS.exterior.slice(0, 6), ...PHOTOS.marine.slice(0, 3), ...PHOTOS.interior.slice(0, 4), ...PHOTOS.fleet.slice(0, 3)]}
+          label="Recent job photos"
+        />
+      </section>
 
       <Section tone="surface">
         <SectionHeading title="How every visit runs" />

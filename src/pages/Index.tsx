@@ -7,6 +7,7 @@ import HeroSection from "@/components/HeroSection";
 import StatBand from "@/components/StatBand";
 import CompanyLogos from "@/components/CompanyLogos";
 import HomeSectors from "@/components/home/HomeSectors";
+import RecentWork from "@/components/home/RecentWork";
 import AutoPackages from "@/components/AutoPackages";
 import GoogleReviewBadge from "@/components/GoogleReviewBadge";
 import AssessmentForm from "@/components/AssessmentForm";
@@ -63,6 +64,7 @@ const Index = () => (
       </div>
 
       <HomeSectors />
+      <RecentWork />
 
       {/* Car packages */}
       <section className="bg-brand-dark py-16 sm:py-24">

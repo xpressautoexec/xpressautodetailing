@@ -12,10 +12,8 @@ import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section, SectionHeading } from "@/components/site/Section";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import fleetHero from "@/assets/fleet-kls-truck.jpg";
-import catExcavator1 from "@/assets/gallery-cat-excavator-1.jpg";
-import catExcavatorExt1 from "@/assets/gallery-cat-excavator-exterior-1.jpg";
-import catExcavatorExt2 from "@/assets/gallery-cat-excavator-exterior-2.jpg";
-import catExcavator3 from "@/assets/gallery-cat-excavator-3.jpg";
+import { PHOTOS, CLIPS } from "@/data/photos";
+import WorkShowcase from "@/components/site/WorkShowcase";
 import { NAP, WATER_LINE } from "@/data/copy";
 import QualityProducts from "@/components/site/QualityProducts";
 
@@ -48,13 +46,6 @@ const faqs = [
     q: "What's the minimum fleet size?",
     a: "There's no hard minimum, but scheduled rotations make the most sense from about five units up. For one or two work trucks, see our work truck package on the detailing page.",
   },
-];
-
-const GALLERY = [
-  { src: catExcavatorExt1, alt: "Excavator after an on-site exterior wash in Calgary" },
-  { src: catExcavator1, alt: "Excavator cab interior after detailing" },
-  { src: catExcavatorExt2, alt: "Cleaned excavator tracks and body panels" },
-  { src: catExcavator3, alt: "Detailed heavy equipment operator cab" },
 ];
 
 const CorporateFleet = () => (
@@ -100,14 +91,11 @@ const CorporateFleet = () => (
         <ProcessSteps steps={HOW} />
       </Section>
 
-      <Section>
-        <SectionHeading title="Recent fleet work" />
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
-          {GALLERY.map((g) => (
-            <img key={g.alt} src={g.src} alt={g.alt} loading="lazy" className="aspect-[4/5] w-full rounded-[4px] object-cover" />
-          ))}
-        </div>
-      </Section>
+      <WorkShowcase
+        title="Recent fleet work"
+        intro="Work vans, pickups, dealer inventory and heavy equipment, cleaned on the client's own lot or job site."
+        photos={[...PHOTOS.fleet, ...PHOTOS.dealership]}
+      />
 
       <ServiceFAQ title="Fleet questions" faqs={faqs} />
 

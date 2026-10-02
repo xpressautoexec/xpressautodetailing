@@ -10,7 +10,9 @@ import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section, SectionHeading, btnPrimary, btnSecondary, btnSecondaryDark } from "@/components/site/Section";
 import SEO, { buildFAQJsonLd } from "@/components/SEO";
 import { Check, Phone } from "lucide-react";
-import heroImg from "@/assets/complete-hero.jpg";
+import heroImg from "@/assets/jobs/hero-xpress-pass.webp";
+import { PHOTOS, CLIPS } from "@/data/photos";
+import WorkShowcase from "@/components/site/WorkShowcase";
 import xpressPassCard from "@/assets/xpress-pass-card.png";
 import { XPRESS_PASS, PASS_ADDON_DISCOUNT, AUTO_PACKAGES, VEHICLE_SIZES, type VehicleSizeId, money } from "@/data/pricing";
 import { NAP, SERVICE_AREA_SENTENCE } from "@/data/copy";
@@ -194,6 +196,13 @@ const MonthlyPlan = () => {
             ))}
           </dl>
         </Section>
+
+        <WorkShowcase
+          title="What a maintained car looks like"
+          intro="Recent member and customer vehicles, detailed in their own driveways."
+          photos={[...PHOTOS.exterior, ...PHOTOS.interior.slice(0, 8)]}
+          clips={[CLIPS.teslaDetail]}
+        />
 
         <Section tone="surface">
           <SectionHeading title="How it works" />

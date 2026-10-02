@@ -64,8 +64,17 @@ import gtiInterior from "@/assets/gallery-gti-interior.jpg";
 import acuraGarage from "@/assets/gallery-acura-garage.jpg";
 import acuraFloormat from "@/assets/gallery-acura-floormat.jpg";
 import acuraCargo from "@/assets/gallery-acura-cargo.jpg";
+import cadillacSrxFront from "@/assets/gallery-cadillac-srx-front.jpg";
+import mercedesCClass from "@/assets/gallery-mercedes-c-class.jpg";
+import audiA4 from "@/assets/gallery-audi-a4.jpg";
+import porscheMacan from "@/assets/gallery-porsche-macan.jpg";
+import jeepWrangler from "@/assets/gallery-jeep-wrangler.jpg";
+import cadillacSrxInterior from "@/assets/gallery-cadillac-srx-interior.jpg";
+import defenderInterior from "@/assets/gallery-defender-interior.jpg";
+import mazdaCx5Interior from "@/assets/gallery-mazda-cx5-interior.jpg";
+import audiA4Reflection from "@/assets/gallery-audi-a4-reflection.jpg";
 
-const images = [gallery7, gallery8, gallery9, gallery10, gallery11, gallery12, gallery13, gallery14, gallery15, gallery16, gallery17, gallery18, gallery19, gallery20, gallery21, gallery22, gallery23, gallery24, gallery25, gallery26, gallery27, gallery28, gallery29, gallery30, gallery31, gallery32, gallery33, gallery34, gallery35, gallery36, gallery37, gallery38, gallery39, bmwEmblem, bmwWheelFront, bmwRedInterior, rvSurveyorFront, catExcavator1, catExcavator3, bmwHeadlight, bmwRear, lexusIs, rvSurveyorFull, catExcavatorExt1, rangeRoverExterior, rangeRoverInterior, subaruWheel, paintReflection, acuraGrey, acuraBlue, hurricaneRear, hurricaneFront, hurricaneHeadOn, hurricaneSide, gtiFront, gtiRear, gtiInterior, acuraGarage, acuraFloormat, acuraCargo];
+const images = [gallery7, gallery8, gallery9, gallery10, gallery11, gallery12, gallery13, gallery14, gallery15, gallery16, gallery17, gallery18, gallery19, gallery20, gallery21, gallery22, gallery23, gallery24, gallery25, gallery26, gallery27, gallery28, gallery29, gallery30, gallery31, gallery32, gallery33, gallery34, gallery35, gallery36, gallery37, gallery38, gallery39, bmwEmblem, bmwWheelFront, bmwRedInterior, rvSurveyorFront, catExcavator1, catExcavator3, bmwHeadlight, bmwRear, lexusIs, rvSurveyorFull, catExcavatorExt1, rangeRoverExterior, rangeRoverInterior, subaruWheel, paintReflection, acuraGrey, acuraBlue, hurricaneRear, hurricaneFront, hurricaneHeadOn, hurricaneSide, gtiFront, gtiRear, gtiInterior, acuraGarage, acuraFloormat, acuraCargo, cadillacSrxFront, mercedesCClass, audiA4, porscheMacan, jeepWrangler, cadillacSrxInterior, defenderInterior, mazdaCx5Interior, audiA4Reflection];
 
 const GalleryCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center", skipSnaps: false });

@@ -1,7 +1,8 @@
 import LandingPage from "@/components/site/LandingPage";
 import AutoPackages from "@/components/AutoPackages";
 import { Section } from "@/components/site/Section";
-import heroImg from "@/assets/complete-hero.jpg";
+import heroImg from "@/assets/jobs/hero-auto-detailing.webp";
+import { PHOTOS, CLIPS } from "@/data/photos";
 import { AUTO_PACKAGES, money } from "@/data/pricing";
 import { SERVICE_AREA_SENTENCE, WATER_LINE } from "@/data/copy";
 
@@ -38,6 +39,11 @@ const AutoDetailing = () => (
       subtitle: "We arrive with our own water, power, extraction and polishing equipment and detail your car, truck or SUV where it already sits. No drop-off, no waiting room.",
       image: heroImg,
       ctaType: "book",
+      video: CLIPS.teslaDetail,
+    }}
+    work={{
+      title: "Recent car detailing",
+      photos: [...PHOTOS.exterior, ...PHOTOS.interior],
     }}
     features={{
       title: "What every detail includes",

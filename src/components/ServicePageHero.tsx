@@ -1,5 +1,7 @@
 import { Phone } from "lucide-react";
 import { BOOKING_URL, PHONE } from "@/data/pricing";
+import type { Clip } from "@/data/photos";
+import { JobClip } from "@/components/site/VideoReel";
 
 interface ServicePageHeroProps {
   title: string;
@@ -9,6 +11,10 @@ interface ServicePageHeroProps {
   subtitle?: string;
   /** Use "p" when the page already renders its own <h1> further down. */
   titleAs?: "h1" | "p";
+  /** Optional job clip shown beside the copy on large screens. */
+  video?: Clip;
+  /** CSS object-position for the background photo, e.g. "center 60%". */
+  imagePosition?: string;
 }
 
 const telHref = `tel:${PHONE.replace(/-/g, "")}`;
@@ -19,7 +25,15 @@ const secondary =
   "inline-flex min-h-[52px] items-center justify-center gap-2 rounded-md border border-primary-foreground/30 px-7 text-sm font-semibold text-primary-foreground transition-colors hover:border-primary-foreground/70";
 
 /** Full-bleed photo header shared by service pages. Left-aligned, two actions. */
-const ServicePageHero = ({ title, image, ctaType = "book", subtitle, titleAs = "h1" }: ServicePageHeroProps) => {
+const ServicePageHero = ({
+  title,
+  image,
+  ctaType = "book",
+  subtitle,
+  titleAs = "h1",
+  video,
+  imagePosition,
+}: ServicePageHeroProps) => {
   const Title = titleAs;
   const call = (
     <a key="call" href={telHref} className={ctaType === "call" ? primary : secondary}>
@@ -45,13 +59,14 @@ const ServicePageHero = ({ title, image, ctaType = "book", subtitle, titleAs = "
         src={image}
         alt=""
         {...{ fetchpriority: "high" }}
+        style={imagePosition ? { objectPosition: imagePosition } : undefined}
         className="absolute inset-0 -z-10 h-full w-full object-cover"
       />
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-dark via-brand-dark/80 to-brand-dark/25"
       />
-      <div className="shell py-20 sm:py-28">
+      <div className={`shell py-20 sm:py-28 ${video ? "lg:grid lg:grid-cols-[1fr_auto] lg:items-center lg:gap-16" : ""}`}>
         <div className="max-w-[40rem]">
           <Title className="font-heading text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-primary-foreground sm:text-5xl">
             {title}
@@ -63,6 +78,7 @@ const ServicePageHero = ({ title, image, ctaType = "book", subtitle, titleAs = "
           )}
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">{ctaType === "call" ? [call, book] : [book, call]}</div>
         </div>
+        {video && <JobClip clip={video} className="hidden w-[230px] overflow-hidden rounded-[6px] shadow-2xl ring-1 ring-primary-foreground/15 lg:block xl:w-[250px]" />}
       </div>
     </section>
   );
