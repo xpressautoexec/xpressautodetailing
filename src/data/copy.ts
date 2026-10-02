@@ -36,7 +36,10 @@ export const FLEET_TERMS = [
   { title: "Self-sufficient on site", body: "Our vans bring their own water and power to your yard or lot." },
 ];
 
-export const CERAMIC_CERTIFICATIONS =["System X", "Gtechniq", "Gyeon"];
+/** Owner-confirmed coverage amount. Do not reword to "Fully Insured" (banned) or add WCB. */
+export const COVERAGE = "$2M liability coverage";
+
+export const CERAMIC_CERTIFICATIONS = ["System X", "Gtechniq", "Gyeon"];
 
 /** Protection film brand installed on RV PPF and windshield film jobs (no standalone page). */
 export const FILM_BRAND = "3M";

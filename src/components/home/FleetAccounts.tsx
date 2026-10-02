@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
-import { FLEET_TERMS } from "@/data/copy";
+import { ArrowRight, ShieldCheck } from "lucide-react";
+import { FLEET_TERMS, COVERAGE } from "@/data/copy";
 
 /** Home-page band for commercial buyers: account terms procurement looks for, one link to /fleet. */
 const FleetAccounts = () => (
@@ -12,7 +12,7 @@ const FleetAccounts = () => (
           Run like a vendor, not a one-off job
         </h2>
         <p className="mt-4 max-w-md text-[15px] leading-relaxed text-ink-2">
-          Builders, contractors and dealers keep their trucks, lots and equipment on a rotation with us. Here is how
+          Builders, contractors, dealers and shops keep their trucks, lots and equipment on a rotation with us. Here is how
           an account works.
         </p>
         <Link
@@ -22,6 +22,10 @@ const FleetAccounts = () => (
           Request a fleet quote
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </Link>
+        <p className="mt-6 flex items-center gap-2 text-sm font-medium text-ink-2">
+          <ShieldCheck className="h-4 w-4 shrink-0 text-electric" aria-hidden="true" />
+          {COVERAGE} on every job
+        </p>
       </div>
       <dl className="grid gap-px overflow-hidden rounded-[10px] border border-line bg-line sm:grid-cols-2">
         {FLEET_TERMS.map((t) => (

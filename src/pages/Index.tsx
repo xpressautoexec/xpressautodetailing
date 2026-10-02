@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Check } from "lucide-react";
+import { Phone, Check, ShieldCheck } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
@@ -17,7 +17,7 @@ import WorkTruckPackage from "@/components/WorkTruckPackage";
 import FleetAccounts from "@/components/home/FleetAccounts";
 import ChatWidget from "@/components/ChatWidget";
 import SEO, { localBusinessJsonLd } from "@/components/SEO";
-import { HOW_IT_WORKS, GUARANTEES } from "@/data/copy";
+import { HOW_IT_WORKS, GUARANTEES, COVERAGE } from "@/data/copy";
 import {
   BOOKING_URL,
   PHONE,
@@ -142,6 +142,10 @@ const Index = () => (
                 {g}
               </li>
             ))}
+            <li className="flex items-center gap-2 text-sm font-medium text-ink-2">
+              <ShieldCheck className="h-4 w-4 shrink-0 text-electric" aria-hidden="true" />
+              {COVERAGE}
+            </li>
             <li className="sm:ml-auto">
               <Link to="/cancellation-policy" className="text-sm font-medium text-muted-ink hover:text-ink hover:underline">
                 Cancellation policy
