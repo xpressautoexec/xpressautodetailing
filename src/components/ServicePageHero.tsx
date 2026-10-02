@@ -1,7 +1,5 @@
 import { Phone } from "lucide-react";
 import { BOOKING_URL, PHONE } from "@/data/pricing";
-import type { Clip } from "@/data/photos";
-import { JobClip } from "@/components/site/VideoReel";
 
 interface ServicePageHeroProps {
   title: string;
@@ -11,8 +9,6 @@ interface ServicePageHeroProps {
   subtitle?: string;
   /** Use "p" when the page already renders its own <h1> further down. */
   titleAs?: "h1" | "p";
-  /** Optional job clip shown beside the copy on large screens. */
-  video?: Clip;
   /** CSS object-position for the background photo, e.g. "center 60%". */
   imagePosition?: string;
 }
@@ -31,7 +27,6 @@ const ServicePageHero = ({
   ctaType = "book",
   subtitle,
   titleAs = "h1",
-  video,
   imagePosition,
 }: ServicePageHeroProps) => {
   const Title = titleAs;
@@ -66,7 +61,7 @@ const ServicePageHero = ({
         aria-hidden="true"
         className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-dark via-brand-dark/80 to-brand-dark/25"
       />
-      <div className={`shell py-20 sm:py-28 ${video ? "lg:grid lg:grid-cols-[1fr_auto] lg:items-center lg:gap-16" : ""}`}>
+      <div className="shell py-20 sm:py-28">
         <div className="max-w-[40rem]">
           <Title className="font-heading text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-primary-foreground sm:text-5xl">
             {title}
@@ -78,7 +73,6 @@ const ServicePageHero = ({
           )}
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">{ctaType === "call" ? [call, book] : [book, call]}</div>
         </div>
-        {video && <JobClip clip={video} className="hidden w-[230px] overflow-hidden rounded-[6px] shadow-2xl ring-1 ring-primary-foreground/15 lg:block xl:w-[250px]" />}
       </div>
     </section>
   );

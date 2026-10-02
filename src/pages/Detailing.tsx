@@ -17,7 +17,6 @@ import GuaranteeStrip from "@/components/site/GuaranteeStrip";
 import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section } from "@/components/site/Section";
 import completeHero from "@/assets/jobs/hero-detailing.webp";
-import { PHOTOS, CLIPS } from "@/data/photos";
 import WorkShowcase from "@/components/site/WorkShowcase";
 import { AUTO_PACKAGES, PASS_ADDON_DISCOUNT } from "@/data/pricing";
 import QualityProducts from "@/components/site/QualityProducts";
@@ -88,7 +87,6 @@ const Detailing = () => {
         title="Mobile car detailing"
         subtitle={`${AUTO_PACKAGES.length} packages priced by vehicle size, done in your driveway, parkade or office lot. Our vans bring their own water and power.`}
         image={completeHero}
-        video={CLIPS.teslaDetail}
       />
       <GuaranteeStrip />
 

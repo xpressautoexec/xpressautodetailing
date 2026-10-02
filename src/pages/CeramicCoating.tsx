@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import LandingPage from "@/components/site/LandingPage";
 import { Section, SectionHeading, btnPrimary, cardClass } from "@/components/site/Section";
 import heroImg from "@/assets/jobs/hero-ceramic-coating.webp";
-import { PHOTOS, CLIPS } from "@/data/photos";
+import { PHOTOS } from "@/data/photos";
 import { CERAMIC_PACKAGES, money } from "@/data/pricing";
 import { CERAMIC_CERTIFICATIONS } from "@/data/copy";
 
@@ -46,7 +46,6 @@ const CeramicCoating = () => (
       subtitle: "Six months a year Calgary roads are coated in salt brine and mag chloride. A ceramic coating puts a hard, hydrophobic barrier between that and your clear coat, and makes every wash easier for years.",
       image: heroImg,
       ctaType: "call",
-      video: CLIPS.paintCorrection,
     }}
     work={{
       title: "Recent coating and correction work",

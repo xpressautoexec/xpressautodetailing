@@ -10,7 +10,7 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO, { buildFAQJsonLd } from "@/components/SEO";
 import { Section, SectionHeading, btnPrimary, btnSecondary, cardClass } from "@/components/site/Section";
 import heroImg from "@/assets/jobs/hero-training.webp";
-import { PHOTOS, CLIPS } from "@/data/photos";
+import { PHOTOS } from "@/data/photos";
 import WorkShowcase from "@/components/site/WorkShowcase";
 import { TRAINING, TRAINING_TERMS, money } from "@/data/pricing";
 import { CERAMIC_CERTIFICATIONS, NAP, TRAINING_CERTIFICATION } from "@/data/copy";
@@ -55,7 +55,6 @@ const Training = () => (
         subtitle={`Hands-on courses taught by the crew that does the work every day. Real vehicles, professional products, classes of ${TRAINING_TERMS.classSize}.`}
         image={heroImg}
         ctaType="call"
-        video={CLIPS.paintCorrection}
       />
 
       <Section>

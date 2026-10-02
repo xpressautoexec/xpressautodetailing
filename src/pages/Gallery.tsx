@@ -81,7 +81,6 @@ const Gallery = () => (
         title="Our work"
         subtitle={`${totalPhotos} photos from real jobs, every one a customer vehicle shot on site by our crew. No stock images.`}
         image={galleryHero}
-        video={CLIPS.trailerPolish}
       />
 
       <nav aria-label="Gallery categories" className="sticky top-[60px] z-30 border-b border-line bg-surface/95 backdrop-blur lg:top-[68px]">
