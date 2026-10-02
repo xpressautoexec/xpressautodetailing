@@ -5,6 +5,7 @@ import brandSilverhillAcura from "@/assets/brand-silverhill-acura.png";
 import brandLandform from "@/assets/brand-landform.png";
 import brandNewWestTruck from "@/assets/brand-new-west-truck.png.asset.json";
 import brandRanchmans from "@/assets/brand-ranchmans.png.asset.json";
+import brandMidas from "@/assets/brand-midas.png";
 
 /** `logo` is optional: a partner without a file yet renders as a neutral text label. */
 const partners: { name: string; logo?: string }[] = [
@@ -15,7 +16,7 @@ const partners: { name: string; logo?: string }[] = [
   { name: "Landform", logo: brandLandform },
   { name: "New West Truck Centres", logo: brandNewWestTruck.url },
   { name: "Ranchman's", logo: brandRanchmans.url },
-  { name: "Midas" },
+  { name: "Midas", logo: brandMidas },
 ];
 
 const CompanyLogos = () => (
