@@ -71,6 +71,29 @@ import gtiInterior from "@/assets/gallery-gti-interior.jpg";
 import acuraGarage from "@/assets/gallery-acura-garage.jpg";
 import acuraFloormat from "@/assets/gallery-acura-floormat.jpg";
 import acuraCargo from "@/assets/gallery-acura-cargo.jpg";
+import newmarDutchStarFront from "@/assets/gallery-newmar-dutch-star-front.jpg";
+import newmarDutchStarSide from "@/assets/gallery-newmar-dutch-star-side.jpg";
+import newmarHeadlights from "@/assets/gallery-newmar-headlights.jpg";
+import newmarDutchStarBadge from "@/assets/gallery-newmar-dutch-star-badge.jpg";
+import flagstaffTrailerSide from "@/assets/gallery-flagstaff-trailer-side.jpg";
+import flagstaffTrailerCorrection from "@/assets/gallery-flagstaff-trailer-correction.jpg";
+import kodiakTrailer from "@/assets/gallery-kodiak-trailer.jpg";
+import citationMotorhome from "@/assets/gallery-citation-motorhome.jpg";
+import sunchaserPontoon from "@/assets/gallery-sunchaser-pontoon.jpg";
+import sunchaserPontoonSide from "@/assets/gallery-sunchaser-pontoon-side.jpg";
+import sunchaserPontoonInterior from "@/assets/gallery-sunchaser-pontoon-interior.jpg";
+import cadillacSrxFront from "@/assets/gallery-cadillac-srx-front.jpg";
+import mercedesCClass from "@/assets/gallery-mercedes-c-class.jpg";
+import jeepWrangler from "@/assets/gallery-jeep-wrangler.jpg";
+import audiA4 from "@/assets/gallery-audi-a4.jpg";
+import audiA4Reflection from "@/assets/gallery-audi-a4-reflection.jpg";
+import porscheMacan from "@/assets/gallery-porsche-macan.jpg";
+import cadillacSrxInterior from "@/assets/gallery-cadillac-srx-interior.jpg";
+import defenderInterior from "@/assets/gallery-defender-interior.jpg";
+import mazdaCx5Interior from "@/assets/gallery-mazda-cx5-interior.jpg";
+import f150Interior from "@/assets/gallery-f150-interior.jpg";
+import dirttSiennaOrange from "@/assets/gallery-dirtt-sienna-orange.jpg";
+import dirttSiennaBlue from "@/assets/gallery-dirtt-sienna-blue.jpg";
 
 type GalleryImage = { src: string; alt: string };
 
@@ -84,6 +107,7 @@ const sections: { title: string; description: string; images: GalleryImage[] }[]
       { src: gallery26, alt: "Blue BMW M340i with deep gloss under studio lighting after ceramic coating" },
       { src: gallery28, alt: "Blue BMW M340i rear view with glowing taillights after ceramic" },
       { src: rvPaintCloseup, alt: "Close-up of RV paint correction with dramatic gloss restoration" },
+      { src: audiA4Reflection, alt: "Black Audi A4 taillight and quarter panel showing deep gloss after polish" },
     ],
   },
   {
@@ -102,6 +126,11 @@ const sections: { title: string; description: string; images: GalleryImage[] }[]
       { src: bmwRear, alt: "BMW 2-Series convertible rear three-quarter view freshly detailed" },
       { src: bmwMirrorTop, alt: "BMW convertible side mirror with red leather visible inside" },
       { src: gallery31, alt: "BMW convertible after professional exterior detail" },
+      { src: cadillacSrxFront, alt: "White Cadillac SRX in a Calgary driveway after full exterior detail" },
+      { src: mercedesCClass, alt: "White Mercedes-Benz C-Class sedan freshly detailed in underground parking" },
+      { src: audiA4, alt: "Black Audi A4 with glossy finish after exterior detail" },
+      { src: porscheMacan, alt: "White Porsche Macan after exterior detail in the shop" },
+      { src: jeepWrangler, alt: "Green Jeep Wrangler on aftermarket wheels after exterior detail" },
     ],
   },
   {
@@ -122,6 +151,10 @@ const sections: { title: string; description: string; images: GalleryImage[] }[]
       { src: gallery19, alt: "Red Ford truck interior after deep clean" },
       { src: gallery32, alt: "Audi diamond-stitched leather seats after interior detail" },
       { src: gallery37, alt: "SUV cargo area after interior deep clean" },
+      { src: cadillacSrxInterior, alt: "Cadillac SRX cream leather front seats and door panel after interior detail" },
+      { src: defenderInterior, alt: "Land Rover Defender tan leather front cabin after interior detail" },
+      { src: mazdaCx5Interior, alt: "Mazda CX-5 brown leather seats and console after interior detail" },
+      { src: f150Interior, alt: "Ford F-150 black leather cabin and floor liners after interior detail" },
     ],
   },
   {
@@ -160,6 +193,17 @@ const sections: { title: string; description: string; images: GalleryImage[] }[]
       { src: hurricaneHeadOn, alt: "Hurricane RV head-on view after professional wash and detail" },
       { src: hurricaneRear, alt: "Hurricane motorhome rear view freshly detailed" },
       { src: hurricaneSide, alt: "Hurricane RV full side profile after oxidation removal and detail" },
+      { src: newmarDutchStarFront, alt: "Newmar Dutch Star diesel pusher front view after full exterior detail" },
+      { src: newmarDutchStarSide, alt: "Newmar Dutch Star motorhome three-quarter view in the service bay after detail" },
+      { src: newmarHeadlights, alt: "Newmar Dutch Star headlights and front cap with mirror gloss after polish" },
+      { src: newmarDutchStarBadge, alt: "Newmar Dutch Star side badge and paint after exterior polish" },
+      { src: flagstaffTrailerCorrection, alt: "Flagstaff travel trailer with tape lines marking a fiberglass correction test spot" },
+      { src: flagstaffTrailerSide, alt: "Flagstaff Signature travel trailer side profile after wash and polish" },
+      { src: kodiakTrailer, alt: "Kodiak travel trailer front cap after exterior detail" },
+      { src: citationMotorhome, alt: "Citation Class C motorhome on a Mercedes Sprinter chassis after exterior detail" },
+      { src: sunchaserPontoon, alt: "SunChaser pontoon boat on its trailer after exterior detail" },
+      { src: sunchaserPontoonSide, alt: "SunChaser pontoon blue side panels and logs after polish" },
+      { src: sunchaserPontoonInterior, alt: "SunChaser pontoon boat deck and vinyl seating after interior detail" },
     ],
   },
   {
@@ -169,6 +213,8 @@ const sections: { title: string; description: string; images: GalleryImage[] }[]
       { src: gallery7, alt: "DIRTT Construction Systems fleet van after professional wash" },
       { src: gallery23, alt: "KLS fleet Ford F-150 detailed in shop" },
       { src: gallery34, alt: "Ford F-150 fleet truck after exterior detail" },
+      { src: dirttSiennaOrange, alt: "DIRTT fleet Toyota Sienna minivan after fleet wash and interior clean" },
+      { src: dirttSiennaBlue, alt: "Blue DIRTT fleet Toyota Sienna minivan detailed at the company lot" },
       { src: catExcavatorExt1, alt: "CAT Landform excavator on jobsite after exterior wash" },
       { src: catExcavatorExt2, alt: "CAT 320 excavator side profile freshly detailed on construction site" },
       { src: catExcavator1, alt: "CAT excavator cab interior after professional deep clean" },
