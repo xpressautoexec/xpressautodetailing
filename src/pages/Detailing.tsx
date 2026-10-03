@@ -23,6 +23,8 @@ import QualityProducts from "@/components/site/QualityProducts";
 import WorkMosaic from "@/components/site/WorkMosaic";
 import { DETAILING_FEATURE } from "@/data/photos";
 
+const DETAILING_SRCS = DETAILING_FEATURE.map((p) => p.src);
+
 const detailingFAQs = [
   {
     q: "Do you need my water or power?",
@@ -92,11 +94,6 @@ const Detailing = () => {
       />
       <GuaranteeStrip />
 
-      <WorkMosaic
-        title="Recent detailing work"
-        intro="Customer cars, inside and out, detailed in their own driveways and parkades."
-        photos={DETAILING_FEATURE}
-      />
 
       <Section tone="dark" id="packages">
         <AutoPackages
@@ -106,7 +103,11 @@ const Detailing = () => {
         />
       </Section>
 
-      <GalleryCarousel />
+      <GalleryCarousel
+        title="Recent detailing work"
+        lead={<WorkMosaic photos={DETAILING_FEATURE} label="Featured detailing work" />}
+        exclude={DETAILING_SRCS}
+      />
 
       <WorkTruckPackage />
 

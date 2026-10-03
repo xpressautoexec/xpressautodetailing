@@ -171,7 +171,7 @@ const PaintCeramics = () => {
           title="Recent coating and correction work"
           intro="Paint correction and ceramic coating jobs only: the gloss, the reflections and the details up close."
           photos={PHOTOS.ceramic}
-          clips={[CLIPS.gleHeadlight, CLIPS.paintCorrection, CLIPS.gleBadgePan, CLIPS.gleHeadlightClose]}
+          clips={[CLIPS.gleHeadlight, CLIPS.paintCorrection, CLIPS.gleHeadlightClose]}
         />
 
         <Section tone="surface">
