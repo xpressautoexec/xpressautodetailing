@@ -8,7 +8,7 @@ const HeroSection = () => (
   <section id="home" className="relative isolate overflow-hidden bg-brand-dark">
     <img
       src={heroImg}
-      alt="Blue BMW M340i in the shop after paint correction and ceramic coating"
+      alt="Flagstaff Signature travel trailer in a Calgary driveway after a wash and polish"
       width={1536}
       height={864}
       {...{ fetchpriority: "high" }}
