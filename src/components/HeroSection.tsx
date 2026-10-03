@@ -8,15 +8,15 @@ const HeroSection = () => (
   <section id="home" className="relative isolate overflow-hidden bg-brand-dark">
     <img
       src={heroImg}
-      alt="Newmar Dutch Star motorhome front cap after an Xpress exterior detail"
+      alt="Class A motorhome on a Calgary driveway during an Xpress exterior wash"
       width={1920}
       height={1080}
       {...{ fetchpriority: "high" }}
-      className="absolute inset-0 -z-10 h-full w-full object-cover object-[70%_center]"
+      className="absolute inset-0 -z-10 h-full w-full object-cover object-[75%_center]"
     />
     <div
       aria-hidden="true"
-      className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-dark via-brand-dark/85 to-brand-dark/30"
+      className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-dark/90 via-brand-dark/55 to-brand-dark/10"
     />
     <div className="shell grid items-center gap-12 pb-32 pt-16 sm:pb-40 sm:pt-24 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:pb-44 lg:pt-28">
       <div className="max-w-[38rem]">

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import rvImg from "@/assets/gallery-newmar-dutch-star-front.jpg";
-import carImg from "@/assets/gallery-range-rover-exterior.jpg";
-import ceramicImg from "@/assets/jobs/ceramic-bmw-m340i-hood.webp";
-import passImg from "@/assets/gallery-cadillac-srx-front.jpg";
-import fleetImg from "@/assets/gallery-dirtt-sienna-orange.jpg";
+import rvImg from "@/assets/jobs/card-rv-crew-van.webp";
+import carImg from "@/assets/jobs/card-car-mercedes-c-class.webp";
+import ceramicImg from "@/assets/jobs/card-ceramic-bmw-m340i.webp";
+import passImg from "@/assets/jobs/card-pass-audi-a4.webp";
+import fleetImg from "@/assets/jobs/card-fleet-cat-excavator.webp";
 import { RV_BUNDLES, AUTO_PACKAGES, money } from "@/data/pricing";
 
 const rvFrom = Math.min(...RV_BUNDLES.map((b) => b.price));
@@ -18,28 +18,28 @@ const TILES = [
     body: "Interior, exterior and complete packages, priced by vehicle size.",
     href: "/detailing",
     img: carImg,
-    alt: "Range Rover after a complete detail in a Calgary driveway",
+    alt: "White Mercedes-Benz C-Class after a complete detail",
   },
   {
     title: "Ceramic coating and paint correction",
     body: "Machine correction and multi-year coatings, from a 1-year to a 9-year graphene.",
     href: "/ceramic-paint-correction",
     img: ceramicImg,
-    alt: "Blue BMW M340i hood and headlight gloss after paint correction",
+    alt: "Blue BMW M340i in the shop after paint correction",
   },
   {
     title: "The Xpress Pass",
     body: "A monthly detailing membership with member pricing on every visit and add-on.",
     href: "/xpress-pass",
     img: passImg,
-    alt: "White Cadillac SRX in a Calgary driveway after a maintenance detail",
+    alt: "Black Audi A4 in a Calgary driveway after a maintenance detail",
   },
   {
     title: "Fleet and dealership",
     body: "Scheduled on-site care for work trucks, company vehicles and dealer lots.",
     href: "/fleet",
     img: fleetImg,
-    alt: "DIRTT fleet Toyota Sienna detailed at the company lot",
+    alt: "CAT excavator on a Calgary job site after an on-site wash",
   },
 ];
 
@@ -73,7 +73,7 @@ const HomeSectors = () => (
         >
           <img
             src={rvImg}
-            alt="Newmar Dutch Star motorhome after a full exterior detail"
+            alt="Xpress crew washing a Class A motorhome next to the Xpress van on a Calgary driveway"
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
           />

@@ -7,7 +7,7 @@ import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO from "@/components/SEO";
 import { Section, SectionHeading, cardClass } from "@/components/site/Section";
-import giftcardHero from "@/assets/gallery-26.jpg";
+import giftcardHero from "@/assets/jobs/hero-gift-cards.webp";
 import { AUTO_PACKAGES, CERAMIC_PACKAGES, GIFT_CARD_TIERS, money } from "@/data/pricing";
 import { NAP } from "@/data/copy";
 

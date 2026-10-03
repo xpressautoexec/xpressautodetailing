@@ -194,7 +194,7 @@ const TrailerRV = () => (
         />
         <div
           aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-dark via-brand-dark/85 to-brand-dark/20"
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-dark/90 via-brand-dark/55 to-brand-dark/0"
         />
         <div className="shell pb-32 pt-20 sm:pb-40 sm:pt-28 lg:pb-44 lg:pt-32">
           <div className="max-w-[40rem]">
