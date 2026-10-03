@@ -17,6 +17,7 @@ const ROUTE_LABELS: Record<string, string> = {
   "rv-detailing": "RV Detailing",
   "ceramic-coating": "Ceramic Coating",
   "paint-correction": "Paint Correction",
+  "headlight-restoration": "Headlight Restoration",
   "reviews": "Reviews & Why Xpress",
   "training/signup": "Request a Seat",
   "/": "Home",

@@ -44,6 +44,7 @@ const TILES = [
 ];
 
 const MORE = [
+  { label: "Headlight restoration", href: "/headlight-restoration" },
   { label: "Marine and pontoon", href: "/marine" },
   { label: "RV paint protection film", href: "/rv-trailer/ppf" },
   { label: "RV rental fleet care", href: "/rv-trailer/rental-fleet" },

@@ -36,6 +36,7 @@ const AutoDetailing = lazy(() => import("./pages/AutoDetailing"));
 const RVDetailing = lazy(() => import("./pages/RVDetailing"));
 const CeramicCoating = lazy(() => import("./pages/CeramicCoating"));
 const PaintCorrection = lazy(() => import("./pages/PaintCorrection"));
+const HeadlightRestoration = lazy(() => import("./pages/HeadlightRestoration"));
 const Reviews = lazy(() => import("./pages/Reviews"));
 const CancellationPolicyPage = lazy(() => import("./pages/CancellationPolicyPage"));
 
@@ -110,6 +111,7 @@ export const AnimatedRoutes = () => {
         <Route path="/rv-detailing" element={<RVDetailing />} />
         <Route path="/ceramic-coating" element={<CeramicCoating />} />
         <Route path="/paint-correction" element={<PaintCorrection />} />
+        <Route path="/headlight-restoration" element={<HeadlightRestoration />} />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/cancellation-policy" element={<CancellationPolicyPage />} />
 

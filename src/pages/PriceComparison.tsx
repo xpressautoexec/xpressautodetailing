@@ -21,6 +21,7 @@ import {
 } from "@/data/pricing";
 import { CERAMIC_CERTIFICATIONS, NAP, SERVICE_AREA_SENTENCE } from "@/data/copy";
 import QualityProducts from "@/components/site/QualityProducts";
+import BestValueByGoal from "@/components/site/BestValueByGoal";
 
 const pkg = (id: string) => AUTO_PACKAGES.find((p) => p.id === id)!;
 const upcharges = (id: string) => {
@@ -277,37 +278,7 @@ const PriceComparison = () => (
         </div>
       </Section>
 
-      <Section>
-        <SectionHeading title="Best value by goal" />
-        <div className="grid gap-5 md:grid-cols-3">
-          {[
-            {
-              title: "Selling or trading in",
-              pick: `${pkg("showroom").name}, ${money(pkg("showroom").price.sedan)}`,
-              desc: "A full inside-and-out reset before photos and appraisal, so the car shows at its best.",
-              to: "/detailing",
-            },
-            {
-              title: "Keeping a car long-term",
-              pick: "System X 9-year graphene coating",
-              desc: "Lowest cost per year of protection if you keep vehicles five years or more.",
-              to: "/ceramic-paint-correction",
-            },
-            {
-              title: "Staying clean year-round",
-              pick: "The Xpress Pass",
-              desc: "Scheduled visits at member rates beat repeated one-off deep cleans, plus discounts on every add-on.",
-              to: "/xpress-pass",
-            },
-          ].map((c) => (
-            <Link key={c.title} to={c.to} className={`${cardClass} group flex flex-col p-6 transition-colors hover:border-ink-2`}>
-              <h3 className="font-heading text-lg font-semibold text-ink">{c.title}</h3>
-              <p className="mt-1 text-sm font-semibold text-electric">{c.pick}</p>
-              <p className="mt-3 flex-1 text-[15px] leading-relaxed text-ink-2">{c.desc}</p>
-            </Link>
-          ))}
-        </div>
-      </Section>
+      <BestValueByGoal />
 
       <ServiceFAQ title="Pricing questions" faqs={faqs} />
       <QualityProducts />
