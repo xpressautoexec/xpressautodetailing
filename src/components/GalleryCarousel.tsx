@@ -1,11 +1,11 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useMemo, type ReactNode } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { PHOTOS } from "@/data/photos";
 
 /** Car work only (this carousel sits on the auto detailing page), alternating categories. */
-const images = (() => {
+const ALL_IMAGES = (() => {
   const lists = [PHOTOS.exterior, PHOTOS.interior, PHOTOS.ceramic, PHOTOS.wheels, PHOTOS.dealership];
   const out: typeof PHOTOS.exterior = [];
   const longest = Math.max(...lists.map((l) => l.length));
@@ -13,7 +13,16 @@ const images = (() => {
   return out;
 })();
 
-const GalleryCarousel = () => {
+type Props = {
+  title?: string;
+  /** Shown between the heading and the carousel, e.g. a feature mosaic. */
+  lead?: ReactNode;
+  /** Photo srcs already shown in `lead`, left out of the carousel. */
+  exclude?: string[];
+};
+
+const GalleryCarousel = ({ title = "Recent work", lead, exclude = [] }: Props) => {
+  const images = useMemo(() => ALL_IMAGES.filter((p) => !exclude.includes(p.src)), [exclude]);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center", skipSnaps: false });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -38,27 +47,28 @@ const GalleryCarousel = () => {
   return (
     <section className="overflow-hidden border-y border-line bg-surface py-16 sm:py-24">
       <div className="shell">
-        <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div className="max-w-2xl">
-            <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Recent work</h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-ink-2">
-              Customer vehicles, photographed on site by our crew.{" "}
-              <Link to="/gallery" className="font-semibold text-electric hover:underline">
-                Full gallery
-              </Link>
-            </p>
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="mr-2 text-sm tabular-nums text-muted-ink" aria-live="polite">
-              {selectedIndex + 1} / {images.length}
-            </span>
-            <button onClick={scrollPrev} className={arrow} aria-label="Previous photo">
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button onClick={scrollNext} className={arrow} aria-label="Next photo">
-              <ChevronRight className="h-5 w-5" />
-            </button>
-          </div>
+        <div className="max-w-2xl">
+          <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{title}</h2>
+          <p className="mt-4 text-[15px] leading-relaxed text-ink-2">
+            Customer vehicles, photographed on site by our crew.{" "}
+            <Link to="/gallery" className="font-semibold text-electric hover:underline">
+              Full gallery
+            </Link>
+          </p>
+        </div>
+
+        {lead && <div className="mt-10">{lead}</div>}
+
+        <div className="mb-6 mt-10 flex items-center justify-end gap-3">
+          <span className="mr-2 text-sm tabular-nums text-muted-ink" aria-live="polite">
+            {selectedIndex + 1} / {images.length}
+          </span>
+          <button onClick={scrollPrev} className={arrow} aria-label="Previous photo">
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <button onClick={scrollNext} className={arrow} aria-label="Next photo">
+            <ChevronRight className="h-5 w-5" />
+          </button>
         </div>
 
         <div className="-mx-2 overflow-hidden sm:-mx-3" ref={emblaRef}>

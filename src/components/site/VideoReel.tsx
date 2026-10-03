@@ -52,7 +52,10 @@ export const VideoReel = ({ clips, label }: { clips: Clip[]; label: string }) =>
   <ul
     aria-label={label}
     className="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-4 px-4 sm:mx-0 sm:grid sm:gap-4 sm:overflow-visible sm:px-0"
-    style={{ gridTemplateColumns: `repeat(${clips.length}, minmax(0, 280px))` }}
+    style={{
+      // Three clips stretch to the full row so there is no empty fourth slot; one or two stay compact.
+      gridTemplateColumns: clips.length === 3 ? "repeat(3, minmax(0, 1fr))" : `repeat(${clips.length}, minmax(0, 280px))`,
+    }}
   >
     {clips.map((c) => (
       <li key={c.src} className="w-[58%] shrink-0 snap-start sm:w-auto">

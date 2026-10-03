@@ -33,6 +33,7 @@ const LandingPage = ({
   closing,
   products,
   work,
+  childrenBeforeWork = false,
 }: {
   seo: { title: string; description: string; canonical: string; serviceName: string; serviceDescription: string };
   hero: { title: string; subtitle: string; image: string; ctaType: "book" | "call"; imagePosition?: string };
@@ -46,6 +47,8 @@ const LandingPage = ({
   products?: ProductLine[];
   /** Real job photos (and optional clips) shown after the features. */
   work?: Work;
+  /** Render the page-specific sections (e.g. pricing) above the work photos instead of below. */
+  childrenBeforeWork?: boolean;
 }) => (
   <PageTransition>
     <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
@@ -78,9 +81,11 @@ const LandingPage = ({
         </dl>
       </Section>
 
+      {childrenBeforeWork && children}
+
       {work && <WorkShowcase {...work} tone="surface" />}
 
-      {children}
+      {!childrenBeforeWork && children}
 
       {steps && (
         <Section tone="surface">

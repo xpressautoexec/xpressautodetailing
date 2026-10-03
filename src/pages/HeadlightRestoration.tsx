@@ -44,6 +44,7 @@ const faqs = [
 
 const HeadlightRestoration = () => (
   <LandingPage
+    childrenBeforeWork
     products={["menzerna", "3m"]}
     seo={{
       title: "Headlight Restoration Calgary | Mobile, From $" + addOn,
