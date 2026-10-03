@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { trackLead } from "@/lib/metaPixel";
 import { useToast } from "@/hooks/use-toast";
 import { ASSESS_DISCLAIMER, ASSESS_SUCCESS } from "@/data/copy";
 
@@ -43,6 +44,7 @@ const AssessmentForm = ({
       toast({ title: "Something went wrong. Please call us instead.", variant: "destructive" });
       return;
     }
+    trackLead(source);
     setDone(true);
   };
 
