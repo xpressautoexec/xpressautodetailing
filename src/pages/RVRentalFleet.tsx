@@ -101,14 +101,6 @@ const RVRentalFleet = () => (
         </div>
       </Section>
 
-      <WorkShowcase
-        title="Recent RV work"
-        photos={PHOTOS.rv}
-        clips={[CLIPS.rvInterior, CLIPS.trailerPolish, CLIPS.rvWalkaround]}
-      />
-
-      <ServiceFAQ title="Rental fleet questions" faqs={faqs} />
-
       <Section tone="surface" id="quote">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
           <div>
@@ -121,8 +113,16 @@ const RVRentalFleet = () => (
         </div>
       </Section>
 
-      <QualityProducts lines={["3m", "menzerna", "gtechniq", "systemx"]} />
+      <WorkShowcase
+        title="Recent RV work"
+        photos={PHOTOS.rv}
+        clips={[CLIPS.rvCrewWash, CLIPS.rvInterior, CLIPS.trailerPolish, CLIPS.rvWalkaround]}
+      />
 
+      <ServiceFAQ title="Rental fleet questions" faqs={faqs} />
+
+
+      <QualityProducts lines={["3m", "menzerna", "gtechniq", "systemx"]} />
 
       <ClosingCTA title="Units back out, ready" mode="quote" quoteHref="#quote" quoteLabel="Request a fleet quote" />
 

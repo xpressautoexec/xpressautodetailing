@@ -171,7 +171,7 @@ const PaintCeramics = () => {
           title="Recent coating and correction work"
           intro="Tape lines mark where correction stops, so you can see the difference on the same panel."
           photos={[...PHOTOS.ceramic, ...PHOTOS.exterior]}
-          clips={[CLIPS.paintCorrection, CLIPS.defenderShop, CLIPS.jeepShop]}
+          clips={[CLIPS.paintCorrection, CLIPS.teslaDetail, CLIPS.defenderShop, CLIPS.jeepShop]}
         />
 
         <Section tone="surface">

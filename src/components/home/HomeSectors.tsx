@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import rvImg from "@/assets/jobs/card-rv-crew-van.webp";
+import rvImg from "@/assets/jobs/card-rv-flagstaff.webp";
 import carImg from "@/assets/jobs/card-car-mercedes-c-class.webp";
 import ceramicImg from "@/assets/jobs/card-ceramic-bmw-m340i.webp";
-import passImg from "@/assets/jobs/card-pass-audi-a4.webp";
+import passImg from "@/assets/jobs/card-pass-tesla-model-x.webp";
 import fleetImg from "@/assets/jobs/card-fleet-cat-excavator.webp";
 import { RV_BUNDLES, AUTO_PACKAGES, money } from "@/data/pricing";
 
@@ -32,7 +32,7 @@ const TILES = [
     body: "A monthly detailing membership with member pricing on every visit and add-on.",
     href: "/xpress-pass",
     img: passImg,
-    alt: "Black Audi A4 in a Calgary driveway after a maintenance detail",
+    alt: "White Tesla Model X in a Calgary driveway after a maintenance detail",
   },
   {
     title: "Fleet and dealership",
@@ -73,9 +73,9 @@ const HomeSectors = () => (
         >
           <img
             src={rvImg}
-            alt="Xpress crew washing a Class A motorhome next to the Xpress van on a Calgary driveway"
+            alt="Flagstaff Signature travel trailer in a Calgary driveway after a wash and polish"
             loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            className="absolute inset-0 h-full w-full object-cover object-[center_75%] transition-transform duration-500 group-hover:scale-[1.02]"
           />
           <div
             aria-hidden="true"
