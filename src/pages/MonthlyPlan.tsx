@@ -10,7 +10,6 @@ import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section, SectionHeading, btnPrimary, btnSecondary, btnSecondaryDark } from "@/components/site/Section";
 import SEO, { buildFAQJsonLd } from "@/components/SEO";
 import { Check, Phone } from "lucide-react";
-import heroImg from "@/assets/jobs/hero-xpress-pass.webp";
 import { PHOTOS, CLIPS } from "@/data/photos";
 import WorkShowcase from "@/components/site/WorkShowcase";
 import xpressPassCard from "@/assets/xpress-pass-card.png";
@@ -82,8 +81,6 @@ const MonthlyPlan = () => {
         <AutoBreadcrumbs />
 
         <section className="relative isolate overflow-hidden bg-brand-dark">
-          <img src={heroImg} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover opacity-25" />
-          <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-dark via-brand-dark/90 to-brand-dark/60" />
           <div className="shell grid items-center gap-12 py-20 sm:py-28 lg:grid-cols-[1.1fr_1fr]">
             <div className="max-w-[38rem]">
               <h1 className="font-heading text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-primary-foreground sm:text-5xl lg:text-[3.5rem]">

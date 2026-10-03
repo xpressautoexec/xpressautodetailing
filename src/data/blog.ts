@@ -18,7 +18,7 @@ export type BlogPostData = {
   excerpt: string;
   /** ISO date, YYYY-MM-DD. Posts with a future date stay hidden until that day. */
   date: string;
-  /** File name of an image in src/assets. */
+  /** Path of an image under src/assets, e.g. "jobs/hero-home.webp". */
   image: string;
   imageAlt: string;
   sections: BlogSection[];
@@ -29,7 +29,7 @@ export type BlogPostData = {
 export type BlogCard = { title: string; excerpt: string; date: string; href: string; image: string };
 
 const files = import.meta.glob<BlogPostData>("../content/blog/*.json", { eager: true, import: "default" });
-const images = import.meta.glob<string>("../assets/*.{jpg,jpeg,png,webp}", { eager: true, import: "default" });
+const images = import.meta.glob<string>("../assets/**/*.{jpg,jpeg,png,webp}", { eager: true, import: "default" });
 
 export const imageFor = (name: string) => images[`../assets/${name}`] ?? images["../assets/gallery-1.jpg"];
 
@@ -53,7 +53,7 @@ const STANDALONE: BlogCard[] = [
       "Every package price we charge, what a comparable Calgary shop typically quotes, and where the real cost difference is. Add-on pricing published up front.",
     date: "2026-07-30",
     href: "/calgary-detailing-price-comparison",
-    image: "gallery-1.jpg",
+    image: "jobs/card-car-mercedes-c-class.webp",
   },
   {
     title: "PPF vs ceramic coating for Calgary winters",
@@ -61,7 +61,7 @@ const STANDALONE: BlogCard[] = [
       "Salt brine and mag chloride attack paint chemically; Deerfoot gravel attacks it mechanically. What film stops, what a coating stops, and when each makes sense.",
     date: "2026-07-30",
     href: "/blog/ppf-vs-ceramic-coating-calgary",
-    image: "gallery-bmw-emblem.jpg",
+    image: "jobs/headlight-mercedes-white.webp",
   },
 ];
 

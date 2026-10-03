@@ -23,8 +23,6 @@ import catExcavatorExt2 from "@/assets/gallery-cat-excavator-exterior-2.jpg";
 import catExcavatorPedals from "@/assets/gallery-cat-excavator-pedals.jpg";
 import citationMotorhome from "@/assets/gallery-citation-motorhome.jpg";
 import defenderInterior from "@/assets/gallery-defender-interior.jpg";
-import dirttSiennaBlue from "@/assets/gallery-dirtt-sienna-blue.jpg";
-import dirttSiennaOrange from "@/assets/gallery-dirtt-sienna-orange.jpg";
 import f150Interior from "@/assets/gallery-f150-interior.jpg";
 import flagstaffTrailerCorrection from "@/assets/gallery-flagstaff-trailer-correction.jpg";
 import flagstaffTrailerSide from "@/assets/gallery-flagstaff-trailer-side.jpg";
@@ -48,7 +46,6 @@ import gallery31 from "@/assets/gallery-31.jpg";
 import gallery32 from "@/assets/gallery-32.jpg";
 import gallery34 from "@/assets/gallery-34.jpg";
 import gallery37 from "@/assets/gallery-37.jpg";
-import gallery7 from "@/assets/gallery-7.jpg";
 import gallery8 from "@/assets/gallery-8.jpg";
 import gallery9 from "@/assets/gallery-9.jpg";
 import gtiFront from "@/assets/gallery-gti-front.jpg";
@@ -71,7 +68,6 @@ import porscheMacan from "@/assets/gallery-porsche-macan.jpg";
 import rangeRoverExterior from "@/assets/gallery-range-rover-exterior.jpg";
 import rangeRoverInterior from "@/assets/gallery-range-rover-interior.jpg";
 import rvOxidation from "@/assets/gallery-rv-oxidation-correction.jpg";
-import rvPaintCloseup from "@/assets/gallery-rv-paint-correction-closeup.jpg";
 import rvSurveyorFront from "@/assets/gallery-rv-surveyor-front.jpg";
 import rvSurveyorFull from "@/assets/gallery-rv-surveyor-full.jpg";
 import subaruWheel from "@/assets/gallery-subaru-wheel.jpg";
@@ -128,9 +124,6 @@ import jWheelsAcuraWheel from "@/assets/jobs/wheels-acura-wheel.webp";
 import jWheelsRangeRoverWheel from "@/assets/jobs/wheels-range-rover-wheel.webp";
 import jWheelsNewmarWheel from "@/assets/jobs/wheels-newmar-wheel.webp";
 import jFleetDirttTransitOnsite from "@/assets/jobs/fleet-dirtt-transit-onsite.webp";
-import jFleetDirttSiennaLot from "@/assets/jobs/fleet-dirtt-sienna-lot.webp";
-import jFleetDirttVanInterior from "@/assets/jobs/fleet-dirtt-van-interior.webp";
-import jFleetDirttVanCab from "@/assets/jobs/fleet-dirtt-van-cab.webp";
 import jFleetDirttVansLot from "@/assets/jobs/fleet-dirtt-vans-lot.webp";
 import jFleetCatBoom from "@/assets/jobs/fleet-cat-boom.webp";
 import jFleetCat320Site from "@/assets/jobs/fleet-cat-320-site.webp";
@@ -165,6 +158,8 @@ import jRvRoofTapeLine from "@/assets/jobs/rv-roof-tape-line.webp";
 import jRvClassAWash from "@/assets/jobs/rv-class-a-wash.webp";
 import jHeadlightMercedesWhite from "@/assets/jobs/headlight-mercedes-white.webp";
 import jHeadlightMercedesSilver from "@/assets/jobs/headlight-mercedes-silver.webp";
+import jCeramicMercedesGleBadge from "@/assets/jobs/ceramic-mercedes-gle-badge.webp";
+import jCeramicMercedesGleWheel from "@/assets/jobs/ceramic-mercedes-gle-wheel.webp";
 import marineSunsetAsset from "@/assets/marine-pontoon-sunset.jpg.asset.json";
 import marineTubesAsset from "@/assets/marine-pontoon-tubes.jpg.asset.json";
 import marineInteriorAsset from "@/assets/marine-interior-seats.jpg.asset.json";
@@ -225,16 +220,19 @@ export const PHOTOS: Record<PhotoCategory, Photo[]> = {
     { src: jMarineSunchaserTrailer, alt: "SunChaser pontoon on its trailer after detail" },
   ],
   ceramic: [
-    { src: audiA4Reflection, alt: "Black Audi A4 taillight and quarter panel showing deep gloss after polish" },
-    { src: jCeramicBmwM340iHood, alt: "Blue BMW M340i hood and headlight gloss after polish" },
+    { src: jHeadlightMercedesWhite, alt: "White Mercedes-AMG GLE headlight after paint correction and System X ceramic coating" },
+    { src: jExteriorBmwM340iFront, alt: "Blue BMW M340i in the shop after paint correction and ceramic coating" },
+    { src: jCeramicMercedesGleBadge, alt: "Mercedes-AMG Biturbo badge on corrected white paint" },
+    { src: jCeramicBmwM340iHood, alt: "Blue BMW M340i hood and headlight gloss after correction" },
+    { src: audiA4Reflection, alt: "Black Audi A4 taillight and quarter panel reflecting like a mirror after polish" },
+    { src: jHeadlightMercedesSilver, alt: "Mercedes-AMG GLE headlight and fender after ceramic coating, garage reflected in the paint" },
     { src: jCeramicBmwM340iDoor, alt: "Blue BMW M340i door reflection after paint correction" },
-    { src: jCeramicRangeRoverHeadlight, alt: "Range Rover headlight and hood gloss after detail" },
-    { src: jCeramicBmw2Headlight, alt: "BMW 2 Series headlight after polish" },
-    { src: bmwEmblem, alt: "Silver BMW hood with mirror-finish reflection after paint correction" },
-    { src: bmwHeadlight, alt: "BMW M-series headlight and front fender after polish and decontamination" },
     { src: gallery26, alt: "Blue BMW M340i with deep gloss under studio lighting after ceramic coating" },
-    { src: gallery28, alt: "Blue BMW M340i rear view with glowing taillights after ceramic" },
-    { src: rvPaintCloseup, alt: "Close-up of RV paint correction with dramatic gloss restoration" },
+    { src: jCeramicMercedesGleWheel, alt: "Mercedes-AMG GLE wheel, fender and running board after ceramic coating" },
+    { src: bmwEmblem, alt: "Silver BMW hood with mirror-finish reflection after paint correction" },
+    { src: jCeramicBmw2Headlight, alt: "BMW 2 Series headlight and bumper after polish" },
+    { src: bmwHeadlight, alt: "BMW 2 Series headlight and front fender after polish and decontamination" },
+    { src: gallery28, alt: "Blue BMW M340i rear view with glowing taillights after ceramic coating" },
   ],
   exterior: [
     { src: jExteriorAudiA4Driveway, alt: "Black Audi A4 in a Calgary driveway after exterior detail" },
@@ -337,24 +335,18 @@ export const PHOTOS: Record<PhotoCategory, Photo[]> = {
     { src: gallery25, alt: "Silver Audi RS5 wheel and quarter panel after detail" },
   ],
   fleet: [
-    { src: dirttSiennaOrange, alt: "DIRTT fleet Toyota Sienna minivan after fleet wash and interior clean" },
-    { src: dirttSiennaBlue, alt: "Blue DIRTT fleet Toyota Sienna minivan detailed at the company lot" },
-    { src: jFleetDirttTransitOnsite, alt: "DIRTT Ford Transit fleet van during on-site cleaning" },
-    { src: jFleetDirttSiennaLot, alt: "DIRTT Toyota Sienna fleet van at the company lot" },
-    { src: jFleetDirttVanInterior, alt: "DIRTT fleet van front seats after cleaning" },
-    { src: jFleetDirttVanCab, alt: "DIRTT fleet van cab after interior clean" },
-    { src: jFleetDirttVansLot, alt: "DIRTT fleet vans at the company lot" },
-    { src: jFleetCatBoom, alt: "CAT excavator boom and bucket after wash" },
-    { src: jFleetCat320Site, alt: "CAT 320 excavator on site after wash" },
-    { src: jFleetCatCabDoor, alt: "CAT excavator cab door open after interior clean" },
-    { src: jFleetCatCabFloor, alt: "CAT excavator cab floor and seat after detail" },
-    { src: jFleetCatSeat, alt: "CAT excavator operator seat after cleaning" },
     { src: jFleetCatJobSite, alt: "CAT excavator on a Calgary job site after wash" },
-    { src: gallery7, alt: "DIRTT Construction Systems fleet van after professional wash" },
     { src: gallery23, alt: "KLS fleet Ford F-150 detailed in shop" },
+    { src: jFleetDirttTransitOnsite, alt: "Ford Transit fleet van during on-site cleaning" },
+    { src: jFleetCat320Site, alt: "CAT 320 excavator on site after wash" },
     { src: gallery34, alt: "Ford F-150 fleet truck after exterior detail" },
     { src: catExcavatorExt1, alt: "CAT Landform excavator on jobsite after exterior wash" },
+    { src: jFleetCatCabDoor, alt: "CAT excavator cab door open after interior clean" },
+    { src: jFleetDirttVansLot, alt: "Fleet vans at a company lot after on-site washes" },
+    { src: jFleetCatBoom, alt: "CAT excavator boom and bucket after wash" },
     { src: catExcavatorExt2, alt: "CAT 320 excavator side profile freshly detailed on construction site" },
+    { src: jFleetCatSeat, alt: "CAT excavator operator seat after cleaning" },
+    { src: jFleetCatCabFloor, alt: "CAT excavator cab floor and seat after detail" },
     { src: catExcavator1, alt: "CAT excavator cab interior after professional deep clean" },
     { src: catExcavator2, alt: "Detailed CAT excavator operator cabin" },
     { src: catExcavatorPedals, alt: "Spotless CAT excavator floor pedals and cab interior after detail" },
@@ -364,6 +356,15 @@ export const PHOTOS: Record<PhotoCategory, Photo[]> = {
     { src: jCrewVanPower, alt: "Xpress van rear with hose reels and power on board" },
   ],
 };
+
+/** Detailing page mosaic: one feature shot and four supporting ones, cars only. */
+export const DETAILING_FEATURE: Photo[] = [
+  { src: rangeRoverExterior, alt: "Green Range Rover in a Calgary driveway after a complete detail" },
+  { src: jInteriorLandRoverCabin, alt: "Land Rover front cabin with light leather seats after interior detail" },
+  { src: mercedesCClass, alt: "White Mercedes-Benz C-Class after an exterior detail" },
+  { src: jInteriorCadillacSrxFrontCabin, alt: "Cadillac SRX cream leather front cabin after interior detail" },
+  { src: porscheMacan, alt: "White Porsche Macan after an exterior detail" },
+];
 
 /** Headlight lenses after polishing, for the headlight restoration page. */
 export const HEADLIGHT_PHOTOS: Photo[] = [
@@ -387,4 +388,7 @@ export const CLIPS = {
   teslaDetail: clip("xp-tesla-detail", "Red Tesla after a complete detail"),
   jeepShop: clip("xp-jeep-shop", "Jeep Wrangler in the shop after detail"),
   defenderShop: clip("xp-defender-shop", "Land Rover Defender in the shop"),
+  gleHeadlight: clip("xp-mercedes-gle-headlight", "Mercedes-AMG GLE headlight after correction and ceramic coating"),
+  gleHeadlightClose: clip("xp-mercedes-gle-headlight-close", "Close pass over the Mercedes-AMG GLE headlight and fender"),
+  gleBadgePan: clip("xp-mercedes-gle-badge-pan", "Biturbo badge and side of the corrected Mercedes-AMG GLE"),
 } satisfies Record<string, Clip>;

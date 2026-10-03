@@ -56,8 +56,8 @@ const PaintCorrection = () => (
     }}
     work={{
       title: "Recent correction work",
-      intro: "Tape lines mark where correction stops, so you can see the difference on the same panel.",
-      photos: [...PHOTOS.ceramic, ...PHOTOS.exterior.slice(0, 6)],
+      intro: "Paint correction and ceramic coating jobs only: the gloss, the reflections and the details up close.",
+      photos: PHOTOS.ceramic,
     }}
     features={{
       title: "How correction works",
