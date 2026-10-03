@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import rvImg from "@/assets/jobs/card-rv-kodiak.webp";
 import carImg from "@/assets/jobs/card-car-bmw-red-seats.webp";
-import ceramicImg from "@/assets/jobs/card-ceramic-bmw-m340i.webp";
+import ceramicImg from "@/assets/jobs/card-ceramic-mercedes-gle.webp";
 import passImg from "@/assets/jobs/card-pass-audi-rs5.webp";
 import fleetImg from "@/assets/jobs/card-fleet-cat-excavator.webp";
 import { RV_BUNDLES, AUTO_PACKAGES, money } from "@/data/pricing";
@@ -25,7 +25,7 @@ const TILES = [
     body: "Machine correction and multi-year coatings, from a 1-year to a 9-year graphene.",
     href: "/ceramic-paint-correction",
     img: ceramicImg,
-    alt: "Blue BMW M340i in the shop after paint correction",
+    alt: "White Mercedes-AMG GLE headlight and hood after paint correction and ceramic coating",
   },
   {
     title: "The Xpress Pass",
