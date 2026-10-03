@@ -4,7 +4,6 @@
  */
 import acuraBlue from "@/assets/gallery-acura-blue.jpg";
 import acuraCargo from "@/assets/gallery-acura-cargo.jpg";
-import acuraFloormat from "@/assets/gallery-acura-floormat.jpg";
 import acuraGarage from "@/assets/gallery-acura-garage.jpg";
 import acuraGrey from "@/assets/gallery-acura-grey.jpg";
 import audiA4 from "@/assets/gallery-audi-a4.jpg";
@@ -13,16 +12,12 @@ import bmwEmblem from "@/assets/gallery-bmw-emblem.jpg";
 import bmwHeadlight from "@/assets/gallery-bmw-headlight.jpg";
 import bmwMirrorTop from "@/assets/gallery-bmw-mirror-top.jpg";
 import bmwRear from "@/assets/gallery-bmw-rear.jpg";
-import bmwRedDash from "@/assets/gallery-bmw-red-dash.jpg";
-import bmwRedInterior from "@/assets/gallery-bmw-red-interior.jpg";
 import bmwWheelFront from "@/assets/gallery-bmw-wheel-front.jpg";
 import bmwWheelRear from "@/assets/gallery-bmw-wheel-rear.jpg";
 import cadillacSrxFront from "@/assets/gallery-cadillac-srx-front.jpg";
 import cadillacSrxInterior from "@/assets/gallery-cadillac-srx-interior.jpg";
 import catExcavator1 from "@/assets/gallery-cat-excavator-1.jpg";
 import catExcavator2 from "@/assets/gallery-cat-excavator-2.jpg";
-import catExcavator3 from "@/assets/gallery-cat-excavator-3.jpg";
-import catExcavator4 from "@/assets/gallery-cat-excavator-4.jpg";
 import catExcavatorExt1 from "@/assets/gallery-cat-excavator-exterior-1.jpg";
 import catExcavatorExt2 from "@/assets/gallery-cat-excavator-exterior-2.jpg";
 import catExcavatorPedals from "@/assets/gallery-cat-excavator-pedals.jpg";
@@ -47,7 +42,6 @@ import gallery22 from "@/assets/gallery-22.jpg";
 import gallery23 from "@/assets/gallery-23.jpg";
 import gallery25 from "@/assets/gallery-25.jpg";
 import gallery26 from "@/assets/gallery-26.jpg";
-import gallery27 from "@/assets/gallery-27.jpg";
 import gallery28 from "@/assets/gallery-28.jpg";
 import gallery29 from "@/assets/gallery-29.jpg";
 import gallery31 from "@/assets/gallery-31.jpg";
@@ -73,7 +67,6 @@ import newmarDutchStarBadge from "@/assets/gallery-newmar-dutch-star-badge.jpg";
 import newmarDutchStarFront from "@/assets/gallery-newmar-dutch-star-front.jpg";
 import newmarDutchStarSide from "@/assets/gallery-newmar-dutch-star-side.jpg";
 import newmarHeadlights from "@/assets/gallery-newmar-headlights.jpg";
-import paintReflection from "@/assets/gallery-paint-reflection.jpg";
 import porscheMacan from "@/assets/gallery-porsche-macan.jpg";
 import rangeRoverExterior from "@/assets/gallery-range-rover-exterior.jpg";
 import rangeRoverInterior from "@/assets/gallery-range-rover-interior.jpg";
@@ -149,6 +142,29 @@ import jFleetCatSeat from "@/assets/jobs/fleet-cat-seat.webp";
 import jFleetCatJobSite from "@/assets/jobs/fleet-cat-job-site.webp";
 import jCrewVanGear from "@/assets/jobs/crew-van-gear.webp";
 import jCrewVanPower from "@/assets/jobs/crew-van-power.webp";
+import jInteriorBmwRedDriverSide from "@/assets/jobs/interior-bmw-red-driver-side.webp";
+import jInteriorBmwRedFrontSeats from "@/assets/jobs/interior-bmw-red-front-seats.webp";
+import jInteriorCadillacSrxFrontCabin from "@/assets/jobs/interior-cadillac-srx-front-cabin.webp";
+import jInteriorF150RearFloor from "@/assets/jobs/interior-f150-rear-floor.webp";
+import jInteriorNissanSeat from "@/assets/jobs/interior-nissan-seat.webp";
+import jInteriorNissanCabin from "@/assets/jobs/interior-nissan-cabin.webp";
+import jInteriorLandRoverCabin from "@/assets/jobs/interior-land-rover-cabin.webp";
+import jDealershipAcuraWhiteLot from "@/assets/jobs/dealership-acura-white-lot.webp";
+import jDealershipAcuraRedSeats from "@/assets/jobs/dealership-acura-red-seats.webp";
+import jDealershipAcuraEngineBay from "@/assets/jobs/dealership-acura-engine-bay.webp";
+import jDealershipAcuraThirdRow from "@/assets/jobs/dealership-acura-third-row.webp";
+import jDealershipAcuraCabinShowroom from "@/assets/jobs/dealership-acura-cabin-showroom.webp";
+import jDealershipAcuraDash from "@/assets/jobs/dealership-acura-dash.webp";
+import jDealershipAcuraSeatStitching from "@/assets/jobs/dealership-acura-seat-stitching.webp";
+import jDealershipAcuraDashTrim from "@/assets/jobs/dealership-acura-dash-trim.webp";
+import jDealershipAcuraPedals from "@/assets/jobs/dealership-acura-pedals.webp";
+import jDealershipAcuraFloor from "@/assets/jobs/dealership-acura-floor.webp";
+import jExteriorAudiA4Driveway from "@/assets/jobs/exterior-audi-a4-driveway.webp";
+import jWheelsAudiA4Wheel from "@/assets/jobs/wheels-audi-a4-wheel.webp";
+import jWheelsBmwM340iCaliper from "@/assets/jobs/wheels-bmw-m340i-caliper.webp";
+import jRvRoofBeforeAfter from "@/assets/jobs/rv-roof-before-after.webp";
+import jRvRoofTapeLine from "@/assets/jobs/rv-roof-tape-line.webp";
+import jRvClassAWash from "@/assets/jobs/rv-class-a-wash.webp";
 import marineSunsetAsset from "@/assets/marine-pontoon-sunset.jpg.asset.json";
 import marineTubesAsset from "@/assets/marine-pontoon-tubes.jpg.asset.json";
 import marineInteriorAsset from "@/assets/marine-interior-seats.jpg.asset.json";
@@ -162,6 +178,9 @@ export type PhotoCategory = "rv" | "marine" | "ceramic" | "exterior" | "interior
 
 export const PHOTOS: Record<PhotoCategory, Photo[]> = {
   rv: [
+    { src: jRvClassAWash, alt: "Xpress crew washing a Class A diesel pusher on a Calgary driveway" },
+    { src: jRvRoofTapeLine, alt: "Travel trailer roof cap with a tape line splitting oxidized and restored gelcoat" },
+    { src: jRvRoofBeforeAfter, alt: "Travel trailer front cap showing chalky oxidized gelcoat next to the restored finish" },
     { src: newmarDutchStarFront, alt: "Newmar Dutch Star diesel pusher front view after full exterior detail" },
     { src: newmarDutchStarSide, alt: "Newmar Dutch Star motorhome three-quarter view in the service bay after detail" },
     { src: newmarHeadlights, alt: "Newmar Dutch Star headlights and front cap with mirror gloss after polish" },
@@ -219,6 +238,7 @@ export const PHOTOS: Record<PhotoCategory, Photo[]> = {
     { src: rvPaintCloseup, alt: "Close-up of RV paint correction with dramatic gloss restoration" },
   ],
   exterior: [
+    { src: jExteriorAudiA4Driveway, alt: "Black Audi A4 in a Calgary driveway after exterior detail" },
     { src: cadillacSrxFront, alt: "White Cadillac SRX in a Calgary driveway after full exterior detail" },
     { src: mercedesCClass, alt: "White Mercedes-Benz C-Class sedan freshly detailed in underground parking" },
     { src: audiA4, alt: "Black Audi A4 with glossy finish after exterior detail" },
@@ -244,6 +264,13 @@ export const PHOTOS: Record<PhotoCategory, Photo[]> = {
     { src: gallery31, alt: "BMW convertible after professional exterior detail" },
   ],
   interior: [
+    { src: jInteriorBmwRedFrontSeats, alt: "BMW 2 Series convertible red leather front seats after interior detail" },
+    { src: jInteriorBmwRedDriverSide, alt: "BMW 2 Series convertible red leather cabin and dash after interior detail" },
+    { src: jInteriorCadillacSrxFrontCabin, alt: "Cadillac SRX cream leather front cabin after interior detail" },
+    { src: jInteriorLandRoverCabin, alt: "Land Rover front cabin with light leather seats after interior detail" },
+    { src: jInteriorNissanCabin, alt: "Nissan front cabin and quilted seats after interior detail" },
+    { src: jInteriorNissanSeat, alt: "Nissan quilted driver seat and dash after interior detail" },
+    { src: jInteriorF150RearFloor, alt: "Ford F-150 rear floor with the bench flipped up after vacuum and shampoo" },
     { src: cadillacSrxInterior, alt: "Cadillac SRX cream leather front seats and door panel after interior detail" },
     { src: defenderInterior, alt: "Land Rover Defender tan leather front cabin after interior detail" },
     { src: mazdaCx5Interior, alt: "Mazda CX-5 brown leather seats and console after interior detail" },
@@ -263,10 +290,7 @@ export const PHOTOS: Record<PhotoCategory, Photo[]> = {
     { src: jInteriorMazdaCx5Rear, alt: "Mazda CX-5 rear seat after interior detail" },
     { src: jInteriorAcuraCabin, alt: "Acura cabin after dealership interior detail" },
     { src: rangeRoverInterior, alt: "Range Rover tan leather interior after deep clean and conditioning" },
-    { src: bmwRedInterior, alt: "BMW red leather interior after deep clean and conditioning" },
-    { src: bmwRedDash, alt: "BMW interior with red leather seats, steering wheel and dash after deep clean" },
     { src: gallery16, alt: "Pristine Audi interior after deep cleaning and conditioning" },
-    { src: gallery27, alt: "BMW interior with protective steering wheel cover after detail" },
     { src: gallery8, alt: "Audi interior after deep clean and conditioning" },
     { src: gallery9, alt: "BMW center console and dash after interior detail" },
     { src: gallery10, alt: "SUV rear seats with tan leather after interior deep clean" },
@@ -278,6 +302,10 @@ export const PHOTOS: Record<PhotoCategory, Photo[]> = {
     { src: gallery37, alt: "SUV cargo area after interior deep clean" },
   ],
   dealership: [
+    { src: jDealershipAcuraWhiteLot, alt: "White Acura on the dealership lot after prep detail" },
+    { src: jDealershipAcuraRedSeats, alt: "Acura red leather sport seats after dealership interior detail" },
+    { src: jDealershipAcuraCabinShowroom, alt: "Acura cabin at the dealership after interior prep" },
+    { src: jDealershipAcuraThirdRow, alt: "Acura third-row seats and cargo area after dealership prep" },
     { src: jDealershipAcuraCrewMirror, alt: "Xpress crew member detailing an Acura side mirror" },
     { src: jDealershipAcuraCargo, alt: "Acura cargo area after dealership prep" },
     { src: jDealershipAcuraLot, alt: "Acura lot with freshly detailed inventory" },
@@ -286,14 +314,20 @@ export const PHOTOS: Record<PhotoCategory, Photo[]> = {
     { src: acuraGarage, alt: "Grey Acura RDX being detailed in underground parking garage" },
     { src: acuraGrey, alt: "Grey Acura RDX A-Spec detailed for dealership lot in Calgary" },
     { src: acuraBlue, alt: "Blue Acura RDX lineup freshly detailed at Acura dealership" },
-    { src: acuraFloormat, alt: "Acura floor mat and pedals after deep interior clean" },
     { src: acuraCargo, alt: "Acura RDX cargo area after dealership prep detail" },
     { src: gtiFront, alt: "White Volkswagen GTI front view prepped for dealership" },
     { src: gtiRear, alt: "White Volkswagen GTI rear view after dealership detail" },
     { src: gtiInterior, alt: "Volkswagen GTI plaid interior after dealership prep detail" },
-    { src: paintReflection, alt: "Mirror-like paint reflection after dealership paint correction" },
+    { src: jDealershipAcuraDash, alt: "Acura dash and console after dealership interior detail" },
+    { src: jDealershipAcuraSeatStitching, alt: "Acura leather seat stitching and door after interior detail" },
+    { src: jDealershipAcuraDashTrim, alt: "Acura dash trim and passenger side after interior wipe-down" },
+    { src: jDealershipAcuraEngineBay, alt: "Acura engine bay after dealership prep" },
+    { src: jDealershipAcuraPedals, alt: "Acura pedals and floor mat after interior vacuum" },
+    { src: jDealershipAcuraFloor, alt: "Acura passenger footwell and carpet after vacuum" },
   ],
   wheels: [
+    { src: jWheelsBmwM340iCaliper, alt: "BMW M340i wheel with blue M caliper and dressed Michelin tire" },
+    { src: jWheelsAudiA4Wheel, alt: "Audi A4 wheel and dressed tire after wheel detail" },
     { src: jWheelsKodiakWheels, alt: "Kodiak travel trailer fenders and wheels after dressing" },
     { src: jWheelsBmw2Wheel, alt: "BMW 2 Series wheel after cleaning" },
     { src: jWheelsAcuraWheel, alt: "Acura wheel and tire after cleaning and dressing" },
@@ -325,8 +359,6 @@ export const PHOTOS: Record<PhotoCategory, Photo[]> = {
     { src: catExcavatorExt2, alt: "CAT 320 excavator side profile freshly detailed on construction site" },
     { src: catExcavator1, alt: "CAT excavator cab interior after professional deep clean" },
     { src: catExcavator2, alt: "Detailed CAT excavator operator cabin" },
-    { src: catExcavator3, alt: "CAT excavator cab with spotless seat and controls" },
-    { src: catExcavator4, alt: "Heavy equipment cabin restored to like-new condition" },
     { src: catExcavatorPedals, alt: "Spotless CAT excavator floor pedals and cab interior after detail" },
   ],
   crew: [

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import LandingPage from "@/components/site/LandingPage";
 import { Section, SectionHeading, btnPrimary } from "@/components/site/Section";
-import heroImg from "@/assets/gallery-paint-reflection.jpg";
+import heroImg from "@/assets/jobs/hero-paint-correction.webp";
 import { PHOTOS } from "@/data/photos";
 import { CERAMIC_PACKAGES, money } from "@/data/pricing";
 
