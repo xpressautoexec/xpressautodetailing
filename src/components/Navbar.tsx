@@ -28,16 +28,16 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 bg-brand-dark border-b border-primary-foreground/10">
       <div className="shell flex items-center justify-between py-3">
-        <Link to="/" className="mr-4 shrink-0 xl:mr-6" aria-label="Xpress Auto & RV Detailing home">
+        <Link to="/" className="shrink-0" aria-label="Xpress Auto & RV Detailing home">
           <img
             src="/xpress-logo-white.png"
             alt="Xpress Auto & RV Detailing"
-            className="h-9 w-auto object-contain lg:h-10"
+            className="h-9 lg:h-11 w-auto object-contain"
           />
         </Link>
 
         {/* Desktop */}
-        <nav aria-label="Main" className="hidden xl:flex items-center gap-1">
+        <nav aria-label="Main" className="hidden lg:flex items-center gap-1">
           {NAV_LINKS.map((link: NavLink) => {
             const active = isActive(pathname, link.href);
             const hasChildren = !!link.children?.length;
@@ -52,7 +52,7 @@ const Navbar = () => {
                 <Link
                   to={link.href}
                   aria-current={active ? "page" : undefined}
-                  className={`flex items-center gap-1 whitespace-nowrap rounded-md px-2 py-2 text-sm font-medium transition-colors xl:px-2.5 ${
+                  className={`flex items-center gap-1 whitespace-nowrap px-2.5 py-2 text-sm font-medium transition-colors rounded-md ${
                     active ? "text-primary-foreground" : "text-brand-gray hover:text-primary-foreground hover:bg-primary-foreground/5"
                   }`}
                 >
@@ -95,10 +95,10 @@ const Navbar = () => {
           })}
         </nav>
 
-        <div className="hidden xl:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <a href={telHref} aria-label={`Call ${PHONE}`} className="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-primary-foreground hover:text-primary-foreground/80 transition-colors">
             <Phone className="w-4 h-4" aria-hidden="true" />
-            <span className="hidden 2xl:inline">{PHONE}</span>
+            <span className="hidden xl:inline">{PHONE}</span>
           </a>
           <a
             href={BOOKING_URL}
@@ -112,7 +112,7 @@ const Navbar = () => {
 
         <button
           onClick={() => setIsOpen((v) => !v)}
-          className="xl:hidden text-primary-foreground p-2 -mr-2"
+          className="lg:hidden text-primary-foreground p-2 -mr-2"
           aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={isOpen}
         >
@@ -121,7 +121,7 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <nav aria-label="Mobile" className="xl:hidden border-t border-primary-foreground/10 bg-brand-dark">
+        <nav aria-label="Mobile" className="lg:hidden border-t border-primary-foreground/10 bg-brand-dark">
           <div className="shell flex flex-col py-3">
             {NAV_LINKS.map((link: NavLink) => {
               const active = isActive(pathname, link.href);
