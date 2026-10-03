@@ -9,6 +9,7 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import { Section, btnPrimary, cardClass, textLink } from "@/components/site/Section";
 import SEO, { buildFAQJsonLd } from "@/components/SEO";
 import { supabase } from "@/integrations/supabase/client";
+import { trackLead } from "@/lib/metaPixel";
 import { useToast } from "@/hooks/use-toast";
 import { BOOKING_URL, PASS_ADDON_DISCOUNT, XPRESS_PASS } from "@/data/pricing";
 import { CANCELLATION_SUMMARY, NAP, SERVICE_AREA_SENTENCE } from "@/data/copy";
@@ -60,6 +61,7 @@ const Contact = () => {
       toast({ title: `That didn't send. Please call or text ${NAP.phone}.`, variant: "destructive" });
       return;
     }
+    trackLead("general");
     setDone(true);
   };
 
