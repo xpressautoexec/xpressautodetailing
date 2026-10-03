@@ -8,11 +8,11 @@ const HeroSection = () => (
   <section id="home" className="relative isolate overflow-hidden bg-brand-dark">
     <img
       src={heroImg}
-      alt="Xpress crew washing a Class A diesel pusher on a Calgary driveway"
-      width={1080}
-      height={607}
+      alt="Blue BMW M340i in the shop after paint correction and ceramic coating"
+      width={1536}
+      height={864}
       {...{ fetchpriority: "high" }}
-      className="absolute inset-0 -z-10 h-full w-full object-cover object-[75%_center]"
+      className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
     />
     <div
       aria-hidden="true"
