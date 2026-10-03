@@ -186,9 +186,9 @@ const TrailerRV = () => (
       <section className="relative isolate overflow-hidden bg-brand-dark">
         <img
           src={rvHero}
-          alt="Kodiak Ultra-Lite travel trailer after an Xpress exterior detail"
-          width={1536}
-          height={864}
+          alt="Xpress crew washing a Class A diesel pusher on a Calgary driveway"
+          width={1080}
+          height={607}
           {...{ fetchpriority: "high" }}
           className="absolute inset-0 -z-10 h-full w-full object-cover object-[60%_center]"
         />
