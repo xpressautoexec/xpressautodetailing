@@ -19,15 +19,16 @@ const partners: { name: string; logo?: string }[] = [
 
 const CompanyLogos = () => (
   <section className="border-y border-line bg-surface py-14 sm:py-16">
-    <div className="shell grid gap-8 lg:grid-cols-[14rem_1fr] lg:items-center lg:gap-12">
-      <h2 className="font-heading text-lg font-semibold leading-snug tracking-tight text-ink">
+    <div className="shell">
+      <h2 className="text-balance text-center font-heading text-lg font-semibold leading-snug tracking-tight text-ink">
         Trusted by Calgary builders, contractors, dealers and shops
       </h2>
-      <ul className="grid grid-cols-2 border-l border-t border-line sm:grid-cols-4 md:grid-cols-4 xl:grid-cols-8">
+      {/* One even row of seven on desktop; below that a centered wrap so a short last row sits in the middle. */}
+      <ul className="mt-8 flex flex-wrap justify-center gap-3 lg:grid lg:grid-cols-7">
         {partners.map((partner) => (
           <li
             key={partner.name}
-            className="flex h-20 items-center justify-center border-b border-r border-line px-4 md:h-24"
+            className="flex h-20 basis-[calc(50%-0.375rem)] items-center justify-center rounded-[8px] border border-line px-4 sm:basis-[calc(25%-0.5625rem)] md:h-24"
           >
             {partner.logo ? (
               <img
