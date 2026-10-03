@@ -81,7 +81,7 @@ const Reviews = () => (
       <Section>
         <SectionHeading
           title="From our Google reviews"
-          intro="Copied word for word from Google, first name and last initial only."
+          intro="Copied word for word from Google."
           action={
             <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener noreferrer" className={textLink}>
               See all reviews on Google
@@ -90,7 +90,7 @@ const Reviews = () => (
         />
         <div className="grid gap-5 md:grid-cols-3">
           {REAL_REVIEWS.map((r) => (
-            <figure key={r.name} className={`${cardClass} flex flex-col p-7`}>
+            <figure key={r.text} className={`${cardClass} flex flex-col p-7`}>
               <div className="flex gap-0.5" aria-label="5 out of 5 stars">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-current text-ink" aria-hidden="true" />

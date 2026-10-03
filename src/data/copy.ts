@@ -176,7 +176,7 @@ export const HOW_IT_WORKS = [
 /**
  * Verbatim Google reviews (Xpress Auto & RV Detail, Google Maps), pulled Sept 30, 2026.
  * NEVER invent or paraphrase a testimonial. Trim only with an ellipsis.
- * Names shown as first name + last initial.
+ * Names shown as first name + last initial when known; reviews pulled without a name say "Google review".
  */
 export interface Review {
   name: string;
@@ -192,18 +192,21 @@ export const REAL_REVIEWS: Review[] = [
     text: "These guys are great. … We had Youssef and Adam, both lovely and kind - and honestly could not be happier with their work. My 2014 jeep looks the way it did the day we drove it off the lot!! Thanks so much guys! We will recommend you to everyone we know!!!",
   },
   {
-    name: "Claire E.",
-    service: "RV trailer paint correction",
-    text: "We are super impressed with the paint correction on our trailer. We didn’t expect for it to look as good as it does. It looks brand new. Omar and team were punctual, friendly and went above and beyond to make sure we had a great experience and we were happy with the final result. I would highly recommend them.",
+    name: "Google review",
+    service: "Complete detail",
+    text: "Best mobile detailing in Calgary ! I booked them for a complete detail and the results exceeded my expectations. The attention to detail is fantastic, and they made the whole process completely hassle-free. I will definitely be using them again.",
   },
   {
-    name: "Teni B.",
-    service: "Interior and exterior, Honda Civic",
-    text: "Omar did a great job of detailing my interior and exterior of my Honda civic. He offered a great price and was extremely professional throughout the entire service. Would definitely recommend Xpress Auto to any one that needs car detailing.",
+    name: "Google review",
+    service: "Car detail",
+    text: "Last minute this morning I decided to get my car detailed as I haven’t in 4 years. It was embarrassing how dirty my car was to begin with however there was no judgement from Omar and my expectations were exceeded. Thank you for the incredible work and detail you put into making my car cozy again !!! Will definitely be recommending to everyone I know.",
   },
 ];
 
-export const GOOGLE_REVIEWS_URL = "https://g.page/r/CQ5ISLUTohBKEBM/review";
+/** Opens the Google review form (for asking customers to leave one). */
+export const GOOGLE_WRITE_REVIEW_URL = "https://g.page/r/CQ5ISLUTohBKEBM/review";
+/** Opens the list of Xpress Auto & RV Detail reviews on Google. */
+export const GOOGLE_REVIEWS_URL = "https://search.google.com/local/reviews?placeid=ChIJa25YXdpvcVMRDkhItROiEEo";
 
 
 export const ASSESS_DISCLAIMER =
