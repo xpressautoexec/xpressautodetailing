@@ -59,7 +59,7 @@ const ServicePageHero = ({
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-dark via-brand-dark/80 to-brand-dark/25"
+        className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-dark/90 via-brand-dark/55 to-brand-dark/0"
       />
       <div className="shell py-20 sm:py-28">
         <div className="max-w-[40rem]">

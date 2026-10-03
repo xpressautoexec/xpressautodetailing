@@ -120,7 +120,6 @@ import jInteriorBmwRedRearSeats from "@/assets/jobs/interior-bmw-red-rear-seats.
 import jInteriorMazdaCx5Console from "@/assets/jobs/interior-mazda-cx5-console.webp";
 import jInteriorMazdaCx5Rear from "@/assets/jobs/interior-mazda-cx5-rear.webp";
 import jInteriorAcuraCabin from "@/assets/jobs/interior-acura-cabin.webp";
-import jDealershipAcuraCrewMirror from "@/assets/jobs/dealership-acura-crew-mirror.webp";
 import jDealershipAcuraCargo from "@/assets/jobs/dealership-acura-cargo.webp";
 import jDealershipAcuraLot from "@/assets/jobs/dealership-acura-lot.webp";
 import jDealershipAcuraBlueLineup from "@/assets/jobs/dealership-acura-blue-lineup.webp";
@@ -308,7 +307,6 @@ export const PHOTOS: Record<PhotoCategory, Photo[]> = {
     { src: jDealershipAcuraRedSeats, alt: "Acura red leather sport seats after dealership interior detail" },
     { src: jDealershipAcuraCabinShowroom, alt: "Acura cabin at the dealership after interior prep" },
     { src: jDealershipAcuraThirdRow, alt: "Acura third-row seats and cargo area after dealership prep" },
-    { src: jDealershipAcuraCrewMirror, alt: "Xpress crew member detailing an Acura side mirror" },
     { src: jDealershipAcuraCargo, alt: "Acura cargo area after dealership prep" },
     { src: jDealershipAcuraLot, alt: "Acura lot with freshly detailed inventory" },
     { src: jDealershipAcuraBlueLineup, alt: "Blue Acura lineup at the dealership after detail" },
@@ -386,7 +384,7 @@ export const CLIPS = {
   rvCrewWash: clip("xp-rv-crew-wash", "Crew washing a Class A motorhome on site"),
   rvWalkaround: clip("xp-rv-walkaround", "Class A motorhome walkaround after detail"),
   rvInterior: clip("xp-rv-interior", "Motorhome interior after detail"),
-  trailerPolish: clip("xp-trailer-polish", "Machine polishing a travel trailer, then the finished gloss"),
+  trailerPolish: clip("xp-trailer-polish", "Fifth wheel after a full exterior polish"),
   paintCorrection: clip("xp-paint-correction", "Paint correction on black paint with a 50/50 tape line"),
   teslaDetail: clip("xp-tesla-detail", "Red Tesla after a complete detail"),
   jeepShop: clip("xp-jeep-shop", "Jeep Wrangler in the shop after detail"),
