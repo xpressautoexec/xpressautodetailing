@@ -169,9 +169,9 @@ const PaintCeramics = () => {
 
         <WorkShowcase
           title="Recent coating and correction work"
-          intro="Tape lines mark where correction stops, so you can see the difference on the same panel."
-          photos={[...PHOTOS.ceramic, ...PHOTOS.exterior]}
-          clips={[CLIPS.paintCorrection, CLIPS.teslaDetail, CLIPS.defenderShop, CLIPS.jeepShop]}
+          intro="Paint correction and ceramic coating jobs only: the gloss, the reflections and the details up close."
+          photos={PHOTOS.ceramic}
+          clips={[CLIPS.gleHeadlight, CLIPS.paintCorrection, CLIPS.gleBadgePan, CLIPS.gleHeadlightClose]}
         />
 
         <Section tone="surface">

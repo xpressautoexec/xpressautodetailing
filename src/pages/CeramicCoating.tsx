@@ -49,7 +49,8 @@ const CeramicCoating = () => (
     }}
     work={{
       title: "Recent coating and correction work",
-      photos: [...PHOTOS.ceramic, ...PHOTOS.exterior.slice(0, 8)],
+      intro: "Paint correction and ceramic coating jobs only: the gloss, the reflections and the details up close.",
+      photos: PHOTOS.ceramic,
     }}
     features={{
       title: "What a coating actually does",

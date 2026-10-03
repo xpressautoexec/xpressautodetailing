@@ -20,6 +20,8 @@ import completeHero from "@/assets/jobs/hero-detailing.webp";
 import WorkShowcase from "@/components/site/WorkShowcase";
 import { AUTO_PACKAGES, PASS_ADDON_DISCOUNT } from "@/data/pricing";
 import QualityProducts from "@/components/site/QualityProducts";
+import WorkMosaic from "@/components/site/WorkMosaic";
+import { DETAILING_FEATURE } from "@/data/photos";
 
 const detailingFAQs = [
   {
@@ -90,6 +92,12 @@ const Detailing = () => {
       />
       <GuaranteeStrip />
 
+      <WorkMosaic
+        title="Recent detailing work"
+        intro="Customer cars, inside and out, detailed in their own driveways and parkades."
+        photos={DETAILING_FEATURE}
+      />
+
       <Section tone="dark" id="packages">
         <AutoPackages
           dark
@@ -97,6 +105,8 @@ const Detailing = () => {
           intro="Pick your vehicle size and the prices update. Prices are before tax, with no travel charge in our service area."
         />
       </Section>
+
+      <GalleryCarousel />
 
       <WorkTruckPackage />
 
@@ -112,7 +122,6 @@ const Detailing = () => {
         </div>
       </Section>
 
-      <GalleryCarousel />
       <ServiceFAQ title="Detailing questions" faqs={detailingFAQs} />
       <QualityProducts />
 

@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import heroImg from "@/assets/gallery-bmw-emblem.jpg";
+import heroImg from "@/assets/jobs/headlight-mercedes-white.webp";
 import { Snowflake, ShieldCheck, Droplets, CheckCircle } from "lucide-react";
 
 const PUBLISHED = "2026-07-30";
@@ -104,11 +104,11 @@ const BlogPPFvsCeramic = () => (
         <div className="shell max-w-3xl py-8">
           <img
             src={heroImg}
-            alt="Freshly protected vehicle paint after ceramic coating in Calgary"
+            alt="Mercedes-AMG GLE headlight and white paint after correction and ceramic coating"
             width={1200}
             height={800}
             loading="eager"
-            className="w-full rounded-[10px] object-cover"
+            className="aspect-[3/2] w-full rounded-[10px] object-cover object-[center_60%]"
           />
         </div>
 

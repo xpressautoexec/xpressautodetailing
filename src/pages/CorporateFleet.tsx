@@ -94,7 +94,7 @@ const CorporateFleet = () => (
       <WorkShowcase
         title="Recent fleet work"
         intro="Work vans, pickups, dealer inventory and heavy equipment, cleaned on the client's own lot or job site."
-        photos={[...PHOTOS.fleet, ...PHOTOS.dealership]}
+        photos={Array.from({ length: Math.max(PHOTOS.fleet.length, PHOTOS.dealership.length) }, (_, i) => [PHOTOS.fleet[i], PHOTOS.dealership[i]]).flat().filter((p): p is (typeof PHOTOS.fleet)[number] => Boolean(p))}
       />
 
       <ServiceFAQ title="Fleet questions" faqs={faqs} />
