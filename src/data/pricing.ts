@@ -266,6 +266,14 @@ export const MARINE_SERVICES = [
   { name: "Interior Seat Ceramic Coating", price: 650, unit: "+" },
 ];
 
+// ---------- HEADLIGHT RESTORATION ----------
+/** Per pair of headlights. Standalone visit, or added to a detail booking at the add-on rate. */
+export const HEADLIGHT_RESTORATION = {
+  standalone: 120,
+  addOn: 90,
+  time: "45 min",
+};
+
 // ---------- ADD-ONS ----------
 export const ADDONS = [
   { name: "Strong Odour Removal", price: 85, time: "15 min attended" },
@@ -273,7 +281,7 @@ export const ADDONS = [
   { name: "Clay Bar Treatment", price: 120, time: "45 min" },
   { name: "Tree Sap Removal", price: 75, time: "20 min" },
   { name: "Headliner Cleaning", price: 75, time: "30 min" },
-  { name: "Headlight Restoration", price: 79, time: "45 min" },
+  { name: "Headlight Restoration", price: HEADLIGHT_RESTORATION.addOn, time: HEADLIGHT_RESTORATION.time },
   { name: "Engine Bay Detail", price: 50, time: "15 min" },
   { name: "Extra Set of Carpets / Mats", price: 50, time: "20 min" },
   { name: "Trunk Deep Clean", price: 30, time: "20 min" },

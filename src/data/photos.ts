@@ -165,6 +165,8 @@ import jWheelsBmwM340iCaliper from "@/assets/jobs/wheels-bmw-m340i-caliper.webp"
 import jRvRoofBeforeAfter from "@/assets/jobs/rv-roof-before-after.webp";
 import jRvRoofTapeLine from "@/assets/jobs/rv-roof-tape-line.webp";
 import jRvClassAWash from "@/assets/jobs/rv-class-a-wash.webp";
+import jHeadlightMercedesWhite from "@/assets/jobs/headlight-mercedes-white.webp";
+import jHeadlightMercedesSilver from "@/assets/jobs/headlight-mercedes-silver.webp";
 import marineSunsetAsset from "@/assets/marine-pontoon-sunset.jpg.asset.json";
 import marineTubesAsset from "@/assets/marine-pontoon-tubes.jpg.asset.json";
 import marineInteriorAsset from "@/assets/marine-interior-seats.jpg.asset.json";
@@ -366,6 +368,16 @@ export const PHOTOS: Record<PhotoCategory, Photo[]> = {
     { src: jCrewVanPower, alt: "Xpress van rear with hose reels and power on board" },
   ],
 };
+
+/** Headlight lenses after polishing, for the headlight restoration page. */
+export const HEADLIGHT_PHOTOS: Photo[] = [
+  { src: jHeadlightMercedesWhite, alt: "Clear Mercedes headlight lens after polishing" },
+  { src: jHeadlightMercedesSilver, alt: "Mercedes headlight lens after polishing, garage reflected in the lens" },
+  { src: jCeramicBmw2Headlight, alt: "BMW 2 Series headlight after polish" },
+  { src: jCeramicRangeRoverHeadlight, alt: "Range Rover headlight and hood gloss after detail" },
+  { src: bmwHeadlight, alt: "BMW headlight and front fender after polish" },
+  { src: newmarHeadlights, alt: "Newmar Dutch Star headlights after polish" },
+];
 
 /** Short muted job clips in /public/videos (9:16, ~0.5-2 MB each). */
 export type Clip = { src: string; poster: string; label: string };

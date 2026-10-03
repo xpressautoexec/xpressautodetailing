@@ -31,6 +31,7 @@ import {
   monthlyPayment,
 } from "@/data/pricing";
 import QualityProducts from "@/components/site/QualityProducts";
+import BestValueByGoal from "@/components/site/BestValueByGoal";
 
 const STATS = [
   { value: SEASON_STATS.cars, label: "Cars detailed this season" },
@@ -85,6 +86,8 @@ const Index = () => (
           </div>
         </div>
       </section>
+
+      <BestValueByGoal />
 
       <WorkTruckPackage />
 

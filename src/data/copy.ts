@@ -104,6 +104,7 @@ export const NAV_LINKS = [
     ],
   },
   { label: "Ceramic & Paint", href: "/ceramic-paint-correction" },
+  { label: "Headlights", href: "/headlight-restoration" },
   { label: "Detailing", href: "/detailing" },
   { label: "Xpress Pass", href: "/xpress-pass" },
   { label: "Fleet", href: "/fleet" },
@@ -136,6 +137,7 @@ export const FOOTER_SERVICES = [
   { label: "Marine & pontoon", href: "/marine" },
   { label: "Car detailing", href: "/detailing" },
   { label: "Ceramic coating & paint correction", href: "/ceramic-paint-correction" },
+  { label: "Headlight restoration", href: "/headlight-restoration" },
   { label: "Fleet & dealership", href: "/fleet" },
   { label: "The Xpress Pass", href: "/xpress-pass" },
 ];

@@ -26,6 +26,7 @@ const ROUTES = [
   "/rv-detailing",
   "/ceramic-coating",
   "/paint-correction",
+  "/headlight-restoration",
   "/gallery",
   "/reviews",
   "/contact",

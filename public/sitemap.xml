@@ -44,6 +44,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://xpressautodetail.ca/headlight-restoration</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://xpressautodetail.ca/reviews</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
