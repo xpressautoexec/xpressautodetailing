@@ -14,7 +14,7 @@ const GuaranteeStrip = () => (
           </li>
         ))}
       </ul>
-      <Link to="/cancellation-policy" className="text-sm font-medium text-muted-ink hover:text-ink hover:underline">
+      <Link to="/cancellation-policy" className="text-sm font-medium text-muted-ink underline decoration-muted-ink/40 decoration-1 underline-offset-4 transition-colors hover:text-ink hover:decoration-ink">
         Cancellation policy
       </Link>
     </div>

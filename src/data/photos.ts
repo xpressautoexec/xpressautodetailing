@@ -78,7 +78,6 @@ import subaruWheel from "@/assets/gallery-subaru-wheel.jpg";
 import sunchaserPontoon from "@/assets/gallery-sunchaser-pontoon.jpg";
 import sunchaserPontoonInterior from "@/assets/gallery-sunchaser-pontoon-interior.jpg";
 import sunchaserPontoonSide from "@/assets/gallery-sunchaser-pontoon-side.jpg";
-import jRvSurveyorCrewRoof from "@/assets/jobs/rv-surveyor-crew-roof.webp";
 import jRvSurveyorTapeLine from "@/assets/jobs/rv-surveyor-tape-line.webp";
 import jRvSurveyorStorageLot from "@/assets/jobs/rv-surveyor-storage-lot.webp";
 import jRvSurveyorSide from "@/assets/jobs/rv-surveyor-side.webp";
@@ -190,7 +189,6 @@ export const PHOTOS: Record<PhotoCategory, Photo[]> = {
     { src: flagstaffTrailerSide, alt: "Flagstaff Signature travel trailer side profile after wash and polish" },
     { src: kodiakTrailer, alt: "Kodiak travel trailer front cap after exterior detail" },
     { src: citationMotorhome, alt: "Citation Class C motorhome on a Mercedes Sprinter chassis after exterior detail" },
-    { src: jRvSurveyorCrewRoof, alt: "Xpress crew member on the roof of a Surveyor travel trailer during oxidation removal" },
     { src: jRvSurveyorTapeLine, alt: "Surveyor travel trailer front cap with a tape line showing corrected versus oxidized gelcoat" },
     { src: jRvSurveyorStorageLot, alt: "Surveyor travel trailer at a Calgary storage lot during gelcoat restoration" },
     { src: jRvSurveyorSide, alt: "Surveyor travel trailer side profile at the storage lot" },

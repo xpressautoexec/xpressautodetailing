@@ -47,7 +47,7 @@ const RVDetailing = () => (
       title: "Recent RV work",
       intro: "Travel trailers, fifth wheels and Class A motorhomes, detailed at storage lots and driveways around Calgary.",
       photos: PHOTOS.rv,
-      clips: [CLIPS.trailerPolish, CLIPS.rvWalkaround, CLIPS.rvInterior],
+      clips: [CLIPS.rvCrewWash, CLIPS.trailerPolish, CLIPS.rvWalkaround, CLIPS.rvInterior],
     }}
     features={{
       title: "RV services",
