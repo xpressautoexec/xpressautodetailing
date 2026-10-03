@@ -1,4 +1,3 @@
-import brandTruman from "@/assets/brand-truman.png";
 import brandKls from "@/assets/brand-kls.png";
 import brandDirtt from "@/assets/brand-dirtt.png";
 import brandSilverhillAcura from "@/assets/brand-silverhill-acura.png";
@@ -9,7 +8,6 @@ import brandMidas from "@/assets/brand-midas.png";
 
 /** `logo` is optional: a partner without a file yet renders as a neutral text label. */
 const partners: { name: string; logo?: string }[] = [
-  { name: "Truman Homes", logo: brandTruman },
   { name: "KLS Earthworks", logo: brandKls },
   { name: "DIRTT", logo: brandDirtt },
   { name: "Silverhill Acura", logo: brandSilverhillAcura },
