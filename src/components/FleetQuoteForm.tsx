@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { trackLead } from "@/lib/metaPixel";
 import { useToast } from "@/hooks/use-toast";
 import { NAP } from "@/data/copy";
 import { btnPrimary, cardClass } from "@/components/site/Section";
@@ -37,6 +38,7 @@ const FleetQuoteForm = ({ title = "Your fleet", subtitle = "Per-unit pricing for
       toast({ title: `That didn't send. Please call or text ${NAP.phone}.`, variant: "destructive" });
       return;
     }
+    trackLead("fleet");
     setDone(true);
   };
 

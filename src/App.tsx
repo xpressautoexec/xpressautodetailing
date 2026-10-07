@@ -8,6 +8,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { AnimatePresence } from "framer-motion";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import { trackMeta } from "@/lib/metaPixel";
 
 const Detailing = lazy(() => import("./pages/Detailing"));
 
@@ -68,6 +69,20 @@ const ScrollToTop = () => {
     seek();
     return () => clearTimeout(timer);
   }, [pathname, hash]);
+  return null;
+};
+
+/** Sends a Meta Pixel PageView on client-side navigation (index.html covers the first load). */
+const MetaPixelPageView = () => {
+  const { pathname } = useLocation();
+  const firstLoad = useRef(true);
+  useEffect(() => {
+    if (firstLoad.current) {
+      firstLoad.current = false;
+      return;
+    }
+    trackMeta("PageView");
+  }, [pathname]);
   return null;
 };
 
@@ -156,6 +171,7 @@ const App = () => (
     <AppProviders>
       <BrowserRouter>
         <ScrollToTop />
+        <MetaPixelPageView />
         <Suspense fallback={<RouteFallback />}>
           <AnimatedRoutes />
         </Suspense>
