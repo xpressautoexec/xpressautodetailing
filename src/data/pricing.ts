@@ -388,8 +388,8 @@ export const TRAINING = [
     id: "ceramic-coating",
     name: "Ceramic Coating",
     price: 599,
-    duration: "3 days",
-    schedule: "3 days, 24 hours",
+    duration: "4 hours",
+    schedule: "4 hours",
     /** Discounted price when taken together with Paint Correction Mastery. */
     addOn: { courseId: "paint-correction", price: 399 },
     forWho: "Detailers who want to offer ceramic coatings properly, from prep to cure.",
