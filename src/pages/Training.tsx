@@ -19,7 +19,7 @@ import QualityProducts from "@/components/site/QualityProducts";
 const trainingFAQs = [
   {
     q: "Do I need any experience?",
-    a: `No for ${TRAINING[0].name}, which is built for beginners. For the correction, coating and film courses we recommend some detailing experience or ${TRAINING[0].name} first.`,
+    a: `No for ${TRAINING[0].name}, which is built for beginners. For the correction and coating courses we recommend some detailing experience or ${TRAINING[0].name} first.`,
   },
   {
     q: "What products and tools are provided?",
@@ -44,7 +44,7 @@ const Training = () => (
     <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
       <SEO
         title="Auto Detailing Training Calgary"
-        description={`Hands-on detailing, paint correction, ceramic coating and PPF courses in Calgary. Classes of ${TRAINING_TERMS.classSize}, from ${money(Math.min(...TRAINING.map((c) => c.price)))}.`}
+        description={`Hands-on detailing, paint correction and ceramic coating courses in Calgary. Classes of ${TRAINING_TERMS.classSize}, from ${money(Math.min(...TRAINING.map((c) => c.price)))}.`}
         canonical="/training"
         jsonLd={[buildFAQJsonLd(trainingFAQs)]}
       />
@@ -74,10 +74,18 @@ const Training = () => (
                 <div>
                   <h3 className="font-heading text-xl font-semibold text-ink">{c.name}</h3>
                   <p className="mt-1 text-sm text-muted-ink">
-                    {c.duration}, {c.hours} hours
+                    {c.schedule}
                   </p>
                 </div>
-                <p className="font-heading text-3xl font-semibold tabular-nums text-ink">{money(c.price)}</p>
+                <div className="text-right">
+                  <p className="font-heading text-3xl font-semibold tabular-nums text-ink">{money(c.price)}</p>
+                  {c.addOn && (
+                    <p className="mt-1 text-sm text-muted-ink">
+                      or {money(c.addOn.price)} added to{" "}
+                      {TRAINING.find((t) => t.id === c.addOn?.courseId)?.name}
+                    </p>
+                  )}
+                </div>
               </div>
               <p className="mt-4 text-[15px] leading-relaxed text-ink-2">{c.forWho}</p>
               <ul className="mt-5 flex-1 space-y-2">

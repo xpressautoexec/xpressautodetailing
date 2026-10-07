@@ -195,7 +195,7 @@ export const RV_SERVICES = [
     popular: true,
   },
   { id: "interior", name: "RV Interior Detail", unit: "/hr", price: 90 },
-  { id: "decal", name: "Decal Restoration", unit: "/decal", price: 30 },
+  { id: "decal", name: "Decal Removal / Replacement", unit: "", price: 0, quote: true },
 ];
 
 // ---------- RV — BUNDLES ----------
@@ -355,9 +355,9 @@ export const TRAINING = [
   {
     id: "detailing-fundamentals",
     name: "Detailing Fundamentals",
-    price: 349,
-    duration: "2 days",
-    hours: 16,
+    price: 449,
+    duration: "1 day",
+    schedule: "1 day, 6–8 hours",
     forWho: "Beginners who want to learn proper detailing from the ground up.",
     includes: [
       "Interior deep cleaning and hot-water extraction",
@@ -371,9 +371,9 @@ export const TRAINING = [
   {
     id: "paint-correction",
     name: "Paint Correction Mastery",
-    price: 549,
-    duration: "3 days",
-    hours: 24,
+    price: 899,
+    duration: "2 days",
+    schedule: "2 days, 6–8 hours each day",
     forWho: "Detailers ready to add machine correction to their services.",
     includes: [
       "Paint thickness measurement and assessment",
@@ -387,9 +387,11 @@ export const TRAINING = [
   {
     id: "ceramic-coating",
     name: "Ceramic Coating",
-    price: 699,
+    price: 599,
     duration: "3 days",
-    hours: 24,
+    schedule: "3 days, 24 hours",
+    /** Discounted price when taken together with Paint Correction Mastery. */
+    addOn: { courseId: "paint-correction", price: 399 },
     forWho: "Detailers who want to offer ceramic coatings properly, from prep to cure.",
     includes: [
       "Surface preparation and decontamination",
@@ -398,22 +400,6 @@ export const TRAINING = [
       "Curing, environment and layering",
       "Maintenance coatings and aftercare",
       "Setting client expectations",
-    ],
-  },
-  {
-    id: "ppf-installation",
-    name: "PPF Installation",
-    price: 899,
-    duration: "5 days",
-    hours: 40,
-    forWho: "Detailers ready to learn paint protection film installation.",
-    includes: [
-      "Pre-cut kit installation",
-      "Bulk film cutting and custom wrapping",
-      "Complex curves and edges",
-      "Headlights, mirrors and high-impact areas",
-      "Full front-end installation",
-      "Removal and re-application",
     ],
   },
 ];

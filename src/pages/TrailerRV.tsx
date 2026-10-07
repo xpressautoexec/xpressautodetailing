@@ -33,6 +33,15 @@ import {
 } from "@/data/pricing";
 import { WATER_LINE } from "@/data/copy";
 
+/** Maps each bundle's included services to calculator ids so the estimator never double counts. */
+const ESTIMATOR_BUNDLES = RV_BUNDLES.map((b) => ({
+  id: b.id,
+  name: b.name,
+  unit: b.unit,
+  price: b.price,
+  covers: RV_SERVICES.filter((svc) => b.includes.some((inc) => svc.name.startsWith(inc))).map((svc) => svc.id),
+}));
+
 const RV_INTERIOR_RATE = RV_SERVICES.find((s) => s.id === "interior")?.price ?? 0;
 const telHref = `tel:${PHONE.replace(/-/g, "")}`;
 const EXAMPLE_FT = 30;
@@ -404,8 +413,34 @@ const TrailerRV = () => (
         </div>
       </section>
 
+      {/* Build your own */}
+      <section id="build" className="scroll-mt-24 border-y border-line bg-surface py-16 sm:py-24">
+        <div className="shell grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
+          <div>
+            <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              Estimate your price
+            </h2>
+            <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-ink-2">
+              Pick a package or individual services and set the length of your unit. Packages already include the
+              services listed in them, so nothing is counted twice.
+            </p>
+          </div>
+          <PerFootCalculator
+            services={RV_SERVICES}
+            bundles={ESTIMATOR_BUNDLES}
+            defaultLength={30}
+            minLength={12}
+            maxLength={45}
+            lengthLabel="Unit length (feet)"
+            title="RV & trailer estimator"
+            defaultSelected={["washseal"]}
+            note={`Estimate only. Interior detailing is billed at ${money(RV_INTERIOR_RATE)}/hr and decal removal or replacement is quoted on site. Final price confirmed after we see the unit.`}
+          />
+        </div>
+      </section>
+
       {/* 3M restoration process */}
-      <section id="process" className="scroll-mt-24 border-y border-line bg-surface py-16 sm:py-24">
+      <section id="process" className="scroll-mt-24 py-16 sm:py-24">
         <div className="shell grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <img src={logo3m} alt="3M" loading="lazy" className="h-7 w-auto" />
@@ -471,31 +506,6 @@ const TrailerRV = () => (
             </div>
           </div>
           <FinancingEstimator />
-        </div>
-      </section>
-
-      {/* Build your own */}
-      <section id="build" className="scroll-mt-24 py-16 sm:py-24">
-        <div className="shell grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
-          <div>
-            <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Build your own
-            </h2>
-            <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-ink-2">
-              Only need a wash, or just the front cap corrected? Pick individual services and set the length of your
-              unit.
-            </p>
-          </div>
-          <PerFootCalculator
-            services={RV_SERVICES}
-            defaultLength={30}
-            minLength={12}
-            maxLength={45}
-            lengthLabel="Unit length (feet)"
-            title="RV & trailer estimator"
-            defaultSelected={["wash", "sealant"]}
-            note={`Estimate only. Interior detailing is billed at ${money(RV_INTERIOR_RATE)}/hr and decals are per decal. Final price confirmed after we see the unit.`}
-          />
         </div>
       </section>
 

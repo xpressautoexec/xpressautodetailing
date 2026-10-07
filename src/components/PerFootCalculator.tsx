@@ -7,10 +7,16 @@ export interface PerFootService {
   price: number;
   unit?: string;
   popular?: boolean;
+  /** Priced on site; shown as "Quote" and left out of the total. */
+  quote?: boolean;
+  /** Service ids a bundle already includes. Selecting the bundle clears them. */
+  covers?: string[];
 }
 
 interface Props {
   services: PerFootService[];
+  /** Optional bundles shown above the individual services. */
+  bundles?: PerFootService[];
   defaultLength?: number;
   minLength?: number;
   maxLength?: number;
@@ -25,8 +31,11 @@ interface Props {
  * Length x per-foot estimator. Multiple services can be selected at once.
  * Non-per-foot units (/hr, /side, /decal, +) are added as flat line items.
  */
+const isPerFoot = (s: PerFootService) => !s.unit || s.unit === "/ft";
+
 const PerFootCalculator = ({
   services,
+  bundles = [],
   defaultLength = 24,
   minLength = 12,
   maxLength = 45,
@@ -40,16 +49,59 @@ const PerFootCalculator = ({
 
   const key = (s: PerFootService) => s.id ?? s.name;
 
+  const all = useMemo(() => [...bundles, ...services], [bundles, services]);
+
+  /** Bundles and the services they include are mutually exclusive, so nothing is counted twice. */
   const toggle = (id: string) =>
-    setSelected((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
+    setSelected((prev) => {
+      if (prev.includes(id)) return prev.filter((x) => x !== id);
+      const item = all.find((s) => key(s) === id);
+      const covers = item?.covers ?? [];
+      const next = prev.filter((x) => {
+        const other = all.find((s) => key(s) === x);
+        if (covers.length && (covers.includes(x) || other?.covers?.length)) return false;
+        if (other?.covers?.includes(id)) return false;
+        return true;
+      });
+      return [...next, id];
+    });
 
   const total = useMemo(
     () =>
-      services
-        .filter((s) => selected.includes(key(s)))
-        .reduce((sum, s) => sum + (!s.unit || s.unit === "/ft" ? s.price * length : s.price), 0),
-    [services, selected, length]
+      all
+        .filter((s) => selected.includes(key(s)) && !s.quote)
+        .reduce((sum, s) => sum + (isPerFoot(s) ? s.price * length : s.price), 0),
+    [all, selected, length]
   );
+
+  const renderItem = (s: PerFootService) => {
+    const id = key(s);
+    const isOn = selected.includes(id);
+    const line = isPerFoot(s) ? s.price * length : s.price;
+    return (
+      <button
+        key={id}
+        type="button"
+        aria-pressed={isOn}
+        onClick={() => toggle(id)}
+        className={`flex min-h-[44px] items-center justify-between gap-3 rounded-md border px-4 py-3 text-left transition-colors ${
+          isOn ? "border-electric bg-electric-soft" : "border-line bg-surface hover:border-ink-2"
+        }`}
+      >
+        <span className="text-sm text-ink">{s.name}</span>
+        <span className="whitespace-nowrap text-sm tabular-nums text-muted-ink">
+          {s.quote ? (
+            "Upon quote"
+          ) : (
+            <>
+              {money(s.price)}
+              {s.unit ?? "/ft"} {isOn && <span className="font-semibold text-ink">· {money(line)}</span>}
+            </>
+          )}
+        </span>
+      </button>
+    );
+  };
 
   return (
     <div className="rounded-[10px] border border-line bg-surface p-6 sm:p-8">
@@ -72,32 +124,18 @@ const PerFootCalculator = ({
         />
       </div>
 
+      {bundles.length > 0 && (
+        <fieldset className="mt-6">
+          <legend className="text-sm font-medium text-ink-2">Packages</legend>
+          <div className="mt-3 grid gap-2 sm:grid-cols-2">{bundles.map(renderItem)}</div>
+        </fieldset>
+      )}
+
       <fieldset className="mt-6">
-        <legend className="text-sm font-medium text-ink-2">Select the services you want</legend>
-        <div className="mt-3 grid gap-2 sm:grid-cols-2">
-          {services.map((s) => {
-            const id = key(s);
-            const isOn = selected.includes(id);
-            const line = !s.unit || s.unit === "/ft" ? s.price * length : s.price;
-            return (
-              <button
-                key={id}
-                type="button"
-                aria-pressed={isOn}
-                onClick={() => toggle(id)}
-                className={`flex min-h-[44px] items-center justify-between gap-3 rounded-md border px-4 py-3 text-left transition-colors ${
-                  isOn ? "border-electric bg-electric-soft" : "border-line bg-surface hover:border-ink-2"
-                }`}
-              >
-                <span className="text-sm text-ink">{s.name}</span>
-                <span className="whitespace-nowrap text-sm tabular-nums text-muted-ink">
-                  {money(s.price)}
-                  {s.unit ?? "/ft"} {isOn && <span className="font-semibold text-ink">· {money(line)}</span>}
-                </span>
-              </button>
-            );
-          })}
-        </div>
+        <legend className="text-sm font-medium text-ink-2">
+          {bundles.length > 0 ? "Or pick individual services" : "Select the services you want"}
+        </legend>
+        <div className="mt-3 grid gap-2 sm:grid-cols-2">{services.map(renderItem)}</div>
       </fieldset>
 
       <div className="mt-6 flex items-center justify-between border-t border-line pt-5">
