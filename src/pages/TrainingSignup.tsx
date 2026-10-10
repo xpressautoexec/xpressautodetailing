@@ -10,6 +10,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { TRAINING, TRAINING_TERMS, money } from "@/data/pricing";
 import { NAP } from "@/data/copy";
+import { trackLead } from "@/lib/tracking";
 
 const TIMING = ["As soon as possible", "Within the next two months", "In three months or more", "I'm flexible"];
 
@@ -52,6 +53,7 @@ const TrainingSignup = () => {
       toast({ title: `That didn't send. Please call or text ${NAP.phone}.`, variant: "destructive" });
       return;
     }
+    trackLead({ formType: "training", email: form.email.trim(), phone: form.phone.trim() });
     setDone(true);
   };
 

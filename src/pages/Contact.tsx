@@ -12,6 +12,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { BOOKING_URL, PASS_ADDON_DISCOUNT, XPRESS_PASS } from "@/data/pricing";
 import { CANCELLATION_SUMMARY, NAP, SERVICE_AREA_SENTENCE } from "@/data/copy";
+import { trackLead } from "@/lib/tracking";
 
 const maxPass = Math.max(...XPRESS_PASS.map((p) => p.discount));
 
@@ -60,6 +61,7 @@ const Contact = () => {
       toast({ title: `That didn't send. Please call or text ${NAP.phone}.`, variant: "destructive" });
       return;
     }
+    trackLead({ formType: "general", email: form.email.trim(), phone: form.phone.trim() });
     setDone(true);
   };
 

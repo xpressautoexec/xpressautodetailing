@@ -26,6 +26,7 @@ import {
   FIVE_STAR_REVIEWS,
   SEASON_STATS,
   FINANCING,
+  FINANCING_LIVE,
   RV_BUNDLES,
   money,
   monthlyPayment,
@@ -96,23 +97,37 @@ const Index = () => (
       {/* Financing */}
       <section className="border-y border-line bg-surface">
         <div className="shell grid gap-8 py-14 sm:py-16 lg:grid-cols-[1.4fr_1fr] lg:items-center">
-          <div>
-            <h2 className="font-heading text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-              RV restoration from {restorationMonthly}/month
-            </h2>
-            <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-ink-2">
-              {restoration.name} on a 30 ft unit is {money(restoration.price * 30)}, or {restorationMonthly}/month over{" "}
-              {FINANCING.defaultTerm} months at a representative {FINANCING.representativeApr}% APR (
-              {money(Math.round(monthlyPayment(restoration.price * 30, FINANCING.representativeApr, FINANCING.defaultTerm) * FINANCING.defaultTerm))}{" "}
-              total). Subject to lender approval.
-            </p>
-          </div>
+          {FINANCING_LIVE ? (
+            <div>
+              <h2 className="font-heading text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+                RV restoration from {restorationMonthly}/month
+              </h2>
+              <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-ink-2">
+                {restoration.name} on a 30 ft unit is {money(restoration.price * 30)}, or {restorationMonthly}/month over{" "}
+                {FINANCING.defaultTerm} months at a representative {FINANCING.representativeApr}% APR (
+                {money(Math.round(monthlyPayment(restoration.price * 30, FINANCING.representativeApr, FINANCING.defaultTerm) * FINANCING.defaultTerm))}{" "}
+                total). Subject to lender approval.
+              </p>
+            </div>
+          ) : (
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-electric">Coming soon</p>
+              <h2 className="mt-2 font-heading text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+                Monthly financing on RV restoration
+              </h2>
+              <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-ink-2">
+                We're setting up monthly payments for gelcoat restoration. Until then, {restoration.name} on a 30 ft unit
+                is {money(restoration.price * 30)}, quoted per foot in writing after a free assessment. Mention financing in
+                your request and we'll let you know as soon as it's available.
+              </p>
+            </div>
+          )}
           <div className="lg:justify-self-end">
             <Link
-              to="/rv-trailer#financing"
+              to={FINANCING_LIVE ? "/rv-trailer#financing" : "/rv-trailer#assessment"}
               className="inline-flex min-h-[48px] items-center justify-center rounded-md bg-electric px-6 text-sm font-semibold text-primary-foreground transition-colors hover:bg-electric-2"
             >
-              Estimate your payment
+              {FINANCING_LIVE ? "Estimate your payment" : "Book a free RV assessment"}
             </Link>
           </div>
         </div>

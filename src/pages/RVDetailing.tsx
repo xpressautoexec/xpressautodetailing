@@ -60,7 +60,7 @@ const RVDetailing = () => (
     }}
     faqs={{ title: "RV detailing questions", items: faqs }}
     related={[
-      { label: "RV packages, pricing and financing", to: "/rv-trailer" },
+      { label: "RV packages and pricing", to: "/rv-trailer" },
       { label: "RV paint protection film", to: "/rv-trailer/ppf" },
       { label: "RV rental fleet care", to: "/rv-trailer/rental-fleet" },
       { label: "Marine and pontoon", to: "/marine" },

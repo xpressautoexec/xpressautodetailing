@@ -2,6 +2,7 @@ import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { ASSESS_DISCLAIMER, ASSESS_SUCCESS } from "@/data/copy";
+import { trackLead } from "@/lib/tracking";
 
 interface Props {
   /** Stored with the submission so we know which page it came from. */
@@ -43,6 +44,7 @@ const AssessmentForm = ({
       toast({ title: "Something went wrong. Please call us instead.", variant: "destructive" });
       return;
     }
+    trackLead({ formType: source, email: form.email.trim(), phone: form.phone.trim() });
     setDone(true);
   };
 

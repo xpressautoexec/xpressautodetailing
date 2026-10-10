@@ -3,6 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { NAP } from "@/data/copy";
 import { btnPrimary, cardClass } from "@/components/site/Section";
+import { trackLead } from "@/lib/tracking";
 
 const input =
   "mt-1.5 h-11 w-full rounded-md border border-line bg-surface px-3 text-sm text-ink outline-none focus:border-electric focus:ring-2 focus:ring-electric/20";
@@ -37,6 +38,7 @@ const FleetQuoteForm = ({ title = "Your fleet", subtitle = "Per-unit pricing for
       toast({ title: `That didn't send. Please call or text ${NAP.phone}.`, variant: "destructive" });
       return;
     }
+    trackLead({ formType: "fleet", email: form.email.trim(), phone: form.phone.trim() });
     setDone(true);
   };
 

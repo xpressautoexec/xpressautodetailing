@@ -445,6 +445,12 @@ export const FINANCING = {
   minAmount: 1000,
 };
 
+/**
+ * True only once a lender agreement is signed and an application URL exists.
+ * While false, the site says "coming soon" and shows no payment figures, APR or estimator.
+ */
+export const FINANCING_LIVE = FINANCING.lender !== null && FINANCING.applyUrl !== null;
+
 /** Standard amortized monthly payment. */
 export const monthlyPayment = (principal: number, aprPct: number, months: number) => {
   const r = aprPct / 100 / 12;

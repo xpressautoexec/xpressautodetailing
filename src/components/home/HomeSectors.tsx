@@ -87,11 +87,11 @@ const HomeSectors = () => (
             </h3>
             <p className="mt-3 max-w-md text-[15px] leading-relaxed text-primary-foreground/75">
               Oxidation removal, ceramic sealant and storage prep, done at your
-              storage lot. From {money(rvFrom)}/ft, with monthly financing on
-              restoration work.
+              storage lot. From {money(rvFrom)}/ft. Monthly financing on
+              restoration work is coming soon.
             </p>
             <span className="mt-6 inline-flex text-sm font-semibold text-primary-foreground underline decoration-electric decoration-2 underline-offset-[6px]">
-              RV packages and financing
+              RV packages and pricing
             </span>
           </div>
         </Link>

@@ -26,6 +26,7 @@ import {
   EMAIL,
   HOURS,
   FINANCING,
+  FINANCING_LIVE,
   FIVE_STAR_REVIEWS,
   SEASON_STATS,
   money,
@@ -53,9 +54,11 @@ const faqs = [
   },
   {
     q: "Can I finance an RV restoration?",
-    a: `Yes. Jobs over ${money(FINANCING.minAmount)} can be spread over ${FINANCING.terms[0]} to ${
-      FINANCING.terms[FINANCING.terms.length - 1]
-    } monthly payments through a third-party lender, subject to credit approval. Ask for financing when you request your assessment and we'll send the application with your written quote.`,
+    a: FINANCING_LIVE
+      ? `Yes. Jobs over ${money(FINANCING.minAmount)} can be spread over ${FINANCING.terms[0]} to ${
+          FINANCING.terms[FINANCING.terms.length - 1]
+        } monthly payments through a third-party lender, subject to credit approval. Ask for financing when you request your assessment and we'll send the application with your written quote.`
+      : "Not yet. Monthly financing on restoration work is coming soon. Mention financing when you request your assessment and we'll let you know as soon as it's available.",
   },
   {
     q: "Do you come to my storage lot?",
@@ -176,8 +179,8 @@ const TrailerRV = () => (
   <PageTransition>
     <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
       <SEO
-        title="RV Detailing & Gelcoat Restoration Calgary | Financing Available"
-        description="Mobile RV detailing and gelcoat oxidation removal in Calgary, Airdrie, Cochrane and Chestermere. Per-foot pricing, done at your storage lot, with monthly financing on restoration work."
+        title={FINANCING_LIVE ? "RV Detailing & Gelcoat Restoration Calgary | Financing Available" : "RV Detailing & Gelcoat Restoration Calgary | Mobile, Per-Foot Pricing"}
+        description={`Mobile RV detailing and gelcoat oxidation removal in Calgary, Airdrie, Cochrane and Chestermere. Per-foot pricing, done at your storage lot${FINANCING_LIVE ? ", with monthly financing on restoration work" : ""}.`}
         canonical="/rv-trailer"
         jsonLd={[
           buildServiceJsonLd(
@@ -211,8 +214,9 @@ const TrailerRV = () => (
               RV detailing and gelcoat restoration, done where it's parked.
             </h1>
             <p className="mt-6 max-w-[34rem] text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
-              Per-foot pricing, a crew that brings its own water and power, and monthly financing on restoration
-              work. Serving Calgary, Airdrie, Cochrane and Chestermere.
+              Per-foot pricing and a crew that brings its own water and power.{" "}
+              {FINANCING_LIVE ? "Monthly financing on restoration work. " : "Monthly financing coming soon. "}
+              Serving Calgary, Airdrie, Cochrane and Chestermere.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
@@ -324,9 +328,11 @@ const TrailerRV = () => (
                   <th scope="col" className="whitespace-nowrap px-4 py-4 text-right font-medium">
                     {EXAMPLE_FT} ft unit
                   </th>
-                  <th scope="col" className="whitespace-nowrap px-6 py-4 text-right font-medium">
-                    Or from
-                  </th>
+                  {FINANCING_LIVE && (
+                    <th scope="col" className="whitespace-nowrap px-6 py-4 text-right font-medium">
+                      Or from
+                    </th>
+                  )}
                 </tr>
               </thead>
               <tbody>
@@ -363,9 +369,11 @@ const TrailerRV = () => (
                         <span className="block text-xs text-muted-ink line-through">{money(b.listPrice)}</span>
                       </td>
                       <td className="px-4 py-5 text-right font-semibold tabular-nums text-ink">{money(total)}</td>
-                      <td className="px-6 py-5 text-right tabular-nums text-ink-2">
-                        {financeable ? `${perMonth(b.price)}/mo` : "—"}
-                      </td>
+                      {FINANCING_LIVE && (
+                        <td className="px-6 py-5 text-right tabular-nums text-ink-2">
+                          {financeable ? `${perMonth(b.price)}/mo` : "—"}
+                        </td>
+                      )}
                     </tr>
                   );
                 })}
@@ -395,7 +403,7 @@ const TrailerRV = () => (
                     </p>
                   </div>
                   <p className="mt-3 text-sm text-ink-2">{b.includes.join(", ")}</p>
-                  {total >= FINANCING.minAmount && (
+                  {FINANCING_LIVE && total >= FINANCING.minAmount && (
                     <p className="mt-2 text-sm text-ink-2">
                       Or from <span className="font-semibold tabular-nums text-ink">{perMonth(b.price)}/mo</span>
                     </p>
@@ -405,11 +413,13 @@ const TrailerRV = () => (
             })}
           </ul>
 
-          <p className="mt-4 text-xs leading-relaxed text-muted-ink">
-            Monthly figures: {EXAMPLE_FT} ft unit over {FINANCING.defaultTerm} months at a representative{" "}
-            {FINANCING.representativeApr}% APR, before tax, subject to lender approval. See the estimator below for
-            total cost of borrowing.
-          </p>
+          {FINANCING_LIVE && (
+            <p className="mt-4 text-xs leading-relaxed text-muted-ink">
+              Monthly figures: {EXAMPLE_FT} ft unit over {FINANCING.defaultTerm} months at a representative{" "}
+              {FINANCING.representativeApr}% APR, before tax, subject to lender approval. See the estimator below for
+              total cost of borrowing.
+            </p>
+          )}
         </div>
       </section>
 
@@ -477,37 +487,61 @@ const TrailerRV = () => (
       </section>
 
       {/* Financing */}
-      <section id="financing" className="scroll-mt-24 bg-brand-dark py-16 sm:py-24">
-        <div className="shell grid items-start gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
-          <div className="lg:sticky lg:top-28">
-            <h2 className="font-heading text-3xl font-semibold tracking-tight text-primary-foreground sm:text-4xl">
-              Restore it now, pay monthly
+      {FINANCING_LIVE ? (
+        <section id="financing" className="scroll-mt-24 bg-brand-dark py-16 sm:py-24">
+          <div className="shell grid items-start gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+            <div className="lg:sticky lg:top-28">
+              <h2 className="font-heading text-3xl font-semibold tracking-tight text-primary-foreground sm:text-4xl">
+                Restore it now, pay monthly
+              </h2>
+              <p className="mt-5 max-w-md text-[15px] leading-relaxed text-primary-foreground/70">
+                Gelcoat restoration is a once-in-several-seasons job, and oxidation only gets harder to cut the longer it
+                sits. Financing lets you do it properly this year instead of patching it every spring.
+              </p>
+              <ul className="mt-8 space-y-4 text-[15px] text-primary-foreground/85">
+                {[
+                  `Jobs from ${money(FINANCING.minAmount)}, over ${FINANCING.terms[0]} to ${
+                    FINANCING.terms[FINANCING.terms.length - 1]
+                  } months`,
+                  "Applied for with your written quote, before any work starts",
+                  "Same crew, same per-foot price as paying up front",
+                ].map((t) => (
+                  <li key={t} className="flex gap-3">
+                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-electric" aria-hidden="true" />
+                    {t}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-10">
+                <FinancingCTA tone="dark" />
+              </div>
+            </div>
+            <FinancingEstimator />
+          </div>
+        </section>
+      ) : (
+        <section id="financing" className="scroll-mt-24 bg-brand-dark py-16 sm:py-20">
+          <div className="shell max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-electric">Coming soon</p>
+            <h2 className="mt-3 font-heading text-3xl font-semibold tracking-tight text-primary-foreground sm:text-4xl">
+              Monthly financing on RV restoration
             </h2>
-            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-primary-foreground/70">
+            <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-primary-foreground/70">
               Gelcoat restoration is a once-in-several-seasons job, and oxidation only gets harder to cut the longer it
-              sits. Financing lets you do it properly this year instead of patching it every spring.
+              sits. We're setting up monthly payments so you can do it properly instead of patching it every spring.
+              Mention financing in your assessment request and we'll let you know as soon as it's available.
             </p>
-            <ul className="mt-8 space-y-4 text-[15px] text-primary-foreground/85">
-              {[
-                `Jobs from ${money(FINANCING.minAmount)}, over ${FINANCING.terms[0]} to ${
-                  FINANCING.terms[FINANCING.terms.length - 1]
-                } months`,
-                "Applied for with your written quote, before any work starts",
-                "Same crew, same per-foot price as paying up front",
-              ].map((t) => (
-                <li key={t} className="flex gap-3">
-                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-electric" aria-hidden="true" />
-                  {t}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-10">
-              <FinancingCTA tone="dark" />
+            <div className="mt-8">
+              <a
+                href="#assessment"
+                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-md bg-primary-foreground px-6 text-sm font-semibold text-ink transition-colors hover:bg-primary-foreground/90"
+              >
+                Book a free RV assessment
+              </a>
             </div>
           </div>
-          <FinancingEstimator />
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Work */}
       <section className="border-t border-line bg-surface py-16 sm:py-24">
