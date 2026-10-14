@@ -26,11 +26,14 @@ import BestValueByGoal from "@/components/site/BestValueByGoal";
 const pkg = (id: string) => AUTO_PACKAGES.find((p) => p.id === id)!;
 const upcharges = (id: string) => {
   const p = pkg(id).price;
-  return `SUV +${money(p.suv - p.sedan)}, 3-row +${money(p.minivan - p.sedan)}.`;
+  const truck = p.truck !== undefined ? `, pickup +${money(p.truck - p.sedan)}` : "";
+  return `SUV +${money(p.suv - p.sedan)}, 3-row +${money(p.minivan - p.sedan)}${truck}.`;
 };
 const range = (xs: number[]) => `${money(Math.min(...xs))} – ${money(Math.max(...xs))}`;
 const suvRange = range(AUTO_PACKAGES.map((p) => p.price.suv - p.price.sedan));
 const rowRange = range(AUTO_PACKAGES.map((p) => p.price.minivan - p.price.sedan));
+const truckRange = range(AUTO_PACKAGES.flatMap((p) => (p.price.truck !== undefined ? [p.price.truck - p.price.sedan] : [])));
+const ceramicTruckRange = range(CERAMIC_PACKAGES.map((p) => p.prices.truck - p.prices.sedan));
 
 /** "ours" is always computed from pricing.ts. "shop" is the Calgary market range and is editorial. */
 const priceRows = [
@@ -114,7 +117,7 @@ const shopWins = [
 const faqs = [
   {
     q: "How much does car detailing cost in Calgary?",
-    a: `Most Calgary detailers price a full interior-and-exterior detail between $220 and $400 for a sedan. Our published mobile pricing is ${money(pkg("refresh").price.sedan)} for ${pkg("refresh").name} and ${money(pkg("showroom").price.sedan)} for ${pkg("showroom").name}, with size surcharges of ${suvRange} for SUVs and trucks and ${rowRange} for 3-row vehicles.`,
+    a: `Most Calgary detailers price a full interior-and-exterior detail between $220 and $400 for a sedan. Our published mobile pricing is ${money(pkg("refresh").price.sedan)} for ${pkg("refresh").name} and ${money(pkg("showroom").price.sedan)} for ${pkg("showroom").name}, with size surcharges of ${suvRange} for SUVs, ${rowRange} for 3-row vehicles and ${truckRange} for pickups.`,
   },
   {
     q: "Is mobile detailing more expensive than a detailing shop?",
@@ -214,8 +217,9 @@ const PriceComparison = () => (
           </table>
         </div>
         <p className="mt-4 text-xs text-muted-ink">
-          Sedan pricing shown. Car package surcharges: SUVs and trucks {suvRange}, 3-row SUVs and minivans {rowRange}.
-          Ceramic coating: SUVs +{money(CERAMIC_UPCHARGE.suv)}, 3-row +{money(CERAMIC_UPCHARGE.minivan)}.
+          Sedan pricing shown. Car package surcharges: SUVs {suvRange}, 3-row SUVs and minivans {rowRange}, pickups{" "}
+          {truckRange}. Ceramic coating: SUVs +{money(CERAMIC_UPCHARGE.suv)}, 3-row +{money(CERAMIC_UPCHARGE.minivan)},
+          pickups {ceramicTruckRange}.
         </p>
       </Section>
 

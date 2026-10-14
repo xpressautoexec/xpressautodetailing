@@ -13,7 +13,7 @@ import { Check, Phone } from "lucide-react";
 import { PHOTOS, CLIPS } from "@/data/photos";
 import WorkShowcase from "@/components/site/WorkShowcase";
 import xpressPassCard from "@/assets/xpress-pass-card.png";
-import { XPRESS_PASS, PASS_ADDON_DISCOUNT, AUTO_PACKAGES, VEHICLE_SIZES, type VehicleSizeId, money } from "@/data/pricing";
+import { XPRESS_PASS, PASS_ADDON_DISCOUNT, AUTO_PACKAGES, PASS_SIZES, type PassSizeId, money } from "@/data/pricing";
 import { NAP, SERVICE_AREA_SENTENCE } from "@/data/copy";
 import QualityProducts from "@/components/site/QualityProducts";
 
@@ -66,7 +66,7 @@ const PROCESS = [
 ];
 
 const MonthlyPlan = () => {
-  const [size, setSize] = useState<VehicleSizeId>("sedan");
+  const [size, setSize] = useState<PassSizeId>("sedan");
 
   return (
     <PageTransition>
@@ -119,7 +119,7 @@ const MonthlyPlan = () => {
               </p>
             </div>
             <div role="tablist" aria-label="Vehicle size" className="flex w-full shrink-0 gap-1 rounded-md border border-line bg-surface p-1 sm:w-fit">
-              {VEHICLE_SIZES.map((s) => (
+              {PASS_SIZES.map((s) => (
                 <button
                   key={s.id}
                   role="tab"

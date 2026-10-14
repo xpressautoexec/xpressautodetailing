@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
-import { AUTO_PACKAGES, VEHICLE_SIZES, money, bookingUrl } from "@/data/pricing";
+import { Link } from "react-router-dom";
+import { AUTO_PACKAGES, VEHICLE_SIZES, money, fielddUrl } from "@/data/pricing";
 import { useSizeParam } from "@/hooks/useSizeParam";
 
 interface Props {
@@ -14,7 +15,9 @@ interface Props {
 /** The auto packages, priced by vehicle size. Prices come from pricing.ts only. */
 const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
   const [size, setSize] = useSizeParam();
-  const packages = only ? only.map((id) => AUTO_PACKAGES.find((p) => p.id === id)!).filter(Boolean) : AUTO_PACKAGES;
+  const all = only ? only.map((id) => AUTO_PACKAGES.find((p) => p.id === id)!).filter(Boolean) : AUTO_PACKAGES;
+  // Packages without a price for this size (Upkeep for pickups) are hidden for that size.
+  const packages = all.filter((p) => p.price[size] !== undefined);
 
   const text = dark ? "text-primary-foreground" : "text-ink";
   const sub = dark ? "text-primary-foreground/65" : "text-ink-2";
@@ -72,7 +75,7 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
             </p>
             <h3 className={`mt-1 font-heading text-lg font-semibold ${text}`}>{p.name}</h3>
             <p className={`mt-4 font-heading text-4xl font-semibold tracking-tight tabular-nums ${text}`}>
-              {money(p.price[size])}
+              {money(p.price[size] ?? 0)}
             </p>
             <p className={`mt-1 text-xs ${muted}`}>{p.duration}</p>
             <p className={`mt-4 text-sm leading-relaxed ${sub}`}>{p.tagline}</p>
@@ -87,7 +90,7 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
             </ul>
 
             <a
-              href={p.memberOnly ? "/xpress-pass" : bookingUrl(size, p.id)}
+              href={p.memberOnly ? "/xpress-pass" : fielddUrl(p.book[size])}
               {...(!p.memberOnly && { target: "_blank", rel: "noopener noreferrer" })}
               className={`mt-6 inline-flex min-h-[44px] items-center justify-center rounded-md px-5 text-sm font-semibold transition-colors ${
                 p.popular
@@ -102,6 +105,12 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
           </article>
         ))}
       </div>
+      <p className={`mt-6 text-sm ${sub}`}>
+        Not sure which package fits?{" "}
+        <Link to="/contact" className="font-semibold text-electric hover:underline hover:underline-offset-4">
+          Ask us a question
+        </Link>
+      </p>
     </div>
   );
 };

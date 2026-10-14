@@ -15,7 +15,7 @@ import ceramicHero from "@/assets/jobs/hero-paint-ceramics.webp";
 import { PHOTOS, CLIPS } from "@/data/photos";
 import WorkShowcase from "@/components/site/WorkShowcase";
 import { Check } from "lucide-react";
-import { CERAMIC_PACKAGES, CERAMIC_UPCHARGE, money } from "@/data/pricing";
+import { CERAMIC_PACKAGES, CERAMIC_UPCHARGE, VEHICLE_SIZES, fielddUrl, money } from "@/data/pricing";
 import { CERAMIC_CERTIFICATIONS, NAP } from "@/data/copy";
 import QualityProducts from "@/components/site/QualityProducts";
 import { useSizeParam } from "@/hooks/useSizeParam";
@@ -39,6 +39,12 @@ const stages = [
   },
 ];
 
+const truckAdds = CERAMIC_PACKAGES.map((p) => p.prices.truck - p.prices.sedan);
+const truckUpcharge =
+  Math.min(...truckAdds) === Math.max(...truckAdds)
+    ? money(truckAdds[0])
+    : `${money(Math.min(...truckAdds))} to ${money(Math.max(...truckAdds))}`;
+
 const faqs = [
   {
     q: "What does a ceramic coating actually do?",
@@ -58,7 +64,7 @@ const faqs = [
   },
   {
     q: "Does it cost more for a truck or SUV?",
-    a: `Yes. Add ${money(CERAMIC_UPCHARGE.suv)} for an SUV or pickup and ${money(CERAMIC_UPCHARGE.minivan)} for a 3-row or van. Exotics and heavily modified paint are ${CERAMIC_UPCHARGE.exoticPct}% more.`,
+    a: `Yes. Add ${money(CERAMIC_UPCHARGE.suv)} for an SUV, ${money(CERAMIC_UPCHARGE.minivan)} for a 3-row or van and ${truckUpcharge} for a pickup. Exotics and heavily modified paint are ${CERAMIC_UPCHARGE.exoticPct}% more.`,
   },
   {
     q: "Why do you inspect the paint before booking?",
@@ -66,15 +72,8 @@ const faqs = [
   },
 ];
 
-const SIZE_OPTIONS = [
-  { id: "sedan" as const, label: "Sedan / Coupe", add: 0 },
-  { id: "suv" as const, label: "SUV / Pickup", add: CERAMIC_UPCHARGE.suv },
-  { id: "minivan" as const, label: "3-Row / Van", add: CERAMIC_UPCHARGE.minivan },
-];
-
 const PaintCeramics = () => {
   const [size, setSize] = useSizeParam();
-  const upcharge = SIZE_OPTIONS.find((s) => s.id === size)?.add ?? 0;
 
   return (
     <PageTransition>
@@ -116,7 +115,7 @@ const PaintCeramics = () => {
               </p>
             </div>
             <div role="group" aria-label="Vehicle size" className="flex w-full shrink-0 gap-1 rounded-md bg-primary-foreground/10 p-1 sm:w-fit">
-              {SIZE_OPTIONS.map((s) => (
+              {VEHICLE_SIZES.map((s) => (
                 <button
                   key={s.id}
                   type="button"
@@ -145,7 +144,7 @@ const PaintCeramics = () => {
                 <h3 className="mt-1 font-heading text-xl font-semibold text-primary-foreground">{p.name}</h3>
                 <p className="mt-1 text-sm text-primary-foreground/60">{p.coating}</p>
                 <p className="mt-4 font-heading text-4xl font-semibold tracking-tight tabular-nums text-primary-foreground">
-                  {money(p.price + upcharge)}
+                  {money(p.prices[size])}
                 </p>
                 <p className="mt-1 text-xs text-primary-foreground/50">{p.correction}</p>
                 <ul className="mt-6 flex-1 space-y-2.5">
@@ -159,11 +158,19 @@ const PaintCeramics = () => {
                 <a href="#assessment" className={`${p.popular ? btnPrimary : btnSecondaryDark} mt-7`}>
                   Book a free paint inspection
                 </a>
+                <a
+                  href={fielddUrl(p.book[size])}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 text-center text-sm font-semibold text-primary-foreground/75 hover:text-primary-foreground hover:underline hover:underline-offset-4"
+                >
+                  Know what you want? Book {p.name} online
+                </a>
               </article>
             ))}
           </div>
           <p className="mt-6 text-xs text-primary-foreground/50">
-            We confirm the package and price after a free paint inspection. Call or text {NAP.phone} to book one directly.
+            Not sure which package fits? The free paint inspection tells you. Questions first? Call or text {NAP.phone}.
           </p>
         </Section>
 

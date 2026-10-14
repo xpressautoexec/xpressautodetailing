@@ -5,12 +5,30 @@
 
 export const VEHICLE_SIZES = [
   { id: "sedan", label: "Sedan / Coupe" },
-  { id: "suv", label: "SUV / Pickup" },
-  { id: "minivan", label: "3-Row SUV / Minivan" },
+  { id: "suv", label: "SUV" },
+  { id: "minivan", label: "3-Row / Minivan" },
+  { id: "truck", label: "Pickup" },
 ] as const;
 
 export type VehicleSizeId = (typeof VEHICLE_SIZES)[number]["id"];
 export type SizePrice = Record<VehicleSizeId, number>;
+
+/** Xpress Pass sizes. The Pass has no separate pickup tier: pickups join at the SUV rate, as before. */
+export type PassSizeId = Exclude<VehicleSizeId, "truck">;
+export const PASS_SIZES: { id: PassSizeId; label: string }[] = [
+  { id: "sedan", label: "Sedan / Coupe" },
+  { id: "suv", label: "SUV / Pickup" },
+  { id: "minivan", label: "3-Row / Minivan" },
+];
+
+// ---------- ONLINE BOOKING (Fieldd) ----------
+export const BOOKING_URL = "https://xpressauto.fieldd.co/";
+/**
+ * Fieldd booking shortlink keys (Fieldd > Settings > Services > Booking Shortlink).
+ * Each opens booking straight on that service, so customers skip the service picker.
+ */
+export type FielddKey = string;
+export const fielddUrl = (key: FielddKey) => `${BOOKING_URL}service/${key}`;
 
 // ---------- AUTO PACKAGES ----------
 export interface AutoPackage {
@@ -22,7 +40,10 @@ export interface AutoPackage {
   popular?: boolean;
   premium?: boolean;
   includes: string[];
-  price: SizePrice;
+  /** Upkeep has no pickup price: it is Xpress Pass only and the Pass has no pickup tier. */
+  price: Record<PassSizeId, number> & Partial<Record<"truck", number>>;
+  /** Fieldd shortlink key per vehicle size. */
+  book: Record<VehicleSizeId, FielddKey>;
 }
 
 export const AUTO_PACKAGES: AutoPackage[] = [
@@ -40,6 +61,7 @@ export const AUTO_PACKAGES: AutoPackage[] = [
       "Dash & console wipe-down",
     ],
     price: { sedan: 149, suv: 169, minivan: 179 },
+    book: { sedan: "M8", suv: "5M", minivan: "5D", truck: "Er" },
   },
   {
     id: "refresh",
@@ -54,7 +76,8 @@ export const AUTO_PACKAGES: AutoPackage[] = [
       "Exterior hand wash & dry",
       "Tire dressing",
     ],
-    price: { sedan: 229, suv: 279, minivan: 309 },
+    price: { sedan: 239, suv: 289, minivan: 319, truck: 329 },
+    book: { sedan: "xo", suv: "pU", minivan: "8G", truck: "mx" },
   },
   {
     id: "showroom",
@@ -70,7 +93,8 @@ export const AUTO_PACKAGES: AutoPackage[] = [
       "Ceramic spray sealant on all paint",
       "Streak-free glass",
     ],
-    price: { sedan: 379, suv: 429, minivan: 459 },
+    price: { sedan: 379, suv: 429, minivan: 459, truck: 479 },
+    book: { sedan: "eC", suv: "bN", minivan: "0g", truck: "Yb" },
   },
   {
     id: "restore",
@@ -84,7 +108,8 @@ export const AUTO_PACKAGES: AutoPackage[] = [
       "1-year ceramic coating",
       "Coating registered",
     ],
-    price: { sedan: 899, suv: 999, minivan: 1079 },
+    price: { sedan: 929, suv: 1029, minivan: 1109, truck: 1149 },
+    book: { sedan: "N-", suv: "D1", minivan: "GC", truck: "Cs" },
   },
 ];
 
@@ -129,13 +154,26 @@ export const WORK_TRUCK_PACKAGE = {
 
 
 // ---------- CERAMIC COATING (standalone) ----------
-export const CERAMIC_PACKAGES = [
+/** `price` is the sedan price ("from"); `prices` has every size; `book` the Fieldd key per size. */
+export const CERAMIC_PACKAGES: {
+  id: string;
+  name: string;
+  correction: string;
+  coating: string;
+  price: number;
+  prices: SizePrice;
+  book: Record<VehicleSizeId, FielddKey>;
+  popular?: boolean;
+  includes: string[];
+}[] = [
   {
     id: "essential",
     name: "Essential",
     correction: "1-step machine enhancement",
     coating: "1-year ceramic",
-    price: 549,
+    price: 599,
+    prices: { sedan: 599, suv: 749, minivan: 799, truck: 819 },
+    book: { sedan: "KL", suv: "zU", minivan: "Qf", truck: "3A" },
     includes: [
       "Full decontamination wash",
       "Iron & tar removal",
@@ -150,7 +188,9 @@ export const CERAMIC_PACKAGES = [
     name: "Signature",
     correction: "2-step machine correction",
     coating: "5-year ceramic",
-    price: 1099,
+    price: 1149,
+    prices: { sedan: 1149, suv: 1299, minivan: 1349, truck: 1399 },
+    book: { sedan: "Mk", suv: "CG", minivan: "WJ", truck: "gV" },
     popular: true,
     includes: [
       "Full decontamination wash",
@@ -167,6 +207,8 @@ export const CERAMIC_PACKAGES = [
     correction: "2-step machine correction",
     coating: "9-year System X graphene",
     price: 1499,
+    prices: { sedan: 1499, suv: 1649, minivan: 1699, truck: 1749 },
+    book: { sedan: "YN", suv: "oy", minivan: "s6", truck: "rQ" },
     includes: [
       "Full decontamination wash",
       "Iron & tar removal",
@@ -182,26 +224,33 @@ export const CERAMIC_PACKAGES = [
 export const CERAMIC_UPCHARGE = { suv: 150, minivan: 200, exoticPct: 25 };
 
 // ---------- RV — À LA CARTE ----------
+/**
+ * `book` is the Fieldd shortlink key. `assessment: true` marks restoration work where the
+ * site leads with the free assessment form; the Fieldd link books the free on-site assessment.
+ */
 export const RV_SERVICES = [
-  { id: "wash", name: "Exterior Wash", unit: "/ft", price: 11 },
-  { id: "sealant", name: "Ceramic Sealant", unit: "/ft", price: 19 },
-  { id: "uv", name: "UV Protectant", unit: "/ft", price: 11.5 },
-  { id: "polish", name: "Polish / Gloss Restoration", unit: "/ft", price: 38 },
+  { id: "wash", name: "Exterior Wash", unit: "/ft", price: 11, book: "ht" },
+  { id: "sealant", name: "Ceramic Sealant", unit: "/ft", price: 19, book: "fj" },
+  { id: "uv", name: "UV Protectant", unit: "/ft", price: 11.5, book: "Zl" },
+  { id: "polish", name: "Polish / Gloss Restoration", unit: "/ft", price: 38, book: "H0", assessment: true },
   {
     id: "oxidation",
     name: "Oxidation Removal / Gelcoat Restoration",
     unit: "/ft",
     price: 63,
     popular: true,
+    book: "Tn",
+    assessment: true,
   },
-  { id: "interior", name: "RV Interior Detail", unit: "/hr", price: 90 },
-  { id: "decal", name: "Decal Removal / Replacement", unit: "", price: 0, quote: true },
+  { id: "interior", name: "RV Interior Detail", unit: "/hr", price: 90, book: "T_" },
+  { id: "decal", name: "Decal Removal / Replacement", unit: "", price: 0, quote: true, book: "ux", assessment: true },
 ];
 
 // ---------- RV — BUNDLES ----------
 export const RV_BUNDLES = [
   {
     id: "washseal",
+    book: "mR",
     name: "Wash & Seal",
     includes: ["Exterior Wash", "Ceramic Sealant"],
     listPrice: 30.0,
@@ -211,6 +260,7 @@ export const RV_BUNDLES = [
   },
   {
     id: "storageprep",
+    book: "d_",
     name: "Storage Prep Package",
     seasonal: "Book Oct–Nov",
     includes: ["Exterior Wash", "Ceramic Sealant", "UV Protectant"],
@@ -221,6 +271,8 @@ export const RV_BUNDLES = [
   },
   {
     id: "oxiseal",
+    book: "pP",
+    assessment: true,
     name: "Oxidation Removal + Ceramic Sealant",
     includes: ["Oxidation Removal", "Ceramic Sealant"],
     listPrice: 82.0,
@@ -230,6 +282,8 @@ export const RV_BUNDLES = [
   },
   {
     id: "fullrestore",
+    book: "m6",
+    assessment: true,
     name: "Full Restoration Package",
     popular: true,
     includes: ["Oxidation Removal", "Ceramic Sealant", "UV Protectant"],
@@ -322,7 +376,7 @@ export const XPRESS_PASS = [
     frequency: "Every 2 months",
     discount: 15,
     service: "Inside & Out",
-    memberPrice: { sedan: 194.65, suv: 237.15, minivan: 262.65 },
+    memberPrice: { sedan: 203.15, suv: 245.65, minivan: 271.15 },
   },
   {
     id: "restore",
@@ -418,7 +472,6 @@ export const GIFT_CARD_TIERS = [50, 100, 250, 379, 500];
 export const SERVICE_AREAS = ["Calgary", "Airdrie", "Cochrane", "Chestermere", "Okotoks", "Rocky View County"];
 export const PHONE = "587-500-4523";
 export const EMAIL = "support@xpressautodetail.ca";
-export const BOOKING_URL = "https://xpressauto.fieldd.co/";
 export const REVIEW_COUNT = 116; // Google Maps, Sept 30 2026
 /** Kept for internal reference only. The site advertises five-star count, not the average. */
 export const REVIEW_SCORE = 4.8;
@@ -462,15 +515,3 @@ export const HOURS = "Monday–Sunday, 9:00 AM – 5:00 PM";
 /** Money formatter — whole dollars unless cents are meaningful. */
 export const money = (n: number) =>
   `$${n % 1 === 0 ? n.toLocaleString("en-CA") : n.toFixed(2)}`;
-
-/**
- * Booking URL that CARRIES the customer's selection into the scheduler.
- * Never link to the bare BOOKING_URL from a page where a selection exists.
- */
-export const bookingUrl = (vehicleId?: string, serviceId?: string) => {
-  const params = new URLSearchParams();
-  if (vehicleId) params.set("vehicle", vehicleId);
-  if (serviceId) params.set("service", serviceId);
-  const qs = params.toString();
-  return qs ? `${BOOKING_URL}?${qs}` : BOOKING_URL;
-};

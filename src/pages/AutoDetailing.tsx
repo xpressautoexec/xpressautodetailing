@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "Do you charge more for SUVs and trucks?",
-    a: "Yes. Pricing is tiered by sedan or coupe, SUV or pickup, and 3-row SUV or minivan, because surface area and interior volume differ a lot.",
+    a: "Yes. Pricing is tiered by sedan or coupe, SUV, 3-row SUV or minivan, and pickup, because surface area and interior volume differ a lot.",
   },
   { q: "Which areas do you serve?", a: `${SERVICE_AREA_SENTENCE}. Just outside those areas? Call and ask.` },
 ];

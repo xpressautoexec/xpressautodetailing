@@ -4,7 +4,7 @@ import { Building2, CarFront, Caravan, CheckCircle2, HelpCircle, Sailboat, Spark
 import { Button } from "@/components/ui/button";
 import type { VehicleSizeId } from "@/data/pricing";
 
-type FinderVehicleId = VehicleSizeId | "truck" | "rv" | "marine" | "fleet" | "other";
+type FinderVehicleId = VehicleSizeId | "rv" | "marine" | "fleet" | "other";
 
 interface Concern {
   value: string;
@@ -16,9 +16,9 @@ interface Concern {
 
 const VEHICLE_OPTIONS: { id: FinderVehicleId; label: string; icon: LucideIcon }[] = [
   { id: "sedan", label: "Sedan / Coupe", icon: CarFront },
-  { id: "suv", label: "SUV / Pickup", icon: CarFront },
+  { id: "suv", label: "SUV", icon: CarFront },
   { id: "minivan", label: "3-Row SUV / Minivan", icon: CarFront },
-  { id: "truck", label: "Work Truck", icon: Truck },
+  { id: "truck", label: "Pickup / Work Truck", icon: Truck },
   { id: "fleet", label: "Fleet / Multiple Vehicles", icon: Building2 },
   { id: "rv", label: "RV / Trailer", icon: Caravan },
   { id: "marine", label: "Boat / Pontoon", icon: Sailboat },
@@ -43,8 +43,9 @@ const CONCERNS: Record<FinderVehicleId, Concern[]> = {
   minivan: carConcerns("minivan"),
   truck: [
     { value: "interior", label: "Clean out the cab", to: "/detailing#work-truck", result: "Work Truck Package" },
-    { value: "complete", label: "Detail the whole truck", to: "/detailing#work-truck", result: "Work Truck Package" },
-    { value: "paint", label: "Correct or ceramic coat the paint", to: "/ceramic-paint-correction?size=suv#packages", result: "Paint Correction and Ceramic packages" },
+    { value: "complete", label: "Detail the whole truck", to: "/detailing?tab=complete&size=truck", result: "Complete Detailing packages" },
+    { value: "work", label: "Work truck: mud, sawdust, a hard-used cab", to: "/detailing#work-truck", result: "Work Truck Package" },
+    { value: "paint", label: "Correct or ceramic coat the paint", to: "/ceramic-paint-correction?size=truck#packages", result: "Paint Correction and Ceramic packages" },
     FLEET,
   ],
   fleet: [

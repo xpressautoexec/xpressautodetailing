@@ -31,6 +31,7 @@ import {
   SEASON_STATS,
   money,
   monthlyPayment,
+  fielddUrl,
 } from "@/data/pricing";
 import { WATER_LINE } from "@/data/copy";
 
@@ -174,6 +175,38 @@ const FinancingCTA = ({ tone = "dark" }: { tone?: "dark" | "light" }) => {
     </a>
   );
 };
+
+/**
+ * Booking action for a bundle or single service. Restoration work leads with the free assessment
+ * form; everything else books straight into Fieldd.
+ */
+const BookAction = ({ book, assessment, name }: { book: string; assessment?: boolean; name: string }) =>
+  assessment ? (
+    <span className="flex shrink-0 flex-col items-end gap-1 whitespace-nowrap">
+      <a href="#assessment" className="text-sm font-semibold text-electric hover:underline hover:underline-offset-4">
+        Free assessment
+      </a>
+      <a
+        href={fielddUrl(book)}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Book a free on-site assessment for ${name} online`}
+        className="text-xs text-muted-ink hover:text-ink hover:underline hover:underline-offset-4"
+      >
+        or pick a time online
+      </a>
+    </span>
+  ) : (
+    <a
+      href={fielddUrl(book)}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Book ${name}`}
+      className="inline-flex min-h-[40px] items-center justify-center whitespace-nowrap rounded-md bg-electric px-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-electric-2"
+    >
+      Book now
+    </a>
+  );
 
 const TrailerRV = () => (
   <PageTransition>
@@ -333,6 +366,9 @@ const TrailerRV = () => (
                       Or from
                     </th>
                   )}
+                  <th scope="col" className="px-6 py-4 text-right font-medium">
+                    <span className="sr-only">Book</span>
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -374,6 +410,9 @@ const TrailerRV = () => (
                           {financeable ? `${perMonth(b.price)}/mo` : "—"}
                         </td>
                       )}
+                      <td className="px-6 py-5 text-right">
+                        <BookAction book={b.book} assessment={b.assessment} name={b.name} />
+                      </td>
                     </tr>
                   );
                 })}
@@ -408,6 +447,9 @@ const TrailerRV = () => (
                       Or from <span className="font-semibold tabular-nums text-ink">{perMonth(b.price)}/mo</span>
                     </p>
                   )}
+                  <div className="mt-4 flex justify-end">
+                    <BookAction book={b.book} assessment={b.assessment} name={b.name} />
+                  </div>
                 </li>
               );
             })}
@@ -446,6 +488,30 @@ const TrailerRV = () => (
             defaultSelected={["washseal"]}
             note={`Estimate only. Interior detailing is billed at ${money(RV_INTERIOR_RATE)}/hr and decal removal or replacement is quoted on site. Final price confirmed after we see the unit.`}
           />
+        </div>
+        <div className="shell mt-14">
+          <h3 className="font-heading text-xl font-semibold text-ink">Book a single service</h3>
+          <p className="mt-2 max-w-xl text-sm text-ink-2">
+            Washes, sealant and interiors book straight into the schedule. Restoration work starts with a free
+            assessment so the quote matches the unit. Questions first?{" "}
+            <a href={telHref} className="font-semibold text-electric hover:underline hover:underline-offset-4">
+              Call or text {PHONE}
+            </a>
+            .
+          </p>
+          <ul className="mt-6 divide-y divide-line overflow-hidden rounded-[10px] border border-line bg-canvas">
+            {RV_SERVICES.map((svc) => (
+              <li key={svc.id} className="flex items-center justify-between gap-4 px-5 py-4">
+                <div>
+                  <p className="font-semibold text-ink">{svc.name}</p>
+                  <p className="text-sm tabular-nums text-muted-ink">
+                    {svc.quote ? "Quoted on site" : `${money(svc.price)}${svc.unit}`}
+                  </p>
+                </div>
+                <BookAction book={svc.book} assessment={svc.assessment} name={svc.name} />
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
