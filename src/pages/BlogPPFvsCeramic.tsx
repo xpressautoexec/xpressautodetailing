@@ -32,7 +32,7 @@ const faqs = [
 
 const BlogPPFvsCeramic = () => (
   <PageTransition>
-    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+    <div className="min-h-screen bg-canvas">
       <SEO
         title="PPF vs Ceramic Coating for Calgary Winters"
         description="Road salt, mag chloride and Deerfoot gravel attack paint differently. Here's how PPF and ceramic coating compare — and why Calgary drivers often need both."
@@ -279,7 +279,6 @@ const BlogPPFvsCeramic = () => (
       />
 
       <Footer />
-      <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
     </div>
   </PageTransition>

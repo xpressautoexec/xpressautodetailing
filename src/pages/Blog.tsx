@@ -11,7 +11,7 @@ import { BLOG_CARDS, formatDate, imageFor } from "@/data/blog";
 
 const Blog = () => (
   <PageTransition>
-    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+    <div className="min-h-screen bg-canvas">
       <SEO
         title="Detailing Guides | Xpress Auto & RV Detailing"
         description="Plain-language guides on detailing prices, paint protection and seasonal vehicle care in Calgary."
@@ -57,7 +57,6 @@ const Blog = () => (
       </Section>
       <ClosingCTA />
       <Footer />
-      <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
     </div>
   </PageTransition>

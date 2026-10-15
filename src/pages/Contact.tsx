@@ -67,7 +67,7 @@ const Contact = () => {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+      <div className="min-h-screen bg-canvas">
         <SEO
           title="Contact | Xpress Auto & RV Detailing Calgary"
           description={`Call or text ${NAP.phone}, email ${NAP.email}, or send a message. Mobile detailing across ${SERVICE_AREA_SENTENCE}.`}
@@ -165,7 +165,6 @@ const Contact = () => {
         <ServiceFAQ title="Common questions" faqs={contactFAQs} />
 
         <Footer />
-        <div className="h-20 lg:hidden" />
         <StickyMobileCTA />
       </div>
     </PageTransition>

@@ -71,7 +71,7 @@ const Detailing = () => {
 
   return (
   <PageTransition>
-    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+    <div className="min-h-screen bg-canvas">
       <SEO
         title="Car Detailing Calgary | Mobile Packages"
         description="Mobile car detailing in Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County. Packages from a 45-minute Upkeep to a full-day Correct & Coat. We bring our own water and power."
@@ -129,7 +129,6 @@ const Detailing = () => {
       <ClosingCTA body="Pick a package and a time. We come to your home, office or storage lot." />
 
       <Footer />
-      <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
     </div>
   </PageTransition>

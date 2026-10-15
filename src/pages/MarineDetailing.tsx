@@ -47,7 +47,7 @@ const faqs = [
 
 const MarineDetailing = () => (
   <PageTransition>
-    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+    <div className="min-h-screen bg-canvas">
       <SEO
         title="Boat & Pontoon Detailing Calgary"
         description="Mobile marine detailing in Calgary: wash and wax, gelcoat polish, marine ceramic coating and aluminum pontoon acid restoration. Priced per foot."
@@ -132,7 +132,6 @@ const MarineDetailing = () => (
       <ClosingCTA title="Get it ready for the water" mode="quote" quoteHref="#assessment" quoteLabel="Book a free assessment" />
 
       <Footer />
-      <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
     </div>
   </PageTransition>

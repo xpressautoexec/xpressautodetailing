@@ -56,7 +56,7 @@ const faqs = [
 
 const GiftCards = () => (
   <PageTransition>
-    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+    <div className="min-h-screen bg-canvas">
       <SEO
         title="Detailing Gift Cards Calgary"
         description={`Mobile car detailing gift cards in Calgary from ${money(minCard)}. Delivered by email instantly and redeemable for any Xpress service.`}
@@ -114,7 +114,6 @@ const GiftCards = () => (
       <ServiceFAQ title="Gift card questions" faqs={faqs} />
 
       <Footer />
-      <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
     </div>
   </PageTransition>

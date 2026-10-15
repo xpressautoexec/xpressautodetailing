@@ -3,7 +3,7 @@ import { Phone, Mail, Clock } from "lucide-react";
 import { FOOTER_SERVICES, FOOTER_COMPANY, NAP, SERVICE_AREA_SENTENCE } from "@/data/copy";
 
 const Footer = () => (
-  <footer className="bg-brand-dark border-t border-primary-foreground/10 pt-14 pb-24 lg:pb-10">
+  <footer className="bg-brand-dark border-t border-primary-foreground/10 pt-14 pb-10">
     <div className="shell">
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div>

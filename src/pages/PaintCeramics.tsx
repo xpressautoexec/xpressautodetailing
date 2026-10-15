@@ -77,7 +77,7 @@ const PaintCeramics = () => {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+      <div className="min-h-screen bg-canvas">
         <SEO
           title="Ceramic Coating Calgary | Paint Correction"
           description={`Ceramic coating and machine paint correction in Calgary, from ${money(
@@ -219,7 +219,6 @@ const PaintCeramics = () => {
         />
 
         <Footer />
-        <div className="h-20 lg:hidden" />
         <StickyMobileCTA />
       </div>
     </PageTransition>

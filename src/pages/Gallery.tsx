@@ -62,7 +62,7 @@ const totalPhotos = sections.reduce((n, s) => n + PHOTOS[s.category].length, 0);
 
 const Gallery = () => (
   <PageTransition>
-    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+    <div className="min-h-screen bg-canvas">
       <SEO
         title="Detailing Before & After Gallery"
         description="Photos from real Calgary mobile detailing jobs: RV oxidation removal, paint correction, ceramic coating, interiors, dealership and fleet work."
@@ -83,7 +83,7 @@ const Gallery = () => (
         image={galleryHero}
       />
 
-      <nav aria-label="Gallery categories" className="sticky top-[60px] z-30 border-b border-line bg-surface/95 backdrop-blur lg:top-[68px]">
+      <nav aria-label="Gallery categories" className="sticky top-0 z-30 border-b border-line bg-surface/95 backdrop-blur">
         <ul className="shell no-scrollbar flex gap-6 overflow-x-auto py-3 text-sm">
           {sections.map((sec) => (
             <li key={sec.title} className="shrink-0">
@@ -127,7 +127,6 @@ const Gallery = () => (
       <ClosingCTA title="Want results like these?" />
 
       <Footer />
-      <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
     </div>
   </PageTransition>

@@ -43,7 +43,7 @@ const BlogPost = () => {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+      <div className="min-h-screen bg-canvas">
         <SEO title={post.title} description={post.description} canonical={`/blog/${post.slug}`} ogType="article" jsonLd={jsonLd} />
         <Navbar />
         <AutoBreadcrumbs currentLabel={post.title} />
@@ -119,7 +119,6 @@ const BlogPost = () => {
 
         <ClosingCTA />
         <Footer />
-        <div className="h-20 lg:hidden" />
         <StickyMobileCTA />
       </div>
     </PageTransition>

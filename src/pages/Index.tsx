@@ -50,7 +50,7 @@ const telHref = `tel:${PHONE.replace(/-/g, "")}`;
 
 const Index = () => (
   <PageTransition>
-    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+    <div className="min-h-screen bg-canvas">
       <SEO
         title="Mobile Car & RV Detailing Calgary"
         description="Mobile detailing in Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County. Cars, RVs, boats and fleets — our vans carry their own water and power, so we work wherever you park."
@@ -233,7 +233,6 @@ const Index = () => (
 
 
       <Footer />
-      <div className="h-24 lg:hidden" />
       <StickyMobileCTA />
       <ChatWidget />
     </div>

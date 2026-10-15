@@ -41,7 +41,7 @@ const trainingFAQs = [
 
 const Training = () => (
   <PageTransition>
-    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+    <div className="min-h-screen bg-canvas">
       <SEO
         title="Auto Detailing Training Calgary"
         description={`Hands-on detailing, paint correction and ceramic coating courses in Calgary. Classes of ${TRAINING_TERMS.classSize}, from ${money(Math.min(...TRAINING.map((c) => c.price)))}.`}
@@ -140,7 +140,6 @@ const Training = () => (
 
 
       <Footer />
-      <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
     </div>
   </PageTransition>

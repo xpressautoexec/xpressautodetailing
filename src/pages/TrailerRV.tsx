@@ -210,7 +210,7 @@ const BookAction = ({ book, assessment, name }: { book: string; assessment?: boo
 
 const TrailerRV = () => (
   <PageTransition>
-    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+    <div className="min-h-screen bg-canvas">
       <SEO
         title={FINANCING_LIVE ? "RV Detailing & Gelcoat Restoration Calgary | Financing Available" : "RV Detailing & Gelcoat Restoration Calgary | Mobile, Per-Foot Pricing"}
         description={`Mobile RV detailing and gelcoat oxidation removal in Calgary, Airdrie, Cochrane and Chestermere. Per-foot pricing, done at your storage lot${FINANCING_LIVE ? ", with monthly financing on restoration work" : ""}.`}
@@ -518,7 +518,7 @@ const TrailerRV = () => (
       {/* 3M restoration process */}
       <section id="process" className="scroll-mt-24 py-16 sm:py-24">
         <div className="shell grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
-          <div className="lg:sticky lg:top-28 lg:self-start">
+          <div className="lg:sticky lg:top-8 lg:self-start">
             <img src={logo3m} alt="3M" loading="lazy" className="h-7 w-auto" />
             <h2 className="mt-6 font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
               The 3M gelcoat restoration process
@@ -556,7 +556,7 @@ const TrailerRV = () => (
       {FINANCING_LIVE ? (
         <section id="financing" className="scroll-mt-24 bg-brand-dark py-16 sm:py-24">
           <div className="shell grid items-start gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
-            <div className="lg:sticky lg:top-28">
+            <div className="lg:sticky lg:top-8">
               <h2 className="font-heading text-3xl font-semibold tracking-tight text-primary-foreground sm:text-4xl">
                 Restore it now, pay monthly
               </h2>
@@ -702,7 +702,6 @@ const TrailerRV = () => (
       </section>
 
       <Footer />
-      <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
     </div>
   </PageTransition>

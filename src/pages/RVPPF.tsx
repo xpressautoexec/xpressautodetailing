@@ -105,7 +105,7 @@ const from = Math.min(...RV_PPF.map((p) => p.price));
 
 const RVPPF = () => (
   <PageTransition>
-    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+    <div className="min-h-screen bg-canvas">
       <SEO
         title="RV Paint Protection Film Calgary"
         description={`RV paint protection film in Calgary from ${money(from)}. Self-healing film for front caps, hoods, rockers and full bodies. Stops rock chips, bugs and UV. Free inspection.`}
@@ -264,7 +264,6 @@ const RVPPF = () => (
       />
 
       <Footer />
-      <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
     </div>
   </PageTransition>

@@ -10,7 +10,7 @@ import { PHONE } from "@/data/pricing";
 
 const CancellationPolicyPage = () => (
   <PageTransition>
-    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+    <div className="min-h-screen bg-canvas">
       <SEO
         title="Cancellation & Rescheduling Policy | Xpress Auto & RV Detailing"
         description={CANCELLATION_SUMMARY}
@@ -38,7 +38,6 @@ const CancellationPolicyPage = () => (
         </div>
       </section>
       <Footer />
-      <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
     </div>
   </PageTransition>

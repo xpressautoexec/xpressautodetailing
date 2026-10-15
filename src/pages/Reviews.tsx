@@ -42,7 +42,7 @@ const VISIT = [
 
 const Reviews = () => (
   <PageTransition>
-    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+    <div className="min-h-screen bg-canvas">
       <SEO
         title="Reviews & Why Xpress | Mobile Detailing Calgary"
         description={`${FIVE_STAR_REVIEWS} five-star Google reviews, published prices and a walkthrough before we leave. Mobile detailing across ${SERVICE_AREA_SENTENCE}.`}
@@ -149,7 +149,6 @@ const Reviews = () => (
       <ClosingCTA />
 
       <Footer />
-      <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
     </div>
   </PageTransition>

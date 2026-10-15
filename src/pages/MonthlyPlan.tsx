@@ -70,7 +70,7 @@ const MonthlyPlan = () => {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+      <div className="min-h-screen bg-canvas">
         <SEO
           title="The Xpress Pass | Detailing Membership Calgary"
           description={`Calgary's mobile detailing membership. Save up to ${maxDiscount}% on every visit plus ${PASS_ADDON_DISCOUNT}% off every add-on. No contract, cancel any time.`}
@@ -220,7 +220,6 @@ const MonthlyPlan = () => {
         />
 
         <Footer />
-        <div className="h-20 lg:hidden" />
         <StickyMobileCTA />
       </div>
     </PageTransition>

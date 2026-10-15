@@ -48,7 +48,7 @@ const faqs = [
 
 const RVRentalFleet = () => (
   <PageTransition>
-    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+    <div className="min-h-screen bg-canvas">
       <SEO
         title="RV Rental Fleet Care Calgary"
         description={`Turnover cleaning and seasonal refresh for RV rental fleets in Calgary, from ${money(
@@ -127,7 +127,6 @@ const RVRentalFleet = () => (
       <ClosingCTA title="Units back out, ready" mode="quote" quoteHref="#quote" quoteLabel="Request a fleet quote" />
 
       <Footer />
-      <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
     </div>
   </PageTransition>

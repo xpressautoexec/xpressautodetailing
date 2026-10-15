@@ -50,7 +50,7 @@ const faqs = [
 
 const CorporateFleet = () => (
   <PageTransition>
-    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+    <div className="min-h-screen bg-canvas">
       <SEO
         title="Fleet & Dealership Detailing Calgary"
         description="On-site fleet washing and detailing in Calgary for work trucks, dealership lots and heavy equipment. Per-unit rates, scheduled rotations, monthly invoicing."
@@ -141,7 +141,6 @@ const CorporateFleet = () => (
       />
 
       <Footer />
-      <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
     </div>
   </PageTransition>

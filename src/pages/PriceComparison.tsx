@@ -143,7 +143,7 @@ const faqs = [
 
 const PriceComparison = () => (
   <PageTransition>
-    <div className="min-h-screen bg-canvas pb-16 lg:pb-0">
+    <div className="min-h-screen bg-canvas">
       <SEO
         title="Calgary Car Detailing Prices Compared"
         description="Real 2026 car detailing prices in Calgary. Compare our mobile detailing packages against shop-based rates — interior, complete, correction and ceramic coating."
@@ -290,7 +290,6 @@ const PriceComparison = () => (
       <ClosingCTA title="Know the price before you book" body="Pick a package online, or call for a quote on coating and correction." />
 
       <Footer />
-      <div className="h-20 lg:hidden" />
       <StickyMobileCTA />
     </div>
   </PageTransition>

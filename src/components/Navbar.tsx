@@ -26,7 +26,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-brand-dark border-b border-primary-foreground/10">
+    <header className="relative z-50 bg-brand-dark border-b border-primary-foreground/10">
       <div className="shell flex items-center justify-between py-3">
         <Link to="/" className="shrink-0" aria-label="Xpress Auto & RV Detailing home">
           <img
