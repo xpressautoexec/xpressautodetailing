@@ -46,6 +46,11 @@ export interface AutoPackage {
   book: Record<VehicleSizeId, FielddKey>;
 }
 
+/** Upkeep member price per visit (unchanged). Members only: there is no non-member booking. */
+export const UPKEEP_MEMBER_PRICE: Record<PassSizeId, number> = { sedan: 119, suv: 135, minivan: 143 };
+/** Upkeep reference ("before") price: the member price is 25% off this. Rounded to the dollar. */
+const upkeepReference = (m: number) => Math.round(m / 0.75);
+
 export const AUTO_PACKAGES: AutoPackage[] = [
   {
     id: "maintain",
@@ -60,7 +65,11 @@ export const AUTO_PACKAGES: AutoPackage[] = [
       "Interior vacuum",
       "Dash & console wipe-down",
     ],
-    price: { sedan: 149, suv: 169, minivan: 179 },
+    price: {
+      sedan: upkeepReference(UPKEEP_MEMBER_PRICE.sedan),
+      suv: upkeepReference(UPKEEP_MEMBER_PRICE.suv),
+      minivan: upkeepReference(UPKEEP_MEMBER_PRICE.minivan),
+    },
     book: { sedan: "M8", suv: "5M", minivan: "5D", truck: "Er" },
   },
   {
@@ -360,33 +369,30 @@ export const CONDITION_TIERS = [
 ];
 
 // ---------- XPRESS PASS ----------
-export const XPRESS_PASS = [
-  {
-    id: "maintain",
-    name: "Maintain",
-    frequency: "Every month",
-    discount: 20,
-    popular: true,
-    service: "Upkeep",
-    memberPrice: { sedan: 119, suv: 135, minivan: 143 },
-  },
-  {
-    id: "refresh",
-    name: "Refresh",
-    frequency: "Every 2 months",
-    discount: 15,
-    service: "Inside & Out",
-    memberPrice: { sedan: 203.15, suv: 245.65, minivan: 271.15 },
-  },
-  {
-    id: "restore",
-    name: "Restore",
-    frequency: "Every 3 months",
-    discount: 12,
-    service: "Deep Clean & Seal",
-    memberPrice: { sedan: 333.52, suv: 377.52, minivan: 403.92 },
-  },
-];
+/**
+ * Member price per visit = package price x (1 - discount). Computed, never typed in,
+ * so the detailing page and the Xpress Pass page always agree.
+ * Upkeep is the exception: its member price is fixed (UPKEEP_MEMBER_PRICE) and its
+ * reference price in AUTO_PACKAGES is derived from it, so 25% off holds exactly.
+ */
+const PASS_TERMS = [
+  { id: "maintain", name: "Maintain", frequency: "Every month", discount: 25, popular: true, service: "Upkeep" },
+  { id: "refresh", name: "Refresh", frequency: "Every 2 months", discount: 20, service: "Inside & Out" },
+  { id: "restore", name: "Restore", frequency: "Every 3 months", discount: 15, service: "Deep Clean & Seal" },
+] as const;
+
+const round2 = (n: number) => Math.round(n * 100) / 100;
+
+export const XPRESS_PASS = PASS_TERMS.map((t) => {
+  const pkg = AUTO_PACKAGES.find((p) => p.name === t.service)!;
+  const memberPrice = Object.fromEntries(
+    PASS_SIZES.map(({ id }) => [
+      id,
+      t.id === "maintain" ? UPKEEP_MEMBER_PRICE[id] : round2(pkg.price[id] * (1 - t.discount / 100)),
+    ]),
+  ) as Record<PassSizeId, number>;
+  return { ...t, popular: "popular" in t ? t.popular : false, memberPrice };
+});
 
 export const PASS_ADDON_DISCOUNT = 15; // % off every add-on, all tiers
 

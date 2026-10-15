@@ -1,6 +1,17 @@
 import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
-import { AUTO_PACKAGES, VEHICLE_SIZES, money, fielddUrl, passPlanFor, memberPriceFor } from "@/data/pricing";
+import {
+  AUTO_PACKAGES,
+  VEHICLE_SIZES,
+  XPRESS_PASS,
+  PASS_ADDON_DISCOUNT,
+  money,
+  fielddUrl,
+  passPlanFor,
+  memberPriceFor,
+} from "@/data/pricing";
+
+const maxPassDiscount = Math.max(...XPRESS_PASS.map((p) => p.discount));
 import { useSizeParam } from "@/hooks/useSizeParam";
 
 interface Props {
@@ -96,10 +107,9 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
                   {p.duration}
                 </p>
                 {member !== undefined && plan && (
-                  <Link
-                    to="/xpress-pass"
-                    className={`mt-4 flex items-center justify-between gap-3 rounded-md border px-3 py-2.5 transition-colors ${
-                      dark ? "border-electric/40 hover:border-electric" : "border-electric/30 hover:border-electric"
+                  <div
+                    className={`mt-4 flex items-center justify-between gap-3 rounded-md border px-3 py-2.5 ${
+                      dark ? "border-electric/40" : "border-electric/30"
                     }`}
                   >
                     <span className="text-xs font-semibold uppercase tracking-wide text-electric">
@@ -111,7 +121,7 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
                     <span className="font-heading text-xl font-semibold tabular-nums text-electric">
                       {money(member)}
                     </span>
-                  </Link>
+                  </div>
                 )}
               </>
             )}
@@ -142,6 +152,22 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
           </article>
           );
         })}
+      </div>
+      <div
+        className={`mt-6 flex flex-col gap-4 rounded-[10px] border p-5 sm:flex-row sm:items-center sm:justify-between ${
+          dark ? "border-electric/40" : "border-electric/30"
+        }`}
+      >
+        <p className={`text-sm leading-relaxed ${sub}`}>
+          <span className={`font-semibold ${text}`}>Xpress Pass members save up to {maxPassDiscount}% every visit</span>{" "}
+          plus {PASS_ADDON_DISCOUNT}% off every add-on. No contract, cancel any time.
+        </p>
+        <Link
+          to="/xpress-pass"
+          className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-md bg-electric px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-electric-2"
+        >
+          See the Xpress Pass
+        </Link>
       </div>
       <p className={`mt-6 text-sm ${sub}`}>
         Not sure which package fits?{" "}
