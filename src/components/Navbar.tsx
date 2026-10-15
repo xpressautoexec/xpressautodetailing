@@ -110,14 +110,23 @@ const Navbar = () => {
           </a>
         </div>
 
-        <button
-          onClick={() => setIsOpen((v) => !v)}
-          className="lg:hidden text-primary-foreground p-2 -mr-2"
-          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-          aria-expanded={isOpen}
-        >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        <div className="flex items-center gap-1 lg:hidden">
+          <a
+            href={telHref}
+            aria-label={`Call Xpress Auto & RV Detailing at ${PHONE}`}
+            className="flex h-11 w-11 items-center justify-center rounded-md text-primary-foreground transition-colors hover:text-primary-foreground/80"
+          >
+            <Phone className="h-5 w-5" aria-hidden="true" />
+          </a>
+          <button
+            onClick={() => setIsOpen((v) => !v)}
+            className="text-primary-foreground p-2 -mr-2"
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isOpen}
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {isOpen && (
