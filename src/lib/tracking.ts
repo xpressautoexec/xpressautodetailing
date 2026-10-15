@@ -12,7 +12,7 @@ export const GOOGLE_ADS_ID = "AW-17894848842";
  * (Google Ads > Goals > Conversions > the action > Tag setup > "send_to": "AW-17894848842/<label>").
  * While null, the lead is sent as a generate_lead event only and Google Ads records no conversion.
  */
-export const GOOGLE_ADS_LEAD_LABEL: string | null = null;
+export const GOOGLE_ADS_LEAD_LABEL: string | null = "OE75CPn5j54dEMry9tRC";
 
 type Gtag = (...args: unknown[]) => void;
 
