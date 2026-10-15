@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
-import { AUTO_PACKAGES, VEHICLE_SIZES, money, fielddUrl } from "@/data/pricing";
+import { AUTO_PACKAGES, VEHICLE_SIZES, money, fielddUrl, passPlanFor, memberPriceFor } from "@/data/pricing";
 import { useSizeParam } from "@/hooks/useSizeParam";
 
 interface Props {
@@ -58,7 +58,10 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {packages.map((p) => (
+        {packages.map((p) => {
+          const plan = passPlanFor(p);
+          const member = memberPriceFor(p, size);
+          return (
           <article
             key={p.id}
             className={`relative flex h-full flex-col overflow-hidden rounded-[10px] border p-6 ${
@@ -71,13 +74,47 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
           >
             {p.popular && <span aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-electric" />}
             <p className={`h-4 text-xs font-medium ${p.popular ? "text-electric" : muted}`}>
-              {p.popular ? "Most booked" : p.memberOnly ? "Xpress Pass members" : ""}
+              {p.popular ? "Most booked" : p.memberOnly ? "Members only" : ""}
             </p>
             <h3 className={`mt-1 font-heading text-lg font-semibold ${text}`}>{p.name}</h3>
-            <p className={`mt-4 font-heading text-4xl font-semibold tracking-tight tabular-nums ${text}`}>
-              {money(p.price[size] ?? 0)}
-            </p>
-            <p className={`mt-1 text-xs ${muted}`}>{p.duration}</p>
+            {p.memberOnly ? (
+              <>
+                <p className={`mt-4 font-heading text-4xl font-semibold tracking-tight tabular-nums ${text}`}>
+                  {money(member ?? p.price[size] ?? 0)}
+                </p>
+                <p className={`mt-1 text-xs ${muted}`}>
+                  Member price per visit · {p.duration}
+                </p>
+              </>
+            ) : (
+              <>
+                <p className={`mt-4 font-heading text-4xl font-semibold tracking-tight tabular-nums ${text}`}>
+                  {money(p.price[size] ?? 0)}
+                </p>
+                <p className={`mt-1 text-xs ${muted}`}>
+                  {member !== undefined ? "Regular price · " : ""}
+                  {p.duration}
+                </p>
+                {member !== undefined && plan && (
+                  <Link
+                    to="/xpress-pass"
+                    className={`mt-4 flex items-center justify-between gap-3 rounded-md border px-3 py-2.5 transition-colors ${
+                      dark ? "border-electric/40 hover:border-electric" : "border-electric/30 hover:border-electric"
+                    }`}
+                  >
+                    <span className="text-xs font-semibold uppercase tracking-wide text-electric">
+                      Members
+                      <span className={`ml-1.5 font-medium normal-case tracking-normal ${muted}`}>
+                        {plan.discount}% off
+                      </span>
+                    </span>
+                    <span className="font-heading text-xl font-semibold tabular-nums text-electric">
+                      {money(member)}
+                    </span>
+                  </Link>
+                )}
+              </>
+            )}
             <p className={`mt-4 text-sm leading-relaxed ${sub}`}>{p.tagline}</p>
 
             <ul className="mt-5 flex-1 space-y-2">
@@ -103,7 +140,8 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
               {p.memberOnly ? "See the Xpress Pass" : "Book this package"}
             </a>
           </article>
-        ))}
+          );
+        })}
       </div>
       <p className={`mt-6 text-sm ${sub}`}>
         Not sure which package fits?{" "}

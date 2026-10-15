@@ -389,6 +389,22 @@ export const XPRESS_PASS = [
 ];
 
 export const PASS_ADDON_DISCOUNT = 15; // % off every add-on, all tiers
+
+/** The Xpress Pass plan built on an auto package, if any (matched by service name). */
+export const passPlanFor = (pkg: AutoPackage) => XPRESS_PASS.find((p) => p.service === pkg.name);
+
+/**
+ * Per-visit member price for a package at a vehicle size, from the Xpress Pass terms.
+ * Uses the plan's published member price where set; otherwise applies the plan discount
+ * to the package's regular price (e.g. pickups). Undefined if the package has no Pass plan.
+ */
+export const memberPriceFor = (pkg: AutoPackage, size: VehicleSizeId): number | undefined => {
+  const plan = passPlanFor(pkg);
+  const regular = pkg.price[size];
+  if (!plan || regular === undefined) return undefined;
+  const published = (plan.memberPrice as Partial<Record<VehicleSizeId, number>>)[size];
+  return published ?? Math.round(regular * (1 - plan.discount / 100) * 100) / 100;
+};
 // NO 6-MONTH TIER. Do not add one.
 
 // ---------- WINDSHIELD PPF ----------
