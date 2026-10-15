@@ -334,6 +334,8 @@ export const MARINE_SERVICES = [
 export const HEADLIGHT_RESTORATION = {
   standalone: 120,
   addOn: 90,
+  /** Fog light pair, added to a headlight restoration. Owner-approved Oct 2026. */
+  fogLights: 60,
   time: "45 min",
 };
 

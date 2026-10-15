@@ -4,7 +4,7 @@ import heroImg from "@/assets/jobs/hero-headlight-restoration.webp";
 import { HEADLIGHT_PHOTOS } from "@/data/photos";
 import { BOOKING_URL, HEADLIGHT_RESTORATION, money } from "@/data/pricing";
 
-const { standalone, addOn, time } = HEADLIGHT_RESTORATION;
+const { standalone, addOn, fogLights, time } = HEADLIGHT_RESTORATION;
 
 const SIGNS = [
   "Yellow or amber tint across the lens",
@@ -35,6 +35,10 @@ const faqs = [
   {
     q: "Can every headlight be restored?",
     a: "Most can. Haze or moisture on the inside of the housing, and cracked lenses, can't be fixed from the outside. We check before we start and tell you if yours needs a replacement instead.",
+  },
+  {
+    q: "Can you do fog lights too?",
+    a: `Yes. Add a pair of fog lights to any headlight restoration for ${money(fogLights)}. Same wet sand, polish and ceramic process.`,
   },
   {
     q: "Is it cheaper with a detail?",
@@ -106,6 +110,10 @@ const HeadlightRestoration = () => (
         </div>
       </div>
       <p className="mt-8 max-w-2xl text-[15px] leading-relaxed text-ink-2">
+        Fog lights: add a pair to any headlight restoration for{" "}
+        <span className="font-semibold text-ink tabular-nums">{money(fogLights)}</span>.
+      </p>
+      <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-ink-2">
         Pop-up headlight stations in store parking lots around Calgary are on the way. Until then, we come to you.
       </p>
     </Section>
