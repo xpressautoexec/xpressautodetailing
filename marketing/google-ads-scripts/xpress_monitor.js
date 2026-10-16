@@ -1,9 +1,9 @@
 /**
  * Xpress Ads Monitor — daily data logger (Google Ads Script, account 336-085-6566).
- * Runs daily ~6:00 AM MT. READ-ONLY on the ad account: it never changes campaigns.
+ * Runs daily 5–6 AM MT. READ-ONLY on the ad account: it never changes campaigns.
  * Writes yesterday's data into the Google Sheet "Xpress Ads Monitor (data log)" in this account's Drive
  * (created on first run). On the first run it also backfills the last 30 days.
- * Claude's 7:30 AM daily check reads this Sheet.
+ * Claude's 7:25 AM daily check reads this Sheet. Segment tabs (hour, device, location) backfill 30 days the first time they're empty.
  */
 var SHEET_NAME = 'Xpress Ads Monitor (data log)';
 var TABS = {
@@ -15,6 +15,9 @@ var TABS = {
   Keywords: ['week_of', 'campaign', 'ad_group', 'keyword', 'match', 'status', 'quality_score', 'expected_ctr', 'ad_relevance', 'landing_page', 'impr_7d', 'clicks_7d', 'cost_7d', 'conv_7d', 'search_is_7d', 'top_is_7d'],
   Ads: ['week_of', 'campaign', 'ad_group', 'ad_id', 'status', 'approval', 'ad_strength', 'impr_7d', 'clicks_7d', 'conv_7d'],
   Change_History: ['date_time', 'user', 'client', 'resource', 'operation', 'campaign', 'changed_fields'],
+  By_Hour: ['date', 'hour', 'day_of_week', 'campaign', 'impressions', 'clicks', 'cost', 'conversions'],
+  By_Device: ['date', 'device', 'campaign', 'impressions', 'clicks', 'cost', 'conversions'],
+  By_Location: ['date', 'campaign', 'location', 'location_type', 'impressions', 'clicks', 'cost', 'conversions'],
   Run_Log: ['run_time', 'mode', 'rows_written', 'notes']
 };
 
@@ -43,6 +46,34 @@ function main() {
   n += write(ss, 'Search_Terms', rows(
     "SELECT segments.date, campaign.name, ad_group.name, search_term_view.search_term, segments.search_term_match_type, search_term_view.status, metrics.impressions, metrics.clicks, metrics.cost_micros, metrics.conversions FROM search_term_view WHERE segments.date DURING " + range + " AND metrics.impressions > 0",
     function (r) { var m = r.metrics; return [r.segments.date, r.campaign.name, r.adGroup.name, r.searchTermView.searchTerm, r.segments.searchTermMatchType, r.searchTermView.status, num(m.impressions), num(m.clicks), mic(m.costMicros), num(m.conversions)]; }));
+
+  // Hour of day / device / location (each tab backfills 30 days the first time it's empty)
+  function rng(t) { return sheet(ss, t).getLastRow() <= 1 ? 'LAST_30_DAYS' : range; }
+  var DOW = ['', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  try {
+    n += write(ss, 'By_Hour', rows(
+      "SELECT segments.date, segments.hour, segments.day_of_week, campaign.name, metrics.impressions, metrics.clicks, metrics.cost_micros, metrics.conversions FROM campaign WHERE segments.date DURING " + rng('By_Hour') + " AND metrics.impressions > 0",
+      function (r) { var m = r.metrics; return [r.segments.date, num(r.segments.hour), String(r.segments.dayOfWeek).slice(0, 3), r.campaign.name, num(m.impressions), num(m.clicks), mic(m.costMicros), num(m.conversions)]; }));
+  } catch (e) { notes.push('hour: ' + e.message); }
+  try {
+    n += write(ss, 'By_Device', rows(
+      "SELECT segments.date, segments.device, campaign.name, metrics.impressions, metrics.clicks, metrics.cost_micros, metrics.conversions FROM campaign WHERE segments.date DURING " + rng('By_Device') + " AND metrics.impressions > 0",
+      function (r) { var m = r.metrics; return [r.segments.date, r.segments.device, r.campaign.name, num(m.impressions), num(m.clicks), mic(m.costMicros), num(m.conversions)]; }));
+  } catch (e) { notes.push('device: ' + e.message); }
+  try {
+    var geoRows = rows(
+      "SELECT segments.date, campaign.name, segments.geo_target_most_specific_location, geographic_view.location_type, metrics.impressions, metrics.clicks, metrics.cost_micros, metrics.conversions FROM geographic_view WHERE segments.date DURING " + rng('By_Location') + " AND metrics.impressions > 0",
+      function (r) { var m = r.metrics; return [r.segments.date, r.campaign.name, r.segments.geoTargetMostSpecificLocation || '', r.geographicView.locationType, num(m.impressions), num(m.clicks), mic(m.costMicros), num(m.conversions)]; });
+    var ids = {}; geoRows.forEach(function (x) { if (x[2]) ids[x[2]] = 1; });
+    var keys = Object.keys(ids), names = {};
+    for (var i = 0; i < keys.length; i += 200) {
+      var chunk = keys.slice(i, i + 200).map(function (k) { return "'" + k + "'"; }).join(',');
+      var gi = AdsApp.search("SELECT geo_target_constant.resource_name, geo_target_constant.canonical_name FROM geo_target_constant WHERE geo_target_constant.resource_name IN (" + chunk + ")");
+      while (gi.hasNext()) { var g = gi.next().geoTargetConstant; names[g.resourceName] = g.canonicalName; }
+    }
+    geoRows.forEach(function (x) { x[2] = names[x[2]] || x[2]; });
+    n += write(ss, 'By_Location', geoRows);
+  } catch (e) { notes.push('location: ' + e.message); }
 
   // Weekly snapshots (Mondays, and on the first run)
   var dow = Utilities.formatDate(new Date(), AdsApp.currentAccount().getTimeZone(), 'u');
