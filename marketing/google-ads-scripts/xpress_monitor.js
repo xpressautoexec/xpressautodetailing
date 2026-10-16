@@ -59,7 +59,7 @@ function main() {
   try {
     var since = Utilities.formatDate(new Date(Date.now() - (mode === 'BACKFILL_30' ? 29 : 1) * 864e5), AdsApp.currentAccount().getTimeZone(), 'yyyy-MM-dd');
     n += write(ss, 'Change_History', rows(
-      "SELECT change_event.change_date_time, change_event.user_email, change_event.client_type, change_event.change_resource_type, change_event.resource_change_operation, campaign.name, change_event.changed_fields FROM change_event WHERE change_event.change_date_time >= '" + since + "' ORDER BY change_event.change_date_time DESC LIMIT 1000",
+      "SELECT change_event.change_date_time, change_event.user_email, change_event.client_type, change_event.change_resource_type, change_event.resource_change_operation, campaign.name, change_event.changed_fields FROM change_event WHERE change_event.change_date_time >= '" + since + "' AND change_event.change_date_time <= '" + Utilities.formatDate(new Date(Date.now() + 864e5), AdsApp.currentAccount().getTimeZone(), 'yyyy-MM-dd') + "' ORDER BY change_event.change_date_time DESC LIMIT 1000",
       function (r) { var c = r.changeEvent; return [c.changeDateTime, c.userEmail, c.clientType, c.changeResourceType, c.resourceChangeOperation, (r.campaign || {}).name || '', String(c.changedFields || '')]; }));
   } catch (e) { notes.push('change history: ' + e.message); }
 
