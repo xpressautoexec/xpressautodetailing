@@ -20,7 +20,7 @@ const BlogPost = () => {
   const url = `${SITE}/blog/${post.slug}`;
   const more = BLOG_CARDS.filter((c) => c.href !== `/blog/${post.slug}`).slice(0, 3);
 
-  const jsonLd: object[] = [
+  const jsonLd: Record<string, unknown>[] = [
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",

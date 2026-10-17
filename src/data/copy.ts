@@ -206,7 +206,7 @@ export const REAL_REVIEWS: Review[] = [
 /** Opens the Google review form (for asking customers to leave one). */
 export const GOOGLE_WRITE_REVIEW_URL = "https://g.page/r/CQ5ISLUTohBKEBM/review";
 /** Opens the list of Xpress Auto & RV Detail reviews on Google. */
-export const GOOGLE_REVIEWS_URL = "https://search.google.com/local/reviews?placeid=ChIJa25YXdpvcVMRDkhItROiEEo";
+export const GOOGLE_REVIEWS_URL = "https://share.google/2MMngu3EuRPVNRLFP";
 
 
 export const ASSESS_DISCLAIMER =
