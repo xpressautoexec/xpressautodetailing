@@ -38,7 +38,7 @@ const monthlyFAQs = [
   },
   {
     q: "Does the discount apply to add-ons?",
-    a: `Yes. Members save ${PASS_ADDON_DISCOUNT}% on every add-on, every visit.`,
+    a: `Members save ${PASS_ADDON_DISCOUNT}% on eligible add-ons. We quote add-ons and extra condition work before the visit and bill them separately.`,
   },
   {
     q: "What about SUVs and trucks?",
