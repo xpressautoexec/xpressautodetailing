@@ -13,12 +13,13 @@ export const VEHICLE_SIZES = [
 export type VehicleSizeId = (typeof VEHICLE_SIZES)[number]["id"];
 export type SizePrice = Record<VehicleSizeId, number>;
 
-/** Xpress Pass sizes. The Pass has no separate pickup tier: pickups join at the SUV rate, as before. */
-export type PassSizeId = Exclude<VehicleSizeId, "truck">;
+/** Each Pass price is published for the enrolled vehicle class, including pickups. */
+export type PassSizeId = VehicleSizeId;
 export const PASS_SIZES: { id: PassSizeId; label: string }[] = [
   { id: "sedan", label: "Sedan / Coupe" },
-  { id: "suv", label: "SUV / Pickup" },
+  { id: "suv", label: "SUV 5-Seat" },
   { id: "minivan", label: "3-Row / Minivan" },
+  { id: "truck", label: "Pickup" },
 ];
 
 // ---------- ONLINE BOOKING (Fieldd) ----------
@@ -40,16 +41,13 @@ export interface AutoPackage {
   popular?: boolean;
   premium?: boolean;
   includes: string[];
-  /** Upkeep has no pickup price: it is Xpress Pass only and the Pass has no pickup tier. */
-  price: Record<PassSizeId, number> & Partial<Record<"truck", number>>;
+  price: SizePrice;
   /** Fieldd shortlink key per vehicle size. */
   book: Record<VehicleSizeId, FielddKey>;
 }
 
 /** Upkeep member price per visit (unchanged). Members only: there is no non-member booking. */
-export const UPKEEP_MEMBER_PRICE: Record<PassSizeId, number> = { sedan: 119, suv: 135, minivan: 143 };
-/** Upkeep reference ("before") price: the member price is 25% off this. Rounded to the dollar. */
-const upkeepReference = (m: number) => Math.round(m / 0.75);
+export const UPKEEP_MEMBER_PRICE: Record<PassSizeId, number> = { sedan: 119, suv: 135, minivan: 143, truck: 119.25 };
 
 export const AUTO_PACKAGES: AutoPackage[] = [
   {
@@ -66,9 +64,10 @@ export const AUTO_PACKAGES: AutoPackage[] = [
       "Dash & console wipe-down",
     ],
     price: {
-      sedan: upkeepReference(UPKEEP_MEMBER_PRICE.sedan),
-      suv: upkeepReference(UPKEEP_MEMBER_PRICE.suv),
-      minivan: upkeepReference(UPKEEP_MEMBER_PRICE.minivan),
+      sedan: 119,
+      suv: 139,
+      minivan: 149,
+      truck: 159,
     },
     book: { sedan: "M8", suv: "5M", minivan: "5D", truck: "Er" },
   },
@@ -372,15 +371,14 @@ export const CONDITION_TIERS = [
 
 // ---------- XPRESS PASS ----------
 /**
- * Member price per visit = package price x (1 - discount). Computed, never typed in,
- * so the detailing page and the Xpress Pass page always agree.
- * Upkeep is the exception: its member price is fixed (UPKEEP_MEMBER_PRICE) and its
- * reference price in AUTO_PACKAGES is derived from it, so 25% off holds exactly.
+ * Refresh and Restore prices derive from the regular package price. Maintain
+ * uses the owner-approved fixed class prices, including $119 for a sedan, and
+ * must not be advertised as a percentage discount.
  */
 const PASS_TERMS = [
-  { id: "maintain", name: "Maintain", frequency: "Every month", discount: 25, popular: true, service: "Upkeep" },
-  { id: "refresh", name: "Refresh", frequency: "Every 2 months", discount: 20, service: "Inside & Out" },
-  { id: "restore", name: "Restore", frequency: "Every 3 months", discount: 15, service: "Deep Clean & Seal" },
+  { id: "maintain", name: "Maintain", frequency: "Every 4 weeks", discount: 0, popular: true, service: "Upkeep" },
+  { id: "refresh", name: "Refresh", frequency: "Every 8 weeks", discount: 20, service: "Inside & Out" },
+  { id: "restore", name: "Restore", frequency: "Every 13 weeks", discount: 15, service: "Deep Clean & Seal" },
 ] as const;
 
 const round2 = (n: number) => Math.round(n * 100) / 100;
