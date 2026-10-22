@@ -5,8 +5,9 @@
  * Month plan > $0  -> re-enables ONLY campaigns this script paused (have that label). Never launches anything else.
  * Never touches campaigns not listed here (e.g. Performance Max). Logs every change to the monitor Sheet tab Budget_Log.
  * Plan source: Ads System v0.2 Recommended + owner 2026-10-15: Fleet $250/mo in winter (from idle Meta share).
+ * Owner 2026-10-22: RV off for the rest of Oct (season over); its $750 Oct plan moved to Auto (+450) and Headlight (+300).
  */
-var PLAN = {"G | Search | Brand": [100, 100, 100, 150, 150, 150, 150, 150, 150, 150, 100, 100], "G | Search | Auto Detailing": [500, 500, 500, 750, 900, 900, 900, 900, 750, 750, 500, 500], "G | Search | Headlight Restoration": [200, 200, 200, 200, 250, 250, 250, 250, 200, 200, 200, 200], "G | Search | Paint Correction & Ceramic": [0, 0, 0, 300, 600, 600, 600, 600, 300, 150, 0, 0], "G | Search | RV Detailing & Restoration": [0, 0, 0, 700, 1000, 1000, 1000, 1000, 600, 750, 0, 0], "G | Search | Fleet & Commercial": [250, 250, 250, 150, 250, 250, 250, 250, 250, 250, 250, 250], "G | Search | Training": [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150]}; // monthly CAD, Jan..Dec
+var PLAN = {"G | Search | Brand": [100, 100, 100, 150, 150, 150, 150, 150, 150, 150, 100, 100], "G | Search | Auto Detailing": [500, 500, 500, 750, 900, 900, 900, 900, 750, 1200, 500, 500], "G | Search | Headlight Restoration": [200, 200, 200, 200, 250, 250, 250, 250, 200, 500, 200, 200], "G | Search | Paint Correction & Ceramic": [0, 0, 0, 300, 600, 600, 600, 600, 300, 150, 0, 0], "G | Search | RV Detailing & Restoration": [0, 0, 0, 700, 1000, 1000, 1000, 1000, 600, 0, 0, 0], "G | Search | Fleet & Commercial": [250, 250, 250, 150, 250, 250, 250, 250, 250, 250, 250, 250], "G | Search | Training": [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150]}; // monthly CAD, Jan..Dec
 var LABEL = 'Xpress season-paused';
 var SHEET_NAME = 'Xpress Ads Monitor (data log)';
 function main() {
