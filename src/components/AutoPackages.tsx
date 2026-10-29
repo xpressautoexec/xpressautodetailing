@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
@@ -7,6 +8,7 @@ import {
   PASS_ADDON_DISCOUNT,
   money,
   fielddUrl,
+  BOOKING_URL,
   passPlanFor,
   memberPriceFor,
 } from "@/data/pricing";
@@ -26,6 +28,8 @@ interface Props {
 /** The auto packages, priced by vehicle size. Prices come from pricing.ts only. */
 const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
   const [size, setSize] = useSizeParam();
+  /** Package ids switched to their interior-only version. */
+  const [interior, setInterior] = useState<Record<string, boolean>>({});
   const all = only ? only.map((id) => AUTO_PACKAGES.find((p) => p.id === id)!).filter(Boolean) : AUTO_PACKAGES;
   // Packages without a price for this size (Upkeep for pickups) are hidden for that size.
   const packages = all.filter((p) => p.price[size] !== undefined);
@@ -70,8 +74,13 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {packages.map((p) => {
-          const plan = passPlanFor(p);
-          const member = memberPriceFor(p, size);
+          const io = p.interiorOnly && interior[p.id] ? p.interiorOnly : undefined;
+          const plan = io ? undefined : passPlanFor(p);
+          const member = io ? undefined : memberPriceFor(p, size);
+          const price = io ? io.price[size] : p.price[size];
+          const includes = io ? io.includes : p.includes;
+          const ioKey = io?.book?.[size];
+          const bookHref = p.memberOnly ? "/xpress-pass" : io ? (ioKey ? fielddUrl(ioKey) : BOOKING_URL) : fielddUrl(p.book[size]);
           return (
           <article
             key={p.id}
@@ -88,6 +97,37 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
               {p.popular ? "Most booked" : p.memberOnly ? "Members only" : ""}
             </p>
             <h3 className={`mt-1 font-heading text-lg font-semibold ${text}`}>{p.name}</h3>
+            {p.interiorOnly && (
+              <div
+                role="group"
+                aria-label={`${p.name} options`}
+                className={`mt-3 flex gap-1 rounded-md p-1 ${dark ? "bg-primary-foreground/10" : "border border-line"}`}
+              >
+                {[
+                  { on: false, label: "Full detail" },
+                  { on: true, label: "Interior only" },
+                ].map((o) => {
+                  const active = !!interior[p.id] === o.on;
+                  return (
+                    <button
+                      key={o.label}
+                      type="button"
+                      aria-pressed={active}
+                      onClick={() => setInterior((s) => ({ ...s, [p.id]: o.on }))}
+                      className={`min-h-[36px] flex-1 rounded px-2 text-xs font-semibold transition-colors ${
+                        active
+                          ? "bg-electric text-primary-foreground"
+                          : dark
+                            ? "text-primary-foreground/70 hover:text-primary-foreground"
+                            : "text-ink-2 hover:text-ink"
+                      }`}
+                    >
+                      {o.label}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
             {p.memberOnly ? (
               <>
                 <p className={`mt-4 font-heading text-4xl font-semibold tracking-tight tabular-nums ${text}`}>
@@ -100,11 +140,11 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
             ) : (
               <>
                 <p className={`mt-4 font-heading text-4xl font-semibold tracking-tight tabular-nums ${text}`}>
-                  {money(p.price[size] ?? 0)}
+                  {money(price ?? 0)}
                 </p>
                 <p className={`mt-1 text-xs ${muted}`}>
-                  {member !== undefined ? "Regular price · " : ""}
-                  {p.duration}
+                  {io ? "Interior only · " : member !== undefined ? "Regular price · " : ""}
+                  {io ? io.duration : p.duration}
                 </p>
                 {member !== undefined && plan && (
                   <div
@@ -128,7 +168,7 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
             <p className={`mt-4 text-sm leading-relaxed ${sub}`}>{p.tagline}</p>
 
             <ul className="mt-5 flex-1 space-y-2">
-              {p.includes.map((f) => (
+              {includes.map((f) => (
                 <li key={f} className={`flex gap-2 text-sm ${sub}`}>
                   <Check className="mt-0.5 h-4 w-4 shrink-0 text-electric" aria-hidden="true" />
                   <span>{f}</span>
@@ -137,7 +177,7 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
             </ul>
 
             <a
-              href={p.memberOnly ? "/xpress-pass" : fielddUrl(p.book[size])}
+              href={bookHref}
               {...(!p.memberOnly && { target: "_blank", rel: "noopener noreferrer" })}
               className={`mt-6 inline-flex min-h-[44px] items-center justify-center rounded-md px-5 text-sm font-semibold transition-colors ${
                 p.popular
@@ -147,7 +187,7 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
                     : "border border-line text-ink hover:border-ink-2"
               }`}
             >
-              {p.memberOnly ? "See the Xpress Pass" : "Book this package"}
+              {p.memberOnly ? "See the Xpress Pass" : io ? "Book interior only" : "Book this package"}
             </a>
           </article>
           );

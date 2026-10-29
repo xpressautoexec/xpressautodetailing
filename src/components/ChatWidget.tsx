@@ -32,7 +32,7 @@ const rvFrom = Math.min(...RV_BUNDLES.map((b) => b.price));
 const botResponses: Record<string, string> = {
   "I'd like to book a detail": `You can book online in about a minute: [Book a detail](${BOOKING_URL})\n\nOr call or text ${PHONE} and we'll set it up.`,
   "What are your prices?": `Starting prices for a sedan or coupe:\n\n${bookable
-    .map((p) => `• **${p.name}**: ${money(p.price.sedan)}`)
+    .map((p) => `• **${p.name}**: ${money(p.price.sedan)}${p.interiorOnly ? ` (interior only ${money(p.interiorOnly.price.sedan)})` : ""}`)
     .join("\n")}\n• **Ceramic coating**: from ${money(ceramicFrom)}\n• **RV and trailer**: from ${money(rvFrom)}/ft\n\nSUVs, pickups and 3-row vehicles are priced a little higher.`,
   "What areas do you serve?": `We come to you anywhere in ${SERVICE_AREAS.slice(0, -1).join(", ")} and ${SERVICE_AREAS[SERVICE_AREAS.length - 1]}. Just outside those areas? Call ${PHONE} and ask.`,
   "Do you offer ceramic coating?": `Yes. Ceramic packages start at ${money(ceramicFrom)} and include decontamination and machine correction before the coating goes on. [See ceramic packages](/ceramic-paint-correction)`,

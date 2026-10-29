@@ -44,6 +44,18 @@ export interface AutoPackage {
   price: SizePrice;
   /** Fieldd shortlink key per vehicle size. */
   book: Record<VehicleSizeId, FielddKey>;
+  /**
+   * Interior-only version: no exterior wash, wheels or paint sealant. Middle two packages only.
+   * Priced at ~75% of the full package (travel and setup do not shrink), same ratio as the
+   * Work Truck interior tier. Not covered by Xpress Pass member pricing.
+   */
+  interiorOnly?: {
+    duration: string;
+    includes: string[];
+    price: SizePrice;
+    /** Fieldd shortlink key per size; until set, the button opens the Fieldd service picker. */
+    book?: Partial<Record<VehicleSizeId, FielddKey>>;
+  };
 }
 
 /** Upkeep member price per visit (unchanged). Members only: there is no non-member booking. */
@@ -86,6 +98,18 @@ export const AUTO_PACKAGES: AutoPackage[] = [
     ],
     price: { sedan: 239, suv: 289, minivan: 319, truck: 329 },
     book: { sedan: "xo", suv: "pU", minivan: "8G", truck: "mx" },
+    interiorOnly: {
+      duration: "2 hrs",
+      includes: [
+        "Full interior vacuum & shampoo",
+        "Seats scrubbed & cleaned",
+        "Dash, console, vents & cup holders",
+        "Plastics & vinyl dressed",
+        "Door jambs",
+        "Interior glass & floor mats",
+      ],
+      price: { sedan: 179, suv: 219, minivan: 239, truck: 249 },
+    },
   },
   {
     id: "showroom",
@@ -103,6 +127,18 @@ export const AUTO_PACKAGES: AutoPackage[] = [
     ],
     price: { sedan: 379, suv: 429, minivan: 459, truck: 479 },
     book: { sedan: "eC", suv: "bN", minivan: "0g", truck: "Yb" },
+    interiorOnly: {
+      duration: "2.5–3 hrs",
+      includes: [
+        "Everything in Inside & Out interior",
+        "Deep interior extraction",
+        "Leather clean & condition",
+        "Salt stain removal",
+        "UV protection on interior surfaces",
+        "Streak-free interior glass",
+      ],
+      price: { sedan: 289, suv: 329, minivan: 349, truck: 359 },
+    },
   },
   {
     id: "restore",
