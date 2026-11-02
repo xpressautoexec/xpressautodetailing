@@ -11,6 +11,10 @@ interface ServicePageHeroProps {
   titleAs?: "h1" | "p";
   /** CSS object-position for the background photo, e.g. "center 60%". */
   imagePosition?: string;
+  /** Label for the online booking button. */
+  bookLabel?: string;
+  /** Override for the phone link (e.g. E.164 for ad landing pages). */
+  phoneHref?: string;
 }
 
 const telHref = `tel:${PHONE.replace(/-/g, "")}`;
@@ -28,10 +32,12 @@ const ServicePageHero = ({
   subtitle,
   titleAs = "h1",
   imagePosition,
+  bookLabel = "Book online",
+  phoneHref = telHref,
 }: ServicePageHeroProps) => {
   const Title = titleAs;
   const call = (
-    <a key="call" href={telHref} className={ctaType === "call" ? primary : secondary}>
+    <a key="call" href={phoneHref} className={ctaType === "call" ? primary : secondary}>
       <Phone className="h-4 w-4" aria-hidden="true" />
       {ctaType === "call" ? `Call ${PHONE}` : PHONE}
     </a>
@@ -44,7 +50,7 @@ const ServicePageHero = ({
       rel="noopener noreferrer"
       className={ctaType === "book" ? primary : secondary}
     >
-      Book online
+      {bookLabel}
     </a>
   );
 

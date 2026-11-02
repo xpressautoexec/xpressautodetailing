@@ -36,13 +36,13 @@ const LandingPage = ({
   childrenBeforeWork = false,
 }: {
   seo: { title: string; description: string; canonical: string; serviceName: string; serviceDescription: string };
-  hero: { title: string; subtitle: string; image: string; ctaType: "book" | "call"; imagePosition?: string };
+  hero: { title: string; subtitle: string; image: string; ctaType: "book" | "call"; imagePosition?: string; bookLabel?: string; phoneHref?: string };
   features: { title: string; intro?: string; items: Item[] };
   children?: ReactNode;
   steps?: { title: string; items: Item[] };
-  faqs: { title: string; items: { q: string; a: string }[] };
+  faqs: { title: string; items: { q: string; a: string; aNode?: ReactNode }[] };
   related: { label: string; to: string }[];
-  closing: { title: string; body?: string; mode: "book" | "quote"; quoteHref?: string; quoteLabel?: string };
+  closing: { title: string; body?: string; mode: "book" | "quote"; quoteHref?: string; quoteLabel?: string; bookLabel?: string; phoneHref?: string };
   /** Product lines for the "products we use" band; defaults to the general set. */
   products?: ProductLine[];
   /** Real job photos (and optional clips) shown after the features. */
@@ -66,6 +66,8 @@ const LandingPage = ({
         image={hero.image}
         ctaType={hero.ctaType}
         imagePosition={hero.imagePosition}
+        bookLabel={hero.bookLabel}
+        phoneHref={hero.phoneHref}
       />
       <GuaranteeStrip />
 

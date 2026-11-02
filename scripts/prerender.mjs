@@ -27,6 +27,7 @@ const ROUTES = [
   "/ceramic-coating",
   "/paint-correction",
   "/headlight-restoration",
+  "/windshield-ppf",
   "/gallery",
   "/reviews",
   "/contact",
