@@ -40,7 +40,7 @@ const LandingPage = ({
   features: { title: string; intro?: string; items: Item[] };
   children?: ReactNode;
   steps?: { title: string; items: Item[] };
-  faqs: { title: string; items: { q: string; a: string }[] };
+  faqs: { title: string; items: { q: string; a: string; aNode?: ReactNode }[] };
   related: { label: string; to: string }[];
   closing: { title: string; body?: string; mode: "book" | "quote"; quoteHref?: string; quoteLabel?: string; bookLabel?: string; phoneHref?: string };
   /** Product lines for the "products we use" band; defaults to the general set. */

@@ -1,8 +1,11 @@
+import type { ReactNode } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 interface FAQ {
   q: string;
   a: string;
+  /** Optional rich answer (e.g. with links); `a` stays the plain text used for JSON-LD. */
+  aNode?: ReactNode;
 }
 
 /** The one FAQ layout used site-wide: heading left, accordion right. */
@@ -16,7 +19,7 @@ const ServiceFAQ = ({ title, faqs, id = "faq" }: { title: string; faqs: FAQ[]; i
             <AccordionTrigger className="py-5 text-left font-heading text-base font-semibold text-ink hover:no-underline">
               {faq.q}
             </AccordionTrigger>
-            <AccordionContent className="pb-5 text-[15px] leading-relaxed text-ink-2">{faq.a}</AccordionContent>
+            <AccordionContent className="pb-5 text-[15px] leading-relaxed text-ink-2">{faq.aNode ?? faq.a}</AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>
