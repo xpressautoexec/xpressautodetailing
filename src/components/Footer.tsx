@@ -81,6 +81,9 @@ const Footer = () => (
           <Link to="/cancellation-policy" className="text-xs text-brand-gray hover:text-primary-foreground transition-colors">
             Cancellation policy
           </Link>
+          <Link to="/privacy-policy" className="text-xs text-brand-gray hover:text-primary-foreground transition-colors">
+            Privacy policy
+          </Link>
         </div>
       </div>
     </div>
