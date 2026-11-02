@@ -41,8 +41,11 @@ export const COVERAGE = "$2M liability coverage";
 
 export const CERAMIC_CERTIFICATIONS = ["System X", "Gtechniq", "Gyeon"];
 
-/** Protection film brand installed on RV PPF and windshield film jobs (no standalone page). */
+/** Protection film brand installed on RV PPF jobs. Windshield film uses WINDSHIELD_FILM_BRAND. */
 export const FILM_BRAND = "3M";
+
+/** Film brand installed on windshield protection film jobs (/windshield-ppf). */
+export const WINDSHIELD_FILM_BRAND = "ExoShield";
 
 /**
  * Product lines shown in the "Products we use" section on service pages.
@@ -73,6 +76,11 @@ export const PRODUCT_LINES = {
     name: "3M",
     role: "Protection film and restoration",
     body: "3M film on RV front caps, and 3M abrasives and compounds for gelcoat restoration.",
+  },
+  exoshield: {
+    name: "ExoShield",
+    role: "Windshield protection film",
+    body: "Clear film for windshields, backed by ExoShield's 2-year / 50,000 km warranty.",
   },
 } as const;
 
@@ -133,6 +141,7 @@ export const SERVICE_AREA_LINKS = [
 export const FOOTER_SERVICES = [
   { label: "RV & trailer detailing", href: "/rv-trailer" },
   { label: "RV paint protection film", href: "/rv-trailer/ppf" },
+  { label: "Windshield protection film", href: "/windshield-ppf" },
   { label: "RV rental fleet care", href: "/rv-trailer/rental-fleet" },
   { label: "Marine & pontoon", href: "/marine" },
   { label: "Car detailing", href: "/detailing" },

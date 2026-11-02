@@ -15,17 +15,21 @@ const ClosingCTA = ({
   mode = "book",
   quoteHref = "/contact",
   quoteLabel = "Book a free assessment",
+  bookLabel = "Book a detail",
+  phoneHref = NAP.phoneHref,
 }: {
   title?: string;
   body?: string;
   mode?: "book" | "quote";
   quoteHref?: string;
   quoteLabel?: string;
+  bookLabel?: string;
+  phoneHref?: string;
 }) => {
   const primary =
     mode === "book" ? (
       <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className={btnPrimary}>
-        Book a detail
+        {bookLabel}
       </a>
     ) : quoteHref.startsWith("#") ? (
       <a href={quoteHref} className={btnPrimary}>
@@ -50,7 +54,7 @@ const ClosingCTA = ({
         </div>
         <div className="flex flex-col gap-3 sm:flex-row">
           {primary}
-          <a href={NAP.phoneHref} className={btnSecondaryDark}>
+          <a href={phoneHref} className={btnSecondaryDark}>
             <Phone className="h-4 w-4" aria-hidden="true" />
             {NAP.phone}
           </a>

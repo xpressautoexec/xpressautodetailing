@@ -38,6 +38,7 @@ const RVDetailing = lazy(() => import("./pages/RVDetailing"));
 const CeramicCoating = lazy(() => import("./pages/CeramicCoating"));
 const PaintCorrection = lazy(() => import("./pages/PaintCorrection"));
 const HeadlightRestoration = lazy(() => import("./pages/HeadlightRestoration"));
+const WindshieldPPF = lazy(() => import("./pages/WindshieldPPF"));
 const Reviews = lazy(() => import("./pages/Reviews"));
 const CancellationPolicyPage = lazy(() => import("./pages/CancellationPolicyPage"));
 
@@ -101,7 +102,7 @@ export const AnimatedRoutes = () => {
         <Route path="/training" element={<Training />} />
         <Route path="/training/signup" element={<TrainingSignup />} />
 
-        <Route path="/windshield-ppf" element={<Navigate to="/rv-trailer/ppf" replace />} />
+        <Route path="/windshield-ppf" element={<WindshieldPPF />} />
         <Route path="/monthly-plan" element={<Navigate to="/xpress-pass" replace />} />
         <Route path="/marine" element={<MarineDetailing />} />
         <Route path="/ppf" element={<Navigate to="/ceramic-paint-correction" replace />} />
@@ -124,7 +125,7 @@ export const AnimatedRoutes = () => {
         <Route path="/ceramic-paint-correction" element={<PaintCeramics />} />
         <Route path="/protection/ppf" element={<Navigate to="/ceramic-paint-correction" replace />} />
         <Route path="/protection/window-tint" element={<Navigate to="/ceramic-paint-correction" replace />} />
-        <Route path="/protection/windshield-ppf" element={<Navigate to="/rv-trailer/ppf" replace />} />
+        <Route path="/protection/windshield-ppf" element={<Navigate to="/windshield-ppf" replace />} />
         <Route path="/fleet" element={<CorporateFleet />} />
         <Route path="/xpress-pass" element={<MonthlyPlan />} />
         <Route path="/pricing" element={<Navigate to="/detailing" replace />} />

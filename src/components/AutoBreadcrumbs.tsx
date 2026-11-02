@@ -33,6 +33,7 @@ const ROUTE_LABELS: Record<string, string> = {
   "trailer-rv": "Trailer & RV Detailing",
   "rv-trailer": "RV & Trailer",
   "rv-trailer/ppf": "RV PPF",
+  "windshield-ppf": "Windshield Protection Film",
   "rv-trailer/rental-fleet": "RV Rental Fleet Care",
   "rv-rental-fleet": "RV Rental Fleet Care",
   "trailer-rv/ppf": "RV PPF",
