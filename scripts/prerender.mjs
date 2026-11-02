@@ -38,6 +38,7 @@ const ROUTES = [
   "/blog/ppf-vs-ceramic-coating-calgary",
   "/calgary-detailing-price-comparison",
   "/terms-of-service",
+  "/privacy-policy",
   // Canonical URLs used by the nav — must ship real HTML
   "/rv-trailer",
   "/rv-trailer/ppf",

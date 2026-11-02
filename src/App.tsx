@@ -24,6 +24,7 @@ const TrailerRV = lazy(() => import("./pages/TrailerRV"));
 const RVRentalFleet = lazy(() => import("./pages/RVRentalFleet"));
 const RVPPF = lazy(() => import("./pages/RVPPF"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Training = lazy(() => import("./pages/Training"));
 const TrainingSignup = lazy(() => import("./pages/TrainingSignup"));
 
@@ -95,6 +96,7 @@ export const AnimatedRoutes = () => {
         <Route path="/trailer-rv/ppf" element={<Navigate to="/rv-trailer/ppf" replace />} />
         <Route path="/terms-conditions" element={<Navigate to="/terms-of-service" replace />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/why-choose-us" element={<Navigate to="/reviews" replace />} />
         <Route path="/training" element={<Training />} />
         <Route path="/training/signup" element={<TrainingSignup />} />

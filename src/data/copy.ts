@@ -151,6 +151,7 @@ export const FOOTER_COMPANY = [
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
   { label: "Cancellation policy", href: "/cancellation-policy" },
+  { label: "Privacy policy", href: "/privacy-policy" },
 ];
 
 /** How it works — used on the home page. */

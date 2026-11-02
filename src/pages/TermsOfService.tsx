@@ -163,7 +163,7 @@ const TermsOfService = () => (
 
             <div>
               <h2 className="font-heading text-xl font-semibold text-ink mb-3">14. Privacy & Communications</h2>
-              <p>Contact information provided at booking is used to schedule, confirm, and follow up on services. By booking, the Client consents to service-related communication via email, SMS, and phone. Further details are available in our Privacy Policy.</p>
+              <p>Contact information provided at booking is used to schedule, confirm, and follow up on services. By booking, the Client consents to service-related communication via email, SMS, and phone. Further details are available in our{" "}<Link to="/privacy-policy" className="font-semibold text-electric hover:underline">Privacy Policy</Link>.</p>
             </div>
 
             <div>
