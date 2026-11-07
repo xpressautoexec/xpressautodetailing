@@ -2,10 +2,10 @@ import { useState } from "react";
 import LandingPage from "@/components/site/LandingPage";
 import { Section, SectionHeading, cardClass } from "@/components/site/Section";
 import AssessmentForm from "@/components/AssessmentForm";
-import partialFront from "@/assets/ppf-partial-front.png.asset.json";
-import fullFront from "@/assets/ppf-full-front.png.asset.json";
-import trackPack from "@/assets/ppf-track-pack.png.asset.json";
-import fullBody from "@/assets/ppf-full-body.png.asset.json";
+import partialFront from "@/assets/ppf-coverage-partial-front.svg";
+import fullFront from "@/assets/ppf-coverage-full-front.svg";
+import trackPack from "@/assets/ppf-coverage-track-pack.svg";
+import fullBody from "@/assets/ppf-coverage-full-vehicle.svg";
 import PPFCraft from "@/components/ppf/PPFCraft";
 import heroImg from "@/assets/ppf-hero.jpg";
 import { CAR_PPF, CAR_PPF_SIZES, PPF_UPCHARGE, WINDSHIELD_PPF, carPpfPrice, money, type CarPpfSizeId } from "@/data/pricing";
@@ -44,10 +44,10 @@ const faqs = [
 
 /** Coverage renders per package: film-covered panels shown in blue. */
 const COVERAGE_IMG: Record<string, { src: string; alt: string }> = {
-  "partial-front": { src: partialFront.url, alt: "Partial front coverage: bumper, leading edge of the hood and fenders, mirror caps in blue" },
-  "full-front": { src: fullFront.url, alt: "Full front coverage: full hood, fenders, bumper and mirror caps in blue" },
-  "track-pack": { src: trackPack.url, alt: "Track Pack coverage: full front plus A-pillars, roof edge, rockers and rear arches in blue" },
-  "full-vehicle": { src: fullBody.url, alt: "Full vehicle coverage: every painted panel in blue" },
+  "partial-front": { src: partialFront, alt: "Partial front coverage: bumper, leading edge of the hood and fenders, mirror caps in blue" },
+  "full-front": { src: fullFront, alt: "Full front coverage: full hood, fenders, bumper and mirror caps in blue" },
+  "track-pack": { src: trackPack, alt: "Track Pack coverage: full front plus A-pillars, roof edge, rockers and rear arches in blue" },
+  "full-vehicle": { src: fullBody, alt: "Full vehicle coverage: every painted panel in blue" },
 };
 
 const CarPPF = () => {
@@ -129,7 +129,7 @@ const CarPPF = () => {
         </div>
         <p className="-mt-4 mb-8 text-sm text-muted-ink">e.g. {sizeInfo.examples}</p>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 md:grid-cols-2">
           {CAR_PPF.map((p) => (
             <div key={p.id} className={`${cardClass} flex flex-col p-6 ${p.popular ? "ring-2 ring-electric" : ""}`}>
               <div className="flex items-baseline justify-between gap-2">
@@ -140,10 +140,10 @@ const CarPPF = () => {
                 <img
                   src={COVERAGE_IMG[p.id].src}
                   alt={COVERAGE_IMG[p.id].alt}
-                  width={1376}
-                  height={768}
+                  width={736}
+                  height={256}
                   loading="lazy"
-                  className="aspect-[16/9] w-full object-cover"
+                  className="aspect-[736/256] w-full object-contain px-3 py-4"
                 />
               </div>
               <p className="font-heading text-4xl font-semibold tabular-nums text-ink">{money(carPpfPrice(p.price, size))}</p>
