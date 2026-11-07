@@ -2,7 +2,10 @@ import { useState } from "react";
 import LandingPage from "@/components/site/LandingPage";
 import { Section, SectionHeading, cardClass } from "@/components/site/Section";
 import AssessmentForm from "@/components/AssessmentForm";
-import CarCoverageDiagram, { type CarCoverageLevel } from "@/components/ppf/CarCoverageDiagram";
+import partialFront from "@/assets/ppf-partial-front.png.asset.json";
+import fullFront from "@/assets/ppf-full-front.png.asset.json";
+import trackPack from "@/assets/ppf-track-pack.png.asset.json";
+import fullBody from "@/assets/ppf-full-body.png.asset.json";
 import PPFCraft from "@/components/ppf/PPFCraft";
 import heroImg from "@/assets/ppf-hero.jpg";
 import { CAR_PPF, CAR_PPF_SIZES, PPF_UPCHARGE, WINDSHIELD_PPF, carPpfPrice, money, type CarPpfSizeId } from "@/data/pricing";
@@ -39,11 +42,12 @@ const faqs = [
   },
 ];
 
-const LEVEL: Record<string, CarCoverageLevel> = {
-  "partial-front": "partial-front",
-  "full-front": "full-front",
-  "track-pack": "track-pack",
-  "full-vehicle": "full-vehicle",
+/** Coverage renders per package: film-covered panels shown in blue. */
+const COVERAGE_IMG: Record<string, { src: string; alt: string }> = {
+  "partial-front": { src: partialFront.url, alt: "Partial front coverage: bumper, leading edge of the hood and fenders, mirror caps in blue" },
+  "full-front": { src: fullFront.url, alt: "Full front coverage: full hood, fenders, bumper and mirror caps in blue" },
+  "track-pack": { src: trackPack.url, alt: "Track Pack coverage: full front plus A-pillars, roof edge, rockers and rear arches in blue" },
+  "full-vehicle": { src: fullBody.url, alt: "Full vehicle coverage: every painted panel in blue" },
 };
 
 const CarPPF = () => {
@@ -104,7 +108,7 @@ const CarPPF = () => {
       <Section tone="surface" id="pricing">
         <SectionHeading
           title="Coverage and pricing"
-          intro="Pick your vehicle size. The highlighted panels show exactly what each package covers."
+          intro="Pick your vehicle size. Panels shown in blue are covered by film."
         />
 
         <div role="tablist" aria-label="Vehicle size" className="mb-8 flex flex-wrap gap-2">
@@ -132,8 +136,15 @@ const CarPPF = () => {
                 <h3 className="font-heading text-lg font-semibold text-ink">{p.name}</h3>
                 {p.popular && <span className="text-xs font-semibold uppercase tracking-wide text-electric">Most popular</span>}
               </div>
-              <div className="my-5">
-                <CarCoverageDiagram level={LEVEL[p.id]} />
+              <div className="-mx-2 my-5 overflow-hidden rounded-xl bg-brand-dark">
+                <img
+                  src={COVERAGE_IMG[p.id].src}
+                  alt={COVERAGE_IMG[p.id].alt}
+                  width={1376}
+                  height={768}
+                  loading="lazy"
+                  className="aspect-[16/9] w-full object-cover"
+                />
               </div>
               <p className="font-heading text-4xl font-semibold tabular-nums text-ink">{money(carPpfPrice(p.price, size))}</p>
               <p className="mt-1 text-sm text-muted-ink">Install time {p.time}</p>
