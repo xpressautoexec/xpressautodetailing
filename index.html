@@ -97,15 +97,19 @@
       gtag('js', new Date());
       gtag('config', 'AW-17894848842', { allow_enhanced_conversions: true });
 
-      // Clicks are recorded as plain events, NOT conversions (a click on "Book" is not a booking).
+      // Click tracking. Each click also sends its Google Ads conversion so the actions report data.
+      // "Phone tap (website)" is a Primary action (a call is a lead).
+      // "Book tap (website)" is set to Secondary in Google Ads: a click to Fieldd is intent, not a booking.
       document.addEventListener('click', function(e) {
         var link = e.target.closest && e.target.closest('a[href]');
         if (!link) return;
         var href = link.getAttribute('href') || '';
         if (href.indexOf('fieldd') !== -1) {
           gtag('event', 'booking_click', { link_url: link.href, page_location: window.location.pathname });
+          gtag('event', 'conversion', { send_to: 'AW-17894848842/saGECKSR0rEdEMry9tRC' });
         } else if (href.indexOf('tel:') === 0) {
           gtag('event', 'click_to_call', { page_location: window.location.pathname });
+          gtag('event', 'conversion', { send_to: 'AW-17894848842/Q2fxCKGR0rEdEMry9tRC' });
         }
       });
     </script>
