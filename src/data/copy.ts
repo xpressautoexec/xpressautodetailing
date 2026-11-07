@@ -141,6 +141,7 @@ export const SERVICE_AREA_LINKS = [
 export const FOOTER_SERVICES = [
   { label: "RV & trailer detailing", href: "/rv-trailer" },
   { label: "RV paint protection film", href: "/rv-trailer/ppf" },
+  { label: "Paint protection film", href: "/paint-protection-film" },
   { label: "Windshield protection film", href: "/windshield-ppf" },
   { label: "RV rental fleet care", href: "/rv-trailer/rental-fleet" },
   { label: "Marine & pontoon", href: "/marine" },

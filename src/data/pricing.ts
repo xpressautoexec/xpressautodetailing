@@ -449,8 +449,23 @@ export const memberPriceFor = (pkg: AutoPackage, size: VehicleSizeId): number | 
 };
 // NO 6-MONTH TIER. Do not add one.
 
+// ---------- CAR PPF ----------
+/**
+ * Car paint protection film coverage packages (/paint-protection-film).
+ * Prices are the last published car PPF prices (Sept 2026), reinstated Nov 2026. Car or small SUV base;
+ * PPF_UPCHARGE applies to trucks / large SUVs and exotics.
+ */
+export const CAR_PPF = [
+  { id: "partial-front", name: "Partial Front", price: 999, time: "1 day", covers: ["Leading 18–24 inches of the hood", "Front bumper", "Both mirror caps"] },
+  { id: "full-front", name: "Full Front", price: 1899, popular: true, time: "1 day", covers: ["Full hood, no seam line", "Full front fenders", "Front bumper and mirror caps"] },
+  { id: "track-pack", name: "Track Pack", price: 2899, time: "1–2 days", covers: ["Everything in Full Front", "A-pillars and roof leading edge", "Rocker panels", "Rear arch impact zones"] },
+  { id: "full-vehicle", name: "Full Vehicle", price: 5999, time: "2–3 days", covers: ["Every painted panel", "Wrapped edges wherever possible"] },
+];
+
+export const PPF_UPCHARGE = { truckSuvPct: 15, exoticPct: 25 };
+
 // ---------- WINDSHIELD PPF ----------
-/** Windshield PPF by vehicle size. Car paint protection film and window tint are no longer offered. */
+/** Windshield PPF by vehicle size. Window tint is no longer offered. */
 export const WINDSHIELD_PPF = [
   { id: "compact", label: "Compact / Sedan", price: 449, installTime: "2–3 hrs", examples: "Civic, Corolla, Mazda 3, Model 3" },
   { id: "midsize", label: "Midsize SUV / Crossover", price: 549, installTime: "3–4 hrs", examples: "RAV4, CR-V, Tucson, Model Y, Outback" },

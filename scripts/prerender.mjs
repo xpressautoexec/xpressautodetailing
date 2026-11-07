@@ -28,6 +28,7 @@ const ROUTES = [
   "/paint-correction",
   "/headlight-restoration",
   "/windshield-ppf",
+  "/paint-protection-film",
   "/gallery",
   "/reviews",
   "/contact",
