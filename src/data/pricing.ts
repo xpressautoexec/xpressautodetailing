@@ -464,6 +464,21 @@ export const CAR_PPF = [
 
 export const PPF_UPCHARGE = { truckSuvPct: 15, exoticPct: 25 };
 
+/** Vehicle size classes for car PPF. Price = CAR_PPF base x (1 + pct), rounded to the nearest $X9. */
+export const CAR_PPF_SIZES = [
+  { id: "car", label: "Car / Small SUV", examples: "Civic, Model 3, Mazda 3, CR-V, RAV4", pct: 0 },
+  { id: "truck", label: "Truck / Large SUV", examples: "F-150, Silverado, RAM, Tahoe, Model X", pct: PPF_UPCHARGE.truckSuvPct },
+  { id: "exotic", label: "Exotic / Performance", examples: "Porsche, Corvette, AMG, M cars", pct: PPF_UPCHARGE.exoticPct },
+] as const;
+
+export type CarPpfSizeId = (typeof CAR_PPF_SIZES)[number]["id"];
+
+export const carPpfPrice = (base: number, size: CarPpfSizeId): number => {
+  const pct = CAR_PPF_SIZES.find((s) => s.id === size)?.pct ?? 0;
+  if (!pct) return base;
+  return Math.round((base * (1 + pct / 100)) / 10) * 10 - 1;
+};
+
 // ---------- WINDSHIELD PPF ----------
 /** Windshield PPF by vehicle size. Window tint is no longer offered. */
 export const WINDSHIELD_PPF = [

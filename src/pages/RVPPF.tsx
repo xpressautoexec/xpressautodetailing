@@ -7,6 +7,7 @@ import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import AssessmentForm from "@/components/AssessmentForm";
 import RVCoverageDiagram from "@/components/RVCoverageDiagram";
+import PPFCraft from "@/components/ppf/PPFCraft";
 import GuaranteeStrip from "@/components/site/GuaranteeStrip";
 import ProcessSteps from "@/components/site/ProcessSteps";
 import ClosingCTA from "@/components/site/ClosingCTA";
@@ -96,7 +97,7 @@ const faqs = [
 const STEPS = [
   { title: "Free inspection", body: "We assess the surfaces and oxidation and recommend a coverage plan in writing." },
   { title: "Decon and polish", body: "Surfaces are decontaminated and polished so the film bonds properly." },
-  { title: "Install", body: "Computer-cut or custom-templated film, installed panel by panel." },
+  { title: "Install", body: "Film computer-cut on our plotter or custom-templated for your unit, installed panel by panel." },
   { title: "Cure and walkthrough", body: "Film cures 24 to 48 hours, then we inspect it with you." },
 ];
 
@@ -232,6 +233,8 @@ const RVPPF = () => (
         photos={PHOTOS.rv}
         tone="surface"
       />
+
+      <PPFCraft />
 
       <Section>
         <SectionHeading title="How an install runs" />

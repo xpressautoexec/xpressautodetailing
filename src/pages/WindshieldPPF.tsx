@@ -4,6 +4,8 @@ import { Section, SectionHeading, btnPrimary, cardClass } from "@/components/sit
 import heroImg from "@/assets/windshield-ppf-hero.jpg";
 import { BOOKING_URL, WINDSHIELD_PPF, money } from "@/data/pricing";
 import { WINDSHIELD_FILM_BRAND } from "@/data/copy";
+import WindshieldDiagram from "@/components/ppf/WindshieldDiagram";
+import PPFCraft from "@/components/ppf/PPFCraft";
 
 const TEL = "tel:+15875004523";
 const BOOK_LABEL = "Book windshield film";
@@ -113,6 +115,9 @@ const WindshieldPPF = () => (
 
     <Section>
       <SectionHeading title="The film" />
+      <div className="mb-10 max-w-3xl rounded-2xl border border-line bg-card p-4 sm:p-6">
+        <WindshieldDiagram />
+      </div>
       <p className="max-w-3xl text-[15px] leading-relaxed text-ink-2">
         {WINDSHIELD_FILM_BRAND} windshield protection film, custom-cut for your year, make and model. {WINDSHIELD_FILM_BRAND} says
         it absorbs up to 6 times more impact than the windshield alone. It carries {WINDSHIELD_FILM_BRAND}'s 2-year / 50,000 km
@@ -139,6 +144,11 @@ const WindshieldPPF = () => (
         Heated, panoramic and oversized glass may carry a small surcharge, confirmed before we start.
       </p>
     </Section>
+
+    <PPFCraft
+      film={WINDSHIELD_FILM_BRAND}
+      filmBody={`${WINDSHIELD_FILM_BRAND} is made for windshields: optically clear, built to absorb rock hits, and backed by a 2-year / 50,000 km warranty we register for you.`}
+    />
   </LandingPage>
 );
 
