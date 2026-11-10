@@ -4,15 +4,17 @@ import { WORK_TRUCK_PACKAGE, money, fielddUrl } from "@/data/pricing";
 import { Section, SectionHeading, btnPrimary, btnSecondary, cardClass, textLink } from "@/components/site/Section";
 
 /** Work truck package: trades, landscaping and construction trucks, plus the fleet link. */
-const WorkTruckPackage = () => (
+const WorkTruckPackage = ({ showFleetLink = true }: { showFleetLink?: boolean }) => (
   <Section tone="surface" id="work-truck">
     <SectionHeading
       title={WORK_TRUCK_PACKAGE.name}
       intro={WORK_TRUCK_PACKAGE.tagline}
       action={
-        <Link to="/fleet" className={textLink}>
-          Running several trucks? See fleet pricing
-        </Link>
+        showFleetLink ? (
+          <Link to="/fleet" className={textLink}>
+            Running several trucks? See fleet pricing
+          </Link>
+        ) : undefined
       }
     />
     <div className="grid gap-5 md:grid-cols-2">

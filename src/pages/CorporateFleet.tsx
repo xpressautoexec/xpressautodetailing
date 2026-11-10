@@ -6,6 +6,7 @@ import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import CompanyLogos from "@/components/CompanyLogos";
 import FleetQuoteForm from "@/components/FleetQuoteForm";
+import WorkTruckPackage from "@/components/WorkTruckPackage";
 import ProcessSteps from "@/components/site/ProcessSteps";
 import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section, SectionHeading } from "@/components/site/Section";
@@ -97,6 +98,8 @@ const CorporateFleet = () => (
         intro="Work vans, pickups, dealer inventory and heavy equipment, cleaned on the client's own lot or job site."
         photos={Array.from({ length: Math.max(PHOTOS.fleet.length, PHOTOS.dealership.length) }, (_, i) => [PHOTOS.fleet[i], PHOTOS.dealership[i]]).flat().filter((p): p is (typeof PHOTOS.fleet)[number] => Boolean(p))}
       />
+
+      <WorkTruckPackage showFleetLink={false} />
 
       <ServiceFAQ title="Fleet questions" faqs={faqs} />
 

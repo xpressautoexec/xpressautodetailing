@@ -16,6 +16,9 @@ const faqs = [
   { q: "When do I pay?", a: "Once the service is complete and you're satisfied with it." },
 ];
 
-const FAQSection = () => <ServiceFAQ title="Common questions" faqs={faqs} />;
+/** Homepage FAQ. `pick` limits it to the most-asked questions (by index into the list above). */
+const FAQSection = ({ pick }: { pick?: number[] }) => (
+  <ServiceFAQ title="Common questions" faqs={pick ? pick.map((i) => faqs[i]).filter(Boolean) : faqs} />
+);
 
 export default FAQSection;
