@@ -35,8 +35,8 @@ const Navbar = () => {
           <img
             src="/xpress-logo-dark.png"
             alt="Xpress Auto & RV Detailing"
-            width={476}
-            height={175}
+            width={546}
+            height={180}
             className="h-11 w-auto object-contain lg:h-10 xl:h-12"
           />
         </Link>

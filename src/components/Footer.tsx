@@ -17,8 +17,8 @@ const Footer = () => (
               <img
                 src="/xpress-logo-dark.png"
                 alt="Xpress Auto & RV Detailing"
-                width={476}
-                height={175}
+                width={546}
+                height={180}
                 className="h-12 w-auto object-contain"
                 loading="lazy"
               />

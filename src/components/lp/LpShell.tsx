@@ -27,7 +27,7 @@ const LpShell = ({
     <SEO title={title} description={description} canonical={canonical} noindex />
     <header className="sticky top-0 z-50 border-b border-line bg-surface/95 backdrop-blur">
       <div className="shell flex h-header items-center justify-between">
-        <img src="/xpress-logo-dark.png" alt="Xpress Auto & RV Detailing" width={476} height={175} className="h-10 w-auto lg:h-11" />
+        <img src="/xpress-logo-dark.png" alt="Xpress Auto & RV Detailing" width={546} height={180} className="h-10 w-auto lg:h-11" />
         <a href={TEL_HREF} className="flex items-center gap-2 text-[15px] font-semibold text-ink hover:text-electric">
           <Phone className="h-4 w-4 text-electric" aria-hidden="true" />
           {NAP.phone}
