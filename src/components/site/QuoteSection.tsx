@@ -44,11 +44,11 @@ const QuoteSection = ({
             <dd className="mt-1 flex flex-wrap gap-x-6 gap-y-2">
               <a href={SMS_HREF} className="inline-flex items-center gap-2 font-semibold text-ink hover:text-electric">
                 <MessageSquareText className="h-4 w-4 text-electric" aria-hidden="true" />
-                Text {NAP.phone}
+                Text us photos
               </a>
               <a href={TEL_HREF} className="inline-flex items-center gap-2 font-semibold text-ink hover:text-electric">
                 <Phone className="h-4 w-4 text-electric" aria-hidden="true" />
-                Call
+                Call {NAP.phone}
               </a>
             </dd>
           </div>

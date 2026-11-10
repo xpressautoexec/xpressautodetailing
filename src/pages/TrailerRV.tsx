@@ -5,7 +5,10 @@ import Footer from "@/components/Footer";
 import QuoteSection from "@/components/site/QuoteSection";
 import PerFootCalculator from "@/components/PerFootCalculator";
 import FinancingEstimator from "@/components/rv/FinancingEstimator";
-import StatBand from "@/components/StatBand";
+import StatRow from "@/components/site/StatRow";
+import RvLengthEstimate from "@/components/rv/RvLengthEstimate";
+import XpressProcess from "@/components/site/XpressProcess";
+import { CTA, FILM, SYSTEMS } from "@/data/brand";
 import ServicePageHero from "@/components/ServicePageHero";
 import QuoteLink from "@/components/site/QuoteLink";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
@@ -78,12 +81,6 @@ const faqs = [
   },
 ];
 
-const STATS = [
-  { value: SEASON_STATS.rvs, label: "RVs serviced this season" },
-  { value: SEASON_STATS.cars, label: "Cars detailed this season" },
-  { value: FIVE_STAR_REVIEWS, label: "Five-star Google reviews" },
-  { value: "On site", label: "Storage lot, campground or driveway" },
-];
 
 const SECTORS = [
   {
@@ -228,10 +225,12 @@ const TrailerRV = () => (
 
       {/* Hero */}
       <ServicePageHero
-        title="RV detailing and gelcoat restoration, done where it's parked."
-        subtitle={`Per-foot pricing and a crew that brings its own water and power. ${
-          FINANCING_LIVE ? "Monthly financing on restoration work. " : ""
-        }Serving Calgary, Airdrie, Cochrane and Chestermere.`}
+        eyebrow="RV & trailer"
+        title="Restore the gelcoat. Protect the investment."
+        subtitle={`RV gelcoat restoration, oxidation removal and detailing, priced by the foot and done where it's parked across Calgary and Airdrie.${
+          FINANCING_LIVE ? " Monthly financing on restoration work." : ""
+        }`}
+        quoteLabel={CTA.rv}
         image={rvHero}
         imageAlt="Xpress crew washing a Class A diesel pusher on a Calgary driveway"
         width={1080}
@@ -241,7 +240,7 @@ const TrailerRV = () => (
         bookLabel="See RV packages"
       />
 
-      <StatBand stats={STATS} />
+      <StatRow />
 
       {/* Products */}
       <section className="shell flex flex-col gap-6 py-14 sm:flex-row sm:items-center sm:justify-between">
@@ -265,7 +264,8 @@ const TrailerRV = () => (
       {/* Who we work with */}
       <section className="border-y border-line bg-surface py-16 sm:py-24">
         <div className="shell">
-          <h2 className="max-w-xl font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+          <p className="eyebrow mb-3">Who we work with</p>
+          <h2 className="max-w-xl font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink sm:text-5xl">
             Built for owners, dealers and fleets
           </h2>
           <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
@@ -299,7 +299,8 @@ const TrailerRV = () => (
         <div className="shell">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-xl">
-              <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              <p className="eyebrow mb-3">{SYSTEMS.restore.tm} and packages</p>
+              <h2 className="font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink sm:text-5xl">
                 Packages, priced by the foot
               </h2>
               <p className="mt-4 text-[15px] leading-relaxed text-ink-2">
@@ -355,7 +356,7 @@ const TrailerRV = () => (
                         {b.popular && <span aria-hidden="true" className="absolute inset-y-0 left-0 w-1 bg-electric" />}
                         <span className="block font-heading text-base font-semibold text-ink">{b.name}</span>
                         <span className="mt-0.5 block text-xs text-muted-ink">
-                          {b.popular ? "Most booked" : b.seasonal ? b.seasonal : `Save ${b.save}`}
+                          {b.popular ? "Most chosen" : b.seasonal ? b.seasonal : `Save ${b.save}`}
                           {b.popular || b.seasonal ? ` · save ${b.save}` : ""}
                         </span>
                       </th>
@@ -402,7 +403,7 @@ const TrailerRV = () => (
                     <div>
                       <h3 className="font-heading text-base font-semibold text-ink">{b.name}</h3>
                       <p className="mt-0.5 text-xs text-muted-ink">
-                        {b.popular ? "Most booked" : b.seasonal ?? `Save ${b.save}`}
+                        {b.popular ? "Most chosen" : b.seasonal ?? `Save ${b.save}`}
                       </p>
                     </div>
                     <p className="text-right tabular-nums">
@@ -436,12 +437,35 @@ const TrailerRV = () => (
         </div>
       </section>
 
+      {/* Instant estimate by length */}
+      <section id="estimate" className="scroll-mt-24 section-y">
+        <div className="shell grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
+          <div>
+            <p className="eyebrow">Instant estimate</p>
+            <h2 className="mt-3 font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink sm:text-5xl">
+              Enter your length. See every price.
+            </h2>
+            <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-ink-2">
+              Every RV service and package for a unit your size. Restoration depends on how oxidized the gelcoat is, so it shows a starting price.
+            </p>
+            <QuoteLink
+              href="#assessment"
+              className="mt-8 inline-flex min-h-[48px] items-center justify-center rounded-md bg-electric px-6 text-sm font-semibold text-primary-foreground transition-colors hover:bg-electric-2"
+            >
+              {CTA.rv}
+            </QuoteLink>
+          </div>
+          <RvLengthEstimate />
+        </div>
+      </section>
+
       {/* Build your own */}
       <section id="build" className="scroll-mt-24 border-y border-line bg-surface py-16 sm:py-24">
         <div className="shell grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
           <div>
-            <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Estimate your price
+            <p className="eyebrow">Build your own</p>
+            <h2 className="mt-3 font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink sm:text-5xl">
+              Combine services.
             </h2>
             <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-ink-2">
               Pick a package or individual services and set the length of your unit. Packages already include the
@@ -486,12 +510,15 @@ const TrailerRV = () => (
         </div>
       </section>
 
+      <XpressProcess service="RV" tone="canvas" />
+
       {/* 3M restoration process */}
       <section id="process" className="scroll-mt-24 py-16 sm:py-24">
         <div className="shell grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <div className="lg:sticky lg:top-8 lg:self-start">
             <img src={logo3m} alt="3M" loading="lazy" className="h-7 w-auto" />
-            <h2 className="mt-6 font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+            <p className="eyebrow mt-6">{SYSTEMS.restore.tm}</p>
+            <h2 className="mt-3 font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink sm:text-5xl">
               The 3M gelcoat restoration process
             </h2>
             <p className="mt-4 max-w-md text-[15px] leading-relaxed text-ink-2">
@@ -502,7 +529,9 @@ const TrailerRV = () => (
             <QuoteLink
               href="#assessment"
               className="mt-8 inline-flex min-h-[48px] items-center justify-center rounded-md bg-electric px-6 text-sm font-semibold text-primary-foreground transition-colors hover:bg-electric-2"
-            />
+            >
+              {CTA.rv}
+            </QuoteLink>
           </div>
           <ol className="border-t border-line">
             {RESTORATION_STEPS.map((s, i) => (
@@ -560,9 +589,12 @@ const TrailerRV = () => (
       <section className="border-t border-line bg-surface py-16 sm:py-24">
         <div className="shell">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="max-w-xl font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Recent RV work
-            </h2>
+            <div>
+              <p className="eyebrow mb-3">Proof</p>
+              <h2 className="max-w-xl font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink sm:text-5xl">
+                Recent RV work
+              </h2>
+            </div>
             <Link to="/gallery" className="text-sm font-semibold text-electric hover:underline hover:underline-offset-4">
               Full gallery
             </Link>
@@ -586,7 +618,9 @@ const TrailerRV = () => (
             >
               <span>
                 <span className="block font-heading font-semibold text-ink">RV paint protection film</span>
-                <span className="mt-0.5 block text-sm text-muted-ink">Front caps and leading edges, up to a 10-year film warranty</span>
+                <span className="mt-0.5 block text-sm text-muted-ink">
+                  Front caps and leading edges in {FILM.name}{FILM.certified ? ", 10-year 3M film warranty" : ""}
+                </span>
               </span>
               <ArrowUpRight className="h-5 w-5 text-muted-ink group-hover:text-ink" aria-hidden="true" />
             </Link>

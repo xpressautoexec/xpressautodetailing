@@ -7,6 +7,8 @@ import Swoosh from "@/components/site/Swoosh";
 import NextOpenings from "@/components/site/NextOpenings";
 
 interface ServicePageHeroProps {
+  /** Blue uppercase category label above the headline. */
+  eyebrow?: ReactNode;
   title: ReactNode;
   image: string;
   /** Describe the photo when it shows a specific job; leave empty for decorative headers. */
@@ -29,6 +31,8 @@ interface ServicePageHeroProps {
   bookHref?: string;
   /** Force where "Get a quote" goes; by default it finds the page's quote form. */
   quoteHref?: string;
+  /** Primary button text where the page has its own CTA (fleet "Request a yard walk", RV "Book a free assessment"). */
+  quoteLabel?: string;
   /** Optional content under the actions (e.g. a package finder). */
   children?: ReactNode;
   /** "Next openings" strip under the hero (service pages). Hidden when no openings are set. */
@@ -48,6 +52,7 @@ const secondary =
  * One primary action (Get a quote), one outlined secondary (Call), booking as a text link.
  */
 const ServicePageHero = ({
+  eyebrow,
   title,
   image,
   imageAlt = "",
@@ -59,6 +64,7 @@ const ServicePageHero = ({
   phoneHref = TEL_HREF,
   bookHref = BOOKING_URL,
   quoteHref,
+  quoteLabel,
   children,
   width,
   height,
@@ -89,6 +95,7 @@ const ServicePageHero = ({
           </div>
 
           <div className="hero-copy relative flex flex-col justify-center pb-16 pt-9 sm:pb-24 sm:pt-12 lg:order-1 lg:py-20 lg:pr-14">
+            {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
             <Title className="font-heading text-[2.6rem] font-extrabold leading-[0.98] tracking-display text-ink sm:text-6xl lg:text-[4.25rem]">
               {title}
             </Title>
@@ -98,7 +105,9 @@ const ServicePageHero = ({
               </p>
             )}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <QuoteLink href={quoteHref} className={primary} />
+              <QuoteLink href={quoteHref} className={primary}>
+              {quoteLabel}
+            </QuoteLink>
               <a href={phoneHref} className={secondary}>
                 <Phone className="h-4 w-4 text-electric" aria-hidden="true" />
                 Call {PHONE}

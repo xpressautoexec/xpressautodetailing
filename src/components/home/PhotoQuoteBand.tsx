@@ -14,6 +14,7 @@ const PhotoQuoteBand = () => (
   <section id="quote" className="scroll-mt-24 bg-charcoal section-y">
     <div className="shell grid gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
       <div>
+        <p className="eyebrow mb-3 text-[hsl(224_90%_75%)]">Fastest quote</p>
         <h2 className="font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-primary-foreground sm:text-6xl">
           Text 3 photos, get a price in 15 minutes
         </h2>

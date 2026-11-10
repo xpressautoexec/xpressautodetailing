@@ -2,6 +2,8 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
+import { CTA } from "@/data/brand";
+import XpressProcess from "@/components/site/XpressProcess";
 import QuoteSection from "@/components/site/QuoteSection";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
@@ -62,6 +64,7 @@ const RVRentalFleet = () => (
       <Navbar />
       <AutoBreadcrumbs />
       <ServicePageHero
+        eyebrow="For business · RV rental fleets"
         title="RV rental fleet care"
         subtitle="Rental reviews live and die on how the unit smelled and looked at pickup. We work at your lot on your turnover schedule so units go back out ready."
         image={rvHero}
@@ -108,10 +111,12 @@ const RVRentalFleet = () => (
         clips={[CLIPS.rvCrewWash, CLIPS.rvInterior, CLIPS.trailerPolish, CLIPS.rvWalkaround]}
       />
 
+      <XpressProcess service="rental fleet" />
+
       <QuoteSection
         source="rv-rental-fleet"
         defaultVehicle="Fleet"
-        title="Request a fleet quote"
+        title={CTA.fleet}
         intro={`Tell us how many units, their lengths and your turnover windows. Or call or text ${NAP.phone}.`}
       />
 
@@ -120,7 +125,7 @@ const RVRentalFleet = () => (
 
       <QualityProducts lines={["3m", "menzerna", "gtechniq", "systemx"]} />
 
-      <ClosingCTA title="Units back out, ready" mode="quote" quoteHref="#quote" quoteLabel="Request a fleet quote" />
+      <ClosingCTA title="Units back out, ready" mode="quote" quoteHref="#quote" primaryLabel={CTA.fleet} />
 
       <Footer />
     </div>

@@ -18,6 +18,9 @@ import { PHOTOS } from "@/data/photos";
 import WorkShowcase from "@/components/site/WorkShowcase";
 import { RV_PPF, money } from "@/data/pricing";
 import { FILM_BRAND, NAP } from "@/data/copy";
+import { IS_3M_CERTIFIED } from "@/config/site";
+import { CTA, SYSTEMS } from "@/data/brand";
+import XpressProcess from "@/components/site/XpressProcess";
 import QualityProducts from "@/components/site/QualityProducts";
 
 type Level = "front-cap" | "front-plus" | "high-impact" | "full-body";
@@ -81,7 +84,7 @@ const faqs = [
   },
   {
     q: "Will the film yellow or peel?",
-    a: `We install ${FILM_BRAND} paint protection film. It is non-yellowing, hydrophobic and self-healing under heat, with a 7 to 10 year manufacturer warranty against yellowing, cracking and delamination. It removes cleanly without damaging the original finish.`,
+    a: `We install ${FILM_BRAND} paint protection film. It is non-yellowing, hydrophobic and self-healing under heat, ${IS_3M_CERTIFIED ? "with a 7 to 10 year manufacturer warranty against yellowing, cracking and delamination." : "and installed in-house."} It removes cleanly without damaging the original finish.`,
   },
   {
     q: "Can you install over gelcoat and decals?",
@@ -122,6 +125,7 @@ const RVPPF = () => (
       <Navbar />
       <AutoBreadcrumbs />
       <ServicePageHero
+        eyebrow={`${SYSTEMS.protect.tm} · RV film`}
         title="RV paint protection film"
         subtitle={`A front-cap respray can cost $8,000 to $20,000. Self-healing film takes the rock chips, bug acid and UV instead, for a fraction of that. Packages from ${money(from)}.`}
         image={rvPPFHero}
@@ -134,7 +138,7 @@ const RVPPF = () => (
       <Section id="packages">
         <SectionHeading
           title="Coverage packages"
-          intro={`Starting prices. Final coverage and price are confirmed at a free in-person inspection, and every package carries a 7 to 10 year ${FILM_BRAND} film warranty.`}
+          intro={`Starting prices. Final coverage and price are confirmed at a free in-person inspection.${IS_3M_CERTIFIED ? ` Every package carries a 7 to 10 year ${FILM_BRAND} film warranty.` : ""}`}
         />
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {packages.map((p) => (
@@ -143,14 +147,15 @@ const RVPPF = () => (
               <div className="rounded-md border border-line bg-canvas p-3">
                 <RVCoverageDiagram level={p.level} />
               </div>
-              <p className="mt-5 h-4 text-xs font-medium text-electric">{p.popular ? "Most booked" : ""}</p>
+              <p className="mt-5 h-4 text-xs font-medium text-electric">{p.popular ? "Most chosen" : ""}</p>
               <h3 className="mt-1 font-heading text-xl font-semibold text-ink">{p.name}</h3>
               <p className="mt-2">
                 <span className="text-sm text-muted-ink">From </span>
                 <span className="font-heading text-3xl font-semibold tracking-tight tabular-nums text-ink">{money(p.price)}</span>
               </p>
               <p className="mt-1 text-xs text-muted-ink">
-                {p.duration}, {p.warranty} film warranty
+                {p.duration}
+                {IS_3M_CERTIFIED && `, ${p.warranty} film warranty`}
               </p>
               <ul className="mt-5 flex-1 space-y-2">
                 {p.coverage.map((c) => (
@@ -162,7 +167,7 @@ const RVPPF = () => (
               </ul>
               <p className="mt-5 text-sm leading-relaxed text-muted-ink">{p.ideal}</p>
               <a href="#assessment" className={`${p.popular ? btnPrimary : btnSecondary} mt-6`}>
-                Book a free inspection
+                {CTA.rv}
               </a>
             </article>
           ))}
@@ -213,7 +218,7 @@ const RVPPF = () => (
                   </td>
                 ))}
               </tr>
-              <tr className="bg-canvas">
+              <tr className={`bg-canvas ${IS_3M_CERTIFIED ? "" : "hidden"}`}>
                 <th scope="row" className="px-5 py-3 font-medium text-ink">
                   Film warranty
                 </th>
@@ -242,6 +247,8 @@ const RVPPF = () => (
         <ProcessSteps steps={STEPS} />
       </Section>
 
+      <XpressProcess service="RV film" tone="canvas" />
+
       <QuoteSection
         id="assessment"
         source="rv-ppf"
@@ -261,7 +268,7 @@ const RVPPF = () => (
         body="Free in-person inspection, no pressure. We'll show you what coverage your rig actually needs."
         mode="quote"
         quoteHref="#assessment"
-        quoteLabel="Book a free inspection"
+        quoteLabel={CTA.rv}
       />
 
       <Footer />

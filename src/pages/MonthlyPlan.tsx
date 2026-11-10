@@ -79,8 +79,9 @@ const MonthlyPlan = () => {
         <section className="relative isolate overflow-hidden border-b border-line bg-surface">
           <div className="shell grid items-center gap-12 pb-24 pt-14 sm:pb-32 sm:pt-20 lg:grid-cols-[1.1fr_1fr]">
             <div className="max-w-[38rem]">
+              <p className="eyebrow mb-4">Membership · Xpress Pass</p>
               <h1 className="font-heading text-[2.6rem] font-extrabold leading-[0.98] tracking-display text-ink sm:text-6xl lg:text-[4.25rem]">
-                The Xpress Pass
+                Keep it detailed, automatically.
               </h1>
               <p className="mt-6 text-base leading-relaxed text-ink-2 sm:text-lg">
                 A detailing membership for one vehicle, with an included visit every 4, 8 or 13 weeks.
@@ -90,7 +91,7 @@ const MonthlyPlan = () => {
                 <QuoteLink className={`${btnPrimary} min-h-[52px] px-7`} />
                 <a href={NAP.phoneHref} className={`${btnSecondary} min-h-[52px]`}>
                   <Phone className="h-4 w-4 text-electric" aria-hidden="true" />
-                  Call to join
+                  Call {NAP.phone}
                 </a>
               </div>
               <a

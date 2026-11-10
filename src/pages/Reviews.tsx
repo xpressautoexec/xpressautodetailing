@@ -54,13 +54,14 @@ const Reviews = () => (
 
       <PageHeader
         eyebrow={
-          <div className="flex gap-1" aria-hidden="true">
+          <div className="flex items-center gap-1" aria-hidden="true">
+            <span className="eyebrow mr-3">Proof</span>
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="h-5 w-5 fill-current text-electric" />
             ))}
           </div>
         }
-        title="Why customers book Xpress"
+        title={`${FIVE_STAR_REVIEWS} five-star Google reviews.`}
         intro={
           <p>
             {FIVE_STAR_REVIEWS} five-star reviews on Google, earned the same way every time: published prices, a crew that

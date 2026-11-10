@@ -4,8 +4,11 @@
  *   "summer" (Apr–Oct): RV restoration and storage prep first.
  * Flip this twice a year. RV stays in the homepage path tiles either way.
  */
+import { SEASON as CONFIG_SEASON } from "@/config/site";
+
 export type Season = "winter" | "summer";
-export const SEASON: Season = "winter";
+/** Set in src/config/site.ts. */
+export const SEASON: Season = CONFIG_SEASON;
 
 /**
  * The crew. Add `photo` (an imported image from src/assets) and a one-line `fact` per person as

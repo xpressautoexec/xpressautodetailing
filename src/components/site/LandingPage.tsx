@@ -8,7 +8,7 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import QuoteSection from "@/components/site/QuoteSection";
 import ServicePageHero from "@/components/ServicePageHero";
 import GuaranteeStrip from "@/components/site/GuaranteeStrip";
-import ProcessSteps from "@/components/site/ProcessSteps";
+import XpressProcess from "@/components/site/XpressProcess";
 import ClosingCTA from "@/components/site/ClosingCTA";
 import QualityProducts from "@/components/site/QualityProducts";
 import type { ProductLine } from "@/data/copy";
@@ -37,13 +37,14 @@ const LandingPage = ({
   quote,
 }: {
   seo: { title: string; description: string; canonical: string; serviceName: string; serviceDescription: string };
-  hero: { title: string; subtitle: string; image: string; ctaType: "book" | "call"; imagePosition?: string; bookLabel?: string; phoneHref?: string; bookHref?: string };
-  features: { title: string; intro?: string; items: Item[] };
+  hero: { eyebrow?: string; quoteLabel?: string; title: string; subtitle: string; image: string; ctaType: "book" | "call"; imagePosition?: string; bookLabel?: string; phoneHref?: string; bookHref?: string };
+  features: { eyebrow?: string; title: string; intro?: string; items: Item[] };
   children?: ReactNode;
+  /** Service-specific steps, shown under the Xpress Process. */
   steps?: { title: string; items: Item[] };
   faqs: { title: string; items: { q: string; a: string; aNode?: ReactNode }[] };
   related: { label: string; to: string }[];
-  closing: { title: string; body?: string; mode: "book" | "quote"; quoteHref?: string; quoteLabel?: string; bookLabel?: string; phoneHref?: string; bookHref?: string };
+  closing: { title: string; body?: string; mode: "book" | "quote"; quoteHref?: string; quoteLabel?: string; bookLabel?: string; phoneHref?: string; bookHref?: string; primaryLabel?: string };
   /** Product lines for the "products we use" band; defaults to the general set. */
   products?: ProductLine[];
   /** Real job photos (and optional clips) shown after the features. */
@@ -64,6 +65,8 @@ const LandingPage = ({
       <Navbar />
       <AutoBreadcrumbs />
       <ServicePageHero
+        eyebrow={hero.eyebrow}
+        quoteLabel={hero.quoteLabel}
         title={hero.title}
         subtitle={hero.subtitle}
         image={hero.image}
@@ -76,11 +79,11 @@ const LandingPage = ({
       <GuaranteeStrip />
 
       <Section>
-        <SectionHeading title={features.title} intro={features.intro} />
+        <SectionHeading eyebrow={features.eyebrow} title={features.title} intro={features.intro} />
         <dl className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {features.items.map((f) => (
             <div key={f.title} className="border-t-2 border-ink pt-6">
-              <dt className="font-heading text-lg font-semibold text-ink">{f.title}</dt>
+              <dt className="font-heading text-xl font-bold text-ink">{f.title}</dt>
               <dd className="mt-2 text-[15px] leading-relaxed text-ink-2">{f.body}</dd>
             </div>
           ))}
@@ -93,19 +96,15 @@ const LandingPage = ({
 
       {!childrenBeforeWork && children}
 
-      {steps && (
-        <Section tone="surface">
-          <SectionHeading title={steps.title} />
-          <ProcessSteps steps={steps.items} />
-        </Section>
-      )}
+      <XpressProcess service={seo.serviceName.toLowerCase()} details={steps?.items} detailsTitle={steps?.title} />
 
       <QuoteSection source={seo.canonical.replace(/^\//, "") || "landing"} {...quote} />
 
       <ServiceFAQ title={faqs.title} faqs={faqs.items} />
 
       <Section tone="surface">
-        <h2 className="font-heading text-xl font-semibold text-ink">Related services</h2>
+        <p className="eyebrow">Related</p>
+        <h2 className="mt-2 font-heading text-2xl font-bold text-ink">Related services</h2>
         <ul className="mt-5 flex flex-wrap gap-x-8 gap-y-3">
           {related.map((r) => (
             <li key={r.to}>

@@ -8,6 +8,10 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import CompanyLogos from "@/components/CompanyLogos";
 import WorkTruckPackage from "@/components/WorkTruckPackage";
 import ProcessSteps from "@/components/site/ProcessSteps";
+import StatRow from "@/components/site/StatRow";
+import XpressProcess from "@/components/site/XpressProcess";
+import B2BTestimonials from "@/components/site/B2BTestimonials";
+import { CTA, SYSTEMS } from "@/data/brand";
 import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section, SectionHeading } from "@/components/site/Section";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
@@ -22,6 +26,17 @@ const WHAT_WE_SERVICE = [
   { title: "Dealership lots", body: "Lot washes, delivery prep and reconditioning on pre-owned inventory, priced per unit and scheduled weekly." },
   { title: "Heavy equipment", body: "Excavators, loaders and haul trucks degreased, washed and cabs detailed at the site or yard." },
   { title: "Company and executive vehicles", body: "Scheduled interior and exterior details on a rotation your drivers never have to think about." },
+];
+
+const TERMS = [
+  { title: "Per-unit rate", body: "A written rate per vehicle type, set after the yard walk." },
+  { title: "Rotation schedule", body: "Weekly, bi-weekly or monthly, planned around your shifts." },
+  { title: "Off-hours service", body: "Early morning, evening or weekend so units stay on the road." },
+  { title: "Monthly invoicing", body: "One invoice with a per-unit breakdown, on net terms." },
+  { title: "Own water and power", body: WATER_LINE },
+  { title: "$2M liability", body: "Commercial liability coverage on every visit." },
+  { title: "Yard walk first", body: "We count units and note condition before any price." },
+  { title: "On your lot", body: "We come to the yard or job site, so nobody drives a unit anywhere." },
 ];
 
 const HOW = [
@@ -63,35 +78,57 @@ const CorporateFleet = () => (
       <Navbar />
       <AutoBreadcrumbs />
       <ServicePageHero
-        title="Fleet and dealership detailing"
-        subtitle="Scheduled on-site cleaning for work trucks, dealership inventory and heavy equipment. No drive time, no downtime, one invoice a month."
+        eyebrow="For business"
+        title="Clean units. On schedule. One invoice."
+        subtitle={`The ${SYSTEMS.fleet.tm}: fleet washing in Calgary and Airdrie on your own lot, on a per-unit rate in writing, with one monthly invoice.`}
         image={fleetHero}
         ctaType="call"
-        bookHref="#quote"
-        bookLabel="Get a fleet quote"
+        quoteLabel={CTA.fleet}
+        bookHref="#how"
+        bookLabel="How an account works"
       />
+
+      <StatRow />
 
       <CompanyLogos />
 
       <Section>
-        <SectionHeading title="What we service" />
+        <SectionHeading eyebrow={SYSTEMS.fleet.name} title="What you get in writing." intro="The terms every fleet account runs on." />
+        <ul className="grid gap-x-8 gap-y-4 border-t border-line pt-6 sm:grid-cols-2 lg:grid-cols-4">
+          {TERMS.map((t) => (
+            <li key={t.title} className="border-b border-line pb-4">
+              <p className="font-heading text-xl font-bold text-ink">{t.title}</p>
+              <p className="mt-1 text-sm leading-relaxed text-ink-2">{t.body}</p>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-12">
+          <B2BTestimonials />
+        </div>
+      </Section>
+
+      <Section id="dealerships" tone="surface">
+        <SectionHeading eyebrow="What we service" title="Trucks, lots, equipment, executives." />
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {WHAT_WE_SERVICE.map((s) => (
             <article key={s.title} className="border-t-2 border-ink pt-6">
-              <h3 className="font-heading text-lg font-semibold text-ink">{s.title}</h3>
+              <h3 className="font-heading text-2xl font-bold text-ink">{s.title}</h3>
               <p className="mt-2 text-[15px] leading-relaxed text-ink-2">{s.body}</p>
             </article>
           ))}
         </div>
       </Section>
 
-      <Section tone="surface">
+      <Section id="how" className="scroll-mt-24">
         <SectionHeading
-          title="How fleet accounts work"
+          eyebrow="How it works"
+          title="Yard walk to monthly invoice."
           intro="Fleet pricing is quoted per unit. There's no published rate card because no two fleets are alike."
         />
         <ProcessSteps steps={HOW} />
       </Section>
+
+      <XpressProcess service="fleet" />
 
       <WorkShowcase
         title="Recent fleet work"
@@ -104,8 +141,8 @@ const CorporateFleet = () => (
       <QuoteSection
         source="fleet"
         defaultVehicle="Fleet"
-        title="Request a fleet quote"
-        intro="Tell us how many units and where they sit. We'll come count them and send a written rate."
+        title={CTA.fleet}
+        intro="Tell us how many units and where they sit. We'll come count them and send a written per-unit rate."
       />
 
       <ServiceFAQ title="Fleet questions" faqs={faqs} />
@@ -118,7 +155,7 @@ const CorporateFleet = () => (
         body="We work early, late and on weekends so your vehicles never come off shift."
         mode="quote"
         quoteHref="#quote"
-        quoteLabel="Request a fleet quote"
+        primaryLabel={CTA.fleet}
       />
 
       <Footer />

@@ -14,18 +14,11 @@ import PhotoQuoteBand from "@/components/home/PhotoQuoteBand";
 import CrewBlock from "@/components/home/CrewBlock";
 import HomeReviews from "@/components/home/HomeReviews";
 import CompactPackages from "@/components/home/CompactPackages";
+import StatRow from "@/components/site/StatRow";
 import JobReceipts from "@/components/site/JobReceipts";
 import { featuredJobs, useJobs } from "@/hooks/useJobs";
 import QualityProducts from "@/components/site/QualityProducts";
-import { COVERAGE } from "@/data/copy";
-import { FIVE_STAR_REVIEWS, SEASON_STATS } from "@/data/pricing";
 
-const PROOF = [
-  { strong: FIVE_STAR_REVIEWS, rest: "five-star Google reviews" },
-  { strong: SEASON_STATS.cars, rest: "cars this season" },
-  { strong: COVERAGE.replace(/ liability coverage$/, ""), rest: "liability coverage" },
-  { strong: "Authorized", rest: "System X installer" },
-];
 
 /** FAQ indexes (FAQSection list) shown on the homepage: the six most asked before booking. */
 const HOME_FAQS = [8, 0, 9, 11, 10, 5];
@@ -51,22 +44,8 @@ const Index = () => (
       {/* 1. Hero: promise, three paths, one quote action */}
       <HomeHero />
 
-      {/* 2. Proof strip + client logos */}
-      <div className="border-b border-line bg-surface">
-        <ul className="shell grid grid-cols-2 lg:grid-cols-4">
-          {PROOF.map((p, i) => (
-            <li
-              key={p.rest}
-              className={`py-6 sm:py-8 ${i % 2 === 1 ? "border-l border-line pl-5 sm:pl-8" : ""} ${
-                i >= 2 ? "border-t border-line lg:border-t-0" : ""
-              } ${i === 2 ? "lg:border-l lg:pl-8" : ""}`}
-            >
-              <span className="num block text-3xl leading-none text-electric sm:text-4xl">{p.strong}</span>
-              <span className="mt-1.5 block text-sm text-muted-ink">{p.rest}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {/* 2. Stat row + client logos */}
+      <StatRow />
       <CompanyLogos />
 
       {/* 3. Seasonal feature (SEASON flag in data/season.ts) */}
@@ -79,9 +58,12 @@ const Index = () => (
       <section className="section-y bg-surface" aria-labelledby="receipts-title">
         <div className="shell">
           <div className="mb-10 flex flex-col gap-4 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
-            <h2 id="receipts-title" className="font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink sm:text-6xl">
-              Recent jobs
-            </h2>
+            <div>
+              <p className="eyebrow mb-3">Job receipts</p>
+              <h2 id="receipts-title" className="font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink sm:text-6xl">
+                Real jobs, written down.
+              </h2>
+            </div>
             <Link to="/gallery" className="inline-flex items-center gap-1.5 text-sm font-semibold text-electric hover:underline hover:underline-offset-4">
               See the gallery
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -100,11 +82,12 @@ const Index = () => (
       {/* 8. Car packages, one compact table */}
       <section id="packages" className="section-y scroll-mt-24 border-t border-line bg-tint" aria-labelledby="packages-title">
         <div className="shell">
+          <p className="eyebrow mb-3">Detailing</p>
           <h2 id="packages-title" className="font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink sm:text-6xl">
-            Car detailing packages
+            A reset, not a wash.
           </h2>
           <p className="mb-8 mt-5 max-w-xl text-base leading-relaxed text-ink-2">
-            Pick your vehicle size and the prices update. Published prices, no call-for-pricing.
+            Car detailing packages priced by vehicle size: pick yours and the prices update.
           </p>
           <CompactPackages />
         </div>

@@ -110,7 +110,7 @@ const QuoteForm = ({
   defaultVehicle,
   defaultNeed,
   defaultLocation = "mobile",
-  submitLabel = "Get my price",
+  submitLabel = "Get a quote",
   contactOnly = false,
   confirmation = "Got it — we'll text you a price, usually within 15 minutes during the day.",
 }: Props) => {
@@ -269,7 +269,7 @@ const QuoteForm = ({
               className="mt-6 inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-md bg-electric px-6 text-[15px] font-semibold text-primary-foreground hover:bg-electric-2 sm:w-auto"
             >
               <MessageSquareText className="h-4 w-4" aria-hidden="true" />
-              Text photos to {NAP.phone}
+              Text us photos
             </a>
           </>
         ) : (
@@ -341,7 +341,7 @@ const QuoteForm = ({
           <p className="mt-4 text-center text-sm text-muted-ink">
             Rather just text?{" "}
             <a href={SMS_HREF} className="font-semibold text-electric hover:underline hover:underline-offset-4">
-              Send photos to {NAP.phone}
+              Text us photos
             </a>
           </p>
         </div>

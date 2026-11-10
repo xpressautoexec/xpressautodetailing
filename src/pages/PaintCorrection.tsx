@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import LandingPage from "@/components/site/LandingPage";
-import { Section, SectionHeading, btnPrimary } from "@/components/site/Section";
+import CorrectionTable from "@/components/site/CorrectionTable";
+import { Section, SectionHeading } from "@/components/site/Section";
 import heroImg from "@/assets/jobs/hero-paint-correction.webp";
 import { PHOTOS } from "@/data/photos";
 import { CERAMIC_PACKAGES, money } from "@/data/pricing";
@@ -50,12 +50,13 @@ const PaintCorrection = () => (
       serviceDescription: "Machine paint correction and polishing in Calgary and area.",
     }}
     hero={{
-      title: "Paint correction: swirls gone for good",
-      subtitle: "Those spiderweb scratches you see in direct sun are wash swirls in the clear coat. Machine polishing removes them permanently. We measure paint depth first and correct under proper lighting.",
+      eyebrow: "Paint correction",
+      title: "Remove the swirls. Keep the clear coat.",
+      subtitle: "Paint correction in Calgary, staged to what your clear coat can safely give: we measure paint depth first and correct under inspection lighting.",
       image: heroImg,
       ctaType: "call",
-      bookHref: "/ceramic-paint-correction#packages",
-      bookLabel: "See packages",
+      bookHref: "#correction-stages",
+      bookLabel: "Compare the stages",
     }}
     work={{
       title: "Recent correction work",
@@ -78,16 +79,15 @@ const PaintCorrection = () => (
       { label: "RV gelcoat restoration", to: "/rv-trailer" },
       { label: "Car detailing", to: "/detailing" },
     ]}
-    closing={{ title: "See what your paint needs", body: "Free inspection, no obligation.", mode: "quote", quoteHref: "/ceramic-paint-correction#assessment", quoteLabel: "Book a free paint inspection" }}
+    closing={{ title: "See what your paint needs", body: "Free inspection, no obligation.", mode: "quote", quoteHref: "#quote" }}
   >
-    <Section tone="surface">
+    <CorrectionTable tone="surface" />
+
+    <Section tone="canvas">
       <SectionHeading
-        title="Defects we correct"
-        action={
-          <Link to="/ceramic-paint-correction" className={btnPrimary}>
-            Packages from {money(from)}
-          </Link>
-        }
+        eyebrow="Defects"
+        title="What correction takes out"
+        intro={`Correction is included in every coating tier, from ${money(from)}.`}
       />
       <ul className="grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-4">
         {DEFECTS.map((d) => (

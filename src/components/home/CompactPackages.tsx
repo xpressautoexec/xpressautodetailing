@@ -53,7 +53,7 @@ const CompactPackages = () => {
                     <span className="flex flex-wrap items-center gap-2">
                       <span className="font-heading text-xl font-bold text-ink">{p.name}</span>
                       {p.popular && (
-                        <span className="rounded-sm bg-electric-soft px-1.5 py-0.5 text-[11px] font-semibold text-electric">Most booked</span>
+                        <span className="rounded-sm bg-electric-soft px-1.5 py-0.5 text-[11px] font-semibold text-electric">Most chosen</span>
                       )}
                       {p.memberOnly && (
                         <span className="rounded-sm border border-line px-1.5 py-0.5 text-[11px] font-semibold text-muted-ink">Members only</span>

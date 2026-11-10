@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import LandingPage from "@/components/site/LandingPage";
+import { CTA } from "@/data/brand";
 import { Section, SectionHeading, btnPrimary } from "@/components/site/Section";
 import rvHero from "@/assets/jobs/hero-rv-detailing.webp";
 import { PHOTOS, CLIPS } from "@/data/photos";
@@ -39,6 +40,7 @@ const RVDetailing = () => (
       serviceDescription: "Mobile RV, trailer and motorhome detailing and oxidation removal in Calgary and area.",
     }}
     hero={{
+      quoteLabel: CTA.rv,
       title: "RV detailing done where you store it",
       subtitle: "Alberta sun, hail and road brine are hard on gelcoat. We restore oxidized fibreglass, strip black streaks, clean the living space and seal the unit at your storage lot, campground or driveway.",
       image: rvHero,
@@ -68,7 +70,7 @@ const RVDetailing = () => (
       { label: "RV rental fleet care", to: "/rv-trailer/rental-fleet" },
       { label: "Marine and pontoon", to: "/marine" },
     ]}
-    closing={{ title: "Get your RV ready for the season", mode: "quote", quoteHref: "/rv-trailer#assessment", quoteLabel: "Book a free RV assessment" }}
+    closing={{ title: "Get your RV ready for the season", mode: "quote", quoteHref: "#quote", primaryLabel: CTA.rv }}
   >
     <Section tone="surface">
       <SectionHeading

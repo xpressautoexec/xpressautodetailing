@@ -468,10 +468,10 @@ export const memberPriceFor = (pkg: AutoPackage, size: VehicleSizeId): number | 
  * PPF_UPCHARGE applies to trucks / large SUVs and exotics.
  */
 export const CAR_PPF = [
-  { id: "partial-front", name: "Partial Front", price: 999, time: "1 day", covers: ["Leading 18–24 inches of the hood", "Front bumper", "Both mirror caps"] },
-  { id: "full-front", name: "Full Front", price: 1899, popular: true, time: "1 day", covers: ["Full hood, no seam line", "Full front fenders", "Front bumper and mirror caps"] },
-  { id: "track-pack", name: "Track Pack", price: 2899, time: "1–2 days", covers: ["Everything in Full Front", "A-pillars and roof leading edge", "Rocker panels", "Rear arch impact zones"] },
-  { id: "full-vehicle", name: "Full Vehicle", price: 5999, time: "2–3 days", covers: ["Every painted panel", "Wrapped edges wherever possible"] },
+  { id: "partial-front", name: "Partial Front", price: 999, time: "1 day", forWho: "Daily drivers that see city streets more than highways.", covers: ["Front bumper", "Partial hood (leading edge)", "Partial front fenders", "Mirror caps"] },
+  { id: "full-front", name: "Full Front", price: 1899, popular: true, time: "1 day", forWho: "Highway commuters and new vehicles. No seam line on the hood.", covers: ["Full hood", "Full front fenders", "Front bumper", "Mirror caps", "Headlights"] },
+  { id: "track-pack", name: "Track Pack", price: 2899, time: "1–2 days", forWho: "Gravel roads, mountain trips and lowered or performance cars.", covers: ["Everything in Full Front", "Rocker panels", "A-pillars", "Door cups and door edges", "Rear impact zones"] },
+  { id: "full-vehicle", name: "Full Body", price: 5999, time: "2–3 days", forWho: "Collector, exotic and long-term vehicles.", covers: ["Every painted panel", "Wrapped edges wherever possible"] },
 ];
 
 export const PPF_UPCHARGE = { truckSuvPct: 15, exoticPct: 25 };

@@ -26,7 +26,7 @@ const WorkTruckPackage = ({ showFleetLink = true }: { showFleetLink?: boolean })
           {tier.popular && <span aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-electric" />}
           <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="h-4 text-xs font-medium text-electric">{tier.popular ? "Most booked" : ""}</p>
+              <p className="h-4 text-xs font-medium text-electric">{tier.popular ? "Most chosen" : ""}</p>
               <h3 className="mt-1 font-heading text-xl font-semibold text-ink">{tier.name}</h3>
             </div>
             <div className="text-right">

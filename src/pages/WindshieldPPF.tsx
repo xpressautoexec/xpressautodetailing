@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import LandingPage from "@/components/site/LandingPage";
+import { SYSTEMS } from "@/data/brand";
 import { Section, SectionHeading, btnSecondary, cardClass } from "@/components/site/Section";
 import heroImg from "@/assets/windshield-ppf-hero.jpg";
 import { WINDSHIELD_PPF, fielddUrl, money } from "@/data/pricing";
@@ -8,7 +9,7 @@ import WindshieldDiagram from "@/components/ppf/WindshieldDiagram";
 import PPFCraft from "@/components/ppf/PPFCraft";
 
 const TEL = "tel:+15875004523";
-const BOOK_LABEL = "Book windshield film";
+const BOOK_LABEL = "Book online";
 const from = Math.min(...WINDSHIELD_PPF.map((t) => t.price));
 
 const INVESTMENT = [
@@ -63,8 +64,9 @@ const WindshieldPPF = () => (
       serviceDescription: `${WINDSHIELD_FILM_BRAND} windshield protection film installed at your home or work in Calgary and area.`,
     }}
     hero={{
-      title: "Windshield protection film: stop rock chips before they crack",
-      subtitle: `Alberta roads throw gravel all year, and one chip can spread into a crack across your line of sight. We fit ${WINDSHIELD_FILM_BRAND}, a clear film made for windshields, to the outside of your glass so it takes the hits instead. We come to your home or work anywhere in Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County.`,
+      eyebrow: "Windshield protection",
+      title: "Fewer chips. Fewer windshields.",
+      subtitle: `${WINDSHIELD_FILM_BRAND} windshield protection film for Alberta's gravel highways, part of ${SYSTEMS.protect.tm}.`,
       image: heroImg,
       ctaType: "book",
       bookLabel: BOOK_LABEL,

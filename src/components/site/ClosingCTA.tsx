@@ -21,6 +21,7 @@ const ClosingCTA = ({
   bookLabel = "Book online",
   phoneHref = NAP.phoneHref,
   bookHref = BOOKING_URL,
+  primaryLabel,
 }: {
   title?: string;
   body?: string;
@@ -32,6 +33,8 @@ const ClosingCTA = ({
   phoneHref?: string;
   /** Where the booking link points: this page's Fieldd service, an on-page anchor or a route. */
   bookHref?: string;
+  /** Primary button text (default "Get a quote"); fleet and RV pages use their own CTA. */
+  primaryLabel?: string;
 }) => {
   // A quote form anchor becomes the primary target; any other destination is offered as a link.
   const quoteIsForm = !!quoteHref && /^#(assessment|quote)$/.test(quoteHref);
@@ -65,14 +68,16 @@ const ClosingCTA = ({
         )}
       </div>
       <div className="flex flex-col gap-3 sm:flex-row">
-        <QuoteLink href={quoteIsForm ? quoteHref : undefined} className={`${btnPrimary} min-h-[52px] px-7`} />
+        <QuoteLink href={quoteIsForm ? quoteHref : undefined} className={`${btnPrimary} min-h-[52px] px-7`}>
+          {primaryLabel}
+        </QuoteLink>
         <a href={SMS_HREF} className={`${btnSecondaryDark} min-h-[52px]`}>
           <MessageSquareText className="h-4 w-4" aria-hidden="true" />
-          Text photos
+          Text us photos
         </a>
         <a href={phoneHref} className={`${btnSecondaryDark} min-h-[52px]`}>
           <Phone className="h-4 w-4" aria-hidden="true" />
-          {NAP.phone}
+          Call {NAP.phone}
         </a>
       </div>
     </div>

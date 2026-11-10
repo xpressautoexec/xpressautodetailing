@@ -55,12 +55,12 @@ const HomeHero = () => {
       <div className="shell pb-24 pt-10 sm:pb-32 sm:pt-14 lg:pb-36 lg:pt-16">
         <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_17rem] lg:gap-16">
           <div>
-            <h1 className="max-w-[15ch] font-heading text-[2.7rem] font-extrabold leading-[0.95] tracking-display text-ink sm:text-6xl lg:text-[5.25rem]">
-              Detailing that comes to you — or a heated shop when it's -25.
+            <p className="eyebrow">Auto · RV · Fleet — Calgary &amp; Airdrie</p>
+            <h1 className="mt-4 max-w-[14ch] font-heading text-[2.9rem] font-extrabold leading-[0.95] tracking-display text-ink sm:text-6xl lg:text-[5.5rem]">
+              Protection, built for Alberta roads.
             </h1>
             <p className="mt-6 max-w-[38rem] text-base leading-relaxed text-ink-2 sm:text-lg">
-              Mobile vans with their own water and power across Calgary, plus our Airdrie shop for ceramic, PPF and
-              paint correction.
+              Detailing, ceramic coating and paint protection film — mobile across Calgary, or in our heated Airdrie shop.
             </p>
           </div>
           {video && (

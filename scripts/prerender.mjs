@@ -33,6 +33,8 @@ const ROUTES = [
   "/reviews",
   "/contact",
   "/quote",
+  "/warranty",
+  "/lease-return",
   "/lp/interior-detailing",
   "/lp/ceramic-ppf",
   "/lp/fleet",

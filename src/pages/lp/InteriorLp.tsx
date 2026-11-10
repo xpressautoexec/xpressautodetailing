@@ -8,7 +8,7 @@ import { COVERAGE, WATER_LINE } from "@/data/copy";
 import small from "@/assets/lp/interior-640.webp";
 import large from "@/assets/lp/interior-1050.webp";
 
-const CTA = "Get my price";
+const CTA = "Get a quote";
 const PKGS = ["refresh", "showroom"].map((id) => AUTO_PACKAGES.find((p) => p.id === id)!);
 const deep = PKGS[1];
 

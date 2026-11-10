@@ -14,6 +14,8 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import GalleryCarousel from "@/components/GalleryCarousel";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import GuaranteeStrip from "@/components/site/GuaranteeStrip";
+import PackageCompare from "@/components/site/PackageCompare";
+import XpressProcess from "@/components/site/XpressProcess";
 import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section } from "@/components/site/Section";
 import completeHero from "@/assets/jobs/hero-detailing.webp";
@@ -88,8 +90,9 @@ const Detailing = () => {
       <Navbar />
       <AutoBreadcrumbs />
       <ServicePageHero
-        title="Mobile car detailing"
-        subtitle={`${AUTO_PACKAGES.length} packages priced by vehicle size, done in your driveway, parkade or office lot. Our vans bring their own water and power.`}
+        eyebrow="Detailing"
+        title="A reset, not a wash."
+        subtitle={`${AUTO_PACKAGES.length} detailing packages priced by vehicle size: mobile detailing in Calgary and Airdrie, done in your driveway, parkade or office lot with our own water and power.`}
         image={completeHero}
         bookHref="#packages"
         bookLabel="Choose a package"
@@ -97,12 +100,12 @@ const Detailing = () => {
       <GuaranteeStrip />
 
 
-      <Section tone="dark" id="packages">
+      <Section id="packages">
         <AutoPackages
-          dark
           heading="Detailing packages"
           intro="Pick your vehicle size and the prices update. Prices are before tax, with no travel charge in our service area."
         />
+        <PackageCompare />
       </Section>
 
       <GalleryCarousel
@@ -111,12 +114,15 @@ const Detailing = () => {
         exclude={DETAILING_SRCS}
       />
 
+      <XpressProcess service="detailing" />
+
       <WorkTruckPackage />
 
       <Section id="add-ons">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <div>
-            <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Add-ons</h2>
+            <p className="eyebrow">Add-ons</p>
+            <h2 className="mt-3 font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink sm:text-5xl">Add to any package.</h2>
             <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-ink-2">
               Add any of these to any package. Xpress Pass members take {PASS_ADDON_DISCOUNT}% off every add-on.
             </p>

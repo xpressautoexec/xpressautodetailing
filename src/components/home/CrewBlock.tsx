@@ -9,6 +9,7 @@ const CrewBlock = () => (
   <section className="section-y border-y border-line bg-tint" aria-labelledby="crew-title">
     <div className="shell grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
       <div>
+        <p className="eyebrow mb-3">The crew</p>
         <h2 id="crew-title" className="font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink sm:text-6xl">
           Who's coming to your driveway
         </h2>

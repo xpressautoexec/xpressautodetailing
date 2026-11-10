@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import LandingPage from "@/components/site/LandingPage";
-import { Section, SectionHeading, btnPrimary, cardClass } from "@/components/site/Section";
+import CoatTiers from "@/components/site/CoatTiers";
+import { Section, SectionHeading, cardClass } from "@/components/site/Section";
 import heroImg from "@/assets/jobs/hero-ceramic-coating.webp";
 import { PHOTOS } from "@/data/photos";
 import { CERAMIC_PACKAGES, money } from "@/data/pricing";
@@ -43,12 +43,13 @@ const CeramicCoating = () => (
       serviceDescription: "Ceramic coating with paint correction in Calgary and area.",
     }}
     hero={{
-      title: "Ceramic coating built for Alberta winters",
-      subtitle: "Six months a year Calgary roads are coated in salt brine and mag chloride. A ceramic coating puts a hard, hydrophobic barrier between that and your clear coat, and makes every wash easier for years.",
+      eyebrow: "Ceramic coating",
+      title: "Gloss measured in years, not weeks.",
+      subtitle: "Ceramic coating in Calgary puts a hard, hydrophobic layer between six months of salt brine and your clear coat, and makes every wash easier for years.",
       image: heroImg,
       ctaType: "call",
-      bookHref: "/ceramic-paint-correction#packages",
-      bookLabel: "See packages",
+      bookHref: "#packages",
+      bookLabel: "See Xpress Coat tiers",
     }}
     work={{
       title: "Recent coating and correction work",
@@ -80,16 +81,15 @@ const CeramicCoating = () => (
       { label: "Paint correction", to: "/paint-correction" },
       { label: "Car detailing", to: "/detailing" },
     ]}
-    closing={{ title: "Find the right coating", body: "Free paint inspection, no obligation.", mode: "quote", quoteHref: "/ceramic-paint-correction#assessment", quoteLabel: "Book a free paint inspection" }}
+    closing={{ title: "Find the right coating", body: "Free paint inspection, no obligation.", mode: "quote", quoteHref: "#quote" }}
   >
-    <Section tone="surface">
+    <CoatTiers />
+
+    <Section tone="canvas">
       <SectionHeading
+        eyebrow="Compare"
         title="Coating, wax or film"
-        action={
-          <Link to="/ceramic-paint-correction" className={btnPrimary}>
-            Coating packages from {money(from)}
-          </Link>
-        }
+        intro={`Coating tiers start at ${money(from)}. Here's where each option fits.`}
       />
       <dl className={`${cardClass} divide-y divide-line`}>
         {COMPARE.map((c) => (

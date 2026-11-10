@@ -8,7 +8,7 @@ import { FILM_BRAND, SHOP, WINDSHIELD_FILM_BRAND } from "@/data/copy";
 import small from "@/assets/lp/ceramic-640.webp";
 import large from "@/assets/lp/ceramic-1050.webp";
 
-const CTA = "Get my price";
+const CTA = "Get a quote";
 const from = (n: number) => `From ${money(n)}`;
 
 const faqs = [
@@ -65,7 +65,7 @@ const CeramicPpfLp = () => (
       points={[
         "Authorized System X installer",
         `${FILM_BRAND} paint film · ${WINDSHIELD_FILM_BRAND} windshield film`,
-        "Add photos for an exact price by text",
+        "Add photos for an exact quote by text",
       ]}
       image={{ small, large, alt: "White Mercedes-AMG GLE headlight after paint correction and System X ceramic coating" }}
       form={

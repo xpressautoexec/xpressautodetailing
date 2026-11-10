@@ -122,7 +122,16 @@ export const NAV_LINKS: { label: string; href: string; children?: { label: strin
       { label: "RV rental fleet care", href: "/rv-trailer/rental-fleet" },
     ],
   },
-  { label: "Fleet", href: "/fleet" },
+  {
+    label: "For Business",
+    href: "/fleet",
+    children: [
+      { label: "Fleet Program", href: "/fleet" },
+      { label: "Dealerships", href: "/fleet#dealerships" },
+      { label: "RV Rental Fleets", href: "/rv-trailer/rental-fleet" },
+      { label: "Lease Return Prep", href: "/lease-return" },
+    ],
+  },
   { label: "Reviews", href: "/reviews" },
   {
     label: "More",
@@ -136,6 +145,7 @@ export const NAV_LINKS: { label: string; href: string; children?: { label: strin
       { label: "Training", href: "/training" },
       { label: "Gift Cards", href: "/gift-cards" },
       { label: "Blog", href: "/blog" },
+      { label: "Warranty & Care", href: "/warranty" },
     ],
   },
 ];
@@ -170,6 +180,7 @@ export const FOOTER_SERVICES = [
   { label: "Ceramic coating & paint correction", href: "/ceramic-paint-correction" },
   { label: "Headlight restoration", href: "/headlight-restoration" },
   { label: "Fleet & dealership", href: "/fleet" },
+  { label: "Lease return prep", href: "/lease-return" },
   { label: "The Xpress Pass", href: "/xpress-pass" },
 ];
 
@@ -177,6 +188,7 @@ export const FOOTER_COMPANY = [
   { label: "Reviews & why Xpress", href: "/reviews" },
   { label: "Gallery", href: "/gallery" },
   { label: "Price comparison", href: "/calgary-detailing-price-comparison" },
+  { label: "Warranty & care", href: "/warranty" },
   { label: "Gift cards", href: "/gift-cards" },
   { label: "Training", href: "/training" },
   { label: "Blog", href: "/blog" },

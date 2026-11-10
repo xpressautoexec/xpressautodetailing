@@ -42,7 +42,8 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
       <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         {heading && (
           <div className="max-w-xl">
-            <h2 className={`font-heading text-3xl font-semibold tracking-tight sm:text-4xl ${text}`}>{heading}</h2>
+            <p className="eyebrow mb-3">Packages</p>
+            <h2 className={`font-heading text-4xl font-extrabold leading-[1.0] tracking-display sm:text-5xl ${text}`}>{heading}</h2>
             {intro && <p className={`mt-4 text-[15px] leading-relaxed ${sub}`}>{intro}</p>}
           </div>
         )}
@@ -92,9 +93,9 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
           >
             {p.popular && <span aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-electric" />}
             <p className={`h-4 text-xs font-medium ${p.popular ? "text-electric" : muted}`}>
-              {p.popular ? "Most booked" : p.memberOnly ? "Members only" : ""}
+              {p.popular ? "Most chosen" : p.memberOnly ? "Members only" : ""}
             </p>
-            <h3 className={`mt-1 font-heading text-lg font-semibold ${text}`}>{io ? io.name : p.name}</h3>
+            <h3 className={`mt-1 font-heading text-2xl font-bold ${text}`}>{io ? io.name : p.name}</h3>
             {p.interiorOnly && (
               <div
                 role="group"
@@ -185,7 +186,7 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
                     : "border border-ink/20 text-ink hover:border-ink"
               }`}
             >
-              {p.memberOnly ? "See the Xpress Pass" : io ? `Book ${io.name}` : "Book this package"}
+              {p.memberOnly ? "See the Xpress Pass" : "Book online"}
             </a>
           </article>
           );

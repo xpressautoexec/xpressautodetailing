@@ -1,6 +1,7 @@
 import { Layers, Scissors, UserCheck } from "lucide-react";
 import { Section, SectionHeading, cardClass } from "@/components/site/Section";
 import { FILM_BRAND, FILM_CUT_SYSTEM } from "@/data/copy";
+import { IS_3M_CERTIFIED } from "@/config/site";
 
 /**
  * Shared "how we install film" band for the car, windshield and RV PPF pages.
@@ -13,7 +14,7 @@ const PPFCraft = ({ film = FILM_BRAND, filmBody }: { film?: string; filmBody?: s
       title: film,
       body:
         filmBody ??
-        `We install ${film}: a clear, self-healing urethane film that keeps the gloss of the paint underneath and is backed by the manufacturer's warranty.`,
+        `We install ${film}: a clear, self-healing urethane film that keeps the gloss of the paint underneath.${IS_3M_CERTIFIED ? " Installed by a 3M Certified Installer, with a 10-year 3M film warranty against yellowing, bubbling and cracking." : ""}`,
     },
     {
       icon: Scissors,

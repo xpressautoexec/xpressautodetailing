@@ -66,7 +66,7 @@ const HeadlightRestoration = () => (
       image: heroImg,
       ctaType: "book",
       bookHref: BOOK_HEADLIGHTS,
-      bookLabel: "Book headlights",
+      bookLabel: "Book online",
     }}
     work={{
       title: "Lenses after polishing",

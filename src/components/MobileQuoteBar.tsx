@@ -59,7 +59,7 @@ const MobileQuoteBar = ({ quoteLabel }: { quoteLabel?: string }) => {
           className={`${item} border border-ink/20 text-ink hover:border-ink`}
         >
           <MessageSquareText className="h-4 w-4" aria-hidden="true" />
-          Text photos
+          Text us photos
         </a>
         <a
           href={TEL_HREF}

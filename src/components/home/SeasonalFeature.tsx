@@ -38,7 +38,7 @@ const CONTENT: Record<Season, { eyebrow: string; title: string; intro: string; c
         cta: `From ${money(deepCleanPkg.price.sedan)}`,
         img: deepClean,
         alt: "Ford F-150 front seats and floor after interior detail",
-        tag: "Most booked",
+        tag: "Most chosen",
       },
       {
         title: "Ceramic, PPF and windshield film in the shop",
@@ -71,7 +71,7 @@ const CONTENT: Record<Season, { eyebrow: string; title: string; intro: string; c
         cta: `From ${money(rvFrom)}/ft`,
         img: rvRestore,
         alt: "Flagstaff travel trailer with tape lines marking polish test sections",
-        tag: "Most booked",
+        tag: "Most chosen",
       },
       {
         title: "Storage prep and pickup-ready washes",

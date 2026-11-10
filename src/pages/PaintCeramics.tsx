@@ -6,18 +6,17 @@ import QuoteSection from "@/components/site/QuoteSection";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import GuaranteeStrip from "@/components/site/GuaranteeStrip";
-import ProcessSteps from "@/components/site/ProcessSteps";
+import XpressProcess from "@/components/site/XpressProcess";
+import CoatTiers from "@/components/site/CoatTiers";
+import CorrectionTable from "@/components/site/CorrectionTable";
 import ClosingCTA from "@/components/site/ClosingCTA";
-import { Section, SectionHeading, btnPrimary, btnSecondaryDark } from "@/components/site/Section";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ceramicHero from "@/assets/jobs/hero-paint-ceramics.webp";
 import { PHOTOS, CLIPS } from "@/data/photos";
 import WorkShowcase from "@/components/site/WorkShowcase";
-import { Check } from "lucide-react";
-import { CERAMIC_PACKAGES, CERAMIC_UPCHARGE, VEHICLE_SIZES, fielddUrl, money } from "@/data/pricing";
-import { CERAMIC_CERTIFICATIONS, NAP } from "@/data/copy";
+import { CERAMIC_PACKAGES, CERAMIC_UPCHARGE, money } from "@/data/pricing";
+import { CERAMIC_CERTIFICATIONS } from "@/data/copy";
 import QualityProducts from "@/components/site/QualityProducts";
-import { useSizeParam } from "@/hooks/useSizeParam";
 
 const stages = [
   {
@@ -72,8 +71,6 @@ const faqs = [
 ];
 
 const PaintCeramics = () => {
-  const [size, setSize] = useSizeParam();
-
   return (
     <PageTransition>
       <div className="min-h-screen bg-canvas">
@@ -95,8 +92,9 @@ const PaintCeramics = () => {
         <Navbar />
         <AutoBreadcrumbs />
         <ServicePageHero
-          title="Ceramic coating and paint correction"
-          subtitle={`A coating locks in whatever the paint looks like the day it goes on, so every package starts with decontamination and machine correction. ${CERAMIC_CERTIFICATIONS.join(", ")} coatings.`}
+          eyebrow="Ceramic coating"
+          title="Gloss measured in years, not weeks."
+          subtitle={`Ceramic coating and paint correction in Calgary: every Xpress Coat™ tier starts with decontamination and machine correction, using ${CERAMIC_CERTIFICATIONS.join(", ")} coatings.`}
           image={ceramicHero}
           ctaType="call"
           bookHref="#packages"
@@ -104,76 +102,9 @@ const PaintCeramics = () => {
         />
         <GuaranteeStrip />
 
-        <Section tone="dark" id="packages">
-          <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-xl">
-              <h2 className="font-heading text-3xl font-semibold tracking-tight text-primary-foreground sm:text-4xl">
-                Coating packages
-              </h2>
-              <p className="mt-4 text-[15px] leading-relaxed text-primary-foreground/65">
-                Pick your vehicle size and the prices update. Exotics and heavily modified paint are{" "}
-                {CERAMIC_UPCHARGE.exoticPct}% more.
-              </p>
-            </div>
-            <div role="group" aria-label="Vehicle size" className="flex w-full shrink-0 gap-1 rounded-md bg-primary-foreground/10 p-1 sm:w-fit">
-              {VEHICLE_SIZES.map((s) => (
-                <button
-                  key={s.id}
-                  type="button"
-                  onClick={() => setSize(s.id)}
-                  aria-pressed={size === s.id}
-                  className={`flex-1 rounded px-3 py-2 text-xs font-semibold transition-colors sm:flex-none sm:px-4 sm:text-sm ${
-                    size === s.id ? "bg-electric text-primary-foreground" : "text-primary-foreground/70 hover:text-primary-foreground"
-                  }`}
-                >
-                  {s.label}
-                </button>
-              ))}
-            </div>
-          </div>
+        <CoatTiers />
 
-          <div className="grid gap-5 md:grid-cols-3">
-            {CERAMIC_PACKAGES.map((p) => (
-              <article
-                key={p.id}
-                className={`relative flex flex-col overflow-hidden rounded-card border bg-primary-foreground/[0.04] p-6 sm:p-7 ${
-                  p.popular ? "border-electric" : "border-primary-foreground/15"
-                }`}
-              >
-                {p.popular && <span aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-electric" />}
-                <p className="h-4 text-xs font-medium text-electric">{p.popular ? "Most booked" : ""}</p>
-                <h3 className="mt-1 font-heading text-xl font-semibold text-primary-foreground">{p.name}</h3>
-                <p className="mt-1 text-sm text-primary-foreground/60">{p.coating}</p>
-                <p className="mt-4 font-heading text-4xl font-semibold tracking-tight tabular-nums text-primary-foreground">
-                  {money(p.prices[size])}
-                </p>
-                <p className="mt-1 text-xs text-primary-foreground/50">{p.correction}</p>
-                <ul className="mt-6 flex-1 space-y-2.5">
-                  {p.includes.map((inc) => (
-                    <li key={inc} className="flex gap-2 text-sm text-primary-foreground/75">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-electric" aria-hidden="true" />
-                      {inc}
-                    </li>
-                  ))}
-                </ul>
-                <a href="#assessment" className={`${p.popular ? btnPrimary : btnSecondaryDark} mt-7`}>
-                  Book a free paint inspection
-                </a>
-                <a
-                  href={fielddUrl(p.book[size])}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 text-center text-sm font-semibold text-primary-foreground/75 hover:text-primary-foreground hover:underline hover:underline-offset-4"
-                >
-                  Know what you want? Book {p.name} online
-                </a>
-              </article>
-            ))}
-          </div>
-          <p className="mt-6 text-xs text-primary-foreground/50">
-            Not sure which package fits? The free paint inspection tells you. Questions first? Call or text {NAP.phone}.
-          </p>
-        </Section>
+        <CorrectionTable />
 
         <WorkShowcase
           title="Recent coating and correction work"
@@ -182,10 +113,7 @@ const PaintCeramics = () => {
           clips={[CLIPS.gleHeadlight, CLIPS.paintCorrection, CLIPS.gleHeadlightClose]}
         />
 
-        <Section tone="surface">
-          <SectionHeading title="How the work is done" />
-          <ProcessSteps steps={stages} />
-        </Section>
+        <XpressProcess service="ceramic coating" details={stages} detailsTitle="On a coating job" />
 
         <QuoteSection
           id="assessment"

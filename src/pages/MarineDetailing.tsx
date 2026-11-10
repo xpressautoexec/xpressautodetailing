@@ -2,6 +2,7 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
+import XpressProcess from "@/components/site/XpressProcess";
 import QuoteSection from "@/components/site/QuoteSection";
 import ServicePageHero from "@/components/ServicePageHero";
 import { PhotoRail } from "@/components/site/PhotoRail";
@@ -59,6 +60,7 @@ const MarineDetailing = () => (
       <Navbar />
       <AutoBreadcrumbs />
       <ServicePageHero
+        eyebrow="Marine"
         title="Marine and pontoon detailing"
         subtitle="Alberta boats sit dry, dusty and in hard sun. We polish chalked gelcoat, protect vinyl and restore stained pontoon tubes at the marina, the storage yard or your driveway."
         image={marineHeroAsset.url}
@@ -112,6 +114,8 @@ const MarineDetailing = () => (
         <SectionHeading title="Recent marine work" />
         <PhotoRail photos={PHOTOS.marine} label="Recent marine photos" />
       </Section>
+
+      <XpressProcess service="marine" />
 
       <QuoteSection
         id="assessment"

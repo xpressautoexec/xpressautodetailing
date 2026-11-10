@@ -59,6 +59,8 @@ const HeadlightRestoration = lazyPage(() => import("./pages/HeadlightRestoration
 const WindshieldPPF = lazyPage(() => import("./pages/WindshieldPPF"));
 const CarPPF = lazyPage(() => import("./pages/CarPPF"));
 const Reviews = lazyPage(() => import("./pages/Reviews"));
+const Warranty = lazyPage(() => import("./pages/Warranty"));
+const LeaseReturn = lazyPage(() => import("./pages/LeaseReturn"));
 const InteriorLp = lazyPage(() => import("./pages/lp/InteriorLp"));
 const CeramicPpfLp = lazyPage(() => import("./pages/lp/CeramicPpfLp"));
 const FleetLp = lazyPage(() => import("./pages/lp/FleetLp"));
@@ -142,6 +144,9 @@ export const AnimatedRoutes = () => {
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/cancellation-policy" element={<CancellationPolicyPage />} />
 
+        <Route path="/warranty" element={<Warranty />} />
+        <Route path="/lease-return" element={<LeaseReturn />} />
+
         {/* Paid-ad landing pages (noindex, no site nav) */}
         <Route path="/lp/interior-detailing" element={<InteriorLp />} />
         <Route path="/lp/ceramic-ppf" element={<CeramicPpfLp />} />
@@ -185,6 +190,8 @@ export const RouteFallback = () => <div className="min-h-screen bg-canvas" />;
 
 /** Lazy pages by path, for preloading the current page before hydration. */
 const PRELOAD: [string, { preload: () => Promise<unknown> }][] = [
+  ["/warranty", Warranty],
+  ["/lease-return", LeaseReturn],
   ["/lp/interior-detailing", InteriorLp],
   ["/lp/ceramic-ppf", CeramicPpfLp],
   ["/lp/fleet", FleetLp],

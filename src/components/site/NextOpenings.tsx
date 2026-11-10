@@ -34,7 +34,7 @@ const NextOpenings = () => {
           ))}
         </ul>
         <QuoteLink className="inline-flex items-center gap-1.5 font-semibold text-electric hover:underline hover:underline-offset-4 sm:ml-auto">
-          Claim a spot
+          Get a quote
           <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
         </QuoteLink>
       </div>
