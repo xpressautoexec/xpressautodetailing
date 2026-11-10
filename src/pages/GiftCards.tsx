@@ -68,6 +68,8 @@ const GiftCards = () => (
         title="Detailing gift cards"
         subtitle={`From ${money(minCard)} to ${money(maxCard)}, delivered by email the moment you check out. Good for any service, and they never expire.`}
         image={giftcardHero}
+        bookHref="#buy"
+        bookLabel="Buy a gift card"
       />
 
       <Section>
@@ -114,7 +116,7 @@ const GiftCards = () => (
       <ServiceFAQ title="Gift card questions" faqs={faqs} />
 
       <Footer />
-      <StickyMobileCTA />
+      <StickyMobileCTA bookHref="#buy" bookLabel="Buy a gift card" />
     </div>
   </PageTransition>
 );

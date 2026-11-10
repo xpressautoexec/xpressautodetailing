@@ -70,6 +70,8 @@ const CarPPF = () => {
         subtitle: `Deerfoot gravel and winter sanding trucks will chip a front end in a season. We install ${FILM_BRAND}, a clear self-healing film, cut on our plotter for your exact vehicle so it takes the hit instead of your paint. Serving Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County.`,
         image: heroImg,
         ctaType: "call",
+        bookHref: "#quote",
+        bookLabel: "Get a quote",
         phoneHref: TEL,
       }}
       features={{

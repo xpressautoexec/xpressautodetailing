@@ -50,11 +50,13 @@ export interface AutoPackage {
    * Work Truck interior tier. Not covered by Xpress Pass member pricing.
    */
   interiorOnly?: {
+    /** Customer-facing name of the interior-only version; matches the Fieldd service name. */
+    name: string;
     duration: string;
     includes: string[];
     price: SizePrice;
-    /** Fieldd shortlink key per size; until set, the button opens the Fieldd service picker. */
-    book?: Partial<Record<VehicleSizeId, FielddKey>>;
+    /** Fieldd shortlink key per size. */
+    book: Record<VehicleSizeId, FielddKey>;
   };
 }
 
@@ -99,6 +101,7 @@ export const AUTO_PACKAGES: AutoPackage[] = [
     price: { sedan: 239, suv: 289, minivan: 319, truck: 329 },
     book: { sedan: "xo", suv: "pU", minivan: "8G", truck: "mx" },
     interiorOnly: {
+      name: "Interior Detail",
       duration: "2 hrs",
       includes: [
         "Full interior vacuum & shampoo",
@@ -109,6 +112,7 @@ export const AUTO_PACKAGES: AutoPackage[] = [
         "Interior glass & floor mats",
       ],
       price: { sedan: 179, suv: 219, minivan: 239, truck: 249 },
+      book: { sedan: "G0", suv: "j0", minivan: "N7", truck: "85" },
     },
   },
   {
@@ -128,6 +132,7 @@ export const AUTO_PACKAGES: AutoPackage[] = [
     price: { sedan: 379, suv: 429, minivan: 459, truck: 479 },
     book: { sedan: "eC", suv: "bN", minivan: "0g", truck: "Yb" },
     interiorOnly: {
+      name: "Interior Deep Clean",
       duration: "2.5–3 hrs",
       includes: [
         "Everything in Inside & Out interior",
@@ -138,6 +143,7 @@ export const AUTO_PACKAGES: AutoPackage[] = [
         "Streak-free interior glass",
       ],
       price: { sedan: 289, suv: 329, minivan: 349, truck: 359 },
+      book: { sedan: "Ca", suv: "wN", minivan: "ra", truck: "Gq" },
     },
   },
   {
@@ -168,6 +174,8 @@ export const WORK_TRUCK_PACKAGE = {
       id: "interior",
       name: "Interior Only",
       price: 329,
+      /** Fieldd: Truck > Work Truck Package > "Work Truck — Interior Only". */
+      book: "D6",
       duration: "2.5–3 hrs",
       includes: [
         "Full cab clean-out and deep vacuum",
@@ -182,6 +190,8 @@ export const WORK_TRUCK_PACKAGE = {
       id: "full",
       name: "Interior + Exterior",
       price: 450,
+      /** Fieldd: Truck > Work Truck Package > "Work Truck — Interior + Exterior". */
+      book: "3b",
       duration: "4–4.5 hrs",
       popular: true,
       includes: [
@@ -372,6 +382,8 @@ export const HEADLIGHT_RESTORATION = {
   /** Fog light pair, added to a headlight restoration. Owner-approved Oct 2026. */
   fogLights: 60,
   time: "45 min",
+  /** Fieldd shortlink key for the standalone visit (fog lights are its only add-on). */
+  book: "um" as FielddKey,
 };
 
 // ---------- ADD-ONS ----------
@@ -482,10 +494,10 @@ export const carPpfPrice = (base: number, size: CarPpfSizeId): number => {
 // ---------- WINDSHIELD PPF ----------
 /** Windshield PPF by vehicle size. Window tint is no longer offered. */
 export const WINDSHIELD_PPF = [
-  { id: "compact", label: "Compact / Sedan", price: 449, installTime: "2–3 hrs", examples: "Civic, Corolla, Mazda 3, Model 3" },
-  { id: "midsize", label: "Midsize SUV / Crossover", price: 549, installTime: "3–4 hrs", examples: "RAV4, CR-V, Tucson, Model Y, Outback" },
-  { id: "fullsize", label: "Full-size SUV / Truck", price: 649, installTime: "3–4 hrs", examples: "F-150, Silverado, Tahoe, RAM 1500" },
-  { id: "heavy", label: "HD Truck / Van / RV", price: 849, installTime: "4–5 hrs", examples: "F-250/350, Sprinter, Transit, Class A and C" },
+  { id: "compact", label: "Compact / Sedan", book: "ed", price: 449, installTime: "2–3 hrs", examples: "Civic, Corolla, Mazda 3, Model 3" },
+  { id: "midsize", label: "Midsize SUV / Crossover", book: "l0", price: 549, installTime: "3–4 hrs", examples: "RAV4, CR-V, Tucson, Model Y, Outback" },
+  { id: "fullsize", label: "Full-size SUV / Truck", book: "DL", price: 649, installTime: "3–4 hrs", examples: "F-150, Silverado, Tahoe, RAM 1500" },
+  { id: "heavy", label: "HD Truck / Van / RV", book: "9M", price: 849, installTime: "4–5 hrs", examples: "F-250/350, Sprinter, Transit, Class A and C" },
 ];
 
 // ---------- TRAINING ----------

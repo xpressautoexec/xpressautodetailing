@@ -53,6 +53,8 @@ const PaintCorrection = () => (
       subtitle: "Those spiderweb scratches you see in direct sun are wash swirls in the clear coat. Machine polishing removes them permanently. We measure paint depth first and correct under proper lighting.",
       image: heroImg,
       ctaType: "call",
+      bookHref: "/ceramic-paint-correction#packages",
+      bookLabel: "See packages",
     }}
     work={{
       title: "Recent correction work",

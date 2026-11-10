@@ -1,8 +1,9 @@
 import { Phone } from "lucide-react";
 import { BOOKING_URL, PHONE } from "@/data/pricing";
+import BookLink from "@/components/site/BookLink";
 
 /** One call link, one book button, at the end of the page on phones (not pinned). No countdowns, no scarcity. */
-const StickyMobileCTA = () => (
+const StickyMobileCTA = ({ bookHref = BOOKING_URL, bookLabel = "Book a detail" }: { bookHref?: string; bookLabel?: string }) => (
   <div className="lg:hidden bg-brand-dark border-t border-primary-foreground/10 px-4 py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))]">
     <div className="flex items-center gap-3">
       <a
@@ -13,14 +14,12 @@ const StickyMobileCTA = () => (
         <Phone className="w-4 h-4" aria-hidden="true" />
         Call
       </a>
-      <a
-        href={BOOKING_URL}
-        target="_blank"
-        rel="noopener noreferrer"
+      <BookLink
+        href={bookHref}
         className="flex-1 min-h-[44px] flex items-center justify-center rounded-md bg-electric px-5 text-sm font-semibold text-primary-foreground"
       >
-        Book a detail
-      </a>
+        {bookLabel}
+      </BookLink>
     </div>
   </div>
 );

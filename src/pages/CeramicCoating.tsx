@@ -46,6 +46,8 @@ const CeramicCoating = () => (
       subtitle: "Six months a year Calgary roads are coated in salt brine and mag chloride. A ceramic coating puts a hard, hydrophobic barrier between that and your clear coat, and makes every wash easier for years.",
       image: heroImg,
       ctaType: "call",
+      bookHref: "/ceramic-paint-correction#packages",
+      bookLabel: "See packages",
     }}
     work={{
       title: "Recent coating and correction work",

@@ -39,6 +39,8 @@ const AutoDetailing = () => (
       subtitle: "We arrive with our own water, power, extraction and polishing equipment and detail your car, truck or SUV where it already sits. No drop-off, no waiting room.",
       image: heroImg,
       ctaType: "book",
+      bookHref: "/detailing#packages",
+      bookLabel: "See packages and book",
     }}
     work={{
       title: "Recent car detailing",
@@ -70,7 +72,7 @@ const AutoDetailing = () => (
       { label: "The Xpress Pass", to: "/xpress-pass" },
       { label: "Calgary price comparison", to: "/calgary-detailing-price-comparison" },
     ]}
-    closing={{ title: "Book your detail", mode: "book" }}
+    closing={{ title: "Book your detail", mode: "book", bookHref: "/detailing#packages", bookLabel: "Choose a package" }}
   >
     <Section tone="dark">
       <AutoPackages dark heading="Packages and pricing" intro="Pick your vehicle size and the prices update." />

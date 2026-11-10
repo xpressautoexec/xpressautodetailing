@@ -215,7 +215,7 @@ const MonthlyPlan = () => {
         />
 
         <Footer />
-        <StickyMobileCTA />
+        <StickyMobileCTA bookHref="#plans" bookLabel="See the plans" />
       </div>
     </PageTransition>
   );

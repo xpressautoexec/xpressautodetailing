@@ -1,5 +1,6 @@
 import { Phone } from "lucide-react";
 import { BOOKING_URL, PHONE } from "@/data/pricing";
+import BookLink from "@/components/site/BookLink";
 
 interface ServicePageHeroProps {
   title: string;
@@ -15,6 +16,8 @@ interface ServicePageHeroProps {
   bookLabel?: string;
   /** Override for the phone link (e.g. E.164 for ad landing pages). */
   phoneHref?: string;
+  /** Where the booking button goes: this page's Fieldd service, an on-page form ("#quote") or a route. */
+  bookHref?: string;
 }
 
 const telHref = `tel:${PHONE.replace(/-/g, "")}`;
@@ -34,6 +37,7 @@ const ServicePageHero = ({
   imagePosition,
   bookLabel = "Book online",
   phoneHref = telHref,
+  bookHref = BOOKING_URL,
 }: ServicePageHeroProps) => {
   const Title = titleAs;
   const call = (
@@ -43,15 +47,9 @@ const ServicePageHero = ({
     </a>
   );
   const book = (
-    <a
-      key="book"
-      href={BOOKING_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={ctaType === "book" ? primary : secondary}
-    >
+    <BookLink key="book" href={bookHref} className={ctaType === "book" ? primary : secondary}>
       {bookLabel}
-    </a>
+    </BookLink>
   );
 
   return (

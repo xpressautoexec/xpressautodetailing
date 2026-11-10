@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
-import { WORK_TRUCK_PACKAGE, money, BOOKING_URL } from "@/data/pricing";
+import { WORK_TRUCK_PACKAGE, money, fielddUrl } from "@/data/pricing";
 import { Section, SectionHeading, btnPrimary, btnSecondary, cardClass, textLink } from "@/components/site/Section";
 
 /** Work truck package: trades, landscaping and construction trucks, plus the fleet link. */
@@ -41,7 +41,7 @@ const WorkTruckPackage = () => (
             ))}
           </ul>
           <a
-            href={BOOKING_URL}
+            href={fielddUrl(tier.book)}
             target="_blank"
             rel="noopener noreferrer"
             className={`${tier.popular ? btnPrimary : btnSecondary} mt-7`}

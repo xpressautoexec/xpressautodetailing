@@ -91,6 +91,8 @@ const Detailing = () => {
         title="Mobile car detailing"
         subtitle={`${AUTO_PACKAGES.length} packages priced by vehicle size, done in your driveway, parkade or office lot. Our vans bring their own water and power.`}
         image={completeHero}
+        bookHref="#packages"
+        bookLabel="Choose a package"
       />
       <GuaranteeStrip />
 
@@ -126,10 +128,10 @@ const Detailing = () => {
       <ServiceFAQ title="Detailing questions" faqs={detailingFAQs} />
       <QualityProducts />
 
-      <ClosingCTA body="Pick a package and a time. We come to your home, office or storage lot." />
+      <ClosingCTA body="Pick a package and a time. We come to your home, office or storage lot." bookHref="#packages" bookLabel="Choose a package" />
 
       <Footer />
-      <StickyMobileCTA />
+      <StickyMobileCTA bookHref="#packages" bookLabel="Choose a package" />
     </div>
   </PageTransition>
   );

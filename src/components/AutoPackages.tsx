@@ -8,7 +8,6 @@ import {
   PASS_ADDON_DISCOUNT,
   money,
   fielddUrl,
-  BOOKING_URL,
   passPlanFor,
   memberPriceFor,
 } from "@/data/pricing";
@@ -79,8 +78,7 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
           const member = io ? undefined : memberPriceFor(p, size);
           const price = io ? io.price[size] : p.price[size];
           const includes = io ? io.includes : p.includes;
-          const ioKey = io?.book?.[size];
-          const bookHref = p.memberOnly ? "/xpress-pass" : io ? (ioKey ? fielddUrl(ioKey) : BOOKING_URL) : fielddUrl(p.book[size]);
+          const bookHref = p.memberOnly ? "/xpress-pass" : fielddUrl(io ? io.book[size] : p.book[size]);
           return (
           <article
             key={p.id}
@@ -96,7 +94,7 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
             <p className={`h-4 text-xs font-medium ${p.popular ? "text-electric" : muted}`}>
               {p.popular ? "Most booked" : p.memberOnly ? "Members only" : ""}
             </p>
-            <h3 className={`mt-1 font-heading text-lg font-semibold ${text}`}>{p.name}</h3>
+            <h3 className={`mt-1 font-heading text-lg font-semibold ${text}`}>{io ? io.name : p.name}</h3>
             {p.interiorOnly && (
               <div
                 role="group"
@@ -187,7 +185,7 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
                     : "border border-line text-ink hover:border-ink-2"
               }`}
             >
-              {p.memberOnly ? "See the Xpress Pass" : io ? "Book interior only" : "Book this package"}
+              {p.memberOnly ? "See the Xpress Pass" : io ? `Book ${io.name}` : "Book this package"}
             </a>
           </article>
           );

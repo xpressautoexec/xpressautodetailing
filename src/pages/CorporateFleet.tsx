@@ -67,6 +67,8 @@ const CorporateFleet = () => (
         subtitle="Scheduled on-site cleaning for work trucks, dealership inventory and heavy equipment. No drive time, no downtime, one invoice a month."
         image={fleetHero}
         ctaType="call"
+        bookHref="#quote"
+        bookLabel="Get a fleet quote"
       />
 
       <CompanyLogos />
@@ -141,7 +143,7 @@ const CorporateFleet = () => (
       />
 
       <Footer />
-      <StickyMobileCTA />
+      <StickyMobileCTA bookHref="#quote" bookLabel="Get a fleet quote" />
     </div>
   </PageTransition>
 );

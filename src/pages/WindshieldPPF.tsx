@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import LandingPage from "@/components/site/LandingPage";
 import { Section, SectionHeading, btnPrimary, cardClass } from "@/components/site/Section";
 import heroImg from "@/assets/windshield-ppf-hero.jpg";
-import { BOOKING_URL, WINDSHIELD_PPF, money } from "@/data/pricing";
+import { WINDSHIELD_PPF, fielddUrl, money } from "@/data/pricing";
 import { WINDSHIELD_FILM_BRAND } from "@/data/copy";
 import WindshieldDiagram from "@/components/ppf/WindshieldDiagram";
 import PPFCraft from "@/components/ppf/PPFCraft";
@@ -67,6 +67,7 @@ const WindshieldPPF = () => (
       image: heroImg,
       ctaType: "book",
       bookLabel: BOOK_LABEL,
+      bookHref: "#pricing",
       phoneHref: TEL,
     }}
     features={{
@@ -98,6 +99,7 @@ const WindshieldPPF = () => (
       body: `From ${money(from)}, installed at your home or work.`,
       mode: "book",
       bookLabel: BOOK_LABEL,
+      bookHref: "#pricing",
       phoneHref: TEL,
     }}
   >
@@ -125,7 +127,7 @@ const WindshieldPPF = () => (
       </p>
     </Section>
 
-    <Section tone="surface">
+    <Section tone="surface" id="pricing">
       <SectionHeading title="Pricing by vehicle size" />
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {WINDSHIELD_PPF.map((t) => (
@@ -134,7 +136,7 @@ const WindshieldPPF = () => (
             <p className="mt-2 font-heading text-4xl font-semibold tabular-nums text-ink">{money(t.price)}</p>
             <p className="mt-1 text-sm text-muted-ink">Install time {t.installTime}</p>
             <p className="mt-3 flex-1 text-[15px] leading-relaxed text-ink-2">{t.examples}</p>
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className={`${btnPrimary} mt-6 self-start`}>
+            <a href={fielddUrl(t.book)} target="_blank" rel="noopener noreferrer" className={`${btnPrimary} mt-6 self-start`}>
               {BOOK_LABEL}
             </a>
           </div>

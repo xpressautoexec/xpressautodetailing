@@ -127,6 +127,8 @@ const RVPPF = () => (
         subtitle={`A front-cap respray can cost $8,000 to $20,000. Self-healing film takes the rock chips, bug acid and UV instead, for a fraction of that. Packages from ${money(from)}.`}
         image={rvPPFHero}
         ctaType="call"
+        bookHref="#assessment"
+        bookLabel="Book a free assessment"
       />
       <GuaranteeStrip />
 
@@ -267,7 +269,7 @@ const RVPPF = () => (
       />
 
       <Footer />
-      <StickyMobileCTA />
+      <StickyMobileCTA bookHref="#assessment" bookLabel="Book a free inspection" />
     </div>
   </PageTransition>
 );

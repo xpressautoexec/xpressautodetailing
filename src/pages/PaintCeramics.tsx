@@ -100,6 +100,8 @@ const PaintCeramics = () => {
           subtitle={`A coating locks in whatever the paint looks like the day it goes on, so every package starts with decontamination and machine correction. ${CERAMIC_CERTIFICATIONS.join(", ")} coatings.`}
           image={ceramicHero}
           ctaType="call"
+          bookHref="#packages"
+          bookLabel="See packages"
         />
         <GuaranteeStrip />
 
@@ -219,7 +221,7 @@ const PaintCeramics = () => {
         />
 
         <Footer />
-        <StickyMobileCTA />
+        <StickyMobileCTA bookHref="#packages" bookLabel="Choose a package" />
       </div>
     </PageTransition>
   );

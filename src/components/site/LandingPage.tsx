@@ -36,13 +36,13 @@ const LandingPage = ({
   childrenBeforeWork = false,
 }: {
   seo: { title: string; description: string; canonical: string; serviceName: string; serviceDescription: string };
-  hero: { title: string; subtitle: string; image: string; ctaType: "book" | "call"; imagePosition?: string; bookLabel?: string; phoneHref?: string };
+  hero: { title: string; subtitle: string; image: string; ctaType: "book" | "call"; imagePosition?: string; bookLabel?: string; phoneHref?: string; bookHref?: string };
   features: { title: string; intro?: string; items: Item[] };
   children?: ReactNode;
   steps?: { title: string; items: Item[] };
   faqs: { title: string; items: { q: string; a: string; aNode?: ReactNode }[] };
   related: { label: string; to: string }[];
-  closing: { title: string; body?: string; mode: "book" | "quote"; quoteHref?: string; quoteLabel?: string; bookLabel?: string; phoneHref?: string };
+  closing: { title: string; body?: string; mode: "book" | "quote"; quoteHref?: string; quoteLabel?: string; bookLabel?: string; phoneHref?: string; bookHref?: string };
   /** Product lines for the "products we use" band; defaults to the general set. */
   products?: ProductLine[];
   /** Real job photos (and optional clips) shown after the features. */
@@ -68,6 +68,7 @@ const LandingPage = ({
         imagePosition={hero.imagePosition}
         bookLabel={hero.bookLabel}
         phoneHref={hero.phoneHref}
+        bookHref={hero.bookHref}
       />
       <GuaranteeStrip />
 
@@ -116,7 +117,7 @@ const LandingPage = ({
       <ClosingCTA {...closing} />
 
       <Footer />
-      <StickyMobileCTA />
+      <StickyMobileCTA bookHref={hero.bookHref} bookLabel={hero.bookHref ? hero.bookLabel : undefined} />
     </div>
   </PageTransition>
 );

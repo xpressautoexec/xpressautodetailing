@@ -42,6 +42,8 @@ const RVDetailing = () => (
       subtitle: "Alberta sun, hail and road brine are hard on gelcoat. We restore oxidized fibreglass, strip black streaks, clean the living space and seal the unit at your storage lot, campground or driveway.",
       image: rvHero,
       ctaType: "call",
+      bookHref: "/rv-trailer#packages",
+      bookLabel: "See RV packages",
     }}
     work={{
       title: "Recent RV work",

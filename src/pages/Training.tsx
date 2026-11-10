@@ -55,6 +55,8 @@ const Training = () => (
         subtitle={`Hands-on courses taught by the crew that does the work every day. Real vehicles, professional products, classes of ${TRAINING_TERMS.classSize}.`}
         image={heroImg}
         ctaType="call"
+        bookHref="/training/signup"
+        bookLabel="Sign up for a course"
       />
 
       <Section>
@@ -140,7 +142,7 @@ const Training = () => (
 
 
       <Footer />
-      <StickyMobileCTA />
+      <StickyMobileCTA bookHref="/training/signup" bookLabel="Sign up for a course" />
     </div>
   </PageTransition>
 );

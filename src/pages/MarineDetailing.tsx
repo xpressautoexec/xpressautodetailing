@@ -64,6 +64,8 @@ const MarineDetailing = () => (
         subtitle="Alberta boats sit dry, dusty and in hard sun. We polish chalked gelcoat, protect vinyl and restore stained pontoon tubes at the marina, the storage yard or your driveway."
         image={marineHeroAsset.url}
         ctaType="call"
+        bookHref="#assessment"
+        bookLabel="Book a free assessment"
       />
       <GuaranteeStrip />
 
@@ -132,7 +134,7 @@ const MarineDetailing = () => (
       <ClosingCTA title="Get it ready for the water" mode="quote" quoteHref="#assessment" quoteLabel="Book a free assessment" />
 
       <Footer />
-      <StickyMobileCTA />
+      <StickyMobileCTA bookHref="#assessment" bookLabel="Book a free assessment" />
     </div>
   </PageTransition>
 );

@@ -2,9 +2,11 @@ import LandingPage from "@/components/site/LandingPage";
 import { Section, SectionHeading, btnPrimary, cardClass } from "@/components/site/Section";
 import heroImg from "@/assets/jobs/hero-headlight-restoration.webp";
 import { HEADLIGHT_PHOTOS } from "@/data/photos";
-import { BOOKING_URL, HEADLIGHT_RESTORATION, money } from "@/data/pricing";
+import { Link } from "react-router-dom";
+import { HEADLIGHT_RESTORATION, fielddUrl, money } from "@/data/pricing";
 
 const { standalone, addOn, fogLights, time } = HEADLIGHT_RESTORATION;
+const BOOK_HEADLIGHTS = fielddUrl(HEADLIGHT_RESTORATION.book);
 
 const SIGNS = [
   "Yellow or amber tint across the lens",
@@ -62,6 +64,8 @@ const HeadlightRestoration = () => (
       subtitle: `Yellow, cloudy headlights make a car look older and cut how far you can see at night. We sand off the oxidized layer, polish the lens clear and seal it with a 3-year UV-resistant ceramic. ${money(standalone)} per pair, at your driveway.`,
       image: heroImg,
       ctaType: "book",
+      bookHref: BOOK_HEADLIGHTS,
+      bookLabel: "Book headlights",
     }}
     work={{
       title: "Lenses after polishing",
@@ -83,7 +87,7 @@ const HeadlightRestoration = () => (
       { label: "Ceramic coating", to: "/ceramic-paint-correction" },
       { label: "The Xpress Pass", to: "/xpress-pass" },
     ]}
-    closing={{ title: "Get your headlights clear again", body: `${money(standalone)} per pair, or ${money(addOn)} with any detail.`, mode: "book" }}
+    closing={{ title: "Get your headlights clear again", body: `${money(standalone)} per pair, or ${money(addOn)} with any detail.`, mode: "book", bookHref: BOOK_HEADLIGHTS, bookLabel: "Book online" }}
   >
     <Section tone="surface">
       <SectionHeading title="Pricing" intro="Per pair of headlights. Same process either way." />
@@ -94,7 +98,7 @@ const HeadlightRestoration = () => (
           <p className="mt-3 flex-1 text-[15px] leading-relaxed text-ink-2">
             A standalone visit, about {time}. Wet sand, polish and 3-year UV-resistant ceramic.
           </p>
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className={`${btnPrimary} mt-6 self-start`}>
+          <a href={BOOK_HEADLIGHTS} target="_blank" rel="noopener noreferrer" className={`${btnPrimary} mt-6 self-start`}>
             Book online
           </a>
         </div>
@@ -104,9 +108,9 @@ const HeadlightRestoration = () => (
           <p className="mt-3 flex-1 text-[15px] leading-relaxed text-ink-2">
             Add it to any detail booking and save {money(standalone - addOn)}. Same process, done during the same visit.
           </p>
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className={`${btnPrimary} mt-6 self-start`}>
-            Book a detail
-          </a>
+          <Link to="/detailing#packages" className={`${btnPrimary} mt-6 self-start`}>
+            Add to a detail
+          </Link>
         </div>
       </div>
       <p className="mt-8 max-w-2xl text-[15px] leading-relaxed text-ink-2">

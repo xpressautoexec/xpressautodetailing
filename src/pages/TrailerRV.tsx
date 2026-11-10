@@ -702,7 +702,7 @@ const TrailerRV = () => (
       </section>
 
       <Footer />
-      <StickyMobileCTA />
+      <StickyMobileCTA bookHref="#packages" bookLabel="See RV packages" />
     </div>
   </PageTransition>
 );

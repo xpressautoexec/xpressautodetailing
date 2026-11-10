@@ -3,6 +3,7 @@ import { Phone } from "lucide-react";
 import { BOOKING_URL } from "@/data/pricing";
 import { NAP, SERVICE_AREA_SENTENCE } from "@/data/copy";
 import { btnPrimary, btnSecondaryDark } from "@/components/site/Section";
+import BookLink from "@/components/site/BookLink";
 
 /**
  * The one closing band used at the bottom of every service page.
@@ -17,6 +18,7 @@ const ClosingCTA = ({
   quoteLabel = "Book a free assessment",
   bookLabel = "Book a detail",
   phoneHref = NAP.phoneHref,
+  bookHref = BOOKING_URL,
 }: {
   title?: string;
   body?: string;
@@ -25,12 +27,14 @@ const ClosingCTA = ({
   quoteLabel?: string;
   bookLabel?: string;
   phoneHref?: string;
+  /** Where "book" mode points: this page's Fieldd service, an on-page anchor or a route. */
+  bookHref?: string;
 }) => {
   const primary =
     mode === "book" ? (
-      <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className={btnPrimary}>
+      <BookLink href={bookHref} className={btnPrimary}>
         {bookLabel}
-      </a>
+      </BookLink>
     ) : quoteHref.startsWith("#") ? (
       <a href={quoteHref} className={btnPrimary}>
         {quoteLabel}
