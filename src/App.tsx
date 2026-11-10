@@ -59,6 +59,9 @@ const HeadlightRestoration = lazyPage(() => import("./pages/HeadlightRestoration
 const WindshieldPPF = lazyPage(() => import("./pages/WindshieldPPF"));
 const CarPPF = lazyPage(() => import("./pages/CarPPF"));
 const Reviews = lazyPage(() => import("./pages/Reviews"));
+const InteriorLp = lazyPage(() => import("./pages/lp/InteriorLp"));
+const CeramicPpfLp = lazyPage(() => import("./pages/lp/CeramicPpfLp"));
+const FleetLp = lazyPage(() => import("./pages/lp/FleetLp"));
 const CancellationPolicyPage = lazyPage(() => import("./pages/CancellationPolicyPage"));
 
 const queryClient = new QueryClient();
@@ -139,6 +142,11 @@ export const AnimatedRoutes = () => {
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/cancellation-policy" element={<CancellationPolicyPage />} />
 
+        {/* Paid-ad landing pages (noindex, no site nav) */}
+        <Route path="/lp/interior-detailing" element={<InteriorLp />} />
+        <Route path="/lp/ceramic-ppf" element={<CeramicPpfLp />} />
+        <Route path="/lp/fleet" element={<FleetLp />} />
+
         {/* New URL structure */}
         <Route path="/rv-trailer" element={<TrailerRV />} />
         <Route path="/rv-trailer/ppf" element={<RVPPF />} />
@@ -177,6 +185,9 @@ export const RouteFallback = () => <div className="min-h-screen bg-canvas" />;
 
 /** Lazy pages by path, for preloading the current page before hydration. */
 const PRELOAD: [string, { preload: () => Promise<unknown> }][] = [
+  ["/lp/interior-detailing", InteriorLp],
+  ["/lp/ceramic-ppf", CeramicPpfLp],
+  ["/lp/fleet", FleetLp],
   ["/detailing", Detailing],
   ["/gift-cards", GiftCards],
   ["/gallery", Gallery],

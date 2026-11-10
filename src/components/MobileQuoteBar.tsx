@@ -7,7 +7,7 @@ import QuoteLink, { SMS_HREF, TEL_HREF } from "@/components/site/QuoteLink";
  * The one mobile call-to-action: pinned to the bottom of every page on phones.
  * [Text photos] [Call] [Get a quote]. It steps out of the way while a quote form is on screen.
  */
-const MobileQuoteBar = () => {
+const MobileQuoteBar = ({ quoteLabel }: { quoteLabel?: string }) => {
   const { pathname } = useLocation();
   const [formVisible, setFormVisible] = useState(false);
 
@@ -70,7 +70,7 @@ const MobileQuoteBar = () => {
           <Phone className="h-4 w-4" aria-hidden="true" />
           Call
         </a>
-        <QuoteLink className={`${item} bg-electric text-primary-foreground hover:bg-electric-2`} />
+        <QuoteLink className={`${item} bg-electric text-primary-foreground hover:bg-electric-2`}>{quoteLabel}</QuoteLink>
       </div>
     </div>
   );

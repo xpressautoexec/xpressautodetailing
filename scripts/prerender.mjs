@@ -33,6 +33,9 @@ const ROUTES = [
   "/reviews",
   "/contact",
   "/quote",
+  "/lp/interior-detailing",
+  "/lp/ceramic-ppf",
+  "/lp/fleet",
   "/marine",
   "/gift-cards",
   "/training",
@@ -107,6 +110,10 @@ function buildDocument(template, head, appHtml) {
   let doc = template;
   for (const pattern of CONFLICTING_TAG_PATTERNS) {
     doc = doc.replace(pattern, "");
+  }
+  // Pages that set their own robots tag (noindex) replace the template's default.
+  if (/<meta[^>]+name="robots"/i.test(head)) {
+    doc = doc.replace(/<meta\s+name="robots"[^>]*>\s*/i, "");
   }
   doc = doc.replace("</head>", `  ${head}\n  </head>`);
   doc = doc.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);

@@ -91,6 +91,12 @@ type Props = {
   defaultNeed?: QuoteNeed;
   /** Pre-select the Airdrie shop (e.g. on PPF pages). */
   defaultLocation?: "mobile" | "shop";
+  /** Submit button text (default "Get my price"). */
+  submitLabel?: string;
+  /** Single-step mode: skip step 1 when vehicle and need are fixed (e.g. fleet yard walk). */
+  contactOnly?: boolean;
+  /** Override the confirmation headline. */
+  confirmation?: string;
 };
 
 /**
@@ -98,12 +104,22 @@ type Props = {
  * mobile or shop, and up to 6 photos. Saved to quote_requests (photos in the private
  * quote-photos bucket); a database trigger emails the lead to support@.
  */
-const QuoteForm = ({ source = "quote", title = "Get a price", defaultVehicle, defaultNeed, defaultLocation = "mobile" }: Props) => {
+const QuoteForm = ({
+  source = "quote",
+  title = "Get a price",
+  defaultVehicle,
+  defaultNeed,
+  defaultLocation = "mobile",
+  submitLabel = "Get my price",
+  contactOnly = false,
+  confirmation = "Got it — we'll text you a price, usually within 15 minutes during the day.",
+}: Props) => {
   const { toast } = useToast();
   const uid = useId();
   const fileRef = useRef<HTMLInputElement>(null);
   const topRef = useRef<HTMLDivElement>(null);
-  const [step, setStep] = useState<1 | 2 | 3>(1);
+  const [step, setStep] = useState<1 | 2 | 3>(contactOnly && defaultVehicle && defaultNeed ? 2 : 1);
+  const single = contactOnly && !!defaultVehicle && !!defaultNeed;
   const [vehicle, setVehicle] = useState<QuoteVehicle | undefined>(defaultVehicle);
   const [need, setNeed] = useState<QuoteNeed | undefined>(defaultNeed);
   const [form, setForm] = useState({ name: "", phone: "", area: "", company: "", fleetSize: "" });
@@ -241,7 +257,7 @@ const QuoteForm = ({ source = "quote", title = "Get a price", defaultVehicle, de
           <Check className="h-5 w-5" aria-hidden="true" />
         </span>
         <p className="mt-5 font-heading text-3xl font-bold leading-tight text-ink">
-          Got it — we'll text you a price, usually within 15 minutes during the day.
+          {confirmation}
         </p>
         {sentPhotos === 0 ? (
           <>
@@ -281,18 +297,20 @@ const QuoteForm = ({ source = "quote", title = "Get a price", defaultVehicle, de
     <div ref={topRef} data-quote-form className="scroll-mt-24 rounded-card border border-line bg-surface p-5 sm:p-8">
       <div className="flex items-baseline justify-between gap-4">
         <p className="font-heading text-2xl font-bold text-ink sm:text-3xl">{title}</p>
-        <p className="shrink-0 text-xs font-semibold uppercase tracking-label text-muted-ink">Step {step} of 2</p>
+        {!single && <p className="shrink-0 text-xs font-semibold uppercase tracking-label text-muted-ink">Step {step} of 2</p>}
       </div>
-      <div className="mt-3 grid grid-cols-2 gap-1.5" aria-hidden="true">
-        <span className="h-1 rounded-full bg-electric" />
-        <span className={`h-1 rounded-full ${step === 2 ? "bg-electric" : "bg-line"}`} />
-      </div>
+      {!single && (
+        <div className="mt-3 grid grid-cols-2 gap-1.5" aria-hidden="true">
+          <span className="h-1 rounded-full bg-electric" />
+          <span className={`h-1 rounded-full ${step === 2 ? "bg-electric" : "bg-line"}`} />
+        </div>
+      )}
 
       {step === 1 ? (
         <div className="mt-6">
           <fieldset>
             <legend className="text-[15px] font-semibold text-ink">What is it?</legend>
-            <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
+            <div className="mt-3 grid grid-cols-[repeat(auto-fill,minmax(min(100%,9.75rem),1fr))] gap-2">
               {QUOTE_VEHICLES.map((v) => (
                 <label key={v} className={`${chip} ${vehicle === v ? chipOn : chipOff}`}>
                   <input type="radio" name={`${uid}-vehicle`} value={v} checked={vehicle === v} onChange={() => setVehicle(v)} className="sr-only" />
@@ -303,7 +321,7 @@ const QuoteForm = ({ source = "quote", title = "Get a price", defaultVehicle, de
           </fieldset>
           <fieldset className="mt-7">
             <legend className="text-[15px] font-semibold text-ink">What does it need?</legend>
-            <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
+            <div className="mt-3 grid grid-cols-[repeat(auto-fill,minmax(min(100%,9.75rem),1fr))] gap-2">
               {QUOTE_NEEDS.map((n) => (
                 <label key={n} className={`${chip} ${need === n ? chipOn : chipOff}`}>
                   <input type="radio" name={`${uid}-need`} value={n} checked={need === n} onChange={() => setNeed(n)} className="sr-only" />
@@ -329,7 +347,7 @@ const QuoteForm = ({ source = "quote", title = "Get a price", defaultVehicle, de
         </div>
       ) : (
         <form onSubmit={submit} className="mt-6" noValidate>
-          <p className="flex flex-wrap items-center gap-x-2 text-sm text-ink-2">
+          <p className={`flex flex-wrap items-center gap-x-2 text-sm text-ink-2 ${single ? "hidden" : ""}`}>
             <span className="font-semibold text-ink">
               {vehicle} · {need}
             </span>
@@ -359,7 +377,7 @@ const QuoteForm = ({ source = "quote", title = "Get a price", defaultVehicle, de
               />
             </label>
             <label className="block text-sm font-medium text-ink-2 sm:col-span-2">
-              Postal code or area <span className="text-muted-ink">(optional)</span>
+              {vehicle === "Fleet" ? "Where is the yard?" : "Postal code or area"} <span className="text-muted-ink">(optional)</span>
               <input maxLength={120} autoComplete="postal-code" placeholder="T3A 1B2 or Airdrie" value={form.area} onChange={set("area")} className={input} />
             </label>
             {vehicle === "Fleet" && (
@@ -376,7 +394,7 @@ const QuoteForm = ({ source = "quote", title = "Get a price", defaultVehicle, de
             )}
           </div>
 
-          <fieldset className="mt-5">
+          <fieldset className={`mt-5 ${vehicle === "Fleet" ? "hidden" : ""}`}>
             <legend className="text-sm font-medium text-ink-2">Where works best?</legend>
             <div className="mt-1.5 grid grid-cols-2 gap-2">
               {(
@@ -398,7 +416,9 @@ const QuoteForm = ({ source = "quote", title = "Get a price", defaultVehicle, de
             <p className="text-sm font-medium text-ink-2">
               Photos <span className="text-muted-ink">(up to {MAX_PHOTOS})</span>
             </p>
-            <p className="mt-0.5 text-sm font-semibold text-electric">Photos = faster, exact price</p>
+            <p className="mt-0.5 text-sm font-semibold text-electric">
+              {vehicle === "Fleet" ? "A photo of the yard or a typical unit helps" : "Photos = faster, exact price"}
+            </p>
             <input
               ref={fileRef}
               id={`${uid}-photos`}
@@ -439,10 +459,12 @@ const QuoteForm = ({ source = "quote", title = "Get a price", defaultVehicle, de
             disabled={!!sending}
             className="mt-7 inline-flex min-h-[56px] w-full items-center justify-center rounded-md bg-electric px-6 text-base font-semibold text-primary-foreground transition-colors hover:bg-electric-2 disabled:opacity-70"
           >
-            {sending ?? "Get my price"}
+            {sending ?? submitLabel}
           </button>
           <p className="mt-3 text-center text-xs text-muted-ink">
-            We text you the price from {NAP.phone}. No spam, no obligation.
+            {vehicle === "Fleet"
+              ? `We'll call or text from ${NAP.phone} to book the walk. No obligation.`
+              : `We text you the price from ${NAP.phone}. No spam, no obligation.`}
           </p>
         </form>
       )}

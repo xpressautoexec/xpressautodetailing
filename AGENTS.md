@@ -30,6 +30,8 @@ Build: `npm run build` = client build + SSR build of `src/entry-server.tsx` +
    Job receipts: `jobs` table (seed copy in src/data/jobs.ts), photos = asset path or https URL.
    "Next openings" strip under service heroes reads `next_openings` (hidden when none upcoming).
    Shared pieces: <WalkaroundGuarantee />, <CrewSection /> (CREW in data/season.ts), <Lightbox />, <ScrollRail />.
+   Paid-ad landing pages live in src/pages/lp (routes /lp/*): <LpShell /> (noindex, logo + phone, no nav),
+   blocks in components/lp. Keep them out of the sitemap. One CTA type per page.
    Quote forms carry `data-quote-form`; the mobile bar (mounted by `Footer`) hides when one is on screen.
 8. Keep it uncluttered: no new popups/toasts/floating widgets without asking.
    Mobile-first.
