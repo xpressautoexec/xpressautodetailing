@@ -26,18 +26,18 @@ const Navbar = () => {
   }, [pathname]);
 
   const linkBase =
-    "relative flex h-header items-center gap-1 whitespace-nowrap px-3 text-[14px] font-medium transition-colors";
+    "relative flex h-header items-center gap-1 whitespace-nowrap px-2 text-[14px] font-medium transition-colors xl:px-2.5";
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-surface/95 backdrop-blur supports-[backdrop-filter]:bg-surface/90">
-      <div className="shell flex h-header items-center justify-between gap-6">
+      <div className="shell flex h-header items-center justify-between gap-4 xl:gap-6">
         <Link to="/" className="shrink-0" aria-label="Xpress Auto & RV Detailing home">
           <img
             src="/xpress-logo-dark.png"
             alt="Xpress Auto & RV Detailing"
             width={476}
             height={175}
-            className="h-11 w-auto object-contain lg:h-12"
+            className="h-11 w-auto object-contain lg:h-10 xl:h-12"
           />
         </Link>
 
@@ -49,7 +49,7 @@ const Navbar = () => {
             const open = openDesktop === link.label;
             const cls = `${linkBase} ${active ? "text-ink" : "text-ink-2 hover:text-ink"}`;
             const indicator = active && (
-              <span aria-hidden="true" className="absolute inset-x-3 bottom-0 h-[2px] bg-electric" />
+              <span aria-hidden="true" className="absolute inset-x-2 bottom-0 h-[2px] bg-electric xl:inset-x-2.5" />
             );
 
             return (
@@ -107,13 +107,13 @@ const Navbar = () => {
           })}
         </nav>
 
-        <div className="hidden items-center gap-5 lg:flex">
+        <div className="hidden items-center gap-3 lg:flex xl:gap-5">
           <a
             href={TEL_HREF}
             className="flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-ink transition-colors hover:text-electric"
           >
             <Phone className="h-4 w-4 text-electric" aria-hidden="true" />
-            {PHONE}
+            <span className="sr-only xl:not-sr-only xl:whitespace-nowrap">{PHONE}</span>
           </a>
           <QuoteLink className="inline-flex min-h-[40px] items-center whitespace-nowrap rounded-md bg-electric px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-electric-2" />
         </div>

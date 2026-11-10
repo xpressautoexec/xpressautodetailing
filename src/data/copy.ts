@@ -132,6 +132,7 @@ export const NAV_LINKS: { label: string; href: string; children?: { label: strin
       { label: "Lease Return Prep", href: "/lease-return" },
     ],
   },
+  { label: "Training", href: "/training" },
   { label: "Reviews", href: "/reviews" },
   {
     label: "More",
@@ -142,7 +143,6 @@ export const NAV_LINKS: { label: string; href: string; children?: { label: strin
       { label: "Windshield Film", href: "/windshield-ppf" },
       { label: "Marine", href: "/marine" },
       { label: "Gallery", href: "/gallery" },
-      { label: "Training", href: "/training" },
       { label: "Gift Cards", href: "/gift-cards" },
       { label: "Blog", href: "/blog" },
       { label: "Warranty & Care", href: "/warranty" },
