@@ -17,6 +17,7 @@ const GiftCards = lazy(() => import("./pages/GiftCards"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 
 const Contact = lazy(() => import("./pages/Contact"));
+const Quote = lazy(() => import("./pages/Quote"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPPFvsCeramic = lazy(() => import("./pages/BlogPPFvsCeramic"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -90,6 +91,7 @@ export const AnimatedRoutes = () => {
         <Route path="/gift-cards" element={<GiftCards />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/quote" element={<Quote />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/ppf-vs-ceramic-coating-calgary" element={<BlogPPFvsCeramic />} />
         <Route path="/blog/:slug" element={<BlogPost />} />

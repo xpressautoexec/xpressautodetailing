@@ -2,9 +2,9 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
+import QuoteSection from "@/components/site/QuoteSection";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
-import AssessmentForm from "@/components/AssessmentForm";
 import GuaranteeStrip from "@/components/site/GuaranteeStrip";
 import ProcessSteps from "@/components/site/ProcessSteps";
 import ClosingCTA from "@/components/site/ClosingCTA";
@@ -187,26 +187,15 @@ const PaintCeramics = () => {
           <ProcessSteps steps={stages} />
         </Section>
 
-        <ServiceFAQ title="Coating questions" faqs={faqs} />
+        <QuoteSection
+          id="assessment"
+          source="ceramic-paint-correction"
+          defaultNeed="Paint correction/ceramic"
+          title="Get a price for correction or coating"
+          intro="Tell us the vehicle, how old the paint is and how long you plan to keep it. Photos in daylight show us the swirls; we'll tell you honestly which package is worth it."
+        />
 
-        <Section tone="surface" id="assessment">
-          <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
-            <div>
-              <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-                Book a free paint inspection
-              </h2>
-              <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ink-2">
-                Tell us the vehicle, how old the paint is and how long you plan to keep it. We'll look at it in person
-                and tell you honestly which package is worth it.
-              </p>
-            </div>
-            <AssessmentForm
-              source="ceramic-inspection"
-              title="Your vehicle"
-              subtitle="Year, make and model is plenty to start."
-            />
-          </div>
-        </Section>
+        <ServiceFAQ title="Coating questions" faqs={faqs} />
 
         <QualityProducts lines={["systemx", "gtechniq", "gyeon", "menzerna"]} />
 

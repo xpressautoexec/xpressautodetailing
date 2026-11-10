@@ -2,9 +2,9 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
+import QuoteSection from "@/components/site/QuoteSection";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
-import AssessmentForm from "@/components/AssessmentForm";
 import RVCoverageDiagram from "@/components/RVCoverageDiagram";
 import PPFCraft from "@/components/ppf/PPFCraft";
 import GuaranteeStrip from "@/components/site/GuaranteeStrip";
@@ -242,19 +242,16 @@ const RVPPF = () => (
         <ProcessSteps steps={STEPS} />
       </Section>
 
-      <ServiceFAQ title="RV film questions" faqs={faqs} />
+      <QuoteSection
+        id="assessment"
+        source="rv-ppf"
+        defaultVehicle="RV/Trailer"
+        defaultNeed="PPF/windshield film"
+        title="Get a price for RV film"
+        intro={`Year, make, length and where it's stored. We'll send a coverage plan and price, or set up a free inspection. Or call or text ${NAP.phone}.`}
+      />
 
-      <Section tone="surface" id="assessment">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
-          <div>
-            <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Book a free inspection</h2>
-            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ink-2">
-              We'll look at the unit, measure it and give you a written coverage plan and price. Or call or text {NAP.phone}.
-            </p>
-          </div>
-          <AssessmentForm source="rv-ppf-inspection" title="Your RV" subtitle="Year, make, length and where it's stored." />
-        </div>
-      </Section>
+      <ServiceFAQ title="RV film questions" faqs={faqs} />
 
       <QualityProducts lines={["3m", "systemx", "gtechniq"]} />
 

@@ -13,7 +13,6 @@ import QuoteLink from "@/components/site/QuoteLink";
 import {
   ADDONS,
   AUTO_PACKAGES,
-  BOOKING_URL,
   CERAMIC_PACKAGES,
   CERAMIC_UPCHARGE,
   PET_HAIR_TIERS,
@@ -180,14 +179,6 @@ const PriceComparison = () => (
             <QuoteLink className={`${btnPrimary} min-h-[52px] px-7`} />
             <a href={NAP.phoneHref} className={`${btnSecondary} min-h-[52px]`}>
               <Phone className="h-4 w-4 text-electric" aria-hidden="true" /> {PHONE}
-            </a>
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-semibold text-ink-2 underline decoration-line decoration-2 underline-offset-[6px] hover:text-electric hover:decoration-electric sm:ml-3"
-            >
-              Book a detail online
             </a>
           </>
         }

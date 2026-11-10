@@ -89,7 +89,7 @@
 
     <!-- Performance: font display swap is already in the CSS import -->
 
-    <!-- Google tag (gtag.js). Conversions: form leads only, fired from src/lib/tracking.ts after a successful save. -->
+    <!-- Google tag (gtag.js). GA4 and Clarity are added from src/lib/tracking.ts (initAnalytics) once their IDs are set. -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17894848842"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -97,19 +97,23 @@
       gtag('js', new Date());
       gtag('config', 'AW-17894848842', { allow_enhanced_conversions: true });
 
-      // Click tracking. Each click also sends its Google Ads conversion so the actions report data.
-      // "Phone tap (website)" is a Primary action (a call is a lead).
-      // "Book tap (website)" is set to Secondary in Google Ads: a click to Fieldd is intent, not a booking.
+      // Click tracking (event names: fieldd_click, tel_click, sms_click).
+      // Phone and Fieldd taps also send their existing Google Ads conversion actions so those
+      // actions keep reporting. The primary conversion is quote_submit (src/lib/tracking.ts);
+      // set "Phone tap" and "Book tap" to Secondary in Google Ads if they are not already.
       document.addEventListener('click', function(e) {
         var link = e.target.closest && e.target.closest('a[href]');
         if (!link) return;
         var href = link.getAttribute('href') || '';
+        var where = { page_location: window.location.pathname };
         if (href.indexOf('fieldd') !== -1) {
-          gtag('event', 'booking_click', { link_url: link.href, page_location: window.location.pathname });
+          gtag('event', 'fieldd_click', { link_url: link.href, page_location: where.page_location });
           gtag('event', 'conversion', { send_to: 'AW-17894848842/saGECKSR0rEdEMry9tRC' });
         } else if (href.indexOf('tel:') === 0) {
-          gtag('event', 'click_to_call', { page_location: window.location.pathname });
+          gtag('event', 'tel_click', where);
           gtag('event', 'conversion', { send_to: 'AW-17894848842/Q2fxCKGR0rEdEMry9tRC' });
+        } else if (href.indexOf('sms:') === 0) {
+          gtag('event', 'sms_click', where);
         }
       });
     </script>

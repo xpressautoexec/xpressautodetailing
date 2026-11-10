@@ -2,10 +2,10 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
+import QuoteSection from "@/components/site/QuoteSection";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import CompanyLogos from "@/components/CompanyLogos";
-import FleetQuoteForm from "@/components/FleetQuoteForm";
 import WorkTruckPackage from "@/components/WorkTruckPackage";
 import ProcessSteps from "@/components/site/ProcessSteps";
 import ClosingCTA from "@/components/site/ClosingCTA";
@@ -101,37 +101,14 @@ const CorporateFleet = () => (
 
       <WorkTruckPackage showFleetLink={false} />
 
-      <ServiceFAQ title="Fleet questions" faqs={faqs} />
+      <QuoteSection
+        source="fleet"
+        defaultVehicle="Fleet"
+        title="Request a fleet quote"
+        intro="Tell us how many units and where they sit. We'll come count them and send a written rate."
+      />
 
-      <Section tone="surface" id="quote">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
-          <div>
-            <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Request a fleet quote</h2>
-            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ink-2">
-              Tell us how many units and where they sit. We'll come count them and send a written rate.
-            </p>
-            <dl className="mt-10 space-y-5 text-[15px]">
-              <div>
-                <dt className="text-sm text-muted-ink">Phone</dt>
-                <dd>
-                  <a href={NAP.phoneHref} className="font-semibold text-ink hover:text-electric">
-                    {NAP.phone}
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="text-sm text-muted-ink">Email</dt>
-                <dd>
-                  <a href={NAP.emailHref} className="font-semibold text-ink hover:text-electric">
-                    {NAP.email}
-                  </a>
-                </dd>
-              </div>
-            </dl>
-          </div>
-          <FleetQuoteForm />
-        </div>
-      </Section>
+      <ServiceFAQ title="Fleet questions" faqs={faqs} />
 
       <QualityProducts />
 

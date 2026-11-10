@@ -4,6 +4,7 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
+import QuoteSection from "@/components/site/QuoteSection";
 import ServicePageHero from "@/components/ServicePageHero";
 import AutoPackages from "@/components/AutoPackages";
 import AddOnList from "@/components/AddOnList";
@@ -123,6 +124,8 @@ const Detailing = () => {
           <AddOnList />
         </div>
       </Section>
+
+      <QuoteSection source="detailing" defaultVehicle="Car/SUV" title="Not sure which package?" intro="Tell us the vehicle and what it needs. Photos of the seats and carpets get you an exact price by text." />
 
       <ServiceFAQ title="Detailing questions" faqs={detailingFAQs} />
       <QualityProducts />

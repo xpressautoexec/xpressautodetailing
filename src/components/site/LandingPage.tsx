@@ -1,10 +1,11 @@
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import { Link } from "react-router-dom";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServiceFAQ from "@/components/ServiceFAQ";
+import QuoteSection from "@/components/site/QuoteSection";
 import ServicePageHero from "@/components/ServicePageHero";
 import GuaranteeStrip from "@/components/site/GuaranteeStrip";
 import ProcessSteps from "@/components/site/ProcessSteps";
@@ -33,6 +34,7 @@ const LandingPage = ({
   products,
   work,
   childrenBeforeWork = false,
+  quote,
 }: {
   seo: { title: string; description: string; canonical: string; serviceName: string; serviceDescription: string };
   hero: { title: string; subtitle: string; image: string; ctaType: "book" | "call"; imagePosition?: string; bookLabel?: string; phoneHref?: string; bookHref?: string };
@@ -48,6 +50,8 @@ const LandingPage = ({
   work?: Work;
   /** Render the page-specific sections (e.g. pricing) above the work photos instead of below. */
   childrenBeforeWork?: boolean;
+  /** Quote form above the FAQ. `source` defaults to the canonical path. */
+  quote?: Partial<ComponentProps<typeof QuoteSection>>;
 }) => (
   <PageTransition>
     <div className="min-h-screen bg-canvas">
@@ -95,6 +99,8 @@ const LandingPage = ({
           <ProcessSteps steps={steps.items} />
         </Section>
       )}
+
+      <QuoteSection source={seo.canonical.replace(/^\//, "") || "landing"} {...quote} />
 
       <ServiceFAQ title={faqs.title} faqs={faqs.items} />
 

@@ -2,8 +2,8 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
+import QuoteSection from "@/components/site/QuoteSection";
 import PerFootCalculator from "@/components/PerFootCalculator";
-import AssessmentForm from "@/components/AssessmentForm";
 import FinancingEstimator from "@/components/rv/FinancingEstimator";
 import StatBand from "@/components/StatBand";
 import ServicePageHero from "@/components/ServicePageHero";
@@ -24,8 +24,6 @@ import {
   RV_SERVICES,
   RV_BUNDLES,
   PHONE,
-  EMAIL,
-  HOURS,
   FINANCING,
   FINANCING_LIVE,
   FIVE_STAR_REVIEWS,
@@ -606,49 +604,16 @@ const TrailerRV = () => (
         </div>
       </section>
 
+      <QuoteSection
+        id="assessment"
+        source="rv-trailer"
+        defaultVehicle="RV/Trailer"
+        title="Get a price for your RV"
+        intro="Year, make and length is plenty to start. Add photos of the worst side and we'll send a per-foot price by text, or book a free on-site assessment from there."
+      />
+
       <ServiceFAQ title="Questions RV owners ask" faqs={faqs} />
 
-      {/* Assessment */}
-      <section id="assessment" className="scroll-mt-24 border-t border-line bg-surface py-16 sm:py-24">
-        <div className="shell grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
-          <div>
-            <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Book a free RV assessment
-            </h2>
-            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ink-2">
-              We'll look at the unit, measure it and give you a written per-foot quote. Mention financing and the
-              application comes with it.
-            </p>
-            <dl className="mt-10 space-y-5 text-[15px]">
-              <div>
-                <dt className="text-sm text-muted-ink">Phone</dt>
-                <dd>
-                  <a href={telHref} className="font-semibold text-ink hover:text-electric">
-                    {PHONE}
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="text-sm text-muted-ink">Email</dt>
-                <dd>
-                  <a href={`mailto:${EMAIL}`} className="font-semibold text-ink hover:text-electric">
-                    {EMAIL}
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="text-sm text-muted-ink">Hours</dt>
-                <dd className="font-semibold text-ink">{HOURS}</dd>
-              </div>
-            </dl>
-          </div>
-          <AssessmentForm
-            source="rv-assessment"
-            title="Tell us about your unit"
-            subtitle="Year, make and length is plenty to start."
-          />
-        </div>
-      </section>
 
       <Footer />
     </div>

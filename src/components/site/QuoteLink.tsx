@@ -6,9 +6,9 @@ import { PHONE } from "@/data/pricing";
  * "Get a quote" is the one primary action on every page.
  *
  * It goes to the quote form on the current page when there is one (any element marked
- * `data-quote-form`, scrolled to via its section id), otherwise to the contact form.
+ * `data-quote-form`, scrolled to via its section id), otherwise to /quote.
  */
-export const QUOTE_FALLBACK = "/contact#quote";
+export const QUOTE_FALLBACK = "/quote";
 export const QUOTE_LABEL = "Get a quote";
 
 const SMS_BODY = "Hi Xpress, here are photos of my vehicle for a quote:";

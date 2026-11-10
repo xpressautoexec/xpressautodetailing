@@ -33,6 +33,7 @@ const COMPARE = [
 
 const CeramicCoating = () => (
   <LandingPage
+    quote={{ defaultNeed: "Paint correction/ceramic" }}
     products={["systemx", "gtechniq", "gyeon", "menzerna"]}
     seo={{
       title: "Ceramic Coating Calgary | System X, Gtechniq, Gyeon",

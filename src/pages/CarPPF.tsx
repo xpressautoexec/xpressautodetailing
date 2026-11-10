@@ -1,7 +1,6 @@
 import { useState } from "react";
 import LandingPage from "@/components/site/LandingPage";
 import { Section, SectionHeading, cardClass } from "@/components/site/Section";
-import AssessmentForm from "@/components/AssessmentForm";
 import partialFront from "@/assets/ppf-coverage-partial-front.svg";
 import fullFront from "@/assets/ppf-coverage-full-front.svg";
 import trackPack from "@/assets/ppf-coverage-track-pack.svg";
@@ -56,6 +55,7 @@ const CarPPF = () => {
 
   return (
     <LandingPage
+      quote={{ id: "quote", defaultNeed: "PPF/windshield film", title: "Get a PPF quote" }}
       childrenBeforeWork
       products={["3m"]}
       seo={{
@@ -193,13 +193,6 @@ const CarPPF = () => {
       </Section>
 
       <PPFCraft />
-
-      <Section>
-        <div id="quote" className="mx-auto max-w-2xl scroll-mt-24">
-          <SectionHeading title="Get a PPF quote" />
-          <AssessmentForm source="car-ppf-quote" title="Your vehicle" subtitle="Year, make and model, and what you'd like covered." />
-        </div>
-      </Section>
     </LandingPage>
   );
 };

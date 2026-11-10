@@ -2,12 +2,12 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
+import QuoteSection from "@/components/site/QuoteSection";
 import ServicePageHero from "@/components/ServicePageHero";
 import { PhotoRail } from "@/components/site/PhotoRail";
 import { PHOTOS } from "@/data/photos";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import PerFootCalculator from "@/components/PerFootCalculator";
-import AssessmentForm from "@/components/AssessmentForm";
 import GuaranteeStrip from "@/components/site/GuaranteeStrip";
 import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section, SectionHeading, cardDarkClass } from "@/components/site/Section";
@@ -113,19 +113,15 @@ const MarineDetailing = () => (
         <PhotoRail photos={PHOTOS.marine} label="Recent marine photos" />
       </Section>
 
-      <ServiceFAQ title="Marine questions" faqs={faqs} />
+      <QuoteSection
+        id="assessment"
+        source="marine"
+        defaultVehicle="Boat"
+        title="Get a price for your boat"
+        intro="Make, length and where it's stored is plenty to start. Add photos of the gelcoat, vinyl and tubes and we'll send a per-foot price."
+      />
 
-      <Section tone="surface" id="assessment">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
-          <div>
-            <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Book a look at your boat</h2>
-            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ink-2">
-              We'll look at the gelcoat, vinyl and tubes in person and send a written per-foot quote.
-            </p>
-          </div>
-          <AssessmentForm source="marine-assessment" title="Your boat" subtitle="Make, length and where it's stored is plenty to start." />
-        </div>
-      </Section>
+      <ServiceFAQ title="Marine questions" faqs={faqs} />
 
       <QualityProducts lines={["3m", "menzerna", "gtechniq", "systemx"]} />
 

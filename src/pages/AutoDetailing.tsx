@@ -27,6 +27,7 @@ const faqs = [
 
 const AutoDetailing = () => (
   <LandingPage
+    quote={{ defaultVehicle: "Car/SUV" }}
     seo={{
       title: "Auto Detailing Calgary | Mobile Car Detailing",
       description: `Mobile auto detailing in Calgary from ${money(from)}. Interior and exterior packages done in your driveway or office lot. We bring our own water and power.`,

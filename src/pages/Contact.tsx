@@ -5,11 +5,11 @@ import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServiceFAQ from "@/components/ServiceFAQ";
-import { Section, btnPrimary, cardClass, textLink } from "@/components/site/Section";
+import { Section, btnPrimary, cardClass } from "@/components/site/Section";
 import SEO, { buildFAQJsonLd } from "@/components/SEO";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-import { BOOKING_URL, PASS_ADDON_DISCOUNT, XPRESS_PASS } from "@/data/pricing";
+import { PASS_ADDON_DISCOUNT, XPRESS_PASS } from "@/data/pricing";
 import { CANCELLATION_SUMMARY, NAP, SERVICE_AREA_SENTENCE } from "@/data/copy";
 import { trackLead } from "@/lib/tracking";
 
@@ -86,7 +86,7 @@ const Contact = () => {
           </div>
         </section>
 
-        <Section id="quote">
+        <Section id="message">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
             <dl className="space-y-7 text-[15px]">
               <div>
@@ -113,14 +113,6 @@ const Contact = () => {
                 <dt className="text-sm text-muted-ink">Service area</dt>
                 <dd className="mt-1 font-semibold text-ink">{SERVICE_AREA_SENTENCE}</dd>
               </div>
-              <div>
-                <dt className="text-sm text-muted-ink">Book online</dt>
-                <dd className="mt-1">
-                  <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className={textLink}>
-                    Pick a package and a time
-                  </a>
-                </dd>
-              </div>
             </dl>
 
             {done ? (
@@ -129,7 +121,7 @@ const Contact = () => {
                 <p className="mt-2 text-[15px] text-ink-2">We'll reply to {form.email} the same day.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} data-quote-form className={`${cardClass} p-6 sm:p-8`}>
+              <form onSubmit={handleSubmit} className={`${cardClass} p-6 sm:p-8`}>
                 <h2 className="font-heading text-xl font-semibold text-ink">Send a message</h2>
                 <p className="mt-1 text-sm text-muted-ink">Include your vehicle, the service and a preferred date and we can usually confirm in one reply.</p>
                 <div className="mt-6 grid gap-4 sm:grid-cols-2">

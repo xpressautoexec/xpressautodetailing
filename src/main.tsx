@@ -1,6 +1,11 @@
 import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
+import { captureAttribution } from "./lib/attribution";
+import { initAnalytics } from "./lib/tracking";
+
+captureAttribution();
+initAnalytics();
 
 const container = document.getElementById("root")!;
 

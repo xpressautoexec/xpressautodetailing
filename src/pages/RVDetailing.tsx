@@ -29,6 +29,7 @@ const faqs = [
 
 const RVDetailing = () => (
   <LandingPage
+    quote={{ defaultVehicle: "RV/Trailer" }}
     products={["3m", "menzerna", "gtechniq", "systemx"]}
     seo={{
       title: "RV Detailing Calgary | Mobile RV & Trailer Detailing",

@@ -35,9 +35,12 @@ const ClosingCTA = ({
 }) => {
   // A quote form anchor becomes the primary target; any other destination is offered as a link.
   const quoteIsForm = !!quoteHref && /^#(assessment|quote)$/.test(quoteHref);
+  // Online booking (Fieldd) lives on pricing cards and the quote confirmation only.
   const link =
     mode === "book"
-      ? { href: bookHref, label: bookLabel }
+      ? /fieldd\.co/.test(bookHref)
+        ? null
+        : { href: bookHref, label: bookLabel }
       : quoteHref && !quoteIsForm && quoteLabel
         ? { href: quoteHref, label: quoteLabel }
         : null;

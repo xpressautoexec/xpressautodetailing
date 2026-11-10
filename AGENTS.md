@@ -24,6 +24,9 @@ Build: `npm run build` = client build + SSR build of `src/entry-server.tsx` +
    (`bg-charcoal`) for at most two bands per page, `<Swoosh />` max one per screen, cards
    `rounded-card` + hairline border, no shadows/gradients. Headings Barlow Condensed, body Inter.
    One primary CTA per section: `<QuoteLink />` ("Get a quote"); text/call/book are outlined or links.
+   Leads: `<QuoteForm />` (in `<QuoteSection />`, above the FAQ on service/landing pages, on / and /quote)
+   writes `quote_requests` + photos in the private `quote-photos` bucket; trigger -> `notify-quote` emails
+   support@. Fieldd "Book online" only on pricing cards and the quote confirmation.
    Quote forms carry `data-quote-form`; the mobile bar (mounted by `Footer`) hides when one is on screen.
 8. Keep it uncluttered: no new popups/toasts/floating widgets without asking.
    Mobile-first.

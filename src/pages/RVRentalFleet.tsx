@@ -2,9 +2,9 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
+import QuoteSection from "@/components/site/QuoteSection";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
-import FleetQuoteForm from "@/components/FleetQuoteForm";
 import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section, SectionHeading } from "@/components/site/Section";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
@@ -102,22 +102,17 @@ const RVRentalFleet = () => (
         </div>
       </Section>
 
-      <Section tone="surface" id="quote">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
-          <div>
-            <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Request a fleet quote</h2>
-            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ink-2">
-              Tell us how many units, their lengths and your turnover windows. Or call or text {NAP.phone}.
-            </p>
-          </div>
-          <FleetQuoteForm title="Your rental fleet" subtitle="Unit count, lengths and how often they turn over." />
-        </div>
-      </Section>
-
       <WorkShowcase
         title="Recent RV work"
         photos={PHOTOS.rv}
         clips={[CLIPS.rvCrewWash, CLIPS.rvInterior, CLIPS.trailerPolish, CLIPS.rvWalkaround]}
+      />
+
+      <QuoteSection
+        source="rv-rental-fleet"
+        defaultVehicle="Fleet"
+        title="Request a fleet quote"
+        intro={`Tell us how many units, their lengths and your turnover windows. Or call or text ${NAP.phone}.`}
       />
 
       <ServiceFAQ title="Rental fleet questions" faqs={faqs} />

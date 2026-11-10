@@ -32,6 +32,7 @@ const ROUTES = [
   "/gallery",
   "/reviews",
   "/contact",
+  "/quote",
   "/marine",
   "/gift-cards",
   "/training",

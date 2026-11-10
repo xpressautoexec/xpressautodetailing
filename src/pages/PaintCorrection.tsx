@@ -40,6 +40,7 @@ const faqs = [
 
 const PaintCorrection = () => (
   <LandingPage
+    quote={{ defaultNeed: "Paint correction/ceramic" }}
     products={["menzerna", "systemx", "gtechniq", "gyeon"]}
     seo={{
       title: "Paint Correction Calgary | Swirl & Scratch Removal",

@@ -61,7 +61,9 @@ const ServicePageHero = ({
   height,
 }: ServicePageHeroProps) => {
   const Title = titleAs;
-  const showBook = ctaType === "book" || bookHref !== BOOKING_URL;
+  // Online booking (Fieldd) lives on pricing cards only; in-page links (#packages) still show.
+  const showBook = !/fieldd\.co/.test(bookHref);
+  void ctaType;
 
   return (
     <section className="relative isolate overflow-hidden bg-surface">
