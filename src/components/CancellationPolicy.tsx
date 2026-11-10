@@ -20,7 +20,7 @@ const CancellationPolicy = ({ headingLevel = 2 }: { headingLevel?: 2 | 3 }) => {
       <p className="mt-2 text-sm text-muted-ink">Effective {CANCELLATION.effective}</p>
 
       <H className="mt-10 font-heading text-xl font-semibold tracking-tight text-ink">Notice windows</H>
-      <div className="mt-4 overflow-hidden rounded-[10px] border border-line bg-surface">
+      <div className="mt-4 overflow-hidden rounded-card border border-line bg-surface">
         <table className="w-full text-left text-sm">
           <thead className="border-b border-line bg-canvas text-muted-ink">
             <tr>
@@ -49,7 +49,7 @@ const CancellationPolicy = ({ headingLevel = 2 }: { headingLevel?: 2 | 3 }) => {
       </div>
 
       <H className="mt-10 font-heading text-xl font-semibold tracking-tight text-ink">Fees</H>
-      <div className="mt-4 overflow-hidden rounded-[10px] border border-line bg-surface">
+      <div className="mt-4 overflow-hidden rounded-card border border-line bg-surface">
         <table className="w-full text-left text-sm">
           <tbody>
             {CANCELLATION_FEES.map((f) => (

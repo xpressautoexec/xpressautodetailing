@@ -4,18 +4,19 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import StatBand from "@/components/StatBand";
 import CompanyLogos from "@/components/CompanyLogos";
 import ProcessSteps from "@/components/site/ProcessSteps";
 import QualityProducts from "@/components/site/QualityProducts";
 import ClosingCTA from "@/components/site/ClosingCTA";
-import { Section, SectionHeading, btnPrimary, btnSecondaryDark, cardClass, textLink } from "@/components/site/Section";
+import { Section, SectionHeading, btnPrimary, btnSecondary, cardClass, textLink } from "@/components/site/Section";
+import PageHeader from "@/components/site/PageHeader";
+import QuoteLink from "@/components/site/QuoteLink";
 import SEO from "@/components/SEO";
 import { PhotoMarquee } from "@/components/site/PhotoRail";
 import { PHOTOS } from "@/data/photos";
 import { REAL_REVIEWS, GOOGLE_REVIEWS_URL, SERVICE_AREA_SENTENCE, CERAMIC_CERTIFICATIONS, WATER_LINE } from "@/data/copy";
-import { BOOKING_URL, FIVE_STAR_REVIEWS, SEASON_STATS, SERVICE_AREAS } from "@/data/pricing";
+import { FIVE_STAR_REVIEWS, SEASON_STATS, SERVICE_AREAS } from "@/data/pricing";
 
 const STATS = [
   { value: FIVE_STAR_REVIEWS, label: "Five-star Google reviews" },
@@ -51,31 +52,31 @@ const Reviews = () => (
       <Navbar />
       <AutoBreadcrumbs />
 
-      <section className="bg-brand-dark">
-        <div className="shell pb-32 pt-16 sm:pb-40 sm:pt-24">
+      <PageHeader
+        eyebrow={
           <div className="flex gap-1" aria-hidden="true">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="h-5 w-5 fill-current text-primary-foreground" />
+              <Star key={i} className="h-5 w-5 fill-current text-electric" />
             ))}
           </div>
-          <h1 className="mt-5 max-w-3xl font-heading text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-primary-foreground sm:text-5xl">
-            Why customers book Xpress
-          </h1>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
+        }
+        title="Why customers book Xpress"
+        intro={
+          <p>
             {FIVE_STAR_REVIEWS} five-star reviews on Google, earned the same way every time: published prices, a crew that
             shows up with everything it needs, and a walkthrough before we leave.
           </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener noreferrer" className={btnPrimary}>
+        }
+        actions={
+          <>
+            <QuoteLink className={`${btnPrimary} min-h-[52px] px-7`} />
+            <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener noreferrer" className={`${btnSecondary} min-h-[52px]`}>
               Read them on Google
               <ExternalLink className="h-4 w-4" aria-hidden="true" />
             </a>
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className={btnSecondaryDark}>
-              Book a detail
-            </a>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      />
       <StatBand stats={STATS} />
 
       <Section>
@@ -93,7 +94,7 @@ const Reviews = () => (
             <figure key={r.text} className={`${cardClass} flex flex-col p-7`}>
               <div className="flex gap-0.5" aria-label="5 out of 5 stars">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-current text-ink" aria-hidden="true" />
+                  <Star key={i} className="h-4 w-4 fill-current text-electric" aria-hidden="true" />
                 ))}
               </div>
               <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed text-ink-2">{r.text}</blockquote>
@@ -149,7 +150,6 @@ const Reviews = () => (
       <ClosingCTA />
 
       <Footer />
-      <StickyMobileCTA />
     </div>
   </PageTransition>
 );

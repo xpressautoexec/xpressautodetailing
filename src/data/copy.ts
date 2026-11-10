@@ -102,37 +102,55 @@ export const NAP = {
   areas: SERVICE_AREAS,
 };
 
-/** Nav order is deliberate. */
-export const NAV_LINKS = [
+/** Nav order is deliberate: the four service lines that drive quotes, then proof, then everything else. */
+export const NAV_LINKS: { label: string; href: string; children?: { label: string; href: string }[] }[] = [
+  { label: "Car Detailing", href: "/detailing" },
+  {
+    label: "Ceramic & PPF",
+    href: "/ceramic-paint-correction",
+    children: [
+      { label: "Ceramic coating & paint correction", href: "/ceramic-paint-correction" },
+      { label: "Paint protection film", href: "/paint-protection-film" },
+    ],
+  },
   {
     label: "RV & Trailer",
     href: "/rv-trailer",
     children: [
-      { label: "RV Detailing", href: "/rv-trailer" },
-      { label: "RV Paint Protection Film", href: "/rv-trailer/ppf" },
-      { label: "RV Rental Fleet Care", href: "/rv-trailer/rental-fleet" },
-      { label: "Marine & Pontoon", href: "/marine" },
+      { label: "RV & trailer detailing", href: "/rv-trailer" },
+      { label: "RV paint protection film", href: "/rv-trailer/ppf" },
+      { label: "RV rental fleet care", href: "/rv-trailer/rental-fleet" },
     ],
   },
-  { label: "Ceramic & Paint", href: "/ceramic-paint-correction" },
-  { label: "Headlights", href: "/headlight-restoration" },
-  { label: "Detailing", href: "/detailing" },
-  { label: "Xpress Pass", href: "/xpress-pass" },
   { label: "Fleet", href: "/fleet" },
   { label: "Reviews", href: "/reviews" },
-  { label: "Gallery", href: "/gallery" },
   {
     label: "More",
-    href: "/blog",
+    href: "",
     children: [
-      { label: "Blog", href: "/blog" },
+      { label: "Xpress Pass", href: "/xpress-pass" },
+      { label: "Headlights", href: "/headlight-restoration" },
+      { label: "Windshield Film", href: "/windshield-ppf" },
+      { label: "Marine", href: "/marine" },
+      { label: "Gallery", href: "/gallery" },
       { label: "Training", href: "/training" },
-      { label: "Gift cards", href: "/gift-cards" },
-      { label: "Contact", href: "/contact" },
-      { label: "Cancellation policy", href: "/cancellation-policy" },
+      { label: "Gift Cards", href: "/gift-cards" },
+      { label: "Blog", href: "/blog" },
     ],
   },
 ];
+
+/** Heated shop in Airdrie. Drop-offs welcome; the vans still come to you everywhere else. */
+export const SHOP = {
+  name: "Xpress Airdrie shop",
+  street: "529 Gateway Rd NE, Unit 2012",
+  city: "Airdrie",
+  region: "AB",
+  postal: "T4B 0J6",
+  full: "Unit 2012, 529 Gateway Rd NE, Airdrie, AB T4B 0J6",
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=529+Gateway+Rd+NE+Unit+2012+Airdrie+AB+T4B+0J6",
+  embedUrl: "https://maps.google.com/maps?q=529%20Gateway%20Rd%20NE%2C%20Airdrie%2C%20AB%20T4B%200J6&z=15&output=embed",
+};
 
 export const SERVICE_AREA_LINKS = [
   { label: "Calgary", href: "/calgary" },

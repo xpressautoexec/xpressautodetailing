@@ -1,5 +1,4 @@
 import ClosingCTA from "@/components/site/ClosingCTA";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import { Link } from "react-router-dom";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
@@ -84,18 +83,18 @@ const BlogPPFvsCeramic = () => (
         <AutoBreadcrumbs />
       <article>
         {/* Hero */}
-        <header className="bg-brand-dark py-16 md:py-24">
+        <header className="border-b border-line bg-surface pb-12 pt-14 md:pb-16 md:pt-20">
           <div className="shell max-w-3xl">
-            <h1 className="font-heading font-semibold text-3xl md:text-5xl text-primary-foreground mb-5">
+            <h1 className="mb-5 font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink md:text-6xl">
               PPF vs Ceramic Coating for Calgary Winters
             </h1>
 
-            <p className="text-primary-foreground/80 text-lg leading-relaxed">
+            <p className="text-lg leading-relaxed text-ink-2">
               Six months of brine, mag chloride and gravel does two completely different kinds of damage to your paint.
               One product stops impacts, the other stops chemistry. Here's how to choose — or combine — them for
               Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County roads.
             </p>
-            <p className="mt-6 text-sm text-primary-foreground/60">
+            <p className="mt-6 text-sm text-muted-ink">
               Published July 30, 2026 by Xpress Auto &amp; RV Detailing
             </p>
           </div>
@@ -108,7 +107,7 @@ const BlogPPFvsCeramic = () => (
             width={1200}
             height={800}
             loading="eager"
-            className="aspect-[3/2] w-full rounded-[10px] object-cover object-[center_60%]"
+            className="aspect-[3/2] w-full rounded-card object-cover object-[center_60%]"
           />
         </div>
 
@@ -142,7 +141,7 @@ const BlogPPFvsCeramic = () => (
           <section>
             <h2 className="font-heading font-semibold text-2xl text-ink mb-6">Side-by-side comparison</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="rounded-[10px] border border-line p-6">
+              <div className="rounded-card border border-line p-6">
                 <ShieldCheck className="w-9 h-9 text-primary mb-3" />
                 <h3 className="font-heading font-semibold text-ink mb-3">Paint Protection Film (PPF)</h3>
                 <ul className="space-y-2 text-sm text-ink-2">
@@ -153,7 +152,7 @@ const BlogPPFvsCeramic = () => (
                   <li>Higher upfront cost, highest resale protection</li>
                 </ul>
               </div>
-              <div className="rounded-[10px] border border-line p-6">
+              <div className="rounded-card border border-line p-6">
                 <Droplets className="w-9 h-9 text-primary mb-3" />
                 <h3 className="font-heading font-semibold text-ink mb-3">Ceramic Coating</h3>
                 <ul className="space-y-2 text-sm text-ink-2">
@@ -165,7 +164,7 @@ const BlogPPFvsCeramic = () => (
                 </ul>
               </div>
             </div>
-            <div className="mt-6 rounded-[10px] border border-electric/40 bg-electric-soft p-6">
+            <div className="mt-6 rounded-card border border-electric/40 bg-electric-soft p-6">
               <div className="flex gap-3">
                 <Snowflake className="w-6 h-6 text-electric shrink-0 mt-0.5" />
                 <p className="text-sm text-ink/85 leading-relaxed">
@@ -205,7 +204,7 @@ const BlogPPFvsCeramic = () => (
                   body: "Rocker and lower-panel film plus a durable coating. Gravel roads and job sites hit low panels hardest, and clean fleet trucks hold resale value.",
                 },
               ].map((item) => (
-                <div key={item.title} className="flex gap-4 rounded-[10px] border border-line p-5">
+                <div key={item.title} className="flex gap-4 rounded-card border border-line p-5">
                   <CheckCircle className="w-5 h-5 text-electric shrink-0 mt-1" />
                   <div>
                     <h3 className="font-heading font-semibold text-sm text-ink mb-1">{item.title}</h3>
@@ -239,7 +238,7 @@ const BlogPPFvsCeramic = () => (
             <h2 className="font-heading font-semibold text-2xl text-ink mb-6">Common questions</h2>
             <div className="space-y-5">
               {faqs.map((f) => (
-                <div key={f.q} className="rounded-[10px] border border-line p-5">
+                <div key={f.q} className="rounded-card border border-line p-5">
                   <h3 className="font-heading font-semibold text-ink mb-2">{f.q}</h3>
                   <p className="text-sm text-ink-2 leading-relaxed">{f.a}</p>
                 </div>
@@ -247,7 +246,7 @@ const BlogPPFvsCeramic = () => (
             </div>
           </section>
 
-          <section className="rounded-[10px] border border-line p-6">
+          <section className="rounded-card border border-line p-6">
             <h2 className="font-heading font-semibold text-xl text-ink mb-4">Keep reading</h2>
             <ul className="space-y-2 text-sm">
               <li>
@@ -279,7 +278,6 @@ const BlogPPFvsCeramic = () => (
       />
 
       <Footer />
-      <StickyMobileCTA />
     </div>
   </PageTransition>
 );

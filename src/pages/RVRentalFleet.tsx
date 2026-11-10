@@ -4,7 +4,6 @@ import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import FleetQuoteForm from "@/components/FleetQuoteForm";
 import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section, SectionHeading } from "@/components/site/Section";
@@ -81,7 +80,7 @@ const RVRentalFleet = () => (
           {RV_FLEET.map((tier) => {
             const d = TIER_DETAIL[tier.name];
             return (
-              <article key={tier.name} className="flex flex-col rounded-[10px] border border-primary-foreground/15 bg-primary-foreground/[0.04] p-6 sm:p-7">
+              <article key={tier.name} className="flex flex-col rounded-card border border-primary-foreground/15 bg-primary-foreground/[0.04] p-6 sm:p-7">
                 <h3 className="font-heading text-xl font-semibold text-primary-foreground">{tier.name}</h3>
                 <p className="mt-3">
                   <span className="text-sm text-primary-foreground/60">From </span>
@@ -129,7 +128,6 @@ const RVRentalFleet = () => (
       <ClosingCTA title="Units back out, ready" mode="quote" quoteHref="#quote" quoteLabel="Request a fleet quote" />
 
       <Footer />
-      <StickyMobileCTA bookHref="#quote" bookLabel="Get a quote" />
     </div>
   </PageTransition>
 );

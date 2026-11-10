@@ -2,7 +2,6 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import AssessmentForm from "@/components/AssessmentForm";
@@ -269,7 +268,6 @@ const RVPPF = () => (
       />
 
       <Footer />
-      <StickyMobileCTA bookHref="#assessment" bookLabel="Book a free inspection" />
     </div>
   </PageTransition>
 );

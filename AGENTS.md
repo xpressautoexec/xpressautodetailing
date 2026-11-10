@@ -20,7 +20,12 @@ Build: `npm run build` = client build + SSR build of `src/entry-server.tsx` +
    `src/index.css` (`--brand-dark`, `--brand-blue`, `--primary`) and shadcn variants.
 6. Roles: separate `user_roles` table + `security definer` `has_role()`, never a
    column on profiles. Every new public table needs `GRANT`s + RLS in the same migration.
-7. Keep it uncluttered: no new popups/toasts/floating widgets without asking.
+7. Visual system: white primary, off-white `bg-tint`, one accent `electric` (#1D4ED8), charcoal
+   (`bg-charcoal`) for at most two bands per page, `<Swoosh />` max one per screen, cards
+   `rounded-card` + hairline border, no shadows/gradients. Headings Barlow Condensed, body Inter.
+   One primary CTA per section: `<QuoteLink />` ("Get a quote"); text/call/book are outlined or links.
+   Quote forms carry `data-quote-form`; the mobile bar (mounted by `Footer`) hides when one is on screen.
+8. Keep it uncluttered: no new popups/toasts/floating widgets without asking.
    Mobile-first.
 
 ## Blog
@@ -35,7 +40,8 @@ invented stats, testimonials or case studies in posts; link to the service page 
 (`Detailing.tsx` reads `?tab=`, `MonthlyPlan.tsx` = Xpress Pass).
 `src/components/`: `HeroSection`, `ConcernFinder` (booking card), `AutoBreadcrumbs`,
 `AutoPackages`/`AddOnList`, `SEO.tsx` (meta + JSON-LD).
-Nav order: Protection, Detailing, Xpress Pass, Fleet, More. Marine under RV & Trailer.
+Nav order: Car Detailing, Ceramic & PPF, RV & Trailer, Fleet, Reviews, More (Xpress Pass, Headlights,
+Windshield Film, Marine, Gallery, Training, Gift Cards, Blog). Header: phone + one "Get a quote".
 Tint + PPF share `/protection/ppf#tint`.
 
 Phone 587-500-4523 · support@xpressautodetail.ca · Calgary, Airdrie, Chestermere,

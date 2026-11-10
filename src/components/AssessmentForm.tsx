@@ -50,14 +50,14 @@ const AssessmentForm = ({
 
   if (done) {
     return (
-      <div className="rounded-[10px] border border-electric/30 bg-electric-soft p-8 text-center">
+      <div className="rounded-card border border-electric/30 bg-electric-soft p-8 text-center">
         <p className="font-heading text-lg font-semibold text-ink">{ASSESS_SUCCESS}</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={submit} className="rounded-[10px] border border-line bg-surface p-6 sm:p-8">
+    <form onSubmit={submit} data-quote-form className="rounded-card border border-line bg-surface p-6 sm:p-8">
       <h3 className="font-heading text-xl font-semibold text-ink">{title}</h3>
       <p className="mt-1 text-sm text-muted-ink">{subtitle}</p>
 

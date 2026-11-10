@@ -15,12 +15,12 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Archivo", "Montserrat", "system-ui", "sans-serif"],
-        body: ["Inter", "Open Sans", "system-ui", "sans-serif"],
-        mono: ["IBM Plex Mono", "ui-monospace", "SFMono-Regular", "monospace"],
+        heading: ["Barlow Condensed", "Archivo", "system-ui", "sans-serif"],
+        body: ["Inter", "system-ui", "sans-serif"],
+        mono: ["ui-monospace", "SFMono-Regular", "monospace"],
       },
       maxWidth: {
-        shell: "1120px",
+        shell: "var(--shell-max)",
         prose: "68ch",
       },
 
@@ -101,12 +101,34 @@ export default {
         surface: "hsl(var(--surface))",
         canvas: "hsl(var(--canvas))",
         good: "hsl(var(--good))",
+        tint: "hsl(var(--tint))",
+        offwhite: "hsl(var(--offwhite))",
+        charcoal: {
+          DEFAULT: "hsl(var(--charcoal))",
+          2: "hsl(var(--charcoal-2))",
+        },
+        hairline: "hsl(var(--hairline))",
+      },
+
+      spacing: {
+        header: "var(--header-h)",
+        "mobile-bar": "var(--mobile-bar-h)",
+        section: "var(--section-y)",
+      },
+
+      letterSpacing: {
+        display: "-0.01em",
+        label: "0.12em",
       },
 
       borderRadius: {
+        /* Squared-off: cards 6px, controls 4-6px. Anything larger collapses to 6px. */
+        "2xl": "var(--radius)",
+        xl: "var(--radius)",
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        card: "var(--radius)",
+        md: "calc(var(--radius) - 1px)",
+        sm: "calc(var(--radius) - 2px)",
       },
       keyframes: {
         "accordion-down": {

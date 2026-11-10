@@ -88,7 +88,7 @@ const ConcernFinder = () => {
   };
 
   return (
-    <div className="w-full overflow-hidden rounded-[10px] bg-surface text-left shadow-[0_24px_60px_-20px_hsl(var(--brand-dark)/0.6)]">
+    <div className="w-full overflow-hidden rounded-card border border-line bg-surface text-left">
       <div className="p-6 sm:p-8">
         <div className="mb-4 flex items-start justify-between gap-4">
           <div>

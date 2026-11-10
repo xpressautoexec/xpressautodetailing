@@ -1,22 +1,24 @@
-import { Link } from "react-router-dom";
-import { Phone } from "lucide-react";
+import { ArrowRight, MessageSquareText, Phone } from "lucide-react";
 import { BOOKING_URL } from "@/data/pricing";
 import { NAP, SERVICE_AREA_SENTENCE } from "@/data/copy";
 import { btnPrimary, btnSecondaryDark } from "@/components/site/Section";
 import BookLink from "@/components/site/BookLink";
+import QuoteLink, { SMS_HREF } from "@/components/site/QuoteLink";
 
 /**
- * The one closing band used at the bottom of every service page.
- * "book"  = fixed-price work, primary action opens online booking.
- * "quote" = quoted work (RV, PPF, fleet, marine), primary action goes to an assessment/quote target.
+ * The one closing band at the bottom of every page: the charcoal "lower panel" of the van.
+ * One primary action (Get a quote), Text/Call outlined, online booking as a text link.
+ *
+ * "book"  = fixed-price work: online booking is offered as the secondary link.
+ * "quote" = quoted work (RV, PPF, fleet, marine): "Get a quote" goes to `quoteHref`.
  */
 const ClosingCTA = ({
   title = "Book your detail",
   body,
   mode = "book",
-  quoteHref = "/contact",
-  quoteLabel = "Book a free assessment",
-  bookLabel = "Book a detail",
+  quoteHref,
+  quoteLabel,
+  bookLabel = "Book online",
   phoneHref = NAP.phoneHref,
   bookHref = BOOKING_URL,
 }: {
@@ -24,47 +26,54 @@ const ClosingCTA = ({
   body?: string;
   mode?: "book" | "quote";
   quoteHref?: string;
+  /** Label for `quoteHref` when it points somewhere other than a quote form (e.g. "See the plans"). */
   quoteLabel?: string;
   bookLabel?: string;
   phoneHref?: string;
-  /** Where "book" mode points: this page's Fieldd service, an on-page anchor or a route. */
+  /** Where the booking link points: this page's Fieldd service, an on-page anchor or a route. */
   bookHref?: string;
 }) => {
-  const primary =
-    mode === "book" ? (
-      <BookLink href={bookHref} className={btnPrimary}>
-        {bookLabel}
-      </BookLink>
-    ) : quoteHref.startsWith("#") ? (
-      <a href={quoteHref} className={btnPrimary}>
-        {quoteLabel}
-      </a>
-    ) : (
-      <Link to={quoteHref} className={btnPrimary}>
-        {quoteLabel}
-      </Link>
-    );
-
+  // A quote form anchor becomes the primary target; any other destination is offered as a link.
+  const quoteIsForm = !!quoteHref && /^#(assessment|quote)$/.test(quoteHref);
+  const link =
+    mode === "book"
+      ? { href: bookHref, label: bookLabel }
+      : quoteHref && !quoteIsForm && quoteLabel
+        ? { href: quoteHref, label: quoteLabel }
+        : null;
   return (
-    <section className="bg-brand-dark py-16 sm:py-20">
-      <div className="shell flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-        <div>
-          <h2 className="font-heading text-3xl font-semibold tracking-tight text-primary-foreground sm:text-4xl">
-            {title}
-          </h2>
-          <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-primary-foreground/70">
-            {body ?? `We come to you anywhere in ${SERVICE_AREA_SENTENCE}.`}
-          </p>
-        </div>
-        <div className="flex flex-col gap-3 sm:flex-row">
-          {primary}
-          <a href={phoneHref} className={btnSecondaryDark}>
-            <Phone className="h-4 w-4" aria-hidden="true" />
-            {NAP.phone}
-          </a>
-        </div>
+  <section className="bg-charcoal section-y">
+    <div className="shell flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+      <div>
+        <h2 className="font-heading text-4xl font-extrabold leading-[1.02] tracking-display text-primary-foreground sm:text-5xl">
+          {title}
+        </h2>
+        <p className="mt-4 max-w-xl text-base leading-relaxed text-primary-foreground/70">
+          {body ?? `We come to you anywhere in ${SERVICE_AREA_SENTENCE}.`}
+        </p>
+        {link && (
+          <BookLink
+            href={link.href}
+            className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-foreground/80 underline decoration-primary-foreground/25 decoration-2 underline-offset-[6px] hover:text-primary-foreground hover:decoration-electric"
+          >
+            {link.label}
+            <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+          </BookLink>
+        )}
       </div>
-    </section>
+      <div className="flex flex-col gap-3 sm:flex-row">
+        <QuoteLink href={quoteIsForm ? quoteHref : undefined} className={`${btnPrimary} min-h-[52px] px-7`} />
+        <a href={SMS_HREF} className={`${btnSecondaryDark} min-h-[52px]`}>
+          <MessageSquareText className="h-4 w-4" aria-hidden="true" />
+          Text photos
+        </a>
+        <a href={phoneHref} className={`${btnSecondaryDark} min-h-[52px]`}>
+          <Phone className="h-4 w-4" aria-hidden="true" />
+          {NAP.phone}
+        </a>
+      </div>
+    </div>
+  </section>
   );
 };
 

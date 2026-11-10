@@ -6,7 +6,6 @@ import ServicePageHero from "@/components/ServicePageHero";
 import { PhotoRail } from "@/components/site/PhotoRail";
 import { PHOTOS } from "@/data/photos";
 import ServiceFAQ from "@/components/ServiceFAQ";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import PerFootCalculator from "@/components/PerFootCalculator";
 import AssessmentForm from "@/components/AssessmentForm";
 import GuaranteeStrip from "@/components/site/GuaranteeStrip";
@@ -134,7 +133,6 @@ const MarineDetailing = () => (
       <ClosingCTA title="Get it ready for the water" mode="quote" quoteHref="#assessment" quoteLabel="Book a free assessment" />
 
       <Footer />
-      <StickyMobileCTA bookHref="#assessment" bookLabel="Book a free assessment" />
     </div>
   </PageTransition>
 );

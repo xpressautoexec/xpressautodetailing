@@ -4,7 +4,6 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO, { buildFAQJsonLd } from "@/components/SEO";
@@ -142,7 +141,6 @@ const Training = () => (
 
 
       <Footer />
-      <StickyMobileCTA bookHref="/training/signup" bookLabel="Sign up for a course" />
     </div>
   </PageTransition>
 );

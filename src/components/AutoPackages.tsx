@@ -82,7 +82,7 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
           return (
           <article
             key={p.id}
-            className={`relative flex h-full flex-col overflow-hidden rounded-[10px] border p-6 ${
+            className={`relative flex h-full flex-col overflow-hidden rounded-card border p-6 ${
               p.popular
                 ? "border-electric"
                 : dark
@@ -182,7 +182,7 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
                   ? "bg-electric text-primary-foreground hover:bg-electric-2"
                   : dark
                     ? "border border-primary-foreground/25 text-primary-foreground hover:border-primary-foreground/60"
-                    : "border border-line text-ink hover:border-ink-2"
+                    : "border border-ink/20 text-ink hover:border-ink"
               }`}
             >
               {p.memberOnly ? "See the Xpress Pass" : io ? `Book ${io.name}` : "Book this package"}
@@ -192,7 +192,7 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
         })}
       </div>
       <div
-        className={`mt-6 flex flex-col gap-4 rounded-[10px] border p-5 sm:flex-row sm:items-center sm:justify-between ${
+        className={`mt-6 flex flex-col gap-4 rounded-card border p-5 sm:flex-row sm:items-center sm:justify-between ${
           dark ? "border-electric/40" : "border-electric/30"
         }`}
       >
@@ -202,7 +202,9 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
         </p>
         <Link
           to="/xpress-pass"
-          className="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-md bg-electric px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-electric-2"
+          className={`inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-md border px-5 text-sm font-semibold transition-colors ${
+            dark ? "border-primary-foreground/25 text-primary-foreground hover:border-primary-foreground/60" : "border-ink/20 text-ink hover:border-ink"
+          }`}
         >
           See the Xpress Pass
         </Link>

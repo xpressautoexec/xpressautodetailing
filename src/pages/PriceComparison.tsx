@@ -6,9 +6,10 @@ import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import SEO, { buildFAQJsonLd, localBusinessJsonLd } from "@/components/SEO";
 import ServiceFAQ from "@/components/ServiceFAQ";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import ClosingCTA from "@/components/site/ClosingCTA";
-import { Section, SectionHeading, btnPrimary, btnSecondaryDark, cardClass, textLink } from "@/components/site/Section";
+import { Section, SectionHeading, btnPrimary, btnSecondary, cardClass, textLink } from "@/components/site/Section";
+import PageHeader from "@/components/site/PageHeader";
+import QuoteLink from "@/components/site/QuoteLink";
 import {
   ADDONS,
   AUTO_PACKAGES,
@@ -166,25 +167,31 @@ const PriceComparison = () => (
       />
       <Navbar />
         <AutoBreadcrumbs />
-      <section className="bg-brand-dark">
-        <div className="shell py-16 sm:py-24">
-          <h1 className="max-w-3xl font-heading text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-primary-foreground sm:text-5xl">
-            Car detailing prices in Calgary: mobile vs shop
-          </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
+      <PageHeader
+        title="Car detailing prices in Calgary: mobile vs shop"
+        intro={
+          <p>
             Every package we offer, what a comparable Calgary shop typically charges, and where the real cost
             difference shows up. No "call for pricing" on standard services.
           </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className={btnPrimary}>
-              Book a detail
+        }
+        actions={
+          <>
+            <QuoteLink className={`${btnPrimary} min-h-[52px] px-7`} />
+            <a href={NAP.phoneHref} className={`${btnSecondary} min-h-[52px]`}>
+              <Phone className="h-4 w-4 text-electric" aria-hidden="true" /> {PHONE}
             </a>
-            <a href={NAP.phoneHref} className={btnSecondaryDark}>
-              <Phone className="h-4 w-4" aria-hidden="true" /> {PHONE}
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-ink-2 underline decoration-line decoration-2 underline-offset-[6px] hover:text-electric hover:decoration-electric sm:ml-3"
+            >
+              Book a detail online
             </a>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      />
 
       <Section>
         <SectionHeading
@@ -290,7 +297,6 @@ const PriceComparison = () => (
       <ClosingCTA title="Know the price before you book" body="Pick a package online, or call for a quote on coating and correction." />
 
       <Footer />
-      <StickyMobileCTA />
     </div>
   </PageTransition>
 );

@@ -27,7 +27,7 @@ const FleetAccounts = () => (
           {COVERAGE} on every job
         </p>
       </div>
-      <dl className="grid gap-px overflow-hidden rounded-[10px] border border-line bg-line sm:grid-cols-2">
+      <dl className="grid gap-px overflow-hidden rounded-card border border-line bg-line sm:grid-cols-2">
         {FLEET_TERMS.map((t) => (
           <div key={t.title} className="bg-surface p-6 sm:p-7">
             <dt className="font-heading text-base font-semibold text-ink">{t.title}</dt>

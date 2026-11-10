@@ -13,7 +13,7 @@ const AddOnList = ({ dark = false }: Props) => {
 
   return (
     <div className="space-y-8">
-      <div className={`overflow-hidden rounded-[10px] border ${border} ${card}`}>
+      <div className={`overflow-hidden rounded-card border ${border} ${card}`}>
         <ul className={`divide-y ${dark ? "divide-primary-foreground/10" : "divide-line"}`}>
           {ADDONS.map((a) => (
             <li key={a.name} className="flex items-center justify-between gap-4 px-5 py-3.5">
@@ -27,7 +27,7 @@ const AddOnList = ({ dark = false }: Props) => {
         </ul>
       </div>
 
-      <div className={`rounded-[10px] border ${border} ${card} p-5 sm:p-6`}>
+      <div className={`rounded-card border ${border} ${card} p-5 sm:p-6`}>
         <h3 className={`font-heading text-base font-semibold ${text}`}>Pet hair removal</h3>
         <p className={`mt-1 text-sm ${sub}`}>Priced by how much there is. We'll confirm the tier on arrival.</p>
         <ul className="mt-4 grid gap-3 sm:grid-cols-3">

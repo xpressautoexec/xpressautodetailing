@@ -27,7 +27,7 @@ const FinancingEstimator = () => {
   }, [price, apr, term]);
 
   return (
-    <div className="rounded-[10px] bg-surface p-6 text-ink sm:p-8">
+    <div className="rounded-card bg-surface p-6 text-ink sm:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="block">
           <span className="text-sm font-medium text-ink-2">Package</span>

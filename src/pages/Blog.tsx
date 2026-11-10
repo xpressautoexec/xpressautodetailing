@@ -3,7 +3,6 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section, cardClass } from "@/components/site/Section";
 import SEO from "@/components/SEO";
@@ -57,7 +56,6 @@ const Blog = () => (
       </Section>
       <ClosingCTA />
       <Footer />
-      <StickyMobileCTA />
     </div>
   </PageTransition>
 );

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Check, ShieldCheck } from "lucide-react";
+import { Check, ShieldCheck } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
@@ -13,15 +13,14 @@ import GoogleReviewBadge from "@/components/GoogleReviewBadge";
 import AssessmentForm from "@/components/AssessmentForm";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import WorkTruckPackage from "@/components/WorkTruckPackage";
 import FleetAccounts from "@/components/home/FleetAccounts";
 import ChatWidget from "@/components/ChatWidget";
+import ConcernFinder from "@/components/ConcernFinder";
+import ClosingCTA from "@/components/site/ClosingCTA";
 import SEO, { localBusinessJsonLd } from "@/components/SEO";
 import { HOW_IT_WORKS, GUARANTEES, COVERAGE } from "@/data/copy";
 import {
-  BOOKING_URL,
-  PHONE,
   SERVICE_AREAS,
   FIVE_STAR_REVIEWS,
   SEASON_STATS,
@@ -46,8 +45,6 @@ const restorationMonthly = money(
   Math.round(monthlyPayment(restoration.price * 30, FINANCING.representativeApr, FINANCING.defaultTerm)),
 );
 
-const telHref = `tel:${PHONE.replace(/-/g, "")}`;
-
 const Index = () => (
   <PageTransition>
     <div className="min-h-screen bg-canvas">
@@ -62,6 +59,13 @@ const Index = () => (
       <HeroSection />
       <StatBand stats={STATS} />
 
+      {/* Package finder (moved out of the hero so the photo can carry it) */}
+      <section aria-label="Find the right package" className="bg-tint py-12 sm:py-16">
+        <div className="shell max-w-3xl">
+          <ConcernFinder />
+        </div>
+      </section>
+
       <div className="mt-14 sm:mt-20">
         <CompanyLogos />
       </div>
@@ -70,17 +74,16 @@ const Index = () => (
       <RecentWork />
 
       {/* Car packages */}
-      <section className="bg-brand-dark py-16 sm:py-24">
+      <section className="border-y border-line bg-tint section-y">
         <div className="shell">
           <AutoPackages
-            dark
             heading="Car detailing packages"
             intro="Pick your vehicle size and the prices update. Everything included and all add-ons are on the detailing page."
           />
           <div className="mt-10">
             <Link
               to="/detailing"
-              className="text-sm font-semibold text-primary-foreground/80 underline decoration-electric decoration-2 underline-offset-[6px] hover:text-primary-foreground"
+              className="text-sm font-semibold text-ink-2 underline decoration-electric decoration-2 underline-offset-[6px] hover:text-ink"
             >
               See everything included and all add-ons
             </Link>
@@ -94,12 +97,12 @@ const Index = () => (
 
       <FleetAccounts />
 
-      {/* Financing */}
-      <section className="border-y border-line bg-surface">
-        <div className="shell grid gap-8 py-14 sm:py-16 lg:grid-cols-[1.4fr_1fr] lg:items-center">
-          {FINANCING_LIVE ? (
+      {/* Financing: shown only once a lender is live (no "coming soon" on the public site) */}
+      {FINANCING_LIVE && (
+        <section className="border-y border-line bg-tint">
+          <div className="shell grid gap-8 py-14 sm:py-16 lg:grid-cols-[1.4fr_1fr] lg:items-center">
             <div>
-              <h2 className="font-heading text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+              <h2 className="font-heading text-3xl font-bold tracking-display text-ink sm:text-4xl">
                 RV restoration from {restorationMonthly}/month
               </h2>
               <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-ink-2">
@@ -109,34 +112,22 @@ const Index = () => (
                 total). Subject to lender approval.
               </p>
             </div>
-          ) : (
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-electric">Coming soon</p>
-              <h2 className="mt-2 font-heading text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-                Monthly financing on RV restoration
-              </h2>
-              <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-ink-2">
-                We're setting up monthly payments for gelcoat restoration. Until then, {restoration.name} on a 30 ft unit
-                is {money(restoration.price * 30)}, quoted per foot in writing after a free assessment. Mention financing in
-                your request and we'll let you know as soon as it's available.
-              </p>
+            <div className="lg:justify-self-end">
+              <Link
+                to="/rv-trailer#financing"
+                className="inline-flex min-h-[48px] items-center justify-center rounded-md border border-ink/20 bg-surface px-6 text-sm font-semibold text-ink transition-colors hover:border-ink"
+              >
+                Estimate your payment
+              </Link>
             </div>
-          )}
-          <div className="lg:justify-self-end">
-            <Link
-              to={FINANCING_LIVE ? "/rv-trailer#financing" : "/rv-trailer#assessment"}
-              className="inline-flex min-h-[48px] items-center justify-center rounded-md bg-electric px-6 text-sm font-semibold text-primary-foreground transition-colors hover:bg-electric-2"
-            >
-              {FINANCING_LIVE ? "Estimate your payment" : "Book a free RV assessment"}
-            </Link>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* How it works */}
-      <section className="py-16 sm:py-24">
+      <section className="section-y">
         <div className="shell">
-          <h2 className="max-w-xl font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+          <h2 className="max-w-xl font-heading text-4xl font-bold leading-[1.02] tracking-display text-ink sm:text-5xl">
             How it works
           </h2>
           <ol className="mt-12 grid gap-y-10 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-4">
@@ -178,10 +169,10 @@ const Index = () => (
       <GoogleReviewBadge />
 
       {/* Free assessment */}
-      <section id="assessment" className="scroll-mt-24 bg-surface py-16 sm:py-24">
+      <section id="assessment" className="scroll-mt-24 border-t border-line bg-tint section-y">
         <div className="shell grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
           <div>
-            <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+            <h2 className="font-heading text-4xl font-bold leading-[1.02] tracking-display text-ink sm:text-5xl">
               Not sure what it needs?
             </h2>
             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ink-2">
@@ -197,43 +188,14 @@ const Index = () => (
 
       <FAQSection />
 
-      {/* Closing */}
-      <section className="bg-brand-dark py-16 sm:py-20">
-        <div className="shell flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-          <div>
-            <h2 className="font-heading text-3xl font-semibold tracking-tight text-primary-foreground sm:text-4xl">
-              Book your detail
-            </h2>
-            <p className="mt-3 max-w-xl text-[15px] text-primary-foreground/70">
-              We come to you anywhere in {SERVICE_AREAS.slice(0, -1).join(", ")} and{" "}
-              {SERVICE_AREAS[SERVICE_AREAS.length - 1]}.
-            </p>
-          </div>
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-[52px] items-center justify-center rounded-md bg-electric px-7 text-sm font-semibold text-primary-foreground transition-colors hover:bg-electric-2"
-            >
-              Book a detail
-            </a>
-            <a
-              href={telHref}
-              className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-md border border-primary-foreground/30 px-7 text-sm font-semibold text-primary-foreground transition-colors hover:border-primary-foreground/70"
-            >
-              <Phone className="h-4 w-4" aria-hidden="true" />
-              {PHONE}
-            </a>
-          </div>
-        </div>
-      </section>
-
       <QualityProducts />
 
+      <ClosingCTA
+        body={`We come to you anywhere in ${SERVICE_AREAS.slice(0, -1).join(", ")} and ${SERVICE_AREAS[SERVICE_AREAS.length - 1]}.`}
+        bookLabel="Book a detail online"
+      />
 
       <Footer />
-      <StickyMobileCTA />
       <ChatWidget />
     </div>
   </PageTransition>

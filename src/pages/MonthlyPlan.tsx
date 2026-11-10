@@ -3,11 +3,12 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import ProcessSteps from "@/components/site/ProcessSteps";
 import ClosingCTA from "@/components/site/ClosingCTA";
-import { Section, SectionHeading, btnPrimary, btnSecondary, btnSecondaryDark } from "@/components/site/Section";
+import { Section, SectionHeading, btnPrimary, btnSecondary } from "@/components/site/Section";
+import QuoteLink from "@/components/site/QuoteLink";
+import Swoosh from "@/components/site/Swoosh";
 import SEO, { buildFAQJsonLd } from "@/components/SEO";
 import { Check, Phone } from "lucide-react";
 import { PHOTOS, CLIPS } from "@/data/photos";
@@ -75,34 +76,39 @@ const MonthlyPlan = () => {
         <Navbar />
         <AutoBreadcrumbs />
 
-        <section className="relative isolate overflow-hidden bg-brand-dark">
-          <div className="shell grid items-center gap-12 py-20 sm:py-28 lg:grid-cols-[1.1fr_1fr]">
+        <section className="relative isolate overflow-hidden border-b border-line bg-surface">
+          <div className="shell grid items-center gap-12 pb-24 pt-14 sm:pb-32 sm:pt-20 lg:grid-cols-[1.1fr_1fr]">
             <div className="max-w-[38rem]">
-              <h1 className="font-heading text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-primary-foreground sm:text-5xl lg:text-[3.5rem]">
+              <h1 className="font-heading text-[2.6rem] font-extrabold leading-[0.98] tracking-display text-ink sm:text-6xl lg:text-[4.25rem]">
                 The Xpress Pass
               </h1>
-              <p className="mt-6 text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
+              <p className="mt-6 text-base leading-relaxed text-ink-2 sm:text-lg">
                 A detailing membership for one vehicle, with an included visit every 4, 8 or 13 weeks.
                 Keep a card on file and enjoy {PASS_ADDON_DISCOUNT}% off eligible add-ons. Six-month initial commitment.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <a href={NAP.phoneHref} className={btnPrimary}>
-                  <Phone className="h-4 w-4" aria-hidden="true" />
+                <QuoteLink className={`${btnPrimary} min-h-[52px] px-7`} />
+                <a href={NAP.phoneHref} className={`${btnSecondary} min-h-[52px]`}>
+                  <Phone className="h-4 w-4 text-electric" aria-hidden="true" />
                   Call to join
                 </a>
-                <a href="#plans" className={btnSecondaryDark}>
-                  See the plans
-                </a>
               </div>
+              <a
+                href="#plans"
+                className="mt-5 inline-flex text-sm font-semibold text-ink-2 underline decoration-line decoration-2 underline-offset-[6px] hover:text-electric hover:decoration-electric"
+              >
+                See the plans
+              </a>
             </div>
             <img
               src={xpressPassCard}
               alt="The black metal Xpress Pass membership card"
-              className="mx-auto w-full max-w-sm drop-shadow-2xl lg:max-w-md"
+              className="mx-auto w-full max-w-sm lg:max-w-md"
               width={1024}
               height={1024}
             />
           </div>
+          <Swoosh variant="hero-edge" />
         </section>
 
         <Section id="plans">
@@ -136,7 +142,7 @@ const MonthlyPlan = () => {
               return (
                 <article
                   key={plan.id}
-                  className={`relative flex flex-col overflow-hidden rounded-[10px] border bg-surface p-6 sm:p-7 ${
+                  className={`relative flex flex-col overflow-hidden rounded-card border bg-surface p-6 sm:p-7 ${
                     plan.popular ? "border-electric" : "border-line"
                   }`}
                 >
@@ -179,9 +185,9 @@ const MonthlyPlan = () => {
 
         <Section tone="dark">
           <SectionHeading dark title="Every plan includes" />
-          <dl className="grid gap-px overflow-hidden rounded-[10px] bg-primary-foreground/10 sm:grid-cols-2">
+          <dl className="grid gap-px overflow-hidden rounded-card bg-primary-foreground/10 sm:grid-cols-2">
             {PERKS.map((p) => (
-              <div key={p.title} className="bg-brand-dark p-7 first:sm:col-span-2">
+              <div key={p.title} className="bg-charcoal p-7 first:sm:col-span-2">
                 <dt className="font-heading text-lg font-semibold text-primary-foreground">{p.title}</dt>
                 <dd className="mt-2 text-[15px] leading-relaxed text-primary-foreground/70">{p.body}</dd>
               </div>
@@ -215,7 +221,6 @@ const MonthlyPlan = () => {
         />
 
         <Footer />
-        <StickyMobileCTA bookHref="#plans" bookLabel="See the plans" />
       </div>
     </PageTransition>
   );

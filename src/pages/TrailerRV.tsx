@@ -2,15 +2,16 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import PerFootCalculator from "@/components/PerFootCalculator";
 import AssessmentForm from "@/components/AssessmentForm";
 import FinancingEstimator from "@/components/rv/FinancingEstimator";
 import StatBand from "@/components/StatBand";
+import ServicePageHero from "@/components/ServicePageHero";
+import QuoteLink from "@/components/site/QuoteLink";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import { Link } from "react-router-dom";
-import { Check, Minus, Phone, ArrowUpRight } from "lucide-react";
+import { Check, Minus, ArrowUpRight } from "lucide-react";
 import rvHero from "@/assets/jobs/hero-rv-trailer.webp";
 import { PHOTOS, CLIPS } from "@/data/photos";
 import { PhotoRail } from "@/components/site/PhotoRail";
@@ -202,7 +203,7 @@ const BookAction = ({ book, assessment, name }: { book: string; assessment?: boo
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Book ${name}`}
-      className="inline-flex min-h-[40px] items-center justify-center whitespace-nowrap rounded-md bg-electric px-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-electric-2"
+      className="inline-flex min-h-[40px] items-center justify-center whitespace-nowrap rounded-md border border-ink/20 bg-surface px-4 text-sm font-semibold text-ink transition-colors hover:border-ink"
     >
       Book now
     </a>
@@ -228,47 +229,19 @@ const TrailerRV = () => (
       <AutoBreadcrumbs />
 
       {/* Hero */}
-      <section className="relative isolate overflow-hidden bg-brand-dark">
-        <img
-          src={rvHero}
-          alt="Xpress crew washing a Class A diesel pusher on a Calgary driveway"
-          width={1080}
-          height={607}
-          {...{ fetchpriority: "high" }}
-          className="absolute inset-0 -z-10 h-full w-full object-cover object-[60%_center]"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-dark/90 via-brand-dark/55 to-brand-dark/0"
-        />
-        <div className="shell pb-32 pt-20 sm:pb-40 sm:pt-28 lg:pb-44 lg:pt-32">
-          <div className="max-w-[40rem]">
-            <h1 className="font-heading text-[2.4rem] font-semibold leading-[1.04] tracking-[-0.03em] text-primary-foreground sm:text-5xl lg:text-[3.6rem]">
-              RV detailing and gelcoat restoration, done where it's parked.
-            </h1>
-            <p className="mt-6 max-w-[34rem] text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
-              Per-foot pricing and a crew that brings its own water and power.{" "}
-              {FINANCING_LIVE ? "Monthly financing on restoration work. " : "Monthly financing coming soon. "}
-              Serving Calgary, Airdrie, Cochrane and Chestermere.
-            </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#assessment"
-                className="inline-flex min-h-[52px] items-center justify-center rounded-md bg-electric px-7 text-sm font-semibold text-primary-foreground transition-colors hover:bg-electric-2"
-              >
-                Book a free RV assessment
-              </a>
-              <a
-                href={telHref}
-                className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-md border border-primary-foreground/30 px-7 text-sm font-semibold text-primary-foreground transition-colors hover:border-primary-foreground/70"
-              >
-                <Phone className="h-4 w-4" aria-hidden="true" />
-                {PHONE}
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServicePageHero
+        title="RV detailing and gelcoat restoration, done where it's parked."
+        subtitle={`Per-foot pricing and a crew that brings its own water and power. ${
+          FINANCING_LIVE ? "Monthly financing on restoration work. " : ""
+        }Serving Calgary, Airdrie, Cochrane and Chestermere.`}
+        image={rvHero}
+        imageAlt="Xpress crew washing a Class A diesel pusher on a Calgary driveway"
+        width={1080}
+        height={607}
+        imagePosition="60% center"
+        bookHref="#packages"
+        bookLabel="See RV packages"
+      />
 
       <StatBand stats={STATS} />
 
@@ -342,7 +315,7 @@ const TrailerRV = () => (
           </div>
 
           {/* Desktop table */}
-          <div className="mt-10 hidden overflow-hidden rounded-[10px] border border-line bg-surface lg:block">
+          <div className="mt-10 hidden overflow-hidden rounded-card border border-line bg-surface lg:block">
             <table className="w-full text-left text-sm">
               <caption className="sr-only">RV package comparison</caption>
               <thead className="border-b border-line bg-canvas text-muted-ink">
@@ -421,7 +394,7 @@ const TrailerRV = () => (
           </div>
 
           {/* Mobile list */}
-          <ul className="mt-8 divide-y divide-line overflow-hidden rounded-[10px] border border-line bg-surface lg:hidden">
+          <ul className="mt-8 divide-y divide-line overflow-hidden rounded-card border border-line bg-surface lg:hidden">
             {RV_BUNDLES.map((b) => {
               const total = b.price * EXAMPLE_FT;
               return (
@@ -499,7 +472,7 @@ const TrailerRV = () => (
             </a>
             .
           </p>
-          <ul className="mt-6 divide-y divide-line overflow-hidden rounded-[10px] border border-line bg-canvas">
+          <ul className="mt-6 divide-y divide-line overflow-hidden rounded-card border border-line bg-canvas">
             {RV_SERVICES.map((svc) => (
               <li key={svc.id} className="flex items-center justify-between gap-4 px-5 py-4">
                 <div>
@@ -528,12 +501,10 @@ const TrailerRV = () => (
               fibreglass: sand only where it's needed, cut, refine, then protect. Each step uses the 3M product built
               for it, so the finish holds up through Alberta summers instead of fading again by fall.
             </p>
-            <a
+            <QuoteLink
               href="#assessment"
               className="mt-8 inline-flex min-h-[48px] items-center justify-center rounded-md bg-electric px-6 text-sm font-semibold text-primary-foreground transition-colors hover:bg-electric-2"
-            >
-              Book a free assessment
-            </a>
+            />
           </div>
           <ol className="border-t border-line">
             {RESTORATION_STEPS.map((s, i) => (
@@ -552,9 +523,9 @@ const TrailerRV = () => (
         </div>
       </section>
 
-      {/* Financing */}
-      {FINANCING_LIVE ? (
-        <section id="financing" className="scroll-mt-24 bg-brand-dark py-16 sm:py-24">
+      {/* Financing (hidden until a lender is live: no "coming soon" on the public site) */}
+      {FINANCING_LIVE && (
+        <section id="financing" className="scroll-mt-24 bg-charcoal section-y">
           <div className="shell grid items-start gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
             <div className="lg:sticky lg:top-8">
               <h2 className="font-heading text-3xl font-semibold tracking-tight text-primary-foreground sm:text-4xl">
@@ -585,28 +556,6 @@ const TrailerRV = () => (
             <FinancingEstimator />
           </div>
         </section>
-      ) : (
-        <section id="financing" className="scroll-mt-24 bg-brand-dark py-16 sm:py-20">
-          <div className="shell max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-electric">Coming soon</p>
-            <h2 className="mt-3 font-heading text-3xl font-semibold tracking-tight text-primary-foreground sm:text-4xl">
-              Monthly financing on RV restoration
-            </h2>
-            <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-primary-foreground/70">
-              Gelcoat restoration is a once-in-several-seasons job, and oxidation only gets harder to cut the longer it
-              sits. We're setting up monthly payments so you can do it properly instead of patching it every spring.
-              Mention financing in your assessment request and we'll let you know as soon as it's available.
-            </p>
-            <div className="mt-8">
-              <a
-                href="#assessment"
-                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-md bg-primary-foreground px-6 text-sm font-semibold text-ink transition-colors hover:bg-primary-foreground/90"
-              >
-                Book a free RV assessment
-              </a>
-            </div>
-          </div>
-        </section>
       )}
 
       {/* Work */}
@@ -635,7 +584,7 @@ const TrailerRV = () => (
           <div className="mt-12 grid gap-4 sm:grid-cols-2">
             <Link
               to="/rv-trailer/ppf"
-              className="group flex items-center justify-between rounded-[10px] border border-line px-6 py-5 transition-colors hover:border-ink-2"
+              className="group flex items-center justify-between rounded-card border border-line px-6 py-5 transition-colors hover:border-ink-2"
             >
               <span>
                 <span className="block font-heading font-semibold text-ink">RV paint protection film</span>
@@ -645,7 +594,7 @@ const TrailerRV = () => (
             </Link>
             <Link
               to="/marine"
-              className="group flex items-center justify-between rounded-[10px] border border-line px-6 py-5 transition-colors hover:border-ink-2"
+              className="group flex items-center justify-between rounded-card border border-line px-6 py-5 transition-colors hover:border-ink-2"
             >
               <span>
                 <span className="block font-heading font-semibold text-ink">Marine and pontoon</span>
@@ -702,7 +651,6 @@ const TrailerRV = () => (
       </section>
 
       <Footer />
-      <StickyMobileCTA bookHref="#packages" bookLabel="See RV packages" />
     </div>
   </PageTransition>
 );

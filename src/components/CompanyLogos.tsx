@@ -28,7 +28,7 @@ const CompanyLogos = () => (
         {partners.map((partner) => (
           <li
             key={partner.name}
-            className="flex h-20 basis-[calc(50%-0.375rem)] items-center justify-center rounded-[8px] border border-line px-4 sm:basis-[calc(25%-0.5625rem)] md:h-24"
+            className="flex h-20 basis-[calc(50%-0.375rem)] items-center justify-center rounded-card border border-line px-4 sm:basis-[calc(25%-0.5625rem)] md:h-24"
           >
             {partner.logo ? (
               <img

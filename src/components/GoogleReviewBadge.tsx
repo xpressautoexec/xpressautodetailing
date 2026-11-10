@@ -40,7 +40,7 @@ const GoogleReviewBadge = () => (
         </a>
       </div>
 
-      <div className="mt-12 grid gap-px overflow-hidden rounded-[10px] bg-primary-foreground/10 md:grid-cols-3">
+      <div className="mt-12 grid gap-px overflow-hidden rounded-card bg-primary-foreground/10 md:grid-cols-3">
         {reviews.map((r) => (
           <figure key={r.text} className="flex flex-col bg-brand-dark p-7">
             <blockquote className="flex-1 text-[15px] leading-relaxed text-primary-foreground/85">

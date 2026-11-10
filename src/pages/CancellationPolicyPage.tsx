@@ -2,7 +2,6 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import CancellationPolicy from "@/components/CancellationPolicy";
 import SEO from "@/components/SEO";
 import { CANCELLATION_SUMMARY } from "@/data/copy";
@@ -38,7 +37,6 @@ const CancellationPolicyPage = () => (
         </div>
       </section>
       <Footer />
-      <StickyMobileCTA />
     </div>
   </PageTransition>
 );

@@ -104,34 +104,34 @@ const AutoBreadcrumbs = ({ className, currentLabel }: Props) => {
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
-      <div className={cn("bg-brand-dark border-b border-primary-foreground/10", className)}>
+      <div className={cn("bg-surface border-b border-line", className)}>
         <div className="shell">
-          <nav aria-label="breadcrumb" className="flex items-center h-7 overflow-x-auto no-scrollbar">
+          <nav aria-label="breadcrumb" className="flex items-center h-8 overflow-x-auto no-scrollbar">
             <ol className="flex items-center gap-1 whitespace-nowrap">
               {displaySegments.map((segment, index) => (
                 <li key={segment.path} className="flex items-center">
                   {index === 0 ? (
                     <Link
                       to={segment.path}
-                      className="flex items-center gap-1 text-[11px] font-medium text-brand-gray hover:text-primary-foreground transition-colors"
+                      className="flex items-center gap-1 text-[11px] font-medium text-muted-ink hover:text-ink transition-colors"
                     >
                       <Home className="w-3 h-3" />
                       <span>{segment.label}</span>
                     </Link>
                   ) : segment.isLast ? (
-                    <span className="text-[11px] font-semibold text-primary-foreground" aria-current="page">
+                    <span className="text-[11px] font-semibold text-ink" aria-current="page">
                       {segment.label}
                     </span>
                   ) : (
                     <Link
                       to={segment.path}
-                      className="text-[11px] font-medium text-brand-gray hover:text-primary-foreground transition-colors"
+                      className="text-[11px] font-medium text-muted-ink hover:text-ink transition-colors"
                     >
                       {segment.label}
                     </Link>
                   )}
                   {index < displaySegments.length - 1 && (
-                    <ChevronRight className="w-3 h-3 text-brand-gray/40 mx-1 shrink-0" aria-hidden="true" />
+                    <ChevronRight className="w-3 h-3 text-line mx-1 shrink-0" aria-hidden="true" />
                   )}
                 </li>
               ))}

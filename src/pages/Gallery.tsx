@@ -3,7 +3,6 @@ import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import GoogleReviewBadge from "@/components/GoogleReviewBadge";
 import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section, SectionHeading } from "@/components/site/Section";
@@ -127,7 +126,6 @@ const Gallery = () => (
       <ClosingCTA title="Want results like these?" />
 
       <Footer />
-      <StickyMobileCTA />
     </div>
   </PageTransition>
 );

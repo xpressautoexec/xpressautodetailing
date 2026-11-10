@@ -11,7 +11,6 @@ import WorkTruckPackage from "@/components/WorkTruckPackage";
 
 import ServiceFAQ from "@/components/ServiceFAQ";
 import GalleryCarousel from "@/components/GalleryCarousel";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import GuaranteeStrip from "@/components/site/GuaranteeStrip";
 import ClosingCTA from "@/components/site/ClosingCTA";
@@ -131,7 +130,6 @@ const Detailing = () => {
       <ClosingCTA body="Pick a package and a time. We come to your home, office or storage lot." bookHref="#packages" bookLabel="Choose a package" />
 
       <Footer />
-      <StickyMobileCTA bookHref="#packages" bookLabel="Choose a package" />
     </div>
   </PageTransition>
   );

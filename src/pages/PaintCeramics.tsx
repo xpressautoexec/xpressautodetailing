@@ -4,7 +4,6 @@ import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import AssessmentForm from "@/components/AssessmentForm";
 import GuaranteeStrip from "@/components/site/GuaranteeStrip";
 import ProcessSteps from "@/components/site/ProcessSteps";
@@ -137,7 +136,7 @@ const PaintCeramics = () => {
             {CERAMIC_PACKAGES.map((p) => (
               <article
                 key={p.id}
-                className={`relative flex flex-col overflow-hidden rounded-[10px] border bg-primary-foreground/[0.04] p-6 sm:p-7 ${
+                className={`relative flex flex-col overflow-hidden rounded-card border bg-primary-foreground/[0.04] p-6 sm:p-7 ${
                   p.popular ? "border-electric" : "border-primary-foreground/15"
                 }`}
               >
@@ -221,7 +220,6 @@ const PaintCeramics = () => {
         />
 
         <Footer />
-        <StickyMobileCTA bookHref="#packages" bookLabel="Choose a package" />
       </div>
     </PageTransition>
   );

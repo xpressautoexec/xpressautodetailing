@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import LandingPage from "@/components/site/LandingPage";
-import { Section, SectionHeading, btnPrimary, cardClass } from "@/components/site/Section";
+import { Section, SectionHeading, btnSecondary, cardClass } from "@/components/site/Section";
 import heroImg from "@/assets/windshield-ppf-hero.jpg";
 import { WINDSHIELD_PPF, fielddUrl, money } from "@/data/pricing";
 import { WINDSHIELD_FILM_BRAND } from "@/data/copy";
@@ -136,7 +136,7 @@ const WindshieldPPF = () => (
             <p className="mt-2 font-heading text-4xl font-semibold tabular-nums text-ink">{money(t.price)}</p>
             <p className="mt-1 text-sm text-muted-ink">Install time {t.installTime}</p>
             <p className="mt-3 flex-1 text-[15px] leading-relaxed text-ink-2">{t.examples}</p>
-            <a href={fielddUrl(t.book)} target="_blank" rel="noopener noreferrer" className={`${btnPrimary} mt-6 self-start`}>
+            <a href={fielddUrl(t.book)} target="_blank" rel="noopener noreferrer" className={`${btnSecondary} mt-6 self-start`}>
               {BOOK_LABEL}
             </a>
           </div>

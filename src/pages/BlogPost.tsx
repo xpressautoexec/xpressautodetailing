@@ -3,7 +3,6 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import ClosingCTA from "@/components/site/ClosingCTA";
 import SEO from "@/components/SEO";
 import NotFound from "@/pages/NotFound";
@@ -49,13 +48,13 @@ const BlogPost = () => {
         <AutoBreadcrumbs currentLabel={post.title} />
 
         <article>
-          <header className="bg-brand-dark py-16 md:py-24">
+          <header className="border-b border-line bg-surface pb-12 pt-14 md:pb-16 md:pt-20">
             <div className="shell max-w-3xl">
-              <h1 className="font-heading text-3xl font-semibold tracking-[-0.02em] text-primary-foreground md:text-5xl">
+              <h1 className="font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink md:text-6xl">
                 {post.title}
               </h1>
-              <p className="mt-5 text-lg leading-relaxed text-primary-foreground/80">{post.excerpt}</p>
-              <p className="mt-6 text-sm text-primary-foreground/60">
+              <p className="mt-5 text-lg leading-relaxed text-ink-2">{post.excerpt}</p>
+              <p className="mt-6 text-sm text-muted-ink">
                 Published {formatDate(post.date)} by Xpress Auto &amp; RV Detailing
               </p>
             </div>
@@ -67,7 +66,7 @@ const BlogPost = () => {
               alt={post.imageAlt}
               width={1200}
               height={675}
-              className="aspect-[16/9] w-full rounded-[10px] object-cover"
+              className="aspect-[16/9] w-full rounded-card object-cover"
             />
           </div>
 
@@ -88,7 +87,7 @@ const BlogPost = () => {
                 <h2 className="mb-6 font-heading text-2xl font-semibold tracking-tight text-ink">Common questions</h2>
                 <div className="space-y-5">
                   {post.faqs.map((f) => (
-                    <div key={f.q} className="rounded-[10px] border border-line p-5">
+                    <div key={f.q} className="rounded-card border border-line p-5">
                       <h3 className="mb-2 font-heading font-semibold text-ink">{f.q}</h3>
                       <p className="text-sm leading-relaxed text-ink-2">{f.a}</p>
                     </div>
@@ -97,7 +96,7 @@ const BlogPost = () => {
               </section>
             ) : null}
 
-            <section className="rounded-[10px] border border-line p-6">
+            <section className="rounded-card border border-line p-6">
               <h2 className="mb-4 font-heading text-xl font-semibold text-ink">Keep reading</h2>
               <ul className="space-y-2 text-sm">
                 {[...(post.related ?? []), ...more.map((m) => ({ label: m.title, to: m.href }))].map((l) => (
@@ -119,7 +118,6 @@ const BlogPost = () => {
 
         <ClosingCTA />
         <Footer />
-        <StickyMobileCTA />
       </div>
     </PageTransition>
   );

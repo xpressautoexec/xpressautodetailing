@@ -104,7 +104,7 @@ const PerFootCalculator = ({
   };
 
   return (
-    <div className="rounded-[10px] border border-line bg-surface p-6 sm:p-8">
+    <div className="rounded-card border border-line bg-surface p-6 sm:p-8">
       <h3 className="font-heading text-xl font-semibold text-ink">{title}</h3>
 
       <div className="mt-6">

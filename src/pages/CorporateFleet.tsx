@@ -4,7 +4,6 @@ import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import CompanyLogos from "@/components/CompanyLogos";
 import FleetQuoteForm from "@/components/FleetQuoteForm";
 import ProcessSteps from "@/components/site/ProcessSteps";
@@ -143,7 +142,6 @@ const CorporateFleet = () => (
       />
 
       <Footer />
-      <StickyMobileCTA bookHref="#quote" bookLabel="Get a fleet quote" />
     </div>
   </PageTransition>
 );

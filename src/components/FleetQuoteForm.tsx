@@ -52,7 +52,7 @@ const FleetQuoteForm = ({ title = "Your fleet", subtitle = "Per-unit pricing for
   }
 
   return (
-    <form onSubmit={submit} className={`${cardClass} p-6 sm:p-8`}>
+    <form onSubmit={submit} data-quote-form className={`${cardClass} p-6 sm:p-8`}>
       <h3 className="font-heading text-xl font-semibold text-ink">{title}</h3>
       <p className="mt-1 text-sm text-muted-ink">{subtitle}</p>
       <div className="mt-6 grid gap-4 sm:grid-cols-2">

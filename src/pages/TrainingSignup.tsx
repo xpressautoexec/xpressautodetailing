@@ -100,7 +100,7 @@ const TrainingSignup = () => {
                   {TRAINING.map((c) => (
                     <label
                       key={c.id}
-                      className={`flex cursor-pointer items-center justify-between gap-4 rounded-[10px] border p-4 transition-colors ${
+                      className={`flex cursor-pointer items-center justify-between gap-4 rounded-card border p-4 transition-colors ${
                         courseId === c.id ? "border-electric bg-electric-soft" : "border-line bg-surface hover:border-ink-2"
                       }`}
                     >

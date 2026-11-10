@@ -4,7 +4,6 @@ import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import ServicePageHero from "@/components/ServicePageHero";
 import GuaranteeStrip from "@/components/site/GuaranteeStrip";
@@ -117,7 +116,6 @@ const LandingPage = ({
       <ClosingCTA {...closing} />
 
       <Footer />
-      <StickyMobileCTA bookHref={hero.bookHref} bookLabel={hero.bookHref ? hero.bookLabel : undefined} />
     </div>
   </PageTransition>
 );

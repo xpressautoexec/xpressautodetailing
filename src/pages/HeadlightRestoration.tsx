@@ -1,5 +1,5 @@
 import LandingPage from "@/components/site/LandingPage";
-import { Section, SectionHeading, btnPrimary, cardClass } from "@/components/site/Section";
+import { Section, SectionHeading, btnPrimary, btnSecondary, cardClass } from "@/components/site/Section";
 import heroImg from "@/assets/jobs/hero-headlight-restoration.webp";
 import { HEADLIGHT_PHOTOS } from "@/data/photos";
 import { Link } from "react-router-dom";
@@ -108,7 +108,7 @@ const HeadlightRestoration = () => (
           <p className="mt-3 flex-1 text-[15px] leading-relaxed text-ink-2">
             Add it to any detail booking and save {money(standalone - addOn)}. Same process, done during the same visit.
           </p>
-          <Link to="/detailing#packages" className={`${btnPrimary} mt-6 self-start`}>
+          <Link to="/detailing#packages" className={`${btnSecondary} mt-6 self-start`}>
             Add to a detail
           </Link>
         </div>
