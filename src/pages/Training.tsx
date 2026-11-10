@@ -50,6 +50,7 @@ const Training = () => (
       <Navbar />
       <AutoBreadcrumbs />
       <ServicePageHero
+        openings={false}
         title="Detailing training"
         subtitle={`Hands-on courses taught by the crew that does the work every day. Real vehicles, professional products, classes of ${TRAINING_TERMS.classSize}.`}
         image={heroImg}

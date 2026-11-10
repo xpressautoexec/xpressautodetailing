@@ -14,9 +14,9 @@ import PhotoQuoteBand from "@/components/home/PhotoQuoteBand";
 import CrewBlock from "@/components/home/CrewBlock";
 import HomeReviews from "@/components/home/HomeReviews";
 import CompactPackages from "@/components/home/CompactPackages";
-import JobReceiptCard from "@/components/site/JobReceiptCard";
+import JobReceipts from "@/components/site/JobReceipts";
+import { featuredJobs, useJobs } from "@/hooks/useJobs";
 import QualityProducts from "@/components/site/QualityProducts";
-import { JOB_RECEIPTS } from "@/data/receipts";
 import { COVERAGE } from "@/data/copy";
 import { FIVE_STAR_REVIEWS, SEASON_STATS } from "@/data/pricing";
 
@@ -29,6 +29,11 @@ const PROOF = [
 
 /** FAQ indexes (FAQSection list) shown on the homepage: the six most asked before booking. */
 const HOME_FAQS = [8, 0, 9, 11, 10, 5];
+
+const HomeReceipts = () => {
+  const { data = [] } = useJobs();
+  return <JobReceipts jobs={featuredJobs(data, 3)} />;
+};
 
 /** Homepage: routes people to the right page and to a quote. Not a catalogue. */
 const Index = () => (
@@ -82,11 +87,7 @@ const Index = () => (
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
             </Link>
           </div>
-          <div className="grid gap-4 md:grid-cols-3">
-            {JOB_RECEIPTS.slice(0, 3).map((job) => (
-              <JobReceiptCard key={job.id} job={job} />
-            ))}
-          </div>
+          <HomeReceipts />
         </div>
       </section>
 

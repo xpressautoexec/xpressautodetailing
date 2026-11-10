@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { MessageSquareText, Phone } from "lucide-react";
+import WalkaroundGuarantee from "@/components/site/WalkaroundGuarantee";
 import QuoteForm, { type QuoteNeed, type QuoteVehicle } from "@/components/QuoteForm";
 import { SMS_HREF, TEL_HREF } from "@/components/site/QuoteLink";
 import { NAP, SHOP } from "@/data/copy";
@@ -36,6 +37,7 @@ const QuoteSection = ({
         <Tag className="font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink sm:text-5xl">{title}</Tag>
         <div className="mt-5 max-w-md text-base leading-relaxed text-ink-2">{intro}</div>
         {aside && <div className="mt-6 max-w-md">{aside}</div>}
+        <WalkaroundGuarantee className="mt-8 max-w-md" />
         <dl className="mt-10 space-y-5 text-[15px]">
           <div>
             <dt className="text-sm text-muted-ink">Rather text or call?</dt>

@@ -8,12 +8,12 @@ export type Season = "winter" | "summer";
 export const SEASON: Season = "winter";
 
 /**
- * The crew shown on the homepage. Add `photo` (an imported image) as real crew photos come in;
- * until then each card shows a monogram tile. Names are first names only.
+ * The crew. Add `photo` (an imported image from src/assets) and a one-line `fact` per person as
+ * they come in. Until a photo is added the card shows a monogram; an empty fact is not shown.
  */
-export type CrewMember = { name: string; role: string; photo?: string };
+export type CrewMember = { name: string; role: string; photo?: string; fact?: string };
 export const CREW: CrewMember[] = [
-  // Placeholders until crew photos are uploaded. Names as customers know them from reviews.
+  // Placeholders: names as customers know them from Google reviews. TODO: photos, roles, facts.
   { name: "Youssef", role: "Detailer" },
   { name: "Adam", role: "Detailer" },
 ];

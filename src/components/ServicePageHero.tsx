@@ -4,6 +4,7 @@ import { BOOKING_URL, PHONE } from "@/data/pricing";
 import BookLink from "@/components/site/BookLink";
 import QuoteLink, { TEL_HREF } from "@/components/site/QuoteLink";
 import Swoosh from "@/components/site/Swoosh";
+import NextOpenings from "@/components/site/NextOpenings";
 
 interface ServicePageHeroProps {
   title: ReactNode;
@@ -30,6 +31,8 @@ interface ServicePageHeroProps {
   quoteHref?: string;
   /** Optional content under the actions (e.g. a package finder). */
   children?: ReactNode;
+  /** "Next openings" strip under the hero (service pages). Hidden when no openings are set. */
+  openings?: boolean;
   width?: number;
   height?: number;
 }
@@ -59,6 +62,7 @@ const ServicePageHero = ({
   children,
   width,
   height,
+  openings = true,
 }: ServicePageHeroProps) => {
   const Title = titleAs;
   // Online booking (Fieldd) lives on pricing cards only; in-page links (#packages) still show.
@@ -66,49 +70,56 @@ const ServicePageHero = ({
   void ctaType;
 
   return (
-    <section className="relative isolate overflow-hidden bg-surface">
-      <div className="flex flex-col lg:grid lg:min-h-[min(640px,calc(100svh-var(--header-h)-2rem))] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)]">
-        {/* Photo: first on phones so the work sells before the scroll. */}
-        <div className="relative aspect-[16/10] w-full bg-tint lg:order-2 lg:aspect-auto">
-          <img
-            src={image}
-            alt={imageAlt}
-            width={width}
-            height={height}
-            {...{ fetchpriority: "high" }}
-            style={imagePosition ? { objectPosition: imagePosition } : undefined}
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        </div>
-
-        <div className="hero-copy relative flex flex-col justify-center pb-16 pt-9 sm:pb-24 sm:pt-12 lg:order-1 lg:py-20 lg:pr-14">
-          <Title className="font-heading text-[2.6rem] font-extrabold leading-[0.98] tracking-display text-ink sm:text-6xl lg:text-[4.25rem]">
-            {title}
-          </Title>
-          {subtitle && (
-            <p className="mt-5 max-w-[34rem] text-base leading-relaxed text-ink-2 sm:text-lg">{subtitle}</p>
-          )}
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <QuoteLink href={quoteHref} className={primary} />
-            <a href={phoneHref} className={secondary}>
-              <Phone className="h-4 w-4 text-electric" aria-hidden="true" />
-              Call {PHONE}
-            </a>
+    <>
+      <section className="relative isolate overflow-hidden bg-surface">
+        <div className="flex flex-col lg:grid lg:min-h-[min(640px,calc(100svh-var(--header-h)-2rem))] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)]">
+          {/* Photo: first on phones so the work sells before the scroll. */}
+          <div className="relative aspect-[16/10] w-full bg-tint lg:order-2 lg:aspect-auto">
+            <img
+              src={image}
+              alt={imageAlt}
+              width={width}
+              height={height}
+              {...{ fetchpriority: "high" }}
+              style={
+                imagePosition ? { objectPosition: imagePosition } : undefined
+              }
+              className="absolute inset-0 h-full w-full object-cover"
+            />
           </div>
-          {showBook && (
-            <BookLink
-              href={bookHref}
-              className="mt-5 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-ink-2 underline decoration-line decoration-2 underline-offset-[6px] transition-colors hover:text-electric hover:decoration-electric"
-            >
-              {bookLabel}
-              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-            </BookLink>
-          )}
-          {children && <div className="mt-10">{children}</div>}
+
+          <div className="hero-copy relative flex flex-col justify-center pb-16 pt-9 sm:pb-24 sm:pt-12 lg:order-1 lg:py-20 lg:pr-14">
+            <Title className="font-heading text-[2.6rem] font-extrabold leading-[0.98] tracking-display text-ink sm:text-6xl lg:text-[4.25rem]">
+              {title}
+            </Title>
+            {subtitle && (
+              <p className="mt-5 max-w-[34rem] text-base leading-relaxed text-ink-2 sm:text-lg">
+                {subtitle}
+              </p>
+            )}
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <QuoteLink href={quoteHref} className={primary} />
+              <a href={phoneHref} className={secondary}>
+                <Phone className="h-4 w-4 text-electric" aria-hidden="true" />
+                Call {PHONE}
+              </a>
+            </div>
+            {showBook && (
+              <BookLink
+                href={bookHref}
+                className="mt-5 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-ink-2 underline decoration-line decoration-2 underline-offset-[6px] transition-colors hover:text-electric hover:decoration-electric"
+              >
+                {bookLabel}
+                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+              </BookLink>
+            )}
+            {children && <div className="mt-10">{children}</div>}
+          </div>
         </div>
-      </div>
-      <Swoosh variant="hero-edge" />
-    </section>
+        <Swoosh variant="hero-edge" />
+      </section>
+      {openings && <NextOpenings />}
+    </>
   );
 };
 

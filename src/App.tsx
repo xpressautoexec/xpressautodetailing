@@ -2,47 +2,64 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
-import { lazy, Suspense, useEffect, useRef, type ReactNode } from "react";
+import { BrowserRouter, Routes, Route, useLocation, Navigate, matchPath } from "react-router-dom";
+import { lazy, Suspense, useEffect, useRef, type ComponentType, type ReactNode } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { AnimatePresence } from "framer-motion";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
-const Detailing = lazy(() => import("./pages/Detailing"));
+type PageModule = { default: ComponentType };
+/**
+ * Lazy page that can be loaded ahead of hydration. Once preloaded it renders synchronously,
+ * so hydrating prerendered HTML doesn't suspend, flash the fallback and re-render.
+ */
+const lazyPage = (loader: () => Promise<PageModule>) => {
+  let Loaded: ComponentType | null = null;
+  const Lazy = lazy(loader);
+  const Page = () => (Loaded ? <Loaded /> : <Lazy />);
+  Page.preload = () =>
+    loader().then((m) => {
+      Loaded = m.default;
+      return m;
+    });
+  return Page;
+};
 
-const PaintCeramics = lazy(() => import("./pages/PaintCeramics"));
-const CorporateFleet = lazy(() => import("./pages/CorporateFleet"));
-const GiftCards = lazy(() => import("./pages/GiftCards"));
-const Gallery = lazy(() => import("./pages/Gallery"));
+const Detailing = lazyPage(() => import("./pages/Detailing"));
 
-const Contact = lazy(() => import("./pages/Contact"));
-const Quote = lazy(() => import("./pages/Quote"));
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogPPFvsCeramic = lazy(() => import("./pages/BlogPPFvsCeramic"));
-const BlogPost = lazy(() => import("./pages/BlogPost"));
-const TrailerRV = lazy(() => import("./pages/TrailerRV"));
-const RVRentalFleet = lazy(() => import("./pages/RVRentalFleet"));
-const RVPPF = lazy(() => import("./pages/RVPPF"));
-const TermsOfService = lazy(() => import("./pages/TermsOfService"));
-const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
-const Training = lazy(() => import("./pages/Training"));
-const TrainingSignup = lazy(() => import("./pages/TrainingSignup"));
+const PaintCeramics = lazyPage(() => import("./pages/PaintCeramics"));
+const CorporateFleet = lazyPage(() => import("./pages/CorporateFleet"));
+const GiftCards = lazyPage(() => import("./pages/GiftCards"));
+const Gallery = lazyPage(() => import("./pages/Gallery"));
 
-const MonthlyPlan = lazy(() => import("./pages/MonthlyPlan"));
-const MarineDetailing = lazy(() => import("./pages/MarineDetailing"));
-const PriceComparison = lazy(() => import("./pages/PriceComparison"));
+const Contact = lazyPage(() => import("./pages/Contact"));
+const Quote = lazyPage(() => import("./pages/Quote"));
+const Blog = lazyPage(() => import("./pages/Blog"));
+const BlogPPFvsCeramic = lazyPage(() => import("./pages/BlogPPFvsCeramic"));
+const BlogPost = lazyPage(() => import("./pages/BlogPost"));
+const TrailerRV = lazyPage(() => import("./pages/TrailerRV"));
+const RVRentalFleet = lazyPage(() => import("./pages/RVRentalFleet"));
+const RVPPF = lazyPage(() => import("./pages/RVPPF"));
+const TermsOfService = lazyPage(() => import("./pages/TermsOfService"));
+const PrivacyPolicy = lazyPage(() => import("./pages/PrivacyPolicy"));
+const Training = lazyPage(() => import("./pages/Training"));
+const TrainingSignup = lazyPage(() => import("./pages/TrainingSignup"));
+
+const MonthlyPlan = lazyPage(() => import("./pages/MonthlyPlan"));
+const MarineDetailing = lazyPage(() => import("./pages/MarineDetailing"));
+const PriceComparison = lazyPage(() => import("./pages/PriceComparison"));
 
 /* Dedicated, individually prerendered landing routes */
-const AutoDetailing = lazy(() => import("./pages/AutoDetailing"));
-const RVDetailing = lazy(() => import("./pages/RVDetailing"));
-const CeramicCoating = lazy(() => import("./pages/CeramicCoating"));
-const PaintCorrection = lazy(() => import("./pages/PaintCorrection"));
-const HeadlightRestoration = lazy(() => import("./pages/HeadlightRestoration"));
-const WindshieldPPF = lazy(() => import("./pages/WindshieldPPF"));
-const CarPPF = lazy(() => import("./pages/CarPPF"));
-const Reviews = lazy(() => import("./pages/Reviews"));
-const CancellationPolicyPage = lazy(() => import("./pages/CancellationPolicyPage"));
+const AutoDetailing = lazyPage(() => import("./pages/AutoDetailing"));
+const RVDetailing = lazyPage(() => import("./pages/RVDetailing"));
+const CeramicCoating = lazyPage(() => import("./pages/CeramicCoating"));
+const PaintCorrection = lazyPage(() => import("./pages/PaintCorrection"));
+const HeadlightRestoration = lazyPage(() => import("./pages/HeadlightRestoration"));
+const WindshieldPPF = lazyPage(() => import("./pages/WindshieldPPF"));
+const CarPPF = lazyPage(() => import("./pages/CarPPF"));
+const Reviews = lazyPage(() => import("./pages/Reviews"));
+const CancellationPolicyPage = lazyPage(() => import("./pages/CancellationPolicyPage"));
 
 const queryClient = new QueryClient();
 
@@ -156,7 +173,46 @@ export const AppProviders = ({ children }: { children: ReactNode }) => (
   </QueryClientProvider>
 );
 
-export const RouteFallback = () => <div className="min-h-screen bg-brand-dark" />;
+export const RouteFallback = () => <div className="min-h-screen bg-canvas" />;
+
+/** Lazy pages by path, for preloading the current page before hydration. */
+const PRELOAD: [string, { preload: () => Promise<unknown> }][] = [
+  ["/detailing", Detailing],
+  ["/gift-cards", GiftCards],
+  ["/gallery", Gallery],
+  ["/contact", Contact],
+  ["/quote", Quote],
+  ["/blog", Blog],
+  ["/blog/ppf-vs-ceramic-coating-calgary", BlogPPFvsCeramic],
+  ["/blog/:slug", BlogPost],
+  ["/terms-of-service", TermsOfService],
+  ["/privacy-policy", PrivacyPolicy],
+  ["/training", Training],
+  ["/training/signup", TrainingSignup],
+  ["/windshield-ppf", WindshieldPPF],
+  ["/paint-protection-film", CarPPF],
+  ["/marine", MarineDetailing],
+  ["/calgary-detailing-price-comparison", PriceComparison],
+  ["/auto-detailing", AutoDetailing],
+  ["/rv-detailing", RVDetailing],
+  ["/ceramic-coating", CeramicCoating],
+  ["/paint-correction", PaintCorrection],
+  ["/headlight-restoration", HeadlightRestoration],
+  ["/reviews", Reviews],
+  ["/cancellation-policy", CancellationPolicyPage],
+  ["/rv-trailer", TrailerRV],
+  ["/rv-trailer/ppf", RVPPF],
+  ["/rv-trailer/rental-fleet", RVRentalFleet],
+  ["/ceramic-paint-correction", PaintCeramics],
+  ["/fleet", CorporateFleet],
+  ["/xpress-pass", MonthlyPlan],
+];
+
+/** Loads the current route's page module (no-op for eager pages). Call before hydrateRoot. */
+export const preloadRoute = (pathname: string) => {
+  const hit = PRELOAD.find(([path]) => matchPath(path, pathname));
+  return hit ? hit[1].preload().catch(() => undefined) : Promise.resolve();
+};
 
 const App = () => (
   <HelmetProvider>

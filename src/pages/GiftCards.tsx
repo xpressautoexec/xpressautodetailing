@@ -64,6 +64,7 @@ const GiftCards = () => (
       <Navbar />
       <AutoBreadcrumbs />
       <ServicePageHero
+        openings={false}
         title="Detailing gift cards"
         subtitle={`From ${money(minCard)} to ${money(maxCard)}, delivered by email the moment you check out. Good for any service, and they never expire.`}
         image={giftcardHero}

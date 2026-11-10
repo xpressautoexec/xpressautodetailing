@@ -8,6 +8,7 @@ import { getAttribution } from "@/lib/attribution";
 import { BOOKING_URL } from "@/data/pricing";
 import { NAP } from "@/data/copy";
 import { SMS_HREF } from "@/components/site/QuoteLink";
+import WalkaroundGuarantee from "@/components/site/WalkaroundGuarantee";
 
 /** Values are stored as-is and checked by the database policy; keep the two lists in sync. */
 export const QUOTE_VEHICLES = ["Car/SUV", "Truck", "RV/Trailer", "Boat", "Fleet"] as const;
@@ -260,7 +261,8 @@ const QuoteForm = ({ source = "quote", title = "Get a price", defaultVehicle, de
             We have your {sentPhotos} photo{sentPhotos > 1 ? "s" : ""}. Keep your phone handy; the price comes by text from {NAP.phone}.
           </p>
         )}
-        <div className="mt-8 border-t border-line pt-5">
+        <WalkaroundGuarantee className="mt-8" />
+        <div className="mt-6 border-t border-line pt-5">
           <p className="text-sm text-muted-ink">Already know what you want?</p>
           <a
             href={BOOKING_URL}

@@ -1,5 +1,5 @@
 import { createRoot, hydrateRoot } from "react-dom/client";
-import App from "./App.tsx";
+import App, { preloadRoute } from "./App.tsx";
 import "./index.css";
 import { captureAttribution } from "./lib/attribution";
 import { initAnalytics } from "./lib/tracking";
@@ -13,7 +13,8 @@ const container = document.getElementById("root")!;
 // present we hydrate it instead of throwing it away, so crawlers and users
 // both get real content in the initial response.
 if (container.hasChildNodes()) {
-  hydrateRoot(container, <App />);
+  // Load this page's code first so hydration matches the prerendered HTML (no flash).
+  preloadRoute(window.location.pathname).then(() => hydrateRoot(container, <App />));
 } else {
   createRoot(container).render(<App />);
 }
