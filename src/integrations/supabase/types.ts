@@ -47,6 +47,90 @@ export type Database = {
         }
         Relationships: []
       }
+      quote_requests: {
+        Row: {
+          area: string | null
+          company_name: string | null
+          created_at: string
+          fleet_size: string | null
+          gbraid: string | null
+          gclid: string | null
+          id: string
+          landing_page: string | null
+          location_pref: string | null
+          name: string
+          need: string
+          notes: string | null
+          page_path: string | null
+          phone: string
+          photo_paths: string[]
+          referrer: string | null
+          source: string | null
+          status: string
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
+          vehicle_type: string
+          wbraid: string | null
+        }
+        Insert: {
+          area?: string | null
+          company_name?: string | null
+          created_at?: string
+          fleet_size?: string | null
+          gbraid?: string | null
+          gclid?: string | null
+          id?: string
+          landing_page?: string | null
+          location_pref?: string | null
+          name: string
+          need: string
+          notes?: string | null
+          page_path?: string | null
+          phone: string
+          photo_paths?: string[]
+          referrer?: string | null
+          source?: string | null
+          status?: string
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+          vehicle_type: string
+          wbraid?: string | null
+        }
+        Update: {
+          area?: string | null
+          company_name?: string | null
+          created_at?: string
+          fleet_size?: string | null
+          gbraid?: string | null
+          gclid?: string | null
+          id?: string
+          landing_page?: string | null
+          location_pref?: string | null
+          name?: string
+          need?: string
+          notes?: string | null
+          page_path?: string | null
+          phone?: string
+          photo_paths?: string[]
+          referrer?: string | null
+          source?: string | null
+          status?: string
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+          vehicle_type?: string
+          wbraid?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
