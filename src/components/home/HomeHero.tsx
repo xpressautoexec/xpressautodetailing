@@ -1,121 +1,52 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { ArrowRight, MessageSquareText } from "lucide-react";
-import carImg from "@/assets/jobs/card-car-mercedes-c-class.webp";
-import rvImg from "@/assets/jobs/hero-rv-trailer.webp";
-import fleetImg from "@/assets/jobs/card-fleet-cat-excavator.webp";
 import QuoteLink, { SMS_HREF } from "@/components/site/QuoteLink";
-import Swoosh from "@/components/site/Swoosh";
+import heroImg from "@/assets/jobs/card-pass-audi-rs5.webp";
 
-const PATHS = [
-  {
-    label: "Car & Truck",
-    href: "/detailing",
-    img: carImg,
-    alt: "White Mercedes-Benz C-Class after an exterior detail",
-    pos: "center 55%",
-  },
-  {
-    label: "RV & Trailer",
-    href: "/rv-trailer",
-    img: rvImg,
-    alt: "Xpress crew washing a Class A diesel pusher on a Calgary driveway",
-    pos: "center 60%",
-  },
-  {
-    label: "Fleet & Dealership",
-    href: "/fleet",
-    img: fleetImg,
-    alt: "CAT excavator on a Calgary job site after an on-site wash",
-    pos: "center 45%",
-  },
-];
-
-const VIDEO = { src: "/videos/xp-paint-correction.mp4", poster: "/videos/xp-paint-correction.jpg" };
-
-/** Only mounts on large screens, after hydration, so phones never download the clip. */
-const useDesktopVideo = () => {
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 1024px) and (prefers-reduced-motion: no-preference)");
-    const update = () => setShow(mq.matches);
-    update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
-  }, []);
-  return show;
-};
-
-/** Homepage hero: the promise, three routes in, one quote action. */
-const HomeHero = () => {
-  const video = useDesktopVideo();
-
-  return (
-    <section id="home" className="relative isolate overflow-hidden bg-surface">
-      <div className="shell pb-24 pt-10 sm:pb-32 sm:pt-14 lg:pb-36 lg:pt-16">
-        <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_17rem] lg:gap-16">
-          <div>
-            <p className="eyebrow">Auto · RV · Fleet — Calgary &amp; Airdrie</p>
-            <h1 className="mt-4 max-w-[14ch] font-heading text-[2.9rem] font-extrabold leading-[0.95] tracking-display text-ink sm:text-6xl lg:text-[5.5rem]">
-              Protection, built for Alberta roads.
-            </h1>
-            <p className="mt-6 max-w-[38rem] text-base leading-relaxed text-ink-2 sm:text-lg">
-              Detailing, ceramic coating and paint protection film — mobile across Calgary, or in our heated Airdrie shop.
-            </p>
-          </div>
-          {video && (
-            <video
-              className="hidden aspect-[9/16] w-full rounded-card bg-tint object-cover lg:block"
-              src={VIDEO.src}
-              poster={VIDEO.poster}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              aria-label="Paint correction on black paint with a 50/50 tape line"
-            />
-          )}
+/** LLumar "See LLumar in a new light" hero: giant stacked headline left, shaped photo right. */
+const HomeHero = () => (
+  <section className="relative isolate overflow-hidden bg-canvas">
+    <div className="flex flex-col lg:grid lg:min-h-[720px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-center">
+      <div className="relative w-full pl-6 pt-4 lg:order-2 lg:h-full lg:py-12 lg:pl-0">
+        <div className="slanted-photo relative aspect-[16/12] w-full bg-tint lg:aspect-auto lg:h-full lg:min-h-[620px]">
+          <img
+            src={heroImg}
+            alt="Audi RS5 after a ceramic coating by Xpress in Calgary"
+            {...{ fetchpriority: "high" }}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
         </div>
+      </div>
 
-        <nav aria-label="Choose your vehicle" className="mt-10 grid gap-3 sm:mt-12 sm:grid-cols-3 sm:gap-4">
-          {PATHS.map((p) => (
-            <Link
-              key={p.href}
-              to={p.href}
-              className="group relative flex overflow-hidden rounded-card border border-line bg-surface transition-colors hover:border-ink sm:flex-col"
-            >
-              <img
-                src={p.img}
-                alt={p.alt}
-                style={{ objectPosition: p.pos }}
-                className="aspect-[4/3] w-32 shrink-0 object-cover sm:aspect-[16/10] sm:w-full"
-              />
-              <span className="flex flex-1 items-center justify-between gap-3 px-4 py-4 sm:px-5 sm:py-5">
-                <span className="font-heading text-2xl font-bold leading-none text-ink sm:text-[1.75rem]">{p.label}</span>
-                <ArrowRight
-                  className="h-5 w-5 shrink-0 text-electric transition-transform group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
-              </span>
-            </Link>
-          ))}
-        </nav>
-
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <QuoteLink className="inline-flex min-h-[52px] items-center justify-center rounded-md bg-electric px-8 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-electric-2" />
+      <div className="hero-copy flex flex-col justify-center pb-14 pt-10 sm:pb-20 lg:order-1 lg:py-20 lg:pr-12">
+        <h1 className="llumar-hero-title">
+          Mobile
+          <br />
+          detailing &amp;
+          <br />
+          protection
+          <br />
+          in Calgary
+        </h1>
+        <p className="mt-10 max-w-[32rem] text-lg leading-relaxed text-ink-2">
+          Ceramic coating, SunTek® and LLumar® paint protection film, window tint and full detailing for cars, RVs and fleets — mobile across
+          Calgary or in our heated Airdrie shop.
+        </p>
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <QuoteLink className="pill-action min-h-[56px] gap-2 rounded-full bg-action px-9 text-[15px] text-primary-foreground transition-colors hover:bg-ink">
+            Get a quote
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </QuoteLink>
           <a
             href={SMS_HREF}
-            className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-md border border-ink/20 bg-surface px-6 text-[15px] font-semibold text-ink transition-colors hover:border-ink"
+            className="pill-action min-h-[56px] gap-2 rounded-full border-2 border-ink/15 text-[15px] text-ink transition-colors hover:border-ink"
           >
-            <MessageSquareText className="h-4 w-4 text-electric" aria-hidden="true" />
+            <MessageSquareText className="h-4 w-4 text-action" aria-hidden="true" />
             Text us photos
           </a>
         </div>
       </div>
-      <Swoosh variant="hero-edge" />
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default HomeHero;

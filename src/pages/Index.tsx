@@ -2,100 +2,110 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
-import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import SEO, { localBusinessJsonLd } from "@/components/SEO";
 import ChatWidget from "@/components/ChatWidget";
 import CompanyLogos from "@/components/CompanyLogos";
 import FAQSection from "@/components/FAQSection";
 import HomeHero from "@/components/home/HomeHero";
-import SeasonalFeature from "@/components/home/SeasonalFeature";
+import OurExpertise from "@/components/home/OurExpertise";
+import ProtectionCards from "@/components/home/ProtectionCards";
 import PhotoQuoteBand from "@/components/home/PhotoQuoteBand";
-import CrewBlock from "@/components/home/CrewBlock";
 import HomeReviews from "@/components/home/HomeReviews";
-import CompactPackages from "@/components/home/CompactPackages";
-import StatRow from "@/components/site/StatRow";
+import AuthorizedInstallers from "@/components/site/AuthorizedInstallers";
+import WhyBand from "@/components/site/WhyBand";
+import FeatureRow from "@/components/site/FeatureRow";
 import JobReceipts from "@/components/site/JobReceipts";
 import { featuredJobs, useJobs } from "@/hooks/useJobs";
-import QualityProducts from "@/components/site/QualityProducts";
+import { WHY_XPRESS } from "@/data/why";
+import dquartzPhoto from "@/assets/jobs/ceramic-bmw-m340i-hood.webp";
+import rvPhoto from "@/assets/jobs/hero-rv-detailing.webp";
 
-
-/** FAQ indexes (FAQSection list) shown on the homepage: the six most asked before booking. */
-const HOME_FAQS = [8, 0, 9, 11, 10, 5];
+/** FAQ indexes (FAQSection list) shown on the homepage: the most asked before booking. */
+const HOME_FAQS = [8, 0, 9, 11, 10];
 
 const HomeReceipts = () => {
   const { data = [] } = useJobs();
-  return <JobReceipts jobs={featuredJobs(data, 3)} />;
+  return <JobReceipts jobs={featuredJobs(data, 6)} />;
 };
 
-/** Homepage: routes people to the right page and to a quote. Not a catalogue. */
+/** Homepage, LLumar layout: hero, installers, expertise, why band, protection, flagship, RV, receipts, reviews, FAQ, quote. */
 const Index = () => (
   <PageTransition>
     <div className="min-h-screen bg-canvas">
       <SEO
-        title="Mobile Car & RV Detailing Calgary"
-        description="Mobile detailing in Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County. Cars, RVs, boats and fleets — our vans carry their own water and power, so we work wherever you park."
+        title="Mobile Car & RV Detailing Calgary | Ceramic, PPF & Tint"
+        description="Mobile car and RV detailing in Calgary and Airdrie: CARPRO ceramic coating, SunTek and LLumar paint protection film and window tint, at your driveway."
         canonical="/"
         jsonLd={localBusinessJsonLd}
       />
       <Navbar />
-      <AutoBreadcrumbs />
 
-      {/* 1. Hero: promise, three paths, one quote action */}
       <HomeHero />
+      <AuthorizedInstallers />
+      <OurExpertise />
 
-      {/* 2. Stat row + client logos */}
-      <StatRow />
-      <CompanyLogos />
+      <WhyBand
+        subject={WHY_XPRESS.subject}
+        intro={WHY_XPRESS.intro}
+        apart={WHY_XPRESS.apart}
+        items={WHY_XPRESS.items}
+        cta={{ label: "Read our reviews", href: "/reviews" }}
+      />
 
-      {/* 3. Seasonal feature (SEASON flag in data/season.ts) */}
-      <SeasonalFeature />
+      <ProtectionCards />
 
-      {/* 4. Photo quote band + form */}
-      <PhotoQuoteBand />
+      <FeatureRow
+        title="Experience CARPRO DQUARTZ"
+        image={dquartzPhoto}
+        imageAlt="BMW M340i hood after a ceramic coating"
+        cta={{ label: "Learn more", href: "/ceramic-coating/carpro-dquartz" }}
+        tone="surface"
+      >
+        <p>
+          DQUARTZ is CARPRO's ceramic coating reinforced with synthetic nano-diamonds. It is built to resist the fine swirls that
+          washing leaves behind, on top of the gloss, water beading and road-salt resistance you expect from a professional coating.
+        </p>
+        <p>As an authorized CARPRO installer, we prep and correct the paint first, so the coating locks in a finish worth keeping.</p>
+      </FeatureRow>
 
-      {/* 5. Job receipts */}
-      <section className="section-y bg-surface" aria-labelledby="receipts-title">
+      <FeatureRow
+        title="RV detailing & oxidation removal"
+        image={rvPhoto}
+        imageAlt="Motorhome being detailed on site in Calgary"
+        cta={{ label: "Book a free assessment", href: "/rv-trailer" }}
+        flip
+        rule
+      >
+        <p>
+          Alberta sun chalks gelcoat and fibreglass fast. We cut back the oxidation, restore the shine and seal it, at your house, storage
+          lot or campground. Our vans carry their own water and power.
+        </p>
+      </FeatureRow>
+
+      <section className="section-y bg-canvas" aria-labelledby="receipts-title">
         <div className="shell">
-          <div className="mb-10 flex flex-col gap-4 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="eyebrow mb-3">Job receipts</p>
-              <h2 id="receipts-title" className="font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink sm:text-6xl">
-                Real jobs, written down.
-              </h2>
-            </div>
-            <Link to="/gallery" className="inline-flex items-center gap-1.5 text-sm font-semibold text-electric hover:underline hover:underline-offset-4">
+          <div className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <h2 id="receipts-title" className="display-xl !text-[clamp(32px,4vw,64px)]">
+              Real jobs,
+              <br />
+              written down
+            </h2>
+            <Link to="/gallery" className="pill-action inline-flex items-center gap-2 border-2 border-ink/15 text-ink hover:border-ink">
               See the gallery
-              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
           <HomeReceipts />
         </div>
       </section>
 
-      {/* 6. Crew + Walkaround Guarantee */}
-      <CrewBlock />
-
-      {/* 7. Reviews */}
+      <CompanyLogos />
       <HomeReviews />
-
-      {/* 8. Car packages, one compact table */}
-      <section id="packages" className="section-y scroll-mt-24 border-t border-line bg-tint" aria-labelledby="packages-title">
-        <div className="shell">
-          <p className="eyebrow mb-3">Detailing</p>
-          <h2 id="packages-title" className="font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink sm:text-6xl">
-            A reset, not a wash.
-          </h2>
-          <p className="mb-8 mt-5 max-w-xl text-base leading-relaxed text-ink-2">
-            Car detailing packages priced by vehicle size: pick yours and the prices update.
-          </p>
-          <CompactPackages />
-        </div>
-      </section>
-
-      {/* 9. FAQ + products */}
-      <FAQSection pick={HOME_FAQS} />
-      <QualityProducts />
+      <div id="faq" className="scroll-mt-24">
+        <FAQSection pick={HOME_FAQS} />
+      </div>
+      <PhotoQuoteBand />
 
       <Footer />
       <ChatWidget />

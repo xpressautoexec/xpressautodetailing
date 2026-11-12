@@ -15,6 +15,7 @@ import type { ProductLine } from "@/data/copy";
 import WorkShowcase, { type Work } from "@/components/site/WorkShowcase";
 import { Section, SectionHeading } from "@/components/site/Section";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
+import WhyBand, { type WhyItem } from "@/components/site/WhyBand";
 
 type Item = { title: string; body: string };
 
@@ -35,6 +36,8 @@ const LandingPage = ({
   work,
   childrenBeforeWork = false,
   quote,
+  why,
+  afterFeatures,
 }: {
   seo: { title: string; description: string; canonical: string; serviceName: string; serviceDescription: string };
   hero: { eyebrow?: string; quoteLabel?: string; title: string; subtitle: string; image: string; ctaType: "book" | "call"; imagePosition?: string; bookLabel?: string; phoneHref?: string; bookHref?: string };
@@ -53,6 +56,10 @@ const LandingPage = ({
   childrenBeforeWork?: boolean;
   /** Quote form above the FAQ. `source` defaults to the canonical path. */
   quote?: Partial<ComponentProps<typeof QuoteSection>>;
+  /** LLumar-style dark "WHY ___" band after the features. */
+  why?: { subject: string; intro: string; apart?: string; items: WhyItem[] };
+  /** Rendered straight after the features (e.g. brand product links). */
+  afterFeatures?: ReactNode;
 }) => (
   <PageTransition>
     <div className="min-h-screen bg-canvas">
@@ -89,6 +96,10 @@ const LandingPage = ({
           ))}
         </dl>
       </Section>
+
+      {afterFeatures}
+
+      {why && <WhyBand subject={why.subject} intro={why.intro} apart={why.apart} items={why.items} />}
 
       {childrenBeforeWork && children}
 

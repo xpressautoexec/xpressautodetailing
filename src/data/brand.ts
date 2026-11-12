@@ -50,8 +50,8 @@ export const XPRESS_PROCESS = [
 
 /** Film wording that follows the 3M certification switch. */
 export const FILM = {
-  name: "3M Scotchgard™ Pro film",
-  plain: "3M Scotchgard Pro film",
+  name: "SunTek® and LLumar® film",
+  plain: "SunTek and LLumar film",
   certified: IS_3M_CERTIFIED,
   /** Only shown when IS_3M_CERTIFIED is true. */
   warrantyLine: IS_3M_CERTIFIED ? "10-year 3M film warranty against yellowing, bubbling and cracking." : null,

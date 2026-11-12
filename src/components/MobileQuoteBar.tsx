@@ -40,37 +40,35 @@ const MobileQuoteBar = ({ quoteLabel }: { quoteLabel?: string }) => {
     };
   }, [pathname]);
 
-  const item =
-    "flex min-h-[48px] flex-1 items-center justify-center gap-1.5 rounded-md text-[13px] font-semibold transition-colors";
+  const pill = "flex min-h-[48px] flex-1 items-center justify-center gap-1.5 rounded-full text-[13px] font-bold uppercase tracking-[0.04em] transition-colors";
 
   return (
     <div
       role="region"
       aria-label="Quick contact"
       aria-hidden={formVisible || undefined}
-      className={`fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/95 px-3 pt-2.5 backdrop-blur transition-transform duration-200 lg:hidden pb-[calc(0.625rem+env(safe-area-inset-bottom))] ${
+      className={`contact-bar fixed inset-x-0 bottom-0 z-40 px-3 pt-3 transition-transform duration-200 lg:hidden pb-[calc(0.75rem+env(safe-area-inset-bottom))] ${
         formVisible ? "translate-y-full" : "translate-y-0"
       }`}
     >
       <div className="flex items-center gap-2">
+        <QuoteLink className={`${pill} bg-primary-foreground text-action hover:bg-primary-foreground/90`}>{quoteLabel}</QuoteLink>
         <a
           href={SMS_HREF}
           tabIndex={formVisible ? -1 : undefined}
-          className={`${item} border border-ink/20 text-ink hover:border-ink`}
+          className={`${pill} border-2 border-primary-foreground/80 text-primary-foreground hover:bg-primary-foreground/10`}
         >
           <MessageSquareText className="h-4 w-4" aria-hidden="true" />
-          Text us photos
+          Text photos
         </a>
         <a
           href={TEL_HREF}
           tabIndex={formVisible ? -1 : undefined}
           aria-label="Call Xpress Auto & RV Detailing"
-          className={`${item} max-w-[5.5rem] border border-ink/20 text-ink hover:border-ink`}
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-primary-foreground/80 text-primary-foreground transition-colors hover:bg-primary-foreground/10"
         >
-          <Phone className="h-4 w-4" aria-hidden="true" />
-          Call
+          <Phone className="h-5 w-5" aria-hidden="true" />
         </a>
-        <QuoteLink className={`${item} bg-electric text-primary-foreground hover:bg-electric-2`}>{quoteLabel}</QuoteLink>
       </div>
     </div>
   );

@@ -3,7 +3,6 @@ import { ArrowRight, Phone } from "lucide-react";
 import { BOOKING_URL, PHONE } from "@/data/pricing";
 import BookLink from "@/components/site/BookLink";
 import QuoteLink, { TEL_HREF } from "@/components/site/QuoteLink";
-import Swoosh from "@/components/site/Swoosh";
 import NextOpenings from "@/components/site/NextOpenings";
 
 interface ServicePageHeroProps {
@@ -42,9 +41,9 @@ interface ServicePageHeroProps {
 }
 
 const primary =
-  "inline-flex min-h-[52px] items-center justify-center gap-2 pill-action rounded-full bg-electric px-7 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-electric-2";
+  "inline-flex min-h-[52px] items-center justify-center gap-2 pill-action rounded-full bg-action px-8 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-ink";
 const secondary =
-  "inline-flex min-h-[52px] items-center justify-center gap-2 pill-action rounded-full border border-ink/20 bg-surface px-6 text-[15px] font-semibold text-ink transition-colors hover:border-ink";
+  "inline-flex min-h-[52px] items-center justify-center gap-2 pill-action pill-action rounded-full border-2 border-ink/15 bg-canvas px-7 text-[15px] font-semibold text-ink transition-colors hover:border-ink";
 
 /**
  * Hero shared by every page: white copy column on the left, a real job photo running
@@ -75,48 +74,44 @@ const ServicePageHero = ({
   const showBook = !/fieldd\.co/.test(bookHref);
   void ctaType;
 
+  const long = typeof title === "string" && title.length > 26;
+
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-canvas py-5 lg:py-12">
-        <div className="flex flex-col lg:grid lg:min-h-[560px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)]">
-          {/* Photo: first on phones so the work sells before the scroll. */}
-          <div className="slanted-photo relative aspect-[16/10] w-full bg-tint lg:order-2 lg:aspect-auto">
-            <img
-              src={image}
-              alt={imageAlt}
-              width={width}
-              height={height}
-              {...{ fetchpriority: "high" }}
-              style={
-                imagePosition ? { objectPosition: imagePosition } : undefined
-              }
-              className="absolute inset-0 h-full w-full object-cover"
-            />
+      <section className="relative isolate overflow-hidden bg-canvas">
+        <div className="flex flex-col lg:grid lg:min-h-[640px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-center">
+          {/* Shaped photo (LLumar cut): first on phones so the work sells before the scroll. */}
+          <div className="relative w-full pl-6 pt-4 lg:order-2 lg:h-full lg:py-12 lg:pl-0">
+            <div className="slanted-photo relative aspect-[16/11] w-full bg-tint lg:aspect-auto lg:h-full lg:min-h-[540px]">
+              <img
+                src={image}
+                alt={imageAlt}
+                width={width}
+                height={height}
+                {...{ fetchpriority: "high" }}
+                style={imagePosition ? { objectPosition: imagePosition } : undefined}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
           </div>
 
-          <div className="hero-copy relative flex flex-col justify-center pb-16 pt-9 sm:pb-24 sm:pt-12 lg:order-1 lg:py-20 lg:pr-14">
-            {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
-            <Title className="hero-heading heading-rule font-heading text-[2.6rem] font-extrabold leading-[0.98] tracking-display text-ink sm:text-6xl lg:text-[4.25rem]">
-              {title}
-            </Title>
-            {subtitle && (
-              <p className="mt-5 max-w-[34rem] text-base leading-relaxed text-ink-2 sm:text-lg">
-                {subtitle}
-              </p>
-            )}
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="hero-copy relative flex flex-col justify-center pb-14 pt-10 sm:pb-20 lg:order-1 lg:py-20 lg:pr-12">
+            {eyebrow && <p className="eyebrow mb-5">{eyebrow}</p>}
+            <Title className={`llumar-hero-title ${long ? "is-long" : ""}`}>{title}</Title>
+            {subtitle && <p className="mt-8 max-w-[34rem] text-lg leading-relaxed text-ink-2">{subtitle}</p>}
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
               <QuoteLink href={quoteHref} className={primary}>
-              {quoteLabel}
-            </QuoteLink>
+                {quoteLabel}
+              </QuoteLink>
               <a href={phoneHref} className={secondary}>
-                <Phone className="h-4 w-4 text-electric" aria-hidden="true" />
+                <Phone className="h-4 w-4 text-action" aria-hidden="true" />
                 Call {PHONE}
               </a>
             </div>
             {showBook && (
               <BookLink
                 href={bookHref}
-                className="mt-5 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-ink-2 underline decoration-line decoration-2 underline-offset-[6px] transition-colors hover:text-electric hover:decoration-electric"
+                className="mt-5 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-ink-2 underline decoration-line decoration-2 underline-offset-[6px] transition-colors hover:text-action hover:decoration-electric"
               >
                 {bookLabel}
                 <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -125,7 +120,6 @@ const ServicePageHero = ({
             {children && <div className="mt-10">{children}</div>}
           </div>
         </div>
-        <Swoosh variant="hero-edge" />
       </section>
       {openings && <NextOpenings />}
     </>

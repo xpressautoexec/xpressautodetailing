@@ -20,9 +20,13 @@ Build: `npm run build` = client build + SSR build of `src/entry-server.tsx` +
    `src/index.css` (`--brand-dark`, `--brand-blue`, `--primary`) and shadcn variants.
 6. Roles: separate `user_roles` table + `security definer` `has_role()`, never a
    column on profiles. Every new public table needs `GRANT`s + RLS in the same migration.
-7. Visual system: white primary, off-white `bg-tint`, one accent `electric` (#1D4ED8), charcoal
-   (`bg-charcoal`) for at most two bands per page, `<Swoosh />` max one per screen, cards
-   `rounded-card` + hairline border, no shadows/gradients. Headings Barlow Condensed, body Inter.
+7. Visual system (main site, `.main-site` in index.css; /lp keeps the legacy theme): LLumar-style.
+   White base, warm `bg-tint` surface, deep-navy `--ink` headlines, bright logo blue `--primary` for
+   rules/icons, darker `--action` blue for white-labelled pill buttons, `--dark` for the "WHY ___" band.
+   Display headings Unbounded uppercase (`llumar-hero-title`, `display-xl`, `why-title`), body Sofia Sans.
+   Heroes = `<ServicePageHero />` (shaped `slanted-photo`); mega menu data in `src/data/navigation.ts`;
+   `<WhyBand />` (data in `src/data/why.ts`) on service hubs; brand pages via `<BrandProductPage />` +
+   `src/data/brand-pages.tsx`. Authorized installer: SunTek, LLumar, CARPRO, System X, Gyeon, Gtechniq.
    One primary CTA per section: `<QuoteLink />` ("Get a quote"); text/call/book are outlined or links.
    Leads: `<QuoteForm />` (in `<QuoteSection />`, above the FAQ on service/landing pages, on / and /quote)
    writes `quote_requests` + photos in the private `quote-photos` bucket; trigger -> `notify-quote` emails
@@ -54,7 +58,7 @@ invented stats, testimonials or case studies in posts; link to the service page 
 `AutoPackages`/`AddOnList`, `SEO.tsx` (meta + JSON-LD).
 Nav order: Car Detailing, Ceramic & PPF, RV & Trailer, Fleet, Reviews, More (Xpress Pass, Headlights,
 Windshield Film, Marine, Gallery, Training, Gift Cards, Blog). Header: phone + one "Get a quote".
-Tint + PPF share `/protection/ppf#tint`.
+Window tint lives at `/window-tint` (+ `/llumar`, `/suntek`).
 
 Phone 587-500-4523 · support@xpressautodetail.ca · Calgary, Airdrie, Chestermere,
 Cochrane, Okotoks, Rocky View County. Standard booking → fieldd.co.

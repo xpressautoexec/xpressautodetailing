@@ -9,6 +9,8 @@ import { CAR_PPF, CAR_PPF_SIZES, PPF_UPCHARGE, WINDSHIELD_PPF, carPpfPrice, mone
 import { FILM_BRAND, FILM_CUT_SYSTEM } from "@/data/copy";
 import { FILM, SYSTEMS } from "@/data/brand";
 import { IS_3M_CERTIFIED } from "@/config/site";
+import { WHY_PPF } from "@/data/why";
+import ProtectionProductLinks from "@/components/site/ProtectionProductLinks";
 
 const TEL = "tel:+15875004523";
 const from = Math.min(...CAR_PPF.map((p) => p.price));
@@ -21,9 +23,7 @@ const faqs = [
   },
   {
     q: "Which film do you use?",
-    a: IS_3M_CERTIFIED
-      ? `${FILM_BRAND}, installed by a 3M Certified Installer. It is optically clear, self-healing and carries a 10-year 3M film warranty against yellowing, bubbling and cracking.`
-      : `${FILM_BRAND}. It is optically clear and self-healing under heat.`,
+    a: `${FILM_BRAND} paint protection film, installed by an authorized SunTek and LLumar installer. Both are optically clear, self-healing under heat and carry a manufacturer film warranty.`,
   },
   {
     q: "Is the film cut on my car?",
@@ -57,16 +57,18 @@ const CarPPF = () => {
     <LandingPage
       quote={{ id: "quote", defaultNeed: "PPF/windshield film", title: "Get a PPF quote" }}
       childrenBeforeWork
-      products={["3m"]}
+      products={["suntek", "llumar", "carpro"]}
+      why={WHY_PPF}
+      afterFeatures={<ProtectionProductLinks />}
       seo={{
-        title: "Paint Protection Film Calgary | 3M Scotchgard Pro | Xpress Auto & RV Detailing",
+        title: "Paint Protection Film Calgary | SunTek & LLumar | Xpress",
         description: `${FILM_BRAND} paint protection film in Calgary from ${money(from)}. Computer-cut on our plotter, installed by our own crew. Partial front to full vehicle, priced by vehicle size.`,
         canonical: "/paint-protection-film",
         serviceName: "Paint Protection Film",
         serviceDescription: `${FILM_BRAND} paint protection film for cars, trucks and SUVs in Calgary and area, computer-cut and installed in-house.`,
       }}
       hero={{
-        eyebrow: "Paint protection film",
+        eyebrow: "Authorized SunTek & LLumar installer",
         title: "Stop rock chips before they start.",
         subtitle: `${FILM.name}, plotter-cut to your vehicle's pattern and installed in our Airdrie shop. Clear bra coverage from ${money(from)}.`,
         image: heroImg,

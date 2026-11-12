@@ -65,6 +65,12 @@ const InteriorLp = lazyPage(() => import("./pages/lp/InteriorLp"));
 const CeramicPpfLp = lazyPage(() => import("./pages/lp/CeramicPpfLp"));
 const FleetLp = lazyPage(() => import("./pages/lp/FleetLp"));
 const CancellationPolicyPage = lazyPage(() => import("./pages/CancellationPolicyPage"));
+const SunTekPPF = lazyPage(() => import("./pages/brand/SunTekPPF"));
+const LLumarPPF = lazyPage(() => import("./pages/brand/LLumarPPF"));
+const DQuartz = lazyPage(() => import("./pages/brand/DQuartz"));
+const WindowTint = lazyPage(() => import("./pages/brand/WindowTint"));
+const LLumarTint = lazyPage(() => import("./pages/brand/LLumarTint"));
+const SunTekTint = lazyPage(() => import("./pages/brand/SunTekTint"));
 
 const queryClient = new QueryClient();
 
@@ -130,10 +136,16 @@ export const AnimatedRoutes = () => {
 
         <Route path="/windshield-ppf" element={<WindshieldPPF />} />
         <Route path="/paint-protection-film" element={<CarPPF />} />
+        <Route path="/paint-protection-film/suntek" element={<SunTekPPF />} />
+        <Route path="/paint-protection-film/llumar" element={<LLumarPPF />} />
+        <Route path="/ceramic-coating/carpro-dquartz" element={<DQuartz />} />
+        <Route path="/window-tint" element={<WindowTint />} />
+        <Route path="/window-tint/llumar" element={<LLumarTint />} />
+        <Route path="/window-tint/suntek" element={<SunTekTint />} />
         <Route path="/monthly-plan" element={<Navigate to="/xpress-pass" replace />} />
         <Route path="/marine" element={<MarineDetailing />} />
         <Route path="/ppf" element={<Navigate to="/paint-protection-film" replace />} />
-        <Route path="/window-tinting" element={<Navigate to="/ceramic-paint-correction" replace />} />
+        <Route path="/window-tinting" element={<Navigate to="/window-tint" replace />} />
         <Route path="/calgary-detailing-price-comparison" element={<PriceComparison />} />
 
         {/* Dedicated landing routes */}
@@ -159,7 +171,7 @@ export const AnimatedRoutes = () => {
         <Route path="/rv-trailer/rental-fleet" element={<RVRentalFleet />} />
         <Route path="/ceramic-paint-correction" element={<PaintCeramics />} />
         <Route path="/protection/ppf" element={<Navigate to="/paint-protection-film" replace />} />
-        <Route path="/protection/window-tint" element={<Navigate to="/ceramic-paint-correction" replace />} />
+        <Route path="/protection/window-tint" element={<Navigate to="/window-tint" replace />} />
         <Route path="/protection/windshield-ppf" element={<Navigate to="/windshield-ppf" replace />} />
         <Route path="/fleet" element={<CorporateFleet />} />
         <Route path="/xpress-pass" element={<MonthlyPlan />} />
@@ -211,6 +223,12 @@ const PRELOAD: [string, { preload: () => Promise<unknown> }][] = [
   ["/training/signup", TrainingSignup],
   ["/windshield-ppf", WindshieldPPF],
   ["/paint-protection-film", CarPPF],
+  ["/paint-protection-film/suntek", SunTekPPF],
+  ["/paint-protection-film/llumar", LLumarPPF],
+  ["/ceramic-coating/carpro-dquartz", DQuartz],
+  ["/window-tint", WindowTint],
+  ["/window-tint/llumar", LLumarTint],
+  ["/window-tint/suntek", SunTekTint],
   ["/marine", MarineDetailing],
   ["/calgary-detailing-price-comparison", PriceComparison],
   ["/auto-detailing", AutoDetailing],

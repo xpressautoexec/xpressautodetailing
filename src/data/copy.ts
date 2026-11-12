@@ -42,7 +42,10 @@ export const COVERAGE = "$2M liability coverage";
 export const CERAMIC_CERTIFICATIONS = ["CARPRO", "System X", "Gtechniq", "Gyeon"];
 
 /** Paint protection film installed on car and RV PPF jobs. Windshield film uses WINDSHIELD_FILM_BRAND. */
-export const FILM_BRAND = "3M Scotchgard Pro";
+export const FILM_BRAND = "SunTek and LLumar";
+
+/** Film named on the /lp ad pages, kept as-is so live ad copy matches the landing page. Update with the ads. */
+export const LP_FILM_BRAND = "3M Scotchgard Pro";
 
 /** Pattern software that drives our film plotter. PPF is computer-cut, not hand-cut on the paint. */
 export const FILM_CUT_SYSTEM = "DigiCut";
@@ -80,8 +83,8 @@ export const PRODUCT_LINES = {
   },
   "3m": {
     name: "3M",
-    role: "Protection film and restoration",
-    body: "3M Scotchgard Pro paint protection film on cars and RVs, and 3M abrasives and compounds for gelcoat restoration.",
+    role: "Gelcoat restoration",
+    body: "3M abrasives and compounds for gelcoat restoration on RVs, boats and trailers.",
   },
   exoshield: {
     name: "ExoShield",

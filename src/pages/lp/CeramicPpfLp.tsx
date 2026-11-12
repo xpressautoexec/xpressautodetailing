@@ -4,7 +4,7 @@ import LpReceipts from "@/components/lp/LpReceipts";
 import QuoteForm from "@/components/QuoteForm";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import { CAR_PPF, CERAMIC_PACKAGES, FIVE_STAR_REVIEWS, PPF_UPCHARGE, WINDSHIELD_PPF, money } from "@/data/pricing";
-import { FILM_BRAND, SHOP, WINDSHIELD_FILM_BRAND } from "@/data/copy";
+import { LP_FILM_BRAND as FILM_BRAND, SHOP, WINDSHIELD_FILM_BRAND } from "@/data/copy";
 import small from "@/assets/lp/ceramic-640.webp";
 import large from "@/assets/lp/ceramic-1050.webp";
 

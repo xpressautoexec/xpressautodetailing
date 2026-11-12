@@ -44,6 +44,13 @@ const ROUTE_LABELS: Record<string, string> = {
   "monthly-plan": "The Xpress Pass",
   "marine": "Marine & Pontoon Detailing",
   "exterior-detailing": "Exterior Detailing",
+  "paint-protection-film": "Paint Protection Film",
+  "paint-protection-film/suntek": "SunTek PPF",
+  "paint-protection-film/llumar": "LLumar PPF",
+  "ceramic-coating/carpro-dquartz": "CARPRO DQUARTZ",
+  "window-tint": "Window Tint",
+  "window-tint/llumar": "LLumar Window Tint",
+  "window-tint/suntek": "SunTek Window Tint",
 };
 
 

@@ -76,12 +76,15 @@ export default SEO;
 
 export const localBusinessJsonLd = {
   "@context": "https://schema.org",
-  "@type": "AutoDetailing",
+  "@type": "AutoWash",
   name: "Xpress Auto & RV Detailing",
   url: "https://xpressautodetail.ca",
+  image: "https://xpressautodetail.ca/og-default.jpg",
+  sameAs: ["https://www.instagram.com/xpressautodetailingyyc"],
+  knowsAbout: ["Paint Protection Film", "Ceramic Coating", "CARPRO DQUARTZ", "SunTek PPF", "LLumar PPF", "Window Tint", "RV Detailing", "Fleet Detailing"],
   telephone: "+1-587-500-4523",
   email: "support@xpressautodetail.ca",
-  description: "Calgary's mobile car detailing service. Mobile detailing for cars, trucks, RVs, trailers, fleets — interior, exterior, paint correction, ceramic coating and oxidation removal. We come to you across Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County.",
+  description: "Calgary's mobile car detailing service. Mobile detailing for cars, trucks, RVs, trailers, fleets — interior, exterior, paint correction, ceramic coating, SunTek and LLumar paint protection film, window tint and oxidation removal. We come to you across Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County.",
   areaServed: [
     { "@type": "City", name: "Calgary" },
     { "@type": "City", name: "Airdrie" },
@@ -106,7 +109,7 @@ export const buildServiceJsonLd = (name: string, description: string, url: strin
   description,
   url: `https://xpressautodetail.ca${url}`,
   provider: {
-    "@type": "AutoDetailing",
+    "@type": "AutoWash",
     name: "Xpress Auto & RV Detailing",
     telephone: "+1-587-500-4523",
     areaServed: { "@type": "City", name: "Calgary" },

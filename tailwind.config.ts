@@ -108,6 +108,8 @@ export default {
           2: "hsl(var(--charcoal-2))",
         },
         hairline: "hsl(var(--hairline))",
+        action: "hsl(var(--action))",
+        dark: "hsl(var(--dark))",
       },
 
       spacing: {

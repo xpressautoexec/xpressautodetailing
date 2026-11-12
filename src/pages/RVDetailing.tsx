@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { WHY_RV } from "@/data/why";
 import LandingPage from "@/components/site/LandingPage";
 import { CTA } from "@/data/brand";
 import { Section, SectionHeading, btnPrimary } from "@/components/site/Section";
@@ -30,6 +31,7 @@ const faqs = [
 
 const RVDetailing = () => (
   <LandingPage
+    why={WHY_RV}
     quote={{ defaultVehicle: "RV/Trailer" }}
     products={["3m", "menzerna", "gtechniq", "systemx"]}
     seo={{

@@ -1,3 +1,5 @@
+import { WHY_CERAMIC } from "@/data/why";
+import ProtectionProductLinks from "@/components/site/ProtectionProductLinks";
 import LandingPage from "@/components/site/LandingPage";
 import CoatTiers from "@/components/site/CoatTiers";
 import { Section, SectionHeading, cardClass } from "@/components/site/Section";
@@ -33,6 +35,8 @@ const COMPARE = [
 
 const CeramicCoating = () => (
   <LandingPage
+    why={WHY_CERAMIC}
+    afterFeatures={<ProtectionProductLinks coating />}
     quote={{ defaultNeed: "Paint correction/ceramic" }}
     products={["systemx", "gtechniq", "gyeon", "menzerna"]}
     seo={{
