@@ -140,14 +140,15 @@ const Navbar = () => {
         <div id="mega-panel" className="mega-panel absolute inset-x-0 top-full hidden lg:block" onMouseLeave={() => setOpen(null)}>
           <div className="shell grid grid-cols-[1fr_300px] gap-12 pb-28 pt-12">
             <div>
-              <Link to={active.columns[0].href} className="mega-heading inline-block">
+              <Link to={active.headingHref ?? active.columns[0].href} className="mega-heading inline-block">
                 {active.heading}
               </Link>
               <div className={`mt-9 grid gap-10 ${active.columns.length > 2 ? "grid-cols-3" : "grid-cols-2"}`}>
                 {active.columns.map((c) => (
                   <div key={c.title}>
-                    <Link to={c.href} className="mega-col-title">
+                    <Link to={c.href} className="mega-col-title inline-flex flex-wrap items-center gap-2">
                       {c.title}
+                      {c.badge && <span className="nav-badge">{c.badge}</span>}
                     </Link>
                     <ul className="mt-5 space-y-4">
                       {c.links.map((l) => (
@@ -228,8 +229,9 @@ const Navbar = () => {
                 <p className="mega-heading mt-2">{mobileGroup.heading}</p>
                 {mobileGroup.columns.map((c) => (
                   <div key={c.title} className="mt-8">
-                    <Link to={c.href} className="mega-col-title">
+                    <Link to={c.href} className="mega-col-title inline-flex flex-wrap items-center gap-2">
                       {c.title}
+                      {c.badge && <span className="nav-badge">{c.badge}</span>}
                     </Link>
                     <ul className="mt-3">
                       {c.links.map((l) => (

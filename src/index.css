@@ -325,6 +325,7 @@
 }
 .main-site .mega-col-title { font-family: "Sofia Sans", sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: hsl(var(--ink)); font-size: 16px; }
 .main-site .mega-col-title:hover { color: hsl(var(--action)); }
+.main-site .nav-badge { display: inline-flex; align-items: center; border-radius: 999px; background: hsl(var(--action)); color: hsl(var(--primary-foreground)); font-size: 10px; font-weight: 700; letter-spacing: .1em; padding: .25rem .55rem; line-height: 1; }
 .main-site .mega-link { font-family: "Sofia Sans", sans-serif; font-weight: 500; text-transform: uppercase; letter-spacing: .1em; color: hsl(var(--ink)); font-size: 15px; transition: color .15s; }
 .main-site .mega-link:hover, .main-site .mega-link[aria-current="page"] { color: hsl(var(--action)); }
 

@@ -1,15 +1,23 @@
-import navDetailing from "@/assets/jobs/hero-detailing.webp";
+import navDetailing from "@/assets/jobs/hero-paint-ceramics.webp";
 import navProtection from "@/assets/carpro-dquartz-product.webp";
 import navRvFleet from "@/assets/gallery-newmar-dutch-star-front.jpg";
 import navResources from "@/assets/gallery-jeep-wrangler.jpg";
 import navWhy from "@/assets/jobs/crew-van-gear.webp";
 
 export type SiteLink = { label: string; href: string };
-export type NavColumn = { title: string; href: string; links: SiteLink[] };
+export type NavColumn = {
+  title: string;
+  href: string;
+  links: SiteLink[];
+  /** Small pill next to the column title, used to push the services we want booked right now. */
+  badge?: string;
+};
 export type NavGroup = {
   label: string;
   /** Big uppercase panel heading, LLumar style. */
   heading: string;
+  /** Where the big heading links; defaults to the first column's hub. */
+  headingHref?: string;
   columns: NavColumn[];
   image: string;
   featured: SiteLink & { body: string };
@@ -20,9 +28,25 @@ export const MEGA_NAV: NavGroup[] = [
   {
     label: "Services",
     heading: "Detailing services",
+    headingHref: "/detailing",
     image: navDetailing,
-    featured: { label: "Find your detail", href: "/detailing", body: "Interior, exterior and complete packages priced by vehicle size." },
+    featured: {
+      label: "Paint correction & ceramic",
+      href: "/ceramic-paint-correction",
+      body: "Swirls machined out, then locked in with a ceramic coating. Done in our heated Airdrie shop all winter.",
+    },
     columns: [
+      {
+        title: "Correction & coatings",
+        href: "/ceramic-paint-correction",
+        badge: "Winter pick",
+        links: [
+          { label: "Paint correction", href: "/paint-correction" },
+          { label: "Correction + ceramic", href: "/ceramic-paint-correction" },
+          { label: "CARPRO DQUARTZ", href: "/ceramic-coating/carpro-dquartz" },
+          { label: "Ceramic coating", href: "/ceramic-coating" },
+        ],
+      },
       {
         title: "Car detailing",
         href: "/detailing",
@@ -35,9 +59,8 @@ export const MEGA_NAV: NavGroup[] = [
       },
       {
         title: "More services",
-        href: "/paint-correction",
+        href: "/lease-return",
         links: [
-          { label: "Paint correction", href: "/paint-correction" },
           { label: "Lease return prep", href: "/lease-return" },
           { label: "Gift cards", href: "/gift-cards" },
         ],
@@ -47,9 +70,20 @@ export const MEGA_NAV: NavGroup[] = [
   {
     label: "Protection",
     heading: "Protection",
+    headingHref: "/paint-protection-film",
     image: navProtection,
-    featured: { label: "Experience CARPRO DQUARTZ", href: "/ceramic-coating/carpro-dquartz", body: "Our flagship nano-diamond ceramic coating." },
+    featured: { label: "Experience CARPRO DQUARTZ", href: "/ceramic-coating/carpro-dquartz", body: "Our flagship nano-diamond ceramic coating, applied after paint correction." },
     columns: [
+      {
+        title: "Correction & coatings",
+        href: "/ceramic-coating",
+        badge: "Winter pick",
+        links: [
+          { label: "CARPRO DQUARTZ", href: "/ceramic-coating/carpro-dquartz" },
+          { label: "System X coating", href: "/ceramic-paint-correction" },
+          { label: "Paint correction", href: "/paint-correction" },
+        ],
+      },
       {
         title: "Paint protection film",
         href: "/paint-protection-film",
@@ -58,15 +92,6 @@ export const MEGA_NAV: NavGroup[] = [
           { label: "LLumar PPF", href: "/paint-protection-film/llumar" },
           { label: "Windshield film", href: "/windshield-ppf" },
           { label: "RV PPF", href: "/rv-trailer/ppf" },
-        ],
-      },
-      {
-        title: "Ceramic coating",
-        href: "/ceramic-coating",
-        links: [
-          { label: "CARPRO DQUARTZ", href: "/ceramic-coating/carpro-dquartz" },
-          { label: "System X coating", href: "/ceramic-paint-correction" },
-          { label: "Paint correction", href: "/paint-correction" },
         ],
       },
       {
@@ -168,6 +193,7 @@ export const SEARCH_LINKS: SiteLink[] = Array.from(
 );
 
 export const PROTECTION_LINKS: SiteLink[] = [
+  { label: "Paint correction", href: "/paint-correction" },
   { label: "Paint protection film", href: "/paint-protection-film" },
   { label: "SunTek PPF", href: "/paint-protection-film/suntek" },
   { label: "LLumar PPF", href: "/paint-protection-film/llumar" },
