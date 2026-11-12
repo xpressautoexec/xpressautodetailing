@@ -100,6 +100,7 @@ const ScrollToTop = () => {
 export const AnimatedRoutes = () => {
   const location = useLocation();
   return (
+    <div className={location.pathname.startsWith("/lp/") ? "legacy-lp" : "main-site"}>
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Index />} />
@@ -172,6 +173,7 @@ export const AnimatedRoutes = () => {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
+    </div>
   );
 };
 

@@ -224,3 +224,79 @@
     background-color: hsl(var(--tint));
   }
 }
+
+/* Main-site theme. The original base above intentionally remains the /lp theme. */
+.main-site {
+  --bg: 0 0% 100%; --background: var(--bg); --canvas: var(--bg);
+  --surface: 45 18% 96%; --tint: var(--surface); --offwhite: var(--surface);
+  --ink: 222 73% 14%; --foreground: 0 0% 12%; --ink-2: 0 0% 12%;
+  --muted-ink: 0 0% 35%; --muted-foreground: var(--muted-ink);
+  --primary: 202 100% 61%; --electric: var(--primary); --brand-blue: var(--primary);
+  --action: 204 100% 34%; --electric-2: var(--action);
+  --primary-foreground: 0 0% 100%; --dark: 0 0% 8%; --charcoal: var(--dark);
+  --charcoal-2: 0 0% 13%; --brand-dark: var(--ink); --brand-dark-surface: var(--dark);
+  --brand-blue-deep: var(--action); --brand-blue-glow: var(--primary);
+  --brand-light: var(--surface); --brand-warm-bg: var(--surface);
+  --accent: var(--surface); --accent-foreground: var(--ink);
+  --secondary: var(--surface); --secondary-foreground: var(--ink);
+  --card: var(--surface); --card-foreground: var(--foreground);
+  --popover: var(--bg); --popover-foreground: var(--foreground);
+  --muted: var(--surface); --success: var(--action); --good: var(--action);
+  --urgency: var(--action); --border: 45 8% 87%; --line: var(--border);
+  --ring: var(--action); --input: var(--border); --radius: 1rem;
+  --header-h: 5rem; --mobile-bar-h: 5rem;
+  --section-y: 3.5rem; --section-y-lg: 6rem;
+  --shadow-card: 0 8px 28px hsl(var(--ink) / .05);
+  --receipt-overlay: linear-gradient(transparent 15%, hsl(var(--dark) / .4) 45%, hsl(var(--dark) / .95));
+  color: hsl(var(--foreground)); background: hsl(var(--bg));
+  font-family: "Sofia Sans", sans-serif; font-size: 18px; line-height: 1.6;
+  min-height: 100vh; padding-bottom: calc(var(--mobile-bar-h) + env(safe-area-inset-bottom));
+}
+.main-site .font-body, .main-site input, .main-site select, .main-site textarea, .main-site button { font-family: "Sofia Sans", sans-serif; }
+.main-site h1, .main-site h2, .main-site .display-heading {
+  font-family: "Unbounded", sans-serif; font-weight: 500; text-transform: uppercase;
+  line-height: 1.05; letter-spacing: 0; overflow-wrap: anywhere;
+}
+.main-site h3, .main-site h4, .main-site h5, .main-site h6,
+.main-site .font-heading:not(h1):not(h2):not(.display-heading), .main-site .num {
+  font-family: "Sofia Sans", sans-serif; font-weight: 600; letter-spacing: 0; line-height: 1.15;
+}
+.main-site h1 { font-size: 38px; }
+.main-site h2 { font-size: 28px; }
+.main-site .hero-heading { font-size: 40px; line-height: .98; }
+.main-site .section-heading { font-size: 32px; }
+.main-site .secondary-heading { font-family: "Sofia Sans", sans-serif; text-transform: none; font-size: 32px; line-height: 1.15; }
+.main-site .eyebrow { font-family: "Sofia Sans", sans-serif; font-style: normal; font-weight: 600; letter-spacing: .15em; color: hsl(var(--action)); }
+.main-site .tracking-display, .main-site .tracking-tight, .main-site .tracking-tighter { letter-spacing: 0; }
+.main-site .italic { font-style: normal; }
+.main-site .text-electric, .main-site .text-primary, .main-site .text-brand-blue { color: hsl(var(--action)); }
+.main-site .bg-electric, .main-site .bg-primary { background-color: hsl(var(--action)); }
+.main-site .rounded-card { border-radius: 16px; box-shadow: var(--shadow-card); }
+.main-site img.rounded-card { box-shadow: none; }
+.main-site .swoosh-art { display: none; }
+.main-site .section-y { padding-block: var(--section-y); }
+.main-site .heading-rule::after { content: ""; display: block; width: 76px; height: 2px; background: hsl(var(--primary)); margin-top: 24px; }
+.main-site .pill-action { border-radius: 999px; text-transform: uppercase; font-weight: 600; min-height: 48px; font-size: 14px; line-height: 1.2; white-space: normal; text-align: center; }
+.main-site a.bg-electric, .main-site a.bg-primary, .main-site button[type="submit"] { border-radius: 999px; text-transform: uppercase; }
+.main-site .slanted-photo { clip-path: polygon(18% 0, 100% 0, 100% 100%, 18% 100%, 0 50%); border-radius: 0 16px 16px 0; }
+.main-site .vehicle-fade { mask-image: linear-gradient(to bottom, black 65%, transparent); }
+.main-site .receipt-overlay { background: var(--receipt-overlay); }
+.main-site .installer-logo { filter: grayscale(1); opacity: .7; transition: filter .2s, opacity .2s; }
+.main-site .installer-logo:hover { filter: grayscale(0); opacity: 1; }
+.main-site .why-band { color: hsl(var(--primary-foreground)); background: hsl(var(--dark)); }
+.main-site .why-band h2, .main-site .why-band h3 { color: hsl(var(--primary-foreground)); }
+.main-site .contact-bar { background: hsl(var(--action)); }
+.main-site .site-footer-search { font-size: 30px; }
+.main-site .brand-placeholder { font-family: "Sofia Sans", sans-serif; font-weight: 700; color: hsl(var(--ink)); font-size: 28px; }
+@media (min-width: 640px) {
+  .main-site h1 { font-size: 48px; } .main-site h2 { font-size: 38px; }
+  .main-site .hero-heading { font-size: 56px; } .main-site .section-heading { font-size: 44px; }
+  .main-site .site-footer-search { font-size: 44px; }
+}
+@media (min-width: 1024px) {
+  .main-site { --section-y: 6rem; }
+  .main-site h1 { font-size: 56px; } .main-site h2 { font-size: 44px; }
+  .main-site .hero-heading { font-size: 60px; } .main-site .section-heading { font-size: 48px; }
+  .main-site .site-footer-search { font-size: 48px; }
+}
+@media (min-width: 1536px) { .main-site .hero-heading { font-size: 72px; } }
