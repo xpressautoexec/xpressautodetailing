@@ -61,7 +61,7 @@ export const SectionHeading = ({
     <div className="max-w-2xl">
       {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
       <Tag
-        className={`font-heading text-4xl font-bold leading-[1.02] tracking-display sm:text-5xl ${
+        className={`section-heading heading-rule font-heading text-4xl font-bold leading-[1.02] tracking-display sm:text-5xl ${
           dark ? "text-primary-foreground" : "text-ink"
         }`}
       >

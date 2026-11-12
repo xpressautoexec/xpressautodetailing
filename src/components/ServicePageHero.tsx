@@ -42,9 +42,9 @@ interface ServicePageHeroProps {
 }
 
 const primary =
-  "inline-flex min-h-[52px] items-center justify-center gap-2 rounded-md bg-electric px-7 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-electric-2";
+  "inline-flex min-h-[52px] items-center justify-center gap-2 pill-action rounded-full bg-electric px-7 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-electric-2";
 const secondary =
-  "inline-flex min-h-[52px] items-center justify-center gap-2 rounded-md border border-ink/20 bg-surface px-6 text-[15px] font-semibold text-ink transition-colors hover:border-ink";
+  "inline-flex min-h-[52px] items-center justify-center gap-2 pill-action rounded-full border border-ink/20 bg-surface px-6 text-[15px] font-semibold text-ink transition-colors hover:border-ink";
 
 /**
  * Hero shared by every page: white copy column on the left, a real job photo running
@@ -77,10 +77,10 @@ const ServicePageHero = ({
 
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-surface">
-        <div className="flex flex-col lg:grid lg:min-h-[min(640px,calc(100svh-var(--header-h)-2rem))] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)]">
+      <section className="relative isolate overflow-hidden bg-canvas py-5 lg:py-12">
+        <div className="flex flex-col lg:grid lg:min-h-[560px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)]">
           {/* Photo: first on phones so the work sells before the scroll. */}
-          <div className="relative aspect-[16/10] w-full bg-tint lg:order-2 lg:aspect-auto">
+          <div className="slanted-photo relative aspect-[16/10] w-full bg-tint lg:order-2 lg:aspect-auto">
             <img
               src={image}
               alt={imageAlt}
@@ -96,7 +96,7 @@ const ServicePageHero = ({
 
           <div className="hero-copy relative flex flex-col justify-center pb-16 pt-9 sm:pb-24 sm:pt-12 lg:order-1 lg:py-20 lg:pr-14">
             {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
-            <Title className="font-heading text-[2.6rem] font-extrabold leading-[0.98] tracking-display text-ink sm:text-6xl lg:text-[4.25rem]">
+            <Title className="hero-heading heading-rule font-heading text-[2.6rem] font-extrabold leading-[0.98] tracking-display text-ink sm:text-6xl lg:text-[4.25rem]">
               {title}
             </Title>
             {subtitle && (

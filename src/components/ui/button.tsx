@@ -9,6 +9,8 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        pill: "pill-action rounded-full bg-electric px-6 text-primary-foreground hover:bg-electric-2",
+        pillOutline: "pill-action rounded-full border border-ink/25 bg-transparent px-6 text-ink hover:border-electric",
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",

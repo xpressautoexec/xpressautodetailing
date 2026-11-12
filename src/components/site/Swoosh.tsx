@@ -32,7 +32,7 @@ const Swoosh = ({ variant = "divider", className }: { variant?: Variant; classNa
       focusable="false"
       viewBox="0 0 1440 160"
       preserveAspectRatio="none"
-      className={cn(variantClass[variant], className)}
+      className={cn("swoosh-art", variantClass[variant], className)}
     >
       <defs>
         <linearGradient id={grad} x1="0" y1="0" x2="1" y2="0">

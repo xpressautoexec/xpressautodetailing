@@ -1,0 +1,8 @@
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import { Section, SectionHeading } from "@/components/site/Section";
+import { Button } from "@/components/ui/button";
+export default function ProtectionProductLinks({ coating = false }: { coating?: boolean }) {
+  const products = coating ? [{ name: "CARPRO DQUARTZ", body: "Synthetic nano-diamond reinforced ceramic coating. Authorized CARPRO installation, tailored to your paint.", href: "/ceramic-coating/carpro-dquartz/" }, { name: "System X", body: "Explore our existing ceramic coating and correction packages, priced by vehicle size.", href: "/ceramic-paint-correction" }] : [{ name: "SunTek PPF", body: "Reaction, Ultra, Ultra Matte and Ultra Defense. Explore gloss, matte and higher-impact protection.", href: "/paint-protection-film/suntek/" }, { name: "LLumar PPF", body: "Valor, Platinum Gloss, Platinum Matte and Platinum Extra. Find the finish and coverage for your vehicle.", href: "/paint-protection-film/llumar/" }];
+  return <Section><SectionHeading eyebrow="Authorized installation" title={coating ? "Choose your coating" : "Choose your protection film"} /><div className="divide-y divide-line">{products.map(p => <div key={p.name} className="grid items-center gap-5 py-8 md:grid-cols-[1fr_2fr_auto]"><h3 className="text-3xl text-ink">{p.name}</h3><p className="text-base text-ink-2">{p.body}</p><Button asChild variant="pill"><Link to={p.href} aria-label={`Learn more about ${p.name}`}>Learn more<ArrowRight /></Link></Button></div>)}</div></Section>;
+}
