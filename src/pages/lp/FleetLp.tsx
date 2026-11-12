@@ -54,7 +54,7 @@ const FleetLp = () => (
           defaultNeed="Not sure"
           contactOnly
           submitLabel={CTA}
-          confirmation="Got it — we'll call to book your yard walk, usually within 15 minutes during the day."
+          confirmation="Got it — we'll call you to book your yard walk, usually the same day."
         />
       }
     />

@@ -35,7 +35,7 @@ const BrandProductPage = ({ page }: { page: BrandPage }) => (
         imagePosition={page.hero.imagePosition}
         ctaType="call"
         bookHref="#quote"
-        bookLabel="Text us photos for a quote"
+        bookLabel="Get a quote"
         openings={false}
         titleAs="p"
       />
@@ -110,7 +110,7 @@ const BrandProductPage = ({ page }: { page: BrandPage }) => (
       <QuoteSection
         source={page.path.replace(/^\//, "")}
         title={page.quoteTitle}
-        intro="Send three photos and we will text you a real price for your vehicle, usually within 15 minutes."
+        intro="Tell us about the vehicle and we will get back to you with a real price, usually the same day. Prefer to talk it through? Call us."
         defaultNeed={page.quoteNeed}
       />
 

@@ -1,5 +1,6 @@
-import { ArrowRight, MessageSquareText } from "lucide-react";
-import QuoteLink, { SMS_HREF } from "@/components/site/QuoteLink";
+import { ArrowRight, Phone } from "lucide-react";
+import QuoteLink, { TEL_HREF } from "@/components/site/QuoteLink";
+import { NAP } from "@/data/copy";
 import heroImg from "@/assets/jobs/card-pass-audi-rs5.webp";
 
 /** LLumar "See LLumar in a new light" hero: giant stacked headline left, shaped photo right. */
@@ -37,11 +38,11 @@ const HomeHero = () => (
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </QuoteLink>
           <a
-            href={SMS_HREF}
+            href={TEL_HREF}
             className="pill-action min-h-[56px] gap-2 rounded-full border-2 border-ink/15 text-[15px] text-ink transition-colors hover:border-ink"
           >
-            <MessageSquareText className="h-4 w-4 text-action" aria-hidden="true" />
-            Text us photos
+            <Phone className="h-4 w-4 text-action" aria-hidden="true" />
+            Call {NAP.phone}
           </a>
         </div>
       </div>

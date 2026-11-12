@@ -15,7 +15,7 @@ const Quote = () => (
     <div className="min-h-screen bg-canvas">
       <SEO
         title="Get a Quote | Xpress Auto & RV Detailing Calgary"
-        description={`Get a detailing, ceramic, PPF or RV price by text, usually within 15 minutes during the day. Mobile across ${SERVICE_AREA_SENTENCE}, or our heated Airdrie shop.`}
+        description={`Get a detailing, ceramic, PPF or RV price, usually the same day. Mobile across ${SERVICE_AREA_SENTENCE}, or our heated Airdrie shop.`}
         canonical="/quote"
       />
       <Navbar />
@@ -24,7 +24,7 @@ const Quote = () => (
         as="h1"
         source="quote-page"
         title="Get a price, by text"
-        intro={`Two quick steps. Add a few photos and the price comes back exact, usually within 15 minutes during the day. Mobile across ${SERVICE_AREA_SENTENCE}, or drop it at the heated Airdrie shop.`}
+        intro={`Two quick steps and we'll get back to you with a price, usually the same day. Photos are optional. Mobile across ${SERVICE_AREA_SENTENCE}, or drop it at the heated Airdrie shop.`}
         aside={
           <ul className="space-y-2.5">
             {[`${FIVE_STAR_REVIEWS} five-star Google reviews`, ...GUARANTEES].map((g) => (

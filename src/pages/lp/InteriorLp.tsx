@@ -42,7 +42,7 @@ const InteriorLp = () => (
       points={[
         "Salt stain removal and deep extraction included",
         "In your driveway, parkade or office lot, or at our heated Airdrie shop",
-        "Price by text, usually within 15 minutes during the day",
+        "Exact price, usually the same day",
       ]}
       image={{ small, large, alt: "Ford F-150 rear floor with the bench flipped up after vacuum and shampoo" }}
       form={<QuoteForm source="lp-interior" title="Get your price" defaultNeed="Interior" submitLabel={CTA} />}

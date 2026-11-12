@@ -33,7 +33,6 @@ export const MEGA_NAV: NavGroup[] = [
         links: [
           { label: "Paint correction", href: "/paint-correction" },
           { label: "Lease return prep", href: "/lease-return" },
-          { label: "Marine & pontoon", href: "/marine" },
           { label: "Gift cards", href: "/gift-cards" },
         ],
       },
@@ -76,17 +75,18 @@ export const MEGA_NAV: NavGroup[] = [
   },
   {
     label: "RV & Fleet",
-    heading: "RV & fleet",
+    heading: "RV, marine & fleet",
     image: "/videos/xp-rv-walkaround.jpg",
     featured: { label: "Book a free RV assessment", href: "/rv-trailer", body: "Oxidation removal, washes and protection where your RV is parked." },
     columns: [
       {
-        title: "RV & trailer",
+        title: "RV, trailer & marine",
         href: "/rv-trailer",
         links: [
           { label: "RV detailing", href: "/rv-detailing" },
           { label: "RV paint protection film", href: "/rv-trailer/ppf" },
           { label: "RV rental fleet care", href: "/rv-trailer/rental-fleet" },
+          { label: "Boat & marine", href: "/marine" },
         ],
       },
       {
@@ -107,9 +107,10 @@ export const MEGA_NAV: NavGroup[] = [
     featured: { label: "See our work", href: "/gallery", body: "Real Calgary jobs, before and after." },
     columns: [
       {
-        title: "Pricing & advice",
-        href: "/detailing#packages",
+        title: "Training & pricing",
+        href: "/training",
         links: [
+          { label: "Training courses", href: "/training" },
           { label: "Pricing", href: "/detailing#packages" },
           { label: "Calgary price comparison", href: "/calgary-detailing-price-comparison" },
           { label: "Blog", href: "/blog" },
@@ -148,7 +149,6 @@ export const MEGA_NAV: NavGroup[] = [
         links: [
           { label: "Contact", href: "/contact" },
           { label: "Get a quote", href: "/quote" },
-          { label: "Training", href: "/training" },
         ],
       },
     ],

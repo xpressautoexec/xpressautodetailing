@@ -7,7 +7,7 @@ import QuoteLink, { SMS_HREF } from "@/components/site/QuoteLink";
 
 /**
  * The one closing band at the bottom of every page: the charcoal "lower panel" of the van.
- * One primary action (Get a quote), Text/Call outlined, online booking as a text link.
+ * One primary action (Get a quote), Call outlined, texting photos and online booking as text links.
  *
  * "book"  = fixed-price work: online booking is offered as the secondary link.
  * "quote" = quoted work (RV, PPF, fleet, marine): "Get a quote" goes to `quoteHref`.
@@ -57,6 +57,13 @@ const ClosingCTA = ({
         <p className="mt-4 max-w-xl text-base leading-relaxed text-primary-foreground/70">
           {body ?? `We come to you anywhere in ${SERVICE_AREA_SENTENCE}.`}
         </p>
+        <a
+          href={SMS_HREF}
+          className="mt-5 mr-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-foreground/70 underline decoration-primary-foreground/25 decoration-2 underline-offset-[6px] hover:text-primary-foreground"
+        >
+          <MessageSquareText className="h-3.5 w-3.5" aria-hidden="true" />
+          Or text us photos
+        </a>
         {link && (
           <BookLink
             href={link.href}
@@ -71,10 +78,6 @@ const ClosingCTA = ({
         <QuoteLink href={quoteIsForm ? quoteHref : undefined} className={`${btnPrimary} min-h-[52px] px-7`}>
           {primaryLabel}
         </QuoteLink>
-        <a href={SMS_HREF} className={`${btnSecondaryDark} min-h-[52px]`}>
-          <MessageSquareText className="h-4 w-4" aria-hidden="true" />
-          Text us photos
-        </a>
         <a href={phoneHref} className={`${btnSecondaryDark} min-h-[52px]`}>
           <Phone className="h-4 w-4" aria-hidden="true" />
           Call {NAP.phone}

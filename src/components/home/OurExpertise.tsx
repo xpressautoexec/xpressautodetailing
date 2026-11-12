@@ -20,21 +20,6 @@ type Column = {
 
 const COLUMNS: Column[] = [
   {
-    tag: "RV & Trailer",
-    tagIcon: Caravan,
-    title: "Protect your RV from Alberta sun, salt and oxidation",
-    body: "Oxidation removal, washes, roof care and RV paint protection film, done where your RV is parked.",
-    benefits: [
-      { icon: Sun, label: "Restore chalky, faded gelcoat" },
-      { icon: Droplets, label: "We bring our own water and power" },
-    ],
-    href: "/rv-trailer",
-    photo: rvTall,
-    photoPos: "30% center",
-    cutout: rvCut,
-    cutoutClass: "w-auto h-[250px] sm:h-[320px]",
-  },
-  {
     tag: "Automotive",
     tagIcon: CarFront,
     title: "Rule Calgary roads with ceramic coating, PPF and tint",
@@ -49,9 +34,24 @@ const COLUMNS: Column[] = [
     cutout: carCut,
     cutoutClass: "w-[86%] max-w-[520px]",
   },
+  {
+    tag: "RV & Trailer",
+    tagIcon: Caravan,
+    title: "Protect your RV from Alberta sun, salt and oxidation",
+    body: "Oxidation removal, washes, roof care and RV paint protection film, done where your RV is parked.",
+    benefits: [
+      { icon: Sun, label: "Restore chalky, faded gelcoat" },
+      { icon: Droplets, label: "We bring our own water and power" },
+    ],
+    href: "/rv-trailer",
+    photo: rvTall,
+    photoPos: "30% center",
+    cutout: rvCut,
+    cutoutClass: "w-auto h-[250px] sm:h-[320px]",
+  },
 ];
 
-/** LLumar "Our expertise" (Architectural vs Automotive), as RV vs Auto. */
+/** LLumar "Our expertise" (Architectural vs Automotive), as Auto vs RV. */
 const OurExpertise = () => (
   <section className="section-y bg-canvas" aria-labelledby="expertise-title">
     <div className="shell">

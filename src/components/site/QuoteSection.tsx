@@ -12,7 +12,7 @@ import { NAP, SHOP } from "@/data/copy";
 const QuoteSection = ({
   id = "quote",
   title = "Get a price for your vehicle",
-  intro = "Two quick steps. Add a few photos and the price comes back exact, by text.",
+  intro = "Two quick steps. Photos are optional but help us give you an exact price.",
   source,
   defaultVehicle,
   defaultNeed,
@@ -40,15 +40,15 @@ const QuoteSection = ({
         <WalkaroundGuarantee className="mt-8 max-w-md" />
         <dl className="mt-10 space-y-5 text-[15px]">
           <div>
-            <dt className="text-sm text-muted-ink">Rather text or call?</dt>
+            <dt className="text-sm text-muted-ink">Rather call or text?</dt>
             <dd className="mt-1 flex flex-wrap gap-x-6 gap-y-2">
-              <a href={SMS_HREF} className="inline-flex items-center gap-2 font-semibold text-ink hover:text-electric">
-                <MessageSquareText className="h-4 w-4 text-electric" aria-hidden="true" />
-                Text us photos
-              </a>
               <a href={TEL_HREF} className="inline-flex items-center gap-2 font-semibold text-ink hover:text-electric">
                 <Phone className="h-4 w-4 text-electric" aria-hidden="true" />
                 Call {NAP.phone}
+              </a>
+              <a href={SMS_HREF} className="inline-flex items-center gap-2 font-semibold text-ink hover:text-electric">
+                <MessageSquareText className="h-4 w-4 text-electric" aria-hidden="true" />
+                Text us photos
               </a>
             </dd>
           </div>
