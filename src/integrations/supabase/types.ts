@@ -47,6 +47,96 @@ export type Database = {
         }
         Relationships: []
       }
+      jobs: {
+        Row: {
+          admin_notes: string | null
+          category: string
+          city: string | null
+          created_at: string
+          crew: string[]
+          featured_rank: number | null
+          id: string
+          package_name: string
+          photo_alts: string[]
+          photo_before: string | null
+          photos: string[]
+          price_paid: number | null
+          published: boolean
+          slug: string
+          sort_order: number
+          time_on_site: string | null
+          vehicle: string
+        }
+        Insert: {
+          admin_notes?: string | null
+          category: string
+          city?: string | null
+          created_at?: string
+          crew?: string[]
+          featured_rank?: number | null
+          id?: string
+          package_name: string
+          photo_alts?: string[]
+          photo_before?: string | null
+          photos?: string[]
+          price_paid?: number | null
+          published?: boolean
+          slug: string
+          sort_order?: number
+          time_on_site?: string | null
+          vehicle: string
+        }
+        Update: {
+          admin_notes?: string | null
+          category?: string
+          city?: string | null
+          created_at?: string
+          crew?: string[]
+          featured_rank?: number | null
+          id?: string
+          package_name?: string
+          photo_alts?: string[]
+          photo_before?: string | null
+          photos?: string[]
+          price_paid?: number | null
+          published?: boolean
+          slug?: string
+          sort_order?: number
+          time_on_site?: string | null
+          vehicle?: string
+        }
+        Relationships: []
+      }
+      next_openings: {
+        Row: {
+          active: boolean
+          created_at: string
+          id: string
+          location: string
+          scope: string
+          source: string
+          starts_at: string
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string
+          id?: string
+          location: string
+          scope?: string
+          source?: string
+          starts_at: string
+        }
+        Update: {
+          active?: boolean
+          created_at?: string
+          id?: string
+          location?: string
+          scope?: string
+          source?: string
+          starts_at?: string
+        }
+        Relationships: []
+      }
       quote_requests: {
         Row: {
           area: string | null
