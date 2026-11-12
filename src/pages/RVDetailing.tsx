@@ -33,7 +33,7 @@ const RVDetailing = () => (
   <LandingPage
     why={WHY_RV}
     quote={{ defaultVehicle: "RV/Trailer" }}
-    products={["3m", "menzerna", "gtechniq", "systemx"]}
+    products={["3m", "menzerna", "systemx"]}
     seo={{
       title: "RV Detailing Calgary | Mobile RV & Trailer Detailing",
       description: `Mobile RV detailing in Calgary from ${money(from)}/ft: oxidation removal, black streak removal, sealant and interior cleaning, done at your storage lot.`,

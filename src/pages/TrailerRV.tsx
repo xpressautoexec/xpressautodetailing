@@ -19,7 +19,6 @@ import rvHero from "@/assets/jobs/hero-rv-trailer.webp";
 import { PHOTOS, CLIPS } from "@/data/photos";
 import { PhotoRail } from "@/components/site/PhotoRail";
 import { VideoReel } from "@/components/site/VideoReel";
-import logoGtechniq from "@/assets/brand-gtechniq.png";
 import logoMenzerna from "@/assets/brand-menzerna.png";
 import logo3m from "@/assets/brand-3m.png";
 import logoSystemX from "@/assets/systemx-logo.png";
@@ -145,7 +144,6 @@ const SPEC_COLUMNS = [
 ];
 
 const BRANDS = [
-  { src: logoGtechniq, alt: "Gtechniq" },
   { src: logoMenzerna, alt: "Menzerna" },
   { src: logo3m, alt: "3M" },
   { src: logoSystemX, alt: "System X" },

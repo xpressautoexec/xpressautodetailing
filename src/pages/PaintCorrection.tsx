@@ -41,7 +41,7 @@ const faqs = [
 const PaintCorrection = () => (
   <LandingPage
     quote={{ defaultNeed: "Paint correction/ceramic" }}
-    products={["menzerna", "systemx", "gtechniq", "gyeon"]}
+    products={["menzerna", "systemx", "carpro", "gyeon"]}
     seo={{
       title: "Paint Correction Calgary | Swirl & Scratch Removal",
       description: "Machine paint correction in Calgary that removes swirls, buffer trails and etching, with paint depth readings on every panel.",

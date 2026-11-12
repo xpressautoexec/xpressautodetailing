@@ -1,4 +1,6 @@
-import { ExternalLink, Star } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import ReviewCard from "@/components/site/ReviewCard";
+import GoogleG from "@/components/site/GoogleG";
 import { REAL_REVIEWS, GOOGLE_REVIEWS_URL } from "@/data/copy";
 import { FIVE_STAR_REVIEWS } from "@/data/pricing";
 
@@ -12,18 +14,7 @@ const HomeReviews = () => (
       </h2>
       <div className="mt-10 grid gap-4 md:grid-cols-3 sm:mt-14">
         {REAL_REVIEWS.slice(0, 3).map((r) => (
-          <figure key={r.text} className="flex flex-col rounded-card border border-line bg-surface p-7">
-            <div className="flex gap-0.5" aria-label="5 out of 5 stars">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-current text-electric" aria-hidden="true" />
-              ))}
-            </div>
-            <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed text-ink-2">{r.text}</blockquote>
-            <figcaption className="mt-6 border-t border-line pt-4 text-sm">
-              <span className="font-semibold text-ink">{r.name}</span>
-              <span className="block text-muted-ink">{r.service}</span>
-            </figcaption>
-          </figure>
+          <ReviewCard key={r.name} review={r} />
         ))}
       </div>
       <a
@@ -32,6 +23,7 @@ const HomeReviews = () => (
         rel="noopener noreferrer"
         className="mt-8 inline-flex min-h-[48px] items-center gap-2 rounded-md border border-ink/20 px-6 text-sm font-semibold text-ink transition-colors hover:border-ink"
       >
+        <GoogleG className="h-4 w-4" />
         Read {FIVE_STAR_REVIEWS} on Google
         <ExternalLink className="h-4 w-4" aria-hidden="true" />
       </a>

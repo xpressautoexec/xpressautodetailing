@@ -39,7 +39,7 @@ export const FLEET_TERMS = [
 /** Owner-confirmed coverage amount. Do not reword to "Fully Insured" (banned) or add WCB. */
 export const COVERAGE = "$2M liability coverage";
 
-export const CERAMIC_CERTIFICATIONS = ["CARPRO", "System X", "Gtechniq", "Gyeon"];
+export const CERAMIC_CERTIFICATIONS = ["CARPRO", "System X", "Gyeon"];
 
 /** Paint protection film installed on car and RV PPF jobs. Windshield film uses WINDSHIELD_FILM_BRAND. */
 export const FILM_BRAND = "SunTek and LLumar";
@@ -66,6 +66,7 @@ export const PRODUCT_LINES = {
     role: "Graphene ceramic coatings",
     body: "Our long-term paint protection. We're an authorized System X installer, so the 9-year coating carries a manufacturer warranty.",
   },
+  /** Hidden from the site for now; kept so it can be switched back on. */
   gtechniq: {
     name: "Gtechniq",
     role: "Ceramic coatings and sealants",
@@ -224,30 +225,56 @@ export const HOW_IT_WORKS = [
 ];
 
 /**
- * Verbatim Google reviews (Xpress Auto & RV Detail, Google Maps), pulled Sept 30, 2026.
+ * Verbatim Google reviews (Xpress Auto & RV Detail, Google Maps), re-checked Nov 12, 2026.
  * NEVER invent or paraphrase a testimonial. Trim only with an ellipsis.
- * Names shown as first name + last initial when known; reviews pulled without a name say "Google review".
+ * `name` is the reviewer's name exactly as Google shows it. `vehicle` only when the review itself names it.
  */
 export interface Review {
   name: string;
+  vehicle?: string;
   service: string;
   text: string;
 }
 
-/** Order matters: lead with reviews that name the crew, not just the owner. */
+/** Order matters: the first three show on the homepage, so lead with a mix of car, RV and named vehicles. */
 export const REAL_REVIEWS: Review[] = [
   {
-    name: "Kate L.",
-    service: "Complete detail, Jeep",
+    name: "Claire Erasmus",
+    vehicle: "Travel trailer",
+    service: "Paint correction",
+    text: "We are super impressed with the paint correction on our trailer. We didn’t expect for it to look as good as it does. It looks brand new. Omar and team were punctual, friendly and went above and beyond to make sure we had a great experience and we were happy with the final result. I would highly recommend them. 10/10",
+  },
+  {
+    name: "Kate Little",
+    vehicle: "2014 Jeep",
+    service: "Complete detail",
     text: "These guys are great. … We had Youssef and Adam, both lovely and kind - and honestly could not be happier with their work. My 2014 jeep looks the way it did the day we drove it off the lot!! Thanks so much guys! We will recommend you to everyone we know!!!",
   },
   {
-    name: "Google review",
+    name: "Teni Babatunde",
+    vehicle: "Honda Civic",
+    service: "Interior + exterior detail",
+    text: "Omar did a great job of detailing my interior and exterior of my Honda civic. He offered a great price and was extremely professional throughout the entire service. Would definitely recommend Xpress Auto to any one that needs car detailing.",
+  },
+  {
+    name: "IllumiYYC",
+    vehicle: "Hummer EV",
+    service: "Full detail + ceramic coating",
+    text: "Had my Hummer EV in for a full detail and ceramic coating the results were insane. They brought out a mirror finish on such a big vehicle, and the ceramic makes it pop even more. Top-tier work and great customer service. Highly recommend.",
+  },
+  {
+    name: "Sharon Adolph",
+    vehicle: "SUV",
+    service: "Interior detail",
+    text: "The workers were very friendly and they cared about the outcome of the cleaning. They made an extra effort to remove splinters of wood imbedded in the fabric in the cargo area of my SUV. They stayed after dark to complete the job. I really appreciated their efforts and the how thoroughly they cleaned my vehicle. Thank you so much.",
+  },
+  {
+    name: "Muhammad Ashhad",
     service: "Complete detail",
     text: "Best mobile detailing in Calgary ! I booked them for a complete detail and the results exceeded my expectations. The attention to detail is fantastic, and they made the whole process completely hassle-free. I will definitely be using them again.",
   },
   {
-    name: "Google review",
+    name: "Kimberly Riczu",
     service: "Car detail",
     text: "Last minute this morning I decided to get my car detailed as I haven’t in 4 years. It was embarrassing how dirty my car was to begin with however there was no judgement from Omar and my expectations were exceeded. Thank you for the incredible work and detail you put into making my car cozy again !!! Will definitely be recommending to everyone I know.",
   },

@@ -1,4 +1,4 @@
-export const AUTHORIZED_BRANDS = ["SunTek", "LLumar", "CARPRO", "System X", "Gyeon", "Gtechniq"] as const;
+export const AUTHORIZED_BRANDS = ["SunTek", "LLumar", "CARPRO", "System X", "Gyeon"] as const;
 export const FILM_PRODUCTS = {
   suntek: {
     name: "SunTek", official: "https://suntekfilms.com/na/en/paint-protection-film/", path: "/paint-protection-film/suntek/",

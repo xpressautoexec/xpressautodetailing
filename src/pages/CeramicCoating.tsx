@@ -38,9 +38,9 @@ const CeramicCoating = () => (
     why={WHY_CERAMIC}
     afterFeatures={<ProtectionProductLinks coating />}
     quote={{ defaultNeed: "Paint correction/ceramic" }}
-    products={["systemx", "gtechniq", "gyeon", "menzerna"]}
+    products={["carpro", "systemx", "gyeon", "menzerna"]}
     seo={{
-      title: "Ceramic Coating Calgary | System X, Gtechniq, Gyeon",
+      title: "Ceramic Coating Calgary | CARPRO, System X, Gyeon",
       description: `Ceramic coating in Calgary from ${money(from)}, with decontamination and machine correction included. Built for salt brine and Alberta winters.`,
       canonical: "/ceramic-coating",
       serviceName: "Ceramic Coating",

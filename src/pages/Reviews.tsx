@@ -15,6 +15,7 @@ import QuoteLink from "@/components/site/QuoteLink";
 import SEO from "@/components/SEO";
 import { PhotoMarquee } from "@/components/site/PhotoRail";
 import { PHOTOS } from "@/data/photos";
+import ReviewCard from "@/components/site/ReviewCard";
 import { REAL_REVIEWS, GOOGLE_REVIEWS_URL, SERVICE_AREA_SENTENCE, CERAMIC_CERTIFICATIONS, WATER_LINE } from "@/data/copy";
 import { FIVE_STAR_REVIEWS, SEASON_STATS, SERVICE_AREAS } from "@/data/pricing";
 
@@ -92,18 +93,7 @@ const Reviews = () => (
         />
         <div className="grid gap-5 md:grid-cols-3">
           {REAL_REVIEWS.map((r) => (
-            <figure key={r.text} className={`${cardClass} flex flex-col p-7`}>
-              <div className="flex gap-0.5" aria-label="5 out of 5 stars">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-current text-electric" aria-hidden="true" />
-                ))}
-              </div>
-              <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed text-ink-2">{r.text}</blockquote>
-              <figcaption className="mt-6 border-t border-line pt-4 text-sm">
-                <span className="font-semibold text-ink">{r.name}</span>
-                <span className="block text-muted-ink">{r.service}</span>
-              </figcaption>
-            </figure>
+            <ReviewCard key={r.name} review={r} className={cardClass} />
           ))}
         </div>
         <p className="mt-10 text-[15px] text-ink-2">

@@ -125,7 +125,7 @@ const PaintCeramics = () => {
 
         <ServiceFAQ title="Coating questions" faqs={faqs} />
 
-        <QualityProducts lines={["systemx", "gtechniq", "gyeon", "menzerna"]} />
+        <QualityProducts lines={["systemx", "carpro", "gyeon", "menzerna"]} />
 
 
         <ClosingCTA

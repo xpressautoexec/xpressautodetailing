@@ -1,3 +1,9 @@
+import navDetailing from "@/assets/jobs/hero-detailing.webp";
+import navProtection from "@/assets/carpro-dquartz-product.webp";
+import navRvFleet from "@/assets/gallery-newmar-dutch-star-front.jpg";
+import navResources from "@/assets/gallery-jeep-wrangler.jpg";
+import navWhy from "@/assets/jobs/crew-van-gear.webp";
+
 export type SiteLink = { label: string; href: string };
 export type NavColumn = { title: string; href: string; links: SiteLink[] };
 export type NavGroup = {
@@ -14,7 +20,7 @@ export const MEGA_NAV: NavGroup[] = [
   {
     label: "Services",
     heading: "Detailing services",
-    image: "/videos/xp-tesla-detail.jpg",
+    image: navDetailing,
     featured: { label: "Find your detail", href: "/detailing", body: "Interior, exterior and complete packages priced by vehicle size." },
     columns: [
       {
@@ -41,7 +47,7 @@ export const MEGA_NAV: NavGroup[] = [
   {
     label: "Protection",
     heading: "Protection",
-    image: "/videos/xp-paint-correction.jpg",
+    image: navProtection,
     featured: { label: "Experience CARPRO DQUARTZ", href: "/ceramic-coating/carpro-dquartz", body: "Our flagship nano-diamond ceramic coating." },
     columns: [
       {
@@ -76,7 +82,7 @@ export const MEGA_NAV: NavGroup[] = [
   {
     label: "RV & Fleet",
     heading: "RV, marine & fleet",
-    image: "/videos/xp-rv-walkaround.jpg",
+    image: navRvFleet,
     featured: { label: "Book a free RV assessment", href: "/rv-trailer", body: "Oxidation removal, washes and protection where your RV is parked." },
     columns: [
       {
@@ -103,7 +109,7 @@ export const MEGA_NAV: NavGroup[] = [
   {
     label: "Resources",
     heading: "Resources",
-    image: "/videos/xp-mercedes-gle-headlight.jpg",
+    image: navResources,
     featured: { label: "See our work", href: "/gallery", body: "Real Calgary jobs, before and after." },
     columns: [
       {
@@ -131,7 +137,7 @@ export const MEGA_NAV: NavGroup[] = [
   {
     label: "Why Xpress",
     heading: "Why Xpress",
-    image: "/videos/xp-defender-shop.jpg",
+    image: navWhy,
     featured: { label: "Read our reviews", href: "/reviews", body: "100+ five-star Google reviews from Calgary drivers." },
     columns: [
       {

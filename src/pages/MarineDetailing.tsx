@@ -127,7 +127,7 @@ const MarineDetailing = () => (
 
       <ServiceFAQ title="Marine questions" faqs={faqs} />
 
-      <QualityProducts lines={["3m", "menzerna", "gtechniq", "systemx"]} />
+      <QualityProducts lines={["3m", "menzerna", "systemx"]} />
 
 
       <ClosingCTA title="Get it ready for the water" mode="quote" quoteHref="#assessment" quoteLabel="Book a free assessment" />

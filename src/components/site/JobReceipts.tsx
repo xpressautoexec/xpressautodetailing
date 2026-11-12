@@ -5,13 +5,30 @@ import Lightbox from "@/components/site/Lightbox";
 import ScrollRail from "@/components/site/ScrollRail";
 
 /** Receipt cards with a shared full-screen viewer for each job's photos. */
-const JobReceipts = ({ jobs, layout = "grid" }: { jobs: JobRecord[]; layout?: "grid" | "rail" }) => {
+const JobReceipts = ({
+  jobs,
+  layout = "grid",
+  covers,
+  numbered = false,
+}: {
+  jobs: JobRecord[];
+  layout?: "grid" | "rail";
+  /** Card photo per job slug, when a different shot reads better at card size. */
+  covers?: Record<string, string>;
+  numbered?: boolean;
+}) => {
   const [open, setOpen] = useState<{ slug: string; i: number } | null>(null);
   const active = useMemo(() => jobs.find((j) => j.slug === open?.slug), [jobs, open]);
   const items = useMemo(() => (active ? jobLightboxItems(active) : []), [active]);
 
-  const cards = jobs.map((job) => (
-    <JobReceiptCard key={job.slug} job={job} onOpen={() => setOpen({ slug: job.slug, i: 0 })} />
+  const cards = jobs.map((job, i) => (
+    <JobReceiptCard
+      key={job.slug}
+      job={job}
+      cover={covers?.[job.slug]}
+      index={numbered ? i : undefined}
+      onOpen={() => setOpen({ slug: job.slug, i: 0 })}
+    />
   ));
 
   return (
@@ -21,7 +38,7 @@ const JobReceipts = ({ jobs, layout = "grid" }: { jobs: JobRecord[]; layout?: "g
           {cards}
         </ScrollRail>
       ) : (
-        <div className="grid gap-4 md:grid-cols-3">{cards}</div>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{cards}</div>
       )}
       <Lightbox
         items={items}

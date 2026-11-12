@@ -26,7 +26,7 @@ Build: `npm run build` = client build + SSR build of `src/entry-server.tsx` +
    Display headings Unbounded uppercase (`llumar-hero-title`, `display-xl`, `why-title`), body Sofia Sans.
    Heroes = `<ServicePageHero />` (shaped `slanted-photo`); mega menu data in `src/data/navigation.ts`;
    `<WhyBand />` (data in `src/data/why.ts`) on service hubs; brand pages via `<BrandProductPage />` +
-   `src/data/brand-pages.tsx`. Authorized installer: SunTek, LLumar, CARPRO, System X, Gyeon, Gtechniq.
+   `src/data/brand-pages.tsx`. Authorized installer: SunTek, LLumar, CARPRO, System X, Gyeon (Gtechniq hidden for now).
    One primary CTA per section: `<QuoteLink />` ("Get a quote"); text/call/book are outlined or links.
    Leads: `<QuoteForm />` (in `<QuoteSection />`, above the FAQ on service/landing pages, on / and /quote)
    writes `quote_requests` + photos in the private `quote-photos` bucket; trigger -> `notify-quote` emails

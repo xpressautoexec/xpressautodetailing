@@ -1,7 +1,7 @@
 import { ArrowRight, Phone } from "lucide-react";
 import QuoteLink, { TEL_HREF } from "@/components/site/QuoteLink";
 import { NAP } from "@/data/copy";
-import heroImg from "@/assets/jobs/card-pass-audi-rs5.webp";
+import heroImg from "@/assets/jobs/exterior-bmw-m340i-front.webp";
 
 /** LLumar "See LLumar in a new light" hero: giant stacked headline left, shaped photo right. */
 const HomeHero = () => (
@@ -11,9 +11,9 @@ const HomeHero = () => (
         <div className="slanted-photo relative aspect-[16/12] w-full bg-tint lg:aspect-auto lg:h-full lg:min-h-[620px]">
           <img
             src={heroImg}
-            alt="Audi RS5 after a ceramic coating by Xpress in Calgary"
+            alt="Navy BMW M340i after a ceramic coating by Xpress in Calgary"
             {...{ fetchpriority: "high" }}
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover object-[50%_60%]"
           />
         </div>
       </div>

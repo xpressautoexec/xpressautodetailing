@@ -18,15 +18,28 @@ import FeatureRow from "@/components/site/FeatureRow";
 import JobReceipts from "@/components/site/JobReceipts";
 import { featuredJobs, useJobs } from "@/hooks/useJobs";
 import { WHY_XPRESS } from "@/data/why";
-import dquartzPhoto from "@/assets/jobs/ceramic-bmw-m340i-hood.webp";
-import rvPhoto from "@/assets/jobs/hero-rv-detailing.webp";
+import dquartzPhoto from "@/assets/carpro-dquartz-product.webp";
+import rvPhoto from "@/assets/jobs/rv-surveyor-tape-line.webp";
 
 /** FAQ indexes (FAQSection list) shown on the homepage: the most asked before booking. */
 const HOME_FAQS = [8, 0, 9, 11, 10];
 
+/** Homepage receipts: the strongest-looking jobs across car, ceramic, RV, fleet and marine, with the best card shot for each. */
+const HOME_PICKS: { slug: string; cover: string }[] = [
+  { slug: "bmw-m340i", cover: "jobs/hero-paint-ceramics.webp" },
+  { slug: "range-rover", cover: "jobs/exterior-range-rover-front.webp" },
+  { slug: "newmar-dutch-star", cover: "jobs/rv-newmar-front-bay.webp" },
+  { slug: "cat-320-excavator", cover: "jobs/fleet-cat-boom.webp" },
+  { slug: "sunchaser-pontoon", cover: "gallery-sunchaser-pontoon.jpg" },
+  { slug: "bmw-2-series-convertible", cover: "jobs/interior-bmw-red-front-seats.webp" },
+];
+
 const HomeReceipts = () => {
   const { data = [] } = useJobs();
-  return <JobReceipts jobs={featuredJobs(data, 6)} />;
+  const picked = HOME_PICKS.map((p) => data.find((j) => j.slug === p.slug)).filter((j): j is NonNullable<typeof j> => Boolean(j));
+  const jobs = picked.length >= 3 ? picked.slice(0, 6) : featuredJobs(data, 6);
+  const covers = Object.fromEntries(HOME_PICKS.map((p) => [p.slug, p.cover]));
+  return <JobReceipts jobs={jobs} covers={covers} numbered />;
 };
 
 /** Homepage, LLumar layout: hero, installers, expertise, why band, protection, flagship, RV, receipts, reviews, FAQ, quote. */
@@ -58,21 +71,25 @@ const Index = () => (
       <FeatureRow
         title="Experience CARPRO DQUARTZ"
         image={dquartzPhoto}
-        imageAlt="BMW M340i hood after a ceramic coating"
+        imageAlt="CARPRO DQUARTZ nano-diamond ceramic coating box and bottle"
         cta={{ label: "Learn more", href: "/ceramic-coating/carpro-dquartz" }}
         tone="surface"
       >
         <p>
-          DQUARTZ is CARPRO's ceramic coating reinforced with synthetic nano-diamonds. It is built to resist the fine swirls that
-          washing leaves behind, on top of the gloss, water beading and road-salt resistance you expect from a professional coating.
+          DQUARTZ fuses synthetic nano-diamonds with a siloxane base and CARPRO's own silicon resin. CARPRO calls it the first coating to
+          give paint real mechanical resistance to the swirls and light scratches that washing leaves behind.
         </p>
-        <p>As an authorized CARPRO installer, we prep and correct the paint first, so the coating locks in a finish worth keeping.</p>
+        <p>
+          It goes on paint and metal, adds strong chemical and environmental resistance against Calgary salt and grime, and is known for two
+          things owners notice every wash: deep gloss and a self-cleaning surface. As an authorized CARPRO installer, we prep and correct
+          the paint first, so the coating locks in a finish worth keeping.
+        </p>
       </FeatureRow>
 
       <FeatureRow
         title="RV detailing & oxidation removal"
         image={rvPhoto}
-        imageAlt="Motorhome being detailed on site in Calgary"
+        imageAlt="Surveyor trailer front cap taped down the middle: oxidized gelcoat on one side, restored gloss on the other"
         cta={{ label: "Book a free assessment", href: "/rv-trailer" }}
         flip
         rule
