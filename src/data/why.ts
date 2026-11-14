@@ -29,7 +29,7 @@ export const WHY_XPRESS: Why = {
   intro:
     "Calgary is hard on vehicles: road salt, gravel, chinook freeze-thaw and hard water. We built Xpress around protecting what you drive and making it easy, with vans that carry their own water and power and a heated shop in Airdrie for coatings and film.",
   apart:
-    "We are an authorized installer of SunTek, LLumar and CARPRO, so every film and coating we install is a professional product, installed the way the manufacturer intends, with their warranty behind it.",
+    "We are an authorized installer of SunTek, CARPRO and System X, so every film and coating we install is a professional product, installed the way the manufacturer intends, with their warranty behind it.",
   items: [
     { icon: Truck, label: "Mobile To Your Driveway" },
     { icon: Warehouse, label: "Heated Airdrie Shop" },
@@ -45,7 +45,7 @@ export const WHY_PPF: Why = {
   intro:
     "Paint protection film is a clear, self-healing urethane layer that takes the hits so your paint does not. On Alberta highways that means rock chips, gravel, salt and sand hit the film first.",
   apart:
-    "We install SunTek and LLumar film as an authorized installer, cut to your exact vehicle, with the manufacturer's warranty on the film.",
+    "We install SunTek film as an authorized installer, cut to your exact vehicle, with the manufacturer's warranty on the film.",
   items: [
     { icon: ShieldCheck, label: "Rock Chip Defense" },
     { icon: Sparkles, label: "Self-Healing Film" },
@@ -77,7 +77,7 @@ export const WHY_TINT: Why = {
   intro:
     "Quality window film keeps your cabin cooler in summer, cuts glare off snow and low winter sun, and helps protect your interior and your skin from UV.",
   apart:
-    "We install LLumar and SunTek window film as an authorized installer, with clean edges, no bubbles, and the manufacturer's warranty on the film.",
+    "We install SunTek window film as an authorized installer, with clean edges, no bubbles, and the manufacturer's warranty on the film.",
   items: [
     { icon: ThermometerSnowflake, label: "Heat Rejection" },
     { icon: Sun, label: "UV Protection" },

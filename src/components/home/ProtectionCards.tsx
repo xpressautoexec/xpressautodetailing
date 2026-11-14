@@ -11,13 +11,13 @@ const CARDS = [
   {
     title: "Paint Protection Film",
     href: "/paint-protection-film",
-    body: "SunTek and LLumar self-healing film that takes the rock chips, gravel and road salt so your paint does not.",
+    body: "SunTek self-healing film that takes the rock chips, gravel and road salt so your paint does not.",
     points: ["Front, full front or full body coverage", "Gloss or matte finish", "Manufacturer warranty on the film"],
   },
   {
     title: "Window Tint",
     href: "/window-tint",
-    body: "LLumar and SunTek window film for a cooler cabin, less glare off snow and low sun, and UV protection.",
+    body: "SunTek window film for a cooler cabin, less glare off snow and low sun, and UV protection.",
     points: ["Ceramic and carbon film options", "Clean edges, no bubbles", "Manufacturer warranty on the film"],
   },
 ];

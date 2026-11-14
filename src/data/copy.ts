@@ -39,10 +39,10 @@ export const FLEET_TERMS = [
 /** Owner-confirmed coverage amount. Do not reword to "Fully Insured" (banned) or add WCB. */
 export const COVERAGE = "$2M liability coverage";
 
-export const CERAMIC_CERTIFICATIONS = ["CARPRO", "System X", "Gyeon"];
+export const CERAMIC_CERTIFICATIONS = ["CARPRO", "System X"];
 
 /** Paint protection film installed on car and RV PPF jobs. Windshield film uses WINDSHIELD_FILM_BRAND. */
-export const FILM_BRAND = "SunTek and LLumar";
+export const FILM_BRAND = "SunTek";
 
 /** Film named on the /lp ad pages, kept as-is so live ad copy matches the landing page. Update with the ads. */
 export const LP_FILM_BRAND = "3M Scotchgard Pro";
@@ -59,6 +59,7 @@ export const WINDSHIELD_FILM_BRAND = "ExoShield";
  */
 export const PRODUCT_LINES = {
   suntek: { name: "SunTek", role: "Paint protection film", body: "SunTek Reaction, Ultra, Ultra Matte and Ultra Defense PPF, fitted by our authorized installer team." },
+  /** Hidden from the site for now; kept so it can be switched back on. */
   llumar: { name: "LLumar", role: "Paint protection film", body: "LLumar Valor, Platinum Gloss, Platinum Matte and Platinum Extra PPF, fitted by our authorized installer team." },
   carpro: { name: "CARPRO", role: "DQUARTZ ceramic coating", body: "Synthetic nano-diamond reinforced ceramic coating, installed by our authorized CARPRO team. Pricing is confirmed by quote." },
   systemx: {
@@ -72,6 +73,7 @@ export const PRODUCT_LINES = {
     role: "Ceramic coatings and sealants",
     body: "Coatings and sealants for paint, glass and trim, applied after correction so the finish lasts.",
   },
+  /** Hidden from the site for now; kept so it can be switched back on. */
   gyeon: {
     name: "Gyeon",
     role: "Ceramic coatings and maintenance",

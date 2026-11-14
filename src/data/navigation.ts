@@ -89,7 +89,6 @@ export const MEGA_NAV: NavGroup[] = [
         href: "/paint-protection-film",
         links: [
           { label: "SunTek PPF", href: "/paint-protection-film/suntek" },
-          { label: "LLumar PPF", href: "/paint-protection-film/llumar" },
           { label: "Windshield film", href: "/windshield-ppf" },
           { label: "RV PPF", href: "/rv-trailer/ppf" },
         ],
@@ -98,7 +97,6 @@ export const MEGA_NAV: NavGroup[] = [
         title: "Window tint",
         href: "/window-tint",
         links: [
-          { label: "LLumar tint", href: "/window-tint/llumar" },
           { label: "SunTek tint", href: "/window-tint/suntek" },
         ],
       },
@@ -196,7 +194,6 @@ export const PROTECTION_LINKS: SiteLink[] = [
   { label: "Paint correction", href: "/paint-correction" },
   { label: "Paint protection film", href: "/paint-protection-film" },
   { label: "SunTek PPF", href: "/paint-protection-film/suntek" },
-  { label: "LLumar PPF", href: "/paint-protection-film/llumar" },
   { label: "Ceramic coating", href: "/ceramic-coating" },
   { label: "CARPRO DQUARTZ", href: "/ceramic-coating/carpro-dquartz" },
   { label: "Window tint", href: "/window-tint" },

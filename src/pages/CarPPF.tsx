@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: "Which film do you use?",
-    a: `${FILM_BRAND} paint protection film, installed by an authorized SunTek and LLumar installer. Both are optically clear, self-healing under heat and carry a manufacturer film warranty.`,
+    a: `${FILM_BRAND} paint protection film, installed by an authorized SunTek installer. It is optically clear, self-healing under heat and carries a manufacturer film warranty.`,
   },
   {
     q: "Is the film cut on my car?",
@@ -57,18 +57,18 @@ const CarPPF = () => {
     <LandingPage
       quote={{ id: "quote", defaultNeed: "PPF/windshield film", title: "Get a PPF quote" }}
       childrenBeforeWork
-      products={["suntek", "llumar", "carpro"]}
+      products={["suntek", "carpro"]}
       why={WHY_PPF}
       afterFeatures={<ProtectionProductLinks />}
       seo={{
-        title: "Paint Protection Film Calgary | SunTek & LLumar | Xpress",
+        title: "Paint Protection Film Calgary | SunTek PPF | Xpress",
         description: `${FILM_BRAND} paint protection film in Calgary from ${money(from)}. Computer-cut on our plotter, installed by our own crew. Partial front to full vehicle, priced by vehicle size.`,
         canonical: "/paint-protection-film",
         serviceName: "Paint Protection Film",
         serviceDescription: `${FILM_BRAND} paint protection film for cars, trucks and SUVs in Calgary and area, computer-cut and installed in-house.`,
       }}
       hero={{
-        eyebrow: "Authorized SunTek & LLumar installer",
+        eyebrow: "Authorized SunTek installer",
         title: "Stop rock chips before they start.",
         subtitle: `${FILM.name}, plotter-cut to your vehicle's pattern and installed in our Airdrie shop. Clear bra coverage from ${money(from)}.`,
         image: heroImg,

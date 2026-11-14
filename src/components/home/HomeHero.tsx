@@ -29,7 +29,7 @@ const HomeHero = () => (
           in Calgary
         </h1>
         <p className="mt-10 max-w-[32rem] text-lg leading-relaxed text-ink-2">
-          Ceramic coating, SunTek® and LLumar® paint protection film, window tint and full detailing for cars, RVs and fleets — mobile across
+          Ceramic coating, SunTek® paint protection film, window tint and full detailing for cars, RVs and fleets — mobile across
           Calgary or in our heated Airdrie shop.
         </p>
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">

@@ -148,7 +148,7 @@ const Footer = () => {
               <p>
                 © {new Date().getFullYear()} {NAP.name}, a trade name of Alberta Keystone Solutions Ltd. All rights reserved.
               </p>
-              <p className="mt-1">SunTek®, LLumar® and CARPRO® are trademarks of their respective owners.</p>
+              <p className="mt-1">SunTek® and CARPRO® are trademarks of their respective owners.</p>
             </div>
             <div className="flex flex-wrap gap-5">
               <Link to="/terms-of-service" className="hover:text-action">

@@ -35,11 +35,11 @@ export type BrandPage = {
 };
 
 const WARRANTY_NOTE = "Film and coating warranties are set by the manufacturer. Certain restrictions apply; ask us for the terms on your product.";
-const TRADEMARKS = "SunTek®, LLumar® and CARPRO® are trademarks of their respective owners.";
+const TRADEMARKS = "SunTek® and CARPRO® are trademarks of their respective owners.";
 
 const PPF_FAQS = [
   { q: "How much does paint protection film cost in Calgary?", a: "It depends on the vehicle, the film and the coverage: a partial front, a full front or the whole car. Text us three photos and we will send an exact price for your vehicle." },
-  { q: "How long does PPF last?", a: "Premium SunTek and LLumar films are built to last for years and carry a manufacturer warranty. Washing and care affect how long it looks its best, and we walk you through that at pickup." },
+  { q: "How long does PPF last?", a: "Premium SunTek films are built to last for years and carry a manufacturer warranty. Washing and care affect how long it looks its best, and we walk you through that at pickup." },
   { q: "Can I put ceramic coating on top of PPF?", a: "Yes. Coating the film makes it easier to wash and adds gloss. Some films already have a hydrophobic topcoat, so we will tell you whether it is worth it on yours." },
   { q: "Will PPF damage my paint if it is removed?", a: "Quality film installed on healthy factory paint is designed to come off cleanly. Repainted or damaged paint is a different case, and we check it before we install." },
 ];
@@ -83,13 +83,14 @@ export const SUNTEK_PPF: BrandPage = {
   faqTitle: "SunTek PPF questions",
   faqs: PPF_FAQS,
   pathways: [
-    { title: "Compare with LLumar PPF", body: "Valor, Platinum Gloss, Platinum Matte and Platinum Extra.", href: "/paint-protection-film/llumar" },
+    { title: "Add window tint", body: "SunTek Evolve, ceramic and carbon film.", href: "/window-tint/suntek" },
     { title: "Add ceramic coating", body: "Coat the rest of the car with CARPRO DQUARTZ.", href: "/ceramic-coating/carpro-dquartz" },
   ],
   official: { label: "See SunTek's official PPF line-up", href: FILM_PRODUCTS.suntek.official },
   footnotes: [WARRANTY_NOTE, TRADEMARKS],
 };
 
+/** Hidden for now: /paint-protection-film/llumar redirects to SunTek. Kept so it can be switched back on. */
 export const LLUMAR_PPF: BrandPage = {
   path: "/paint-protection-film/llumar",
   seo: {
@@ -200,7 +201,7 @@ export const DQUARTZ: BrandPage = {
   lead: "CARPRO DQUARTZ from Xpress is a ceramic coating reinforced with synthetic nano-diamonds, installed by an authorized CARPRO installer in Calgary and Airdrie.",
   intro: [
     "DQUARTZ is built to resist the fine swirls and light scratches that washing leaves behind, on top of the gloss, water beading, UV, road-salt and chemical resistance you expect from a professional coating.",
-    "It is a coating, not armour: it will not stop rock chips. For chips, pair it with SunTek or LLumar paint protection film on the front end.",
+    "It is a coating, not armour: it will not stop rock chips. For chips, pair it with SunTek paint protection film on the front end.",
   ],
   questions: [
     { q: "Why it matters in Calgary", a: "Road salt, mag chloride, gravel dust and hard water all attack clear coat. A hard, slick coating means less sticks, and what does comes off with a gentle wash instead of a scrub that adds swirls." },
@@ -223,7 +224,7 @@ export const DQUARTZ: BrandPage = {
   ],
   pathways: [
     { title: "Aftercare with Xpress Pass", body: "Maintenance washes that keep the coating performing.", href: "/xpress-pass" },
-    { title: "Add front-end PPF", body: "Stop rock chips with SunTek or LLumar film.", href: "/paint-protection-film" },
+    { title: "Add front-end PPF", body: "Stop rock chips with SunTek film.", href: "/paint-protection-film" },
   ],
   official: { label: "See CARPRO's DQUARTZ coating", href: "https://carpro.global/products/category/protect/0" },
   footnotes: [WARRANTY_NOTE, TRADEMARKS],
@@ -232,19 +233,19 @@ export const DQUARTZ: BrandPage = {
 export const WINDOW_TINT: BrandPage = {
   path: "/window-tint",
   seo: {
-    title: "Window Tint Calgary | LLumar & SunTek Installer | Xpress",
-    description: "Window tint in Calgary by an authorized LLumar and SunTek installer: ceramic and carbon film for heat rejection, less glare and UV protection.",
+    title: "Window Tint Calgary | Authorized SunTek Installer | Xpress",
+    description: "Window tint in Calgary by an authorized SunTek installer: ceramic and carbon film for heat rejection, less glare and UV protection.",
     serviceName: "Window Tint",
   },
   hero: {
-    eyebrow: "Authorized LLumar & SunTek installer",
+    eyebrow: "Authorized SunTek installer",
     title: "Window tint",
     subtitle: "A cooler cabin, less glare off snow and low winter sun, and UV protection for you and your interior.",
     image: heroTint,
     imageAlt: "Range Rover three-quarter view showing tinted windows",
   },
-  h1: "Window Tint in Calgary — Authorized LLumar & SunTek Installer",
-  lead: "Window tint from Xpress is LLumar and SunTek automotive window film installed by an authorized installer in Calgary and our heated Airdrie shop.",
+  h1: "Window Tint in Calgary — Authorized SunTek Installer",
+  lead: "Window tint from Xpress is SunTek automotive window film installed by an authorized installer in Calgary and our heated Airdrie shop.",
   intro: [
     "We install ceramic, carbon and dyed films, cut to your windows with clean edges and no bubbles, and backed by the manufacturer's warranty on the film.",
   ],
@@ -255,7 +256,6 @@ export const WINDOW_TINT: BrandPage = {
   ],
   productsTitle: "Choose your film",
   products: [
-    { name: "LLumar window tint", description: "LLumar automotive film, from FormulaOne to ceramic, clear and dyed options.", benefits: ["Top-of-the-line FormulaOne", "Colour-stable, scratch-resistant coating"], href: "/window-tint/llumar" },
     { name: "SunTek window tint", description: "SunTek automotive film, from Evolve to ceramic and carbon.", benefits: ["Evolve for higher infrared heat rejection", "Non-metal films that will not block signals"], href: "/window-tint/suntek" },
   ],
   why: WHY_TINT,
@@ -264,12 +264,13 @@ export const WINDOW_TINT: BrandPage = {
   faqTitle: "Window tint questions",
   faqs: TINT_FAQS,
   pathways: [
-    { title: "Add paint protection film", body: "SunTek and LLumar PPF for the front end.", href: "/paint-protection-film" },
+    { title: "Add paint protection film", body: "SunTek PPF for the front end.", href: "/paint-protection-film" },
     { title: "Add ceramic coating", body: "CARPRO DQUARTZ for the whole car.", href: "/ceramic-coating/carpro-dquartz" },
   ],
   footnotes: [WARRANTY_NOTE, TRADEMARKS],
 };
 
+/** Hidden for now: /window-tint/llumar redirects to SunTek. Kept so it can be switched back on. */
 export const LLUMAR_TINT: BrandPage = {
   path: "/window-tint/llumar",
   seo: {
@@ -344,7 +345,7 @@ export const SUNTEK_TINT: BrandPage = {
   faqTitle: "SunTek tint questions",
   faqs: TINT_FAQS,
   pathways: [
-    { title: "Compare LLumar tint", body: "FormulaOne, ceramic, clear and dyed.", href: "/window-tint/llumar" },
+    { title: "Add ceramic coating", body: "CARPRO DQUARTZ for the whole car.", href: "/ceramic-coating/carpro-dquartz" },
     { title: "Add SunTek PPF", body: "Self-healing paint protection film.", href: "/paint-protection-film/suntek" },
   ],
   official: { label: "See SunTek's official tint line-up", href: "https://suntekfilms.com/na/en/automotive-window-tint/" },

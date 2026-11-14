@@ -1,23 +1,19 @@
 import { Section, SectionHeading } from "@/components/site/Section";
 import { PRODUCT_LINES, type ProductLine } from "@/data/copy";
 import logoSystemX from "@/assets/systemx-logo.png";
-import logoGyeon from "@/assets/brand-gyeon.svg";
 import logoMenzerna from "@/assets/brand-menzerna.png";
 import logo3m from "@/assets/brand-3m.png";
 import suntek from "@/assets/brand-suntek.svg.asset.json";
-import llumar from "@/assets/brand-llumar.png.asset.json";
 
 const LOGOS: Partial<Record<ProductLine, string>> = {
   systemx: logoSystemX,
-  gyeon: logoGyeon,
   menzerna: logoMenzerna,
   "3m": logo3m,
   suntek: suntek.url,
-  llumar: llumar.url,
 };
 
 /** Default set for general detailing pages. */
-const DEFAULT_LINES: ProductLine[] = ["systemx", "gyeon", "menzerna", "3m"];
+const DEFAULT_LINES: ProductLine[] = ["systemx", "menzerna", "3m"];
 
 /**
  * "Products we use" band. One per service page, placed just above the closing CTA.

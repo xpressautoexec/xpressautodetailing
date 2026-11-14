@@ -66,10 +66,8 @@ const CeramicPpfLp = lazyPage(() => import("./pages/lp/CeramicPpfLp"));
 const FleetLp = lazyPage(() => import("./pages/lp/FleetLp"));
 const CancellationPolicyPage = lazyPage(() => import("./pages/CancellationPolicyPage"));
 const SunTekPPF = lazyPage(() => import("./pages/brand/SunTekPPF"));
-const LLumarPPF = lazyPage(() => import("./pages/brand/LLumarPPF"));
 const DQuartz = lazyPage(() => import("./pages/brand/DQuartz"));
 const WindowTint = lazyPage(() => import("./pages/brand/WindowTint"));
-const LLumarTint = lazyPage(() => import("./pages/brand/LLumarTint"));
 const SunTekTint = lazyPage(() => import("./pages/brand/SunTekTint"));
 
 const queryClient = new QueryClient();
@@ -137,10 +135,10 @@ export const AnimatedRoutes = () => {
         <Route path="/windshield-ppf" element={<WindshieldPPF />} />
         <Route path="/paint-protection-film" element={<CarPPF />} />
         <Route path="/paint-protection-film/suntek" element={<SunTekPPF />} />
-        <Route path="/paint-protection-film/llumar" element={<LLumarPPF />} />
+        <Route path="/paint-protection-film/llumar" element={<Navigate to="/paint-protection-film/suntek" replace />} />
         <Route path="/ceramic-coating/carpro-dquartz" element={<DQuartz />} />
         <Route path="/window-tint" element={<WindowTint />} />
-        <Route path="/window-tint/llumar" element={<LLumarTint />} />
+        <Route path="/window-tint/llumar" element={<Navigate to="/window-tint/suntek" replace />} />
         <Route path="/window-tint/suntek" element={<SunTekTint />} />
         <Route path="/monthly-plan" element={<Navigate to="/xpress-pass" replace />} />
         <Route path="/marine" element={<MarineDetailing />} />
@@ -224,10 +222,8 @@ const PRELOAD: [string, { preload: () => Promise<unknown> }][] = [
   ["/windshield-ppf", WindshieldPPF],
   ["/paint-protection-film", CarPPF],
   ["/paint-protection-film/suntek", SunTekPPF],
-  ["/paint-protection-film/llumar", LLumarPPF],
   ["/ceramic-coating/carpro-dquartz", DQuartz],
   ["/window-tint", WindowTint],
-  ["/window-tint/llumar", LLumarTint],
   ["/window-tint/suntek", SunTekTint],
   ["/marine", MarineDetailing],
   ["/calgary-detailing-price-comparison", PriceComparison],
