@@ -31,7 +31,7 @@ const HOME_PICKS: { slug: string; cover: string }[] = [
   { slug: "newmar-dutch-star", cover: "jobs/rv-newmar-front-bay.webp" },
   { slug: "cat-320-excavator", cover: "jobs/fleet-cat-boom.webp" },
   { slug: "sunchaser-pontoon", cover: "gallery-sunchaser-pontoon.jpg" },
-  { slug: "bmw-2-series-convertible", cover: "jobs/interior-bmw-red-front-seats.webp" },
+  { slug: "bmw-2-series-convertible", cover: "gallery-bmw-rear.jpg" },
 ];
 
 const HomeReceipts = () => {
