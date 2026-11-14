@@ -1,7 +1,7 @@
 import { ArrowRight, Phone } from "lucide-react";
 import QuoteLink, { TEL_HREF } from "@/components/site/QuoteLink";
 import { NAP } from "@/data/copy";
-import heroImg from "@/assets/jobs/exterior-bmw-m340i-front.webp";
+import heroImg from "@/assets/jobs/exterior-bmw-m340i-front-xpress-studio.webp";
 
 /** LLumar "See LLumar in a new light" hero: giant stacked headline left, shaped photo right. */
 const HomeHero = () => (
