@@ -15,12 +15,13 @@ export const useJobs = () =>
   useQuery({
     queryKey: ["jobs"],
     queryFn: async (): Promise<JobRecord[]> => {
-      const { data, error } = await db
-        .from("jobs")
-        .select("slug,category,vehicle,package_name,price_paid,time_on_site,city,crew,photo_before,photos,photo_alts,featured_rank,sort_order")
-        .order("sort_order", { ascending: true });
+      const cols = "slug,category,vehicle,package_name,price_paid,time_on_site,city,crew,photo_before,photos,photo_alts,featured_rank,sort_order";
+      const load = (select: string) => db.from("jobs").select(select).order("sort_order", { ascending: true });
+      // `highlights` arrived in a later migration; if the column isn't there yet, load without it.
+      let { data, error } = await load(`${cols},highlights`);
+      if (error) ({ data, error } = await load(cols));
       if (error || !data?.length) return usable(JOB_SEED);
-      return usable(data as JobRecord[]);
+      return usable(data as unknown as JobRecord[]);
     },
     placeholderData: usable(JOB_SEED),
     staleTime: 5 * 60 * 1000,

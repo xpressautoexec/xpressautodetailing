@@ -31,6 +31,8 @@ export type JobRecord = {
   photo_before: string | null;
   photos: string[];
   photo_alts: string[];
+  /** Optional "what the package included" lines, shown as a short list on the card. */
+  highlights?: string[];
   /** 1, 2, 3 = shown on the homepage in that order. */
   featured_rank: number | null;
   sort_order: number;
@@ -270,7 +272,7 @@ export const JOB_SEED: JobRecord[] =
     "slug": "sunchaser-pontoon",
     "category": "marine",
     "vehicle": "SunChaser pontoon",
-    "package_name": "Full marine detail",
+    "package_name": "Detail + paint correction + aluminum polish + ceramic coating",
     "price_paid": null,
     "time_on_site": null,
     "city": null,
@@ -285,12 +287,18 @@ export const JOB_SEED: JobRecord[] =
       "jobs/marine-mercury-outboard.webp"
     ],
     "photo_alts": [
-      "SunChaser pontoon boat on its trailer after exterior detail",
+      "SunChaser pontoon boat on its trailer after detail, paint correction, aluminum polish and ceramic coating",
       "SunChaser pontoon blue side panels and logs after polish",
       "SunChaser pontoon boat deck and vinyl seating after interior detail",
       "SunChaser pontoon deck and bimini after detail",
       "SunChaser logo close-up after polish",
       "Mercury 150 outboard motor after cleaning"
+    ],
+    "highlights": [
+      "Full detail: hull, deck, seating and trailer",
+      "Paint correction: oxidation and swirls removed",
+      "Aluminum polish: tubes and rails brought back to a bright finish",
+      "Ceramic coating: easier cleaning, resists water spots, UV and grime"
     ],
     "featured_rank": null,
     "sort_order": 90
@@ -378,25 +386,30 @@ export const JOB_SEED: JobRecord[] =
   },
   {
     "slug": "bmw-2-series-convertible",
-    "category": "car",
+    "category": "ceramic_ppf",
     "vehicle": "BMW 2 Series convertible",
-    "package_name": "Interior detail",
+    "package_name": "Paint correction + ceramic coating",
     "price_paid": null,
     "time_on_site": null,
     "city": null,
     "crew": [],
     "photo_before": null,
     "photos": [
+      "gallery-bmw-rear.jpg",
       "jobs/interior-bmw-red-front-seats.webp",
       "jobs/interior-bmw-red-driver-side.webp",
-      "jobs/interior-bmw-red-rear-seats.webp",
-      "gallery-bmw-rear.jpg"
+      "jobs/interior-bmw-red-rear-seats.webp"
     ],
     "photo_alts": [
-      "BMW 2 Series convertible red leather front seats after interior detail",
-      "BMW 2 Series convertible red leather cabin and dash after interior detail",
-      "BMW red leather rear seats after interior detail",
-      "BMW 2-Series convertible rear three-quarter view freshly detailed"
+      "BMW 2 Series convertible rear three-quarter view after paint correction and ceramic coating",
+      "BMW 2 Series convertible red leather front seats",
+      "BMW 2 Series convertible red leather cabin and dash",
+      "BMW 2 Series convertible red leather rear seats"
+    ],
+    "highlights": [
+      "Multi-stage paint correction: swirls and light scratches removed, gloss restored",
+      "Ceramic coating: long-lasting protection with water beading",
+      "Quicker maintenance washes and better UV and chemical resistance"
     ],
     "featured_rank": null,
     "sort_order": 130

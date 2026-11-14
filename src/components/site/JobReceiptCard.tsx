@@ -1,4 +1,4 @@
-import { ArrowUpRight, Images } from "lucide-react";
+import { ArrowUpRight, Check, Images } from "lucide-react";
 import { JOB_CATEGORIES, jobPhotoUrl, type JobRecord } from "@/data/jobs";
 import { money } from "@/data/pricing";
 import BeforeAfter from "@/components/site/BeforeAfter";
@@ -81,6 +81,20 @@ const JobReceiptCard = ({ job, onOpen, cover, index }: { job: JobRecord; onOpen?
             </div>
           ))}
         </dl>
+
+        {job.highlights?.length ? (
+          <div className="mt-4">
+            <p className="text-xs font-semibold uppercase tracking-label text-muted-ink">Package included</p>
+            <ul className="mt-2 space-y-1.5 text-sm text-ink">
+              {job.highlights.map((h) => (
+                <li key={h} className="flex gap-2">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
 
         <div className="mt-auto flex items-center justify-between gap-3 pt-5">
           {hasPrice ? (
