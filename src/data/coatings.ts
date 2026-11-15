@@ -26,6 +26,8 @@ export type CoatingOption = {
   description: string;
   highlights: string[];
   flagship?: boolean;
+  /** Small "Recommended" banner on the option; also the default pick for its package. */
+  recommended?: boolean;
   /** Second coating layered on top, shown in the package's included list. */
   topCoat?: string;
   /** Product shot for the selector; brands without one show their logo. */
@@ -45,6 +47,7 @@ export const COATING_OPTIONS: CoatingOption[] = [
   {
     id: "gyeon-mohs",
     tier: "essential",
+    recommended: true,
     brand: "Gyeon",
     name: "Q² Mohs EVO",
     tag: "Candy gloss, strong chemical resistance",
@@ -76,6 +79,7 @@ export const COATING_OPTIONS: CoatingOption[] = [
   {
     id: "cquartz-finest-reserve",
     tier: "signature",
+    recommended: true,
     brand: "CARPRO",
     name: "CQUARTZ Finest Reserve",
     tag: "Deep gloss, resists water spots",

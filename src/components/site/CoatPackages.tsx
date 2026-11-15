@@ -46,7 +46,7 @@ const label = (c: CoatingOption) => (c.brand === "3M" ? "3M Ceramic Coating" : `
 
 const defaultPick = (tier: CoatingTierId) => {
   const opts = COATING_OPTIONS.filter((c) => c.tier === tier);
-  return (opts.find((c) => c.flagship) ?? opts[0])?.id ?? "";
+  return (opts.find((c) => c.flagship) ?? opts.find((c) => c.recommended) ?? opts[0])?.id ?? "";
 };
 
 /** One coating in the "Select your coating" list. */
@@ -56,10 +56,15 @@ const Option = ({ c, selected, onClick }: { c: CoatingOption; selected: boolean;
     role="radio"
     aria-checked={selected}
     onClick={onClick}
-    className={`flex min-h-[64px] w-full items-center gap-3 rounded-md border-2 bg-surface p-2.5 text-left sm:gap-4 sm:p-3 transition-colors ${
+    className={`relative flex min-h-[64px] w-full items-center gap-3 rounded-md border-2 bg-surface p-2.5 text-left sm:gap-4 sm:p-3 transition-colors ${
       selected ? "border-primary" : "border-line hover:border-ink-2"
     }`}
   >
+    {c.recommended && (
+      <span className="absolute -top-2.5 right-3 rounded-full bg-primary px-2 py-0.5 text-[10px] font-semibold uppercase tracking-label text-primary-foreground">
+        Recommended
+      </span>
+    )}
     <span className="flex h-16 w-12 shrink-0 items-center justify-center sm:h-20 sm:w-14">
       <img
         src={c.image ?? c.brandLogo}
@@ -156,7 +161,7 @@ const CoatPackages = ({ id = "packages" }: { id?: string }) => {
                 <p className="text-xs font-semibold uppercase tracking-label text-ink">
                   {options.length > 1 ? "Select your coating" : "Your coating"}
                 </p>
-                <div role="radiogroup" aria-label={`Coating for ${r.title}`} className="mt-3 space-y-2.5">
+                <div role="radiogroup" aria-label={`Coating for ${r.title}`} className="mt-4 space-y-4">
                   {options.map((c) => (
                     <Option key={c.id} c={c} selected={c.id === pick.id} onClick={() => setPicks((p) => ({ ...p, [r.key]: c.id }))} />
                   ))}
