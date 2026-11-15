@@ -1,12 +1,14 @@
 import { Section, SectionHeading } from "@/components/site/Section";
 import { PRODUCT_LINES, type ProductLine } from "@/data/copy";
 import logoSystemX from "@/assets/systemx-logo.png";
+import logoCarpro from "@/assets/carpro/logo-carpro.png";
 import logoMenzerna from "@/assets/brand-menzerna.png";
 import logo3m from "@/assets/brand-3m.png";
 import suntek from "@/assets/brand-suntek.svg.asset.json";
 
 const LOGOS: Partial<Record<ProductLine, string>> = {
   systemx: logoSystemX,
+  carpro: logoCarpro,
   menzerna: logoMenzerna,
   "3m": logo3m,
   suntek: suntek.url,

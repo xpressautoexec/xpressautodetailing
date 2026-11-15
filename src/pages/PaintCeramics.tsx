@@ -7,7 +7,7 @@ import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import GuaranteeStrip from "@/components/site/GuaranteeStrip";
 import XpressProcess from "@/components/site/XpressProcess";
-import CoatTiers from "@/components/site/CoatTiers";
+import CoatPackages from "@/components/site/CoatPackages";
 import CorrectionTable from "@/components/site/CorrectionTable";
 import ClosingCTA from "@/components/site/ClosingCTA";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
@@ -102,7 +102,7 @@ const PaintCeramics = () => {
         />
         <GuaranteeStrip />
 
-        <CoatTiers />
+        <CoatPackages />
 
         <CorrectionTable />
 

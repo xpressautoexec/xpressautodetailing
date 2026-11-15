@@ -10,6 +10,8 @@ import heroCeramic from "@/assets/jobs/hero-ceramic-coating.webp";
 import heroTint from "@/assets/jobs/exterior-range-rover-three-quarter.webp";
 import heroBmw from "@/assets/jobs/exterior-bmw-m340i-front.webp";
 import heroCabin from "@/assets/jobs/interior-acura-cabin.webp";
+import kitDquartz from "@/assets/carpro/kit-dquartz.webp";
+import kitFinestReserve from "@/assets/carpro/kit-cquartz-finest-reserve.webp";
 
 export type BrandProduct = { name: string; description: string; benefits: readonly string[]; href?: string };
 export type BrandPage = {
@@ -163,8 +165,14 @@ const DQuartzExtra = () => (
         </table>
       </div>
       <div className="mt-14 grid gap-6 md:grid-cols-2">
-        {DQUARTZ_PACKAGES.map((p) => (
+        {DQUARTZ_PACKAGES.map((p, i) => (
           <div key={p.name} className="rounded-[16px] bg-tint p-8 shadow-[var(--shadow-card)] sm:p-10">
+            <img
+              src={i === 0 ? kitDquartz : kitFinestReserve}
+              alt={i === 0 ? "CARPRO DQUARTZ coating kit" : "CARPRO CQUARTZ Finest Reserve coating kit"}
+              className="mb-6 h-40 w-auto object-contain"
+              loading="lazy"
+            />
             <h3 className="text-[26px] font-semibold text-ink">{p.name}</h3>
             <p className="mt-2 text-base font-semibold text-action">{p.priceLabel}</p>
             <ul className="mt-5 space-y-2">
@@ -223,6 +231,7 @@ export const DQUARTZ: BrandPage = {
     { q: "Does DQUARTZ have real diamonds in it?", a: "No. It uses synthetic nano-diamonds bonded into the coating. It is not as hard as diamond and it is not scratch-proof, but it resists wash swirls better than a standard coating." },
   ],
   pathways: [
+    { title: "See packages and book", body: "DQUARTZ is our 9-year flagship. Prices by vehicle size.", href: "/ceramic-coating#packages" },
     { title: "Aftercare with Xpress Pass", body: "Maintenance washes that keep the coating performing.", href: "/xpress-pass" },
     { title: "Add front-end PPF", body: "Stop rock chips with SunTek film.", href: "/paint-protection-film" },
   ],

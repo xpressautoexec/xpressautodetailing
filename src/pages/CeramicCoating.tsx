@@ -1,116 +1,116 @@
-import { WHY_CERAMIC } from "@/data/why";
-import ProtectionProductLinks from "@/components/site/ProtectionProductLinks";
-import LandingPage from "@/components/site/LandingPage";
-import CoatTiers from "@/components/site/CoatTiers";
-import CoatingSelector from "@/components/site/CoatingSelector";
-import { Section, SectionHeading, cardClass } from "@/components/site/Section";
+import PageTransition from "@/components/PageTransition";
+import Navbar from "@/components/Navbar";
+import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
+import Footer from "@/components/Footer";
+import ServicePageHero from "@/components/ServicePageHero";
+import ServiceFAQ from "@/components/ServiceFAQ";
+import QuoteSection from "@/components/site/QuoteSection";
+import WorkShowcase from "@/components/site/WorkShowcase";
+import CoatPackages from "@/components/site/CoatPackages";
+import { Section, SectionHeading } from "@/components/site/Section";
+import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import heroImg from "@/assets/jobs/hero-ceramic-coating.webp";
+import kitProfessional from "@/assets/carpro/kit-cquartz-professional.webp";
+import kitFinestReserve from "@/assets/carpro/kit-cquartz-finest-reserve.webp";
+import kitDquartz from "@/assets/carpro/kit-dquartz.webp";
 import { PHOTOS } from "@/data/photos";
 import { CERAMIC_PACKAGES, money } from "@/data/pricing";
-import { CERAMIC_CERTIFICATIONS } from "@/data/copy";
+import { SHOP } from "@/data/copy";
 
 const from = Math.min(...CERAMIC_PACKAGES.map((p) => p.price));
 
-const faqs = [
-  {
-    q: "How long does a ceramic coating last in Calgary?",
-    a: "Depending on the product tier and how the vehicle is stored and washed, from three to nine years. Alberta winters are hard on coatings, so a good maintenance wash routine matters more here than in milder climates.",
-  },
-  {
-    q: "Does ceramic coating prevent rock chips?",
-    a: "No. A coating is a chemical barrier, not an impact barrier. It resists brine, bug acid, bird droppings and UV, but it won't stop gravel. Chip protection takes paint protection film, which we install on RVs and windshields.",
-  },
-  {
-    q: "Is paint correction required before coating?",
-    a: "Yes, in almost every case. A coating is optically clear, so any swirls or etching present at application are sealed in and visible for years. Every package we offer includes correction.",
-  },
-  {
-    q: "Which coating do I get?",
-    a: "You choose. Each tier has a CARPRO and a System X option at the same price. Pick the tier when you book, and we'll walk you through both coatings at drop-off once we've seen your paint.",
-  },
-  { q: "Can you coat wheels, glass and trim?", a: "Yes. Wheel faces, glass and plastic trim can all be coated. Coated glass sheds water at highway speed and coated wheels release brake dust far more easily." },
-  { q: "How do I wash a coated vehicle?", a: "pH-neutral soap, a clean mitt and two buckets, or a touchless wash. Avoid automatic brush washes; they put back the swirls correction removed." },
+const STEPS = [
+  { n: "01", title: "Book your tier", body: "Pick 3, 5 or 9 years and your vehicle size, then book online or call. Takes two minutes." },
+  { n: "02", title: "Drop off, pick your coating", body: `Bring it to our heated shop in ${SHOP.city}. We check the paint with you and you choose between the two coatings in your tier.` },
+  { n: "03", title: "Pick up", body: "Corrected, coated and registered, with a care sheet and a booster visit every 6 months to keep it performing." },
 ];
 
-const COMPARE = [
-  { label: "Wax or sealant", detail: "Weeks to a few months of gloss and water beading. No real chemical resistance." },
-  { label: "Ceramic coating", detail: "Years of chemical, UV and brine resistance, and far easier washing. No impact protection." },
-  { label: "Paint protection film", detail: "Physical, self-healing urethane that absorbs rock chips. We install it on RVs and windshields." },
+const faqs = [
+  {
+    q: "Which coating do I get?",
+    a: "You choose. Each tier has two coatings at the same price. Pick one when you book or decide at drop-off once we've looked at your paint together.",
+  },
+  {
+    q: "Is paint correction included?",
+    a: "Yes. The 3-year tier includes a 1-step enhancement; the 5 and 9-year tiers include a 2-step cut and polish. A coating seals in whatever is on the paint, so the correction comes first.",
+  },
+  {
+    q: "Does ceramic coating stop rock chips?",
+    a: "No. A coating resists salt, bug acid, bird droppings and UV and makes washing much easier, but it won't stop gravel. For chips, add paint protection film to the front end.",
+  },
+  {
+    q: "How do I wash a coated car?",
+    a: "pH-neutral soap and a clean mitt, or a touchless wash. Skip brush washes; they put back the swirls the correction took out.",
+  },
 ];
 
 const CeramicCoating = () => (
-  <LandingPage
-    why={WHY_CERAMIC}
-    afterFeatures={<ProtectionProductLinks coating />}
-    quote={{ defaultNeed: "Paint correction/ceramic" }}
-    products={["carpro", "systemx", "menzerna"]}
-    seo={{
-      title: "Ceramic Coating Calgary | CARPRO & System X",
-      description: `Ceramic coating in Calgary from ${money(from)}, with decontamination and machine correction included. Built for salt brine and Alberta winters.`,
-      canonical: "/ceramic-coating",
-      serviceName: "Ceramic Coating",
-      serviceDescription: "Ceramic coating with paint correction in Calgary and area.",
-    }}
-    hero={{
-      eyebrow: "Ceramic coating",
-      title: "Gloss measured in years, not weeks.",
-      subtitle: "Ceramic coating in Calgary puts a hard, hydrophobic layer between six months of salt brine and your clear coat, and makes every wash easier for years.",
-      image: heroImg,
-      ctaType: "call",
-      bookHref: "#packages",
-      bookLabel: "See Xpress Coat tiers",
-    }}
-    work={{
-      title: "Recent coating and correction work",
-      intro: "Paint correction and ceramic coating jobs only: the gloss, the reflections and the details up close.",
-      photos: PHOTOS.ceramic,
-    }}
-    features={{
-      title: "What a coating actually does",
-      items: [
-        { title: "Sheds water and brine", body: "Slush and road film bead and slide off instead of clinging." },
-        { title: "UV and oxidation defence", body: "A sacrificial layer takes the UV so clear coat and trim don't fade." },
-        { title: "Depth and gloss", body: "Cures into a hard, clear film that's noticeably glossier than wax." },
-        { title: "Years, not weeks", body: `${CERAMIC_CERTIFICATIONS.join(", ")} coatings in 3, 5 and 9-year tiers.` },
-      ],
-    }}
-    steps={{
-      title: "Our coating process",
-      items: [
-        { title: "Decontamination", body: "Wash, iron fallout and tar removal, then clay." },
-        { title: "Correction", body: "Machine polishing removes swirls and etching before they're sealed in." },
-        { title: "Panel wipe", body: "Every panel stripped so the coating bonds to clear coat, not polishing oils." },
-        { title: "Application", body: "Applied panel by panel, levelled at the right flash time and inspected." },
-        { title: "Cure", body: "Kept dry for the initial cure, with aftercare and warranty registration." },
-      ],
-    }}
-    faqs={{ title: "Ceramic coating questions", items: faqs }}
-    related={[
-      { label: "Ceramic coating packages", to: "/ceramic-paint-correction" },
-      { label: "Paint correction", to: "/paint-correction" },
-      { label: "Car detailing", to: "/detailing" },
-    ]}
-    closing={{ title: "Find the right coating", body: "Free paint inspection, no obligation.", mode: "quote", quoteHref: "#quote" }}
-  >
-    <CoatTiers />
-    <CoatingSelector />
-
-    <Section tone="canvas">
-      <SectionHeading
-        eyebrow="Compare"
-        title="Coating, wax or film"
-        intro={`Coating tiers start at ${money(from)}. Here's where each option fits.`}
+  <PageTransition>
+    <div className="min-h-screen bg-canvas">
+      <SEO
+        title="Ceramic Coating Calgary | CARPRO & System X"
+        description={`Ceramic coating in Calgary from ${money(from)}, paint correction included. 3, 5 and 9-year tiers with CARPRO and System X coatings. Book online.`}
+        canonical="/ceramic-coating"
+        jsonLd={[buildServiceJsonLd("Ceramic Coating", "Ceramic coating with paint correction in Calgary and area.", "/ceramic-coating"), buildFAQJsonLd(faqs)]}
       />
-      <dl className={`${cardClass} divide-y divide-line`}>
-        {COMPARE.map((c) => (
-          <div key={c.label} className="grid gap-2 px-6 py-5 sm:grid-cols-[14rem_1fr]">
-            <dt className="font-semibold text-ink">{c.label}</dt>
-            <dd className="text-[15px] text-ink-2">{c.detail}</dd>
+      <Navbar />
+      <AutoBreadcrumbs />
+      <ServicePageHero
+        eyebrow="Ceramic coating"
+        title="Gloss measured in years, not weeks."
+        subtitle={`Paint correction plus a CARPRO or System X ceramic coating, from ${money(from)}. Pick a tier, book it, choose your coating at drop-off.`}
+        image={heroImg}
+        ctaType="book"
+        bookHref="#packages"
+        bookLabel="See packages and book"
+        openings
+      />
+
+      <CoatPackages />
+
+      <Section tone="canvas">
+        <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.1fr]">
+          <div>
+            <SectionHeading eyebrow="How it works" title="Three steps. That's it." />
+            <ol className="space-y-7">
+              {STEPS.map((s) => (
+                <li key={s.n} className="grid grid-cols-[3rem_1fr] gap-4 border-t border-line pt-5">
+                  <span className="num text-2xl text-primary">{s.n}</span>
+                  <div>
+                    <h3 className="font-heading text-xl font-bold text-ink">{s.title}</h3>
+                    <p className="mt-1.5 text-[15px] leading-relaxed text-ink-2">{s.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
-        ))}
-      </dl>
-    </Section>
-  </LandingPage>
+          <div className="grid grid-cols-2 items-end gap-4 rounded-card bg-tint p-6 sm:p-10">
+            <img src={kitDquartz} alt="CARPRO DQUARTZ coating kit" className="col-span-2 mx-auto w-3/4 object-contain" loading="lazy" />
+            <img src={kitFinestReserve} alt="CARPRO CQUARTZ Finest Reserve coating kit" className="w-full object-contain" loading="lazy" />
+            <img src={kitProfessional} alt="CARPRO CQUARTZ Professional coating kit" className="w-full object-contain" loading="lazy" />
+          </div>
+        </div>
+      </Section>
+
+      <WorkShowcase
+        title="Recent coating work"
+        intro="Real cars from our shop and vans: the gloss, the reflections and the details up close."
+        photos={PHOTOS.ceramic}
+        tone="surface"
+      />
+
+      <ServiceFAQ title="Ceramic coating questions" faqs={faqs} />
+
+      <QuoteSection
+        source="ceramic-coating"
+        defaultNeed="Paint correction/ceramic"
+        title="Not sure which tier?"
+        intro="Send the vehicle and a few daylight photos. We'll tell you honestly which tier is worth it for your paint."
+      />
+
+      <Footer />
+    </div>
+  </PageTransition>
 );
 
 export default CeramicCoating;
