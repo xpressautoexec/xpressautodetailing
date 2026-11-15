@@ -225,8 +225,8 @@ export const CERAMIC_PACKAGES: {
     name: "Essential",
     correction: "1-step machine enhancement",
     coating: "2-year ceramic",
-    price: 599,
-    prices: { sedan: 599, suv: 749, minivan: 799, truck: 819 },
+    price: 799,
+    prices: { sedan: 799, suv: 949, minivan: 999, truck: 1019 },
     book: { sedan: "KL", suv: "zU", minivan: "Qf", truck: "3A" },
     includes: [
       "Full decontamination wash",
