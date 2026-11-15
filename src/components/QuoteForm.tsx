@@ -16,6 +16,32 @@ export const QUOTE_NEEDS = ["Interior", "Full detail", "Paint correction/ceramic
 export type QuoteVehicle = (typeof QUOTE_VEHICLES)[number];
 export type QuoteNeed = (typeof QUOTE_NEEDS)[number];
 
+/**
+ * RVs and boats get their own choices. Each maps to a stored `need` the database accepts;
+ * the exact choice and the unit length go in `notes`, so the lead email shows both.
+ */
+type NeedOption = { label: string; need: QuoteNeed };
+const RV_NEEDS: NeedOption[] = [
+  { label: "Wash & seal", need: "Full detail" },
+  { label: "Oxidation / gelcoat restoration", need: "Paint correction/ceramic" },
+  { label: "Storage prep", need: "Full detail" },
+  { label: "Interior", need: "Interior" },
+  { label: "PPF / front cap", need: "PPF/windshield film" },
+  { label: "Not sure", need: "Not sure" },
+];
+const BOAT_NEEDS: NeedOption[] = [
+  { label: "Wash & wax", need: "Full detail" },
+  { label: "Oxidation / polish & seal", need: "Paint correction/ceramic" },
+  { label: "Ceramic coating", need: "Paint correction/ceramic" },
+  { label: "Interior", need: "Interior" },
+  { label: "Pontoon restoration", need: "Full detail" },
+  { label: "Not sure", need: "Not sure" },
+];
+const needOptions = (v?: QuoteVehicle): NeedOption[] =>
+  v === "RV/Trailer" ? RV_NEEDS : v === "Boat" ? BOAT_NEEDS : QUOTE_NEEDS.map((n) => ({ label: n, need: n }));
+/** RVs and boats are priced by length and done where they're parked. */
+const isUnit = (v?: QuoteVehicle) => v === "RV/Trailer" || v === "Boat";
+
 const MAX_PHOTOS = 6;
 const MAX_EDGE = 1800;
 const MAX_RAW_BYTES = 15 * 1024 * 1024;
@@ -31,6 +57,7 @@ type QuoteInsert = {
   location_pref: "mobile" | "shop";
   company_name: string | null;
   fleet_size: string | null;
+  notes: string | null;
   photo_paths: string[];
   source: string;
   page_path: string;
@@ -121,8 +148,16 @@ const QuoteForm = ({
   const [step, setStep] = useState<1 | 2 | 3>(contactOnly && defaultVehicle && defaultNeed ? 2 : 1);
   const single = contactOnly && !!defaultVehicle && !!defaultNeed;
   const [vehicle, setVehicle] = useState<QuoteVehicle | undefined>(defaultVehicle);
-  const [need, setNeed] = useState<QuoteNeed | undefined>(defaultNeed);
-  const [form, setForm] = useState({ name: "", phone: "", area: "", company: "", fleetSize: "" });
+  const [needLabel, setNeedLabel] = useState<string | undefined>(() => {
+    const opts = needOptions(defaultVehicle);
+    return (opts.find((o) => o.label === defaultNeed) ?? opts.find((o) => o.need === defaultNeed && o.need !== "Full detail"))?.label;
+  });
+  const need = needOptions(vehicle).find((o) => o.label === needLabel)?.need ?? (contactOnly ? defaultNeed : undefined);
+  const pickVehicle = (v: QuoteVehicle) => {
+    setVehicle(v);
+    if (!needOptions(v).some((o) => o.label === needLabel)) setNeedLabel(undefined);
+  };
+  const [form, setForm] = useState({ name: "", phone: "", area: "", company: "", fleetSize: "", length: "" });
   const [location, setLocation] = useState<"mobile" | "shop">(defaultLocation);
   const [photos, setPhotos] = useState<{ file: File; url: string }[]>([]);
   const [sending, setSending] = useState<string | null>(null);
@@ -203,9 +238,16 @@ const QuoteForm = ({
         name: form.name.trim().slice(0, 120),
         phone: form.phone.trim().slice(0, 30),
         area: form.area.trim().slice(0, 120) || null,
-        location_pref: location,
+        location_pref: isUnit(vehicle) ? "mobile" : location,
         company_name: vehicle === "Fleet" ? form.company.trim().slice(0, 200) || null : null,
         fleet_size: vehicle === "Fleet" ? form.fleetSize.trim().slice(0, 60) || null : null,
+        notes:
+          [
+            needLabel && needLabel !== need && `Wants: ${needLabel}`,
+            isUnit(vehicle) && form.length.trim() && `Length: ${form.length.trim().slice(0, 20)} ft`,
+          ]
+            .filter(Boolean)
+            .join(" · ") || null,
         photo_paths: paths,
         source: source.slice(0, 80),
         page_path: window.location.pathname.slice(0, 300),
@@ -218,9 +260,10 @@ const QuoteForm = ({
         const lines = [
           `Quote request: ${vehicle} / ${need}`,
           row.area && `Area: ${row.area}`,
-          `Prefers: ${location === "shop" ? "Airdrie shop" : "mobile"}`,
+          `Prefers: ${row.location_pref === "shop" ? "Airdrie shop" : "mobile"}`,
           row.company_name && `Company: ${row.company_name}`,
           row.fleet_size && `Fleet size: ${row.fleet_size}`,
+          row.notes,
           paths.length ? `Photos uploaded: ${paths.length} (lead ${leadId})` : "No photos uploaded",
           attr.gclid && `gclid: ${attr.gclid}`,
           attr.utm_source && `utm: ${[attr.utm_source, attr.utm_medium, attr.utm_campaign].filter(Boolean).join(" / ")}`,
@@ -313,7 +356,7 @@ const QuoteForm = ({
             <div className="mt-3 grid grid-cols-[repeat(auto-fill,minmax(min(100%,9.75rem),1fr))] gap-2">
               {QUOTE_VEHICLES.map((v) => (
                 <label key={v} className={`${chip} ${vehicle === v ? chipOn : chipOff}`}>
-                  <input type="radio" name={`${uid}-vehicle`} value={v} checked={vehicle === v} onChange={() => setVehicle(v)} className="sr-only" />
+                  <input type="radio" name={`${uid}-vehicle`} value={v} checked={vehicle === v} onChange={() => pickVehicle(v)} className="sr-only" />
                   {v}
                 </label>
               ))}
@@ -322,10 +365,17 @@ const QuoteForm = ({
           <fieldset className="mt-7">
             <legend className="text-[15px] font-semibold text-ink">What does it need?</legend>
             <div className="mt-3 grid grid-cols-[repeat(auto-fill,minmax(min(100%,9.75rem),1fr))] gap-2">
-              {QUOTE_NEEDS.map((n) => (
-                <label key={n} className={`${chip} ${need === n ? chipOn : chipOff}`}>
-                  <input type="radio" name={`${uid}-need`} value={n} checked={need === n} onChange={() => setNeed(n)} className="sr-only" />
-                  {n}
+              {needOptions(vehicle).map(({ label }) => (
+                <label key={label} className={`${chip} ${needLabel === label ? chipOn : chipOff}`}>
+                  <input
+                    type="radio"
+                    name={`${uid}-need`}
+                    value={label}
+                    checked={needLabel === label}
+                    onChange={() => setNeedLabel(label)}
+                    className="sr-only"
+                  />
+                  {label}
                 </label>
               ))}
             </div>
@@ -349,7 +399,7 @@ const QuoteForm = ({
         <form onSubmit={submit} className="mt-6" noValidate>
           <p className={`flex flex-wrap items-center gap-x-2 text-sm text-ink-2 ${single ? "hidden" : ""}`}>
             <span className="font-semibold text-ink">
-              {vehicle} · {need}
+              {vehicle} · {needLabel ?? need}
             </span>
             <button type="button" onClick={() => goTo(1)} className="inline-flex items-center gap-1 font-semibold text-electric hover:underline">
               <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
@@ -377,9 +427,16 @@ const QuoteForm = ({
               />
             </label>
             <label className="block text-sm font-medium text-ink-2 sm:col-span-2">
-              {vehicle === "Fleet" ? "Where is the yard?" : "Postal code or area"} <span className="text-muted-ink">(optional)</span>
+              {vehicle === "Fleet" ? "Where is the yard?" : isUnit(vehicle) ? "Where is it parked?" : "Postal code or area"}{" "}
+              <span className="text-muted-ink">(optional)</span>
               <input maxLength={120} autoComplete="postal-code" placeholder="T3A 1B2 or Airdrie" value={form.area} onChange={set("area")} className={input} />
             </label>
+            {isUnit(vehicle) && (
+              <label className="block text-sm font-medium text-ink-2 sm:col-span-2">
+                How long is it? <span className="text-muted-ink">(feet, sets the price)</span>
+                <input maxLength={20} inputMode="numeric" placeholder="e.g. 32" value={form.length} onChange={set("length")} className={input} />
+              </label>
+            )}
             {vehicle === "Fleet" && (
               <>
                 <label className="block text-sm font-medium text-ink-2">
@@ -394,7 +451,7 @@ const QuoteForm = ({
             )}
           </div>
 
-          <fieldset className={`mt-5 ${vehicle === "Fleet" ? "hidden" : ""}`}>
+          <fieldset className={`mt-5 ${vehicle === "Fleet" || isUnit(vehicle) ? "hidden" : ""}`}>
             <legend className="text-sm font-medium text-ink-2">Where works best?</legend>
             <div className="mt-1.5 grid grid-cols-2 gap-2">
               {(
@@ -417,7 +474,11 @@ const QuoteForm = ({
               Photos <span className="text-muted-ink">(up to {MAX_PHOTOS})</span>
             </p>
             <p className="mt-0.5 text-sm font-semibold text-electric">
-              {vehicle === "Fleet" ? "A photo of the yard or a typical unit helps" : "Photos = faster, exact price"}
+              {vehicle === "Fleet"
+                ? "A photo of the yard or a typical unit helps"
+                : isUnit(vehicle)
+                  ? "Each side, the front and the roof or deck = exact price"
+                  : "Photos = faster, exact price"}
             </p>
             <input
               ref={fileRef}
