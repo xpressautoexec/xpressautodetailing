@@ -78,7 +78,7 @@ const PaintCeramics = () => {
           title="Ceramic Coating Calgary | Paint Correction"
           description={`Ceramic coating and machine paint correction in Calgary, from ${money(
             Math.min(...CERAMIC_PACKAGES.map((p) => p.price)),
-          )}. 1-year, 5-year and 9-year packages, decontaminated, corrected and registered.`}
+          )}. 3-year, 5-year and 9-year packages, decontaminated, corrected and registered.`}
           canonical="/ceramic-paint-correction"
           jsonLd={[
             buildServiceJsonLd(

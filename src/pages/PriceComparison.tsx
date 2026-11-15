@@ -69,7 +69,7 @@ const priceRows = [
     service: "Ceramic coating packages",
     ours: range(CERAMIC_PACKAGES.map((p) => p.price)),
     shop: "$700 – $3,000+",
-    note: `1-year, 5-year or 9-year System X graphene. ${CERAMIC_CERTIFICATIONS.join(", ")} coatings.`,
+    note: `3-year, 5-year or 9-year tiers, two coatings each. ${CERAMIC_CERTIFICATIONS.join(", ")} coatings.`,
     link: "/ceramic-paint-correction",
   },
 ];

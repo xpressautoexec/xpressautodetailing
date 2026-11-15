@@ -1,4 +1,4 @@
-/** LLumar and Gyeon are hidden from the site for now; their data stays below so they can be switched back on. */
+/** LLumar is hidden from the site for now; its data stays below so they can be switched back on. */
 export const AUTHORIZED_BRANDS = ["SunTek", "CARPRO", "System X"] as const;
 export const FILM_PRODUCTS = {
   suntek: {

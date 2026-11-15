@@ -6,7 +6,7 @@ const STAGES = [
     name: "Stage 1 Enhancement",
     removes: "Light wash swirls, haze and dullness",
     typical: "50–70%",
-    best: "Newer or well-kept paint, and before a 1-year coating",
+    best: "Newer or well-kept paint, and before a 3-year coating",
   },
   {
     name: "Stage 2 Correction",

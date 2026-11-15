@@ -35,7 +35,7 @@ The earlier “what does your car need” finder is not mounted on the current h
 - Add `/ceramic-coating/carpro-dquartz/` with your required title, synthetic nano-diamond explanation, Calgary benefits, qualitative comparison with existing coatings, quote-only package cards, Xpress Pass aftercare and FAQ schema. Do not invent pricing or durability guarantees.
 - Add product rows to the existing PPF and ceramic hubs without removing their coverage diagrams, package prices, existing photos or booking destinations.
 - Verify product descriptions against official manufacturer information before writing technical claims.
-- Update authorization sections to SunTek, LLumar, CARPRO, System X, Gyeon and Gtechniq. Remove unauthorized-brand badges, not legitimate existing product-use or warranty information.
+- Update authorization sections to SunTek, LLumar, CARPRO, System X and Gtechniq. Remove unauthorized-brand badges, not legitimate existing product-use or warranty information.
 
 ### 5. Search visibility and preservation
 - Add all three pages to browser routes, preload mapping, prerender routes and sitemap. Redirect-only routes remain excluded from prerendering.
@@ -48,7 +48,7 @@ The earlier “what does your car need” finder is not mounted on the current h
 
 ## Assets and assumptions
 - Both supplied official logo URLs downloaded successfully during reference review: SunTek SVG and LLumar PNG. Store them using the project’s hosted-asset pointers when implementing.
-- CARPRO gets a clearly labelled temporary wordmark until you upload its official logo; no invented official logo. Reuse existing System X/Gtechniq assets and verify the available Gyeon asset.
+- CARPRO gets a clearly labelled temporary wordmark until you upload its official logo; no invented official logo. Reuse existing System X/Gtechniq assets.
 - The dominant sampled logo blue is approximately **#38B6FF**. White small text on this blue fails accessible contrast. Keep it for brand accents and use a darker same-blue action token for white-labelled buttons, unless you prefer navy-labelled bright-blue pills.
 - Use existing TikTok/Facebook profile URLs if present. If absent, leave those icons out and report the missing addresses rather than inventing profiles.
 - Use existing page sections for FAQ, certifications, service areas and comparison destinations where no dedicated route exists; avoid dead menu links or unnecessary new pages.

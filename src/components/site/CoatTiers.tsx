@@ -7,7 +7,7 @@ import PackageCard from "@/components/site/PackageCard";
 /** Durability-first tier names. Former package names stay as a subtitle (FAQ and booking use them). */
 const TIER: Record<string, { years: string; stage: string; forWho: string; surfaces: string[]; time: string }> = {
   essential: {
-    years: "Coat 1-Year",
+    years: "Coat 3-Year",
     stage: "Stage 1 enhancement included",
     forWho: "Newer paint that needs gloss and a season or two of easy washing.",
     surfaces: ["Paint"], // TODO: confirm if glass, wheel faces or trim are coated on this tier
@@ -23,7 +23,7 @@ const TIER: Record<string, { years: string; stage: string; forWho: string; surfa
   elite: {
     years: "Coat 9-Year",
     stage: "Stage 2+ correction included",
-    forWho: "Long-term, high-value and garage-kept vehicles. System X graphene.",
+    forWho: "Long-term, high-value and garage-kept vehicles. CARPRO DQUARTZ or System X Max G+.",
     surfaces: ["Paint"], // TODO: confirm if glass, wheel faces or trim are coated on this tier
     time: "2 days",
   },
@@ -37,7 +37,7 @@ const CoatTiers = ({ id = "packages", tone = "surface" }: { id?: string; tone?: 
       <SectionHeading
         eyebrow={SYSTEMS.coat.tm}
         title="Gloss measured in years."
-        intro={`Three ceramic coating tiers in Calgary, each starting with machine correction. Exotics and heavily modified paint are ${CERAMIC_UPCHARGE.exoticPct}% more.`}
+        intro={`Three ceramic coating tiers in Calgary, each starting with machine correction and each with two coatings to choose from at drop-off. Exotics and heavily modified paint are ${CERAMIC_UPCHARGE.exoticPct}% more.`}
       />
       <div role="group" aria-label="Vehicle size" className="mb-10 flex w-full gap-1 rounded-md border border-line bg-surface p-1 sm:w-fit">
         {VEHICLE_SIZES.map((s) => (

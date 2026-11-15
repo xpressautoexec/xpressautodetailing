@@ -73,12 +73,6 @@ export const PRODUCT_LINES = {
     role: "Ceramic coatings and sealants",
     body: "Coatings and sealants for paint, glass and trim, applied after correction so the finish lasts.",
   },
-  /** Hidden from the site for now; kept so it can be switched back on. */
-  gyeon: {
-    name: "Gyeon",
-    role: "Ceramic coatings and maintenance",
-    body: "Coatings and top-ups for vehicles already protected, so maintenance matches what's on the paint.",
-  },
   menzerna: {
     name: "Menzerna",
     role: "Compounds and polishes",

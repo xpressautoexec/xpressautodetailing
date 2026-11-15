@@ -2,6 +2,7 @@ import { WHY_CERAMIC } from "@/data/why";
 import ProtectionProductLinks from "@/components/site/ProtectionProductLinks";
 import LandingPage from "@/components/site/LandingPage";
 import CoatTiers from "@/components/site/CoatTiers";
+import CoatingSelector from "@/components/site/CoatingSelector";
 import { Section, SectionHeading, cardClass } from "@/components/site/Section";
 import heroImg from "@/assets/jobs/hero-ceramic-coating.webp";
 import { PHOTOS } from "@/data/photos";
@@ -13,7 +14,7 @@ const from = Math.min(...CERAMIC_PACKAGES.map((p) => p.price));
 const faqs = [
   {
     q: "How long does a ceramic coating last in Calgary?",
-    a: "Depending on the product tier and how the vehicle is stored and washed, from one to nine years. Alberta winters are hard on coatings, so a good maintenance wash routine matters more here than in milder climates.",
+    a: "Depending on the product tier and how the vehicle is stored and washed, from three to nine years. Alberta winters are hard on coatings, so a good maintenance wash routine matters more here than in milder climates.",
   },
   {
     q: "Does ceramic coating prevent rock chips?",
@@ -22,6 +23,10 @@ const faqs = [
   {
     q: "Is paint correction required before coating?",
     a: "Yes, in almost every case. A coating is optically clear, so any swirls or etching present at application are sealed in and visible for years. Every package we offer includes correction.",
+  },
+  {
+    q: "Which coating do I get?",
+    a: "You choose. Each tier has a CARPRO and a System X option at the same price. Pick the tier when you book, and we'll walk you through both coatings at drop-off once we've seen your paint.",
   },
   { q: "Can you coat wheels, glass and trim?", a: "Yes. Wheel faces, glass and plastic trim can all be coated. Coated glass sheds water at highway speed and coated wheels release brake dust far more easily." },
   { q: "How do I wash a coated vehicle?", a: "pH-neutral soap, a clean mitt and two buckets, or a touchless wash. Avoid automatic brush washes; they put back the swirls correction removed." },
@@ -66,7 +71,7 @@ const CeramicCoating = () => (
         { title: "Sheds water and brine", body: "Slush and road film bead and slide off instead of clinging." },
         { title: "UV and oxidation defence", body: "A sacrificial layer takes the UV so clear coat and trim don't fade." },
         { title: "Depth and gloss", body: "Cures into a hard, clear film that's noticeably glossier than wax." },
-        { title: "Years, not weeks", body: `${CERAMIC_CERTIFICATIONS.join(", ")} coatings rated from 1 to 9 years.` },
+        { title: "Years, not weeks", body: `${CERAMIC_CERTIFICATIONS.join(", ")} coatings in 3, 5 and 9-year tiers.` },
       ],
     }}
     steps={{
@@ -88,6 +93,7 @@ const CeramicCoating = () => (
     closing={{ title: "Find the right coating", body: "Free paint inspection, no obligation.", mode: "quote", quoteHref: "#quote" }}
   >
     <CoatTiers />
+    <CoatingSelector />
 
     <Section tone="canvas">
       <SectionHeading
