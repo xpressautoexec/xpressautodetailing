@@ -61,7 +61,7 @@ export interface AutoPackage {
 }
 
 /** Upkeep member price per visit (unchanged). Members only: there is no non-member booking. */
-export const UPKEEP_MEMBER_PRICE: Record<PassSizeId, number> = { sedan: 119, suv: 135, minivan: 143, truck: 119.25 };
+export const UPKEEP_MEMBER_PRICE: Record<PassSizeId, number> = { sedan: 119, suv: 135, minivan: 143, truck: 151 };
 
 export const AUTO_PACKAGES: AutoPackage[] = [
   {
