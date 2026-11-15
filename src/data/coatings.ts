@@ -1,31 +1,32 @@
-/**
- * Coatings the customer picks at drop-off, two per Xpress Coat tier.
- * Same tier, same price: the choice is about finish and feel, not cost.
- * `tier` matches CERAMIC_PACKAGES ids in src/data/pricing.ts.
- */
 import bottleCqProfessional from "@/assets/carpro/bottle-cquartz-professional.webp";
 import bottleCqFinestReserve from "@/assets/carpro/bottle-cquartz-finest-reserve.webp";
 import bottleDquartz from "@/assets/carpro/bottle-dquartz.webp";
 import logoCqProfessional from "@/assets/carpro/logo-cquartz-professional.webp";
 import logoCqFinestReserve from "@/assets/carpro/logo-cquartz-finest-reserve.webp";
 import logoDquartzPro from "@/assets/carpro/logo-dquartz-pro.webp";
-import logoSystemX from "@/assets/systemx-logo.png";
+import kit3m from "@/assets/3m-ceramic-coating-kit.webp";
+import logoGyeon from "@/assets/brand-gyeon.svg";
 
+/**
+ * Coatings the customer picks at drop-off, grouped by Xpress Coat tier.
+ * Same tier, same price: the choice is about finish and feel, not cost.
+ * `tier` matches CERAMIC_PACKAGES ids in src/data/pricing.ts.
+ * Gyeon Infinite joins the 9-year tier when it's in stock; add it here then.
+ */
 export type CoatingTierId = "essential" | "signature" | "elite";
 
 export type CoatingOption = {
   id: string;
   tier: CoatingTierId;
-  brand: "CARPRO" | "System X";
+  brand: "CARPRO" | "Gyeon" | "3M";
   name: string;
-  /** One-line tag shown under the name in the sidebar. */
+  /** One-line tag shown in the selector. */
   tag: string;
   description: string;
   highlights: string[];
-  bestFor: string;
   flagship?: boolean;
-  /** Bottle shot for the selector; brands without one show their logo instead. */
-  bottle?: string;
+  /** Product shot for the selector; brands without one show their logo. */
+  image?: string;
   /** Product wordmark shown above the description. */
   logo?: string;
   brandLogo?: string;
@@ -39,79 +40,57 @@ export const COATING_TIERS: { id: CoatingTierId; label: string; years: string }[
 
 export const COATING_OPTIONS: CoatingOption[] = [
   {
+    id: "gyeon-mohs",
+    tier: "essential",
+    brand: "Gyeon",
+    name: "Q² Mohs EVO",
+    tag: "Candy gloss, strong chemical resistance",
+    description: "Gyeon's flagship quartz coating in its latest EVO formula. A smooth, glossy layer that holds up to road salt and harsh washes.",
+    highlights: ["Rich, candy-like gloss", "Strong chemical resistance", "Tight water beading"],
+    brandLogo: logoGyeon,
+  },
+  {
     id: "cquartz-professional",
     tier: "essential",
     brand: "CARPRO",
     name: "CQUARTZ Professional",
     tag: "Slick, easy-wash finish",
-    description:
-      "CARPRO's installer-only coating. A dense, high-gloss layer that makes salt and road film rinse off, without the commitment of a long-term tier.",
-    highlights: ["Installer-only CARPRO formula", "Strong water beading", "Slick feel that makes drying fast", "Registered with the manufacturer"],
-    bestFor: "Newer paint, leases and vehicles you may sell in a few years.",
-    bottle: bottleCqProfessional,
+    description: "CARPRO's installer-only coating. A dense, high-gloss layer that makes salt and road film rinse off.",
+    highlights: ["Installer-only CARPRO formula", "Slick feel, fast drying", "Strong water beading"],
+    image: bottleCqProfessional,
     logo: logoCqProfessional,
   },
   {
-    id: "systemx-crystal",
-    tier: "essential",
-    brand: "System X",
-    name: "Crystal SS",
-    tag: "Glassy, high-clarity gloss",
-    description:
-      "System X's entry professional coating. Leans toward clarity and a wet, glassy look, with self-cleaning behaviour that keeps the car tidier between washes.",
-    highlights: ["Professional-grade System X coating", "Clear, glass-like gloss", "Self-cleaning surface", "Registered with the manufacturer"],
-    bestFor: "Daily drivers that want gloss and easier washing through a few winters.",
-    brandLogo: logoSystemX,
+    id: "3m-ceramic",
+    tier: "signature",
+    brand: "3M",
+    name: "Ceramic Coating",
+    tag: "Two layers on paint, trim, wheels and film",
+    description: "3M's professional coating, applied in two full layers over paint, plastic trim, wheel faces and paint protection film.",
+    highlights: ["Coats paint, trim, wheels and PPF", "Resists road salt and harsh cleaners", "Very slick, low-friction finish"],
+    image: kit3m,
   },
   {
     id: "cquartz-finest-reserve",
     tier: "signature",
     brand: "CARPRO",
     name: "CQUARTZ Finest Reserve",
-    tag: "Deep gloss, strong chemical resistance",
-    description:
-      "CARPRO's reserve coating, sold only to approved installers. Built to resist water spots, salts and fallout, with a deep, rich gloss on dark paint.",
-    highlights: ["Approved-installer-only formula", "Resists water spotting and road salt", "Deep colour on dark paint", "Registered with the manufacturer"],
-    bestFor: "Dark paint and owners who care most about depth and gloss.",
-    bottle: bottleCqFinestReserve,
+    tag: "Deep gloss, resists water spots",
+    description: "CARPRO's reserve coating, sold only to approved installers. Built to resist water spots, salts and fallout, with deep gloss on dark paint.",
+    highlights: ["Approved-installer-only formula", "Resists water spotting and salt", "Deep colour on dark paint"],
+    image: bottleCqFinestReserve,
     logo: logoCqFinestReserve,
   },
   {
-    id: "systemx-pro",
-    tier: "signature",
-    brand: "System X",
-    name: "Pro",
-    tag: "Super-hydrophobic, self-cleaning",
-    description:
-      "A super-slick 9H System X coating. Water sheets off fast and takes dirt with it, so the car stays cleaner between washes through a Calgary winter.",
-    highlights: ["9H ceramic hardness rating", "Super-hydrophobic water behaviour", "Self-cleaning, low-maintenance surface", "Registered with the manufacturer"],
-    bestFor: "Daily drivers you plan to keep for years and wash less often.",
-    brandLogo: logoSystemX,
-  },
-  {
-    id: "dquartz-finest-reserve",
+    id: "dquartz",
     tier: "elite",
     brand: "CARPRO",
     name: "DQUARTZ Pro",
     tag: "Nano-diamond, our flagship",
-    description:
-      "A DQUARTZ nano-diamond base layer for added hardness and swirl resistance, topped with Finest Reserve for gloss and water behaviour. Our flagship coating.",
-    highlights: ["Nano-diamond DQUARTZ base layer", "Added scratch and swirl resistance", "Finest Reserve top layer for gloss", "Registered with the manufacturer"],
-    bestFor: "Long-term, high-value and garage-kept vehicles.",
+    description: "Ceramic reinforced with synthetic nano-diamonds for added hardness, built to resist the fine swirls that washing leaves behind.",
+    highlights: ["Nano-diamond reinforced", "Added swirl and scratch resistance", "High gloss and slick finish"],
     flagship: true,
-    bottle: bottleDquartz,
+    image: bottleDquartz,
     logo: logoDquartzPro,
-  },
-  {
-    id: "systemx-max",
-    tier: "elite",
-    brand: "System X",
-    name: "Max G+ Graphene",
-    tag: "Thickest System X build",
-    description:
-      "System X's thickest coating, with graphene for extra slickness and gloss retention. Built for harsh conditions, which is exactly what Alberta roads are.",
-    highlights: ["Thickest coating in the System X lineup", "Graphene-enhanced gloss and slickness", "High chemical and brine resistance", "Registered with the manufacturer"],
-    bestFor: "Trucks, SUVs and anything that sees highway grit and winter roads.",
-    brandLogo: logoSystemX,
   },
 ];

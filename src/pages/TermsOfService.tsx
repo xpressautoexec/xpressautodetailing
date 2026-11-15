@@ -107,8 +107,8 @@ const TermsOfService = () => (
             </div>
 
             <div>
-              <h2 className="font-heading text-xl font-semibold text-ink mb-3">7. Ceramic Coating Terms (System X)</h2>
-              <p className="mb-2">Ceramic coating services use System X Graphene and related System X products. Manufacturer warranty terms are provided directly by System X and are subject to registration and adherence to the maintenance schedule supplied at handover.</p>
+              <h2 className="font-heading text-xl font-semibold text-ink mb-3">7. Ceramic Coating Terms</h2>
+              <p className="mb-2">Ceramic coating services use professional coatings from CARPRO, Gyeon and 3M. Where a manufacturer warranty applies, its terms are provided directly by the manufacturer and are subject to registration and adherence to the maintenance schedule supplied at handover.</p>
               <p className="mb-2">The Company's installation coverage includes:</p>
               <ul className="list-disc pl-5 space-y-1 mb-3">
                 <li>Coating failure attributable to installation error, reported within the 14-day service window.</li>
@@ -118,7 +118,7 @@ const TermsOfService = () => (
                 <li>Scratches, rock chips, swirls, or paint damage;</li>
                 <li>Water spots, chemical etching, fire, vandalism, accidents, or environmental fallout;</li>
                 <li>Improper washing techniques, automatic car washes, or neglect;</li>
-                <li>Failure to follow the System X maintenance recommendations.</li>
+                <li>Failure to follow the coating maintenance recommendations supplied at handover.</li>
               </ul>
             </div>
 

@@ -21,7 +21,6 @@ import { PhotoRail } from "@/components/site/PhotoRail";
 import { VideoReel } from "@/components/site/VideoReel";
 import logoMenzerna from "@/assets/brand-menzerna.png";
 import logo3m from "@/assets/brand-3m.png";
-import logoSystemX from "@/assets/systemx-logo.png";
 import {
   RV_SERVICES,
   RV_BUNDLES,
@@ -146,7 +145,6 @@ const SPEC_COLUMNS = [
 const BRANDS = [
   { src: logoMenzerna, alt: "Menzerna" },
   { src: logo3m, alt: "3M" },
-  { src: logoSystemX, alt: "System X" },
 ];
 
 const perMonth = (perFoot: number) =>

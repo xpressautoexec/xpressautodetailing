@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: "What film and coatings do you use?",
-    a: `${FILM_BRAND} paint protection film, and ${WINDSHIELD_FILM_BRAND} on windshields (backed by ${WINDSHIELD_FILM_BRAND}'s 2-year / 50,000 km warranty). We're an authorized System X installer; coatings are registered with the manufacturer.`,
+    a: `${FILM_BRAND} paint protection film, and ${WINDSHIELD_FILM_BRAND} on windshields (backed by ${WINDSHIELD_FILM_BRAND}'s 2-year / 50,000 km warranty). We're an authorized CARPRO installer; coatings are registered with the manufacturer.`,
   },
   {
     q: "How long will I be without the car?",
@@ -63,11 +63,11 @@ const CeramicPpfLp = () => (
       title="Ceramic, PPF and windshield film, done indoors in Airdrie."
       sub="Paint correction and ceramic coating, clear paint protection film and windshield film, installed in a warm, clean bay. Drop it off; we'll text you when it's ready."
       points={[
-        "Authorized System X installer",
+        "Authorized CARPRO installer",
         `${FILM_BRAND} paint film · ${WINDSHIELD_FILM_BRAND} windshield film`,
         "Add photos for an exact quote by text",
       ]}
-      image={{ small, large, alt: "White Mercedes-AMG GLE headlight after paint correction and System X ceramic coating" }}
+      image={{ small, large, alt: "White Mercedes-AMG GLE headlight after paint correction and ceramic coating" }}
       form={
         <QuoteForm
           source="lp-ceramic-ppf"
@@ -82,7 +82,7 @@ const CeramicPpfLp = () => (
     <LpProof
       items={[
         { strong: FIVE_STAR_REVIEWS, rest: "five-star Google reviews" },
-        { strong: "System X", rest: "authorized installer" },
+        { strong: "CARPRO", rest: "authorized installer" },
         { strong: "3M", rest: "Scotchgard Pro paint film" },
         { strong: "Heated", rest: `indoor bay in ${SHOP.city}` },
       ]}
@@ -98,7 +98,7 @@ const CeramicPpfLp = () => (
         <div className="grid gap-4 lg:grid-cols-3">
           <Card
             title="Paint correction + ceramic"
-            brand="System X · authorized installer"
+            brand="CARPRO · authorized installer"
             rows={CERAMIC_PACKAGES.map((p) => [p.name, from(p.price), `${p.correction} · ${p.coating}`])}
           />
           <Card

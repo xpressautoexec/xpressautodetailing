@@ -36,7 +36,7 @@ export const STATS = [
   { value: String(SERVICE_AREAS.length), label: "communities served" },
   { value: "$2M", label: "liability coverage" },
 ];
-export const SYSTEM_X_LINE = "Authorized System X installer";
+export const INSTALLER_LINE = "Authorized SunTek and CARPRO installer";
 
 /** The Xpress Process, 01–06, on every service page. */
 export const XPRESS_PROCESS = [

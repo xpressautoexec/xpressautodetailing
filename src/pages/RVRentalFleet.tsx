@@ -123,7 +123,7 @@ const RVRentalFleet = () => (
       <ServiceFAQ title="Rental fleet questions" faqs={faqs} />
 
 
-      <QualityProducts lines={["3m", "menzerna", "systemx"]} />
+      <QualityProducts lines={["3m", "menzerna"]} />
 
       <ClosingCTA title="Units back out, ready" mode="quote" quoteHref="#quote" primaryLabel={CTA.fleet} />
 

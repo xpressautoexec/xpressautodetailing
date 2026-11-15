@@ -80,7 +80,7 @@ export const MEGA_NAV: NavGroup[] = [
         badge: "Winter pick",
         links: [
           { label: "CARPRO DQUARTZ", href: "/ceramic-coating/carpro-dquartz" },
-          { label: "System X coating", href: "/ceramic-paint-correction" },
+          { label: "Coating packages", href: "/ceramic-coating" },
           { label: "Paint correction", href: "/paint-correction" },
         ],
       },

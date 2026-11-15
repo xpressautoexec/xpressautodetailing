@@ -69,7 +69,7 @@ const priceRows = [
     service: "Ceramic coating packages",
     ours: range(CERAMIC_PACKAGES.map((p) => p.price)),
     shop: "$700 – $3,000+",
-    note: `3-year, 5-year or 9-year tiers, two coatings each. ${CERAMIC_CERTIFICATIONS.join(", ")} coatings.`,
+    note: `3-year, 5-year or 9-year tiers with a choice of coating. ${CERAMIC_CERTIFICATIONS.join(", ")} coatings.`,
     link: "/ceramic-paint-correction",
   },
 ];
@@ -133,7 +133,7 @@ const faqs = [
   },
   {
     q: "Is a 9-year graphene ceramic coating worth the price?",
-    a: "If you keep vehicles five years or longer, it usually costs less per year than repeated sealants and makes winter salt removal far easier. We are a System X authorized installer, so the 9-year coating carries a manufacturer warranty — the coating cost is quoted per vehicle after a paint inspection.",
+    a: "If you keep vehicles five years or longer, it usually costs less per year than repeated sealants and makes winter salt removal far easier. Every coating we install is registered with the manufacturer.",
   },
   {
     q: "Do you charge extra to travel in Calgary?",

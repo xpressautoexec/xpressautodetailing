@@ -21,14 +21,14 @@ const from = Math.min(...CERAMIC_PACKAGES.map((p) => p.price));
 
 const STEPS = [
   { n: "01", title: "Book your tier", body: "Pick 3, 5 or 9 years and your vehicle size, then book online or call. Takes two minutes." },
-  { n: "02", title: "Drop off, pick your coating", body: `Bring it to our heated shop in ${SHOP.city}. We check the paint with you and you choose between the two coatings in your tier.` },
+  { n: "02", title: "Drop off, pick your coating", body: `Bring it to our heated shop in ${SHOP.city}. We check the paint with you and you confirm your coating.` },
   { n: "03", title: "Pick up", body: "Corrected, coated and registered, with a care sheet and a booster visit every 6 months to keep it performing." },
 ];
 
 const faqs = [
   {
     q: "Which coating do I get?",
-    a: "You choose. Each tier has two coatings at the same price. Pick one when you book or decide at drop-off once we've looked at your paint together.",
+    a: "You choose. The 3 and 5-year packages each come with two coatings at the same price, and the 9-year package uses CARPRO DQUARTZ. Pick when you book or decide at drop-off once we've looked at your paint together.",
   },
   {
     q: "Is paint correction included?",
@@ -48,8 +48,8 @@ const CeramicCoating = () => (
   <PageTransition>
     <div className="min-h-screen bg-canvas">
       <SEO
-        title="Ceramic Coating Calgary | CARPRO & System X"
-        description={`Ceramic coating in Calgary from ${money(from)}, paint correction included. 3, 5 and 9-year tiers with CARPRO and System X coatings. Book online.`}
+        title="Ceramic Coating Calgary | CARPRO, Gyeon & 3M"
+        description={`Ceramic coating in Calgary from ${money(from)}, paint correction included. 3, 5 and 9-year tiers with CARPRO, Gyeon and 3M coatings. Book online.`}
         canonical="/ceramic-coating"
         jsonLd={[buildServiceJsonLd("Ceramic Coating", "Ceramic coating with paint correction in Calgary and area.", "/ceramic-coating"), buildFAQJsonLd(faqs)]}
       />
@@ -58,7 +58,7 @@ const CeramicCoating = () => (
       <ServicePageHero
         eyebrow="Ceramic coating"
         title="Gloss measured in years, not weeks."
-        subtitle={`Paint correction plus a CARPRO or System X ceramic coating, from ${money(from)}. Pick a tier, book it, choose your coating at drop-off.`}
+        subtitle={`Paint correction plus a CARPRO, Gyeon or 3M ceramic coating, from ${money(from)}. Pick a tier, book it, choose your coating at drop-off.`}
         image={heroImg}
         ctaType="book"
         bookHref="#packages"

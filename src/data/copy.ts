@@ -39,7 +39,7 @@ export const FLEET_TERMS = [
 /** Owner-confirmed coverage amount. Do not reword to "Fully Insured" (banned) or add WCB. */
 export const COVERAGE = "$2M liability coverage";
 
-export const CERAMIC_CERTIFICATIONS = ["CARPRO", "System X"];
+export const CERAMIC_CERTIFICATIONS = ["CARPRO", "Gyeon", "3M"];
 
 /** Paint protection film installed on car and RV PPF jobs. Windshield film uses WINDSHIELD_FILM_BRAND. */
 export const FILM_BRAND = "SunTek";
@@ -62,11 +62,6 @@ export const PRODUCT_LINES = {
   /** Hidden from the site for now; kept so it can be switched back on. */
   llumar: { name: "LLumar", role: "Paint protection film", body: "LLumar Valor, Platinum Gloss, Platinum Matte and Platinum Extra PPF, fitted by our authorized installer team." },
   carpro: { name: "CARPRO", role: "DQUARTZ ceramic coating", body: "Synthetic nano-diamond reinforced ceramic coating, installed by our authorized CARPRO team. Pricing is confirmed by quote." },
-  systemx: {
-    name: "System X",
-    role: "Graphene ceramic coatings",
-    body: "Our long-term paint protection. We're an authorized System X installer, so the 9-year coating carries a manufacturer warranty.",
-  },
   /** Hidden from the site for now; kept so it can be switched back on. */
   gtechniq: {
     name: "Gtechniq",

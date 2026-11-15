@@ -13,7 +13,7 @@ const GOALS = [
   },
   {
     title: "Keeping a car long-term",
-    pick: "System X 9-year graphene coating",
+    pick: "CARPRO DQUARTZ 9-year coating",
     desc: "Lowest cost per year of protection if you keep vehicles five years or more.",
     to: "/ceramic-paint-correction",
   },

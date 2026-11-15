@@ -220,7 +220,7 @@ export const PHOTOS: Record<PhotoCategory, Photo[]> = {
     { src: marineSideAsset.url, alt: "Pontoon side profile after a full detail" },
   ],
   ceramic: [
-    { src: jHeadlightMercedesWhite, alt: "White Mercedes-AMG GLE headlight after paint correction and System X ceramic coating" },
+    { src: jHeadlightMercedesWhite, alt: "White Mercedes-AMG GLE headlight after paint correction and ceramic coating" },
     { src: jExteriorBmwM340iFront, alt: "Blue BMW M340i in the shop after paint correction and ceramic coating" },
     { src: audiA4Reflection, alt: "Black Audi A4 taillight and quarter panel reflecting like a mirror after polish" },
     { src: jCeramicMercedesGleBadge, alt: "Mercedes-AMG Biturbo badge on corrected white paint" },

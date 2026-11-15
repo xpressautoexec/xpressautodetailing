@@ -260,7 +260,7 @@ const RVPPF = () => (
 
       <ServiceFAQ title="RV film questions" faqs={faqs} />
 
-      <QualityProducts lines={["3m", "systemx", "menzerna"]} />
+      <QualityProducts lines={["3m", "menzerna"]} />
 
 
       <ClosingCTA

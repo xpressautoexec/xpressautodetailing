@@ -1,6 +1,6 @@
-import { STATS, SYSTEM_X_LINE } from "@/data/brand";
+import { STATS, INSTALLER_LINE } from "@/data/brand";
 
-/** Real numbers only (data/brand.ts). Six stats plus the System X line. */
+/** Real numbers only (data/brand.ts). Six stats plus the authorized-installer line. */
 const StatRow = ({ tone = "light" }: { tone?: "light" | "tint" }) => (
   <div className={`border-b border-line ${tone === "tint" ? "bg-tint" : "bg-surface"}`}>
     <div className="shell py-8 sm:py-10">
@@ -12,7 +12,7 @@ const StatRow = ({ tone = "light" }: { tone?: "light" | "tint" }) => (
           </div>
         ))}
       </dl>
-      <p className="mt-6 border-t border-line pt-4 text-xs font-semibold uppercase tracking-label text-ink-2">{SYSTEM_X_LINE}</p>
+      <p className="mt-6 border-t border-line pt-4 text-xs font-semibold uppercase tracking-label text-ink-2">{INSTALLER_LINE}</p>
     </div>
   </div>
 );

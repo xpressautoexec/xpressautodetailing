@@ -56,7 +56,7 @@ export const JOB_SEED: JobRecord[] =
     "slug": "mercedes-amg-gle",
     "category": "ceramic_ppf",
     "vehicle": "Mercedes-AMG GLE",
-    "package_name": "Paint correction + System X PRO ceramic",
+    "package_name": "Paint correction + ceramic coating",
     "price_paid": null,
     "time_on_site": null,
     "city": null,
@@ -69,7 +69,7 @@ export const JOB_SEED: JobRecord[] =
       "jobs/headlight-mercedes-silver.webp"
     ],
     "photo_alts": [
-      "White Mercedes-AMG GLE headlight after paint correction and System X ceramic coating",
+      "White Mercedes-AMG GLE headlight after paint correction and ceramic coating",
       "Mercedes-AMG Biturbo badge on corrected white paint",
       "Mercedes-AMG GLE wheel, fender and running board after ceramic coating",
       "Mercedes-AMG GLE headlight and fender after ceramic coating, garage reflected in the paint"
