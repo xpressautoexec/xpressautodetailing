@@ -7,9 +7,11 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import QuoteSection from "@/components/site/QuoteSection";
 import WorkShowcase from "@/components/site/WorkShowcase";
 import CoatPackages from "@/components/site/CoatPackages";
+import FeatureRow from "@/components/site/FeatureRow";
 import { Section, SectionHeading } from "@/components/site/Section";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
-import heroImg from "@/assets/jobs/hero-ceramic-coating.webp";
+import heroImg from "@/assets/jobs/hero-ceramic-machine-polish.webp";
+import wheelFace from "@/assets/jobs/ceramic-rav4-wheel-face.webp";
 import kitProfessional from "@/assets/carpro/kit-cquartz-professional.webp";
 import kitFinestReserve from "@/assets/carpro/kit-cquartz-finest-reserve.webp";
 import kitDquartz from "@/assets/carpro/kit-dquartz.webp";
@@ -60,6 +62,8 @@ const CeramicCoating = () => (
         title="Gloss measured in years, not weeks."
         subtitle={`Paint correction plus a CARPRO, Gyeon or 3M ceramic coating, from ${money(from)}. Pick a tier, book it, choose your coating at drop-off.`}
         image={heroImg}
+        imageAlt="Machine polishing a black Mini Cooper fender before ceramic coating"
+        imagePosition="50% 70%"
         ctaType="book"
         bookHref="#packages"
         bookLabel="See packages and book"
@@ -67,6 +71,20 @@ const CeramicCoating = () => (
       />
 
       <CoatPackages />
+
+      <FeatureRow
+        title="Wheels get coated too"
+        image={wheelFace}
+        imageAlt="Toyota RAV4 wheel face and dressed Michelin tire after ceramic coating"
+        cta={{ label: "See what each package coats", href: "/ceramic-coating#packages" }}
+        flip
+      >
+        <p>
+          Brake dust and road salt are the hardest things to keep off a wheel. On the 3-year and DQUARTZ packages we coat the wheel
+          faces along with the paint and glass.
+        </p>
+        <p>A coated wheel sheds brake dust and grime with a rinse instead of a scrub, so the finish stays clean between washes.</p>
+      </FeatureRow>
 
       <Section tone="canvas">
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.1fr]">

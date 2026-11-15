@@ -1,5 +1,5 @@
-import navDetailing from "@/assets/jobs/hero-paint-ceramics.webp";
-import navProtection from "@/assets/carpro-dquartz-product.webp";
+import navDetailing from "@/assets/jobs/nav-rav4-paint-closeup.webp";
+import navProtection from "@/assets/jobs/nav-rav4-finest-reserve-hood.webp";
 import navRvFleet from "@/assets/gallery-newmar-dutch-star-front.jpg";
 import navResources from "@/assets/gallery-jeep-wrangler.jpg";
 import navWhy from "@/assets/jobs/crew-van-gear.webp";

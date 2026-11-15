@@ -160,6 +160,13 @@ import jHeadlightMercedesWhite from "@/assets/jobs/headlight-mercedes-white.webp
 import jHeadlightMercedesSilver from "@/assets/jobs/headlight-mercedes-silver.webp";
 import jCeramicMercedesGleBadge from "@/assets/jobs/ceramic-mercedes-gle-badge.webp";
 import jCeramicMercedesGleWheel from "@/assets/jobs/ceramic-mercedes-gle-wheel.webp";
+import jWheelsRav4Wheel from "@/assets/jobs/wheels-rav4-wheel.webp";
+import jExteriorRav4FrontThreeQuarter from "@/assets/jobs/exterior-rav4-front-three-quarter.webp";
+import jExteriorRav4RearThreeQuarter from "@/assets/jobs/exterior-rav4-rear-three-quarter.webp";
+import jCeramicRav4WaterBeading from "@/assets/jobs/ceramic-rav4-water-beading.webp";
+import jCeramicRav4PaintCloseup from "@/assets/jobs/ceramic-rav4-paint-closeup.webp";
+import jCeramicRav4FinestReserveHood from "@/assets/jobs/ceramic-rav4-finest-reserve-hood.webp";
+import jCeramicMiniMachinePolishHood from "@/assets/jobs/ceramic-mini-machine-polish-hood.webp";
 import marineSunsetAsset from "@/assets/marine-pontoon-sunset.jpg.asset.json";
 import marineTubesAsset from "@/assets/marine-pontoon-tubes.jpg.asset.json";
 import marineInteriorAsset from "@/assets/marine-interior-seats.jpg.asset.json";
@@ -222,12 +229,16 @@ export const PHOTOS: Record<PhotoCategory, Photo[]> = {
   ceramic: [
     { src: jHeadlightMercedesWhite, alt: "White Mercedes-AMG GLE headlight after paint correction and ceramic coating" },
     { src: jExteriorBmwM340iFront, alt: "Blue BMW M340i in the shop after paint correction and ceramic coating" },
+    { src: jCeramicRav4WaterBeading, alt: "Water beading on a white Toyota RAV4 hood after ceramic coating" },
     { src: audiA4Reflection, alt: "Black Audi A4 taillight and quarter panel reflecting like a mirror after polish" },
     { src: jCeramicMercedesGleBadge, alt: "Mercedes-AMG Biturbo badge on corrected white paint" },
+    { src: jCeramicMiniMachinePolishHood, alt: "Xpress crew machine polishing the hood of a black Mini Cooper S" },
     { src: jCeramicBmwM340iHood, alt: "Blue BMW M340i hood and headlight gloss after correction" },
     { src: bmwEmblem, alt: "Silver BMW hood with mirror-finish reflection after paint correction" },
+    { src: jCeramicRav4FinestReserveHood, alt: "CARPRO CQUARTZ Finest Reserve box on a freshly coated white Toyota RAV4 hood" },
     { src: jHeadlightMercedesSilver, alt: "Mercedes-AMG GLE headlight and fender after ceramic coating, garage reflected in the paint" },
     { src: jCeramicBmwM340iDoor, alt: "Blue BMW M340i door reflection after paint correction" },
+    { src: jCeramicRav4PaintCloseup, alt: "Close-up of pearl white Toyota RAV4 paint in the sun after ceramic coating" },
     { src: jCeramicBmw2Headlight, alt: "BMW 2 Series headlight and bumper after polish" },
     { src: jCeramicMercedesGleWheel, alt: "Mercedes-AMG GLE wheel, fender and running board after ceramic coating" },
     { src: gallery26, alt: "Blue BMW M340i with deep gloss under studio lighting after ceramic coating" },
@@ -236,12 +247,14 @@ export const PHOTOS: Record<PhotoCategory, Photo[]> = {
   ],
   exterior: [
     { src: jExteriorAudiA4Driveway, alt: "Black Audi A4 in a Calgary driveway after exterior detail" },
+    { src: jExteriorRav4FrontThreeQuarter, alt: "White Toyota RAV4 front three-quarter outside the Airdrie shop after ceramic coating" },
     { src: cadillacSrxFront, alt: "White Cadillac SRX in a Calgary driveway after full exterior detail" },
     { src: mercedesCClass, alt: "White Mercedes-Benz C-Class sedan freshly detailed in underground parking" },
     { src: audiA4, alt: "Black Audi A4 with glossy finish after exterior detail" },
     { src: porscheMacan, alt: "White Porsche Macan after exterior detail in the shop" },
     { src: jeepWrangler, alt: "Green Jeep Wrangler on aftermarket wheels after exterior detail" },
     { src: jExteriorBmwM340iFront, alt: "Blue BMW M340i front three-quarter in the shop after polish" },
+    { src: jExteriorRav4RearThreeQuarter, alt: "White Toyota RAV4 rear three-quarter after ceramic coating" },
     { src: jExteriorCadillacSrxDriveway, alt: "White Cadillac SRX front view after exterior detail" },
     { src: jExteriorJeepWranglerWash, alt: "Green Jeep Wrangler after exterior wash" },
     { src: jExteriorDefenderShop, alt: "Black Land Rover Defender in the shop after detail" },
@@ -322,6 +335,7 @@ export const PHOTOS: Record<PhotoCategory, Photo[]> = {
     { src: jDealershipAcuraFloor, alt: "Acura passenger footwell and carpet after vacuum" },
   ],
   wheels: [
+    { src: jWheelsRav4Wheel, alt: "Toyota RAV4 wheel and dressed Michelin tire after ceramic coating" },
     { src: jWheelsBmwM340iCaliper, alt: "BMW M340i wheel with blue M caliper and dressed Michelin tire" },
     { src: jWheelsAudiA4Wheel, alt: "Audi A4 wheel and dressed tire after wheel detail" },
     { src: jWheelsKodiakWheels, alt: "Kodiak travel trailer fenders and wheels after dressing" },
