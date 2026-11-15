@@ -135,13 +135,6 @@ const RESTORATION_STEPS = [
   },
 ];
 
-const SPEC_COLUMNS = [
-  { key: "Exterior Wash", label: "Wash" },
-  { key: "Ceramic Sealant", label: "Ceramic sealant" },
-  { key: "UV Protectant", label: "UV protectant" },
-  { key: "Oxidation Removal", label: "Oxidation removal" },
-];
-
 const BRANDS = [
   { src: logoMenzerna, alt: "Menzerna" },
   { src: logo3m, alt: "3M" },
@@ -172,33 +165,36 @@ const FinancingCTA = ({ tone = "dark" }: { tone?: "dark" | "light" }) => {
  * Booking action for a bundle or single service. Restoration work leads with the free assessment
  * form; everything else books straight into Fieldd.
  */
-const BookAction = ({ book, assessment, name }: { book: string; assessment?: boolean; name: string }) =>
-  assessment ? (
-    <span className="flex shrink-0 flex-col items-end gap-1 whitespace-nowrap">
-      <a href="#assessment" className="text-sm font-semibold text-electric hover:underline hover:underline-offset-4">
-        Free assessment
+const BookAction = ({ book, assessment, name }: { book: string; assessment?: boolean; name: string }) => {
+  const primary =
+    "inline-flex min-h-[48px] w-full items-center justify-center rounded-full px-5 text-sm font-semibold transition-colors";
+  return assessment ? (
+    <div className="flex flex-col gap-2">
+      <a href="#assessment" className={`${primary} bg-action text-primary-foreground hover:bg-ink`}>
+        Book a free assessment
       </a>
       <a
         href={fielddUrl(book)}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Book a free on-site assessment for ${name} online`}
-        className="text-xs text-muted-ink hover:text-ink hover:underline hover:underline-offset-4"
+        className="text-center text-xs text-muted-ink hover:text-ink hover:underline hover:underline-offset-4"
       >
         or pick a time online
       </a>
-    </span>
+    </div>
   ) : (
     <a
       href={fielddUrl(book)}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Book ${name}`}
-      className="inline-flex min-h-[40px] items-center justify-center whitespace-nowrap rounded-md border border-ink/20 bg-surface px-4 text-sm font-semibold text-ink transition-colors hover:border-ink"
+      className={`${primary} border-2 border-ink/15 text-ink hover:border-ink`}
     >
       Book now
     </a>
   );
+};
 
 const TrailerRV = () => (
   <PageTransition>
@@ -309,119 +305,72 @@ const TrailerRV = () => (
             </a>
           </div>
 
-          {/* Desktop table */}
-          <div className="mt-10 hidden overflow-hidden rounded-card border border-line bg-surface lg:block">
-            <table className="w-full text-left text-sm">
-              <caption className="sr-only">RV package comparison</caption>
-              <thead className="border-b border-line bg-canvas text-muted-ink">
-                <tr>
-                  <th scope="col" className="px-6 py-4 font-medium">
-                    Package
-                  </th>
-                  {SPEC_COLUMNS.map((c) => (
-                    <th key={c.key} scope="col" className="whitespace-nowrap px-3 py-4 text-center font-medium">
-                      {c.label}
-                    </th>
-                  ))}
-                  <th scope="col" className="whitespace-nowrap px-4 py-4 text-right font-medium">
-                    Per foot
-                  </th>
-                  <th scope="col" className="whitespace-nowrap px-4 py-4 text-right font-medium">
-                    {EXAMPLE_FT} ft unit
-                  </th>
-                  {FINANCING_LIVE && (
-                    <th scope="col" className="whitespace-nowrap px-6 py-4 text-right font-medium">
-                      Or from
-                    </th>
-                  )}
-                  <th scope="col" className="px-6 py-4 text-right font-medium">
-                    <span className="sr-only">Book</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {RV_BUNDLES.map((b) => {
-                  const total = b.price * EXAMPLE_FT;
-                  const financeable = total >= FINANCING.minAmount;
-                  return (
-                    <tr
-                      key={b.id}
-                      className={`border-b border-line last:border-b-0 ${b.popular ? "bg-electric-soft/60" : ""}`}
-                    >
-                      <th scope="row" className="relative px-6 py-5 font-normal">
-                        {b.popular && <span aria-hidden="true" className="absolute inset-y-0 left-0 w-1 bg-electric" />}
-                        <span className="block font-heading text-base font-semibold text-ink">{b.name}</span>
-                        <span className="mt-0.5 block text-xs text-muted-ink">
-                          {b.popular ? "Most chosen" : b.seasonal ? b.seasonal : `Save ${b.save}`}
-                          {b.popular || b.seasonal ? ` · save ${b.save}` : ""}
-                        </span>
-                      </th>
-                      {SPEC_COLUMNS.map((c) => {
-                        const has = b.includes.includes(c.key);
-                        return (
-                          <td key={c.key} className="px-3 py-5 text-center">
-                            {has ? (
-                              <Check className="mx-auto h-4 w-4 text-electric" aria-label="Included" />
-                            ) : (
-                              <Minus className="mx-auto h-4 w-4 text-line" aria-label="Not included" />
-                            )}
-                          </td>
-                        );
-                      })}
-                      <td className="px-4 py-5 text-right tabular-nums">
-                        <span className="font-semibold text-ink">{money(b.price)}</span>
-                        <span className="block text-xs text-muted-ink line-through">{money(b.listPrice)}</span>
-                      </td>
-                      <td className="px-4 py-5 text-right font-semibold tabular-nums text-ink">{money(total)}</td>
-                      {FINANCING_LIVE && (
-                        <td className="px-6 py-5 text-right tabular-nums text-ink-2">
-                          {financeable ? `${perMonth(b.price)}/mo` : "—"}
-                        </td>
-                      )}
-                      <td className="px-6 py-5 text-right">
-                        <BookAction book={b.book} assessment={b.assessment} name={b.name} />
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-
-          {/* Mobile list */}
-          <ul className="mt-8 divide-y divide-line overflow-hidden rounded-card border border-line bg-surface lg:hidden">
+          {/* Package cards: same rows on every card so they compare at a glance */}
+          <ul className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             {RV_BUNDLES.map((b) => {
               const total = b.price * EXAMPLE_FT;
+              const has = (key: string) => b.includes.includes(key);
+              const rows: { label: string; on: boolean; detail?: string }[] = [
+                { label: "Exterior detail & wash", on: true },
+                { label: "Roof restored", on: !!("roof" in b && b.roof) },
+                { label: "Oxidation removal", on: has("Oxidation Removal"), detail: "oxidation" in b ? b.oxidation : undefined },
+                { label: "Ceramic sealant", on: has("Ceramic Sealant") },
+                { label: "UV protectant", on: has("UV Protectant") },
+              ];
               return (
-                <li key={b.id} className={`relative p-5 ${b.popular ? "bg-electric-soft/60" : ""}`}>
-                  {b.popular && <span aria-hidden="true" className="absolute inset-y-0 left-0 w-1 bg-electric" />}
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h3 className="font-heading text-base font-semibold text-ink">{b.name}</h3>
-                      <p className="mt-0.5 text-xs text-muted-ink">
-                        {b.popular ? "Most chosen" : b.seasonal ?? `Save ${b.save}`}
-                      </p>
-                    </div>
-                    <p className="text-right tabular-nums">
-                      <span className="font-semibold text-ink">{money(b.price)}/ft</span>
-                      <span className="block text-xs text-muted-ink">
-                        {money(total)} at {EXAMPLE_FT} ft
-                      </span>
-                    </p>
+                <li
+                  key={b.id}
+                  className={`relative flex flex-col rounded-card border bg-surface p-6 ${
+                    b.popular ? "border-2 border-electric shadow-[var(--shadow-card)]" : "border-line"
+                  }`}
+                >
+                  {b.popular && (
+                    <span className="absolute -top-3 left-6 rounded-sm bg-electric px-2 py-1 text-[11px] font-semibold uppercase tracking-label text-primary-foreground">
+                      Most chosen
+                    </span>
+                  )}
+                  <p className="text-xs font-semibold uppercase tracking-label text-electric">{b.bestFor}</p>
+                  <h3 className="mt-1.5 font-heading text-2xl font-bold leading-tight text-ink">{b.name}</h3>
+                  <div className="mt-4 flex items-end gap-2">
+                    <span className="num text-4xl leading-none text-ink">{money(b.price)}</span>
+                    <span className="pb-0.5 text-sm text-ink-2">/ft</span>
+                    <span className="pb-0.5 text-sm text-muted-ink line-through">{money(b.listPrice)}</span>
                   </div>
-                  <p className="mt-3 text-sm text-ink-2">{b.includes.join(", ")}</p>
+                  <p className="mt-1.5 text-sm text-ink-2">
+                    <span className="font-semibold tabular-nums text-ink">{money(total)}</span> for a {EXAMPLE_FT} ft unit · save {b.save}
+                  </p>
+                  {"seasonal" in b && b.seasonal && <p className="mt-1 text-xs font-semibold text-muted-ink">{b.seasonal}</p>}
+                  <ul className="mt-5 flex-1 space-y-2.5 border-t border-line pt-5">
+                    {rows.map((r) => (
+                      <li key={r.label} className={`flex gap-2.5 text-sm ${r.on ? "text-ink" : "text-muted-ink"}`}>
+                        {r.on ? (
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-electric" aria-label="Included" />
+                        ) : (
+                          <Minus className="mt-0.5 h-4 w-4 shrink-0 text-line" aria-label="Not included" />
+                        )}
+                        <span>
+                          {r.label}
+                          {r.on && r.detail && <span className="block text-xs text-ink-2">{r.detail}</span>}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                   {FINANCING_LIVE && total >= FINANCING.minAmount && (
-                    <p className="mt-2 text-sm text-ink-2">
+                    <p className="mt-4 text-sm text-ink-2">
                       Or from <span className="font-semibold tabular-nums text-ink">{perMonth(b.price)}/mo</span>
                     </p>
                   )}
-                  <div className="mt-4 flex justify-end">
+                  <div className="mt-5">
                     <BookAction book={b.book} assessment={b.assessment} name={b.name} />
                   </div>
                 </li>
               );
             })}
           </ul>
+          <p className="mt-4 text-xs leading-relaxed text-muted-ink">
+            Priced by approximate length, front to back, without the hitch. Not sure which oxidation package you need? The free on-site
+            assessment tells you before any work starts.
+          </p>
 
           {FINANCING_LIVE && (
             <p className="mt-4 text-xs leading-relaxed text-muted-ink">

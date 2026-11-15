@@ -433,7 +433,7 @@ const QuoteForm = ({
             </label>
             {isUnit(vehicle) && (
               <label className="block text-sm font-medium text-ink-2 sm:col-span-2">
-                How long is it? <span className="text-muted-ink">(feet, sets the price)</span>
+                Approx. length, front to back <span className="text-muted-ink">(feet, without the hitch)</span>
                 <input maxLength={20} inputMode="numeric" placeholder="e.g. 32" value={form.length} onChange={set("length")} className={input} />
               </label>
             )}
