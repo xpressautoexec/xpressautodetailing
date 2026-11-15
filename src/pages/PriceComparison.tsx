@@ -69,7 +69,7 @@ const priceRows = [
     service: "Ceramic coating packages",
     ours: range(CERAMIC_PACKAGES.map((p) => p.price)),
     shop: "$700 – $3,000+",
-    note: `3-year, 5-year or 9-year tiers with a choice of coating. ${CERAMIC_CERTIFICATIONS.join(", ")} coatings.`,
+    note: `2-year, 3-year and DQUARTZ packages with a choice of coating. ${CERAMIC_CERTIFICATIONS.join(", ")} coatings.`,
     link: "/ceramic-paint-correction",
   },
 ];
@@ -132,8 +132,8 @@ const faqs = [
     a: "A scheduled plan like the Xpress Pass. Recurring service costs far less per visit than repeated one-off deep cleans, because the vehicle never gets far enough gone to need full decontamination each time.",
   },
   {
-    q: "Is a 9-year graphene ceramic coating worth the price?",
-    a: "If you keep vehicles five years or longer, it usually costs less per year than repeated sealants and makes winter salt removal far easier. Every coating we install is registered with the manufacturer.",
+    q: "Is a long-term ceramic coating worth the price?",
+    a: "If you keep vehicles several years, it usually costs less per year than repeated sealants and makes winter salt removal far easier. Every coating we install is registered with the manufacturer.",
   },
   {
     q: "Do you charge extra to travel in Calgary?",

@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: "How long does each last on Alberta roads?",
-    a: "Quality paint protection film typically lasts 7 to 10 years. A professional ceramic coating lasts 1 to 9 years depending on the product tier and how the vehicle is washed and stored through winter.",
+    a: "Quality paint protection film typically lasts 7 to 10 years. A professional ceramic coating lasts 2 to 5+ years depending on the product and how the vehicle is washed and stored through winter.",
   },
 ];
 
@@ -159,7 +159,7 @@ const BlogPPFvsCeramic = () => (
                   <li>Hard, slick chemical barrier bonded to the clear coat</li>
                   <li>Stops salt, brine and mag chloride from etching or staining</li>
                   <li>Covers the whole vehicle, including glass and wheels</li>
-                  <li>Typically 1 to 9 years depending on product tier</li>
+                  <li>Typically 2 to 5+ years depending on the product</li>
                   <li>Makes winter washes far faster — grime releases instead of bonding</li>
                 </ul>
               </div>

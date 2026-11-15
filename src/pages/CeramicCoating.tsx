@@ -20,7 +20,7 @@ import { SHOP } from "@/data/copy";
 const from = Math.min(...CERAMIC_PACKAGES.map((p) => p.price));
 
 const STEPS = [
-  { n: "01", title: "Book your tier", body: "Pick 3, 5 or 9 years and your vehicle size, then book online or call. Takes two minutes." },
+  { n: "01", title: "Book your tier", body: "Pick 2-year, 3-year or DQUARTZ and your vehicle size, then book online or call. Takes two minutes." },
   { n: "02", title: "Drop off, pick your coating", body: `Bring it to our heated shop in ${SHOP.city}. We check the paint with you and you confirm your coating.` },
   { n: "03", title: "Pick up", body: "Corrected, coated and registered, with a care sheet and a booster visit every 6 months to keep it performing." },
 ];
@@ -28,11 +28,11 @@ const STEPS = [
 const faqs = [
   {
     q: "Which coating do I get?",
-    a: "You choose. The 3 and 5-year packages each come with two coatings at the same price, and the 9-year package uses CARPRO DQUARTZ. Pick when you book or decide at drop-off once we've looked at your paint together.",
+    a: "You choose. The 2 and 3-year packages each come with two coatings at the same price. The DQUARTZ package is CARPRO DQUARTZ topped with Finest Reserve. Pick when you book or decide at drop-off once we've looked at your paint together.",
   },
   {
     q: "Is paint correction included?",
-    a: "Yes. The 3-year tier includes a 1-step enhancement; the 5 and 9-year tiers include a 2-step cut and polish. A coating seals in whatever is on the paint, so the correction comes first.",
+    a: "Yes. The 2-year package includes a 1-step enhancement; the 3-year and DQUARTZ packages include a 2-step cut and polish. A coating seals in whatever is on the paint, so the correction comes first.",
   },
   {
     q: "Does ceramic coating stop rock chips?",
@@ -49,7 +49,7 @@ const CeramicCoating = () => (
     <div className="min-h-screen bg-canvas">
       <SEO
         title="Ceramic Coating Calgary | CARPRO, Gyeon & 3M"
-        description={`Ceramic coating in Calgary from ${money(from)}, paint correction included. 3, 5 and 9-year tiers with CARPRO, Gyeon and 3M coatings. Book online.`}
+        description={`Ceramic coating in Calgary from ${money(from)}, paint correction included. 2-year, 3-year and DQUARTZ packages with CARPRO, Gyeon and 3M coatings. Book online.`}
         canonical="/ceramic-coating"
         jsonLd={[buildServiceJsonLd("Ceramic Coating", "Ceramic coating with paint correction in Calgary and area.", "/ceramic-coating"), buildFAQJsonLd(faqs)]}
       />

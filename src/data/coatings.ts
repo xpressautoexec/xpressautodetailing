@@ -11,7 +11,8 @@ import logoGyeon from "@/assets/brand-gyeon.svg";
  * Coatings the customer picks at drop-off, grouped by Xpress Coat tier.
  * Same tier, same price: the choice is about finish and feel, not cost.
  * `tier` matches CERAMIC_PACKAGES ids in src/data/pricing.ts.
- * Gyeon Infinite joins the 9-year tier when it's in stock; add it here then.
+ * Gyeon Infinite (5-year warranty, lifetime with a certified service every 24 months / 25,000 km)
+ * gets its own long-term tier once Xpress is a Gyeon Certified Detailer. Not public until then.
  */
 export type CoatingTierId = "essential" | "signature" | "elite";
 
@@ -25,6 +26,8 @@ export type CoatingOption = {
   description: string;
   highlights: string[];
   flagship?: boolean;
+  /** Second coating layered on top, shown in the package's included list. */
+  topCoat?: string;
   /** Product shot for the selector; brands without one show their logo. */
   image?: string;
   /** Product wordmark shown above the description. */
@@ -32,10 +35,10 @@ export type CoatingOption = {
   brandLogo?: string;
 };
 
-export const COATING_TIERS: { id: CoatingTierId; label: string; years: string }[] = [
-  { id: "essential", label: "3-Year", years: "3 years" },
-  { id: "signature", label: "5-Year", years: "5 years" },
-  { id: "elite", label: "9-Year", years: "9 years" },
+export const COATING_TIERS: { id: CoatingTierId; title: string; years: string }[] = [
+  { id: "essential", title: "Coat 2-Year", years: "2+ years" },
+  { id: "signature", title: "Coat 3-Year", years: "3 years" },
+  { id: "elite", title: "Coat DQUARTZ", years: "5+ years" },
 ];
 
 export const COATING_OPTIONS: CoatingOption[] = [
@@ -65,8 +68,8 @@ export const COATING_OPTIONS: CoatingOption[] = [
     tier: "signature",
     brand: "3M",
     name: "Ceramic Coating",
-    tag: "Two layers on paint, trim, wheels and film",
-    description: "3M's professional coating, applied in two full layers over paint, plastic trim, wheel faces and paint protection film.",
+    tag: "One coating for paint, trim, wheels and film",
+    description: "3M's professional coating, applied over paint, plastic trim, wheel faces and paint protection film. Very slick, with a fast cure.",
     highlights: ["Coats paint, trim, wheels and PPF", "Resists road salt and harsh cleaners", "Very slick, low-friction finish"],
     image: kit3m,
   },
@@ -86,10 +89,17 @@ export const COATING_OPTIONS: CoatingOption[] = [
     tier: "elite",
     brand: "CARPRO",
     name: "DQUARTZ Pro",
-    tag: "Nano-diamond, our flagship",
-    description: "Ceramic reinforced with synthetic nano-diamonds for added hardness, built to resist the fine swirls that washing leaves behind.",
-    highlights: ["Nano-diamond reinforced", "Added swirl and scratch resistance", "High gloss and slick finish"],
+    tag: "Nano-diamond hardness, Finest Reserve on top",
+    description:
+      "CARPRO's nano-diamond coating, the first ever to offer mechanical resistance to swirls and scratches. Diamonds are part of the coating itself, not an additive. We top it with Finest Reserve for gloss and water behaviour.",
+    highlights: [
+      "Raises paint hardness by up to 5 pencil points",
+      "Mechanical resistance to swirls and scratches",
+      "Extreme abrasion resistance",
+      "Finest Reserve top layer for gloss",
+    ],
     flagship: true,
+    topCoat: "CQUARTZ Finest Reserve",
     image: bottleDquartz,
     logo: logoDquartzPro,
   },

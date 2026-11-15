@@ -9,9 +9,9 @@ import { useSizeParam } from "@/hooks/useSizeParam";
 
 const TIME: Record<CoatingTierId, string> = { essential: "1 day", signature: "2 days", elite: "2 days" };
 const FOR_WHO: Record<CoatingTierId, string> = {
-  essential: "Newer paint, leases and cars you may sell in a few years.",
-  signature: "Daily drivers you plan to keep for years.",
-  elite: "Long-term, high-value and garage-kept vehicles.",
+  essential: "Newer paint, leases and cars you may sell in a couple of years.",
+  signature: "Daily drivers you plan to keep for a few years.",
+  elite: "The hardest coating we install, for paint that sees a lot of washing.",
 };
 
 const label = (c: CoatingOption) => (c.brand === "3M" ? "3M Ceramic Coating" : `${c.brand} ${c.name}`);
@@ -28,11 +28,11 @@ const Option = ({ c, selected, onClick }: { c: CoatingOption; selected: boolean;
     role="radio"
     aria-checked={selected}
     onClick={onClick}
-    className={`flex w-full items-center gap-4 rounded-md border-2 bg-surface p-3 text-left transition-colors ${
+    className={`flex min-h-[64px] w-full items-center gap-3 rounded-md border-2 bg-surface p-2.5 text-left sm:gap-4 sm:p-3 transition-colors ${
       selected ? "border-primary" : "border-line hover:border-ink-2"
     }`}
   >
-    <span className="flex h-20 w-14 shrink-0 items-center justify-center">
+    <span className="flex h-16 w-12 shrink-0 items-center justify-center sm:h-20 sm:w-14">
       <img
         src={c.image ?? c.brandLogo}
         alt=""
@@ -93,70 +93,48 @@ const CoatPackages = ({ id = "packages" }: { id?: string }) => {
           const options = COATING_OPTIONS.filter((c) => c.tier === t.id);
           if (!pkg || !options.length) return null;
           const pick = options.find((c) => c.id === picks[t.id]) ?? options[0];
-          const includes = pkg.includes.map((i) => (/ceramic coating$/i.test(i) ? `${label(pick)}, ${t.years}` : i));
+          const includes = pkg.includes.map((i) =>
+            /ceramic coating$/i.test(i) ? `${label(pick)}${pick.topCoat ? ` + ${pick.topCoat}` : ""}, ${t.years}` : i,
+          );
           return (
             <article
               key={t.id}
-              className={`relative grid overflow-hidden rounded-card border bg-surface lg:grid-cols-[1fr_25rem] ${
+              className={`relative grid overflow-hidden rounded-card border bg-surface lg:grid-cols-[1fr_24rem] lg:grid-rows-[auto_1fr] ${
                 pkg.popular ? "border-electric" : "border-line"
               }`}
             >
               {pkg.popular && (
-                <span className="absolute left-6 top-0 rounded-b-sm bg-electric px-2 py-1 text-[11px] font-semibold uppercase tracking-label text-primary-foreground">
+                <span className="absolute left-5 top-0 rounded-b-sm bg-electric px-2 py-1 text-[11px] font-semibold uppercase tracking-label text-primary-foreground sm:left-8">
                   Most chosen
                 </span>
               )}
 
-              {/* The package */}
-              <div className="flex flex-col p-6 pt-9 sm:p-8 sm:pt-10">
-                <p className="text-xs font-semibold uppercase tracking-label text-muted-ink">{pkg.name} package</p>
-                <h3 className="mt-1 font-heading text-4xl font-bold leading-none text-ink">Coat {t.label}</h3>
-                <p className="mt-2 text-[15px] text-ink-2">{FOR_WHO[t.id]}</p>
-                <ul className="mt-6 grid gap-2 border-t border-line pt-5 sm:grid-cols-2">
-                  {includes.map((i) => (
-                    <li key={i} className="flex gap-2 text-[15px] text-ink">
-                      <Check className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-                      {i}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-auto flex flex-col gap-4 pt-8 sm:flex-row sm:items-end sm:justify-between">
-                  <div>
-                    <p className="num text-5xl leading-none text-ink">{money(pkg.prices[size])}</p>
-                    <p className="mt-2 text-xs text-muted-ink">{TIME[t.id]} in our shop{options.length > 1 ? " · same price for any coating" : ""}</p>
-                  </div>
-                  <div className="flex flex-col items-stretch gap-2 sm:items-end">
-                    <a
-                      href={fielddUrl(pkg.book[size])}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="pill-action min-h-[52px] gap-2 rounded-full bg-action px-9 text-[15px] text-primary-foreground transition-colors hover:bg-ink"
-                    >
-                      {CTA.book}
-                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </a>
-                    <a href={TEL_HREF} className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-ink-2 hover:text-ink">
-                      <Phone className="h-4 w-4 text-action" aria-hidden="true" />
-                      {CTA.call}
-                    </a>
-                  </div>
+              {/* 1. Package name and price (first on phones) */}
+              <div className="px-5 pb-5 pt-9 sm:px-8 sm:pt-10 lg:col-start-1 lg:row-start-1">
+                <p className="text-xs font-semibold uppercase tracking-label text-muted-ink">
+                  {pkg.name} · {t.years}
+                </p>
+                <div className="mt-1 flex items-end justify-between gap-4">
+                  <h3 className="font-heading text-3xl font-bold leading-none text-ink sm:text-4xl">{t.title}</h3>
+                  <p className="num shrink-0 text-3xl leading-none text-ink sm:text-5xl">{money(pkg.prices[size])}</p>
                 </div>
+                <p className="mt-2 text-[15px] text-ink-2">{FOR_WHO[t.id]}</p>
               </div>
 
-              {/* Coating choice */}
-              <div className="border-t border-line bg-tint p-6 sm:p-8 lg:border-l lg:border-t-0">
+              {/* 2. Coating choice (second on phones, right column on desktop) */}
+              <div className="border-y border-line bg-tint px-5 py-5 sm:px-8 sm:py-6 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:border-y-0 lg:border-l">
                 <p className="text-xs font-semibold uppercase tracking-label text-ink">
                   {options.length > 1 ? "Select your coating" : "Your coating"}
                 </p>
-                <div role="radiogroup" aria-label={`Coating for Coat ${t.label}`} className="mt-4 space-y-3">
+                <div role="radiogroup" aria-label={`Coating for ${t.title}`} className="mt-3 space-y-2.5">
                   {options.map((c) => (
                     <Option key={c.id} c={c} selected={c.id === pick.id} onClick={() => setPicks((p) => ({ ...p, [t.id]: c.id }))} />
                   ))}
                 </div>
-                <div className="mt-5" aria-live="polite">
-                  {pick.logo && <img src={pick.logo} alt={label(pick)} className="h-6 w-auto max-w-full object-contain" />}
-                  <p className="mt-3 text-sm leading-relaxed text-ink-2">{pick.description}</p>
-                  <ul className="mt-3 space-y-1.5">
+                <div className="mt-4" aria-live="polite">
+                  {pick.logo && <img src={pick.logo} alt={label(pick)} className="h-5 w-auto max-w-full object-contain sm:h-6" />}
+                  <p className="mt-2.5 text-sm leading-relaxed text-ink-2">{pick.description}</p>
+                  <ul className="mt-2.5 space-y-1.5">
                     {pick.highlights.map((h) => (
                       <li key={h} className="flex gap-2 text-sm text-ink">
                         <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
@@ -164,6 +142,38 @@ const CoatPackages = ({ id = "packages" }: { id?: string }) => {
                       </li>
                     ))}
                   </ul>
+                </div>
+              </div>
+
+              {/* 3. What's included and booking */}
+              <div className="flex flex-col px-5 pb-6 pt-5 sm:px-8 sm:pb-8 lg:col-start-1 lg:row-start-2 lg:border-t lg:border-line">
+                <ul className="grid gap-2 sm:grid-cols-2">
+                  {includes.map((i) => (
+                    <li key={i} className="flex gap-2 text-[15px] text-ink">
+                      <Check className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                      {i}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-auto flex flex-col gap-3 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="text-xs text-muted-ink">
+                    {TIME[t.id]} in our shop{options.length > 1 ? " · same price for either coating" : ""}
+                  </p>
+                  <div className="flex flex-col items-stretch gap-2 sm:items-end">
+                    <a
+                      href={fielddUrl(pkg.book[size])}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="pill-action min-h-[52px] w-full gap-2 rounded-full bg-action px-9 text-[15px] text-primary-foreground transition-colors hover:bg-ink sm:w-auto"
+                    >
+                      {CTA.book} · {money(pkg.prices[size])}
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </a>
+                    <a href={TEL_HREF} className="inline-flex min-h-[44px] items-center justify-center gap-2 text-sm font-semibold text-ink-2 hover:text-ink">
+                      <Phone className="h-4 w-4 text-action" aria-hidden="true" />
+                      {CTA.call}
+                    </a>
+                  </div>
                 </div>
               </div>
             </article>

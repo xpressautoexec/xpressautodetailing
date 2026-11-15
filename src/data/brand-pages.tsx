@@ -214,7 +214,7 @@ export const DQUARTZ: BrandPage = {
   questions: [
     { q: "Why it matters in Calgary", a: "Road salt, mag chloride, gravel dust and hard water all attack clear coat. A hard, slick coating means less sticks, and what does comes off with a gentle wash instead of a scrub that adds swirls." },
     { q: "Is DQUARTZ worth it over a standard coating?", a: "If your car goes through a lot of washes, the added swirl resistance is the difference you will notice. We will tell you honestly whether your car needs it." },
-    { q: "How long does DQUARTZ last?", a: "Durability depends on prep, washing and how the car is stored. We will give you the warranty terms for your package with your quote." },
+    { q: "How long does DQUARTZ last?", a: "On its own it is a 2-year coating. We top it with CARPRO Finest Reserve, which takes the system to 5+ years with proper washing and care." },
   ],
   productsTitle: "",
   products: [],
@@ -224,14 +224,14 @@ export const DQUARTZ: BrandPage = {
   quoteNeed: "Paint correction/ceramic",
   faqTitle: "DQUARTZ questions",
   faqs: [
-    { q: "How long does DQUARTZ last?", a: "It depends on prep, care and storage. Your quote includes the warranty terms for your package." },
+    { q: "How long does DQUARTZ last?", a: "About 2 years on its own. With a Finest Reserve top layer, as we install it, 5+ years with proper care." },
     { q: "Is DQUARTZ worth it in a Calgary winter?", a: "Yes for most daily drivers. Salt and slush release more easily from a coated surface, so winter washes are faster and gentler on the paint." },
     { q: "DQUARTZ or PPF?", a: "They do different jobs. PPF stops rock chips; DQUARTZ resists swirls and makes washing easier. Many owners put film on the front and coat the rest." },
     { q: "Can I take a coated car through a car wash?", a: "Touchless washes are fine. Brush washes cause the swirls a coating is meant to resist, so hand washing is best." },
     { q: "Does DQUARTZ have real diamonds in it?", a: "No. It uses synthetic nano-diamonds bonded into the coating. It is not as hard as diamond and it is not scratch-proof, but it resists wash swirls better than a standard coating." },
   ],
   pathways: [
-    { title: "See packages and book", body: "DQUARTZ is our 9-year flagship. Prices by vehicle size.", href: "/ceramic-coating#packages" },
+    { title: "See packages and book", body: "Our hardness package: DQUARTZ topped with Finest Reserve. Prices by vehicle size.", href: "/ceramic-coating#packages" },
     { title: "Aftercare with Xpress Pass", body: "Maintenance washes that keep the coating performing.", href: "/xpress-pass" },
     { title: "Add front-end PPF", body: "Stop rock chips with SunTek film.", href: "/paint-protection-film" },
   ],

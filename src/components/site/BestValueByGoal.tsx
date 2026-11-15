@@ -13,9 +13,9 @@ const GOALS = [
   },
   {
     title: "Keeping a car long-term",
-    pick: "CARPRO DQUARTZ 9-year coating",
-    desc: "Lowest cost per year of protection if you keep vehicles five years or more.",
-    to: "/ceramic-paint-correction",
+    pick: "CARPRO DQUARTZ + Finest Reserve",
+    desc: "Our hardest coating, rated 5+ years with proper care. Built to resist wash swirls.",
+    to: "/ceramic-coating",
   },
   {
     title: "Staying clean year-round",
