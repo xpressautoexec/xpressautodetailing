@@ -234,6 +234,7 @@ export const CERAMIC_PACKAGES: {
       "Clay bar",
       "1-step machine enhancement",
       "2-year ceramic coating",
+      "Coated: paint",
       "Coating registered",
     ],
   },
@@ -252,6 +253,7 @@ export const CERAMIC_PACKAGES: {
       "Clay bar",
       "2-step cut & polish",
       "3-year ceramic coating",
+      "Coated: paint, glass and wheel faces",
       "Coating registered & warrantied",
     ],
   },
@@ -269,11 +271,39 @@ export const CERAMIC_PACKAGES: {
       "Clay bar",
       "2-step cut & polish",
       "DQUARTZ + Finest Reserve ceramic coating",
+      "Coated: paint, glass and wheel faces",
       "Coating registered & warrantied",
       "Annual inspection included",
     ],
   },
 ];
+
+/**
+ * Entry package below the coating tiers: 1-step gloss enhancement plus a 1-year ceramic spray
+ * sealant on paint. A sealant, not a coating, so it stays out of CERAMIC_PACKAGES ("coating from $").
+ * Non-sedan prices follow the same size steps as the 2-year coating. No Fieldd service yet: add `book` keys when there is one.
+ */
+export const GLOSS_PACKAGE: {
+  id: string;
+  name: string;
+  correction: string;
+  price: number;
+  prices: SizePrice;
+  book?: Record<VehicleSizeId, FielddKey>;
+  includes: string[];
+} = {
+  id: "gloss",
+  name: "Gloss Enhancement",
+  correction: "1-step gloss enhancement",
+  price: 399,
+  prices: { sedan: 399, suv: 549, minivan: 599, truck: 619 },
+  includes: [
+    "Basic exterior detail",
+    "1-step gloss enhancement (entry-level correction)",
+    "1-year ceramic spray sealant",
+    "Sealed: paint",
+  ],
+};
 
 export const CERAMIC_UPCHARGE = { suv: 150, minivan: 200, exoticPct: 25 };
 

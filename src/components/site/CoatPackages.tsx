@@ -3,7 +3,7 @@ import { ArrowRight, Check, Phone } from "lucide-react";
 import { TEL_HREF } from "@/components/site/QuoteLink";
 import { Section, SectionHeading } from "@/components/site/Section";
 import { COATING_OPTIONS, COATING_TIERS, type CoatingOption, type CoatingTierId } from "@/data/coatings";
-import { CERAMIC_PACKAGES, CERAMIC_UPCHARGE, VEHICLE_SIZES, fielddUrl, money } from "@/data/pricing";
+import { CERAMIC_PACKAGES, CERAMIC_UPCHARGE, GLOSS_PACKAGE, VEHICLE_SIZES, fielddUrl, money, type SizePrice } from "@/data/pricing";
 import { CTA } from "@/data/brand";
 import { useSizeParam } from "@/hooks/useSizeParam";
 
@@ -13,6 +13,34 @@ const FOR_WHO: Record<CoatingTierId, string> = {
   signature: "Daily drivers you plan to keep for a few years.",
   elite: "The hardest coating we install, for paint that sees a lot of washing.",
 };
+
+type Row = {
+  key: string;
+  title: string;
+  years: string;
+  forWho: string;
+  time?: string;
+  pkg: { name: string; prices: SizePrice; popular?: boolean; includes: string[]; book?: Record<string, string> };
+  options: CoatingOption[];
+};
+
+const ROWS: Row[] = [
+  {
+    key: GLOSS_PACKAGE.id,
+    title: GLOSS_PACKAGE.name,
+    years: "1 year",
+    forWho: "Bring back the gloss and protect it for a season or two, without a full coating.",
+    pkg: GLOSS_PACKAGE,
+    options: [],
+  },
+  ...COATING_TIERS.flatMap((t) => {
+    const pkg = CERAMIC_PACKAGES.find((p) => p.id === t.id);
+    const options = COATING_OPTIONS.filter((c) => c.tier === t.id);
+    return pkg && options.length
+      ? [{ key: t.id, title: t.title, years: t.years, forWho: FOR_WHO[t.id], time: TIME[t.id], pkg, options }]
+      : [];
+  }),
+];
 
 const label = (c: CoatingOption) => (c.brand === "3M" ? "3M Ceramic Coating" : `${c.brand} ${c.name}`);
 
@@ -57,7 +85,7 @@ const Option = ({ c, selected, onClick }: { c: CoatingOption; selected: boolean;
 /** Xpress Coat tiers: the package is the card, "Select your coating" sits beside it. */
 const CoatPackages = ({ id = "packages" }: { id?: string }) => {
   const [size, setSize] = useSizeParam();
-  const [picks, setPicks] = useState<Record<CoatingTierId, string>>({
+  const [picks, setPicks] = useState<Record<string, string>>({
     essential: defaultPick("essential"),
     signature: defaultPick("signature"),
     elite: defaultPick("elite"),
@@ -88,18 +116,19 @@ const CoatPackages = ({ id = "packages" }: { id?: string }) => {
       </div>
 
       <div className="space-y-6">
-        {COATING_TIERS.map((t) => {
-          const pkg = CERAMIC_PACKAGES.find((p) => p.id === t.id);
-          const options = COATING_OPTIONS.filter((c) => c.tier === t.id);
-          if (!pkg || !options.length) return null;
-          const pick = options.find((c) => c.id === picks[t.id]) ?? options[0];
-          const includes = pkg.includes.map((i) =>
-            /ceramic coating$/i.test(i) ? `${label(pick)}${pick.topCoat ? ` + ${pick.topCoat}` : ""}, ${t.years}` : i,
-          );
+        {ROWS.map((r) => {
+          const { pkg, options } = r;
+          const pick = options.find((c) => c.id === picks[r.key]) ?? options[0];
+          const includes = pick
+            ? pkg.includes.map((i) =>
+                /ceramic coating$/i.test(i) ? `${label(pick)}${pick.topCoat ? ` + ${pick.topCoat}` : ""}, ${r.years}` : i,
+              )
+            : pkg.includes;
+          const book = pkg.book?.[size];
           return (
             <article
-              key={t.id}
-              className={`relative grid overflow-hidden rounded-card border bg-surface lg:grid-cols-[1fr_24rem] lg:grid-rows-[auto_1fr] ${
+              key={r.key}
+              className={`relative grid overflow-hidden rounded-card border bg-surface ${pick ? "lg:grid-cols-[1fr_24rem] lg:grid-rows-[auto_1fr]" : ""} ${
                 pkg.popular ? "border-electric" : "border-line"
               }`}
             >
@@ -112,23 +141,24 @@ const CoatPackages = ({ id = "packages" }: { id?: string }) => {
               {/* 1. Package name and price (first on phones) */}
               <div className="px-5 pb-5 pt-9 sm:px-8 sm:pt-10 lg:col-start-1 lg:row-start-1">
                 <p className="text-xs font-semibold uppercase tracking-label text-muted-ink">
-                  {pkg.name} · {t.years}
+                  {pkg.name === r.title ? "Entry" : pkg.name} · {r.years}
                 </p>
                 <div className="mt-1 flex items-end justify-between gap-4">
-                  <h3 className="font-heading text-3xl font-bold leading-none text-ink sm:text-4xl">{t.title}</h3>
+                  <h3 className="font-heading text-3xl font-bold leading-none text-ink sm:text-4xl">{r.title}</h3>
                   <p className="num shrink-0 text-3xl leading-none text-ink sm:text-5xl">{money(pkg.prices[size])}</p>
                 </div>
-                <p className="mt-2 text-[15px] text-ink-2">{FOR_WHO[t.id]}</p>
+                <p className="mt-2 text-[15px] text-ink-2">{r.forWho}</p>
               </div>
 
               {/* 2. Coating choice (second on phones, right column on desktop) */}
+              {pick && (
               <div className="border-y border-line bg-tint px-5 py-5 sm:px-8 sm:py-6 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:border-y-0 lg:border-l">
                 <p className="text-xs font-semibold uppercase tracking-label text-ink">
                   {options.length > 1 ? "Select your coating" : "Your coating"}
                 </p>
-                <div role="radiogroup" aria-label={`Coating for ${t.title}`} className="mt-3 space-y-2.5">
+                <div role="radiogroup" aria-label={`Coating for ${r.title}`} className="mt-3 space-y-2.5">
                   {options.map((c) => (
-                    <Option key={c.id} c={c} selected={c.id === pick.id} onClick={() => setPicks((p) => ({ ...p, [t.id]: c.id }))} />
+                    <Option key={c.id} c={c} selected={c.id === pick.id} onClick={() => setPicks((p) => ({ ...p, [r.key]: c.id }))} />
                   ))}
                 </div>
                 <div className="mt-4" aria-live="polite">
@@ -144,9 +174,10 @@ const CoatPackages = ({ id = "packages" }: { id?: string }) => {
                   </ul>
                 </div>
               </div>
+              )}
 
               {/* 3. What's included and booking */}
-              <div className="flex flex-col px-5 pb-6 pt-5 sm:px-8 sm:pb-8 lg:col-start-1 lg:row-start-2 lg:border-t lg:border-line">
+              <div className={`flex flex-col px-5 pb-6 pt-5 sm:px-8 sm:pb-8 lg:col-start-1 lg:row-start-2 ${pick ? "lg:border-t lg:border-line" : "border-t border-line"}`}>
                 <ul className="grid gap-2 sm:grid-cols-2">
                   {includes.map((i) => (
                     <li key={i} className="flex gap-2 text-[15px] text-ink">
@@ -157,22 +188,23 @@ const CoatPackages = ({ id = "packages" }: { id?: string }) => {
                 </ul>
                 <div className="mt-auto flex flex-col gap-3 pt-6 sm:flex-row sm:items-center sm:justify-between">
                   <p className="text-xs text-muted-ink">
-                    {TIME[t.id]} in our shop{options.length > 1 ? " · same price for either coating" : ""}
+                    {r.time ? `${r.time} in our shop` : "Done in our shop"}{options.length > 1 ? " · same price for either coating" : ""}
                   </p>
                   <div className="flex flex-col items-stretch gap-2 sm:items-end">
                     <a
-                      href={fielddUrl(pkg.book[size])}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href={book ? fielddUrl(book) : TEL_HREF}
+                      {...(book ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                       className="pill-action min-h-[52px] w-full gap-2 rounded-full bg-action px-9 text-[15px] text-primary-foreground transition-colors hover:bg-ink sm:w-auto"
                     >
-                      {CTA.book} · {money(pkg.prices[size])}
+                      {book ? CTA.book : "Call to book"} · {money(pkg.prices[size])}
                       <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </a>
+                    {book && (
                     <a href={TEL_HREF} className="inline-flex min-h-[44px] items-center justify-center gap-2 text-sm font-semibold text-ink-2 hover:text-ink">
-                      <Phone className="h-4 w-4 text-action" aria-hidden="true" />
-                      {CTA.call}
-                    </a>
+                        <Phone className="h-4 w-4 text-action" aria-hidden="true" />
+                        {CTA.call}
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
