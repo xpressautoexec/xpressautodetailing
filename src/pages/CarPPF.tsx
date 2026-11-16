@@ -11,17 +11,6 @@ import covFullFront from "@/assets/ppf/coverage-full-front.webp";
 import covFullFrontPlus from "@/assets/ppf/coverage-full-front-plus.webp";
 import covFull from "@/assets/ppf/coverage-full.webp";
 import covWindshield from "@/assets/ppf/coverage-windshield.webp";
-import suvPartial from "@/assets/ppf/suv/coverage-partial.webp";
-import suvFullFront from "@/assets/ppf/suv/coverage-full-front.webp";
-import suvFullFrontPlus from "@/assets/ppf/suv/coverage-full-front-plus.webp";
-import suvFull from "@/assets/ppf/suv/coverage-full.webp";
-import suvWindshield from "@/assets/ppf/suv/coverage-windshield.webp";
-import truckPartial from "@/assets/ppf/truck/coverage-partial.webp";
-import truckFullFront from "@/assets/ppf/truck/coverage-full-front.webp";
-import truckFullFrontPlus from "@/assets/ppf/truck/coverage-full-front-plus.webp";
-import truckFull from "@/assets/ppf/truck/coverage-full.webp";
-import truckWindshield from "@/assets/ppf/truck/coverage-windshield.webp";
-import exoticFull from "@/assets/ppf/exotic/coverage-full.webp";
 import { CAR_PPF, CAR_PPF_SIZES, PPF_UPCHARGE, WINDSHIELD_PPF, carPpfPrice, money, type CarPpfSizeId } from "@/data/pricing";
 import { FILM_BRAND, FILM_CUT_SYSTEM } from "@/data/copy";
 import { FILM, SYSTEMS } from "@/data/brand";
@@ -62,18 +51,9 @@ const faqs = [
 
 /** Coverage diagrams: film shown in blue, one vehicle per size tab (exotic shows full coverage only). */
 type CoverageSet = Record<"partial-front" | "full-front" | "track-pack" | "full-vehicle" | "windshield", string>;
-const COVERAGE: Record<CarPpfSizeId, CoverageSet> = {
-  car: { "partial-front": covPartial, "full-front": covFullFront, "track-pack": covFullFrontPlus, "full-vehicle": covFull, windshield: covWindshield },
-  suv: { "partial-front": suvPartial, "full-front": suvFullFront, "track-pack": suvFullFrontPlus, "full-vehicle": suvFull, windshield: suvWindshield },
-  truck: {
-    "partial-front": truckPartial,
-    "full-front": truckFullFront,
-    "track-pack": truckFullFrontPlus,
-    "full-vehicle": truckFull,
-    windshield: truckWindshield,
-  },
-  exotic: { "partial-front": covPartial, "full-front": covFullFront, "track-pack": covFullFrontPlus, "full-vehicle": exoticFull, windshield: covWindshield },
-};
+const BMW: CoverageSet = { "partial-front": covPartial, "full-front": covFullFront, "track-pack": covFullFrontPlus, "full-vehicle": covFull, windshield: covWindshield };
+/** One sharp render set for every size until full-resolution SUV / pickup / exotic renders exist. */
+const COVERAGE: Record<CarPpfSizeId, CoverageSet> = { car: BMW, suv: BMW, truck: BMW, exotic: BMW };
 
 const SIZE_LABEL: Record<CarPpfSizeId, string> = { car: "Sedan / coupe", suv: "SUV", truck: "Pickup", exotic: "Exotic" };
 const PRICED_SIZES = CAR_PPF_SIZES.filter((s) => !("quoteOnly" in s));
@@ -175,7 +155,7 @@ const CarPPF = () => {
               width={1122}
               height={580}
               loading="lazy"
-              className="aspect-[1122/580] w-full self-center object-cover"
+              className="aspect-[1122/580] h-full w-full object-cover lg:aspect-auto"
             />
             <div className="flex flex-col p-6 sm:p-8">
               <p className="eyebrow">Recommended for exotics</p>
