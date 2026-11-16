@@ -8,7 +8,7 @@ import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO, { buildFAQJsonLd } from "@/components/SEO";
 import { Section, SectionHeading, btnPrimary, btnSecondary, cardClass } from "@/components/site/Section";
-import heroImg from "@/assets/jobs/hero-training.webp";
+import heroImg from "@/assets/jobs/hero-training-machine-polish.webp";
 import { PHOTOS } from "@/data/photos";
 import WorkShowcase from "@/components/site/WorkShowcase";
 import { TRAINING, TRAINING_TERMS, money } from "@/data/pricing";

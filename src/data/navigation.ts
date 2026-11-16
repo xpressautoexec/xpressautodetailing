@@ -1,6 +1,6 @@
 import navDetailing from "@/assets/jobs/nav-rav4-paint-closeup.webp";
 import navProtection from "@/assets/jobs/nav-rav4-finest-reserve-hood.webp";
-import navRvFleet from "@/assets/gallery-newmar-dutch-star-front.jpg";
+import navRvFleet from "@/assets/jobs/rv-class-a-wash.webp";
 import navResources from "@/assets/gallery-jeep-wrangler.jpg";
 import navWhy from "@/assets/jobs/crew-van-gear.webp";
 

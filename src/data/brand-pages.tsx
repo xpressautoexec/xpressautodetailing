@@ -4,9 +4,9 @@ import { WHY_PPF, WHY_CERAMIC, WHY_TINT } from "@/data/why";
 import type { WhyItem } from "@/components/site/WhyBand";
 import type { QuoteNeed } from "@/components/QuoteForm";
 import QuoteLink from "@/components/site/QuoteLink";
-import heroPorsche from "@/assets/jobs/exterior-porsche-macan-front.webp";
+import heroPpfFront from "@/assets/jobs/hero-ppf-rav4-front.webp";
 import heroRangeRover from "@/assets/jobs/ceramic-range-rover-headlight.webp";
-import heroCeramic from "@/assets/jobs/hero-ceramic-coating.webp";
+import heroDquartz from "@/assets/jobs/hero-dquartz-water-beading.webp";
 import heroTint from "@/assets/jobs/exterior-range-rover-three-quarter.webp";
 import heroBmw from "@/assets/jobs/exterior-bmw-m340i-front.webp";
 import heroCabin from "@/assets/jobs/interior-acura-cabin.webp";
@@ -64,8 +64,8 @@ export const SUNTEK_PPF: BrandPage = {
     eyebrow: "Authorized SunTek installer",
     title: "SunTek PPF",
     subtitle: "Self-healing paint protection film that takes Calgary's rock chips, gravel and road salt so your paint does not.",
-    image: heroPorsche,
-    imageAlt: "White Porsche Macan front end",
+    image: heroPpfFront,
+    imageAlt: "White Toyota RAV4 front end outside the Xpress shop in Airdrie",
   },
   h1: "SunTek® Paint Protection Film in Calgary",
   lead: "SunTek paint protection film from Xpress is SunTek PPF installed by an authorized SunTek installer, mobile across Calgary or in our heated Airdrie shop.",
@@ -202,8 +202,8 @@ export const DQUARTZ: BrandPage = {
     eyebrow: "Authorized CARPRO installer",
     title: "CARPRO DQUARTZ",
     subtitle: "Our flagship coating: ceramic protection reinforced with synthetic nano-diamonds, built to resist wash swirls.",
-    image: heroCeramic,
-    imageAlt: "Freshly coated paint with deep gloss",
+    image: heroDquartz,
+    imageAlt: "Water beading on a freshly coated white hood",
   },
   h1: "CARPRO DQUARTZ Nano-Diamond Ceramic Coating in Calgary",
   lead: "CARPRO DQUARTZ from Xpress is a ceramic coating reinforced with synthetic nano-diamonds, installed by an authorized CARPRO installer in Calgary and Airdrie.",

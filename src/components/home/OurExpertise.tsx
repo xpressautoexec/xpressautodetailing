@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Caravan, CarFront, Sun, Droplets, ShieldCheck, Mountain, type LucideIcon } from "lucide-react";
-import carPhoto from "@/assets/jobs/hero-ceramic-coating.webp";
+import carPhoto from "@/assets/jobs/card-auto-rav4-front-three-quarter.webp";
 import rvPhoto from "@/assets/jobs/hero-rv-trailer.webp";
 
 type Column = {
@@ -28,8 +28,8 @@ const COLUMNS: Column[] = [
     ],
     href: "/paint-protection-film#pricing",
     photo: carPhoto,
-    photoAlt: "White Porsche Macan in the Xpress protection bay",
-    photoPos: "50% 45%",
+    photoAlt: "White Toyota RAV4 outside the Xpress shop in Airdrie after ceramic coating",
+    photoPos: "50% 50%",
   },
   {
     tag: "RV & Trailer",

@@ -17,7 +17,7 @@ import { VideoReel } from "@/components/site/VideoReel";
 import { PHOTOS, CLIPS, type Photo, type PhotoCategory } from "@/data/photos";
 import { JOB_CATEGORIES, type JobCategory } from "@/data/jobs";
 import { useJobs } from "@/hooks/useJobs";
-import galleryHero from "@/assets/jobs/hero-gallery.webp";
+import galleryHero from "@/assets/jobs/hero-gallery-rav4-bay-door.webp";
 
 /** Gallery photo categories, kept as the descriptive (SEO) copy for the page. */
 const sections: { title: string; description: string; category: PhotoCategory }[] = [
@@ -130,6 +130,8 @@ const Gallery = () => {
           title="Our work"
           subtitle={`${totalPhotos} photos from real jobs, every one a customer vehicle shot on site by our crew. No stock images.`}
           image={galleryHero}
+          imageAlt="Freshly coated white Toyota RAV4 seen through the bay door of the Xpress shop in Airdrie"
+          imagePosition="60% 50%"
         />
 
         {/* Filters */}

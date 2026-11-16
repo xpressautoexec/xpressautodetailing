@@ -1,6 +1,6 @@
 import LandingPage from "@/components/site/LandingPage";
 import { Section, SectionHeading, btnPrimary, btnSecondary, cardClass } from "@/components/site/Section";
-import heroImg from "@/assets/jobs/hero-headlight-restoration.webp";
+import heroImg from "@/assets/jobs/headlight-mercedes-white.webp";
 import { HEADLIGHT_PHOTOS } from "@/data/photos";
 import { Link } from "react-router-dom";
 import { HEADLIGHT_RESTORATION, fielddUrl, money } from "@/data/pricing";
