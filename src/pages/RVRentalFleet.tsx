@@ -11,7 +11,7 @@ import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section, SectionHeading } from "@/components/site/Section";
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import { Check } from "lucide-react";
-import rvHero from "@/assets/jobs/hero-rv-rental.webp";
+import rvHero from "@/assets/rv-hero.jpg";
 import { PHOTOS, CLIPS } from "@/data/photos";
 import WorkShowcase from "@/components/site/WorkShowcase";
 import { RV_FLEET, money } from "@/data/pricing";
@@ -68,6 +68,8 @@ const RVRentalFleet = () => (
         title="RV rental fleet care"
         subtitle="Rental reviews live and die on how the unit smelled and looked at pickup. We work at your lot on your turnover schedule so units go back out ready."
         image={rvHero}
+        imageAlt="Xpress crew member washing a Class A motorhome on site"
+        imagePosition="68% 50%"
         ctaType="call"
         bookHref="#quote"
         bookLabel="Get a quote"

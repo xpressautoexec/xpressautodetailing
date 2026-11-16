@@ -69,7 +69,7 @@ export const WARRANTY = {
   film: IS_3M_CERTIFIED
     ? "Film is installed by a 3M Certified Installer and carries a 10-year 3M film warranty against yellowing, bubbling and cracking."
     : "Film is 3M Scotchgard™ Pro. Film defects are handled under the product's own terms; ask us for the current details for your install.",
-  windshield: "Windshield film is backed by ExoShield's 2-year / 50,000 km warranty.",
+  windshield: "Windshield film is backed by the manufacturer's 2-year / 50,000 km warranty.",
   care: [
     "Hand wash with a pH-neutral, coating-safe soap.",
     "No harsh chemicals, degreasers or strong solvents on coated or filmed panels.",

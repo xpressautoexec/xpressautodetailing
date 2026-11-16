@@ -152,7 +152,7 @@ const CarPPF = () => {
               <div className="mt-5 grid gap-2 border-t border-line pt-4 text-sm">
                 <label className="flex cursor-pointer items-center gap-2.5 text-ink">
                   <input type="checkbox" checked={windshield} onChange={(e) => setWindshield(e.target.checked)} className="h-4 w-4 accent-[hsl(var(--electric))]" />
-                  Add windshield film (ExoShield)
+                  Add windshield film
                 </label>
                 <label className="flex cursor-pointer items-center gap-2.5 text-ink">
                   <input type="checkbox" checked={zones} onChange={(e) => setZones(e.target.checked)} className="h-4 w-4 accent-[hsl(var(--electric))]" />
@@ -182,8 +182,8 @@ const CarPPF = () => {
             <div className="flex flex-col justify-between gap-4 rounded-card border border-dashed border-ink/25 p-6 sm:col-span-2 sm:flex-row sm:items-center">
               <div>
                 <p className="eyebrow">Add-on</p>
-                <p className="mt-1 font-heading text-2xl font-bold text-ink">Windshield film (ExoShield)</p>
-                <p className="mt-1 text-sm text-ink-2">Clear film for the glass. Backed by ExoShield's 2-year / 50,000 km warranty.</p>
+                <p className="mt-1 font-heading text-2xl font-bold text-ink">Windshield film</p>
+                <p className="mt-1 text-sm text-ink-2">Clear film for the glass. Backed by the manufacturer's 2-year / 50,000 km warranty.</p>
               </div>
               <p className="num shrink-0 text-3xl text-ink">From {money(windshieldFrom)}</p>
             </div>

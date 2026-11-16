@@ -4,7 +4,6 @@ import { SYSTEMS } from "@/data/brand";
 import { Section, SectionHeading, btnSecondary, cardClass } from "@/components/site/Section";
 import heroImg from "@/assets/windshield-ppf-hero.jpg";
 import { WINDSHIELD_PPF, fielddUrl, money } from "@/data/pricing";
-import { WINDSHIELD_FILM_BRAND } from "@/data/copy";
 import WindshieldDiagram from "@/components/ppf/WindshieldDiagram";
 import PPFCraft from "@/components/ppf/PPFCraft";
 
@@ -42,7 +41,7 @@ const faqs = [
   },
   {
     q: "Does it work with rain sensors and windshield cameras?",
-    a: `Yes. ${WINDSHIELD_FILM_BRAND} is made for modern windshields and doesn't block sensors, cameras or head-up displays. We check yours before we leave.`,
+    a: "Yes. The film is made for modern windshields and doesn't block sensors, cameras or head-up displays. We check yours before we leave.",
   },
   {
     q: "What if my windshield already has a chip?",
@@ -54,19 +53,19 @@ const WindshieldPPF = () => (
   <LandingPage
     quote={{ defaultNeed: "PPF/windshield film" }}
     childrenBeforeWork
-    products={["exoshield"]}
+    products={[]}
     seo={{
       title: "Windshield Protection Film Calgary | Xpress Auto & RV Detailing",
       description:
-        "ExoShield windshield protection film in Calgary from $449. Stops most rock chips, keeps safety cameras calibrated, installed at your home or work.",
+        "Windshield protection film in Calgary from $449. Stops most rock chips, keeps safety cameras calibrated, installed at your home or work.",
       canonical: "/windshield-ppf",
       serviceName: "Windshield Protection Film",
-      serviceDescription: `${WINDSHIELD_FILM_BRAND} windshield protection film installed at your home or work in Calgary and area.`,
+      serviceDescription: "Windshield protection film installed at your home or work in Calgary and area.",
     }}
     hero={{
       eyebrow: "Windshield protection",
       title: "Fewer chips. Fewer windshields.",
-      subtitle: `${WINDSHIELD_FILM_BRAND} windshield protection film for Alberta's gravel highways, part of ${SYSTEMS.protect.tm}.`,
+      subtitle: `Windshield protection film for Alberta's gravel highways, part of ${SYSTEMS.protect.tm}.`,
       image: heroImg,
       ctaType: "book",
       bookLabel: BOOK_LABEL,
@@ -124,9 +123,9 @@ const WindshieldPPF = () => (
         <WindshieldDiagram />
       </div>
       <p className="max-w-3xl text-[15px] leading-relaxed text-ink-2">
-        {WINDSHIELD_FILM_BRAND} windshield protection film, custom-cut for your year, make and model. {WINDSHIELD_FILM_BRAND} says
-        it absorbs up to 6 times more impact than the windshield alone. It carries {WINDSHIELD_FILM_BRAND}'s 2-year / 50,000 km
-        warranty against cracking, delamination, discoloration, hazing and yellowing. We register it for you.
+        Clear windshield protection film, custom-cut for your year, make and model and built to absorb rock hits. It carries the
+        manufacturer's 2-year / 50,000 km warranty against cracking, delamination, discoloration, hazing and yellowing. We register
+        it for you.
       </p>
     </Section>
 
@@ -151,8 +150,8 @@ const WindshieldPPF = () => (
     </Section>
 
     <PPFCraft
-      film={WINDSHIELD_FILM_BRAND}
-      filmBody={`${WINDSHIELD_FILM_BRAND} is made for windshields: optically clear, built to absorb rock hits, and backed by a 2-year / 50,000 km warranty we register for you.`}
+      film="Windshield film"
+      filmBody={`The film is made for windshields: optically clear, built to absorb rock hits, and backed by a 2-year / 50,000 km warranty we register for you.`}
     />
   </LandingPage>
 );

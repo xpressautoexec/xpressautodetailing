@@ -4,7 +4,7 @@ import { WHY_PPF, WHY_CERAMIC, WHY_TINT } from "@/data/why";
 import type { WhyItem } from "@/components/site/WhyBand";
 import type { QuoteNeed } from "@/components/QuoteForm";
 import QuoteLink from "@/components/site/QuoteLink";
-import heroPpfFront from "@/assets/jobs/hero-ppf-rav4-front.webp";
+import heroPpfFront from "@/assets/jobs/card-car-mercedes-c-class.webp";
 import heroRangeRover from "@/assets/jobs/ceramic-range-rover-headlight.webp";
 import heroDquartz from "@/assets/jobs/hero-dquartz-water-beading.webp";
 import heroTint from "@/assets/jobs/exterior-range-rover-three-quarter.webp";
@@ -65,7 +65,7 @@ export const SUNTEK_PPF: BrandPage = {
     title: "SunTek PPF",
     subtitle: "Self-healing paint protection film that takes Calgary's rock chips, gravel and road salt so your paint does not.",
     image: heroPpfFront,
-    imageAlt: "White Toyota RAV4 front end outside the Xpress shop in Airdrie",
+    imageAlt: "White Mercedes-Benz C-Class front end",
   },
   h1: "SunTek® Paint Protection Film in Calgary",
   lead: "SunTek paint protection film from Xpress is SunTek PPF installed by an authorized SunTek installer, mobile across Calgary or in our heated Airdrie shop.",

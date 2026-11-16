@@ -15,7 +15,7 @@ const COVER = [
   { title: "Workmanship", eyebrow: `${WARRANTY.workmanshipMonths} month`, body: WARRANTY.workmanship },
   { title: "Ceramic coating", eyebrow: "Manufacturer", body: WARRANTY.coating },
   { title: "Paint protection film", eyebrow: "Film", body: WARRANTY.film },
-  { title: "Windshield film", eyebrow: "ExoShield", body: WARRANTY.windshield },
+  { title: "Windshield film", eyebrow: "Manufacturer", body: WARRANTY.windshield },
 ];
 
 /** Warranty & Care: what's covered, by whom, and what keeps it valid. Plain language. */

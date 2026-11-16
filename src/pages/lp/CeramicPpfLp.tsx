@@ -4,7 +4,7 @@ import LpReceipts from "@/components/lp/LpReceipts";
 import QuoteForm from "@/components/QuoteForm";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import { CAR_PPF, CERAMIC_PACKAGES, FIVE_STAR_REVIEWS, PPF_UPCHARGE, WINDSHIELD_PPF, money } from "@/data/pricing";
-import { LP_FILM_BRAND as FILM_BRAND, SHOP, WINDSHIELD_FILM_BRAND } from "@/data/copy";
+import { LP_FILM_BRAND as FILM_BRAND, SHOP } from "@/data/copy";
 import small from "@/assets/lp/ceramic-640.webp";
 import large from "@/assets/lp/ceramic-1050.webp";
 
@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: "What film and coatings do you use?",
-    a: `${FILM_BRAND} paint protection film, and ${WINDSHIELD_FILM_BRAND} on windshields (backed by ${WINDSHIELD_FILM_BRAND}'s 2-year / 50,000 km warranty). We're an authorized CARPRO installer; coatings are registered with the manufacturer.`,
+    a: `${FILM_BRAND} paint protection film, and a clear windshield film backed by the manufacturer's 2-year / 50,000 km warranty. We're an authorized CARPRO installer; coatings are registered with the manufacturer.`,
   },
   {
     q: "How long will I be without the car?",
@@ -55,7 +55,7 @@ const Card = ({ title, brand, rows, note }: { title: string; brand: string; rows
 const CeramicPpfLp = () => (
   <LpShell
     title="Ceramic Coating, PPF & Windshield Film | Airdrie Shop"
-    description="Paint correction and ceramic coating, 3M Scotchgard Pro paint protection film and ExoShield windshield film, done indoors at our heated Airdrie shop."
+    description="Paint correction and ceramic coating, 3M Scotchgard Pro paint protection film and windshield film, done indoors at our heated Airdrie shop."
     canonical="/lp/ceramic-ppf"
   >
     <LpHero
@@ -64,7 +64,7 @@ const CeramicPpfLp = () => (
       sub="Paint correction and ceramic coating, clear paint protection film and windshield film, installed in a warm, clean bay. Drop it off; we'll text you when it's ready."
       points={[
         "Authorized CARPRO installer",
-        `${FILM_BRAND} paint film · ${WINDSHIELD_FILM_BRAND} windshield film`,
+        `${FILM_BRAND} paint film · windshield film`,
         "Add photos for an exact quote by text",
       ]}
       image={{ small, large, alt: "White Mercedes-AMG GLE headlight after paint correction and ceramic coating" }}
@@ -109,9 +109,9 @@ const CeramicPpfLp = () => (
           />
           <Card
             title="Windshield film"
-            brand={WINDSHIELD_FILM_BRAND}
+            brand="Clear glass film"
             rows={WINDSHIELD_PPF.map((w) => [w.label, money(w.price), `${w.installTime} · ${w.examples}`])}
-            note={`Backed by ${WINDSHIELD_FILM_BRAND}'s 2-year / 50,000 km warranty.`}
+            note="Backed by the manufacturer's 2-year / 50,000 km warranty."
           />
         </div>
         <a href="#quote" className={`${lpCta} mt-8`}>

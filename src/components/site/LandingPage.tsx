@@ -48,7 +48,7 @@ const LandingPage = ({
   faqs: { title: string; items: { q: string; a: string; aNode?: ReactNode }[] };
   related: { label: string; to: string }[];
   closing: { title: string; body?: string; mode: "book" | "quote"; quoteHref?: string; quoteLabel?: string; bookLabel?: string; phoneHref?: string; bookHref?: string; primaryLabel?: string };
-  /** Product lines for the "products we use" band; defaults to the general set. */
+  /** Product lines for the "products we use" band; defaults to the general set. Pass [] to hide the band. */
   products?: ProductLine[];
   /** Real job photos (and optional clips) shown after the features. */
   work?: Work;
@@ -127,7 +127,7 @@ const LandingPage = ({
         </ul>
       </Section>
 
-      <QualityProducts lines={products} tone="canvas" />
+      {products?.length !== 0 && <QualityProducts lines={products} tone="canvas" />}
 
       <ClosingCTA {...closing} />
 
