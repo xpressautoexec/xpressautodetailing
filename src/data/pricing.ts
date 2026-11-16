@@ -507,9 +507,9 @@ export const memberPriceFor = (pkg: AutoPackage, size: VehicleSizeId): number | 
  */
 export const CAR_PPF = [
   { id: "partial-front", name: "Partial", price: 999, time: "1 day", forWho: "Daily drivers that see city streets more than highways.", covers: ["Front bumper", "Leading half of the hood", "Leading half of the front fenders", "Mirror caps"] },
-  { id: "full-front", name: "Full Front", price: 1899, popular: true, time: "1 day", forWho: "Highway commuters and new vehicles. No seam line on the hood.", covers: ["Front bumper", "Full hood", "Full front fenders", "Mirror caps"] },
-  { id: "track-pack", name: "Full Front +", price: 2899, time: "1–2 days", forWho: "Gravel roads, mountain trips and lowered or performance cars.", covers: ["Everything in Full Front", "Headlights", "A-pillars and roof leading edge", "Rocker panels"] },
-  { id: "full-vehicle", name: "Full Coverage", price: 5999, time: "2–3 days", forWho: "Collector, exotic and long-term vehicles.", covers: ["Every painted panel", "Headlights and mirror caps", "Wrapped edges wherever possible"] },
+  { id: "full-front", name: "Full Front", price: 1899, popular: true, time: "1 day", forWho: "Highway commuters and new vehicles. No seam line on the hood.", covers: ["Front bumper", "Full hood", "Full front fenders", "Headlights", "Mirror caps"] },
+  { id: "track-pack", name: "Full Front +", price: 2899, time: "1–2 days", forWho: "Gravel roads, mountain trips and lowered or performance cars.", covers: ["Everything in Full Front", "A-pillars and roof leading edge", "Rocker panels"] },
+  { id: "full-vehicle", name: "Full Coverage", price: 5999, time: "2–3 days", forWho: "Collector, exotic and long-term vehicles.", covers: ["Every painted panel", "Windshield film", "Headlights and mirror caps", "Wrapped edges wherever possible"] },
 ];
 
 export const PPF_UPCHARGE = { truckSuvPct: 15, exoticPct: 25 };
