@@ -512,13 +512,15 @@ export const CAR_PPF = [
   { id: "full-vehicle", name: "Full Coverage", price: 5999, time: "2–3 days", forWho: "Collector, exotic and long-term vehicles.", covers: ["Every painted panel", "Windshield film", "Headlights and mirror caps", "Wrapped edges wherever possible"] },
 ];
 
-export const PPF_UPCHARGE = { truckSuvPct: 15, exoticPct: 25 };
+export const PPF_UPCHARGE = { suvPct: 10, truckSuvPct: 15 };
 
 /** Vehicle size classes for car PPF. Price = CAR_PPF base x (1 + pct), rounded to the nearest $X9. */
 export const CAR_PPF_SIZES = [
-  { id: "car", label: "Car / Small SUV", examples: "Civic, Model 3, Mazda 3, CR-V, RAV4", pct: 0 },
-  { id: "truck", label: "Truck / Large SUV", examples: "F-150, Silverado, RAM, Tahoe, Model X", pct: PPF_UPCHARGE.truckSuvPct },
-  { id: "exotic", label: "Exotic / Performance", examples: "Porsche, Corvette, AMG, M cars", pct: PPF_UPCHARGE.exoticPct },
+  { id: "car", label: "Sedan / Coupe", examples: "Civic, Model 3, Mazda 3, BMW 4 Series", pct: 0 },
+  { id: "suv", label: "SUV / Crossover", examples: "Audi Q5, RAV4, CR-V, Model Y", pct: PPF_UPCHARGE.suvPct },
+  { id: "truck", label: "Pickup / Large SUV", examples: "F-150, Silverado, RAM, Tahoe", pct: PPF_UPCHARGE.truckSuvPct },
+  /** Quote only: no published prices. The page recommends Full Coverage and a call for custom coverage. */
+  { id: "exotic", label: "Exotic", examples: "Ferrari, Lamborghini, McLaren, Porsche GT cars", pct: 0, quoteOnly: true },
 ] as const;
 
 export type CarPpfSizeId = (typeof CAR_PPF_SIZES)[number]["id"];
@@ -599,7 +601,7 @@ export const TRAINING = [
 /** Training seat terms. Shown on /training/signup and in Terms of Service section 12. */
 export const TRAINING_TERMS = {
   deposit: 50,
-  classSize: "4 to 6 students",
+  classSize: "1-on-1",
   rescheduleDays: 7,
 };
 

@@ -26,7 +26,7 @@ const trainingFAQs = [
   },
   {
     q: "How many students per class?",
-    a: `${TRAINING_TERMS.classSize}, so you get real time on the machine and one-on-one feedback.`,
+    a: "One. Every course is 1-on-1: just you and the instructor, so the whole day is your time on the machine with direct feedback.",
   },
   {
     q: "Do I get certified?",
@@ -43,7 +43,7 @@ const Training = () => (
     <div className="min-h-screen bg-canvas">
       <SEO
         title="Auto Detailing Training Calgary"
-        description={`Hands-on detailing, paint correction and ceramic coating courses in Calgary. Classes of ${TRAINING_TERMS.classSize}, from ${money(Math.min(...TRAINING.map((c) => c.price)))}.`}
+        description={`1-on-1, hands-on detailing, paint correction and ceramic coating courses in Calgary, from ${money(Math.min(...TRAINING.map((c) => c.price)))}.`}
         canonical="/training"
         jsonLd={[buildFAQJsonLd(trainingFAQs)]}
       />
@@ -51,8 +51,9 @@ const Training = () => (
       <AutoBreadcrumbs />
       <ServicePageHero
         openings={false}
+        eyebrow="1-on-1 · hands-on"
         title="Detailing training"
-        subtitle={`Hands-on courses taught by the crew that does the work every day. Real vehicles, professional products, classes of ${TRAINING_TERMS.classSize}.`}
+        subtitle="1-on-1, hands-on courses taught by the crew that does the work every day. Real vehicles, professional products, and the instructor to yourself."
         image={heroImg}
         ctaType="call"
         bookHref="/training/signup"

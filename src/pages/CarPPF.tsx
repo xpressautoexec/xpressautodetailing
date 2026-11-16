@@ -2,6 +2,9 @@ import { useState } from "react";
 import LandingPage from "@/components/site/LandingPage";
 import { Section, SectionHeading } from "@/components/site/Section";
 import PackageCard from "@/components/site/PackageCard";
+import QuoteLink from "@/components/site/QuoteLink";
+import { Check, Phone } from "lucide-react";
+import { CTA } from "@/data/brand";
 import { CHIP_ZONES } from "@/components/ppf/PpfCoverageMap";
 import PPFCraft from "@/components/ppf/PPFCraft";
 import heroImg from "@/assets/ppf-hero.jpg";
@@ -56,7 +59,9 @@ const COVERAGE_IMG: Record<string, string> = {
   "full-vehicle": covFull,
 };
 
-const SIZE_LABEL: Record<CarPpfSizeId, string> = { car: "Sedan / small SUV", truck: "Truck / large SUV", exotic: "Exotic" };
+const SIZE_LABEL: Record<CarPpfSizeId, string> = { car: "Sedan / coupe", suv: "SUV", truck: "Pickup", exotic: "Exotic" };
+const PRICED_SIZES = CAR_PPF_SIZES.filter((s) => !("quoteOnly" in s));
+const fullCoverage = CAR_PPF.find((p) => p.id === "full-vehicle")!;
 
 const CarPPF = () => {
   const [size, setSize] = useState<CarPpfSizeId>("car");
@@ -145,6 +150,42 @@ const CarPPF = () => {
         </div>
         <p className="mb-10 text-sm text-muted-ink">e.g. {sizeInfo.examples}</p>
 
+        {size === "exotic" ? (
+          <div className="grid overflow-hidden rounded-card border border-electric bg-surface lg:grid-cols-2">
+            <img
+              src={COVERAGE_IMG["full-vehicle"]}
+              alt="Full Coverage paint protection film shown in blue"
+              width={1122}
+              height={580}
+              loading="lazy"
+              className="aspect-[1122/580] w-full self-center object-cover"
+            />
+            <div className="flex flex-col p-6 sm:p-8">
+              <p className="eyebrow">Recommended for exotics</p>
+              <h3 className="mt-1 font-heading text-3xl font-bold leading-tight text-ink">{fullCoverage.name}</h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-ink-2">
+                Low noses, wide rear arches and soft paint take hits everywhere, so we recommend film on every painted panel. Every exotic
+                is quoted individually after we see the car.
+              </p>
+              <ul className="mt-5 space-y-2 border-t border-line pt-5 text-[15px] text-ink-2">
+                {fullCoverage.covers.map((c) => (
+                  <li key={c} className="flex gap-2.5">
+                    <Check className="mt-1 h-3.5 w-3.5 shrink-0 text-electric" aria-hidden="true" />
+                    <span>{c}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 text-sm text-ink-2">Want something different, like a front end only or track-day impact zones? Call and we will build custom coverage for your car.</p>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <QuoteLink href="#quote" className="pill-action inline-flex min-h-[52px] items-center justify-center rounded-full bg-action px-8 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-ink" />
+                <a href={TEL} className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border-2 border-ink/15 px-7 text-[15px] font-semibold text-ink transition-colors hover:border-ink">
+                  <Phone className="h-4 w-4 text-action" aria-hidden="true" />
+                  {CTA.call}
+                </a>
+              </div>
+            </div>
+          </div>
+        ) : (
         <div className="grid gap-5 pt-3 sm:grid-cols-2 xl:grid-cols-4">
           {CAR_PPF.map((p) => (
             <PackageCard
@@ -170,6 +211,7 @@ const CarPPF = () => {
             />
           ))}
         </div>
+        )}
         <div className="mt-5 grid overflow-hidden rounded-card border border-dashed border-ink/25 sm:grid-cols-[minmax(0,20rem)_1fr]">
           <img
             src={covWindshield}
@@ -212,7 +254,7 @@ const CarPPF = () => {
             <thead>
               <tr className="border-b border-line text-sm text-muted-ink">
                 <th className="py-2 pr-4 font-semibold">Package</th>
-                {CAR_PPF_SIZES.map((s) => (
+                {PRICED_SIZES.map((s) => (
                   <th key={s.id} className="py-2 pr-4 font-semibold">
                     {s.label}
                   </th>
@@ -223,7 +265,7 @@ const CarPPF = () => {
               {CAR_PPF.map((p) => (
                 <tr key={p.id} className="border-b border-line/60">
                   <td className="py-3 pr-4 font-semibold text-ink">{p.name}</td>
-                  {CAR_PPF_SIZES.map((s) => (
+                  {PRICED_SIZES.map((s) => (
                     <td key={s.id} className="num py-3 pr-4 text-lg text-ink-2">
                       {money(carPpfPrice(p.price, s.id))}
                     </td>
@@ -233,8 +275,8 @@ const CarPPF = () => {
             </tbody>
           </table>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-ink">
-            Trucks and large SUVs are {PPF_UPCHARGE.truckSuvPct}% more than a car, exotics {PPF_UPCHARGE.exoticPct}% more. Heavily
-            modified bodies are quoted after we see the vehicle. Your price is confirmed before we start.
+            SUVs are {PPF_UPCHARGE.suvPct}% more than a sedan, pickups and large SUVs {PPF_UPCHARGE.truckSuvPct}% more. Exotics and
+            heavily modified bodies are quoted after we see the vehicle. Your price is confirmed before we start.
           </p>
         </div>
       </Section>

@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "Is the price on the page the price I pay?",
-    a: `Prices are for a car or small SUV. Trucks and large SUVs are ${PPF_UPCHARGE.truckSuvPct}% more for film, exotics ${PPF_UPCHARGE.exoticPct}% more. Your price is confirmed before we start.`,
+    a: `Film prices are for a sedan or coupe. SUVs are ${PPF_UPCHARGE.suvPct}% more, pickups and large SUVs ${PPF_UPCHARGE.truckSuvPct}% more, and exotics are quoted individually. Your price is confirmed before we start.`,
   },
 ];
 
@@ -105,7 +105,7 @@ const CeramicPpfLp = () => (
             title="Paint protection film"
             brand={FILM_BRAND}
             rows={CAR_PPF.map((p) => [p.name, from(p.price), p.covers.slice(0, 2).join(", ")])}
-            note={`Trucks and large SUVs +${PPF_UPCHARGE.truckSuvPct}%, exotics +${PPF_UPCHARGE.exoticPct}%.`}
+            note={`SUVs +${PPF_UPCHARGE.suvPct}%, pickups and large SUVs +${PPF_UPCHARGE.truckSuvPct}%. Exotics by quote.`}
           />
           <Card
             title="Windshield film"

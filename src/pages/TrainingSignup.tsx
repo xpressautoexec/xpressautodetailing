@@ -62,7 +62,7 @@ const TrainingSignup = () => {
       <div className="min-h-screen bg-canvas">
         <SEO
           title="Request a Training Seat | Xpress Detailing Training"
-          description={`Request a seat in a hands-on detailing, paint correction or ceramic coating course in Calgary. Classes of ${TRAINING_TERMS.classSize}.`}
+          description={`Request a 1-on-1, hands-on detailing, paint correction or ceramic coating course in Calgary.`}
           canonical="/training/signup"
         />
         <Navbar />
@@ -133,7 +133,7 @@ const TrainingSignup = () => {
                 <dl className="mt-8 space-y-2 text-sm text-ink-2">
                   <div className="flex justify-between border-b border-line pb-2">
                     <dt className="text-muted-ink">Class size</dt>
-                    <dd>{TRAINING_TERMS.classSize}</dd>
+                    <dd>{TRAINING_TERMS.classSize}, hands-on</dd>
                   </div>
                   <div className="flex justify-between border-b border-line pb-2">
                     <dt className="text-muted-ink">Deposit to hold a seat</dt>
