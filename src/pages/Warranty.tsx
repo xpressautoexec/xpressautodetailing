@@ -24,7 +24,7 @@ const Warranty = () => (
     <div className="min-h-screen bg-canvas">
       <SEO
         title="Warranty & Care | Ceramic Coating and PPF | Xpress Auto & RV Detailing"
-        description="What's covered after a ceramic coating or paint protection film install: workmanship, manufacturer coating registration, film terms, and the care that keeps it valid."
+        description="What's covered after a ceramic coating or paint protection film install: workmanship, coating registration, film terms and the care that keeps it valid."
         canonical="/warranty"
       />
       <Navbar />

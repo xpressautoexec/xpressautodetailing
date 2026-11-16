@@ -76,7 +76,7 @@ const Detailing = () => {
     <div className="min-h-screen bg-canvas">
       <SEO
         title="Car Detailing Calgary | Mobile Packages"
-        description="Mobile car detailing in Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County. Packages from a 45-minute Upkeep to a full-day Correct & Coat. We bring our own water and power."
+        description="Mobile car detailing in Calgary and area, from a 45-minute Upkeep to a Correct & Coat. Published prices by vehicle size. We bring our own water and power."
         canonical="/detailing"
         jsonLd={[
           buildServiceJsonLd(

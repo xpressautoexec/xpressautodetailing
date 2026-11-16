@@ -12,7 +12,7 @@ const CancellationPolicyPage = () => (
     <div className="min-h-screen bg-canvas">
       <SEO
         title="Cancellation & Rescheduling Policy | Xpress Auto & RV Detailing"
-        description={CANCELLATION_SUMMARY}
+        description="Cancel or reschedule free up to 24 hours before your appointment, or 48 hours for RV, marine, correction, coating and fleet work."
         canonical="/cancellation-policy"
       />
       <Navbar />

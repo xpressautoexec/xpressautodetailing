@@ -63,10 +63,10 @@ const Training = () => (
       <Section>
         <SectionHeading
           title="Courses"
-          intro="Every course is hands-on from the first hour. Prices are per student and include all tools and products used in class."
+          intro="Every course is 1-on-1 and hands-on from the first hour: one student, one instructor. Prices include all tools and products used on the day."
           action={
             <Link to="/training/signup" className={btnPrimary}>
-              Request a seat
+              Request a date
             </Link>
           }
         />
@@ -104,11 +104,32 @@ const Training = () => (
                 </li>
               </ul>
               <Link to={`/training/signup?course=${c.id}`} className={`${btnSecondary} mt-7`}>
-                Request a seat in {c.name}
+                Request {c.name}
               </Link>
             </article>
           ))}
         </div>
+      </Section>
+
+      <Section tone="surface">
+        <SectionHeading
+          title="How 1-on-1 training works"
+          intro="There is no group to keep pace with. You work on real vehicles with the instructor beside you the whole time."
+        />
+        <ol className="grid gap-x-8 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
+          {[
+            { n: "01", t: "Pick your course", b: "Choose Detailing Fundamentals, Paint Correction Mastery or Ceramic Coating, and tell us the month that suits you." },
+            { n: "02", t: "We set a date", b: `Courses run on demand, not on a fixed calendar. We confirm a date by email and a ${money(TRAINING_TERMS.deposit)} deposit holds it.` },
+            { n: "03", t: "Hands on the tools", b: "You do the work yourself on real vehicles with professional tools and products, with correction and feedback as you go." },
+            { n: "04", t: "Leave certified", b: `Every graduate receives the ${TRAINING_CERTIFICATION}.` },
+          ].map((x) => (
+            <li key={x.n} className="border-t border-line pt-5">
+              <span className="num text-2xl text-primary">{x.n}</span>
+              <h3 className="mt-2 font-heading text-xl font-bold text-ink">{x.t}</h3>
+              <p className="mt-1.5 text-[15px] leading-relaxed text-ink-2">{x.b}</p>
+            </li>
+          ))}
+        </ol>
       </Section>
 
       <WorkShowcase

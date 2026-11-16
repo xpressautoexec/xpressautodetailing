@@ -15,7 +15,7 @@ const Quote = () => (
     <div className="min-h-screen bg-canvas">
       <SEO
         title="Get a Quote | Xpress Auto & RV Detailing Calgary"
-        description={`Get a detailing, ceramic, PPF or RV price, usually the same day. Mobile across ${SERVICE_AREA_SENTENCE}, or our heated Airdrie shop.`}
+        description="Get a detailing, ceramic coating, PPF or RV price, usually the same day. Mobile across Calgary and area, or at our heated Airdrie shop."
         canonical="/quote"
       />
       <Navbar />

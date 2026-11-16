@@ -69,7 +69,7 @@ const Contact = () => {
       <div className="min-h-screen bg-canvas">
         <SEO
           title="Contact | Xpress Auto & RV Detailing Calgary"
-          description={`Call or text ${NAP.phone}, email ${NAP.email}, or send a message. Mobile detailing across ${SERVICE_AREA_SENTENCE}.`}
+          description={`Call or text ${NAP.phone}, email ${NAP.email}, or send a message. Mobile detailing across Calgary and area, plus our Airdrie shop.`}
           canonical="/contact"
           jsonLd={buildFAQJsonLd(contactFAQs)}
         />

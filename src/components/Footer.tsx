@@ -6,7 +6,7 @@ import { PROTECTION_LINKS } from "@/data/navigation";
 import MobileQuoteBar from "@/components/MobileQuoteBar";
 import SiteSearch from "@/components/site/SiteSearch";
 
-const SOCIALS = [{ label: "Instagram", href: "https://www.instagram.com/xpressautodetailingyyc", icon: Instagram }];
+const SOCIALS = [{ label: "Instagram", href: "https://www.instagram.com/xpressauto.yyc", icon: Instagram }];
 const GOOGLE_PROFILE = "https://www.google.com/maps/search/Xpress+Auto+%26+RV+Detailing+Calgary";
 
 const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [

@@ -13,7 +13,7 @@ const TermsOfService = () => (
     <div className="min-h-screen bg-canvas">
       <SEO
         title="Terms and Conditions"
-        description="Terms and conditions for Xpress Auto & RV Detailing mobile services across Calgary, Airdrie, Chestermere, Cochrane, Okotoks and Rocky View County — booking, cancellation, coatings, film, marine and RV policies."
+        description="Terms for Xpress Auto & RV Detailing services in Calgary and area: booking, payment, cancellation, coatings, film, marine and RV policies."
         canonical="/terms-of-service"
       />
       <Navbar />

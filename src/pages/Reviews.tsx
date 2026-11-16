@@ -47,7 +47,7 @@ const Reviews = () => (
     <div className="min-h-screen bg-canvas">
       <SEO
         title="Reviews & Why Xpress | Mobile Detailing Calgary"
-        description={`${FIVE_STAR_REVIEWS} five-star Google reviews, published prices and a walkthrough before we leave. Mobile detailing across ${SERVICE_AREA_SENTENCE}.`}
+        description={`${FIVE_STAR_REVIEWS} five-star Google reviews, published prices and a walkthrough before we leave. Mobile car, RV and fleet detailing across Calgary and area.`}
         canonical="/reviews"
       />
       <Navbar />

@@ -27,7 +27,9 @@ const SEO = ({
   noindex = false,
 }: SEOProps) => {
   // Brand is appended once; titles that already name it are left alone.
-  const fullTitle = /xpress/i.test(title) ? title : `${title} | ${SITE_NAME}`;
+  // Google shows roughly 60 characters: use the full brand when it fits, the short one when it does not.
+  const withFull = `${title} | ${SITE_NAME}`;
+  const fullTitle = /xpress/i.test(title) ? title : withFull.length <= 60 ? withFull : `${title} | Xpress`;
   const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
   const image = ogImage || DEFAULT_OG_IMAGE;
 
@@ -80,7 +82,7 @@ export const localBusinessJsonLd = {
   name: "Xpress Auto & RV Detailing",
   url: "https://xpressautodetail.ca",
   image: "https://xpressautodetail.ca/og-default.jpg",
-  sameAs: ["https://www.instagram.com/xpressautodetailingyyc"],
+  sameAs: ["https://www.instagram.com/xpressauto.yyc"],
   knowsAbout: ["Paint Protection Film", "Ceramic Coating", "CARPRO DQUARTZ", "SunTek PPF", "Window Tint", "RV Detailing", "Fleet Detailing"],
   telephone: "+1-587-500-4523",
   email: "support@xpressautodetail.ca",

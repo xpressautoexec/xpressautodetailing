@@ -42,7 +42,7 @@ const LeaseReturn = () => (
   <PageTransition>
     <div className="min-h-screen bg-canvas">
       <SEO
-        title="Lease Return Prep Calgary | Interior, Swirls, Headlights, PPF Removal"
+        title="Lease Return Detailing & Prep Calgary"
         description="Lease return prep in Calgary and Airdrie: interior reset, scuff and swirl correction, headlight restoration and PPF removal before your lease inspection."
         canonical="/lease-return"
         jsonLd={buildServiceJsonLd("Lease Return Prep", "Interior reset, paint correction, headlight restoration and PPF removal before a lease inspection.", "/lease-return")}
