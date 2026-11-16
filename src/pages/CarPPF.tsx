@@ -2,9 +2,7 @@ import { useState } from "react";
 import LandingPage from "@/components/site/LandingPage";
 import { Section, SectionHeading } from "@/components/site/Section";
 import PackageCard from "@/components/site/PackageCard";
-import QuoteLink from "@/components/site/QuoteLink";
 import { Check, Phone } from "lucide-react";
-import { CTA } from "@/data/brand";
 import { CHIP_ZONES } from "@/components/ppf/PpfCoverageMap";
 import PPFCraft from "@/components/ppf/PPFCraft";
 import heroImg from "@/assets/ppf-hero.jpg";
@@ -13,6 +11,17 @@ import covFullFront from "@/assets/ppf/coverage-full-front.webp";
 import covFullFrontPlus from "@/assets/ppf/coverage-full-front-plus.webp";
 import covFull from "@/assets/ppf/coverage-full.webp";
 import covWindshield from "@/assets/ppf/coverage-windshield.webp";
+import suvPartial from "@/assets/ppf/suv/coverage-partial.webp";
+import suvFullFront from "@/assets/ppf/suv/coverage-full-front.webp";
+import suvFullFrontPlus from "@/assets/ppf/suv/coverage-full-front-plus.webp";
+import suvFull from "@/assets/ppf/suv/coverage-full.webp";
+import suvWindshield from "@/assets/ppf/suv/coverage-windshield.webp";
+import truckPartial from "@/assets/ppf/truck/coverage-partial.webp";
+import truckFullFront from "@/assets/ppf/truck/coverage-full-front.webp";
+import truckFullFrontPlus from "@/assets/ppf/truck/coverage-full-front-plus.webp";
+import truckFull from "@/assets/ppf/truck/coverage-full.webp";
+import truckWindshield from "@/assets/ppf/truck/coverage-windshield.webp";
+import exoticFull from "@/assets/ppf/exotic/coverage-full.webp";
 import { CAR_PPF, CAR_PPF_SIZES, PPF_UPCHARGE, WINDSHIELD_PPF, carPpfPrice, money, type CarPpfSizeId } from "@/data/pricing";
 import { FILM_BRAND, FILM_CUT_SYSTEM } from "@/data/copy";
 import { FILM, SYSTEMS } from "@/data/brand";
@@ -51,12 +60,19 @@ const faqs = [
   },
 ];
 
-/** Coverage diagrams: film shown in blue on the same car for every package. */
-const COVERAGE_IMG: Record<string, string> = {
-  "partial-front": covPartial,
-  "full-front": covFullFront,
-  "track-pack": covFullFrontPlus,
-  "full-vehicle": covFull,
+/** Coverage diagrams: film shown in blue, one vehicle per size tab (exotic shows full coverage only). */
+type CoverageSet = Record<"partial-front" | "full-front" | "track-pack" | "full-vehicle" | "windshield", string>;
+const COVERAGE: Record<CarPpfSizeId, CoverageSet> = {
+  car: { "partial-front": covPartial, "full-front": covFullFront, "track-pack": covFullFrontPlus, "full-vehicle": covFull, windshield: covWindshield },
+  suv: { "partial-front": suvPartial, "full-front": suvFullFront, "track-pack": suvFullFrontPlus, "full-vehicle": suvFull, windshield: suvWindshield },
+  truck: {
+    "partial-front": truckPartial,
+    "full-front": truckFullFront,
+    "track-pack": truckFullFrontPlus,
+    "full-vehicle": truckFull,
+    windshield: truckWindshield,
+  },
+  exotic: { "partial-front": covPartial, "full-front": covFullFront, "track-pack": covFullFrontPlus, "full-vehicle": exoticFull, windshield: covWindshield },
 };
 
 const SIZE_LABEL: Record<CarPpfSizeId, string> = { car: "Sedan / coupe", suv: "SUV", truck: "Pickup", exotic: "Exotic" };
@@ -66,6 +82,7 @@ const fullCoverage = CAR_PPF.find((p) => p.id === "full-vehicle")!;
 const CarPPF = () => {
   const [size, setSize] = useState<CarPpfSizeId>("car");
   const sizeInfo = CAR_PPF_SIZES.find((s) => s.id === size)!;
+  const cov = COVERAGE[size];
 
   return (
     <LandingPage
@@ -153,7 +170,7 @@ const CarPPF = () => {
         {size === "exotic" ? (
           <div className="grid overflow-hidden rounded-card border border-electric bg-surface lg:grid-cols-2">
             <img
-              src={COVERAGE_IMG["full-vehicle"]}
+              src={cov["full-vehicle"]}
               alt="Full Coverage paint protection film shown in blue"
               width={1122}
               height={580}
@@ -176,13 +193,13 @@ const CarPPF = () => {
                 ))}
               </ul>
               <p className="mt-5 text-sm text-ink-2">Want something different, like a front end only or track-day impact zones? Call and we will build custom coverage for your car.</p>
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <QuoteLink href="#quote" className="pill-action inline-flex min-h-[52px] items-center justify-center rounded-full bg-action px-8 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-ink" />
-                <a href={TEL} className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border-2 border-ink/15 px-7 text-[15px] font-semibold text-ink transition-colors hover:border-ink">
-                  <Phone className="h-4 w-4 text-action" aria-hidden="true" />
-                  {CTA.call}
-                </a>
-              </div>
+              <a
+                href={TEL}
+                className="mt-6 inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-full bg-action px-8 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-ink sm:w-auto sm:self-start"
+              >
+                <Phone className="h-4 w-4" aria-hidden="true" />
+                Call for a quote
+              </a>
             </div>
           </div>
         ) : (
@@ -200,7 +217,7 @@ const CarPPF = () => {
               warrantyLink
               visual={
                 <img
-                  src={COVERAGE_IMG[p.id]}
+                  src={cov[p.id as keyof CoverageSet]}
                   alt={`${p.name} paint protection film coverage shown in blue`}
                   width={1122}
                   height={580}
@@ -214,7 +231,7 @@ const CarPPF = () => {
         )}
         <div className="mt-5 grid overflow-hidden rounded-card border border-dashed border-ink/25 sm:grid-cols-[minmax(0,20rem)_1fr]">
           <img
-            src={covWindshield}
+            src={cov.windshield}
             alt="Windshield protection film coverage shown in blue"
             width={1122}
             height={580}
