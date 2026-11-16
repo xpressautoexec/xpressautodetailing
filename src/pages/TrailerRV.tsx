@@ -219,7 +219,7 @@ const TrailerRV = () => (
       <ServicePageHero
         eyebrow="RV & trailer"
         title="Restore the gelcoat. Protect the investment."
-        subtitle={`RV gelcoat restoration, oxidation removal and detailing, priced by the foot and done where it's parked across Calgary and Airdrie.${
+        subtitle={`RV gelcoat restoration, oxidation removal and detailing, priced by the foot and done where it's parked in Calgary, Airdrie and surrounding areas.${
           FINANCING_LIVE ? " Monthly financing on restoration work." : ""
         }`}
         quoteLabel={CTA.rv}

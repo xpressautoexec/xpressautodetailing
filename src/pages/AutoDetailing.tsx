@@ -37,7 +37,7 @@ const AutoDetailing = () => (
     }}
     hero={{
       title: "Auto detailing in Calgary that comes to you",
-      subtitle: "We arrive with our own water, power, extraction and polishing equipment and detail your car, truck or SUV where it already sits. No drop-off, no waiting room.",
+      subtitle: "Mobile detailing in Calgary, Airdrie and surrounding areas. We arrive with our own water, power, extraction and polishing equipment and detail your car, truck or SUV where it already sits. No drop-off, no waiting room.",
       image: heroImg,
       ctaType: "book",
       bookHref: "/detailing#packages",

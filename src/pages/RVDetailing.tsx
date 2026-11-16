@@ -44,7 +44,7 @@ const RVDetailing = () => (
     hero={{
       quoteLabel: CTA.rv,
       title: "RV detailing done where you store it",
-      subtitle: "Alberta sun, hail and road brine are hard on gelcoat. We restore oxidized fibreglass, strip black streaks, clean the living space and seal the unit at your storage lot, campground or driveway.",
+      subtitle: "Alberta sun, hail and road brine are hard on gelcoat. We restore oxidized fibreglass, strip black streaks, clean the living space and seal the unit at your storage lot, campground or driveway in Calgary, Airdrie and surrounding areas.",
       image: rvHero,
       ctaType: "call",
       bookHref: "/rv-trailer#packages",

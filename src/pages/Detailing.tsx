@@ -91,8 +91,8 @@ const Detailing = () => {
       <AutoBreadcrumbs />
       <ServicePageHero
         eyebrow="Detailing"
-        title="A reset, not a wash."
-        subtitle={`${AUTO_PACKAGES.length} detailing packages priced by vehicle size: mobile detailing in Calgary and Airdrie, done in your driveway, parkade or office lot with our own water and power.`}
+        title="Mobile detailing, inside and out."
+        subtitle={`${AUTO_PACKAGES.length} detailing packages priced by vehicle size: mobile detailing in Calgary, Airdrie and surrounding areas, done in your driveway, parkade or office lot with our own water and power.`}
         image={completeHero}
         bookHref="#packages"
         bookLabel="Choose a package"

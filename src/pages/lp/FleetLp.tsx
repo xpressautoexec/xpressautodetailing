@@ -43,7 +43,7 @@ const FleetLp = () => (
     <LpHero
       eyebrow="Fleet & dealership accounts"
       title="Your fleet, cleaned on your lot — on a written per-unit rate."
-      sub="Work trucks, vans, dealer inventory and heavy equipment, washed and detailed where they park. Our vans bring their own water and power."
+      sub="Work trucks, vans, dealer inventory and heavy equipment in Calgary, Airdrie and surrounding areas, washed and detailed where they park. Our vans bring their own water and power."
       points={["Per-unit rates in writing", "Off-hours rotations: early, evening or weekend", "One monthly invoice with a per-unit breakdown"]}
       image={{ small, large, alt: "Ford Transit fleet van during on-site cleaning" }}
       form={

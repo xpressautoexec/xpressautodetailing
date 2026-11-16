@@ -29,8 +29,8 @@ const HomeHero = () => (
           in Calgary
         </h1>
         <p className="mt-10 max-w-[32rem] text-lg leading-relaxed text-ink-2">
-          Ceramic coating, SunTek® paint protection film, window tint and full detailing for cars, RVs and fleets — mobile across
-          Calgary or in our heated Airdrie shop.
+          Ceramic coating, SunTek® paint protection film, window tint and full detailing for cars, RVs and fleets. Mobile in
+          Calgary, Airdrie and surrounding areas, or at our heated Airdrie shop.
         </p>
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
           <QuoteLink className="pill-action min-h-[56px] gap-2 rounded-full bg-action px-9 text-[15px] text-primary-foreground transition-colors hover:bg-ink">

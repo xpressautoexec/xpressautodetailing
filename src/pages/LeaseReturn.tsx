@@ -52,7 +52,7 @@ const LeaseReturn = () => (
       <ServicePageHero
         eyebrow="Lease return prep"
         title="Return it without the charges."
-        subtitle="Interior reset, scuff and swirl correction, headlight restoration and PPF removal, done before your lease inspection."
+        subtitle="Interior reset, scuff and swirl correction, headlight restoration and PPF removal, done before your lease inspection. Mobile in Calgary, Airdrie and surrounding areas."
         image={heroImg}
         imageAlt="Cadillac SRX cream leather front cabin after interior detail"
         ctaType="call"

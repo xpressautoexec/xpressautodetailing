@@ -53,7 +53,7 @@ const Training = () => (
         openings={false}
         eyebrow="1-on-1 · hands-on"
         title="Detailing training"
-        subtitle="1-on-1, hands-on courses taught by the crew that does the work every day. Real vehicles, professional products, and the instructor to yourself."
+        subtitle="1-on-1, hands-on courses in Calgary, Airdrie and surrounding areas, taught by the crew that does the work every day. Real vehicles, professional products, and the instructor to yourself."
         image={heroImg}
         ctaType="call"
         bookHref="/training/signup"

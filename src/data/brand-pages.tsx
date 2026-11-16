@@ -63,7 +63,7 @@ export const SUNTEK_PPF: BrandPage = {
   hero: {
     eyebrow: "Authorized SunTek installer",
     title: "SunTek PPF",
-    subtitle: "Self-healing paint protection film that takes Calgary's rock chips, gravel and road salt so your paint does not.",
+    subtitle: "Self-healing paint protection film that takes the rock chips, gravel and road salt so your paint does not. Installed in Calgary, Airdrie and surrounding areas.",
     image: heroPpfFront,
     imageAlt: "White Mercedes-Benz C-Class front end",
   },
@@ -103,7 +103,7 @@ export const LLUMAR_PPF: BrandPage = {
   hero: {
     eyebrow: "Authorized LLumar installer",
     title: "LLumar PPF",
-    subtitle: "Protect and enhance your vehicle's finish with LLumar paint protection film, in gloss or matte.",
+    subtitle: "Protect and enhance your vehicle's finish with LLumar paint protection film, in gloss or matte. Installed in Calgary, Airdrie and surrounding areas.",
     image: heroRangeRover,
     imageAlt: "Range Rover headlight after paint protection",
   },
@@ -201,7 +201,7 @@ export const DQUARTZ: BrandPage = {
   hero: {
     eyebrow: "Authorized CARPRO installer",
     title: "CARPRO DQUARTZ",
-    subtitle: "Our flagship coating: ceramic protection reinforced with synthetic nano-diamonds, built to resist wash swirls.",
+    subtitle: "Our flagship coating: ceramic protection reinforced with synthetic nano-diamonds, built to resist wash swirls. Installed in Calgary, Airdrie and surrounding areas.",
     image: heroDquartz,
     imageAlt: "Water beading on a freshly coated white hood",
   },
@@ -249,7 +249,7 @@ export const WINDOW_TINT: BrandPage = {
   hero: {
     eyebrow: "Authorized SunTek installer",
     title: "Window tint",
-    subtitle: "A cooler cabin, less glare off snow and low winter sun, and UV protection for you and your interior.",
+    subtitle: "A cooler cabin, less glare off snow and low winter sun, and UV protection for you and your interior. Installed in Calgary, Airdrie and surrounding areas.",
     image: heroTint,
     imageAlt: "Range Rover three-quarter view showing tinted windows",
   },
@@ -290,7 +290,7 @@ export const LLUMAR_TINT: BrandPage = {
   hero: {
     eyebrow: "Authorized LLumar installer",
     title: "LLumar tint",
-    subtitle: "Automotive window film known for quality, colour stability and a durable scratch-resistant coating.",
+    subtitle: "Automotive window film known for quality, colour stability and a durable scratch-resistant coating. Installed in Calgary, Airdrie and surrounding areas.",
     image: heroCabin,
     imageAlt: "Vehicle cabin with tinted glass",
   },
@@ -331,7 +331,7 @@ export const SUNTEK_TINT: BrandPage = {
   hero: {
     eyebrow: "Authorized SunTek installer",
     title: "SunTek tint",
-    subtitle: "When the sun brings its worst: SunTek window film for heat rejection, less glare and UV protection.",
+    subtitle: "When the sun brings its worst: SunTek window film for heat rejection, less glare and UV protection. Installed in Calgary, Airdrie and surrounding areas.",
     image: heroBmw,
     imageAlt: "BMW M340i front three-quarter",
   },

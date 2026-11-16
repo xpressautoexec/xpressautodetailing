@@ -38,7 +38,7 @@ const InteriorLp = () => (
     <LpHero
       eyebrow="Calgary salt season"
       title="Get the salt out of your interior — without leaving your driveway."
-      sub="Carpets and mats extracted, not just vacuumed, so the white tide lines come out instead of drying back in. Our vans bring their own water and power."
+      sub="Carpets and mats extracted, not just vacuumed, so the white tide lines come out instead of drying back in. Mobile in Calgary, Airdrie and surrounding areas, with our own water and power."
       points={[
         "Salt stain removal and deep extraction included",
         "In your driveway, parkade or office lot, or at our heated Airdrie shop",

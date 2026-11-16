@@ -88,7 +88,7 @@ export const AUTO_PACKAGES: AutoPackage[] = [
   {
     id: "refresh",
     name: "Inside & Out",
-    tagline: "For a car that's been lived in for a few months and needs a proper reset — not a wash.",
+    tagline: "For a car that's been lived in for a few months and needs a deep clean inside and out.",
     duration: "2.5–3 hrs",
     includes: [
       "Everything in Upkeep",

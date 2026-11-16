@@ -66,7 +66,7 @@ const GiftCards = () => (
       <ServicePageHero
         openings={false}
         title="Detailing gift cards"
-        subtitle={`From ${money(minCard)} to ${money(maxCard)}, delivered by email the moment you check out. Good for any service, and they never expire.`}
+        subtitle={`From ${money(minCard)} to ${money(maxCard)}, good for any service in Calgary, Airdrie and surrounding areas. Delivered by email the moment you check out, and they never expire.`}
         image={giftcardHero}
         bookHref="#buy"
         bookLabel="Buy a gift card"

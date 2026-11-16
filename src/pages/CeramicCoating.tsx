@@ -60,7 +60,7 @@ const CeramicCoating = () => (
       <ServicePageHero
         eyebrow="Ceramic coating"
         title="Gloss measured in years, not weeks."
-        subtitle={`Paint correction plus a CARPRO, Gyeon or 3M ceramic coating, from ${money(from)}. Pick a tier, book it, choose your coating at drop-off.`}
+        subtitle={`Ceramic coating in Calgary, Airdrie and surrounding areas: paint correction plus a CARPRO, Gyeon or 3M coating, from ${money(from)}. Pick a tier, book it, choose your coating at drop-off.`}
         image={heroImg}
         imageAlt="Machine polishing a black Mini Cooper fender before ceramic coating"
         imagePosition="50% 70%"

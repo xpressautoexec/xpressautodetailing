@@ -62,7 +62,7 @@ const HeadlightRestoration = () => (
     }}
     hero={{
       title: "Headlight restoration: clear lenses in under an hour",
-      subtitle: `Yellow, cloudy headlights make a car look older and cut how far you can see at night. We sand off the oxidized layer, polish the lens clear and seal it with a 3-year UV-resistant ceramic. ${money(standalone)} per pair, at your driveway.`,
+      subtitle: `Yellow, cloudy headlights make a car look older and cut how far you can see at night. We sand off the oxidized layer, polish the lens clear and seal it with a 3-year UV-resistant ceramic. ${money(standalone)} per pair, at your driveway in Calgary, Airdrie and surrounding areas.`,
       image: heroImg,
       ctaType: "book",
       bookHref: BOOK_HEADLIGHTS,

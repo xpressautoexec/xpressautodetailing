@@ -128,7 +128,7 @@ const Gallery = () => {
         <ServicePageHero
           openings={false}
           title="Our work"
-          subtitle={`${totalPhotos} photos from real jobs, every one a customer vehicle shot on site by our crew. No stock images.`}
+          subtitle={`${totalPhotos} photos from real jobs in Calgary, Airdrie and surrounding areas, every one a customer vehicle shot on site by our crew. No stock images.`}
           image={galleryHero}
           imageAlt="Freshly coated white Toyota RAV4 seen through the bay door of the Xpress shop in Airdrie"
           imagePosition="60% 50%"

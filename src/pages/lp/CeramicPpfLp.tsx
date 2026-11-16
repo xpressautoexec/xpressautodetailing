@@ -61,7 +61,7 @@ const CeramicPpfLp = () => (
     <LpHero
       eyebrow={`Heated shop · ${SHOP.city}`}
       title="Ceramic, PPF and windshield film, done indoors in Airdrie."
-      sub="Paint correction and ceramic coating, clear paint protection film and windshield film, installed in a warm, clean bay. Drop it off; we'll text you when it's ready."
+      sub="Paint correction and ceramic coating, clear paint protection film and windshield film, installed in our heated Airdrie bay for drivers in Calgary, Airdrie and surrounding areas. Drop it off; we'll text you when it's ready."
       points={[
         "Authorized CARPRO installer",
         `${FILM_BRAND} paint film · windshield film`,

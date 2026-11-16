@@ -65,7 +65,7 @@ const WindshieldPPF = () => (
     hero={{
       eyebrow: "Windshield protection",
       title: "Fewer chips. Fewer windshields.",
-      subtitle: `Windshield protection film for Alberta's gravel highways, part of ${SYSTEMS.protect.tm}.`,
+      subtitle: `Windshield protection film for Alberta's gravel highways, installed for drivers in Calgary, Airdrie and surrounding areas. Part of ${SYSTEMS.protect.tm}.`,
       image: heroImg,
       ctaType: "book",
       bookLabel: BOOK_LABEL,

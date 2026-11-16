@@ -127,7 +127,7 @@ const RVPPF = () => (
       <ServicePageHero
         eyebrow={`${SYSTEMS.protect.tm} · RV film`}
         title="RV paint protection film"
-        subtitle={`A front-cap respray can cost $8,000 to $20,000. Self-healing film takes the rock chips, bug acid and UV instead, for a fraction of that. Packages from ${money(from)}.`}
+        subtitle={`A front-cap respray can cost $8,000 to $20,000. Self-healing film takes the rock chips, bug acid and UV instead, for a fraction of that. Installed in Calgary, Airdrie and surrounding areas, from ${money(from)}.`}
         image={rvPPFHero}
         ctaType="call"
         bookHref="#assessment"

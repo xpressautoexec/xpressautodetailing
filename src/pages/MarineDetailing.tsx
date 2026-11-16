@@ -62,7 +62,7 @@ const MarineDetailing = () => (
       <ServicePageHero
         eyebrow="Marine"
         title="Marine and pontoon detailing"
-        subtitle="Alberta boats sit dry, dusty and in hard sun. We polish chalked gelcoat, protect vinyl and restore stained pontoon tubes at the marina, the storage yard or your driveway."
+        subtitle="Alberta boats sit dry, dusty and in hard sun. We polish chalked gelcoat, protect vinyl and restore stained pontoon tubes at the marina, the storage yard or your driveway in Calgary, Airdrie and surrounding areas."
         image={marineHeroAsset.url}
         ctaType="call"
         bookHref="#assessment"

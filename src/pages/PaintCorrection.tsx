@@ -52,7 +52,7 @@ const PaintCorrection = () => (
     hero={{
       eyebrow: "Paint correction",
       title: "Remove the swirls. Keep the clear coat.",
-      subtitle: "Paint correction in Calgary, staged to what your clear coat can safely give: we measure paint depth first and correct under inspection lighting.",
+      subtitle: "Paint correction in Calgary, Airdrie and surrounding areas, staged to what your clear coat can safely give: we measure paint depth first and correct under inspection lighting.",
       image: heroImg,
       ctaType: "call",
       bookHref: "#correction-stages",

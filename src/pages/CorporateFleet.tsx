@@ -80,7 +80,7 @@ const CorporateFleet = () => (
       <ServicePageHero
         eyebrow="For business"
         title="Clean units. On schedule. One invoice."
-        subtitle={`The ${SYSTEMS.fleet.tm}: fleet washing in Calgary and Airdrie on your own lot, on a per-unit rate in writing, with one monthly invoice.`}
+        subtitle={`The ${SYSTEMS.fleet.tm}: fleet washing in Calgary, Airdrie and surrounding areas, on your own lot, on a per-unit rate in writing, with one monthly invoice.`}
         image={fleetHero}
         ctaType="call"
         quoteLabel={CTA.fleet}
