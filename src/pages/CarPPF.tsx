@@ -2,9 +2,14 @@ import { useState } from "react";
 import LandingPage from "@/components/site/LandingPage";
 import { Section, SectionHeading } from "@/components/site/Section";
 import PackageCard from "@/components/site/PackageCard";
-import PpfCoverageMap, { CHIP_ZONES, type PpfPackageId } from "@/components/ppf/PpfCoverageMap";
+import { CHIP_ZONES } from "@/components/ppf/PpfCoverageMap";
 import PPFCraft from "@/components/ppf/PPFCraft";
 import heroImg from "@/assets/ppf-hero.jpg";
+import covPartial from "@/assets/ppf/coverage-partial.webp";
+import covFullFront from "@/assets/ppf/coverage-full-front.webp";
+import covFullFrontPlus from "@/assets/ppf/coverage-full-front-plus.webp";
+import covFull from "@/assets/ppf/coverage-full.webp";
+import covWindshield from "@/assets/ppf/coverage-windshield.webp";
 import { CAR_PPF, CAR_PPF_SIZES, PPF_UPCHARGE, WINDSHIELD_PPF, carPpfPrice, money, type CarPpfSizeId } from "@/data/pricing";
 import { FILM_BRAND, FILM_CUT_SYSTEM } from "@/data/copy";
 import { FILM, SYSTEMS } from "@/data/brand";
@@ -35,7 +40,7 @@ const faqs = [
   },
   {
     q: "How long does it take?",
-    a: "A partial or full front is one day. Track Pack is one to two days. A full vehicle is two to three days, and the film needs a few days to fully clear.",
+    a: "Partial or Full Front is one day. Full Front + is one to two days. Full Coverage is two to three days, and the film needs a few days to fully clear.",
   },
   {
     q: "Can you do the windshield too?",
@@ -43,15 +48,19 @@ const faqs = [
   },
 ];
 
+/** Coverage diagrams: film shown in blue on the same car for every package. */
+const COVERAGE_IMG: Record<string, string> = {
+  "partial-front": covPartial,
+  "full-front": covFullFront,
+  "track-pack": covFullFrontPlus,
+  "full-vehicle": covFull,
+};
+
 const SIZE_LABEL: Record<CarPpfSizeId, string> = { car: "Sedan / small SUV", truck: "Truck / large SUV", exotic: "Exotic" };
 
 const CarPPF = () => {
   const [size, setSize] = useState<CarPpfSizeId>("car");
-  const [selected, setSelected] = useState<PpfPackageId>("full-front");
-  const [windshield, setWindshield] = useState(false);
-  const [zones, setZones] = useState(false);
   const sizeInfo = CAR_PPF_SIZES.find((s) => s.id === size)!;
-  const sel = CAR_PPF.find((p) => p.id === selected)!;
 
   return (
     <LandingPage
@@ -115,7 +124,7 @@ const CarPPF = () => {
         <SectionHeading
           eyebrow={SYSTEMS.protect.tm}
           title="Four levels of coverage."
-          intro="From a partial front to full front PPF and a full body clear bra. Pick a package to see exactly which panels it covers."
+          intro="From a partial front to full front PPF and a full body clear bra. The blue on each car shows exactly which panels get film."
         />
 
         <div role="tablist" aria-label="Vehicle size" className="mb-2 flex w-full gap-1 rounded-md border border-line bg-surface p-1 sm:w-fit">
@@ -136,57 +145,47 @@ const CarPPF = () => {
         </div>
         <p className="mb-10 text-sm text-muted-ink">e.g. {sizeInfo.examples}</p>
 
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,22rem)_1fr] lg:gap-14">
-          {/* Coverage map */}
-          <div className="lg:sticky lg:top-[calc(var(--header-h)+1.5rem)] lg:self-start">
-            <div className="rounded-card border border-line bg-surface p-6">
-              <p className="eyebrow">Coverage</p>
-              <p className="mt-1 font-heading text-2xl font-bold text-ink">{sel.name}</p>
-              <PpfCoverageMap
-                selected={selected}
-                windshield={windshield}
-                zones={zones}
-                title={`Top-down view: ${sel.name} coverage${windshield ? " plus windshield film" : ""} shown in blue`}
-                className="mx-auto mt-4 h-[360px] w-auto sm:h-[420px]"
-              />
-              <div className="mt-5 grid gap-2 border-t border-line pt-4 text-sm">
-                <label className="flex cursor-pointer items-center gap-2.5 text-ink">
-                  <input type="checkbox" checked={windshield} onChange={(e) => setWindshield(e.target.checked)} className="h-4 w-4 accent-[hsl(var(--electric))]" />
-                  Add windshield film
-                </label>
-                <label className="flex cursor-pointer items-center gap-2.5 text-ink">
-                  <input type="checkbox" checked={zones} onChange={(e) => setZones(e.target.checked)} className="h-4 w-4 accent-[hsl(var(--electric))]" />
-                  Show where chips happen
-                </label>
-              </div>
+        <div className="grid gap-5 pt-3 sm:grid-cols-2 xl:grid-cols-4">
+          {CAR_PPF.map((p) => (
+            <PackageCard
+              key={p.id}
+              name={p.name}
+              forWho={p.forWho}
+              includes={p.covers}
+              time={p.time}
+              price={`From ${money(carPpfPrice(p.price, size))}`}
+              priceNote={SIZE_LABEL[size]}
+              mostChosen={p.popular}
+              warrantyLink
+              visual={
+                <img
+                  src={COVERAGE_IMG[p.id]}
+                  alt={`${p.name} paint protection film coverage shown in blue`}
+                  width={1122}
+                  height={580}
+                  loading="lazy"
+                  className="aspect-[1122/580] w-full rounded-t-card object-cover"
+                />
+              }
+            />
+          ))}
+        </div>
+        <div className="mt-5 grid overflow-hidden rounded-card border border-dashed border-ink/25 sm:grid-cols-[minmax(0,20rem)_1fr]">
+          <img
+            src={covWindshield}
+            alt="Windshield protection film coverage shown in blue"
+            width={1122}
+            height={580}
+            loading="lazy"
+            className="aspect-[1122/580] w-full object-cover sm:h-full sm:aspect-auto"
+          />
+          <div className="flex flex-col justify-between gap-4 p-6 lg:flex-row lg:items-center">
+            <div>
+              <p className="eyebrow">Add-on</p>
+              <p className="mt-1 font-heading text-2xl font-bold text-ink">Windshield only</p>
+              <p className="mt-1 text-sm text-ink-2">Clear film for the glass, on its own or with any package. Backed by the manufacturer's 2-year / 50,000 km warranty.</p>
             </div>
-          </div>
-
-          {/* Package ladder */}
-          <div className="grid gap-5 pt-3 sm:grid-cols-2">
-            {CAR_PPF.map((p) => (
-              <PackageCard
-                key={p.id}
-                name={p.name}
-                forWho={p.forWho}
-                includes={p.covers}
-                time={p.time}
-                price={`From ${money(carPpfPrice(p.price, size))}`}
-                priceNote={SIZE_LABEL[size]}
-                mostChosen={p.popular}
-                selected={selected === p.id}
-                onSelect={() => setSelected(p.id as PpfPackageId)}
-                warrantyLink
-              />
-            ))}
-            <div className="flex flex-col justify-between gap-4 rounded-card border border-dashed border-ink/25 p-6 sm:col-span-2 sm:flex-row sm:items-center">
-              <div>
-                <p className="eyebrow">Add-on</p>
-                <p className="mt-1 font-heading text-2xl font-bold text-ink">Windshield film</p>
-                <p className="mt-1 text-sm text-ink-2">Clear film for the glass. Backed by the manufacturer's 2-year / 50,000 km warranty.</p>
-              </div>
-              <p className="num shrink-0 text-3xl text-ink">From {money(windshieldFrom)}</p>
-            </div>
+            <p className="num shrink-0 text-3xl text-ink">From {money(windshieldFrom)}</p>
           </div>
         </div>
 
