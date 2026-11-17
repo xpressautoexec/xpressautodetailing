@@ -160,7 +160,7 @@ const BlogPPFvsCeramic = () => (
                   <li>Stops salt, brine and mag chloride from etching or staining</li>
                   <li>Covers the whole vehicle, including glass and wheels</li>
                   <li>Typically 2 to 5+ years depending on the product</li>
-                  <li>Makes winter washes far faster — grime releases instead of bonding</li>
+                  <li>Makes winter washes far faster, since grime releases easily</li>
                 </ul>
               </div>
             </div>

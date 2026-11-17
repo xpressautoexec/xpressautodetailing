@@ -7,6 +7,7 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import QuoteSection from "@/components/site/QuoteSection";
 import WorkShowcase from "@/components/site/WorkShowcase";
 import CoatPackages from "@/components/site/CoatPackages";
+import GuaranteeStrip from "@/components/site/GuaranteeStrip";
 import ManufacturerWarranty from "@/components/site/ManufacturerWarranty";
 import FeatureRow from "@/components/site/FeatureRow";
 import { Section, SectionHeading } from "@/components/site/Section";
@@ -89,6 +90,7 @@ const CeramicCoating = () => (
         bookLabel="See packages and book"
         openings
       />
+      <GuaranteeStrip />
 
       <CoatPackages />
 
@@ -117,8 +119,8 @@ const CeramicCoating = () => (
           the paint and glass.
         </p>
         <p>
-          A coated wheel sheds brake dust and grime with a rinse instead of a
-          scrub, so the finish stays clean between washes.
+          A coated wheel sheds brake dust and grime with a quick rinse, so the
+          finish stays clean between washes.
         </p>
       </FeatureRow>
 

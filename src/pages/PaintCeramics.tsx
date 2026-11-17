@@ -46,7 +46,7 @@ const truckUpcharge =
 const faqs = [
   {
     q: "What does a ceramic coating actually do?",
-    a: "It bonds to the clear coat and gives you a hard, slick, chemically resistant layer. Dirt and road film release far easier, water beads and rolls off, and the paint keeps its gloss instead of dulling out over Alberta winters.",
+    a: "It bonds to the clear coat and gives you a hard, slick, chemically resistant layer. Dirt and road film release far easier, water beads and rolls off, and the paint keeps its gloss through Alberta winters.",
   },
   {
     q: "Do I still need to wash the car?",

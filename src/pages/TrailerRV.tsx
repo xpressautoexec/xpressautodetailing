@@ -198,7 +198,7 @@ const THEN_WHAT: {
         solution: "Ceramic sealant",
         price: `${money(svc("sealant").price)}/ft`,
         lasts: "Lasts about a season",
-        body: "A slick layer that water and grime slide off instead of drying into the gelcoat, so streaks rinse away. Reapplied each year.",
+        body: "A slick layer that water and grime slide straight off, so streaks rinse away with a hose. Reapplied each year.",
         included: "Included in every package",
         action: {
           label: "Book ceramic sealant",

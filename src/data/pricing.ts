@@ -29,7 +29,8 @@ export const BOOKING_URL = "https://xpressauto.fieldd.co/";
  * Each opens booking straight on that service, so customers skip the service picker.
  */
 export type FielddKey = string;
-export const fielddUrl = (key: FielddKey) => `${BOOKING_URL}service/${key}`;
+/** Either a shortlink key, or a full Fieldd booking link (fieldd.me/q/..., created per service in Fieldd). */
+export const fielddUrl = (key: FielddKey) => (key.startsWith("http") ? key : `${BOOKING_URL}service/${key}`);
 
 // ---------- AUTO PACKAGES ----------
 export interface AutoPackage {
@@ -297,6 +298,13 @@ export const GLOSS_PACKAGE: {
   correction: "1-step gloss enhancement",
   price: 399,
   prices: { sedan: 399, suv: 549, minivan: 599, truck: 619 },
+  /** Fieldd booking links (Discounts > QR codes "Website - Gloss Enhancement ..."). */
+  book: {
+    sedan: "https://fieldd.me/q/IenkP",
+    suv: "https://fieldd.me/q/yTPBM",
+    minivan: "https://fieldd.me/q/VLDml",
+    truck: "https://fieldd.me/q/8nb2d",
+  },
   includes: [
     "Basic exterior detail",
     "1-step gloss enhancement (entry-level correction)",
@@ -505,11 +513,12 @@ export const memberPriceFor = (pkg: AutoPackage, size: VehicleSizeId): number | 
  * Prices are the last published car PPF prices (Sept 2026), reinstated Nov 2026. Car or small SUV base;
  * PPF_UPCHARGE applies to trucks / large SUVs and exotics.
  */
+/** `book`: Fieldd booking links per size (Discounts > QR codes "Website - PPF ..."). Exotic is quote only. */
 export const CAR_PPF = [
-  { id: "partial-front", name: "Partial", price: 999, time: "1 day", forWho: "Daily drivers that see city streets more than highways.", covers: ["Front bumper", "Leading half of the hood", "Leading half of the front fenders", "Mirror caps"] },
-  { id: "full-front", name: "Full Front", price: 1899, popular: true, time: "1 day", forWho: "Highway commuters and new vehicles. No seam line on the hood.", covers: ["Front bumper", "Full hood", "Full front fenders", "Headlights", "Mirror caps"] },
-  { id: "track-pack", name: "Full Front +", price: 2899, time: "1–2 days", forWho: "Gravel roads, mountain trips and lowered or performance cars.", covers: ["Everything in Full Front", "A-pillars and roof leading edge", "Rocker panels"] },
-  { id: "full-vehicle", name: "Full Coverage", price: 5999, time: "2–3 days", forWho: "Collector, exotic and long-term vehicles.", covers: ["Every painted panel", "Windshield film", "Headlights and mirror caps", "Wrapped edges wherever possible"] },
+  { id: "partial-front", book: { car: "https://fieldd.me/q/TXbFH", suv: "https://fieldd.me/q/Uy-7D", truck: "https://fieldd.me/q/nNc6m" }, name: "Partial", price: 999, time: "1 day", forWho: "Daily drivers that see city streets more than highways.", covers: ["Front bumper", "Leading half of the hood", "Leading half of the front fenders", "Mirror caps"] },
+  { id: "full-front", book: { car: "https://fieldd.me/q/Y54l-", suv: "https://fieldd.me/q/9Syk5", truck: "https://fieldd.me/q/aAQ5C" }, name: "Full Front", price: 1899, popular: true, time: "1 day", forWho: "Highway commuters and new vehicles. No seam line on the hood.", covers: ["Front bumper", "Full hood", "Full front fenders", "Headlights", "Mirror caps"] },
+  { id: "track-pack", book: { car: "https://fieldd.me/q/fzSWz", suv: "https://fieldd.me/q/fYq7-", truck: "https://fieldd.me/q/k5EKj" }, name: "Full Front +", price: 2899, time: "1–2 days", forWho: "Gravel roads, mountain trips and lowered or performance cars.", covers: ["Everything in Full Front", "A-pillars and roof leading edge", "Rocker panels"] },
+  { id: "full-vehicle", book: { car: "https://fieldd.me/q/8kkMR", suv: "https://fieldd.me/q/zvwBH", truck: "https://fieldd.me/q/N_2qQ" }, name: "Full Coverage", price: 5999, time: "2–3 days", forWho: "Collector, exotic and long-term vehicles.", covers: ["Every painted panel", "Windshield film", "Headlights and mirror caps", "Wrapped edges wherever possible"] },
 ];
 
 export const PPF_UPCHARGE = { suvPct: 10, truckSuvPct: 15 };

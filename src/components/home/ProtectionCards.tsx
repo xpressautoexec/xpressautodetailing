@@ -5,7 +5,7 @@ const CARDS = [
   {
     title: "Ceramic Coating",
     href: "/ceramic-coating",
-    body: "A hard, glossy, water-repellent layer bonded to your clear coat, so salt and slush wash off instead of etching in.",
+    body: "A hard, glossy, water-repellent layer bonded to your clear coat, so salt and slush wash right off.",
     points: ["CARPRO DQUARTZ nano-diamond coating", "Deep gloss and easier washing", "Paint correction before coating"],
   },
   {

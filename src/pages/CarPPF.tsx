@@ -28,6 +28,7 @@ import {
   PPF_UPCHARGE,
   WINDSHIELD_PPF,
   carPpfPrice,
+  fielddUrl,
   money,
   type CarPpfSizeId,
 } from "@/data/pricing";
@@ -44,7 +45,7 @@ const windshieldFrom = Math.min(...WINDSHIELD_PPF.map((t) => t.price));
 const faqs = [
   {
     q: "What does it protect against?",
-    a: "Rock chips, road salt, sand blasting on the lower panels, bug etching and light scratches. The film takes the impact instead of the paint, and light swirls in the film heal with heat.",
+    a: "Rock chips, road salt, sand blasting on the lower panels, bug etching and light scratches. The film takes the impact, and light swirls in the film heal with heat.",
   },
   {
     q: "Which film do you use?",
@@ -130,7 +131,7 @@ const CarPPF = () => {
         defaultNeed: "PPF/windshield film",
         title: "Get a PPF quote",
       }}
-      childrenBeforeWork
+      childrenFirst
       products={["suntek", "carpro"]}
       why={WHY_PPF}
       afterFeatures={<ProtectionProductLinks />}
@@ -297,6 +298,8 @@ const CarPPF = () => {
                 price={`From ${money(carPpfPrice(p.price, size))}`}
                 priceNote={SIZE_LABEL[size]}
                 mostChosen={p.popular}
+                bookHref={fielddUrl(p.book[size])}
+                bookLabel={`Book ${p.name} · ${money(carPpfPrice(p.price, size))}`}
                 warrantyLink
                 visual={
                   <img

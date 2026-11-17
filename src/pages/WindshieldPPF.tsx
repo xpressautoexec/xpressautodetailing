@@ -80,7 +80,7 @@ const WindshieldPPF = () => (
     hero={{
       eyebrow: "Certified ExoShield installer",
       title: "It pays for itself on the drive home.",
-      subtitle: `ExoShield windshield film from ${money(from)} CAD, installed at your home or work in Calgary, Airdrie and surrounding areas. One rock is a $900 to $1,400 windshield once the cameras are recalibrated.`,
+      subtitle: `ExoShield windshield film from ${money(from)} CAD, installed at your home or work in Calgary, Airdrie and surrounding areas. A new windshield with camera recalibration runs $900 to $1,400.`,
       image: heroImg,
       ctaType: "book",
       bookLabel: "See packages",
@@ -161,7 +161,7 @@ const WindshieldPPF = () => (
     </Section>
 
     <Section tone="surface" id="cost">
-      <SectionHeading eyebrow="The math" title="One rock. Four figures." />
+      <SectionHeading eyebrow="Replacement cost" title="What a new windshield costs" />
       <div className="grid gap-6 lg:grid-cols-[minmax(0,22rem)_1fr] lg:gap-10">
         <div className="flex flex-col overflow-hidden rounded-card border-2 border-electric bg-canvas">
           <div className="border-b border-line p-6">

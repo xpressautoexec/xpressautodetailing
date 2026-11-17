@@ -212,7 +212,7 @@ export const DQUARTZ: BrandPage = {
     "A coating will not stop rock chips. For chips, pair it with SunTek paint protection film on the front end.",
   ],
   questions: [
-    { q: "Why it matters in Calgary", a: "Road salt, mag chloride, gravel dust and hard water all attack clear coat. A hard, slick coating means less sticks, and what does comes off with a gentle wash instead of a scrub that adds swirls." },
+    { q: "Why it matters in Calgary", a: "Road salt, mag chloride, gravel dust and hard water all attack clear coat. A hard, slick coating means less sticks, and what does comes off with a gentle wash." },
     { q: "Is DQUARTZ worth it over a standard coating?", a: "If your car goes through a lot of washes, the added swirl resistance is the difference you will notice. We will tell you honestly whether your car needs it." },
     { q: "How long does DQUARTZ last?", a: "On its own it is a 2-year coating. We top it with CARPRO Finest Reserve, which takes the system to 5+ years with proper washing and care." },
   ],

@@ -1,5 +1,6 @@
 import LandingPage from "@/components/site/LandingPage";
 import CorrectionTable from "@/components/site/CorrectionTable";
+import CoatPackages from "@/components/site/CoatPackages";
 import { Section, SectionHeading } from "@/components/site/Section";
 import heroImg from "@/assets/jobs/hero-paint-correction.webp";
 import { PHOTOS } from "@/data/photos";
@@ -27,7 +28,10 @@ const faqs = [
     q: "Can every scratch be polished out?",
     a: "No. If a scratch catches your fingernail it has usually gone through the clear coat, and polishing further would compromise the panel. Those need touch-up or refinishing.",
   },
-  { q: "How much clear coat is removed?", a: "A few microns. We take paint depth readings first so we stay well inside a safe margin on every panel." },
+  {
+    q: "How much clear coat is removed?",
+    a: "A few microns. We take paint depth readings first so we stay well inside a safe margin on every panel.",
+  },
   {
     q: "Should I get correction before a ceramic coating?",
     a: "Yes. A coating is clear and lasts years, so any defect present at application is sealed under it. Correction first, coating second, which is why every coating package includes it.",
@@ -41,49 +45,76 @@ const faqs = [
 const PaintCorrection = () => (
   <LandingPage
     quote={{ defaultNeed: "Paint correction/ceramic" }}
+    childrenFirst
     products={["menzerna", "carpro"]}
     seo={{
       title: "Paint Correction Calgary | Swirl & Scratch Removal",
-      description: "Machine paint correction in Calgary that removes swirls, buffer trails and etching, with paint depth readings on every panel.",
+      description:
+        "Machine paint correction in Calgary that removes swirls, buffer trails and etching, with paint depth readings on every panel.",
       canonical: "/paint-correction",
       serviceName: "Paint Correction",
-      serviceDescription: "Machine paint correction and polishing in Calgary and area.",
+      serviceDescription:
+        "Machine paint correction and polishing in Calgary and area.",
     }}
     hero={{
       eyebrow: "Paint correction",
       title: "Remove the swirls. Keep the clear coat.",
-      subtitle: "Paint correction in Calgary, Airdrie and surrounding areas, staged to what your clear coat can safely give: we measure paint depth first and correct under inspection lighting.",
+      subtitle:
+        "Paint correction in Calgary, Airdrie and surrounding areas, staged to what your clear coat can safely give: we measure paint depth first and correct under inspection lighting.",
       image: heroImg,
       ctaType: "call",
-      bookHref: "#correction-stages",
-      bookLabel: "Compare the stages",
+      bookHref: "#packages",
+      bookLabel: "See packages",
     }}
     work={{
       title: "Recent correction work",
-      intro: "Paint correction and ceramic coating jobs only: the gloss, the reflections and the details up close.",
+      intro:
+        "Paint correction and ceramic coating jobs only: the gloss, the reflections and the details up close.",
       photos: PHOTOS.ceramic,
     }}
     features={{
       title: "How correction works",
       items: [
-        { title: "Paint inspection", body: "Depth readings and inspection under multiple lights to map each defect before a pad touches the panel." },
-        { title: "One-step polish", body: "A single cut-and-finish that removes most light swirls and restores gloss. Best value for daily drivers." },
-        { title: "Two-step correction", body: "A compounding pass then a refining polish. Removes deeper defects and finishes to a true show gloss." },
-        { title: "Protection", body: "Finished with a sealant or ceramic coating so the result lasts." },
+        {
+          title: "Paint inspection",
+          body: "Depth readings and inspection under multiple lights to map each defect before a pad touches the panel.",
+        },
+        {
+          title: "One-step polish",
+          body: "A single cut-and-finish that removes most light swirls and restores gloss. Best value for daily drivers.",
+        },
+        {
+          title: "Two-step correction",
+          body: "A compounding pass then a refining polish. Removes deeper defects and finishes to a true show gloss.",
+        },
+        {
+          title: "Protection",
+          body: "Finished with a sealant or ceramic coating so the result lasts.",
+        },
       ],
     }}
     faqs={{ title: "Paint correction questions", items: faqs }}
     related={[
-      { label: "Correction and coating packages", to: "/ceramic-paint-correction" },
+      {
+        label: "Correction and coating packages",
+        to: "/ceramic-paint-correction",
+      },
       { label: "Ceramic coating", to: "/ceramic-coating" },
       { label: "RV gelcoat restoration", to: "/rv-trailer" },
       { label: "Car detailing", to: "/detailing" },
     ]}
-    closing={{ title: "See what your paint needs", body: "Free inspection, no obligation.", mode: "quote", quoteHref: "#quote" }}
+    closing={{
+      title: "See what your paint needs",
+      body: "Free inspection, no obligation.",
+      mode: "quote",
+      quoteHref: "#quote",
+    }}
   >
-    <CorrectionTable tone="surface" />
+    <CoatPackages />
 
-    <Section tone="canvas">
+    <CorrectionTable tone="canvas" />
+
+    <Section tone="surface">
       <SectionHeading
         eyebrow="Defects"
         title="What correction takes out"
@@ -91,7 +122,10 @@ const PaintCorrection = () => (
       />
       <ul className="grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-4">
         {DEFECTS.map((d) => (
-          <li key={d} className="border-b border-line pb-3 text-[15px] text-ink">
+          <li
+            key={d}
+            className="border-b border-line pb-3 text-[15px] text-ink"
+          >
             {d}
           </li>
         ))}

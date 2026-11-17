@@ -1,3 +1,4 @@
+import PopularPackages from "@/components/home/PopularPackages";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
@@ -36,7 +37,9 @@ const HOME_PICKS: { slug: string; cover: string }[] = [
 
 const HomeReceipts = () => {
   const { data = [] } = useJobs();
-  const picked = HOME_PICKS.map((p) => data.find((j) => j.slug === p.slug)).filter((j): j is NonNullable<typeof j> => Boolean(j));
+  const picked = HOME_PICKS.map((p) =>
+    data.find((j) => j.slug === p.slug),
+  ).filter((j): j is NonNullable<typeof j> => Boolean(j));
   const jobs = picked.length >= 3 ? picked.slice(0, 6) : featuredJobs(data, 6);
   const covers = Object.fromEntries(HOME_PICKS.map((p) => [p.slug, p.cover]));
   return <JobReceipts jobs={jobs} covers={covers} numbered />;
@@ -56,6 +59,7 @@ const Index = () => (
 
       <HomeHero />
       <AuthorizedInstallers />
+      <PopularPackages />
       <OurExpertise />
 
       <WhyBand
@@ -76,13 +80,17 @@ const Index = () => (
         tone="surface"
       >
         <p>
-          DQUARTZ fuses synthetic nano-diamonds with a siloxane base and CARPRO's own silicon resin. CARPRO calls it the first coating to
-          give paint real mechanical resistance to the swirls and light scratches that washing leaves behind.
+          DQUARTZ fuses synthetic nano-diamonds with a siloxane base and
+          CARPRO's own silicon resin. CARPRO calls it the first coating to give
+          paint real mechanical resistance to the swirls and light scratches
+          that washing leaves behind.
         </p>
         <p>
-          It goes on paint and metal, adds strong chemical and environmental resistance against Calgary salt and grime, and is known for two
-          things owners notice every wash: deep gloss and a self-cleaning surface. As an authorized CARPRO installer, we prep and correct
-          the paint first, so the coating locks in a finish worth keeping.
+          It goes on paint and metal, adds strong chemical and environmental
+          resistance against Calgary salt and grime, and is known for two things
+          owners notice every wash: deep gloss and a self-cleaning surface. As
+          an authorized CARPRO installer, we prep and correct the paint first,
+          so the coating locks in a finish worth keeping.
         </p>
       </FeatureRow>
 
@@ -95,20 +103,27 @@ const Index = () => (
         rule
       >
         <p>
-          Alberta sun chalks gelcoat and fibreglass fast. We cut back the oxidation, restore the shine and seal it, at your house, storage
-          lot or campground. Our vans carry their own water and power.
+          Alberta sun chalks gelcoat and fibreglass fast. We cut back the
+          oxidation, restore the shine and seal it, at your house, storage lot
+          or campground. Our vans carry their own water and power.
         </p>
       </FeatureRow>
 
       <section className="section-y bg-canvas" aria-labelledby="receipts-title">
         <div className="shell">
           <div className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <h2 id="receipts-title" className="display-xl !text-[clamp(32px,4vw,64px)]">
+            <h2
+              id="receipts-title"
+              className="display-xl !text-[clamp(32px,4vw,64px)]"
+            >
               Real jobs,
               <br />
               written down
             </h2>
-            <Link to="/gallery" className="pill-action inline-flex items-center gap-2 border-2 border-ink/15 text-ink hover:border-ink">
+            <Link
+              to="/gallery"
+              className="pill-action inline-flex items-center gap-2 border-2 border-ink/15 text-ink hover:border-ink"
+            >
               See the gallery
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
