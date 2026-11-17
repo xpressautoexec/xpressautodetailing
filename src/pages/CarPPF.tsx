@@ -240,7 +240,7 @@ const CarPPF = () => {
 
         {size === "exotic" ? (
           <div className="grid overflow-hidden rounded-card border border-electric bg-surface lg:grid-cols-2">
-            <div className="flex items-center bg-[#ebecf2]">
+            <div className="flex items-center bg-line">
               <img
                 src={cov["full-vehicle"]}
                 alt="Full Coverage paint protection film shown in blue"

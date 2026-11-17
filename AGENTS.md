@@ -15,7 +15,8 @@ Build: `npm run build` = client build + SSR build of `src/entry-server.tsx` +
 3. Never edit auto-gen: `src/integrations/supabase/{client,types}.ts`,
    `previewAuthStorage.ts`, `.env`, `supabase/config.toml`.
 4. No emojis (Lucide only). Banned terms: "Money-Back Guarantee", "Trained &
-   Certified", "Fully Insured", "Eco-Friendly".
+   Certified", "Fully Insured", "Eco-Friendly". No "X, not Y" contrast copy ("years, not a season",
+   "extracted, not just vacuumed", "X instead of Y" used the same way): state the benefit plainly.
 5. No hardcoded color utilities (`text-white`, `bg-[#...]`) — use tokens in
    `src/index.css` (`--brand-dark`, `--brand-blue`, `--primary`) and shadcn variants.
 6. Roles: separate `user_roles` table + `security definer` `has_role()`, never a
