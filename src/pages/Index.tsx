@@ -50,8 +50,8 @@ const Index = () => (
   <PageTransition>
     <div className="min-h-screen bg-canvas">
       <SEO
-        title="Mobile Car & RV Detailing Calgary | Ceramic, PPF & Tint"
-        description="Mobile car and RV detailing in Calgary and Airdrie: CARPRO ceramic coating, SunTek paint protection film and ExoShield windshield film, at your driveway."
+        title="Car & RV Detailing Calgary | Ceramic Coating, PPF & Windshield Film"
+        description="Mobile car and RV detailing in Calgary and Airdrie: CARPRO ceramic coating, SunTek paint protection film and ExoShield windshield film, at our heated Airdrie shop or your driveway."
         canonical="/"
         jsonLd={localBusinessJsonLd}
       />

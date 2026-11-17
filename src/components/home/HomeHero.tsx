@@ -20,17 +20,15 @@ const HomeHero = () => (
 
       <div className="hero-copy flex flex-col justify-center pb-14 pt-10 sm:pb-20 lg:order-1 lg:py-20 lg:pr-12">
         <h1 className="llumar-hero-title">
-          Mobile
-          <br />
-          detailing &amp;
+          Detailing &amp;
           <br />
           protection
           <br />
           in Calgary
         </h1>
         <p className="mt-10 max-w-[32rem] text-lg leading-relaxed text-ink-2">
-          Ceramic coating, SunTek® paint protection film, ExoShield windshield film and full detailing for cars, RVs and fleets. Mobile in
-          Calgary, Airdrie and surrounding areas, or at our heated Airdrie shop.
+          Ceramic coating, SunTek® paint protection film, ExoShield windshield film and full detailing for cars, RVs and fleets. Book a bay at our heated Airdrie shop or have
+          us come to you in Calgary, Airdrie and surrounding areas.
         </p>
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
           <QuoteLink className="pill-action min-h-[56px] gap-2 rounded-full bg-action px-9 text-[15px] text-primary-foreground transition-colors hover:bg-ink">
