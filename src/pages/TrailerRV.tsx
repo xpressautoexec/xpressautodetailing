@@ -149,22 +149,42 @@ const RESTORATION_STEPS = [
 
 const svc = (id: string) => RV_SERVICES.find((x) => x.id === id)!;
 
+type Fix = {
+  /** Shown as a pill when a worry has more than one fix. */
+  tag?: string;
+  solution: string;
+  price: string;
+  lasts?: string;
+  body: string;
+  included?: string;
+  action: { label: string; href: string; external: boolean };
+};
+
 /** Problem -> solution pairs shown after restoration. Prices come from pricing.ts. */
-const THEN_WHAT = [
+const THEN_WHAT: {
+  icon: typeof Sun;
+  concern: string;
+  cause: string;
+  fixes: Fix[];
+}[] = [
   {
     icon: Sun,
     concern: "Worried it fades and chalks again?",
     cause:
       "Alberta sun is what oxidized it in the first place, and it starts on fresh gelcoat the day the unit goes back outside.",
-    solution: "UV protectant",
-    price: `${money(svc("uv").price)}/ft`,
-    body: "Blocks the UV that breaks gelcoat down, so the colour and gloss you just paid for stay put. Reapply each season.",
-    included: "Included in Storage Prep and Full Restoration",
-    action: {
-      label: "Book UV protectant",
-      href: fielddUrl(svc("uv").book),
-      external: true,
-    },
+    fixes: [
+      {
+        solution: "UV protectant",
+        price: `${money(svc("uv").price)}/ft`,
+        body: "Blocks the UV that breaks gelcoat down, so the colour and gloss you just paid for stay put. Reapply each season.",
+        included: "Included in Storage Prep and Full Restoration",
+        action: {
+          label: "Book UV protectant",
+          href: fielddUrl(svc("uv").book),
+          external: true,
+        },
+      },
+    ],
   },
   {
     icon: Droplets,
@@ -172,15 +192,33 @@ const THEN_WHAT = [
       "Worried about black streaks and water etching in from the gutters?",
     cause:
       "Roof runoff carries grime down the sidewalls and leaves minerals behind as it dries, which slowly etch into the finish.",
-    solution: "Ceramic sealant, or a ceramic coating",
-    price: `${money(svc("sealant").price)}/ft`,
-    body: "A slick ceramic layer that water and grime slide off instead of drying into the gelcoat, so streaks rinse away. Want protection that lasts years instead of a season? Step up to a ceramic coating, quoted after we see the unit.",
-    included: "Sealant is included in every package",
-    action: {
-      label: "Ask about a ceramic coating",
-      href: "#assessment",
-      external: false,
-    },
+    fixes: [
+      {
+        tag: "Seasonal",
+        solution: "Ceramic sealant",
+        price: `${money(svc("sealant").price)}/ft`,
+        lasts: "Lasts about a season",
+        body: "A slick layer that water and grime slide off instead of drying into the gelcoat, so streaks rinse away. Reapplied each year.",
+        included: "Included in every package",
+        action: {
+          label: "Book ceramic sealant",
+          href: fielddUrl(svc("sealant").book),
+          external: true,
+        },
+      },
+      {
+        tag: "Long-term",
+        solution: "Ceramic coating",
+        price: "Quoted on site",
+        lasts: "Lasts years, not a season",
+        body: "A separate, harder coating bonded to the gelcoat for multi-year protection. It is not the sealant above and is not priced per foot. We quote it after we see the unit.",
+        action: {
+          label: "Request a coating quote",
+          href: "#assessment",
+          external: false,
+        },
+      },
+    ],
   },
   {
     icon: ShieldCheck,
@@ -188,15 +226,18 @@ const THEN_WHAT = [
       "Worried about rock chips, tree sap, bird droppings, sun and water damage?",
     cause:
       "Highway gravel chips the front cap, and sap and droppings left to bake in the sun eat into the finish.",
-    solution: "Paint protection film",
-    price: `from ${money(Math.min(...RV_PPF.map((x) => x.price)))}`,
-    body: `A clear, self-healing film over the front cap and leading edges that takes the hit so the gelcoat doesn't. One layer for all of it.${FILM.certified ? " Backed by a 10-year 3M film warranty." : ""}`,
-    included: null,
-    action: {
-      label: "See RV PPF packages",
-      href: "/rv-trailer/ppf",
-      external: false,
-    },
+    fixes: [
+      {
+        solution: "Paint protection film",
+        price: `from ${money(Math.min(...RV_PPF.map((x) => x.price)))}`,
+        body: `A clear, self-healing film over the front cap and leading edges that takes the hit so the gelcoat doesn't. One layer for all of it.${FILM.certified ? " Backed by a 10-year 3M film warranty." : ""}`,
+        action: {
+          label: "See RV PPF packages",
+          href: "/rv-trailer/ppf",
+          external: false,
+        },
+      },
+    ],
   },
 ];
 
@@ -552,7 +593,7 @@ const TrailerRV = () => (
                 "mt-6 inline-flex min-h-[48px] items-center justify-center gap-2 rounded-md bg-electric px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-electric-2";
               return (
                 <li
-                  key={t.solution}
+                  key={t.concern}
                   className="grid gap-3 lg:grid-cols-[1fr_auto_1.15fr] lg:items-stretch lg:gap-6"
                 >
                   <div className="rounded-card border border-primary-foreground/15 p-6 sm:p-8">
@@ -576,50 +617,94 @@ const TrailerRV = () => (
                   </div>
                   <div className="flex flex-col rounded-card bg-surface p-6 sm:p-8">
                     <p className="text-xs font-semibold uppercase tracking-label text-electric">
-                      The fix
+                      {t.fixes.length > 1
+                        ? `${t.fixes.length} ways to fix it`
+                        : "The fix"}
                     </p>
-                    <div className="mt-1.5 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                      <h4 className="font-heading text-2xl font-bold leading-tight text-ink">
-                        {t.solution}
-                      </h4>
-                      <span className="num text-xl text-ink">{t.price}</span>
-                    </div>
-                    <p className="mt-3 flex-1 text-[15px] leading-relaxed text-ink-2">
-                      {t.body}
-                    </p>
-                    {t.included && (
-                      <p className="mt-4 flex gap-2 text-sm font-semibold text-ink">
-                        <Check
-                          className="mt-0.5 h-4 w-4 shrink-0 text-electric"
-                          aria-hidden="true"
-                        />
-                        {t.included}
-                      </p>
-                    )}
-                    <div>
-                      {t.action.external ? (
-                        <a
-                          href={t.action.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={btn}
+                    <div
+                      className={
+                        t.fixes.length > 1
+                          ? "mt-4 grid gap-4"
+                          : "flex flex-1 flex-col"
+                      }
+                    >
+                      {t.fixes.map((f) => (
+                        <div
+                          key={f.solution}
+                          className={
+                            t.fixes.length > 1
+                              ? "flex flex-col rounded-md border border-line bg-canvas p-5"
+                              : "flex flex-1 flex-col"
+                          }
                         >
-                          {t.action.label}
-                          <ArrowUpRight
-                            className="h-4 w-4"
-                            aria-hidden="true"
-                          />
-                        </a>
-                      ) : t.action.href.startsWith("#") ? (
-                        <a href={t.action.href} className={btn}>
-                          {t.action.label}
-                        </a>
-                      ) : (
-                        <Link to={t.action.href} className={btn}>
-                          {t.action.label}
-                          <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                        </Link>
-                      )}
+                          {f.tag && (
+                            <span
+                              className={`w-fit rounded-sm px-2 py-1 text-[11px] font-semibold uppercase tracking-label ${
+                                f.tag === "Long-term"
+                                  ? "bg-ink text-primary-foreground"
+                                  : "bg-electric/10 text-electric"
+                              }`}
+                            >
+                              {f.tag}
+                            </span>
+                          )}
+                          <div
+                            className={`flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 ${f.tag ? "mt-3" : "mt-1.5"}`}
+                          >
+                            <h4 className="font-heading text-2xl font-bold leading-tight text-ink">
+                              {f.solution}
+                            </h4>
+                            <span className="num text-xl text-ink">
+                              {f.price}
+                            </span>
+                          </div>
+                          {f.lasts && (
+                            <p className="mt-1 text-sm font-semibold text-ink-2">
+                              {f.lasts}
+                            </p>
+                          )}
+                          <p className="mt-3 flex-1 text-[15px] leading-relaxed text-ink-2">
+                            {f.body}
+                          </p>
+                          {f.included && (
+                            <p className="mt-4 flex gap-2 text-sm font-semibold text-ink">
+                              <Check
+                                className="mt-0.5 h-4 w-4 shrink-0 text-electric"
+                                aria-hidden="true"
+                              />
+                              {f.included}
+                            </p>
+                          )}
+                          <div>
+                            {f.action.external ? (
+                              <a
+                                href={f.action.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={btn}
+                              >
+                                {f.action.label}
+                                <ArrowUpRight
+                                  className="h-4 w-4"
+                                  aria-hidden="true"
+                                />
+                              </a>
+                            ) : f.action.href.startsWith("#") ? (
+                              <a href={f.action.href} className={btn}>
+                                {f.action.label}
+                              </a>
+                            ) : (
+                              <Link to={f.action.href} className={btn}>
+                                {f.action.label}
+                                <ArrowRight
+                                  className="h-4 w-4"
+                                  aria-hidden="true"
+                                />
+                              </Link>
+                            )}
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </li>
