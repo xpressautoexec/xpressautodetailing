@@ -1,5 +1,5 @@
 /** LLumar is hidden from the site for now; its data stays below so they can be switched back on. */
-export const AUTHORIZED_BRANDS = ["SunTek", "CARPRO"] as const;
+export const AUTHORIZED_BRANDS = ["SunTek", "CARPRO", "ExoShield"] as const;
 export const FILM_PRODUCTS = {
   suntek: {
     name: "SunTek", official: "https://suntekfilms.com/na/en/paint-protection-film/", path: "/paint-protection-film/suntek/",

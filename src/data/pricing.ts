@@ -540,6 +540,29 @@ export const WINDSHIELD_PPF = [
   { id: "heavy", label: "HD Truck / Van / RV", book: "9M", price: 849, installTime: "4–5 hrs", examples: "F-250/350, Sprinter, Transit, Class A and C" },
 ];
 
+/** ExoShield film choice. Sizes above are GT3+; ULTRA is a flat upgrade (Fieldd add-on "Upgrade to ExoShield ULTRA"). */
+export const WINDSHIELD_ULTRA_UPGRADE = 150;
+export const WINDSHIELD_FILMS = [
+  {
+    id: "gt3",
+    name: "ExoShield GT3+",
+    tag: "Everyday",
+    bestFor: "Daily drivers, city and highway commutes",
+    body: "ExoShield's everyday film. A nanoceramic hardcoat resists wiper wear and abrasion, cuts UV, and stays optically clear.",
+    highlights: ["Nanoceramic hardcoat", "Optically clear, works with cameras and HUDs", "3-year ExoShield limited warranty"],
+    upgrade: 0,
+  },
+  {
+    id: "ultra",
+    name: "ExoShield ULTRA",
+    tag: "Max impact",
+    bestFor: "Trucks, upright windshields and gravel roads",
+    body: "ExoShield's thickest film at 8 mil, about 60% thicker than GT3, for more impact resistance where rocks hit hardest.",
+    highlights: ["8 mil, about 60% thicker", "Best for Jeep, Bronco, vans and work trucks", "3-year ExoShield limited warranty"],
+    upgrade: WINDSHIELD_ULTRA_UPGRADE,
+  },
+] as const;
+
 // ---------- TRAINING ----------
 /**
  * Course list for /training and /training/signup. Claims here must be true:

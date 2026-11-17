@@ -29,7 +29,7 @@ export const WHY_XPRESS: Why = {
   intro:
     "Calgary is hard on vehicles: road salt, gravel, chinook freeze-thaw and hard water. We built Xpress around protecting what you drive and making it easy, with vans that carry their own water and power and a heated shop in Airdrie for coatings and film.",
   apart:
-    "We are an authorized installer of SunTek and CARPRO, so every film and coating we install is a professional product, installed the way the manufacturer intends, with their warranty behind it.",
+    "We are an authorized installer of SunTek, CARPRO and ExoShield, so every film and coating we install is a professional product, installed the way the manufacturer intends, with their warranty behind it.",
   items: [
     { icon: Truck, label: "Mobile To Your Driveway" },
     { icon: Warehouse, label: "Heated Airdrie Shop" },

@@ -325,12 +325,13 @@ const CarPPF = () => {
             <div>
               <p className="eyebrow">Add-on</p>
               <p className="mt-1 font-heading text-2xl font-bold text-ink">
-                Windshield only
+                ExoShield windshield film
               </p>
               <p className="mt-1 text-sm text-ink-2">
-                Clear film for the glass, on its own or added to a front-end
-                package. Included in Full Coverage. Backed by the manufacturer's
-                2-year / 50,000 km warranty.
+                ExoShield GT3+ nanoceramic film for the glass, on its own or
+                added to a front-end package. Included in Full Coverage. Upgrade
+                to ULTRA for trucks and gravel roads. 3-year ExoShield limited
+                warranty.
               </p>
             </div>
             <p className="num shrink-0 text-3xl text-ink">

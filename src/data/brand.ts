@@ -36,7 +36,7 @@ export const STATS = [
   { value: String(SERVICE_AREAS.length), label: "communities served" },
   { value: "$2M", label: "liability coverage" },
 ];
-export const INSTALLER_LINE = "Authorized SunTek and CARPRO installer";
+export const INSTALLER_LINE = "Authorized SunTek, CARPRO and ExoShield installer";
 
 /** The Xpress Process, 01–06, on every service page. */
 export const XPRESS_PROCESS = [
@@ -69,7 +69,7 @@ export const WARRANTY = {
   film: IS_3M_CERTIFIED
     ? "Film is installed by a 3M Certified Installer and carries a 10-year 3M film warranty against yellowing, bubbling and cracking."
     : "Film is 3M Scotchgard™ Pro. Film defects are handled under the product's own terms; ask us for the current details for your install.",
-  windshield: "Windshield film is backed by the manufacturer's 2-year / 50,000 km warranty.",
+  windshield: "ExoShield windshield film is backed by ExoShield's 3-year limited warranty, registered by us as a certified installer.",
   care: [
     "Hand wash with a pH-neutral, coating-safe soap.",
     "No harsh chemicals, degreasers or strong solvents on coated or filmed panels.",

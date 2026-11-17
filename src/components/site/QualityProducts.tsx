@@ -3,6 +3,7 @@ import { PRODUCT_LINES, type ProductLine } from "@/data/copy";
 import logoCarpro from "@/assets/carpro/logo-carpro.png";
 import logoMenzerna from "@/assets/brand-menzerna.png";
 import logo3m from "@/assets/brand-3m.png";
+import logoExoshield from "@/assets/brand-exoshield.svg";
 import suntek from "@/assets/brand-suntek.svg.asset.json";
 
 const LOGOS: Partial<Record<ProductLine, string>> = {
@@ -10,6 +11,7 @@ const LOGOS: Partial<Record<ProductLine, string>> = {
   menzerna: logoMenzerna,
   "3m": logo3m,
   suntek: suntek.url,
+  exoshield: logoExoshield,
 };
 
 /** Default set for general detailing pages. */
