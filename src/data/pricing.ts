@@ -544,42 +544,41 @@ export const WINDSHIELD_PPF = [
  * What a windshield replacement costs, for the "pays for itself" section on /windshield-ppf.
  * Every figure must link to its source. Re-check these when prices change (last checked Nov 2026).
  */
+export const USD_TO_CAD = 1.36;
+const usd = (n: number) => Math.round((n * USD_TO_CAD) / 10) * 10;
 export const WINDSHIELD_REPLACEMENT_COSTS = [
   {
-    figure: "$900–$1,400",
-    label: "Windshield replacement with camera calibration in Canada",
-    source: "isure insurance brokers",
-    url: "https://isure.ca/inews/does-your-insurance-cover-a-cracked-windshield/",
-  },
-  {
-    figure: "$1,337.85",
-    label: "Tesla Service quote to replace a Model Y windshield (US$)",
+    what: "Tesla Model Y windshield, Tesla Service quote",
+    cad: `$${usd(1337.85).toLocaleString("en-CA")}`,
+    note: "US$1,337.85",
     source: "InsideEVs",
     url: "https://insideevs.com/news/425374/video-tesla-model-y-windshield-replacement-cost/",
   },
   {
-    figure: "US$900",
-    label: "Tesla Model 3 or Model Y windshield, for the part alone",
-    source: "Drive Tesla Canada",
-    url: "https://driveteslacanada.ca/news/tesla-introduces-affordable-windshield-protection-plan-in-the-u-s/",
-  },
-  {
-    figure: "$200–$400",
-    label: "Added for camera recalibration after a new windshield in Canada",
+    what: "Windshield with camera calibration, Canada",
+    cad: "$900–$1,400",
     source: "isure insurance brokers",
     url: "https://isure.ca/inews/does-your-insurance-cover-a-cracked-windshield/",
   },
   {
-    figure: "US$766",
-    label: "Average replacement on camera-equipped vehicles across 10,000 quotes: $507 glass plus $259 calibration",
+    what: "Tesla Model 3 or Y windshield, part only",
+    cad: `$${usd(900).toLocaleString("en-CA")}`,
+    note: "US$900",
+    source: "Drive Tesla Canada",
+    url: "https://driveteslacanada.ca/news/tesla-introduces-affordable-windshield-protection-plan-in-the-u-s/",
+  },
+  {
+    what: "Average camera-equipped vehicle, 10,000 quotes",
+    cad: `$${usd(766).toLocaleString("en-CA")}`,
+    note: "US$766",
     source: "Glass.com",
     url: "https://www.glass.com/info/how-much-does-windshield-replacement-cost/",
   },
   {
-    figure: "25%+",
-    label: "Share of an ADAS windshield bill that goes to recalibration, per AAA",
-    source: "AAA via NBC Montana",
-    url: "https://nbcmontana.com/news/nation-world/why-does-replacing-a-windshield-cost-so-much-more-today-maine-driving-travel-traffic",
+    what: "Camera recalibration alone, Canada",
+    cad: "$200–$400",
+    source: "isure insurance brokers",
+    url: "https://isure.ca/inews/does-your-insurance-cover-a-cracked-windshield/",
   },
 ] as const;
 

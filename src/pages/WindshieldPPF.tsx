@@ -1,54 +1,23 @@
 import { Link } from "react-router-dom";
 import LandingPage from "@/components/site/LandingPage";
-import { SYSTEMS } from "@/data/brand";
-import {
-  Section,
-  SectionHeading,
-  btnSecondary,
-  cardClass,
-} from "@/components/site/Section";
+import { Section, SectionHeading } from "@/components/site/Section";
 import heroImg from "@/assets/windshield-ppf-hero.jpg";
 import {
   WINDSHIELD_PPF,
-  WINDSHIELD_FILMS,
   WINDSHIELD_REPLACEMENT_COSTS,
   WINDSHIELD_ULTRA_UPGRADE,
-  fielddUrl,
   money,
 } from "@/data/pricing";
 import { WINDSHIELD_FILM_BRAND } from "@/data/copy";
 import exoshieldLockup from "@/assets/brand-exoshield-lockup.svg";
 import ManufacturerWarranty from "@/components/site/ManufacturerWarranty";
-import gt3Logo from "@/assets/exoshield-gt3plus-red.svg";
-import ultraLogo from "@/assets/exoshield-ultra-red.svg";
-
-/** Official ExoShield product marks, traced from the GT3+ onboarding guide. Heights tuned so both read at the same weight. */
-const FILM_LOGO = {
-  gt3: { src: gt3Logo, cls: "h-11" },
-  ultra: { src: ultraLogo, cls: "h-6 my-2.5" },
-} as const;
-import { Check, ArrowUpRight } from "lucide-react";
-import WindshieldDiagram from "@/components/ppf/WindshieldDiagram";
+import WindshieldPackages from "@/components/ppf/WindshieldPackages";
 import PPFCraft from "@/components/ppf/PPFCraft";
+import { ArrowUpRight } from "lucide-react";
 
 const TEL = "tel:+15875004523";
 const BOOK_LABEL = "Book online";
 const from = Math.min(...WINDSHIELD_PPF.map((t) => t.price));
-
-const INVESTMENT = [
-  {
-    title: "Cheaper than a replacement.",
-    body: "A new windshield plus recalibrating the cameras behind it can cost more than the film.",
-  },
-  {
-    title: "Factory glass stays factory.",
-    body: "You keep the original glass, fit and seal, which matters when you sell or trade in.",
-  },
-  {
-    title: "You won't see it.",
-    body: "The film is optically clear, so you look through it like the glass itself.",
-  },
-];
 
 const termsText =
   "It takes most of the hits that would chip bare glass, but no film is unbreakable. A large or sharp impact can still get through. You'll find the details in section 8 of our Terms of Service.";
@@ -97,7 +66,7 @@ const faqs = [
 const WindshieldPPF = () => (
   <LandingPage
     quote={{ defaultNeed: "PPF/windshield film" }}
-    childrenBeforeWork
+    childrenFirst
     products={["exoshield"]}
     seo={{
       title:
@@ -111,10 +80,10 @@ const WindshieldPPF = () => (
     hero={{
       eyebrow: "Certified ExoShield installer",
       title: "It pays for itself on the drive home.",
-      subtitle: `One rock is a $900 to $1,400 windshield once the cameras are recalibrated. ExoShield film from ${money(from)}, for Alberta's gravel highways, installed for drivers in Calgary, Airdrie and surrounding areas. Part of ${SYSTEMS.protect.tm}.`,
+      subtitle: `ExoShield windshield film from ${money(from)} CAD, installed at your home or work in Calgary, Airdrie and surrounding areas. One rock is a $900 to $1,400 windshield once the cameras are recalibrated.`,
       image: heroImg,
       ctaType: "book",
-      bookLabel: BOOK_LABEL,
+      bookLabel: "See packages",
       bookHref: "#pricing",
       phoneHref: TEL,
     }}
@@ -172,206 +141,111 @@ const WindshieldPPF = () => (
       phoneHref: TEL,
     }}
   >
-    <Section tone="surface">
-      <SectionHeading title="Protect the investment" />
-      <dl className="grid gap-x-8 gap-y-10 sm:grid-cols-3">
-        {INVESTMENT.map((f) => (
-          <div key={f.title} className="border-t-2 border-ink pt-6">
-            <dt className="font-heading text-lg font-semibold text-ink">
-              {f.title}
-            </dt>
-            <dd className="mt-2 text-[15px] leading-relaxed text-ink-2">
-              {f.body}
-            </dd>
-          </div>
-        ))}
-      </dl>
+    <Section id="pricing">
+      <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p className="eyebrow mb-3">Certified ExoShield installer</p>
+          <h2 className="font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink sm:text-5xl">
+            Pick your film.
+          </h2>
+        </div>
+        <img
+          src={exoshieldLockup}
+          alt="ExoShield nanoceramic windshield protection film"
+          width={904}
+          height={178}
+          className="h-auto w-52 sm:w-64"
+        />
+      </div>
+      <WindshieldPackages />
     </Section>
 
-    <Section id="cost">
-      <div className="grid gap-10 lg:grid-cols-[1fr_1.5fr] lg:gap-16">
-        <div>
-          <p className="eyebrow mb-3">The math</p>
-          <h2 className="font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink sm:text-5xl">
-            One rock. Four figures.
-          </h2>
-          <p className="mt-5 text-[15px] leading-relaxed text-ink-2">
-            Most newer vehicles have a lane-keeping and emergency-braking camera
-            mounted to the windshield. Replace the glass and that camera has to
-            be recalibrated, which is why a cracked windshield now runs into
-            four figures.
-          </p>
-          <div className="mt-8 rounded-card border-2 border-electric bg-surface p-6">
-            <p className="text-sm font-semibold uppercase tracking-label text-electric">
+    <Section tone="surface" id="cost">
+      <SectionHeading eyebrow="The math" title="One rock. Four figures." />
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,22rem)_1fr] lg:gap-10">
+        <div className="flex flex-col overflow-hidden rounded-card border-2 border-electric bg-canvas">
+          <div className="border-b border-line p-6">
+            <p className="text-xs font-semibold uppercase tracking-label text-muted-ink">
+              New windshield + calibration
+            </p>
+            <p className="mt-2 font-heading text-3xl font-bold tabular-nums text-muted-ink line-through decoration-2">
+              $900–$1,820
+            </p>
+          </div>
+          <div className="flex-1 bg-electric p-6 text-primary-foreground">
+            <p className="text-xs font-semibold uppercase tracking-label text-primary-foreground/80">
               ExoShield GT3+
             </p>
-            <p className="mt-1 font-heading text-4xl font-bold tabular-nums text-ink">
-              from {money(from)}
+            <p className="mt-2 flex items-end gap-2">
+              <span className="num text-6xl leading-none">{money(from)}</span>
+              <span className="pb-1 text-sm font-semibold text-primary-foreground/80">
+                CAD
+              </span>
             </p>
-            <p className="mt-2 text-[15px] leading-relaxed text-ink-2">
+            <p className="mt-4 text-[15px] leading-relaxed text-primary-foreground/90">
               Stop the one rock that would have cracked it and the film has paid
               for itself, with your factory glass and camera calibration
               untouched.
             </p>
-          </div>
-        </div>
-        <div>
-          <ul className="grid gap-4 sm:grid-cols-2">
-            {WINDSHIELD_REPLACEMENT_COSTS.map((c) => (
-              <li
-                key={c.label}
-                className="flex flex-col rounded-card border border-line bg-surface p-5"
-              >
-                <p className="font-heading text-3xl font-bold tabular-nums text-ink">
-                  {c.figure}
-                </p>
-                <p className="mt-2 flex-1 text-[15px] leading-snug text-ink-2">
-                  {c.label}
-                </p>
-                <a
-                  href={c.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-electric hover:underline hover:underline-offset-4"
-                >
-                  Source: {c.source}
-                  <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-                </a>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-4 text-xs leading-relaxed text-muted-ink">
-            Figures are published prices and quotes from the linked sources,
-            checked November 2026. US$ where marked. Your price depends on your
-            vehicle, glass and insurance. No film is unbreakable; a large or
-            sharp impact can still get through.
-          </p>
-        </div>
-      </div>
-    </Section>
-
-    <Section id="film">
-      <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-        <div className="max-w-xl">
-          <img
-            src={exoshieldLockup}
-            alt="ExoShield nanoceramic windshield protection film"
-            width={904}
-            height={178}
-            className="h-auto w-64 sm:w-80"
-          />
-          <h2 className="mt-8 font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink sm:text-5xl">
-            Pick your film
-          </h2>
-          <p className="mt-4 text-[15px] leading-relaxed text-ink-2">
-            We're a certified ExoShield installer. Both films are custom-cut for
-            your year, make and model, and we register the warranty for you.
-          </p>
-        </div>
-      </div>
-      <div className="grid gap-5 md:grid-cols-2">
-        {WINDSHIELD_FILMS.map((f) => (
-          <article
-            key={f.id}
-            className={`flex flex-col rounded-card border bg-surface p-6 sm:p-8 ${f.id === "ultra" ? "border-2 border-electric" : "border-line"}`}
-          >
-            <div className="flex items-start justify-between gap-4">
-              <h3>
-                <span className="sr-only">{f.name}</span>
-                <img
-                  src={FILM_LOGO[f.id].src}
-                  alt=""
-                  aria-hidden="true"
-                  className={`w-auto ${FILM_LOGO[f.id].cls}`}
-                />
-              </h3>
-              <span
-                className={`shrink-0 rounded-sm px-2 py-1 text-[11px] font-semibold uppercase tracking-label ${
-                  f.id === "ultra"
-                    ? "bg-ink text-primary-foreground"
-                    : "bg-electric/10 text-electric"
-                }`}
-              >
-                {f.tag}
-              </span>
-            </div>
-            <p className="mt-5 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-              <span className="text-sm font-semibold text-ink-2">
-                {f.bestFor}
-              </span>
-              <span className="num text-xl text-ink">
-                {f.upgrade ? `+${money(f.upgrade)}` : `from ${money(from)}`}
-              </span>
-            </p>
-            <p className="mt-3 text-[15px] leading-relaxed text-ink-2">
-              {f.body}
-            </p>
-            <ul className="mt-5 space-y-2 border-t border-line pt-5">
-              {f.highlights.map((h) => (
-                <li key={h} className="flex gap-2.5 text-sm text-ink">
-                  <Check
-                    className="mt-0.5 h-4 w-4 shrink-0 text-electric"
-                    aria-hidden="true"
-                  />
-                  {h}
-                </li>
-              ))}
-            </ul>
-          </article>
-        ))}
-      </div>
-      <div className="mt-10 grid items-center gap-8 rounded-2xl border border-line bg-card p-4 sm:p-6 lg:grid-cols-[1.2fr_1fr]">
-        <WindshieldDiagram />
-        <p className="text-[15px] leading-relaxed text-ink-2">
-          Optional: ExoShield's Glass Protection Warranty adds up to $1,000
-          toward a replacement windshield if the protected glass breaks. Ask for
-          it when you book.
-        </p>
-      </div>
-    </Section>
-
-    <Section tone="surface" id="pricing">
-      <SectionHeading title="Pricing by vehicle size" />
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {WINDSHIELD_PPF.map((t) => (
-          <div key={t.id} className={`${cardClass} flex flex-col p-6`}>
-            <h3 className="font-heading text-lg font-semibold text-ink">
-              {t.label}
-            </h3>
-            <p className="mt-1 text-sm text-muted-ink">{t.examples}</p>
-            <dl className="mt-5 flex-1 divide-y divide-line border-y border-line">
-              <div className="flex items-baseline justify-between py-3">
-                <dt className="text-sm font-semibold text-ink">GT3+</dt>
-                <dd className="font-heading text-3xl font-semibold tabular-nums text-ink">
-                  {money(t.price)}
-                </dd>
-              </div>
-              <div className="flex items-baseline justify-between py-3">
-                <dt className="text-sm font-semibold text-ink">ULTRA</dt>
-                <dd className="font-heading text-3xl font-semibold tabular-nums text-ink">
-                  {money(t.price + WINDSHIELD_ULTRA_UPGRADE)}
-                </dd>
-              </div>
-            </dl>
-            <p className="mt-3 text-sm text-muted-ink">
-              Install time {t.installTime}
-            </p>
             <a
-              href={fielddUrl(t.book)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${btnSecondary} mt-6 self-start`}
+              href="#pricing"
+              className="mt-6 inline-flex min-h-[48px] w-full items-center justify-center rounded-full bg-primary-foreground px-6 text-sm font-semibold text-ink transition-colors hover:bg-primary-foreground/90"
             >
-              {BOOK_LABEL}
+              Protect my windshield
             </a>
           </div>
-        ))}
+        </div>
+        <div className="overflow-hidden rounded-card border border-line bg-canvas">
+          <table className="w-full text-left">
+            <caption className="sr-only">
+              What a windshield replacement costs, in Canadian dollars
+            </caption>
+            <thead className="border-b border-line bg-tint text-xs font-semibold uppercase tracking-label text-muted-ink">
+              <tr>
+                <th scope="col" className="px-5 py-3">
+                  Replacement
+                </th>
+                <th scope="col" className="px-5 py-3 text-right">
+                  Cost (CAD)
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-line">
+              {WINDSHIELD_REPLACEMENT_COSTS.map((c) => (
+                <tr key={c.what}>
+                  <td className="px-5 py-4 align-top">
+                    <p className="text-[15px] font-semibold text-ink">
+                      {c.what}
+                    </p>
+                    <a
+                      href={c.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 inline-flex items-center gap-1 text-xs font-semibold text-electric hover:underline hover:underline-offset-4"
+                    >
+                      {c.source}
+                      <ArrowUpRight className="h-3 w-3" aria-hidden="true" />
+                    </a>
+                  </td>
+                  <td className="px-5 py-4 text-right align-top">
+                    <p className="num whitespace-nowrap text-2xl text-ink">
+                      {c.cad}
+                    </p>
+                    {"note" in c && (
+                      <p className="mt-0.5 text-xs text-muted-ink">{c.note}</p>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p className="border-t border-line px-5 py-3 text-xs leading-relaxed text-muted-ink">
+            Published prices and quotes, checked November 2026. US prices
+            converted at 1.36 CAD per US dollar. No film is unbreakable; a large
+            or sharp impact can still get through.
+          </p>
+        </div>
       </div>
-      <p className="mt-8 max-w-2xl text-[15px] leading-relaxed text-ink-2">
-        Booking online? Pick your size, then add the ULTRA upgrade at checkout.
-        Heated, panoramic and oversized glass may carry a small surcharge,
-        confirmed before we start.
-      </p>
     </Section>
 
     <Section id="warranty">
