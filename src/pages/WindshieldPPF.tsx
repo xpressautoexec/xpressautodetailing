@@ -17,6 +17,14 @@ import {
 } from "@/data/pricing";
 import { WINDSHIELD_FILM_BRAND } from "@/data/copy";
 import exoshieldLockup from "@/assets/brand-exoshield-lockup.svg";
+import gt3Logo from "@/assets/exoshield-gt3plus-red.svg";
+import ultraLogo from "@/assets/exoshield-ultra-red.svg";
+
+/** Official ExoShield product marks, traced from the GT3+ onboarding guide. Heights tuned so both read at the same weight. */
+const FILM_LOGO = {
+  gt3: { src: gt3Logo, cls: "h-11" },
+  ultra: { src: ultraLogo, cls: "h-6 my-2.5" },
+} as const;
 import { Check } from "lucide-react";
 import WindshieldDiagram from "@/components/ppf/WindshieldDiagram";
 import PPFCraft from "@/components/ppf/PPFCraft";
@@ -203,24 +211,34 @@ const WindshieldPPF = () => (
             key={f.id}
             className={`flex flex-col rounded-card border bg-surface p-6 sm:p-8 ${f.id === "ultra" ? "border-2 border-electric" : "border-line"}`}
           >
-            <span
-              className={`w-fit rounded-sm px-2 py-1 text-[11px] font-semibold uppercase tracking-label ${
-                f.id === "ultra"
-                  ? "bg-ink text-primary-foreground"
-                  : "bg-electric/10 text-electric"
-              }`}
-            >
-              {f.tag}
-            </span>
-            <div className="mt-3 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-              <h3 className="font-heading text-2xl font-bold leading-tight text-ink">
-                {f.name}
+            <div className="flex items-start justify-between gap-4">
+              <h3>
+                <span className="sr-only">{f.name}</span>
+                <img
+                  src={FILM_LOGO[f.id].src}
+                  alt=""
+                  aria-hidden="true"
+                  className={`w-auto ${FILM_LOGO[f.id].cls}`}
+                />
               </h3>
+              <span
+                className={`shrink-0 rounded-sm px-2 py-1 text-[11px] font-semibold uppercase tracking-label ${
+                  f.id === "ultra"
+                    ? "bg-ink text-primary-foreground"
+                    : "bg-electric/10 text-electric"
+                }`}
+              >
+                {f.tag}
+              </span>
+            </div>
+            <p className="mt-5 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              <span className="text-sm font-semibold text-ink-2">
+                {f.bestFor}
+              </span>
               <span className="num text-xl text-ink">
                 {f.upgrade ? `+${money(f.upgrade)}` : `from ${money(from)}`}
               </span>
-            </div>
-            <p className="mt-1 text-sm font-semibold text-ink-2">{f.bestFor}</p>
+            </p>
             <p className="mt-3 text-[15px] leading-relaxed text-ink-2">
               {f.body}
             </p>

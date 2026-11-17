@@ -548,8 +548,8 @@ export const WINDSHIELD_FILMS = [
     name: "ExoShield GT3+",
     tag: "Everyday",
     bestFor: "Daily drivers, city and highway commutes",
-    body: "ExoShield's everyday film. A nanoceramic hardcoat resists wiper wear and abrasion, cuts UV, and stays optically clear.",
-    highlights: ["Nanoceramic hardcoat", "Optically clear, works with cameras and HUDs", "3-year ExoShield limited warranty"],
+    body: "ExoShield's flagship film and the one for most daily drivers. A 5 mil PET film with a nanoceramic hardcoat that resists wiper scratching and stays optically clear.",
+    highlights: ["5 mil PET with nanoceramic scratch resistance", "Optically clear, no effect on ADAS cameras or HUDs", "3-year ExoShield limited warranty"],
     upgrade: 0,
   },
   {
@@ -557,8 +557,8 @@ export const WINDSHIELD_FILMS = [
     name: "ExoShield ULTRA",
     tag: "Max impact",
     bestFor: "Trucks, upright windshields and gravel roads",
-    body: "ExoShield's thickest film at 8 mil, about 60% thicker than GT3, for more impact resistance where rocks hit hardest.",
-    highlights: ["8 mil, about 60% thicker", "Best for Jeep, Bronco, vans and work trucks", "3-year ExoShield limited warranty"],
+    body: "ExoShield's heavy-duty film. At 8 mil it is 60% thicker than GT3+, built for flatter, upright glass where rocks hit hardest.",
+    highlights: ["8 mil PET, 60% thicker than GT3+", "Best for Jeep, Bronco, vans and work trucks", "3-year ExoShield limited warranty"],
     upgrade: WINDSHIELD_ULTRA_UPGRADE,
   },
 ] as const;
