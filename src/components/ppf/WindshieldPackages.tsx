@@ -17,7 +17,7 @@ const SHORT: Record<SizeId, string> = {
   compact: "Sedan",
   midsize: "SUV",
   fullsize: "Truck",
-  heavy: "HD / Van / RV",
+  heavy: "HD / RV",
 };
 /** Bigger, flatter glass takes harder hits, so trucks and HD units default to ULTRA. */
 const RECOMMENDED: Record<SizeId, "gt3" | "ultra"> = {
