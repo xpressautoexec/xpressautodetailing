@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
-/** LLumar "Experience our premier auto tint" row: rounded photo one side, giant heading + copy + pill the other. */
+/** Feature row: rounded photo one side, giant heading + copy + pill the other. */
 const FeatureRow = ({
   title,
   children,

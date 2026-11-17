@@ -23,7 +23,7 @@ const CompanyLogos = () => (
   <section className="border-y border-line bg-surface py-10 sm:py-12">
     <div className="shell">
       <h2 className="text-balance text-center font-heading text-lg font-semibold leading-snug tracking-tight text-ink">
-        Companies we've worked with
+        Companies that have trusted us with their vehicles and equipment
       </h2>
       {/* One even row of eight on desktop; four per row below that. */}
       <ul className="mt-6 grid grid-cols-4 gap-2 sm:gap-3 lg:grid-cols-8">

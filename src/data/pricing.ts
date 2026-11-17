@@ -159,7 +159,7 @@ export const AUTO_PACKAGES: AutoPackage[] = [
       "1-year ceramic coating",
       "Coating registered",
     ],
-    price: { sedan: 929, suv: 1029, minivan: 1109, truck: 1149 },
+    price: { sedan: 699, suv: 779, minivan: 829, truck: 869 },
     book: { sedan: "N-", suv: "D1", minivan: "GC", truck: "Cs" },
   },
 ];
@@ -263,8 +263,8 @@ export const CERAMIC_PACKAGES: {
     name: "Elite",
     correction: "2-step machine correction",
     coating: "DQUARTZ + Finest Reserve",
-    price: 1499,
-    prices: { sedan: 1499, suv: 1649, minivan: 1699, truck: 1749 },
+    price: 1699,
+    prices: { sedan: 1699, suv: 1849, minivan: 1899, truck: 1949 },
     book: { sedan: "YN", suv: "oy", minivan: "s6", truck: "rQ" },
     includes: [
       "Full decontamination wash",
@@ -515,10 +515,10 @@ export const memberPriceFor = (pkg: AutoPackage, size: VehicleSizeId): number | 
  */
 /** `book`: Fieldd booking links per size (Discounts > QR codes "Website - PPF ..."). Exotic is quote only. */
 export const CAR_PPF = [
-  { id: "partial-front", book: { car: "https://fieldd.me/q/TXbFH", suv: "https://fieldd.me/q/Uy-7D", truck: "https://fieldd.me/q/nNc6m" }, name: "Partial", price: 999, time: "1 day", forWho: "Daily drivers that see city streets more than highways.", covers: ["Front bumper", "Leading half of the hood", "Leading half of the front fenders", "Mirror caps"] },
-  { id: "full-front", book: { car: "https://fieldd.me/q/Y54l-", suv: "https://fieldd.me/q/9Syk5", truck: "https://fieldd.me/q/aAQ5C" }, name: "Full Front", price: 1899, popular: true, time: "1 day", forWho: "Highway commuters and new vehicles. No seam line on the hood.", covers: ["Front bumper", "Full hood", "Full front fenders", "Headlights", "Mirror caps"] },
-  { id: "track-pack", book: { car: "https://fieldd.me/q/fzSWz", suv: "https://fieldd.me/q/fYq7-", truck: "https://fieldd.me/q/k5EKj" }, name: "Full Front +", price: 2899, time: "1–2 days", forWho: "Gravel roads, mountain trips and lowered or performance cars.", covers: ["Everything in Full Front", "A-pillars and roof leading edge", "Rocker panels"] },
-  { id: "full-vehicle", book: { car: "https://fieldd.me/q/8kkMR", suv: "https://fieldd.me/q/zvwBH", truck: "https://fieldd.me/q/N_2qQ" }, name: "Full Coverage", price: 5999, time: "2–3 days", forWho: "Collector, exotic and long-term vehicles.", covers: ["Every painted panel", "Windshield film", "Headlights and mirror caps", "Wrapped edges wherever possible"] },
+  { id: "partial-front", book: { car: "https://fieldd.me/q/TXbFH", suv: "https://fieldd.me/q/Uy-7D", truck: "https://fieldd.me/q/nNc6m" }, name: "Partial", price: 599, time: "1 day", forWho: "Daily drivers that see city streets more than highways.", covers: ["Front bumper", "Leading half of the hood", "Leading half of the front fenders", "Mirror caps"] },
+  { id: "full-front", book: { car: "https://fieldd.me/q/Y54l-", suv: "https://fieldd.me/q/9Syk5", truck: "https://fieldd.me/q/aAQ5C" }, name: "Full Front", price: 1499, popular: true, time: "1 day", forWho: "Highway commuters and new vehicles. No seam line on the hood.", covers: ["Front bumper", "Full hood", "Full front fenders", "Headlights", "Mirror caps"] },
+  { id: "track-pack", book: { car: "https://fieldd.me/q/fzSWz", suv: "https://fieldd.me/q/fYq7-", truck: "https://fieldd.me/q/k5EKj" }, name: "Full Front +", price: 2199, time: "1–2 days", forWho: "Gravel roads, mountain trips and lowered or performance cars.", covers: ["Everything in Full Front", "A-pillars and roof leading edge", "Rocker panels"] },
+  { id: "full-vehicle", book: { car: "https://fieldd.me/q/8kkMR", suv: "https://fieldd.me/q/zvwBH", truck: "https://fieldd.me/q/N_2qQ" }, name: "Full Coverage", price: 4999, time: "2–3 days", forWho: "Collector, exotic and long-term vehicles.", covers: ["Every painted panel", "Windshield film", "Headlights and mirror caps", "Wrapped edges wherever possible"] },
 ];
 
 export const PPF_UPCHARGE = { suvPct: 10, truckSuvPct: 15 };
@@ -541,7 +541,7 @@ export const carPpfPrice = (base: number, size: CarPpfSizeId): number => {
 };
 
 // ---------- WINDSHIELD PPF ----------
-/** Windshield PPF by vehicle size. Window tint is no longer offered. */
+/** Windshield PPF by vehicle size. */
 export const WINDSHIELD_PPF = [
   { id: "compact", label: "Compact / Sedan", book: "ed", price: 479, installTime: "2–3 hrs", examples: "Civic, Corolla, Mazda 3, Model 3" },
   { id: "midsize", label: "Midsize SUV / Crossover", book: "l0", price: 579, installTime: "3–4 hrs", examples: "RAV4, CR-V, Tucson, Model Y, Outback" },

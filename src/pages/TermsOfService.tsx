@@ -129,28 +129,23 @@ const TermsOfService = () => (
             </div>
 
             <div>
-              <h2 className="font-heading text-xl font-semibold text-ink mb-3">9. Window Tinting</h2>
-              <p>The Company no longer offers window tinting. Tint installed before October 1, 2026 remains covered by the film manufacturer's warranty against bubbling, peeling and colour change.</p>
-            </div>
-
-            <div>
-              <h2 className="font-heading text-xl font-semibold text-ink mb-3">10. Marine, Pontoon, RV & Trailer Services</h2>
+              <h2 className="font-heading text-xl font-semibold text-ink mb-3">9. Marine, Pontoon, RV & Trailer Services</h2>
               <p className="mb-2">Pricing for marine, pontoon, RV, and trailer services is typically quoted by length (per foot), per side, or per unit as specified in the estimator. Final invoices are calculated on measured length and confirmed scope at the time of service.</p>
               <p>Aluminum pontoon restoration, oxidation removal, and decal restoration are cosmetic services. Results depend on substrate condition and are not guaranteed to remove all oxidation, staining, or pre-existing damage.</p>
             </div>
 
             <div>
-              <h2 className="font-heading text-xl font-semibold text-ink mb-3">11. Fleet & Corporate Programs</h2>
+              <h2 className="font-heading text-xl font-semibold text-ink mb-3">10. Fleet & Corporate Programs</h2>
               <p>Fleet, corporate, and RV rental fleet care agreements are governed by the specific pricing, scope, and scheduling terms outlined in the signed service agreement between the Company and the Client. Where a signed agreement exists, its terms supersede any conflicting provisions of this document.</p>
             </div>
 
             <div>
-              <h2 className="font-heading text-xl font-semibold text-ink mb-3">12. Detailing Training Program</h2>
+              <h2 className="font-heading text-xl font-semibold text-ink mb-3">11. Detailing Training Program</h2>
               <p>A {money(TRAINING_TERMS.deposit)} deposit holds a training seat and is applied to the course fee. The balance is due before the first day of class. Course fees are non-refundable once course materials have been accessed or the course start date has passed. A seat can be moved to another date with at least {TRAINING_TERMS.rescheduleDays} days' notice, subject to availability. Training is not covered by the service cancellation policy in section 3.</p>
             </div>
 
             <div>
-              <h2 className="font-heading text-xl font-semibold text-ink mb-3">13. Deposit & Payment Requirements</h2>
+              <h2 className="font-heading text-xl font-semibold text-ink mb-3">12. Deposit & Payment Requirements</h2>
               <p className="mb-3">No payment or deposit is taken for standard bookings. For quoted work that requires materials to be ordered in advance, such as RV paint protection film, a deposit may be requested; if so, the amount and terms are stated on your written quote and applied toward the total.</p>
               <p className="mb-2">The remaining balance is due upon completion of service unless alternative terms have been agreed in writing. Failure to submit payment may result in:</p>
               <ul className="list-disc pl-5 space-y-1 mb-2">
@@ -162,12 +157,12 @@ const TermsOfService = () => (
             </div>
 
             <div>
-              <h2 className="font-heading text-xl font-semibold text-ink mb-3">14. Privacy & Communications</h2>
+              <h2 className="font-heading text-xl font-semibold text-ink mb-3">13. Privacy & Communications</h2>
               <p>Contact information provided at booking is used to schedule, confirm, and follow up on services. By booking, the Client consents to service-related communication via email, SMS, and phone. Further details are available in our{" "}<Link to="/privacy-policy" className="font-semibold text-electric hover:underline">Privacy Policy</Link>.</p>
             </div>
 
             <div>
-              <h2 className="font-heading text-xl font-semibold text-ink mb-3">15. Acceptance of Terms</h2>
+              <h2 className="font-heading text-xl font-semibold text-ink mb-3">14. Acceptance of Terms</h2>
               <p className="mb-3">By scheduling or receiving service, the Client acknowledges and agrees to all Terms & Conditions listed above.</p>
               <p>Questions regarding these Terms can be directed to Xpress Auto & RV Detailing at <a href={NAP.phoneHref} className="text-primary underline">587-500-4523</a> or <a href="mailto:support@xpressautodetail.ca" className="text-primary underline">support@xpressautodetail.ca</a>.</p>
             </div>

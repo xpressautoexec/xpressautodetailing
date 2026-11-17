@@ -198,12 +198,6 @@ export const AnimatedRoutes = () => {
             element={<Navigate to="/paint-protection-film/suntek" replace />}
           />
           <Route path="/ceramic-coating/carpro-dquartz" element={<DQuartz />} />
-          <Route path="/window-tint" element={<Navigate to="/paint-protection-film" replace />} />
-          <Route
-            path="/window-tint/llumar"
-            element={<Navigate to="/paint-protection-film" replace />}
-          />
-          <Route path="/window-tint/suntek" element={<Navigate to="/paint-protection-film" replace />} />
           <Route
             path="/monthly-plan"
             element={<Navigate to="/xpress-pass" replace />}
@@ -211,10 +205,6 @@ export const AnimatedRoutes = () => {
           <Route path="/marine" element={<MarineDetailing />} />
           <Route
             path="/ppf"
-            element={<Navigate to="/paint-protection-film" replace />}
-          />
-          <Route
-            path="/window-tinting"
             element={<Navigate to="/paint-protection-film" replace />}
           />
           <Route
@@ -252,10 +242,6 @@ export const AnimatedRoutes = () => {
           <Route path="/ceramic-paint-correction" element={<PaintCeramics />} />
           <Route
             path="/protection/ppf"
-            element={<Navigate to="/paint-protection-film" replace />}
-          />
-          <Route
-            path="/protection/window-tint"
             element={<Navigate to="/paint-protection-film" replace />}
           />
           <Route
