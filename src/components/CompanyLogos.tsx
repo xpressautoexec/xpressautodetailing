@@ -5,9 +5,11 @@ import brandLandform from "@/assets/brand-landform.png";
 import brandNewWestTruck from "@/assets/brand-new-west-truck.png.asset.json";
 import brandRanchmans from "@/assets/brand-ranchmans.png.asset.json";
 import brandMidas from "@/assets/brand-midas.png";
+import brandIntegratedSustainability from "@/assets/brand-integrated-sustainability.svg";
 
 /** `logo` is optional: a partner without a file yet renders as a neutral text label. */
 const partners: { name: string; logo?: string }[] = [
+  { name: "Integrated Sustainability", logo: brandIntegratedSustainability },
   { name: "KLS Earthworks", logo: brandKls },
   { name: "DIRTT", logo: brandDirtt },
   { name: "Silverhill Acura", logo: brandSilverhillAcura },
@@ -18,24 +20,24 @@ const partners: { name: string; logo?: string }[] = [
 ];
 
 const CompanyLogos = () => (
-  <section className="border-y border-line bg-surface py-14 sm:py-16">
+  <section className="border-y border-line bg-surface py-10 sm:py-12">
     <div className="shell">
       <h2 className="text-balance text-center font-heading text-lg font-semibold leading-snug tracking-tight text-ink">
-        Trusted by Calgary builders, contractors, dealers and shops
+        Trusted by Calgary contractors, engineering firms, dealers and shops
       </h2>
-      {/* One even row of seven on desktop; below that a centered wrap so a short last row sits in the middle. */}
-      <ul className="mt-8 flex flex-wrap justify-center gap-3 lg:grid lg:grid-cols-7">
+      {/* One even row of eight on desktop; four per row below that. */}
+      <ul className="mt-6 grid grid-cols-4 gap-2 sm:gap-3 lg:grid-cols-8">
         {partners.map((partner) => (
           <li
             key={partner.name}
-            className="flex h-20 basis-[calc(50%-0.375rem)] items-center justify-center rounded-card border border-line px-4 sm:basis-[calc(25%-0.5625rem)] md:h-24"
+            className="flex h-14 items-center justify-center rounded-card border border-line bg-canvas px-2 sm:h-20 sm:px-4"
           >
             {partner.logo ? (
               <img
                 src={partner.logo}
                 alt={`${partner.name}, commercial detailing client`}
                 loading="lazy"
-                className="max-h-10 w-auto max-w-[80%] object-contain opacity-80 grayscale transition hover:opacity-100 hover:grayscale-0"
+                className="max-h-8 w-auto max-w-[88%] object-contain sm:max-h-10 opacity-80 grayscale transition hover:opacity-100 hover:grayscale-0"
               />
             ) : (
               <span className="font-heading text-base font-semibold uppercase tracking-[0.14em] text-muted-ink opacity-80">

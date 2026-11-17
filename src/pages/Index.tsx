@@ -59,6 +59,7 @@ const Index = () => (
 
       <HomeHero />
       <AuthorizedInstallers />
+      <CompanyLogos />
       <PopularPackages />
       <OurExpertise />
 
@@ -132,7 +133,6 @@ const Index = () => (
         </div>
       </section>
 
-      <CompanyLogos />
       <HomeReviews />
       <div id="faq" className="scroll-mt-24">
         <FAQSection pick={HOME_FAQS} />

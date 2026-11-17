@@ -131,6 +131,15 @@ import jFleetCatCabDoor from "@/assets/jobs/fleet-cat-cab-door.webp";
 import jFleetCatCabFloor from "@/assets/jobs/fleet-cat-cab-floor.webp";
 import jFleetCatSeat from "@/assets/jobs/fleet-cat-seat.webp";
 import jFleetCatJobSite from "@/assets/jobs/fleet-cat-job-site.webp";
+import jFleetF150FrontThreeQuarter from "@/assets/jobs/fleet-f150-front-three-quarter.webp";
+import jFleetF150Front from "@/assets/jobs/fleet-f150-front.webp";
+import jFleetF150Rear from "@/assets/jobs/fleet-f150-rear.webp";
+import jFleetF150DoorLogo from "@/assets/jobs/fleet-f150-door-logo.webp";
+import jFleetF150Dash from "@/assets/jobs/fleet-f150-dash.webp";
+import jFleetF150Wheel from "@/assets/jobs/fleet-f150-wheel.webp";
+import jFleetF150RearCab from "@/assets/jobs/fleet-f150-rear-cab.webp";
+import jFleetF150RunningBoard from "@/assets/jobs/fleet-f150-running-board.webp";
+import jFleetF150DoorJamb from "@/assets/jobs/fleet-f150-door-jamb.webp";
 import jCrewVanGear from "@/assets/jobs/crew-van-gear.webp";
 import jCrewVanPower from "@/assets/jobs/crew-van-power.webp";
 import jInteriorBmwRedDriverSide from "@/assets/jobs/interior-bmw-red-driver-side.webp";
@@ -176,232 +185,782 @@ import marineHelmAsset from "@/assets/marine-helm-seat.jpg.asset.json";
 import marineDecalAsset from "@/assets/marine-decal-detail.jpg.asset.json";
 
 export type Photo = { src: string; alt: string };
-export type PhotoCategory = "rv" | "marine" | "ceramic" | "exterior" | "interior" | "dealership" | "wheels" | "fleet" | "crew";
+export type PhotoCategory =
+  | "rv"
+  | "marine"
+  | "ceramic"
+  | "exterior"
+  | "interior"
+  | "dealership"
+  | "wheels"
+  | "fleet"
+  | "crew";
 
 export const PHOTOS: Record<PhotoCategory, Photo[]> = {
   rv: [
-    { src: jRvClassAWash, alt: "Xpress crew washing a Class A diesel pusher on a Calgary driveway" },
-    { src: jRvRoofTapeLine, alt: "Travel trailer roof cap with a tape line splitting oxidized and restored gelcoat" },
-    { src: newmarDutchStarFront, alt: "Newmar Dutch Star diesel pusher front view after full exterior detail" },
-    { src: flagstaffTrailerCorrection, alt: "Flagstaff travel trailer with tape lines marking a fiberglass correction test spot" },
-    { src: jRvRoofBeforeAfter, alt: "Travel trailer front cap showing chalky oxidized gelcoat next to the restored finish" },
-    { src: newmarDutchStarSide, alt: "Newmar Dutch Star motorhome three-quarter view in the service bay after detail" },
-    { src: flagstaffTrailerSide, alt: "Flagstaff Signature travel trailer side profile after wash and polish" },
-    { src: kodiakTrailer, alt: "Kodiak travel trailer front cap after exterior detail" },
-    { src: newmarHeadlights, alt: "Newmar Dutch Star headlights and front cap with mirror gloss after polish" },
-    { src: citationMotorhome, alt: "Citation Class C motorhome on a Mercedes Sprinter chassis after exterior detail" },
-    { src: jRvSurveyorTapeLine, alt: "Surveyor travel trailer front cap with a tape line showing corrected versus oxidized gelcoat" },
-    { src: newmarDutchStarBadge, alt: "Newmar Dutch Star side badge and paint after exterior polish" },
-    { src: jRvFlagstaffTestSections, alt: "Flagstaff travel trailer with tape lines marking polish test sections" },
-    { src: jRvSurveyorStorageLot, alt: "Surveyor travel trailer at a Calgary storage lot during gelcoat restoration" },
-    { src: jRvNewmarBaySide, alt: "Newmar Dutch Star motorhome in a service bay during exterior detail" },
-    { src: jRvFlagstaffGraphics, alt: "Close-up of Flagstaff trailer graphics during polishing" },
-    { src: jRvSurveyorSide, alt: "Surveyor travel trailer side profile at the storage lot" },
-    { src: jRvNewmarFrontBay, alt: "Newmar Dutch Star front view in the service bay after detail" },
-    { src: jRvKodiakFront, alt: "Kodiak travel trailer front cap after exterior detail" },
-    { src: rvOxidation, alt: "RV roof oxidation removal in progress with masking tape divider" },
-    { src: jRvNewmarWheels, alt: "Newmar Dutch Star polished aluminum wheels after detail" },
-    { src: jRvKodiakSide, alt: "Kodiak travel trailer side after wash and polish" },
-    { src: rvSurveyorFront, alt: "Surveyor travel trailer front cap during oxidation correction" },
-    { src: jRvNewmarMirror, alt: "Chrome mirror on a Newmar Dutch Star after polish" },
-    { src: hurricaneFront, alt: "Hurricane motorhome front view after full exterior detail" },
-    { src: rvSurveyorFull, alt: "Surveyor travel trailer front cap full view during paint correction" },
-    { src: hurricaneHeadOn, alt: "Hurricane RV head-on view after professional wash and detail" },
-    { src: hurricaneRear, alt: "Hurricane motorhome rear view freshly detailed" },
-    { src: hurricaneSide, alt: "Hurricane RV full side profile after oxidation removal and detail" },
+    {
+      src: jRvClassAWash,
+      alt: "Xpress crew washing a Class A diesel pusher on a Calgary driveway",
+    },
+    {
+      src: jRvRoofTapeLine,
+      alt: "Travel trailer roof cap with a tape line splitting oxidized and restored gelcoat",
+    },
+    {
+      src: newmarDutchStarFront,
+      alt: "Newmar Dutch Star diesel pusher front view after full exterior detail",
+    },
+    {
+      src: flagstaffTrailerCorrection,
+      alt: "Flagstaff travel trailer with tape lines marking a fiberglass correction test spot",
+    },
+    {
+      src: jRvRoofBeforeAfter,
+      alt: "Travel trailer front cap showing chalky oxidized gelcoat next to the restored finish",
+    },
+    {
+      src: newmarDutchStarSide,
+      alt: "Newmar Dutch Star motorhome three-quarter view in the service bay after detail",
+    },
+    {
+      src: flagstaffTrailerSide,
+      alt: "Flagstaff Signature travel trailer side profile after wash and polish",
+    },
+    {
+      src: kodiakTrailer,
+      alt: "Kodiak travel trailer front cap after exterior detail",
+    },
+    {
+      src: newmarHeadlights,
+      alt: "Newmar Dutch Star headlights and front cap with mirror gloss after polish",
+    },
+    {
+      src: citationMotorhome,
+      alt: "Citation Class C motorhome on a Mercedes Sprinter chassis after exterior detail",
+    },
+    {
+      src: jRvSurveyorTapeLine,
+      alt: "Surveyor travel trailer front cap with a tape line showing corrected versus oxidized gelcoat",
+    },
+    {
+      src: newmarDutchStarBadge,
+      alt: "Newmar Dutch Star side badge and paint after exterior polish",
+    },
+    {
+      src: jRvFlagstaffTestSections,
+      alt: "Flagstaff travel trailer with tape lines marking polish test sections",
+    },
+    {
+      src: jRvSurveyorStorageLot,
+      alt: "Surveyor travel trailer at a Calgary storage lot during gelcoat restoration",
+    },
+    {
+      src: jRvNewmarBaySide,
+      alt: "Newmar Dutch Star motorhome in a service bay during exterior detail",
+    },
+    {
+      src: jRvFlagstaffGraphics,
+      alt: "Close-up of Flagstaff trailer graphics during polishing",
+    },
+    {
+      src: jRvSurveyorSide,
+      alt: "Surveyor travel trailer side profile at the storage lot",
+    },
+    {
+      src: jRvNewmarFrontBay,
+      alt: "Newmar Dutch Star front view in the service bay after detail",
+    },
+    {
+      src: jRvKodiakFront,
+      alt: "Kodiak travel trailer front cap after exterior detail",
+    },
+    {
+      src: rvOxidation,
+      alt: "RV roof oxidation removal in progress with masking tape divider",
+    },
+    {
+      src: jRvNewmarWheels,
+      alt: "Newmar Dutch Star polished aluminum wheels after detail",
+    },
+    {
+      src: jRvKodiakSide,
+      alt: "Kodiak travel trailer side after wash and polish",
+    },
+    {
+      src: rvSurveyorFront,
+      alt: "Surveyor travel trailer front cap during oxidation correction",
+    },
+    {
+      src: jRvNewmarMirror,
+      alt: "Chrome mirror on a Newmar Dutch Star after polish",
+    },
+    {
+      src: hurricaneFront,
+      alt: "Hurricane motorhome front view after full exterior detail",
+    },
+    {
+      src: rvSurveyorFull,
+      alt: "Surveyor travel trailer front cap full view during paint correction",
+    },
+    {
+      src: hurricaneHeadOn,
+      alt: "Hurricane RV head-on view after professional wash and detail",
+    },
+    {
+      src: hurricaneRear,
+      alt: "Hurricane motorhome rear view freshly detailed",
+    },
+    {
+      src: hurricaneSide,
+      alt: "Hurricane RV full side profile after oxidation removal and detail",
+    },
   ],
   marine: [
-    { src: sunchaserPontoon, alt: "SunChaser pontoon boat on its trailer after exterior detail" },
-    { src: marineSunsetAsset.url, alt: "Pontoon on the water at sunset after a full detail" },
+    {
+      src: sunchaserPontoon,
+      alt: "SunChaser pontoon boat on its trailer after exterior detail",
+    },
+    {
+      src: marineSunsetAsset.url,
+      alt: "Pontoon on the water at sunset after a full detail",
+    },
     { src: marineHelmAsset.url, alt: "Detailed helm seat and console" },
-    { src: sunchaserPontoonSide, alt: "SunChaser pontoon blue side panels and logs after polish" },
-    { src: marineTubesAsset.url, alt: "Aluminum pontoon tubes after acid restoration" },
-    { src: sunchaserPontoonInterior, alt: "SunChaser pontoon boat deck and vinyl seating after interior detail" },
-    { src: marineLoungeAsset.url, alt: "Boat lounge seating after interior detail" },
+    {
+      src: sunchaserPontoonSide,
+      alt: "SunChaser pontoon blue side panels and logs after polish",
+    },
+    {
+      src: marineTubesAsset.url,
+      alt: "Aluminum pontoon tubes after acid restoration",
+    },
+    {
+      src: sunchaserPontoonInterior,
+      alt: "SunChaser pontoon boat deck and vinyl seating after interior detail",
+    },
+    {
+      src: marineLoungeAsset.url,
+      alt: "Boat lounge seating after interior detail",
+    },
     { src: jMarineSunchaserLogo, alt: "SunChaser logo close-up after polish" },
-    { src: jMarineMercuryOutboard, alt: "Mercury 150 outboard motor after cleaning" },
-    { src: jMarineSunchaserDeck, alt: "SunChaser pontoon deck and bimini after detail" },
-    { src: marineInteriorAsset.url, alt: "Cleaned and conditioned marine vinyl seating" },
-    { src: jMarineSunchaserTrailer, alt: "SunChaser pontoon on its trailer after detail" },
+    {
+      src: jMarineMercuryOutboard,
+      alt: "Mercury 150 outboard motor after cleaning",
+    },
+    {
+      src: jMarineSunchaserDeck,
+      alt: "SunChaser pontoon deck and bimini after detail",
+    },
+    {
+      src: marineInteriorAsset.url,
+      alt: "Cleaned and conditioned marine vinyl seating",
+    },
+    {
+      src: jMarineSunchaserTrailer,
+      alt: "SunChaser pontoon on its trailer after detail",
+    },
     { src: marineDecalAsset.url, alt: "Restored boat decal and gelcoat" },
-    { src: marineSideAsset.url, alt: "Pontoon side profile after a full detail" },
+    {
+      src: marineSideAsset.url,
+      alt: "Pontoon side profile after a full detail",
+    },
   ],
   ceramic: [
-    { src: jHeadlightMercedesWhite, alt: "White Mercedes-AMG GLE headlight after paint correction and ceramic coating" },
-    { src: jExteriorBmwM340iFront, alt: "Blue BMW M340i in the shop after paint correction and ceramic coating" },
-    { src: jCeramicRav4WaterBeading, alt: "Water beading on a white Toyota RAV4 hood after ceramic coating" },
-    { src: audiA4Reflection, alt: "Black Audi A4 taillight and quarter panel reflecting like a mirror after polish" },
-    { src: jCeramicMercedesGleBadge, alt: "Mercedes-AMG Biturbo badge on corrected white paint" },
-    { src: jCeramicMiniMachinePolishHood, alt: "Xpress crew machine polishing the hood of a black Mini Cooper S" },
-    { src: jCeramicBmwM340iHood, alt: "Blue BMW M340i hood and headlight gloss after correction" },
-    { src: bmwEmblem, alt: "Silver BMW hood with mirror-finish reflection after paint correction" },
-    { src: jCeramicRav4FinestReserveHood, alt: "CARPRO CQUARTZ Finest Reserve box on a freshly coated white Toyota RAV4 hood" },
-    { src: jHeadlightMercedesSilver, alt: "Mercedes-AMG GLE headlight and fender after ceramic coating, garage reflected in the paint" },
-    { src: jCeramicBmwM340iDoor, alt: "Blue BMW M340i door reflection after paint correction" },
-    { src: jCeramicRav4PaintCloseup, alt: "Close-up of pearl white Toyota RAV4 paint in the sun after ceramic coating" },
-    { src: jCeramicBmw2Headlight, alt: "BMW 2 Series headlight and bumper after polish" },
-    { src: jCeramicMercedesGleWheel, alt: "Mercedes-AMG GLE wheel, fender and running board after ceramic coating" },
-    { src: gallery26, alt: "Blue BMW M340i with deep gloss under studio lighting after ceramic coating" },
-    { src: bmwHeadlight, alt: "BMW 2 Series headlight and front fender after polish and decontamination" },
-    { src: gallery28, alt: "Blue BMW M340i rear view with glowing taillights after ceramic coating" },
+    {
+      src: jHeadlightMercedesWhite,
+      alt: "White Mercedes-AMG GLE headlight after paint correction and ceramic coating",
+    },
+    {
+      src: jExteriorBmwM340iFront,
+      alt: "Blue BMW M340i in the shop after paint correction and ceramic coating",
+    },
+    {
+      src: jCeramicRav4WaterBeading,
+      alt: "Water beading on a white Toyota RAV4 hood after ceramic coating",
+    },
+    {
+      src: audiA4Reflection,
+      alt: "Black Audi A4 taillight and quarter panel reflecting like a mirror after polish",
+    },
+    {
+      src: jCeramicMercedesGleBadge,
+      alt: "Mercedes-AMG Biturbo badge on corrected white paint",
+    },
+    {
+      src: jCeramicMiniMachinePolishHood,
+      alt: "Xpress crew machine polishing the hood of a black Mini Cooper S",
+    },
+    {
+      src: jCeramicBmwM340iHood,
+      alt: "Blue BMW M340i hood and headlight gloss after correction",
+    },
+    {
+      src: bmwEmblem,
+      alt: "Silver BMW hood with mirror-finish reflection after paint correction",
+    },
+    {
+      src: jCeramicRav4FinestReserveHood,
+      alt: "CARPRO CQUARTZ Finest Reserve box on a freshly coated white Toyota RAV4 hood",
+    },
+    {
+      src: jHeadlightMercedesSilver,
+      alt: "Mercedes-AMG GLE headlight and fender after ceramic coating, garage reflected in the paint",
+    },
+    {
+      src: jCeramicBmwM340iDoor,
+      alt: "Blue BMW M340i door reflection after paint correction",
+    },
+    {
+      src: jCeramicRav4PaintCloseup,
+      alt: "Close-up of pearl white Toyota RAV4 paint in the sun after ceramic coating",
+    },
+    {
+      src: jCeramicBmw2Headlight,
+      alt: "BMW 2 Series headlight and bumper after polish",
+    },
+    {
+      src: jCeramicMercedesGleWheel,
+      alt: "Mercedes-AMG GLE wheel, fender and running board after ceramic coating",
+    },
+    {
+      src: gallery26,
+      alt: "Blue BMW M340i with deep gloss under studio lighting after ceramic coating",
+    },
+    {
+      src: bmwHeadlight,
+      alt: "BMW 2 Series headlight and front fender after polish and decontamination",
+    },
+    {
+      src: gallery28,
+      alt: "Blue BMW M340i rear view with glowing taillights after ceramic coating",
+    },
   ],
   exterior: [
-    { src: jExteriorAudiA4Driveway, alt: "Black Audi A4 in a Calgary driveway after exterior detail" },
-    { src: jExteriorRav4FrontThreeQuarter, alt: "White Toyota RAV4 front three-quarter outside the Airdrie shop after ceramic coating" },
-    { src: cadillacSrxFront, alt: "White Cadillac SRX in a Calgary driveway after full exterior detail" },
-    { src: mercedesCClass, alt: "White Mercedes-Benz C-Class sedan freshly detailed in underground parking" },
-    { src: audiA4, alt: "Black Audi A4 with glossy finish after exterior detail" },
-    { src: porscheMacan, alt: "White Porsche Macan after exterior detail in the shop" },
-    { src: jeepWrangler, alt: "Green Jeep Wrangler on aftermarket wheels after exterior detail" },
-    { src: jExteriorBmwM340iFront, alt: "Blue BMW M340i front three-quarter in the shop after polish" },
-    { src: jExteriorRav4RearThreeQuarter, alt: "White Toyota RAV4 rear three-quarter after ceramic coating" },
-    { src: jExteriorCadillacSrxDriveway, alt: "White Cadillac SRX front view after exterior detail" },
-    { src: jExteriorJeepWranglerWash, alt: "Green Jeep Wrangler after exterior wash" },
-    { src: jExteriorDefenderShop, alt: "Black Land Rover Defender in the shop after detail" },
-    { src: jExteriorPorscheMacanFront, alt: "White Porsche Macan front after exterior detail" },
-    { src: jExteriorRangeRoverFront, alt: "Green Range Rover front in the driveway after detail" },
-    { src: lexusIs, alt: "Charcoal Lexus IS F-Sport after full exterior detail" },
+    {
+      src: jExteriorAudiA4Driveway,
+      alt: "Black Audi A4 in a Calgary driveway after exterior detail",
+    },
+    {
+      src: jExteriorRav4FrontThreeQuarter,
+      alt: "White Toyota RAV4 front three-quarter outside the Airdrie shop after ceramic coating",
+    },
+    {
+      src: cadillacSrxFront,
+      alt: "White Cadillac SRX in a Calgary driveway after full exterior detail",
+    },
+    {
+      src: mercedesCClass,
+      alt: "White Mercedes-Benz C-Class sedan freshly detailed in underground parking",
+    },
+    {
+      src: audiA4,
+      alt: "Black Audi A4 with glossy finish after exterior detail",
+    },
+    {
+      src: porscheMacan,
+      alt: "White Porsche Macan after exterior detail in the shop",
+    },
+    {
+      src: jeepWrangler,
+      alt: "Green Jeep Wrangler on aftermarket wheels after exterior detail",
+    },
+    {
+      src: jExteriorBmwM340iFront,
+      alt: "Blue BMW M340i front three-quarter in the shop after polish",
+    },
+    {
+      src: jExteriorRav4RearThreeQuarter,
+      alt: "White Toyota RAV4 rear three-quarter after ceramic coating",
+    },
+    {
+      src: jExteriorCadillacSrxDriveway,
+      alt: "White Cadillac SRX front view after exterior detail",
+    },
+    {
+      src: jExteriorJeepWranglerWash,
+      alt: "Green Jeep Wrangler after exterior wash",
+    },
+    {
+      src: jExteriorDefenderShop,
+      alt: "Black Land Rover Defender in the shop after detail",
+    },
+    {
+      src: jExteriorPorscheMacanFront,
+      alt: "White Porsche Macan front after exterior detail",
+    },
+    {
+      src: jExteriorRangeRoverFront,
+      alt: "Green Range Rover front in the driveway after detail",
+    },
+    {
+      src: lexusIs,
+      alt: "Charcoal Lexus IS F-Sport after full exterior detail",
+    },
     { src: gallery20, alt: "Silver Audi RS5 after full exterior detail" },
-    { src: jExteriorRangeRoverThreeQuarter, alt: "Green Range Rover front three-quarter after detail" },
-    { src: gallery21, alt: "Black Tesla Model S with mirror-like paint finish" },
+    {
+      src: jExteriorRangeRoverThreeQuarter,
+      alt: "Green Range Rover front three-quarter after detail",
+    },
+    {
+      src: gallery21,
+      alt: "Black Tesla Model S with mirror-like paint finish",
+    },
     { src: gallery29, alt: "Silver Audi RS5 freshly detailed in driveway" },
-    { src: rangeRoverExterior, alt: "Green Range Rover SV after full exterior detail with deep gloss finish" },
+    {
+      src: rangeRoverExterior,
+      alt: "Green Range Rover SV after full exterior detail with deep gloss finish",
+    },
     { src: gallery22, alt: "Black Audi S5 freshly detailed in driveway" },
     { src: gallery11, alt: "Black BMW SUV after exterior detail" },
-    { src: gallery14, alt: "White Tesla Model X after exterior wash and detail" },
-    { src: bmwRear, alt: "BMW 2-Series convertible rear three-quarter view freshly detailed" },
-    { src: bmwMirrorTop, alt: "BMW convertible side mirror with red leather visible inside" },
-    { src: gallery31, alt: "BMW convertible after professional exterior detail" },
+    {
+      src: gallery14,
+      alt: "White Tesla Model X after exterior wash and detail",
+    },
+    {
+      src: bmwRear,
+      alt: "BMW 2-Series convertible rear three-quarter view freshly detailed",
+    },
+    {
+      src: bmwMirrorTop,
+      alt: "BMW convertible side mirror with red leather visible inside",
+    },
+    {
+      src: gallery31,
+      alt: "BMW convertible after professional exterior detail",
+    },
   ],
   interior: [
-    { src: jInteriorBmwRedFrontSeats, alt: "BMW 2 Series convertible red leather front seats after interior detail" },
-    { src: jInteriorCadillacSrxFrontCabin, alt: "Cadillac SRX cream leather front cabin after interior detail" },
-    { src: jInteriorLandRoverCabin, alt: "Land Rover front cabin with light leather seats after interior detail" },
-    { src: jInteriorBmwRedDriverSide, alt: "BMW 2 Series convertible red leather cabin and dash after interior detail" },
-    { src: jInteriorNissanCabin, alt: "Nissan front cabin and quilted seats after interior detail" },
-    { src: jInteriorF150RearFloor, alt: "Ford F-150 rear floor with the bench flipped up after vacuum and shampoo" },
-    { src: cadillacSrxInterior, alt: "Cadillac SRX cream leather front seats and door panel after interior detail" },
-    { src: jInteriorNissanSeat, alt: "Nissan quilted driver seat and dash after interior detail" },
-    { src: defenderInterior, alt: "Land Rover Defender tan leather front cabin after interior detail" },
-    { src: mazdaCx5Interior, alt: "Mazda CX-5 brown leather seats and console after interior detail" },
-    { src: f150Interior, alt: "Ford F-150 black leather cabin and floor liners after interior detail" },
-    { src: jInteriorCadillacSrxRearSeats, alt: "Cadillac SRX rear seats after interior detail" },
-    { src: jInteriorRangeRoverFrontCabin, alt: "Range Rover front cabin after interior detail" },
-    { src: jInteriorF150Console, alt: "Ford F-150 console after interior detail" },
-    { src: jInteriorCadillacSrxDash, alt: "Cadillac SRX dashboard and console after interior detail" },
-    { src: jInteriorRangeRoverRearSeats, alt: "Range Rover rear seats after interior detail" },
-    { src: jInteriorF150FrontSeats, alt: "Ford F-150 front seats and floor after interior detail" },
-    { src: jInteriorCadillacSrxDoor, alt: "Cadillac SRX door panel after interior detail" },
-    { src: jInteriorRangeRoverRearBench, alt: "Range Rover tan leather rear bench after detail" },
+    {
+      src: jInteriorBmwRedFrontSeats,
+      alt: "BMW 2 Series convertible red leather front seats after interior detail",
+    },
+    {
+      src: jInteriorCadillacSrxFrontCabin,
+      alt: "Cadillac SRX cream leather front cabin after interior detail",
+    },
+    {
+      src: jInteriorLandRoverCabin,
+      alt: "Land Rover front cabin with light leather seats after interior detail",
+    },
+    {
+      src: jInteriorBmwRedDriverSide,
+      alt: "BMW 2 Series convertible red leather cabin and dash after interior detail",
+    },
+    {
+      src: jInteriorNissanCabin,
+      alt: "Nissan front cabin and quilted seats after interior detail",
+    },
+    {
+      src: jInteriorF150RearFloor,
+      alt: "Ford F-150 rear floor with the bench flipped up after vacuum and shampoo",
+    },
+    {
+      src: cadillacSrxInterior,
+      alt: "Cadillac SRX cream leather front seats and door panel after interior detail",
+    },
+    {
+      src: jInteriorNissanSeat,
+      alt: "Nissan quilted driver seat and dash after interior detail",
+    },
+    {
+      src: defenderInterior,
+      alt: "Land Rover Defender tan leather front cabin after interior detail",
+    },
+    {
+      src: mazdaCx5Interior,
+      alt: "Mazda CX-5 brown leather seats and console after interior detail",
+    },
+    {
+      src: f150Interior,
+      alt: "Ford F-150 black leather cabin and floor liners after interior detail",
+    },
+    {
+      src: jInteriorCadillacSrxRearSeats,
+      alt: "Cadillac SRX rear seats after interior detail",
+    },
+    {
+      src: jInteriorRangeRoverFrontCabin,
+      alt: "Range Rover front cabin after interior detail",
+    },
+    {
+      src: jInteriorF150Console,
+      alt: "Ford F-150 console after interior detail",
+    },
+    {
+      src: jInteriorCadillacSrxDash,
+      alt: "Cadillac SRX dashboard and console after interior detail",
+    },
+    {
+      src: jInteriorRangeRoverRearSeats,
+      alt: "Range Rover rear seats after interior detail",
+    },
+    {
+      src: jInteriorF150FrontSeats,
+      alt: "Ford F-150 front seats and floor after interior detail",
+    },
+    {
+      src: jInteriorCadillacSrxDoor,
+      alt: "Cadillac SRX door panel after interior detail",
+    },
+    {
+      src: jInteriorRangeRoverRearBench,
+      alt: "Range Rover tan leather rear bench after detail",
+    },
     { src: jInteriorF150Cabin, alt: "Ford F-150 cabin after interior detail" },
-    { src: jInteriorBmwRedRearSeats, alt: "BMW red leather rear seats after interior detail" },
-    { src: jInteriorMazdaCx5Console, alt: "Mazda CX-5 console and leather seats after interior detail" },
-    { src: jInteriorF150Rear, alt: "Ford F-150 rear seat after interior detail" },
-    { src: jInteriorAcuraCabin, alt: "Acura cabin after dealership interior detail" },
-    { src: jInteriorMazdaCx5Rear, alt: "Mazda CX-5 rear seat after interior detail" },
-    { src: rangeRoverInterior, alt: "Range Rover tan leather interior after deep clean and conditioning" },
-    { src: gallery16, alt: "Pristine Audi interior after deep cleaning and conditioning" },
+    {
+      src: jInteriorBmwRedRearSeats,
+      alt: "BMW red leather rear seats after interior detail",
+    },
+    {
+      src: jInteriorMazdaCx5Console,
+      alt: "Mazda CX-5 console and leather seats after interior detail",
+    },
+    {
+      src: jInteriorF150Rear,
+      alt: "Ford F-150 rear seat after interior detail",
+    },
+    {
+      src: jInteriorAcuraCabin,
+      alt: "Acura cabin after dealership interior detail",
+    },
+    {
+      src: jInteriorMazdaCx5Rear,
+      alt: "Mazda CX-5 rear seat after interior detail",
+    },
+    {
+      src: rangeRoverInterior,
+      alt: "Range Rover tan leather interior after deep clean and conditioning",
+    },
+    {
+      src: gallery16,
+      alt: "Pristine Audi interior after deep cleaning and conditioning",
+    },
     { src: gallery9, alt: "BMW center console and dash after interior detail" },
-    { src: gallery10, alt: "SUV rear seats with tan leather after interior deep clean" },
+    {
+      src: gallery10,
+      alt: "SUV rear seats with tan leather after interior deep clean",
+    },
     { src: gallery8, alt: "Audi interior after deep clean and conditioning" },
     { src: gallery13, alt: "BMW M-series dark interior after deep clean" },
     { src: gallery19, alt: "Red Ford truck interior after deep clean" },
-    { src: gallery12, alt: "Audi interior detail with paperwork showing completed service" },
+    {
+      src: gallery12,
+      alt: "Audi interior detail with paperwork showing completed service",
+    },
     { src: gallery37, alt: "SUV cargo area after interior deep clean" },
     { src: gallery18, alt: "Audi red and black interior after detail" },
-    { src: gallery32, alt: "Audi diamond-stitched leather seats after interior detail" },
+    {
+      src: gallery32,
+      alt: "Audi diamond-stitched leather seats after interior detail",
+    },
   ],
   dealership: [
-    { src: jDealershipAcuraWhiteLot, alt: "White Acura on the dealership lot after prep detail" },
-    { src: gtiFront, alt: "White Volkswagen GTI front view prepped for dealership" },
-    { src: jDealershipAcuraRedSeats, alt: "Acura red leather sport seats after dealership interior detail" },
-    { src: gtiRear, alt: "White Volkswagen GTI rear view after dealership detail" },
-    { src: jDealershipAcuraCabinShowroom, alt: "Acura cabin at the dealership after interior prep" },
-    { src: gtiInterior, alt: "Volkswagen GTI plaid interior after dealership prep detail" },
-    { src: jDealershipAcuraThirdRow, alt: "Acura third-row seats and cargo area after dealership prep" },
-    { src: jDealershipAcuraCargo, alt: "Acura cargo area after dealership prep" },
-    { src: jDealershipAcuraLot, alt: "Acura lot with freshly detailed inventory" },
-    { src: jDealershipAcuraBlueLineup, alt: "Blue Acura lineup at the dealership after detail" },
-    { src: jDealershipAcuraRdxLot, alt: "Grey Acura RDX on the lot after detail" },
-    { src: acuraGarage, alt: "Grey Acura RDX being detailed in underground parking garage" },
-    { src: acuraGrey, alt: "Grey Acura RDX A-Spec detailed for dealership lot in Calgary" },
-    { src: acuraBlue, alt: "Blue Acura RDX lineup freshly detailed at Acura dealership" },
-    { src: acuraCargo, alt: "Acura RDX cargo area after dealership prep detail" },
-    { src: jDealershipAcuraDash, alt: "Acura dash and console after dealership interior detail" },
-    { src: jDealershipAcuraSeatStitching, alt: "Acura leather seat stitching and door after interior detail" },
-    { src: jDealershipAcuraDashTrim, alt: "Acura dash trim and passenger side after interior wipe-down" },
-    { src: jDealershipAcuraEngineBay, alt: "Acura engine bay after dealership prep" },
-    { src: jDealershipAcuraPedals, alt: "Acura pedals and floor mat after interior vacuum" },
-    { src: jDealershipAcuraFloor, alt: "Acura passenger footwell and carpet after vacuum" },
+    {
+      src: jDealershipAcuraWhiteLot,
+      alt: "White Acura on the dealership lot after prep detail",
+    },
+    {
+      src: gtiFront,
+      alt: "White Volkswagen GTI front view prepped for dealership",
+    },
+    {
+      src: jDealershipAcuraRedSeats,
+      alt: "Acura red leather sport seats after dealership interior detail",
+    },
+    {
+      src: gtiRear,
+      alt: "White Volkswagen GTI rear view after dealership detail",
+    },
+    {
+      src: jDealershipAcuraCabinShowroom,
+      alt: "Acura cabin at the dealership after interior prep",
+    },
+    {
+      src: gtiInterior,
+      alt: "Volkswagen GTI plaid interior after dealership prep detail",
+    },
+    {
+      src: jDealershipAcuraThirdRow,
+      alt: "Acura third-row seats and cargo area after dealership prep",
+    },
+    {
+      src: jDealershipAcuraCargo,
+      alt: "Acura cargo area after dealership prep",
+    },
+    {
+      src: jDealershipAcuraLot,
+      alt: "Acura lot with freshly detailed inventory",
+    },
+    {
+      src: jDealershipAcuraBlueLineup,
+      alt: "Blue Acura lineup at the dealership after detail",
+    },
+    {
+      src: jDealershipAcuraRdxLot,
+      alt: "Grey Acura RDX on the lot after detail",
+    },
+    {
+      src: acuraGarage,
+      alt: "Grey Acura RDX being detailed in underground parking garage",
+    },
+    {
+      src: acuraGrey,
+      alt: "Grey Acura RDX A-Spec detailed for dealership lot in Calgary",
+    },
+    {
+      src: acuraBlue,
+      alt: "Blue Acura RDX lineup freshly detailed at Acura dealership",
+    },
+    {
+      src: acuraCargo,
+      alt: "Acura RDX cargo area after dealership prep detail",
+    },
+    {
+      src: jDealershipAcuraDash,
+      alt: "Acura dash and console after dealership interior detail",
+    },
+    {
+      src: jDealershipAcuraSeatStitching,
+      alt: "Acura leather seat stitching and door after interior detail",
+    },
+    {
+      src: jDealershipAcuraDashTrim,
+      alt: "Acura dash trim and passenger side after interior wipe-down",
+    },
+    {
+      src: jDealershipAcuraEngineBay,
+      alt: "Acura engine bay after dealership prep",
+    },
+    {
+      src: jDealershipAcuraPedals,
+      alt: "Acura pedals and floor mat after interior vacuum",
+    },
+    {
+      src: jDealershipAcuraFloor,
+      alt: "Acura passenger footwell and carpet after vacuum",
+    },
   ],
   wheels: [
-    { src: jWheelsRav4Wheel, alt: "Toyota RAV4 wheel and dressed Michelin tire after ceramic coating" },
-    { src: jWheelsBmwM340iCaliper, alt: "BMW M340i wheel with blue M caliper and dressed Michelin tire" },
-    { src: jWheelsAudiA4Wheel, alt: "Audi A4 wheel and dressed tire after wheel detail" },
-    { src: jWheelsKodiakWheels, alt: "Kodiak travel trailer fenders and wheels after dressing" },
+    {
+      src: jWheelsRav4Wheel,
+      alt: "Toyota RAV4 wheel and dressed Michelin tire after ceramic coating",
+    },
+    {
+      src: jWheelsBmwM340iCaliper,
+      alt: "BMW M340i wheel with blue M caliper and dressed Michelin tire",
+    },
+    {
+      src: jWheelsAudiA4Wheel,
+      alt: "Audi A4 wheel and dressed tire after wheel detail",
+    },
+    {
+      src: jWheelsKodiakWheels,
+      alt: "Kodiak travel trailer fenders and wheels after dressing",
+    },
     { src: jWheelsBmw2Wheel, alt: "BMW 2 Series wheel after cleaning" },
-    { src: jWheelsAcuraWheel, alt: "Acura wheel and tire after cleaning and dressing" },
-    { src: jWheelsRangeRoverWheel, alt: "Range Rover wheel and fender after detail" },
-    { src: jWheelsNewmarWheel, alt: "Polished aluminum wheel on a Newmar Dutch Star after detail" },
-    { src: bmwWheelFront, alt: "BMW M-series front wheel with blue caliper after detail" },
-    { src: subaruWheel, alt: "Subaru wheel with Michelin X-Ice tire after wheel and tire detail" },
-    { src: gallery25, alt: "Silver Audi RS5 wheel and quarter panel after detail" },
-    { src: bmwWheelRear, alt: "BMW M-series rear wheel and quarter panel freshly detailed" },
+    {
+      src: jWheelsAcuraWheel,
+      alt: "Acura wheel and tire after cleaning and dressing",
+    },
+    {
+      src: jWheelsRangeRoverWheel,
+      alt: "Range Rover wheel and fender after detail",
+    },
+    {
+      src: jWheelsNewmarWheel,
+      alt: "Polished aluminum wheel on a Newmar Dutch Star after detail",
+    },
+    {
+      src: bmwWheelFront,
+      alt: "BMW M-series front wheel with blue caliper after detail",
+    },
+    {
+      src: subaruWheel,
+      alt: "Subaru wheel with Michelin X-Ice tire after wheel and tire detail",
+    },
+    {
+      src: gallery25,
+      alt: "Silver Audi RS5 wheel and quarter panel after detail",
+    },
+    {
+      src: bmwWheelRear,
+      alt: "BMW M-series rear wheel and quarter panel freshly detailed",
+    },
   ],
   fleet: [
-    { src: jFleetCatJobSite, alt: "CAT excavator on a Calgary job site after wash" },
+    {
+      src: jFleetF150FrontThreeQuarter,
+      alt: "Integrated Sustainability Ford F-150 FX4 work truck after a full detail at the yard",
+    },
+    {
+      src: jFleetF150Dash,
+      alt: "F-150 work truck cab after interior detail, dash and wheel cleaned",
+    },
+    {
+      src: jFleetF150RearCab,
+      alt: "F-150 rear cab floor liner extracted on a company work truck",
+    },
+    {
+      src: jFleetF150DoorLogo,
+      alt: "Integrated Sustainability door decal on a detailed fleet F-150",
+    },
+    {
+      src: jFleetF150Wheel,
+      alt: "F-150 wheel, tire and arch cleaned on a work truck detail",
+    },
+    {
+      src: jFleetF150Rear,
+      alt: "Fleet F-150 FX4 tailgate and bed rail after an exterior wash",
+    },
+    {
+      src: jFleetF150RunningBoard,
+      alt: "F-150 running board and rocker cleaned on a work truck",
+    },
+    {
+      src: jFleetF150DoorJamb,
+      alt: "F-150 door jamb degreased and wiped on a fleet detail",
+    },
+    {
+      src: jFleetF150Front,
+      alt: "Ford F-150 work truck front end after detail, doors open at night",
+    },
+    {
+      src: jFleetCatJobSite,
+      alt: "CAT excavator on a Calgary job site after wash",
+    },
     { src: gallery23, alt: "KLS fleet Ford F-150 detailed in shop" },
-    { src: jFleetDirttTransitOnsite, alt: "Ford Transit fleet van during on-site cleaning" },
+    {
+      src: jFleetDirttTransitOnsite,
+      alt: "Ford Transit fleet van during on-site cleaning",
+    },
     { src: jFleetCat320Site, alt: "CAT 320 excavator on site after wash" },
     { src: gallery34, alt: "Ford F-150 fleet truck after exterior detail" },
-    { src: jFleetDirttVansLot, alt: "Fleet vans at a company lot after on-site washes" },
-    { src: catExcavatorExt1, alt: "CAT Landform excavator on jobsite after exterior wash" },
-    { src: jFleetCatCabDoor, alt: "CAT excavator cab door open after interior clean" },
+    {
+      src: jFleetDirttVansLot,
+      alt: "Fleet vans at a company lot after on-site washes",
+    },
+    {
+      src: catExcavatorExt1,
+      alt: "CAT Landform excavator on jobsite after exterior wash",
+    },
+    {
+      src: jFleetCatCabDoor,
+      alt: "CAT excavator cab door open after interior clean",
+    },
     { src: jFleetCatBoom, alt: "CAT excavator boom and bucket after wash" },
-    { src: catExcavatorExt2, alt: "CAT 320 excavator side profile freshly detailed on construction site" },
+    {
+      src: catExcavatorExt2,
+      alt: "CAT 320 excavator side profile freshly detailed on construction site",
+    },
     { src: jFleetCatSeat, alt: "CAT excavator operator seat after cleaning" },
-    { src: jFleetCatCabFloor, alt: "CAT excavator cab floor and seat after detail" },
-    { src: catExcavator1, alt: "CAT excavator cab interior after professional deep clean" },
-    { src: catExcavatorPedals, alt: "Spotless CAT excavator floor pedals and cab interior after detail" },
+    {
+      src: jFleetCatCabFloor,
+      alt: "CAT excavator cab floor and seat after detail",
+    },
+    {
+      src: catExcavator1,
+      alt: "CAT excavator cab interior after professional deep clean",
+    },
+    {
+      src: catExcavatorPedals,
+      alt: "Spotless CAT excavator floor pedals and cab interior after detail",
+    },
     { src: catExcavator2, alt: "Detailed CAT excavator operator cabin" },
   ],
   crew: [
-    { src: jCrewVanGear, alt: "Xpress van rear with on-board water and detailing gear" },
-    { src: jCrewVanPower, alt: "Xpress van rear with hose reels and power on board" },
+    {
+      src: jCrewVanGear,
+      alt: "Xpress van rear with on-board water and detailing gear",
+    },
+    {
+      src: jCrewVanPower,
+      alt: "Xpress van rear with hose reels and power on board",
+    },
   ],
 };
 
 /** Detailing page mosaic: one feature shot and four supporting ones, cars only. */
 export const DETAILING_FEATURE: Photo[] = [
-  { src: rangeRoverExterior, alt: "Green Range Rover in a Calgary driveway after a complete detail" },
-  { src: jInteriorLandRoverCabin, alt: "Land Rover front cabin with light leather seats after interior detail" },
-  { src: mercedesCClass, alt: "White Mercedes-Benz C-Class after an exterior detail" },
-  { src: jInteriorCadillacSrxFrontCabin, alt: "Cadillac SRX cream leather front cabin after interior detail" },
+  {
+    src: rangeRoverExterior,
+    alt: "Green Range Rover in a Calgary driveway after a complete detail",
+  },
+  {
+    src: jInteriorLandRoverCabin,
+    alt: "Land Rover front cabin with light leather seats after interior detail",
+  },
+  {
+    src: mercedesCClass,
+    alt: "White Mercedes-Benz C-Class after an exterior detail",
+  },
+  {
+    src: jInteriorCadillacSrxFrontCabin,
+    alt: "Cadillac SRX cream leather front cabin after interior detail",
+  },
   { src: porscheMacan, alt: "White Porsche Macan after an exterior detail" },
 ];
 
 /** Headlight lenses after polishing, for the headlight restoration page. */
 export const HEADLIGHT_PHOTOS: Photo[] = [
-  { src: jHeadlightMercedesWhite, alt: "Clear Mercedes headlight lens after polishing" },
+  {
+    src: jHeadlightMercedesWhite,
+    alt: "Clear Mercedes headlight lens after polishing",
+  },
   { src: jCeramicBmw2Headlight, alt: "BMW 2 Series headlight after polish" },
-  { src: jCeramicRangeRoverHeadlight, alt: "Range Rover headlight and hood gloss after detail" },
-  { src: jHeadlightMercedesSilver, alt: "Mercedes headlight lens after polishing, garage reflected in the lens" },
+  {
+    src: jCeramicRangeRoverHeadlight,
+    alt: "Range Rover headlight and hood gloss after detail",
+  },
+  {
+    src: jHeadlightMercedesSilver,
+    alt: "Mercedes headlight lens after polishing, garage reflected in the lens",
+  },
   { src: bmwHeadlight, alt: "BMW headlight and front fender after polish" },
   { src: newmarHeadlights, alt: "Newmar Dutch Star headlights after polish" },
 ];
 
 /** Short muted job clips in /public/videos (9:16, ~0.5-2 MB each). */
 export type Clip = { src: string; poster: string; label: string };
-const clip = (name: string, label: string): Clip => ({ src: `/videos/${name}.mp4`, poster: `/videos/${name}.jpg`, label });
+const clip = (name: string, label: string): Clip => ({
+  src: `/videos/${name}.mp4`,
+  poster: `/videos/${name}.jpg`,
+  label,
+});
 export const CLIPS = {
-  rvCrewWash: clip("xp-rv-crew-wash", "Crew washing a Class A motorhome on site"),
-  rvWalkaround: clip("xp-rv-walkaround", "Class A motorhome walkaround after detail"),
+  rvCrewWash: clip(
+    "xp-rv-crew-wash",
+    "Crew washing a Class A motorhome on site",
+  ),
+  rvWalkaround: clip(
+    "xp-rv-walkaround",
+    "Class A motorhome walkaround after detail",
+  ),
   rvInterior: clip("xp-rv-interior", "Motorhome interior after detail"),
-  trailerPolish: clip("xp-trailer-polish", "Fifth wheel after a full exterior polish"),
-  paintCorrection: clip("xp-paint-correction", "Paint correction on black paint with a 50/50 tape line"),
+  trailerPolish: clip(
+    "xp-trailer-polish",
+    "Fifth wheel after a full exterior polish",
+  ),
+  paintCorrection: clip(
+    "xp-paint-correction",
+    "Paint correction on black paint with a 50/50 tape line",
+  ),
   teslaDetail: clip("xp-tesla-detail", "Red Tesla after a complete detail"),
   jeepShop: clip("xp-jeep-shop", "Jeep Wrangler in the shop after detail"),
   defenderShop: clip("xp-defender-shop", "Land Rover Defender in the shop"),
-  gleHeadlight: clip("xp-mercedes-gle-headlight", "Mercedes-AMG GLE headlight after correction and ceramic coating"),
-  gleHeadlightClose: clip("xp-mercedes-gle-headlight-close", "Close pass over the Mercedes-AMG GLE headlight and fender"),
+  gleHeadlight: clip(
+    "xp-mercedes-gle-headlight",
+    "Mercedes-AMG GLE headlight after correction and ceramic coating",
+  ),
+  gleHeadlightClose: clip(
+    "xp-mercedes-gle-headlight-close",
+    "Close pass over the Mercedes-AMG GLE headlight and fender",
+  ),
 } satisfies Record<string, Clip>;
+
+/** Work truck photo set (Integrated Sustainability fleet F-150), used on the work truck package and the truck banner. */
+export const WORK_TRUCK_PHOTOS = {
+  hero: jFleetF150FrontThreeQuarter,
+  front: jFleetF150Front,
+  dash: jFleetF150Dash,
+  rearCab: jFleetF150RearCab,
+  door: jFleetF150DoorLogo,
+};
