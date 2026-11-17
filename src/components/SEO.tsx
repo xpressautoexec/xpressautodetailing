@@ -83,10 +83,10 @@ export const localBusinessJsonLd = {
   url: "https://xpressautodetail.ca",
   image: "https://xpressautodetail.ca/og-default.jpg",
   sameAs: ["https://www.instagram.com/xpressauto.yyc"],
-  knowsAbout: ["Paint Protection Film", "Ceramic Coating", "CARPRO DQUARTZ", "SunTek PPF", "Window Tint", "RV Detailing", "Fleet Detailing"],
+  knowsAbout: ["Paint Protection Film", "Ceramic Coating", "CARPRO DQUARTZ", "SunTek PPF", "Windshield Protection Film", "RV Detailing", "Fleet Detailing"],
   telephone: "+1-587-500-4523",
   email: "support@xpressautodetail.ca",
-  description: "Calgary's mobile car detailing service. Mobile detailing for cars, trucks, RVs, trailers, fleets — interior, exterior, paint correction, ceramic coating, SunTek paint protection film, window tint and oxidation removal. We come to you across Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County.",
+  description: "Calgary's mobile car detailing service. Mobile detailing for cars, trucks, RVs, trailers, fleets — interior, exterior, paint correction, ceramic coating, SunTek paint protection film, ExoShield windshield film and oxidation removal. We come to you across Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County.",
   areaServed: [
     { "@type": "City", name: "Calgary" },
     { "@type": "City", name: "Airdrie" },

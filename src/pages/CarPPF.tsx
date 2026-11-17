@@ -1,3 +1,4 @@
+import ManufacturerWarranty from "@/components/site/ManufacturerWarranty";
 import { useState } from "react";
 import LandingPage from "@/components/site/LandingPage";
 import { Section, SectionHeading } from "@/components/site/Section";
@@ -401,6 +402,11 @@ const CarPPF = () => {
             before we start.
           </p>
         </div>
+      </Section>
+
+      <Section id="warranty">
+        <SectionHeading title="Backed by SunTek for up to 12 years" />
+        <ManufacturerWarranty brand="suntek" />
       </Section>
 
       <PPFCraft />

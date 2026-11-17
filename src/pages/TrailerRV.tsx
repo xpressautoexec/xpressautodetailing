@@ -230,7 +230,7 @@ const THEN_WHAT: {
       {
         solution: "Paint protection film",
         price: `from ${money(Math.min(...RV_PPF.map((x) => x.price)))}`,
-        body: `A clear, self-healing film over the front cap and leading edges that takes the hit so the gelcoat doesn't. One layer for all of it.${FILM.certified ? " Backed by a 10-year 3M film warranty." : ""}`,
+        body: `A clear, self-healing film over the front cap and leading edges that takes the hit so the gelcoat doesn't. One layer for all of it. Backed by SunTek's film warranty, up to 12 years.`,
         action: {
           label: "See RV PPF packages",
           href: "/rv-trailer/ppf",
@@ -944,7 +944,7 @@ const TrailerRV = () => (
                 </span>
                 <span className="mt-0.5 block text-sm text-muted-ink">
                   Front caps and leading edges in {FILM.name}
-                  {FILM.certified ? ", 10-year 3M film warranty" : ""}
+                  , up to a 12-year SunTek warranty
                 </span>
               </span>
               <ArrowUpRight

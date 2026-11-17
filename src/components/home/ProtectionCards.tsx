@@ -15,14 +15,14 @@ const CARDS = [
     points: ["Front, full front or full body coverage", "Gloss or matte finish", "Manufacturer warranty on the film"],
   },
   {
-    title: "Window Tint",
-    href: "/window-tint",
-    body: "SunTek window film for a cooler cabin, less glare off snow and low sun, and UV protection.",
-    points: ["Ceramic and carbon film options", "Clean edges, no bubbles", "Manufacturer warranty on the film"],
+    title: "Windshield Film",
+    href: "/windshield-ppf",
+    body: "ExoShield film on the windshield to stop rock chips and pitting. From $479 CAD.",
+    points: ["GT3+ and ULTRA film", "Camera and sensor safe", "3-year ExoShield warranty"],
   },
 ];
 
-/** LLumar's two link cards (Window Tint / PPF), extended to our three protection lines. */
+/** Link cards for our three protection lines. */
 const ProtectionCards = () => (
   <section className="section-y bg-canvas" aria-label="Protection services">
     <div className="shell grid gap-6 md:grid-cols-3">

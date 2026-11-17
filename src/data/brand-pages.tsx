@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { FILM_PRODUCTS, DQUARTZ_PACKAGES } from "@/data/protection-brands";
-import { WHY_PPF, WHY_CERAMIC, WHY_TINT } from "@/data/why";
+import { WHY_PPF, WHY_CERAMIC } from "@/data/why";
 import type { WhyItem } from "@/components/site/WhyBand";
 import type { QuoteNeed } from "@/components/QuoteForm";
 import QuoteLink from "@/components/site/QuoteLink";
@@ -46,12 +46,6 @@ const PPF_FAQS = [
   { q: "Will PPF damage my paint if it is removed?", a: "Quality film installed on healthy factory paint is designed to come off cleanly. Repainted or damaged paint is a different case, and we check it before we install." },
 ];
 
-const TINT_FAQS = [
-  { q: "How dark can you legally tint windows in Alberta?", a: "Alberta restricts film on the windshield and the front side windows. Rear side windows and the back glass can usually go darker. We will tell you what is allowed on your vehicle before we install." },
-  { q: "Is ceramic window tint worth it in Calgary?", a: "Ceramic film rejects more heat than basic dyed film without metal in it, so it will not interfere with phone, GPS or radio signals. In a Calgary summer with long daylight hours, most drivers notice the cabin is cooler." },
-  { q: "How long does window tint take?", a: "Most cars take a few hours. We will give you a time with your quote." },
-  { q: "How soon can I roll my windows down?", a: "Give the film a few days to cure before rolling the windows down. We will give you the exact aftercare for your film." },
-];
 
 export const SUNTEK_PPF: BrandPage = {
   path: "/paint-protection-film/suntek",
@@ -85,7 +79,7 @@ export const SUNTEK_PPF: BrandPage = {
   faqTitle: "SunTek PPF questions",
   faqs: PPF_FAQS,
   pathways: [
-    { title: "Add window tint", body: "SunTek Evolve, ceramic and carbon film.", href: "/window-tint/suntek" },
+    { title: "Add windshield film", body: "ExoShield GT3+ and ULTRA, from $479 CAD.", href: "/windshield-ppf" },
     { title: "Add ceramic coating", body: "Coat the rest of the car with CARPRO DQUARTZ.", href: "/ceramic-coating/carpro-dquartz" },
   ],
   official: { label: "See SunTek's official PPF line-up", href: FILM_PRODUCTS.suntek.official },
@@ -126,7 +120,7 @@ export const LLUMAR_PPF: BrandPage = {
   faqs: PPF_FAQS,
   pathways: [
     { title: "Compare with SunTek PPF", body: "Reaction, Ultra, Ultra Matte and Ultra Defense.", href: "/paint-protection-film/suntek" },
-    { title: "Add window tint", body: "LLumar and SunTek window film.", href: "/window-tint" },
+    { title: "Add windshield film", body: "ExoShield GT3+ and ULTRA, from $479 CAD.", href: "/windshield-ppf" },
   ],
   official: { label: "See LLumar's official PPF line-up", href: FILM_PRODUCTS.llumar.official },
   footnotes: [WARRANTY_NOTE, TRADEMARKS],
@@ -239,124 +233,3 @@ export const DQUARTZ: BrandPage = {
   footnotes: [WARRANTY_NOTE, TRADEMARKS],
 };
 
-export const WINDOW_TINT: BrandPage = {
-  path: "/window-tint",
-  seo: {
-    title: "Window Tint Calgary | Authorized SunTek Installer | Xpress",
-    description: "Window tint in Calgary by an authorized SunTek installer: ceramic and carbon film for heat rejection, less glare and UV protection.",
-    serviceName: "Window Tint",
-  },
-  hero: {
-    eyebrow: "Authorized SunTek installer",
-    title: "Window tint",
-    subtitle: "A cooler cabin, less glare off snow and low winter sun, and UV protection for you and your interior. Installed in Calgary, Airdrie and surrounding areas.",
-    image: heroTint,
-    imageAlt: "Range Rover three-quarter view showing tinted windows",
-  },
-  h1: "Window Tint in Calgary — Authorized SunTek Installer",
-  lead: "Window tint from Xpress is SunTek automotive window film installed by an authorized installer in Calgary and our heated Airdrie shop.",
-  intro: [
-    "We install ceramic, carbon and dyed films, cut to your windows with clean edges and no bubbles, and backed by the manufacturer's warranty on the film.",
-  ],
-  questions: [
-    { q: "Is ceramic tint worth it in Calgary?", a: "Ceramic film rejects more heat than basic dyed film and has no metal, so phone, GPS and radio signals are not affected. With long summer days, most drivers feel the difference." },
-    { q: "How dark can you legally tint in Alberta?", a: "Alberta restricts film on the windshield and front side windows. Rear side windows and the back glass can usually go darker. We will confirm what is legal for your vehicle before we install." },
-    { q: "How much does window tint cost?", a: "It depends on the vehicle, the number of windows and the film. Text us photos for an exact price." },
-  ],
-  productsTitle: "Choose your film",
-  products: [
-    { name: "SunTek window tint", description: "SunTek automotive film, from Evolve to ceramic and carbon.", benefits: ["Evolve for higher infrared heat rejection", "Non-metal films that will not block signals"], href: "/window-tint/suntek" },
-  ],
-  why: WHY_TINT,
-  quoteTitle: "Get a window tint quote",
-  quoteNeed: "Not sure",
-  faqTitle: "Window tint questions",
-  faqs: TINT_FAQS,
-  pathways: [
-    { title: "Add paint protection film", body: "SunTek PPF for the front end.", href: "/paint-protection-film" },
-    { title: "Add ceramic coating", body: "CARPRO DQUARTZ for the whole car.", href: "/ceramic-coating/carpro-dquartz" },
-  ],
-  footnotes: [WARRANTY_NOTE, TRADEMARKS],
-};
-
-/** Hidden for now: /window-tint/llumar redirects to SunTek. Kept so it can be switched back on. */
-export const LLUMAR_TINT: BrandPage = {
-  path: "/window-tint/llumar",
-  seo: {
-    title: "LLumar Window Tint Calgary | Authorized LLumar Installer",
-    description: "LLumar window tint installed in Calgary by an authorized LLumar installer: FormulaOne, ceramic, clear and dyed automotive film.",
-    serviceName: "LLumar Window Tint",
-  },
-  hero: {
-    eyebrow: "Authorized LLumar installer",
-    title: "LLumar tint",
-    subtitle: "Automotive window film known for quality, colour stability and a durable scratch-resistant coating. Installed in Calgary, Airdrie and surrounding areas.",
-    image: heroCabin,
-    imageAlt: "Vehicle cabin with tinted glass",
-  },
-  h1: "LLumar® Window Tint in Calgary",
-  lead: "LLumar window tint from Xpress is LLumar automotive window film installed by an authorized LLumar installer in Calgary and Airdrie.",
-  intro: ["LLumar film helps keep the cabin cooler, cuts glare, blocks UV and adds privacy, with a factory-backed warranty."],
-  questions: [
-    { q: "Which LLumar tint should I choose?", a: "FormulaOne is LLumar's top-of-the-line film for the best comfort and look. Ceramic films reject heat without metal. Dyed film is the budget option for looks and privacy." },
-    { q: "How dark can I go in Alberta?", a: "Alberta restricts film on the windshield and front side windows. We will confirm what is legal on your vehicle." },
-    { q: "How much does LLumar tint cost?", a: "It depends on the film and your vehicle. Text us photos for an exact price." },
-  ],
-  productsTitle: "The LLumar films we install",
-  products: [
-    { name: "FormulaOne", description: "LLumar's top-of-the-line automotive film for enhanced comfort, protection and a refined look.", benefits: ["Premium heat and glare control", "Factory-backed warranty"] },
-    { name: "Ceramic", description: "Non-metal ceramic film for strong heat rejection without blocking signals.", benefits: ["Phone, GPS and radio friendly", "Cooler cabin in summer"] },
-    { name: "Clear", description: "Near-invisible film for UV and heat protection without changing the look of your glass.", benefits: ["Keeps the factory look", "UV protection"] },
-    { name: "Dyed", description: "Affordable film for privacy and a darker, uniform look.", benefits: ["Budget-friendly", "Added privacy"] },
-  ],
-  why: WHY_TINT,
-  quoteTitle: "Get a LLumar tint quote",
-  faqTitle: "LLumar tint questions",
-  faqs: TINT_FAQS,
-  pathways: [
-    { title: "Compare SunTek tint", body: "Evolve, ceramic and carbon film.", href: "/window-tint/suntek" },
-    { title: "Add LLumar PPF", body: "Self-healing paint protection film.", href: "/paint-protection-film/llumar" },
-  ],
-  official: { label: "See LLumar's official tint line-up", href: "https://llumar.com/en/tint/" },
-  footnotes: [WARRANTY_NOTE, TRADEMARKS],
-};
-
-export const SUNTEK_TINT: BrandPage = {
-  path: "/window-tint/suntek",
-  seo: {
-    title: "SunTek Window Tint Calgary | Authorized SunTek Installer",
-    description: "SunTek window tint installed in Calgary by an authorized SunTek installer: Evolve, ceramic and carbon automotive film for heat and glare control.",
-    serviceName: "SunTek Window Tint",
-  },
-  hero: {
-    eyebrow: "Authorized SunTek installer",
-    title: "SunTek tint",
-    subtitle: "When the sun brings its worst: SunTek window film for heat rejection, less glare and UV protection. Installed in Calgary, Airdrie and surrounding areas.",
-    image: heroBmw,
-    imageAlt: "BMW M340i front three-quarter",
-  },
-  h1: "SunTek® Window Tint in Calgary",
-  lead: "SunTek window tint from Xpress is SunTek automotive window film installed by an authorized SunTek installer in Calgary and Airdrie.",
-  intro: ["SunTek film is engineered for heat and glare control, with a manufacturer's warranty on the film."],
-  questions: [
-    { q: "Which SunTek tint should I choose?", a: "Evolve is SunTek's top-of-the-line tint for higher infrared heat rejection. Ceramic is a strong all-rounder. Carbon gives a matte, non-reflective look at a lower price." },
-    { q: "How dark can I go in Alberta?", a: "Alberta restricts film on the windshield and front side windows. We will confirm what is legal on your vehicle." },
-    { q: "How much does SunTek tint cost?", a: "It depends on the film and your vehicle. Text us photos for an exact price." },
-  ],
-  productsTitle: "The SunTek films we install",
-  products: [
-    { name: "Evolve", description: "SunTek's top-of-the-line automotive tint, engineered for enhanced heat-blocking and higher infrared rejection.", benefits: ["Best heat control in the SunTek range", "Manufacturer warranty"] },
-    { name: "Ceramic", description: "Non-metal ceramic film for strong heat rejection without signal interference.", benefits: ["Phone, GPS and radio friendly", "Clear views, less glare"] },
-    { name: "Carbon", description: "Carbon film with a matte, non-reflective finish and lasting colour.", benefits: ["Colour-stable finish", "Good value"] },
-  ],
-  why: WHY_TINT,
-  quoteTitle: "Get a SunTek tint quote",
-  faqTitle: "SunTek tint questions",
-  faqs: TINT_FAQS,
-  pathways: [
-    { title: "Add ceramic coating", body: "CARPRO DQUARTZ for the whole car.", href: "/ceramic-coating/carpro-dquartz" },
-    { title: "Add SunTek PPF", body: "Self-healing paint protection film.", href: "/paint-protection-film/suntek" },
-  ],
-  official: { label: "See SunTek's official tint line-up", href: "https://suntekfilms.com/na/en/automotive-window-tint/" },
-  footnotes: [WARRANTY_NOTE, TRADEMARKS],
-};

@@ -2,7 +2,6 @@
  * Brand system: named programs, the stat row, the Xpress Process, CTA wording,
  * warranty and care language. Real numbers only. Change a claim here, not in page copy.
  */
-import { IS_3M_CERTIFIED } from "@/config/site";
 import { FIVE_STAR_REVIEWS, SEASON_STATS, SERVICE_AREAS, PHONE } from "@/data/pricing";
 
 /** Named systems. Use `.tm` on the first mention on a page and `.name` after. */
@@ -48,13 +47,12 @@ export const XPRESS_PROCESS = [
   { title: "Care Plan", body: "How to wash it, what to avoid, and when to book the next visit." },
 ];
 
-/** Film wording that follows the 3M certification switch. */
+/** SunTek film wording. */
 export const FILM = {
   name: "SunTek® film",
   plain: "SunTek film",
-  certified: IS_3M_CERTIFIED,
-  /** Only shown when IS_3M_CERTIFIED is true. */
-  warrantyLine: IS_3M_CERTIFIED ? "10-year 3M film warranty against yellowing, bubbling and cracking." : null,
+  certified: true,
+    warrantyLine: "Up to a 12-year SunTek film warranty against cracking, bubbling and yellowing.",
   /** Neutral description safe either way. */
   description: "Optically clear, self-healing under heat, and cut on our plotter from patterns made for your vehicle.",
 };
@@ -67,6 +65,32 @@ export const FILM = {
  *   registered by the certified installer at registerwarranty.carpro.global.
  */
 export const MANUFACTURER_WARRANTIES = {
+  suntek: {
+    brand: "SunTek",
+    title: "SunTek limited film warranty",
+    terms: [
+      { product: "SunTek Reaction", term: "12 years" },
+      { product: "SunTek Ultra and Ultra Matte", term: "10 years" },
+      { product: "SunTek Ultra Defense", term: "10 years" },
+    ],
+    summary:
+      "SunTek backs professionally sold and installed film against defects in manufacture or materials. As an authorized SunTek installer, our installs qualify for SunTek's warranty.",
+    covers: ["Cracking", "Bubbling", "Yellowing"],
+    perks: ["Covers gloss and matte SunTek film", "Installed by an authorized SunTek installer", "Inspected by us first if anything looks off"],
+    conditions: [
+      "Installed on original factory paint (film over repainted panels is not covered)",
+      "Professionally sold and installed (we handle this)",
+      "Keep your original invoice",
+    ],
+    excludes: [
+      "Rock chips, scratches and impact damage the film took for your paint",
+      "Paint damage under the film, or paint lifted when film is removed",
+      "Misuse, accidents, and stains from chemicals or neglect",
+    ],
+    claim:
+      "Text us photos with the film still on the vehicle. We inspect it and file the claim with SunTek using your original invoice.",
+    source: "https://suntekfilms.com/paintprotection/ppf-ultra",
+  },
   exoshield: {
     brand: "ExoShield",
     title: "3-year ExoShield limited warranty",
@@ -122,9 +146,8 @@ export const WARRANTY = {
     "One month on our workmanship for paint correction and coating application: if holograms, high spots or missed areas show up, we come back and fix them.",
   coating:
     "CARPRO coatings are registered with CARPRO after application and carry its Real World Warranty: 2 years on CQUARTZ Professional and DQUARTZ, 3 years on CQUARTZ Finest Reserve.",
-  film: IS_3M_CERTIFIED
-    ? "Film is installed by a 3M Certified Installer and carries a 10-year 3M film warranty against yellowing, bubbling and cracking."
-    : "Film is 3M Scotchgard™ Pro. Film defects are handled under the product's own terms; ask us for the current details for your install.",
+  film:
+    "SunTek film carries SunTek's limited warranty against cracking, bubbling and yellowing: 12 years on Reaction, 10 years on Ultra, Ultra Matte and Ultra Defense.",
   windshield: "ExoShield windshield film is backed by ExoShield's 3-year limited warranty, registered by us as a certified installer.",
   care: [
     "Hand wash with a pH-neutral, coating-safe soap.",

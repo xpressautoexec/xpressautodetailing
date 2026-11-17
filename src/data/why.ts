@@ -11,7 +11,6 @@ import {
   Waves,
   CalendarClock,
   Wind,
-  ThermometerSnowflake,
   SunDim,
   EyeOff,
   Car,
@@ -72,21 +71,6 @@ export const WHY_CERAMIC: Why = {
   ],
 };
 
-export const WHY_TINT: Why = {
-  subject: "Tint",
-  intro:
-    "Quality window film keeps your cabin cooler in summer, cuts glare off snow and low winter sun, and helps protect your interior and your skin from UV.",
-  apart:
-    "We install SunTek window film as an authorized installer, with clean edges, no bubbles, and the manufacturer's warranty on the film.",
-  items: [
-    { icon: ThermometerSnowflake, label: "Heat Rejection" },
-    { icon: Sun, label: "UV Protection" },
-    { icon: SunDim, label: "Less Glare" },
-    { icon: EyeOff, label: "Added Privacy" },
-    { icon: Car, label: "A New Look" },
-    { icon: BadgeCheck, label: "Manufacturer Warranty" },
-  ],
-};
 
 /** Shown on the RV hub: same band, RV-specific benefits. */
 export const WHY_RV: Why = {

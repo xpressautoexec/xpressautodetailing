@@ -86,8 +86,6 @@ const CancellationPolicyPage = lazyPage(
 );
 const SunTekPPF = lazyPage(() => import("./pages/brand/SunTekPPF"));
 const DQuartz = lazyPage(() => import("./pages/brand/DQuartz"));
-const WindowTint = lazyPage(() => import("./pages/brand/WindowTint"));
-const SunTekTint = lazyPage(() => import("./pages/brand/SunTekTint"));
 
 const queryClient = new QueryClient();
 
@@ -200,12 +198,12 @@ export const AnimatedRoutes = () => {
             element={<Navigate to="/paint-protection-film/suntek" replace />}
           />
           <Route path="/ceramic-coating/carpro-dquartz" element={<DQuartz />} />
-          <Route path="/window-tint" element={<WindowTint />} />
+          <Route path="/window-tint" element={<Navigate to="/paint-protection-film" replace />} />
           <Route
             path="/window-tint/llumar"
-            element={<Navigate to="/window-tint/suntek" replace />}
+            element={<Navigate to="/paint-protection-film" replace />}
           />
-          <Route path="/window-tint/suntek" element={<SunTekTint />} />
+          <Route path="/window-tint/suntek" element={<Navigate to="/paint-protection-film" replace />} />
           <Route
             path="/monthly-plan"
             element={<Navigate to="/xpress-pass" replace />}
@@ -217,7 +215,7 @@ export const AnimatedRoutes = () => {
           />
           <Route
             path="/window-tinting"
-            element={<Navigate to="/window-tint" replace />}
+            element={<Navigate to="/paint-protection-film" replace />}
           />
           <Route
             path="/calgary-detailing-price-comparison"
@@ -258,7 +256,7 @@ export const AnimatedRoutes = () => {
           />
           <Route
             path="/protection/window-tint"
-            element={<Navigate to="/window-tint" replace />}
+            element={<Navigate to="/paint-protection-film" replace />}
           />
           <Route
             path="/protection/windshield-ppf"
@@ -331,8 +329,6 @@ const PRELOAD: [string, { preload: () => Promise<unknown> }][] = [
   ["/paint-protection-film", CarPPF],
   ["/paint-protection-film/suntek", SunTekPPF],
   ["/ceramic-coating/carpro-dquartz", DQuartz],
-  ["/window-tint", WindowTint],
-  ["/window-tint/suntek", SunTekTint],
   ["/marine", MarineDetailing],
   ["/calgary-detailing-price-comparison", PriceComparison],
   ["/auto-detailing", AutoDetailing],

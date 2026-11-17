@@ -29,7 +29,7 @@ const Warranty = () => (
     <div className="min-h-screen bg-canvas">
       <SEO
         title="Warranty & Care | Ceramic Coating and PPF | Xpress Auto & RV Detailing"
-        description="CARPRO coating warranties (2 and 3 years) and ExoShield's 3-year windshield film warranty, registered by us, plus workmanship coverage and the care that keeps it valid."
+        description="SunTek film warranties up to 12 years, CARPRO coating warranties (2 and 3 years) and ExoShield's 3-year windshield film warranty, registered by us, plus workmanship coverage and the care that keeps it valid."
         canonical="/warranty"
       />
       <Navbar />
@@ -49,10 +49,11 @@ const Warranty = () => (
         <SectionHeading
           eyebrow="Manufacturer warranties"
           title="Registered with the manufacturer, every time."
-          intro="We're a certified CARPRO and ExoShield installer, so these warranties come straight from the manufacturer. We register them for you after the install."
+          intro="We're an authorized SunTek, CARPRO and ExoShield installer, so these warranties come straight from the manufacturer. We register them for you after the install."
         />
         <div className="space-y-6">
           <ManufacturerWarranty brand="carpro" full />
+          <ManufacturerWarranty brand="suntek" full />
           <ManufacturerWarranty brand="exoshield" full />
         </div>
       </Section>

@@ -47,8 +47,6 @@ const ROUTE_LABELS: Record<string, string> = {
   "paint-protection-film": "Paint Protection Film",
   "paint-protection-film/suntek": "SunTek PPF",
   "ceramic-coating/carpro-dquartz": "CARPRO DQUARTZ",
-  "window-tint": "Window Tint",
-  "window-tint/suntek": "SunTek Window Tint",
 };
 
 

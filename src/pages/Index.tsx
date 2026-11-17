@@ -51,7 +51,7 @@ const Index = () => (
     <div className="min-h-screen bg-canvas">
       <SEO
         title="Mobile Car & RV Detailing Calgary | Ceramic, PPF & Tint"
-        description="Mobile car and RV detailing in Calgary and Airdrie: CARPRO ceramic coating, SunTek paint protection film and window tint, at your driveway."
+        description="Mobile car and RV detailing in Calgary and Airdrie: CARPRO ceramic coating, SunTek paint protection film and ExoShield windshield film, at your driveway."
         canonical="/"
         jsonLd={localBusinessJsonLd}
       />

@@ -21,7 +21,7 @@ const COLUMNS: Column[] = [
     tag: "Automotive",
     tagIcon: CarFront,
     title: "Rule Calgary roads with ceramic coating, PPF and tint",
-    body: "Protect and customize your car with CARPRO ceramic coating, SunTek paint protection film and window tint.",
+    body: "Protect and customize your car with CARPRO ceramic coating, SunTek paint protection film and ExoShield windshield film.",
     benefits: [
       { icon: ShieldCheck, label: "Gloss and matte film options" },
       { icon: Mountain, label: "Built for gravel, salt and slush" },

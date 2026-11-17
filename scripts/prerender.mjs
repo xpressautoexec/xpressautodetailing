@@ -31,8 +31,6 @@ const ROUTES = [
   "/paint-protection-film",
   "/paint-protection-film/suntek",
   "/ceramic-coating/carpro-dquartz",
-  "/window-tint",
-  "/window-tint/suntek",
   "/gallery",
   "/reviews",
   "/contact",

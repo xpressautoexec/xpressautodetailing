@@ -3,6 +3,7 @@ import { Check, ShieldCheck, X } from "lucide-react";
 import { MANUFACTURER_WARRANTIES } from "@/data/brand";
 import exoshieldLockup from "@/assets/brand-exoshield-lockup.svg";
 import carproLogo from "@/assets/carpro/logo-carpro.png";
+import suntekLogo from "@/assets/brand-suntek.svg.asset.json";
 
 type Brand = keyof typeof MANUFACTURER_WARRANTIES;
 
@@ -18,7 +19,8 @@ const ManufacturerWarranty = ({
   full?: boolean;
 }) => {
   const w = MANUFACTURER_WARRANTIES[brand];
-  const logo = brand === "exoshield" ? exoshieldLockup : carproLogo;
+  const logo =
+    brand === "exoshield" ? exoshieldLockup : brand === "suntek" ? suntekLogo.url : carproLogo;
   return (
     <article className="overflow-hidden rounded-card border-2 border-electric bg-surface">
       <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1fr_1.2fr] lg:gap-12">

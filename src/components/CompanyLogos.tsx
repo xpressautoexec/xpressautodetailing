@@ -5,7 +5,7 @@ import brandLandform from "@/assets/brand-landform.png";
 import brandNewWestTruck from "@/assets/brand-new-west-truck.png.asset.json";
 import brandRanchmans from "@/assets/brand-ranchmans.png.asset.json";
 import brandMidas from "@/assets/brand-midas.png";
-import brandIntegratedSustainability from "@/assets/brand-integrated-sustainability.svg";
+import brandIntegratedSustainability from "@/assets/brand-integrated-sustainability.png";
 
 /** `logo` is optional: a partner without a file yet renders as a neutral text label. */
 const partners: { name: string; logo?: string }[] = [
@@ -23,7 +23,7 @@ const CompanyLogos = () => (
   <section className="border-y border-line bg-surface py-10 sm:py-12">
     <div className="shell">
       <h2 className="text-balance text-center font-heading text-lg font-semibold leading-snug tracking-tight text-ink">
-        Trusted by Calgary contractors, engineering firms, dealers and shops
+        Companies we've worked with
       </h2>
       {/* One even row of eight on desktop; four per row below that. */}
       <ul className="mt-6 grid grid-cols-4 gap-2 sm:gap-3 lg:grid-cols-8">

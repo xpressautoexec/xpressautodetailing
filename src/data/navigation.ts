@@ -93,13 +93,6 @@ export const MEGA_NAV: NavGroup[] = [
           { label: "RV PPF", href: "/rv-trailer/ppf" },
         ],
       },
-      {
-        title: "Window tint",
-        href: "/window-tint",
-        links: [
-          { label: "SunTek tint", href: "/window-tint/suntek" },
-        ],
-      },
     ],
   },
   {
@@ -151,7 +144,7 @@ export const MEGA_NAV: NavGroup[] = [
         links: [
           { label: "Paint protection film", href: "/paint-protection-film#faq" },
           { label: "Ceramic coating", href: "/ceramic-coating#faq" },
-          { label: "Window tint", href: "/window-tint#faq" },
+          { label: "Windshield film", href: "/windshield-ppf#faq" },
           { label: "Warranty & care", href: "/warranty" },
         ],
       },
@@ -196,6 +189,5 @@ export const PROTECTION_LINKS: SiteLink[] = [
   { label: "SunTek PPF", href: "/paint-protection-film/suntek" },
   { label: "Ceramic coating", href: "/ceramic-coating" },
   { label: "CARPRO DQUARTZ", href: "/ceramic-coating/carpro-dquartz" },
-  { label: "Window tint", href: "/window-tint" },
   { label: "ExoShield windshield film", href: "/windshield-ppf" },
 ];
