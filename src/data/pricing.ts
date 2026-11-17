@@ -534,11 +534,54 @@ export const carPpfPrice = (base: number, size: CarPpfSizeId): number => {
 // ---------- WINDSHIELD PPF ----------
 /** Windshield PPF by vehicle size. Window tint is no longer offered. */
 export const WINDSHIELD_PPF = [
-  { id: "compact", label: "Compact / Sedan", book: "ed", price: 449, installTime: "2–3 hrs", examples: "Civic, Corolla, Mazda 3, Model 3" },
-  { id: "midsize", label: "Midsize SUV / Crossover", book: "l0", price: 549, installTime: "3–4 hrs", examples: "RAV4, CR-V, Tucson, Model Y, Outback" },
-  { id: "fullsize", label: "Full-size SUV / Truck", book: "DL", price: 649, installTime: "3–4 hrs", examples: "F-150, Silverado, Tahoe, RAM 1500" },
-  { id: "heavy", label: "HD Truck / Van / RV", book: "9M", price: 849, installTime: "4–5 hrs", examples: "F-250/350, Sprinter, Transit, Class A and C" },
+  { id: "compact", label: "Compact / Sedan", book: "ed", price: 479, installTime: "2–3 hrs", examples: "Civic, Corolla, Mazda 3, Model 3" },
+  { id: "midsize", label: "Midsize SUV / Crossover", book: "l0", price: 579, installTime: "3–4 hrs", examples: "RAV4, CR-V, Tucson, Model Y, Outback" },
+  { id: "fullsize", label: "Full-size SUV / Truck", book: "DL", price: 679, installTime: "3–4 hrs", examples: "F-150, Silverado, Tahoe, RAM 1500" },
+  { id: "heavy", label: "HD Truck / Van / RV", book: "9M", price: 879, installTime: "4–5 hrs", examples: "F-250/350, Sprinter, Transit, Class A and C" },
 ];
+
+/**
+ * What a windshield replacement costs, for the "pays for itself" section on /windshield-ppf.
+ * Every figure must link to its source. Re-check these when prices change (last checked Nov 2026).
+ */
+export const WINDSHIELD_REPLACEMENT_COSTS = [
+  {
+    figure: "$900–$1,400",
+    label: "Windshield replacement with camera calibration in Canada",
+    source: "isure insurance brokers",
+    url: "https://isure.ca/inews/does-your-insurance-cover-a-cracked-windshield/",
+  },
+  {
+    figure: "$1,337.85",
+    label: "Tesla Service quote to replace a Model Y windshield (US$)",
+    source: "InsideEVs",
+    url: "https://insideevs.com/news/425374/video-tesla-model-y-windshield-replacement-cost/",
+  },
+  {
+    figure: "US$900",
+    label: "Tesla Model 3 or Model Y windshield, for the part alone",
+    source: "Drive Tesla Canada",
+    url: "https://driveteslacanada.ca/news/tesla-introduces-affordable-windshield-protection-plan-in-the-u-s/",
+  },
+  {
+    figure: "$200–$400",
+    label: "Added for camera recalibration after a new windshield in Canada",
+    source: "isure insurance brokers",
+    url: "https://isure.ca/inews/does-your-insurance-cover-a-cracked-windshield/",
+  },
+  {
+    figure: "US$766",
+    label: "Average replacement on camera-equipped vehicles across 10,000 quotes: $507 glass plus $259 calibration",
+    source: "Glass.com",
+    url: "https://www.glass.com/info/how-much-does-windshield-replacement-cost/",
+  },
+  {
+    figure: "25%+",
+    label: "Share of an ADAS windshield bill that goes to recalibration, per AAA",
+    source: "AAA via NBC Montana",
+    url: "https://nbcmontana.com/news/nation-world/why-does-replacing-a-windshield-cost-so-much-more-today-maine-driving-travel-traffic",
+  },
+] as const;
 
 /** ExoShield film choice. Sizes above are GT3+; ULTRA is a flat upgrade (Fieldd add-on "Upgrade to ExoShield ULTRA"). */
 export const WINDSHIELD_ULTRA_UPGRADE = 150;

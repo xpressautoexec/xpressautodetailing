@@ -11,6 +11,7 @@ import heroImg from "@/assets/windshield-ppf-hero.jpg";
 import {
   WINDSHIELD_PPF,
   WINDSHIELD_FILMS,
+  WINDSHIELD_REPLACEMENT_COSTS,
   WINDSHIELD_ULTRA_UPGRADE,
   fielddUrl,
   money,
@@ -25,7 +26,7 @@ const FILM_LOGO = {
   gt3: { src: gt3Logo, cls: "h-11" },
   ultra: { src: ultraLogo, cls: "h-6 my-2.5" },
 } as const;
-import { Check } from "lucide-react";
+import { Check, ArrowUpRight } from "lucide-react";
 import WindshieldDiagram from "@/components/ppf/WindshieldDiagram";
 import PPFCraft from "@/components/ppf/PPFCraft";
 
@@ -108,8 +109,8 @@ const WindshieldPPF = () => (
     }}
     hero={{
       eyebrow: "Certified ExoShield installer",
-      title: "Fewer chips. Fewer windshields.",
-      subtitle: `ExoShield nanoceramic windshield film for Alberta's gravel highways, installed for drivers in Calgary, Airdrie and surrounding areas. Part of ${SYSTEMS.protect.tm}.`,
+      title: "It pays for itself on the drive home.",
+      subtitle: `One rock is a $900 to $1,400 windshield once the cameras are recalibrated. ExoShield film from ${money(from)}, for Alberta's gravel highways, installed for drivers in Calgary, Airdrie and surrounding areas. Part of ${SYSTEMS.protect.tm}.`,
       image: heroImg,
       ctaType: "book",
       bookLabel: BOOK_LABEL,
@@ -184,6 +185,68 @@ const WindshieldPPF = () => (
           </div>
         ))}
       </dl>
+    </Section>
+
+    <Section id="cost">
+      <div className="grid gap-10 lg:grid-cols-[1fr_1.5fr] lg:gap-16">
+        <div>
+          <p className="eyebrow mb-3">The math</p>
+          <h2 className="font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink sm:text-5xl">
+            One rock. Four figures.
+          </h2>
+          <p className="mt-5 text-[15px] leading-relaxed text-ink-2">
+            Most newer vehicles have a lane-keeping and emergency-braking camera
+            mounted to the windshield. Replace the glass and that camera has to
+            be recalibrated, which is why a cracked windshield now runs into
+            four figures.
+          </p>
+          <div className="mt-8 rounded-card border-2 border-electric bg-surface p-6">
+            <p className="text-sm font-semibold uppercase tracking-label text-electric">
+              ExoShield GT3+
+            </p>
+            <p className="mt-1 font-heading text-4xl font-bold tabular-nums text-ink">
+              from {money(from)}
+            </p>
+            <p className="mt-2 text-[15px] leading-relaxed text-ink-2">
+              Stop the one rock that would have cracked it and the film has paid
+              for itself, with your factory glass and camera calibration
+              untouched.
+            </p>
+          </div>
+        </div>
+        <div>
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {WINDSHIELD_REPLACEMENT_COSTS.map((c) => (
+              <li
+                key={c.label}
+                className="flex flex-col rounded-card border border-line bg-surface p-5"
+              >
+                <p className="font-heading text-3xl font-bold tabular-nums text-ink">
+                  {c.figure}
+                </p>
+                <p className="mt-2 flex-1 text-[15px] leading-snug text-ink-2">
+                  {c.label}
+                </p>
+                <a
+                  href={c.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-electric hover:underline hover:underline-offset-4"
+                >
+                  Source: {c.source}
+                  <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-xs leading-relaxed text-muted-ink">
+            Figures are published prices and quotes from the linked sources,
+            checked November 2026. US$ where marked. Your price depends on your
+            vehicle, glass and insurance. No film is unbreakable; a large or
+            sharp impact can still get through.
+          </p>
+        </div>
+      </div>
     </Section>
 
     <Section id="film">
