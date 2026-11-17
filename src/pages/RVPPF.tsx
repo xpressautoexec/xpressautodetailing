@@ -7,6 +7,7 @@ import ServicePageHero from "@/components/ServicePageHero";
 import ServiceFAQ from "@/components/ServiceFAQ";
 import RVCoverageDiagram from "@/components/RVCoverageDiagram";
 import PPFCraft from "@/components/ppf/PPFCraft";
+import RvWindshieldUltra from "@/components/ppf/RvWindshieldUltra";
 import GuaranteeStrip from "@/components/site/GuaranteeStrip";
 import ProcessSteps from "@/components/site/ProcessSteps";
 import ClosingCTA from "@/components/site/ClosingCTA";
@@ -84,11 +85,15 @@ const faqs = [
   },
   {
     q: "Will the film yellow or peel?",
-    a: `We install ${FILM_BRAND} paint protection film. It is non-yellowing, hydrophobic and self-healing under heat, ${IS_3M_CERTIFIED ? "with a 7 to 10 year manufacturer warranty against yellowing, cracking and delamination." : "and installed in-house."} It removes cleanly without damaging the original finish.`,
+    a: `We install ${FILM_BRAND} paint protection film. It is non-yellowing, hydrophobic and self-healing under heat, and installed in-house. It removes cleanly without damaging the original finish.`,
   },
   {
     q: "Can you install over gelcoat and decals?",
     a: "Yes. We prep the gelcoat, polish out oxidation and apply film over factory decals where appropriate. We'll recommend the safest coverage plan at your free in-person inspection.",
+  },
+  {
+    q: "Do you protect motorhome windshields?",
+    a: "Yes, with ExoShield ULTRA, the thickest windshield film ExoShield makes. It is priced flat per windshield: $1,029 for Class B, Class C and vans, from $1,899 for a two-piece Class A, and quoted for one-piece Class A and Super C glass. Backed by ExoShield's 3-year limited warranty.",
   },
   {
     q: "How long does installation take?",
@@ -232,6 +237,8 @@ const RVPPF = () => (
           </table>
         </div>
       </Section>
+
+      <RvWindshieldUltra />
 
       <WorkShowcase
         title="Recent RV work"

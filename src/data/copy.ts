@@ -81,7 +81,7 @@ export const PRODUCT_LINES = {
   exoshield: {
     name: "ExoShield",
     role: "Windshield protection film",
-    body: "Nanoceramic windshield protection film in GT3+ and the thicker ULTRA, backed by ExoShield's 3-year limited warranty.",
+    body: "Nanoceramic windshield protection film: GT3+ for cars and trucks, the thicker ULTRA for RVs and heavy-duty, backed by ExoShield's 3-year limited warranty.",
   },
 } as const;
 

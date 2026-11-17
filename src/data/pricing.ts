@@ -545,9 +545,92 @@ export const carPpfPrice = (base: number, size: CarPpfSizeId): number => {
 export const WINDSHIELD_PPF = [
   { id: "compact", label: "Compact / Sedan", book: "ed", price: 479, installTime: "2–3 hrs", examples: "Civic, Corolla, Mazda 3, Model 3" },
   { id: "midsize", label: "Midsize SUV / Crossover", book: "l0", price: 579, installTime: "3–4 hrs", examples: "RAV4, CR-V, Tucson, Model Y, Outback" },
-  { id: "fullsize", label: "Full-size SUV / Truck", book: "DL", price: 679, installTime: "3–4 hrs", examples: "F-150, Silverado, Tahoe, RAM 1500" },
-  { id: "heavy", label: "HD Truck / Van / RV", book: "9M", price: 879, installTime: "4–5 hrs", examples: "F-250/350, Sprinter, Transit, Class A and C" },
+  { id: "fullsize", label: "Full-size SUV / Truck", book: "DL", price: 679, installTime: "3–4 hrs", examples: "F-150, Silverado, Tahoe, RAM 1500, F-250/350" },
 ];
+
+// ---------- ULTRA WINDSHIELD FILM: RV AND HEAVY-DUTY ----------
+/**
+ * ExoShield ULTRA (8 mil) is reserved for RVs, vans and heavy-duty work. GT3+ stays on the
+ * automotive page. Priced flat per windshield, since the glass follows the chassis, not the
+ * unit's length: a 24 ft and a 32 ft Class C on the same Ford E-450 share one windshield.
+ * Owner-approved Nov 2026. Film cost: ULTRA 48" x 25' $795 CAD, 48" x 100' $2,575 CAD
+ * (ExoShield partner portal, Nov 2026).
+ */
+export const RV_WINDSHIELD_ULTRA = [
+  {
+    id: "van",
+    label: "Class B, Class C and work vans",
+    examples: "Sprinter, Transit, ProMaster, Ford E-450 and Chevy 4500 cutaways",
+    price: 1029,
+    from: false,
+    installTime: "4–5 hrs",
+    book: "9M" as string | null,
+    note: "Mobile, at your driveway or storage lot",
+  },
+  {
+    id: "class-a",
+    label: "Class A, two-piece windshield",
+    examples: "Most gas and diesel pushers with a centre divider",
+    price: 1899,
+    from: true,
+    installTime: "1 day",
+    book: "https://fieldd.me/q/5QXnd" as string | null,
+    note: "Mobile, at your storage lot or campsite",
+  },
+  {
+    id: "quote",
+    label: "One-piece Class A, Super C and coaches",
+    examples: "Panoramic one-piece glass, Freightliner Super C, buses",
+    price: null as number | null,
+    from: false,
+    installTime: "1–2 days",
+    book: null as string | null,
+    note: "Quoted from photos or a free look",
+  },
+] as const;
+
+/** Heavy-duty and fleet ULTRA pricing, shown on /fleet. */
+export const HEAVY_DUTY_ULTRA = [
+  { id: "hd-pickup", label: "HD pickups", examples: "F-250/350, RAM 2500/3500, Silverado and Sierra HD", price: 829, unit: "per windshield", from: false, book: "https://fieldd.me/q/bMeLP", cta: "Book" },
+  { id: "van", label: "Work vans and cutaways", examples: "Sprinter, Transit, ProMaster, E-450 box trucks", price: 1029, unit: "per windshield", from: false, book: "9M", cta: "Book" },
+  { id: "equipment", label: "Equipment cab glass", examples: "Excavators, loaders, dozers, tractors", price: 449, unit: "per glass panel", from: true, book: "https://fieldd.me/q/E-QIe", cta: "Book a free look" },
+  { id: "semi", label: "Semis and medium-duty", examples: "Two-piece and one-piece truck glass", price: null as number | null, unit: "quoted", from: false, book: "https://fieldd.me/q/E-QIe", cta: "Book a free look" },
+] as const;
+
+/**
+ * Motorhome windshield replacement costs for the RV windshield section. USD sources converted at
+ * USD_TO_CAD. Re-check when prices change (last checked Nov 2026).
+ */
+export const RV_WINDSHIELD_REPLACEMENT_COSTS = [
+  {
+    what: "Class A windshield replacement, 2026",
+    cad: "$5,440–$11,560",
+    note: "US$4,000–$8,500+",
+    source: "Fit Protection",
+    url: "https://fitprotection.com/blogs/news/rv-windshield-replacement-cost",
+  },
+  {
+    what: "Class A windshield, paid by an owner in Canada",
+    cad: "$5,500",
+    note: "After three quotes of $7,200 and up",
+    source: "Jayco Owners Forum",
+    url: "https://www.jaycoowners.com/threads/precept-windshield.572697/",
+  },
+  {
+    what: "Half of a two-piece Class A windshield, Alberta and Saskatchewan",
+    cad: "About $1,800 per half",
+    note: "Owner report, three replacements",
+    source: "iRV2 Forums",
+    url: "https://www.irv2.com/threads/class-a-windshields.1914331/",
+  },
+  {
+    what: "Class C motorhome windshield replacement, 2026",
+    cad: "$2,450–$4,760",
+    note: "US$1,800–$3,500",
+    source: "Fit Protection",
+    url: "https://fitprotection.com/blogs/news/rv-windshield-replacement-cost",
+  },
+] as const;
 
 /**
  * What a windshield replacement costs, for the "pays for itself" section on /windshield-ppf.
@@ -591,7 +674,7 @@ export const WINDSHIELD_REPLACEMENT_COSTS = [
   },
 ] as const;
 
-/** ExoShield film choice. Sizes above are GT3+; ULTRA is a flat upgrade (Fieldd add-on "Upgrade to ExoShield ULTRA"). */
+/** ExoShield films. GT3+ is the automotive film; ULTRA is sold on RVs, vans and heavy-duty (above). */
 export const WINDSHIELD_ULTRA_UPGRADE = 150;
 export const WINDSHIELD_FILMS = [
   {
@@ -607,9 +690,9 @@ export const WINDSHIELD_FILMS = [
     id: "ultra",
     name: "ExoShield ULTRA",
     tag: "Max impact",
-    bestFor: "Trucks, upright windshields and gravel roads",
+    bestFor: "Motorhomes, vans, heavy-duty trucks and equipment",
     body: "ExoShield's heavy-duty film. At 8 mil it is 60% thicker than GT3+, built for flatter, upright glass where rocks hit hardest.",
-    highlights: ["8 mil PET, 60% thicker than GT3+", "Best for Jeep, Bronco, vans and work trucks", "3-year ExoShield limited warranty"],
+    highlights: ["8 mil PET, 60% thicker than GT3+", "Built for motorhomes, vans, HD trucks and equipment", "3-year ExoShield limited warranty"],
     upgrade: WINDSHIELD_ULTRA_UPGRADE,
   },
 ] as const;

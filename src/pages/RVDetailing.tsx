@@ -1,3 +1,4 @@
+import RvWindshieldUltra from "@/components/ppf/RvWindshieldUltra";
 import { Link } from "react-router-dom";
 import { WHY_RV } from "@/data/why";
 import LandingPage from "@/components/site/LandingPage";
@@ -91,6 +92,7 @@ const RVDetailing = () => (
         ))}
       </ul>
     </Section>
+    <RvWindshieldUltra variant="band" />
   </LandingPage>
 );
 

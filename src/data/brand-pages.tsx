@@ -79,7 +79,7 @@ export const SUNTEK_PPF: BrandPage = {
   faqTitle: "SunTek PPF questions",
   faqs: PPF_FAQS,
   pathways: [
-    { title: "Add windshield film", body: "ExoShield GT3+ and ULTRA, from $479 CAD.", href: "/windshield-ppf" },
+    { title: "Add windshield film", body: "ExoShield GT3+ windshield film, from $479 CAD.", href: "/windshield-ppf" },
     { title: "Add ceramic coating", body: "Coat the rest of the car with CARPRO DQUARTZ.", href: "/ceramic-coating/carpro-dquartz" },
   ],
   official: { label: "See SunTek's official PPF line-up", href: FILM_PRODUCTS.suntek.official },
@@ -120,7 +120,7 @@ export const LLUMAR_PPF: BrandPage = {
   faqs: PPF_FAQS,
   pathways: [
     { title: "Compare with SunTek PPF", body: "Reaction, Ultra, Ultra Matte and Ultra Defense.", href: "/paint-protection-film/suntek" },
-    { title: "Add windshield film", body: "ExoShield GT3+ and ULTRA, from $479 CAD.", href: "/windshield-ppf" },
+    { title: "Add windshield film", body: "ExoShield GT3+ windshield film, from $479 CAD.", href: "/windshield-ppf" },
   ],
   official: { label: "See LLumar's official PPF line-up", href: FILM_PRODUCTS.llumar.official },
   footnotes: [WARRANTY_NOTE, TRADEMARKS],

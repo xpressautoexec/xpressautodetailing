@@ -18,7 +18,7 @@ const CARDS = [
     title: "Windshield Film",
     href: "/windshield-ppf",
     body: "ExoShield film on the windshield to stop rock chips and pitting. From $479 CAD.",
-    points: ["GT3+ and ULTRA film", "Camera and sensor safe", "3-year ExoShield warranty"],
+    points: ["GT3+ for cars, ULTRA for RVs", "Camera and sensor safe", "3-year ExoShield warranty"],
   },
 ];
 

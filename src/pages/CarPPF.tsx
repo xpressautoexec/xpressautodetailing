@@ -333,9 +333,8 @@ const CarPPF = () => {
               </p>
               <p className="mt-1 text-sm text-ink-2">
                 ExoShield GT3+ nanoceramic film for the glass, on its own or
-                added to a front-end package. Included in Full Coverage. Upgrade
-                to ULTRA for trucks and gravel roads. 3-year ExoShield limited
-                warranty.
+                added to a front-end package. Included in Full Coverage. 3-year
+                ExoShield limited warranty.
               </p>
             </div>
             <p className="num shrink-0 text-3xl text-ink">

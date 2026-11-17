@@ -5,7 +5,6 @@ import heroImg from "@/assets/windshield-ppf-hero.jpg";
 import {
   WINDSHIELD_PPF,
   WINDSHIELD_REPLACEMENT_COSTS,
-  WINDSHIELD_ULTRA_UPGRADE,
   money,
 } from "@/data/pricing";
 import { WINDSHIELD_FILM_BRAND } from "@/data/copy";
@@ -50,8 +49,8 @@ const faqs = [
     a: `Yes. ${WINDSHIELD_FILM_BRAND} is made for modern windshields and doesn't block sensors, cameras or head-up displays. We check yours before we leave.`,
   },
   {
-    q: "GT3+ or ULTRA?",
-    a: `GT3+ suits most daily drivers. ULTRA is ExoShield's thickest film (8 mil) and adds ${money(WINDSHIELD_ULTRA_UPGRADE)} at any size. We recommend it for trucks, upright windshields like a Jeep, Bronco or van, and anyone on gravel roads every week.`,
+    q: "What about RVs, vans and heavy-duty trucks?",
+    a: "Those get ExoShield ULTRA, the 8 mil film built for big upright glass. Pricing is on our RV film page: flat per windshield, from $829 for HD pickups and $1,029 for Class B, Class C and work vans.",
   },
   {
     q: "Is there coverage if the glass still breaks?",
@@ -71,7 +70,7 @@ const WindshieldPPF = () => (
     seo={{
       title:
         "ExoShield Windshield Protection Film Calgary | Certified Installer",
-      description: `ExoShield GT3+ and ULTRA windshield protection film in Calgary from ${money(from)}, installed by a certified ExoShield installer at your home or work.`,
+      description: `ExoShield GT3+ windshield protection film in Calgary from ${money(from)}, installed by a certified ExoShield installer at your home or work.`,
       canonical: "/windshield-ppf",
       serviceName: "Windshield Protection Film",
       serviceDescription:
@@ -255,7 +254,7 @@ const WindshieldPPF = () => (
 
     <PPFCraft
       film="ExoShield film"
-      filmBody={`ExoShield GT3+ or ULTRA, cut for your windshield: optically clear, built to absorb rock hits, and backed by ExoShield's 3-year limited warranty, which we register for you as a certified installer.`}
+      filmBody={`ExoShield GT3+, cut for your windshield: optically clear, built to absorb rock hits, and backed by ExoShield's 3-year limited warranty, which we register for you as a certified installer.`}
     />
   </LandingPage>
 );

@@ -23,6 +23,7 @@ import {
   Sun,
   Droplets,
   ShieldCheck,
+  Mountain,
 } from "lucide-react";
 import tapeLine from "@/assets/jobs/rv-surveyor-tape-line.webp";
 import rvHero from "@/assets/jobs/hero-rv-trailer.webp";
@@ -34,6 +35,7 @@ import {
   RV_SERVICES,
   RV_BUNDLES,
   RV_PPF,
+  RV_WINDSHIELD_ULTRA,
   PHONE,
   FINANCING,
   FINANCING_LIVE,
@@ -234,6 +236,24 @@ const THEN_WHAT: {
         action: {
           label: "See RV PPF packages",
           href: "/rv-trailer/ppf",
+          external: false,
+        },
+      },
+    ],
+  },
+  {
+    icon: Mountain,
+    concern: "Worried about a rock cracking the windshield?",
+    cause:
+      "Motorhome glass is huge and slow to source in Canada. Owners report paying $5,500 or more to replace a Class A windshield.",
+    fixes: [
+      {
+        solution: "ExoShield ULTRA windshield film",
+        price: `from ${money(Math.min(...RV_WINDSHIELD_ULTRA.flatMap((x) => (x.price ? [x.price] : []))))}`,
+        body: "ExoShield's thickest film, 8 mil, made for big upright glass. Flat price per windshield, set by your chassis, with a 3-year ExoShield warranty.",
+        action: {
+          label: "See RV windshield pricing",
+          href: "/rv-trailer/ppf#windshield",
           external: false,
         },
       },

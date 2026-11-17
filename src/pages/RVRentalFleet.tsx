@@ -1,3 +1,4 @@
+import RvWindshieldUltra from "@/components/ppf/RvWindshieldUltra";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
@@ -106,6 +107,8 @@ const RVRentalFleet = () => (
           })}
         </div>
       </Section>
+
+      <RvWindshieldUltra variant="band" />
 
       <WorkShowcase
         title="Recent RV work"

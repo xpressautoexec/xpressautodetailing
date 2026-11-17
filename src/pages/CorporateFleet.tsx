@@ -1,3 +1,4 @@
+import RvWindshieldUltra from "@/components/ppf/RvWindshieldUltra";
 import PageTransition from "@/components/PageTransition";
 import Navbar from "@/components/Navbar";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
@@ -137,6 +138,8 @@ const CorporateFleet = () => (
       />
 
       <WorkTruckPackage showFleetLink={false} />
+
+      <RvWindshieldUltra variant="fleet" quoteHref="#quote" />
 
       <QuoteSection
         source="fleet"
