@@ -35,6 +35,8 @@ export type CoatingOption = {
   /** Product wordmark shown above the description. */
   logo?: string;
   brandLogo?: string;
+  /** Manufacturer warranty, shown as a badge. Only set where the manufacturer publishes one (see MANUFACTURER_WARRANTIES). */
+  warranty?: string;
 };
 
 export const COATING_TIERS: { id: CoatingTierId; title: string; years: string }[] = [
@@ -63,6 +65,7 @@ export const COATING_OPTIONS: CoatingOption[] = [
     tag: "Slick, easy-wash finish",
     description: "CARPRO's installer-only coating. A dense, high-gloss layer that makes salt and road film rinse off.",
     highlights: ["Installer-only CARPRO formula", "Slick feel, fast drying", "Strong water beading"],
+    warranty: "2-year CARPRO warranty",
     image: bottleCqProfessional,
     logo: logoCqProfessional,
   },
@@ -85,6 +88,7 @@ export const COATING_OPTIONS: CoatingOption[] = [
     tag: "Deep gloss, resists water spots",
     description: "CARPRO's reserve coating, sold only to approved installers. Built to resist water spots, salts and fallout, with deep gloss on dark paint.",
     highlights: ["Approved-installer-only formula", "Resists water spotting and salt", "Deep colour on dark paint"],
+    warranty: "3-year CARPRO warranty",
     image: bottleCqFinestReserve,
     logo: logoCqFinestReserve,
   },
@@ -104,6 +108,7 @@ export const COATING_OPTIONS: CoatingOption[] = [
     ],
     flagship: true,
     topCoat: "CQUARTZ Finest Reserve",
+    warranty: "CARPRO warranty on both layers",
     image: bottleDquartz,
     logo: logoDquartzPro,
   },

@@ -59,13 +59,69 @@ export const FILM = {
   description: "Optically clear, self-healing under heat, and cut on our plotter from patterns made for your vehicle.",
 };
 
+/**
+ * Manufacturer warranties, as published. Re-check when terms change (last checked Nov 2026).
+ * ExoShield: GT3+/ULTRA 3-year limited warranty (getexoshield.com, GT3+ onboarding guide Jan 2025);
+ *   terms from ExoShield's consumer Limited Product Warranty.
+ * CARPRO: "Real World Warranty", CQUARTZ Professional 2 years, CQUARTZ Finest Reserve 3 years, DQUARTZ 2 years;
+ *   registered by the certified installer at registerwarranty.carpro.global.
+ */
+export const MANUFACTURER_WARRANTIES = {
+  exoshield: {
+    brand: "ExoShield",
+    title: "3-year ExoShield limited warranty",
+    term: "3 years",
+    summary:
+      "Covers GT3+ and ULTRA film against manufacturing defects. If ExoShield finds a defect, the film is removed and replaced at no charge.",
+    covers: ["Cracking", "Delamination", "Discoloration", "Hazing", "Yellowing"],
+    perks: ["No mileage limit", "Transfers with the vehicle when you sell", "We register it with ExoShield for you"],
+    excludes: [
+      "Chips, cracks or breakage in the windshield itself",
+      "Normal wear, scratches and stains",
+      "Impacts, hail, collisions, sap and bird droppings",
+      "Ammonia glass cleaners and other harsh chemicals",
+      "Hard-water spots left to dry on the film",
+    ],
+    claim: "Text us photos of the issue with the film still on the glass. We send the claim to ExoShield with your original invoice.",
+    source: "https://www.getexoshield.com/",
+  },
+  carpro: {
+    brand: "CARPRO",
+    title: "CARPRO Real World Warranty",
+    terms: [
+      { product: "CQUARTZ Professional", term: "2 years" },
+      { product: "CQUARTZ Finest Reserve", term: "3 years" },
+      { product: "DQUARTZ", term: "2 years" },
+    ],
+    summary:
+      "CARPRO backs its installer-only coatings against excessive loss of gloss, chipping, peeling and fading over the warranty term. As a certified installer, we register every CARPRO coating with CARPRO.",
+    covers: ["Gloss retention", "Chipping", "Peeling", "Fading"],
+    perks: ["Registered with CARPRO by us after your install", "Warranty record tied to your vehicle", "Inspected by us first if anything looks off"],
+    conditions: [
+      "Keep the coating dry for 12 to 36 hours after we hand it back",
+      "No waxes or chemical cleaners for the first 7 days",
+      "No automatic car washes",
+      "No clay bar on coated paint",
+      "Remove bird droppings and bugs within a few days",
+    ],
+    excludes: [
+      "Your clear coat itself, and damage from impacts or accidents",
+      "Misuse, harsh chemicals or skipped care conditions",
+      "Permanent water beading (contamination dulls beading; a decon wash brings it back)",
+    ],
+    claim:
+      "Text us photos. We inspect, decontaminate and try to restore the coating first, since it is often intact under road film. If it still fails, we file it with CARPRO.",
+    source: "https://registerwarranty.carpro.global/",
+  },
+} as const;
+
 /** Warranty & Care: plain language, no overpromising. Mirrors the /warranty page. */
 export const WARRANTY = {
   workmanshipMonths: 1,
   workmanship:
     "One month on our workmanship for paint correction and coating application: if holograms, high spots or missed areas show up, we come back and fix them.",
   coating:
-    "Every coating is registered with the manufacturer after application. Tiers listed as \"registered & warrantied\" carry the manufacturer's coating warranty, under the manufacturer's terms.",
+    "CARPRO coatings are registered with CARPRO after application and carry its Real World Warranty: 2 years on CQUARTZ Professional and DQUARTZ, 3 years on CQUARTZ Finest Reserve.",
   film: IS_3M_CERTIFIED
     ? "Film is installed by a 3M Certified Installer and carries a 10-year 3M film warranty against yellowing, bubbling and cracking."
     : "Film is 3M Scotchgard™ Pro. Film defects are handled under the product's own terms; ask us for the current details for your install.",
@@ -73,7 +129,9 @@ export const WARRANTY = {
   care: [
     "Hand wash with a pH-neutral, coating-safe soap.",
     "No harsh chemicals, degreasers or strong solvents on coated or filmed panels.",
-    "No automatic brush washes.",
+    "No automatic car washes, brush or touchless.",
+    "No clay bar on coated paint.",
+    "Remove bird droppings and bugs within a few days.",
     "Book a booster visit every 6 months (coating-safe wash plus booster).",
   ],
 };

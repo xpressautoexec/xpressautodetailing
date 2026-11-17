@@ -18,6 +18,7 @@ import {
 } from "@/data/pricing";
 import { WINDSHIELD_FILM_BRAND } from "@/data/copy";
 import exoshieldLockup from "@/assets/brand-exoshield-lockup.svg";
+import ManufacturerWarranty from "@/components/site/ManufacturerWarranty";
 import gt3Logo from "@/assets/exoshield-gt3plus-red.svg";
 import ultraLogo from "@/assets/exoshield-ultra-red.svg";
 
@@ -371,6 +372,11 @@ const WindshieldPPF = () => (
         Heated, panoramic and oversized glass may carry a small surcharge,
         confirmed before we start.
       </p>
+    </Section>
+
+    <Section id="warranty">
+      <SectionHeading title="Backed by ExoShield, registered by us" />
+      <ManufacturerWarranty brand="exoshield" />
     </Section>
 
     <PPFCraft

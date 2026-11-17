@@ -235,7 +235,7 @@ export const CERAMIC_PACKAGES: {
       "1-step machine enhancement",
       "2-year ceramic coating",
       "Coated: paint",
-      "Coating registered",
+      "Coating registered & warrantied",
     ],
   },
   {
