@@ -209,7 +209,7 @@ export const DQUARTZ: BrandPage = {
   lead: "CARPRO DQUARTZ from Xpress is a ceramic coating reinforced with synthetic nano-diamonds, installed by an authorized CARPRO installer in Calgary and Airdrie.",
   intro: [
     "DQUARTZ is built to resist the fine swirls and light scratches that washing leaves behind, on top of the gloss, water beading, UV, road-salt and chemical resistance you expect from a professional coating.",
-    "It is a coating, not armour: it will not stop rock chips. For chips, pair it with SunTek paint protection film on the front end.",
+    "A coating will not stop rock chips. For chips, pair it with SunTek paint protection film on the front end.",
   ],
   questions: [
     { q: "Why it matters in Calgary", a: "Road salt, mag chloride, gravel dust and hard water all attack clear coat. A hard, slick coating means less sticks, and what does comes off with a gentle wash instead of a scrub that adds swirls." },

@@ -93,7 +93,7 @@ const PaintCeramics = () => {
         <AutoBreadcrumbs />
         <ServicePageHero
           eyebrow="Ceramic coating"
-          title="Gloss measured in years, not weeks."
+          title="Gloss that lasts for years."
           subtitle={`Ceramic coating and paint correction in Calgary, Airdrie and surrounding areas: every Xpress Coat™ tier starts with decontamination and machine correction, using ${CERAMIC_CERTIFICATIONS.join(", ")} coatings.`}
           image={ceramicHero}
           ctaType="call"

@@ -305,7 +305,7 @@ const QuoteForm = ({
         {sentPhotos === 0 ? (
           <>
             <p className="mt-3 text-[15px] leading-relaxed text-ink-2">
-              Send three photos (front, side and the worst spot) and the price will be exact, not a range.
+              Send three photos (front, side and the worst spot) and we'll send an exact price.
             </p>
             <a
               href={SMS_HREF}

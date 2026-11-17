@@ -169,7 +169,7 @@ const BlogPPFvsCeramic = () => (
                 <Snowflake className="w-6 h-6 text-electric shrink-0 mt-0.5" />
                 <p className="text-sm text-ink/85 leading-relaxed">
                   <strong>The short answer:</strong> ceramic coating will not stop a rock chip, and PPF on the front end
-                  leaves the other 70% of your paint bare to salt. They are complementary, not competing. Film handles
+                  leaves the other 70% of your paint bare to salt. They work together. Film handles
                   impact, coating handles chemistry — and coating can be applied over film so the whole car sheds brine
                   the same way.
                 </p>

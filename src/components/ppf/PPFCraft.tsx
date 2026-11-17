@@ -24,7 +24,7 @@ const PPFCraft = ({ film = FILM_BRAND, filmBody }: { film?: string; filmBody?: s
     {
       icon: UserCheck,
       title: "Installed by our own crew",
-      body: "Every install is done by Xpress installers, not subcontractors. The same crew prepares the surface, fits the film and checks the edges with you before we leave.",
+      body: "Every install is done by our own Xpress installers. The same crew prepares the surface, fits the film and checks the edges with you before we leave.",
     },
   ];
 

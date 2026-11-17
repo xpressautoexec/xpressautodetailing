@@ -31,7 +31,7 @@ const COMMITMENTS = [
   { title: "No payment until it's done", body: "No deposit to book standard services. You pay after the work is finished and you've looked it over." },
   { title: "You inspect before we leave", body: "Walk around it with us. If something isn't right, we fix it on the spot." },
   { title: "Self-contained vans", body: WATER_LINE },
-  { title: "Professional product systems", body: `${CERAMIC_CERTIFICATIONS.join(", ")} coatings and professional compounds and polishes, not retail spray-ons.` },
+  { title: "Professional product systems", body: `${CERAMIC_CERTIFICATIONS.join(", ")} coatings, with professional compounds and polishes.` },
   { title: "Financing on RV restoration", body: "Larger RV restoration jobs can be spread over monthly payments, subject to lender approval." },
 ];
 

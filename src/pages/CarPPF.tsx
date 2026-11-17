@@ -159,7 +159,7 @@ const CarPPF = () => {
         items: [
           {
             title: "Chips stop at the film.",
-            body: "Gravel that would chip bare paint hits the film instead. Replace a panel of film, not repaint a panel.",
+            body: "Gravel that would chip bare paint hits the film instead. Replacing a panel of film costs far less than repainting one.",
           },
           {
             title: "Keeps resale value.",

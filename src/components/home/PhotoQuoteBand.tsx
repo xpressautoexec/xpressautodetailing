@@ -6,7 +6,7 @@ import { NAP } from "@/data/copy";
 const STEPS = [
   { title: `Call ${NAP.phone}`, body: "Tell us the vehicle and what it needs. Or fill in the form and we'll call you back." },
   { title: "Add photos if you have them", body: "Optional. A few shots of the worst spots help us quote it exactly." },
-  { title: "Get your price", body: "A real number for your vehicle, not a range, usually the same day." },
+  { title: "Get your price", body: "An exact price for your vehicle, usually the same day." },
 ];
 
 /** Charcoal band: call first, form or photos as options. Holds the homepage quote form. */

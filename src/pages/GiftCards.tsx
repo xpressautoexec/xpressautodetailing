@@ -30,7 +30,7 @@ const SUGGESTIONS = [
   {
     title: "Ceramic coating",
     covers: ceramicFrom,
-    body: "Decontamination, machine correction and a coating that lasts years, not weeks.",
+    body: "Decontamination, machine correction and a coating that lasts for years.",
   },
 ];
 

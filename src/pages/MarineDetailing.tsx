@@ -28,7 +28,7 @@ const faqs = [
     q: "How is boat detailing priced?",
     a: `Per foot of length for wash, interior, polish and coating work. A 22 ft pontoon on ${full.name} at ${money(full.price)}/ft is ${money(
       full.price * 22,
-    )}. Aluminum pontoon acid restoration is priced per side, not per foot.`,
+    )}. Aluminum pontoon acid restoration is priced per side.`,
   },
   {
     q: "What is aluminum pontoon acid restoration?",

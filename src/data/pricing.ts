@@ -149,7 +149,7 @@ export const AUTO_PACKAGES: AutoPackage[] = [
   {
     id: "restore",
     name: "Correct & Coat",
-    tagline: "For someone who wants the paint fixed, not just cleaned — and protected for a year, not a season.",
+    tagline: "For someone who wants the paint corrected and protected for a full year.",
     duration: "8 hrs",
     premium: true,
     includes: [

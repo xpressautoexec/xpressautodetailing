@@ -210,8 +210,8 @@ const THEN_WHAT: {
         tag: "Long-term",
         solution: "Ceramic coating",
         price: "Quoted on site",
-        lasts: "Lasts years, not a season",
-        body: "A separate, harder coating bonded to the gelcoat for multi-year protection. It is not the sealant above and is not priced per foot. We quote it after we see the unit.",
+        lasts: "Lasts multiple years",
+        body: "A separate, harder product from the sealant, bonded to the gelcoat for multi-year protection. Priced per unit after we see it.",
         action: {
           label: "Request a coating quote",
           href: "#assessment",
@@ -820,11 +820,11 @@ const TrailerRV = () => (
               The 3M gelcoat restoration process
             </h2>
             <p className="mt-4 max-w-md text-[15px] leading-relaxed text-ink-2">
-              Oxidized gelcoat is restored, not just waxed over. We follow 3M's
+              Oxidized gelcoat gets cut back and restored. We follow 3M's
               step-down sequence for gelcoat and fibreglass: sand only where
               it's needed, cut, refine, then protect. Each step uses the 3M
               product built for it, so the finish holds up through Alberta
-              summers instead of fading again by fall.
+              summers.
             </p>
             <QuoteLink
               href="#assessment"
@@ -870,8 +870,7 @@ const TrailerRV = () => (
               <p className="mt-5 max-w-md text-[15px] leading-relaxed text-primary-foreground/70">
                 Gelcoat restoration is a once-in-several-seasons job, and
                 oxidation only gets harder to cut the longer it sits. Financing
-                lets you do it properly this year instead of patching it every
-                spring.
+                lets you do it properly this year.
               </p>
               <ul className="mt-8 space-y-4 text-[15px] text-primary-foreground/85">
                 {[

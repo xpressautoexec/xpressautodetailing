@@ -73,7 +73,7 @@ const WindshieldPPF = () => (
       phoneHref: TEL,
     }}
     features={{
-      title: "A safety upgrade, not a cosmetic one",
+      title: "A safety upgrade",
       items: [
         { title: "Clear view, every drive.", body: "A chip in your line of sight scatters headlights at night and low sun in the morning. The film keeps the glass you look through intact." },
         { title: "Keeps the glass doing its job.", body: "Your windshield is part of how your vehicle protects you in a crash. A crack weakens it, and the film helps stop the chip that starts one." },

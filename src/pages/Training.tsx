@@ -119,7 +119,7 @@ const Training = () => (
         <ol className="grid gap-x-8 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
           {[
             { n: "01", t: "Pick your course", b: "Choose Detailing Fundamentals, Paint Correction Mastery or Ceramic Coating, and tell us the month that suits you." },
-            { n: "02", t: "We set a date", b: `Courses run on demand, not on a fixed calendar. We confirm a date by email and a ${money(TRAINING_TERMS.deposit)} deposit holds it.` },
+            { n: "02", t: "We set a date", b: `Courses run on demand. We confirm a date by email and a ${money(TRAINING_TERMS.deposit)} deposit holds it.` },
             { n: "03", t: "Hands on the tools", b: "You do the work yourself on real vehicles with professional tools and products, with correction and feedback as you go." },
             { n: "04", t: "Leave certified", b: `Every graduate receives the ${TRAINING_CERTIFICATION}.` },
           ].map((x) => (

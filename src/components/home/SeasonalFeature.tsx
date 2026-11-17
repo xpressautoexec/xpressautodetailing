@@ -25,7 +25,7 @@ const CONTENT: Record<Season, { eyebrow: string; title: string; intro: string; c
     cards: [
       {
         title: "Salt-stain interior extraction",
-        body: "Carpets and mats extracted, not just vacuumed, so the white tide lines come out instead of drying back in.",
+        body: "Carpets and mats hot-water extracted, so the white salt lines come out for good.",
         href: "/detailing?tab=interior",
         cta: interiorDeep ? `${interiorDeep.name} from ${money(interiorDeep.price.sedan)}` : "Interior packages",
         img: saltFloor,

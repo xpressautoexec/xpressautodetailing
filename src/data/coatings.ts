@@ -95,7 +95,7 @@ export const COATING_OPTIONS: CoatingOption[] = [
     name: "DQUARTZ Pro",
     tag: "Nano-diamond hardness, Finest Reserve on top",
     description:
-      "CARPRO's nano-diamond coating, the first ever to offer mechanical resistance to swirls and scratches. Diamonds are part of the coating itself, not an additive. We top it with Finest Reserve for gloss and water behaviour.",
+      "CARPRO's nano-diamond coating, the first ever to offer mechanical resistance to swirls and scratches. The diamonds are built into the coating itself. We top it with Finest Reserve for gloss and water behaviour.",
     highlights: [
       "Raises paint hardness by up to 5 pencil points",
       "Mechanical resistance to swirls and scratches",
