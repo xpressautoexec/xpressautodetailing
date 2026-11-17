@@ -1,9 +1,24 @@
+import BookingAssistant from "@/components/BookingAssistant";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation, Navigate, matchPath } from "react-router-dom";
-import { lazy, Suspense, useEffect, useRef, type ComponentType, type ReactNode } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation,
+  Navigate,
+  matchPath,
+} from "react-router-dom";
+import {
+  lazy,
+  Suspense,
+  useEffect,
+  useRef,
+  type ComponentType,
+  type ReactNode,
+} from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { AnimatePresence } from "framer-motion";
 import Index from "./pages/Index";
@@ -55,7 +70,9 @@ const AutoDetailing = lazyPage(() => import("./pages/AutoDetailing"));
 const RVDetailing = lazyPage(() => import("./pages/RVDetailing"));
 const CeramicCoating = lazyPage(() => import("./pages/CeramicCoating"));
 const PaintCorrection = lazyPage(() => import("./pages/PaintCorrection"));
-const HeadlightRestoration = lazyPage(() => import("./pages/HeadlightRestoration"));
+const HeadlightRestoration = lazyPage(
+  () => import("./pages/HeadlightRestoration"),
+);
 const WindshieldPPF = lazyPage(() => import("./pages/WindshieldPPF"));
 const CarPPF = lazyPage(() => import("./pages/CarPPF"));
 const Reviews = lazyPage(() => import("./pages/Reviews"));
@@ -64,7 +81,9 @@ const LeaseReturn = lazyPage(() => import("./pages/LeaseReturn"));
 const InteriorLp = lazyPage(() => import("./pages/lp/InteriorLp"));
 const CeramicPpfLp = lazyPage(() => import("./pages/lp/CeramicPpfLp"));
 const FleetLp = lazyPage(() => import("./pages/lp/FleetLp"));
-const CancellationPolicyPage = lazyPage(() => import("./pages/CancellationPolicyPage"));
+const CancellationPolicyPage = lazyPage(
+  () => import("./pages/CancellationPolicyPage"),
+);
 const SunTekPPF = lazyPage(() => import("./pages/brand/SunTekPPF"));
 const DQuartz = lazyPage(() => import("./pages/brand/DQuartz"));
 const WindowTint = lazyPage(() => import("./pages/brand/WindowTint"));
@@ -92,7 +111,8 @@ const ScrollToTop = () => {
     let timer: ReturnType<typeof setTimeout>;
     const seek = () => {
       const el = document.getElementById(id);
-      if (el && el !== stale) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (el && el !== stale)
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
       else if (tries++ < 40) timer = setTimeout(seek, 75);
     };
     seek();
@@ -104,85 +124,173 @@ const ScrollToTop = () => {
 export const AnimatedRoutes = () => {
   const location = useLocation();
   return (
-    <div className={location.pathname.startsWith("/lp/") ? "legacy-lp" : "main-site"}>
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Index />} />
-        <Route path="/detailing" element={<Detailing />} />
-        <Route path="/interior-detailing" element={<Navigate to="/detailing?tab=interior" replace />} />
-        <Route path="/exterior-detailing" element={<Navigate to="/detailing?tab=exterior" replace />} />
-        <Route path="/complete-detailing" element={<Navigate to="/detailing?tab=complete" replace />} />
-        <Route path="/add-ons" element={<Navigate to="/detailing?tab=add-ons" replace />} />
-        <Route path="/paint-ceramics" element={<Navigate to="/ceramic-paint-correction" replace />} />
-        <Route path="/corporate-fleet" element={<Navigate to="/fleet" replace />} />
-        <Route path="/gift-cards" element={<GiftCards />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/quote" element={<Quote />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/ppf-vs-ceramic-coating-calgary" element={<BlogPPFvsCeramic />} />
-        <Route path="/blog/:slug" element={<BlogPost />} />
-        <Route path="/trailer-rv" element={<Navigate to="/rv-trailer" replace />} />
-        <Route path="/rv-rental-fleet" element={<Navigate to="/rv-trailer/rental-fleet" replace />} />
-        <Route path="/trailer-rv/ppf" element={<Navigate to="/rv-trailer/ppf" replace />} />
-        <Route path="/terms-conditions" element={<Navigate to="/terms-of-service" replace />} />
-        <Route path="/terms-of-service" element={<TermsOfService />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/why-choose-us" element={<Navigate to="/reviews" replace />} />
-        <Route path="/training" element={<Training />} />
-        <Route path="/training/signup" element={<TrainingSignup />} />
+    <div
+      className={
+        location.pathname.startsWith("/lp/") ? "legacy-lp" : "main-site"
+      }
+    >
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Index />} />
+          <Route path="/detailing" element={<Detailing />} />
+          <Route
+            path="/interior-detailing"
+            element={<Navigate to="/detailing?tab=interior" replace />}
+          />
+          <Route
+            path="/exterior-detailing"
+            element={<Navigate to="/detailing?tab=exterior" replace />}
+          />
+          <Route
+            path="/complete-detailing"
+            element={<Navigate to="/detailing?tab=complete" replace />}
+          />
+          <Route
+            path="/add-ons"
+            element={<Navigate to="/detailing?tab=add-ons" replace />}
+          />
+          <Route
+            path="/paint-ceramics"
+            element={<Navigate to="/ceramic-paint-correction" replace />}
+          />
+          <Route
+            path="/corporate-fleet"
+            element={<Navigate to="/fleet" replace />}
+          />
+          <Route path="/gift-cards" element={<GiftCards />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/quote" element={<Quote />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route
+            path="/blog/ppf-vs-ceramic-coating-calgary"
+            element={<BlogPPFvsCeramic />}
+          />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route
+            path="/trailer-rv"
+            element={<Navigate to="/rv-trailer" replace />}
+          />
+          <Route
+            path="/rv-rental-fleet"
+            element={<Navigate to="/rv-trailer/rental-fleet" replace />}
+          />
+          <Route
+            path="/trailer-rv/ppf"
+            element={<Navigate to="/rv-trailer/ppf" replace />}
+          />
+          <Route
+            path="/terms-conditions"
+            element={<Navigate to="/terms-of-service" replace />}
+          />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route
+            path="/why-choose-us"
+            element={<Navigate to="/reviews" replace />}
+          />
+          <Route path="/training" element={<Training />} />
+          <Route path="/training/signup" element={<TrainingSignup />} />
 
-        <Route path="/windshield-ppf" element={<WindshieldPPF />} />
-        <Route path="/paint-protection-film" element={<CarPPF />} />
-        <Route path="/paint-protection-film/suntek" element={<SunTekPPF />} />
-        <Route path="/paint-protection-film/llumar" element={<Navigate to="/paint-protection-film/suntek" replace />} />
-        <Route path="/ceramic-coating/carpro-dquartz" element={<DQuartz />} />
-        <Route path="/window-tint" element={<WindowTint />} />
-        <Route path="/window-tint/llumar" element={<Navigate to="/window-tint/suntek" replace />} />
-        <Route path="/window-tint/suntek" element={<SunTekTint />} />
-        <Route path="/monthly-plan" element={<Navigate to="/xpress-pass" replace />} />
-        <Route path="/marine" element={<MarineDetailing />} />
-        <Route path="/ppf" element={<Navigate to="/paint-protection-film" replace />} />
-        <Route path="/window-tinting" element={<Navigate to="/window-tint" replace />} />
-        <Route path="/calgary-detailing-price-comparison" element={<PriceComparison />} />
+          <Route path="/windshield-ppf" element={<WindshieldPPF />} />
+          <Route path="/paint-protection-film" element={<CarPPF />} />
+          <Route path="/paint-protection-film/suntek" element={<SunTekPPF />} />
+          <Route
+            path="/paint-protection-film/llumar"
+            element={<Navigate to="/paint-protection-film/suntek" replace />}
+          />
+          <Route path="/ceramic-coating/carpro-dquartz" element={<DQuartz />} />
+          <Route path="/window-tint" element={<WindowTint />} />
+          <Route
+            path="/window-tint/llumar"
+            element={<Navigate to="/window-tint/suntek" replace />}
+          />
+          <Route path="/window-tint/suntek" element={<SunTekTint />} />
+          <Route
+            path="/monthly-plan"
+            element={<Navigate to="/xpress-pass" replace />}
+          />
+          <Route path="/marine" element={<MarineDetailing />} />
+          <Route
+            path="/ppf"
+            element={<Navigate to="/paint-protection-film" replace />}
+          />
+          <Route
+            path="/window-tinting"
+            element={<Navigate to="/window-tint" replace />}
+          />
+          <Route
+            path="/calgary-detailing-price-comparison"
+            element={<PriceComparison />}
+          />
 
-        {/* Dedicated landing routes */}
-        <Route path="/auto-detailing" element={<AutoDetailing />} />
-        <Route path="/rv-detailing" element={<RVDetailing />} />
-        <Route path="/ceramic-coating" element={<CeramicCoating />} />
-        <Route path="/paint-correction" element={<PaintCorrection />} />
-        <Route path="/headlight-restoration" element={<HeadlightRestoration />} />
-        <Route path="/reviews" element={<Reviews />} />
-        <Route path="/cancellation-policy" element={<CancellationPolicyPage />} />
+          {/* Dedicated landing routes */}
+          <Route path="/auto-detailing" element={<AutoDetailing />} />
+          <Route path="/rv-detailing" element={<RVDetailing />} />
+          <Route path="/ceramic-coating" element={<CeramicCoating />} />
+          <Route path="/paint-correction" element={<PaintCorrection />} />
+          <Route
+            path="/headlight-restoration"
+            element={<HeadlightRestoration />}
+          />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route
+            path="/cancellation-policy"
+            element={<CancellationPolicyPage />}
+          />
 
-        <Route path="/warranty" element={<Warranty />} />
-        <Route path="/lease-return" element={<LeaseReturn />} />
+          <Route path="/warranty" element={<Warranty />} />
+          <Route path="/lease-return" element={<LeaseReturn />} />
 
-        {/* Paid-ad landing pages (noindex, no site nav) */}
-        <Route path="/lp/interior-detailing" element={<InteriorLp />} />
-        <Route path="/lp/ceramic-ppf" element={<CeramicPpfLp />} />
-        <Route path="/lp/fleet" element={<FleetLp />} />
+          {/* Paid-ad landing pages (noindex, no site nav) */}
+          <Route path="/lp/interior-detailing" element={<InteriorLp />} />
+          <Route path="/lp/ceramic-ppf" element={<CeramicPpfLp />} />
+          <Route path="/lp/fleet" element={<FleetLp />} />
 
-        {/* New URL structure */}
-        <Route path="/rv-trailer" element={<TrailerRV />} />
-        <Route path="/rv-trailer/ppf" element={<RVPPF />} />
-        <Route path="/rv-trailer/rental-fleet" element={<RVRentalFleet />} />
-        <Route path="/ceramic-paint-correction" element={<PaintCeramics />} />
-        <Route path="/protection/ppf" element={<Navigate to="/paint-protection-film" replace />} />
-        <Route path="/protection/window-tint" element={<Navigate to="/window-tint" replace />} />
-        <Route path="/protection/windshield-ppf" element={<Navigate to="/windshield-ppf" replace />} />
-        <Route path="/fleet" element={<CorporateFleet />} />
-        <Route path="/xpress-pass" element={<MonthlyPlan />} />
-        <Route path="/pricing" element={<Navigate to="/detailing" replace />} />
-        <Route path="/detailing/interior" element={<Navigate to="/detailing?tab=interior" replace />} />
-        <Route path="/detailing/exterior" element={<Navigate to="/detailing?tab=exterior" replace />} />
-        <Route path="/detailing/complete" element={<Navigate to="/detailing?tab=complete" replace />} />
-        <Route path="/detailing/add-ons" element={<Navigate to="/detailing?tab=add-ons" replace />} />
+          {/* New URL structure */}
+          <Route path="/rv-trailer" element={<TrailerRV />} />
+          <Route path="/rv-trailer/ppf" element={<RVPPF />} />
+          <Route path="/rv-trailer/rental-fleet" element={<RVRentalFleet />} />
+          <Route path="/ceramic-paint-correction" element={<PaintCeramics />} />
+          <Route
+            path="/protection/ppf"
+            element={<Navigate to="/paint-protection-film" replace />}
+          />
+          <Route
+            path="/protection/window-tint"
+            element={<Navigate to="/window-tint" replace />}
+          />
+          <Route
+            path="/protection/windshield-ppf"
+            element={<Navigate to="/windshield-ppf" replace />}
+          />
+          <Route path="/fleet" element={<CorporateFleet />} />
+          <Route path="/xpress-pass" element={<MonthlyPlan />} />
+          <Route
+            path="/pricing"
+            element={<Navigate to="/detailing" replace />}
+          />
+          <Route
+            path="/detailing/interior"
+            element={<Navigate to="/detailing?tab=interior" replace />}
+          />
+          <Route
+            path="/detailing/exterior"
+            element={<Navigate to="/detailing?tab=exterior" replace />}
+          />
+          <Route
+            path="/detailing/complete"
+            element={<Navigate to="/detailing?tab=complete" replace />}
+          />
+          <Route
+            path="/detailing/add-ons"
+            element={<Navigate to="/detailing?tab=add-ons" replace />}
+          />
 
-
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </AnimatePresence>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AnimatePresence>
+      {!location.pathname.startsWith("/lp/") && <BookingAssistant />}
     </div>
   );
 };
