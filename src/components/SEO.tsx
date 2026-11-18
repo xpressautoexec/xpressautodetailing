@@ -78,7 +78,8 @@ export default SEO;
 
 export const localBusinessJsonLd = {
   "@context": "https://schema.org",
-  "@type": "AutoWash",
+  "@type": ["LocalBusiness", "AutoWash"],
+  "@id": "https://xpressautodetail.ca/#business",
   name: "Xpress Auto & RV Detailing",
   url: "https://xpressautodetail.ca",
   image: "https://xpressautodetail.ca/og-default.jpg",
@@ -86,7 +87,7 @@ export const localBusinessJsonLd = {
   knowsAbout: ["Paint Protection Film", "Ceramic Coating", "CARPRO DQUARTZ", "SunTek PPF", "Windshield Protection Film", "RV Detailing", "Fleet Detailing"],
   telephone: "+1-587-500-4523",
   email: "support@xpressautodetail.ca",
-  description: "Calgary's mobile car detailing service. Mobile detailing for cars, trucks, RVs, trailers, fleets — interior, exterior, paint correction, ceramic coating, SunTek paint protection film, ExoShield windshield film and oxidation removal. We come to you across Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County.",
+  description: "Car, truck, RV and fleet detailing across Greater Calgary: interior and exterior detailing, paint correction, ceramic coating, SunTek paint protection film, ExoShield windshield film and RV oxidation removal. Mobile service in Calgary, Airdrie, Cochrane, Chestermere, Okotoks and Rocky View County, or drop off at our heated Airdrie shop.",
   areaServed: [
     { "@type": "City", name: "Calgary" },
     { "@type": "City", name: "Airdrie" },
@@ -97,10 +98,21 @@ export const localBusinessJsonLd = {
   ],
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Calgary",
+    streetAddress: "529 Gateway Rd NE, Unit 2012",
+    addressLocality: "Airdrie",
     addressRegion: "AB",
+    postalCode: "T4B 0J6",
     addressCountry: "CA",
   },
+  hasMap: "https://www.google.com/maps/search/?api=1&query=529+Gateway+Rd+NE+Unit+2012+Airdrie+AB+T4B+0J6",
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      opens: "09:00",
+      closes: "17:00",
+    },
+  ],
   priceRange: "$$",
 };
 
@@ -112,10 +124,12 @@ export const buildServiceJsonLd = (name: string, description: string, url: strin
   url: `https://xpressautodetail.ca${url}`,
   provider: {
     "@type": "AutoWash",
+    "@id": "https://xpressautodetail.ca/#business",
     name: "Xpress Auto & RV Detailing",
     telephone: "+1-587-500-4523",
-    areaServed: { "@type": "City", name: "Calgary" },
+    areaServed: ["Calgary", "Airdrie", "Cochrane", "Chestermere", "Okotoks", "Rocky View County"].map((name) => ({ "@type": "City", name })),
   },
+  areaServed: { "@type": "City", name: "Calgary" },
 });
 
 export const buildFAQJsonLd = (faqs: { q: string; a: string }[]) => ({

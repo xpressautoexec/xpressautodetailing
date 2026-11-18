@@ -116,7 +116,7 @@ const RVPPF = () => (
     <div className="min-h-screen bg-canvas">
       <SEO
         title="RV Paint Protection Film Calgary"
-        description={`RV paint protection film in Calgary from ${money(from)}. Self-healing film for front caps, hoods, rockers and full bodies. Stops rock chips, bugs and UV. Free inspection.`}
+        description={`RV paint protection film and ExoShield ULTRA windshield film in Calgary. Self-healing film for front caps and full bodies from ${money(from)}. Free inspection.`}
         canonical="/rv-trailer/ppf"
         jsonLd={[
           buildServiceJsonLd(

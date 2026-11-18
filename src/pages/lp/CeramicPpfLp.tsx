@@ -55,7 +55,7 @@ const Card = ({ title, brand, rows, note }: { title: string; brand: string; rows
 const CeramicPpfLp = () => (
   <LpShell
     title="Ceramic Coating, PPF & Windshield Film | Airdrie Shop"
-    description="Paint correction and ceramic coating, 3M Scotchgard Pro paint protection film and ExoShield windshield film, done indoors at our heated Airdrie shop."
+    description="Paint correction and ceramic coating, SunTek paint protection film and ExoShield windshield film, done indoors at our heated Airdrie shop."
     canonical="/lp/ceramic-ppf"
   >
     <LpHero
@@ -83,7 +83,7 @@ const CeramicPpfLp = () => (
       items={[
         { strong: FIVE_STAR_REVIEWS, rest: "five-star Google reviews" },
         { strong: "CARPRO", rest: "authorized installer" },
-        { strong: "3M", rest: "Scotchgard Pro paint film" },
+        { strong: "SunTek", rest: "paint protection film" },
         { strong: "Heated", rest: `indoor bay in ${SHOP.city}` },
       ]}
     />

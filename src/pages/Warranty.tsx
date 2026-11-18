@@ -28,8 +28,8 @@ const Warranty = () => (
   <PageTransition>
     <div className="min-h-screen bg-canvas">
       <SEO
-        title="Warranty & Care | Ceramic Coating and PPF | Xpress Auto & RV Detailing"
-        description="SunTek film warranties up to 12 years, CARPRO coating warranties (2 and 3 years) and ExoShield's 3-year windshield film warranty, registered by us, plus workmanship coverage and the care that keeps it valid."
+        title="Warranty & Care | Coatings, PPF & Windshield Film"
+        description="SunTek film warranties up to 12 years, CARPRO coating warranties of 2 and 3 years and ExoShield's 3-year windshield film warranty, all registered by us."
         canonical="/warranty"
       />
       <Navbar />

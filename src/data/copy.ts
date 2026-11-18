@@ -45,7 +45,7 @@ export const CERAMIC_CERTIFICATIONS = ["CARPRO", "Gyeon", "3M"];
 export const FILM_BRAND = "SunTek";
 
 /** Film named on the /lp ad pages, kept as-is so live ad copy matches the landing page. Update with the ads. */
-export const LP_FILM_BRAND = "3M Scotchgard Pro";
+export const LP_FILM_BRAND = "SunTek";
 
 /** Pattern software that drives our film plotter. PPF is computer-cut, not hand-cut on the paint. */
 export const FILM_CUT_SYSTEM = "DigiCut";

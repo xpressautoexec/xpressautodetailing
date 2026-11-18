@@ -146,7 +146,7 @@ const PriceComparison = () => (
     <div className="min-h-screen bg-canvas">
       <SEO
         title="Calgary Car Detailing Prices Compared"
-        description="Real 2026 car detailing prices in Calgary. Compare our mobile detailing packages against shop-based rates — interior, complete, correction and ceramic coating."
+        description="Real 2026 car detailing prices in Calgary. Compare our packages against shop rates for interior, complete, correction and ceramic coating."
         canonical="/calgary-detailing-price-comparison"
         jsonLd={[
           localBusinessJsonLd,

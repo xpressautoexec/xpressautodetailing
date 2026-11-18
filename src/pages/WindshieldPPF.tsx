@@ -69,7 +69,7 @@ const WindshieldPPF = () => (
     products={["exoshield"]}
     seo={{
       title:
-        "ExoShield Windshield Protection Film Calgary | Certified Installer",
+        "ExoShield Windshield Protection Film Calgary",
       description: `ExoShield GT3+ windshield protection film in Calgary from ${money(from)}, installed by a certified ExoShield installer at your home or work.`,
       canonical: "/windshield-ppf",
       serviceName: "Windshield Protection Film",

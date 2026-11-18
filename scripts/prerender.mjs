@@ -69,19 +69,29 @@ const BLOG_ROUTES = readdirSync(BLOG_DIR)
   .map((p) => ({ route: `/blog/${p.slug}`, date: p.date }));
 ROUTES.push(...BLOG_ROUTES.map((b) => b.route));
 
-/** Adds any blog post missing from dist/sitemap.xml so new posts are indexed without hand edits. */
-const addBlogPostsToSitemap = () => {
-  const path = resolve(DIST, "sitemap.xml");
-  if (!existsSync(path)) return;
-  let xml = readFileSync(path, "utf-8");
-  const entries = BLOG_ROUTES.filter((b) => !xml.includes(`https://xpressautodetail.ca${b.route}<`))
-    .map(
-      (b) =>
-        `  <url><loc>https://xpressautodetail.ca${b.route}</loc><lastmod>${b.date}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>`,
-    )
-    .join("\n");
-  if (entries) xml = xml.replace("</urlset>", `${entries}\n</urlset>`);
-  writeFileSync(path, xml);
+/** Sitemap priority by route. Anything not listed gets 0.6. */
+const PRIORITY = [
+  [/^\/$/, "1.0"],
+  [/^\/(detailing|ceramic-coating|paint-protection-film|windshield-ppf|rv-trailer|fleet)$/, "0.9"],
+  [/^\/(rv-trailer\/ppf|rv-detailing|auto-detailing|paint-correction|headlight-restoration|ceramic-paint-correction|marine|xpress-pass|quote|reviews|gallery)$/, "0.8"],
+  [/^\/(terms-of-service|privacy-policy|cancellation-policy)$/, "0.3"],
+];
+const priorityFor = (route) => PRIORITY.find(([re]) => re.test(route))?.[1] ?? "0.6";
+
+/**
+ * Writes dist/sitemap.xml from the routes that were actually prerendered and are indexable,
+ * so the sitemap can never list a dead page or miss a new one. Blog posts carry their date.
+ */
+const writeSitemap = (routes) => {
+  const blogDates = new Map(BLOG_ROUTES.map((b) => [b.route, b.date]));
+  const urls = routes.map((route) => {
+    const loc = `https://xpressautodetail.ca${route === "/" ? "/" : route}`;
+    const lastmod = blogDates.get(route);
+    return `  <url><loc>${loc}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}<priority>${priorityFor(route)}</priority></url>`;
+  });
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>\n`;
+  writeFileSync(resolve(DIST, "sitemap.xml"), xml);
+  console.log(`sitemap.xml: ${routes.length} URLs`);
 };
 
 /**
@@ -153,8 +163,10 @@ async function main() {
 
 
   let rendered = 0;
+  const indexable = [];
   for (const route of ROUTES) {
     const { html, head } = await render(route);
+    if (!/name="robots"[^>]*noindex/i.test(head)) indexable.push(route);
 
     if (!html || html.length < 500) {
       throw new Error(`Prerender produced suspiciously empty HTML for ${route}`);
@@ -167,7 +179,7 @@ async function main() {
     console.log(`prerendered ${route} -> ${target.replace(`${DIST}/`, "dist/")}`);
   }
 
-  addBlogPostsToSitemap();
+  writeSitemap(indexable);
 
   // The SSR bundle is a build artifact only; it must never ship.
   rmSync(SSR_DIST, { recursive: true, force: true });

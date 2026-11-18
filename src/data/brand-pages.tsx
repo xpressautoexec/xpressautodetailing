@@ -51,7 +51,7 @@ export const SUNTEK_PPF: BrandPage = {
   path: "/paint-protection-film/suntek",
   seo: {
     title: "SunTek PPF Calgary | Authorized SunTek Installer | Xpress",
-    description: "SunTek paint protection film installed in Calgary by an authorized SunTek installer: Reaction, Ultra, Ultra Matte and Ultra Defense, mobile or in our Airdrie shop.",
+    description: "SunTek Reaction, Ultra, Ultra Matte and Ultra Defense PPF installed in Calgary by an authorized SunTek installer, at our Airdrie shop.",
     serviceName: "SunTek Paint Protection Film",
   },
   hero: {
@@ -188,7 +188,7 @@ const DQuartzExtra = () => (
 export const DQUARTZ: BrandPage = {
   path: "/ceramic-coating/carpro-dquartz",
   seo: {
-    title: "DQUARTZ Ceramic Coating Calgary | Authorized CARPRO Installer",
+    title: "CARPRO DQUARTZ Ceramic Coating Calgary",
     description: "CARPRO DQUARTZ nano-diamond ceramic coating in Calgary, installed by an authorized CARPRO installer after paint prep and correction. Get a quote.",
     serviceName: "CARPRO DQUARTZ Ceramic Coating",
   },

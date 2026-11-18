@@ -75,7 +75,7 @@ const PaintCeramics = () => {
     <PageTransition>
       <div className="min-h-screen bg-canvas">
         <SEO
-          title="Ceramic Coating Calgary | Paint Correction"
+          title="Ceramic Coating & Paint Correction Packages Calgary"
           description={`Ceramic coating and machine paint correction in Calgary, from ${money(
             Math.min(...CERAMIC_PACKAGES.map((p) => p.price)),
           )}. 2-year, 3-year and DQUARTZ packages, decontaminated, corrected and registered.`}

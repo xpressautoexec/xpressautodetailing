@@ -138,7 +138,7 @@ const CarPPF = () => {
       afterFeatures={<ProtectionProductLinks />}
       seo={{
         title: "Paint Protection Film Calgary | SunTek PPF | Xpress",
-        description: `${FILM_BRAND} paint protection film in Calgary from ${money(from)}. Computer-cut on our plotter, installed by our own crew. Partial front to full vehicle, priced by vehicle size.`,
+        description: `${FILM_BRAND} paint protection film in Calgary from ${money(from)}. Plotter-cut and installed by our own crew, partial front to full vehicle.`,
         canonical: "/paint-protection-film",
         serviceName: "Paint Protection Film",
         serviceDescription: `${FILM_BRAND} paint protection film for cars, trucks and SUVs in Calgary and area, computer-cut and installed in-house.`,

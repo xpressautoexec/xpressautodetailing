@@ -347,8 +347,8 @@ const TrailerRV = () => (
       <SEO
         title={
           FINANCING_LIVE
-            ? "RV Detailing & Gelcoat Restoration Calgary | Financing Available"
-            : "RV Detailing & Gelcoat Restoration Calgary | Mobile, Per-Foot Pricing"
+            ? "RV Gelcoat Restoration & Detailing Calgary | Financing"
+            : "RV Gelcoat Restoration & Detailing Calgary"
         }
         description={`Mobile RV detailing and gelcoat oxidation removal in Calgary, Airdrie, Cochrane and Chestermere. Per-foot pricing, done at your storage lot${FINANCING_LIVE ? ", with monthly financing on restoration work" : ""}.`}
         canonical="/rv-trailer"
