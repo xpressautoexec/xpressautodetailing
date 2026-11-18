@@ -40,7 +40,7 @@ Build: `npm run build` = client build + SSR build of `src/entry-server.tsx` +
    Brand system: src/data/brand.ts (named programs with TM on first mention, CTA wording, STATS,
    Xpress Process 01-06, warranty/care text, B2B testimonials) and src/config/site.ts
    (IS_3M_CERTIFIED gates every 3M certification/warranty claim; SEASON). CTA wording is fixed:
-   Get a quote / Text us photos / Call 587-500-4523 / Book online / Request a yard walk / Book a free assessment.
+   Get a quote / Call 587-500-4523 / Book online / Request a yard walk / Book a free assessment.
    Quote forms carry `data-quote-form`; the mobile bar (mounted by `Footer`) hides when one is on screen.
 8. Keep it uncluttered: no new popups/toasts/floating widgets without asking.
    Mobile-first.

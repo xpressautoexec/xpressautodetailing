@@ -140,7 +140,7 @@ const Warranty = () => (
 
       <ClosingCTA
         title="Questions about coverage?"
-        body="Text us the vehicle and what was installed, and we'll tell you exactly what applies."
+        body="Send us the vehicle and what was installed, and we'll tell you exactly what applies."
         mode="quote"
       />
       <Footer />

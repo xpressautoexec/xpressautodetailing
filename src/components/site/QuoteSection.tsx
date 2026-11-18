@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
-import { MessageSquareText, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import WalkaroundGuarantee from "@/components/site/WalkaroundGuarantee";
 import QuoteForm, { type QuoteNeed, type QuoteVehicle, type Service, type VehicleType } from "@/components/QuoteForm";
-import { SMS_HREF, TEL_HREF } from "@/components/site/QuoteLink";
+import { TEL_HREF } from "@/components/site/QuoteLink";
 import { NAP, SHOP } from "@/data/copy";
 
 /**
@@ -44,15 +44,15 @@ const QuoteSection = ({
         <WalkaroundGuarantee className="mt-8 max-w-md" />
         <dl className="mt-10 space-y-5 text-[15px]">
           <div>
-            <dt className="text-sm text-muted-ink">Rather call or text?</dt>
+            <dt className="text-sm text-muted-ink">Rather talk to someone?</dt>
             <dd className="mt-1 flex flex-wrap gap-x-6 gap-y-2">
               <a href={TEL_HREF} className="inline-flex items-center gap-2 font-semibold text-ink hover:text-electric">
                 <Phone className="h-4 w-4 text-electric" aria-hidden="true" />
                 Call {NAP.phone}
               </a>
-              <a href={SMS_HREF} className="inline-flex items-center gap-2 font-semibold text-ink hover:text-electric">
-                <MessageSquareText className="h-4 w-4 text-electric" aria-hidden="true" />
-                Text us photos
+              <a href={NAP.emailHref} className="inline-flex items-center gap-2 font-semibold text-ink hover:text-electric">
+                <Mail className="h-4 w-4 text-electric" aria-hidden="true" />
+                {NAP.email}
               </a>
             </dd>
           </div>

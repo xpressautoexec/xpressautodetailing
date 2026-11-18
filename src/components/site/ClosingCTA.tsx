@@ -1,9 +1,9 @@
-import { ArrowRight, MessageSquareText, Phone } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { BOOKING_URL } from "@/data/pricing";
 import { NAP, SERVICE_AREA_SENTENCE } from "@/data/copy";
 import { btnPrimary, btnSecondaryDark } from "@/components/site/Section";
 import BookLink from "@/components/site/BookLink";
-import QuoteLink, { SMS_HREF } from "@/components/site/QuoteLink";
+import QuoteLink from "@/components/site/QuoteLink";
 
 /**
  * The one closing band at the bottom of every page: the charcoal "lower panel" of the van.
@@ -57,13 +57,6 @@ const ClosingCTA = ({
         <p className="mt-4 max-w-xl text-base leading-relaxed text-primary-foreground/70">
           {body ?? `We come to you anywhere in ${SERVICE_AREA_SENTENCE}.`}
         </p>
-        <a
-          href={SMS_HREF}
-          className="mt-5 mr-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-foreground/70 underline decoration-primary-foreground/25 decoration-2 underline-offset-[6px] hover:text-primary-foreground"
-        >
-          <MessageSquareText className="h-3.5 w-3.5" aria-hidden="true" />
-          Or text us photos
-        </a>
         {link && (
           <BookLink
             href={link.href}

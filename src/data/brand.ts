@@ -19,7 +19,6 @@ export const SYSTEMS = {
 /** Exact CTA wording. No other button text on the site. */
 export const CTA = {
   quote: "Get a quote",
-  text: "Text us photos",
   call: `Call ${PHONE}`,
   book: "Book online",
   fleet: "Request a yard walk",
@@ -88,7 +87,7 @@ export const MANUFACTURER_WARRANTIES = {
       "Misuse, accidents, and stains from chemicals or neglect",
     ],
     claim:
-      "Text us photos with the film still on the vehicle. We inspect it and file the claim with SunTek using your original invoice.",
+      "Send us photos with the film still on the vehicle. We inspect it and file the claim with SunTek using your original invoice.",
     source: "https://suntekfilms.com/paintprotection/ppf-ultra",
   },
   exoshield: {
@@ -106,7 +105,7 @@ export const MANUFACTURER_WARRANTIES = {
       "Ammonia glass cleaners and other harsh chemicals",
       "Hard-water spots left to dry on the film",
     ],
-    claim: "Text us photos of the issue with the film still on the glass. We send the claim to ExoShield with your original invoice.",
+    claim: "Send us photos of the issue with the film still on the glass. We send the claim to ExoShield with your original invoice.",
     source: "https://www.getexoshield.com/",
   },
   carpro: {
@@ -134,7 +133,7 @@ export const MANUFACTURER_WARRANTIES = {
       "Permanent water beading (contamination dulls beading; a decon wash brings it back)",
     ],
     claim:
-      "Text us photos. We inspect, decontaminate and try to restore the coating first, since it is often intact under road film. If it still fails, we file it with CARPRO.",
+      "Send us photos. We inspect, decontaminate and try to restore the coating first, since it is often intact under road film. If it still fails, we file it with CARPRO.",
     source: "https://registerwarranty.carpro.global/",
   },
 } as const;

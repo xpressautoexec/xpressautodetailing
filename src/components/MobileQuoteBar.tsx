@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { MessageSquareText, Phone } from "lucide-react";
-import QuoteLink, { SMS_HREF, TEL_HREF } from "@/components/site/QuoteLink";
+import { Phone } from "lucide-react";
+import QuoteLink, { TEL_HREF } from "@/components/site/QuoteLink";
 
 /**
  * The one mobile call-to-action: pinned to the bottom of every page on phones.
@@ -60,14 +60,6 @@ const MobileQuoteBar = ({ quoteLabel }: { quoteLabel?: string }) => {
         >
           <Phone className="h-4 w-4" aria-hidden="true" />
           Call
-        </a>
-        <a
-          href={SMS_HREF}
-          tabIndex={formVisible ? -1 : undefined}
-          aria-label="Text us photos"
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-primary-foreground/50 text-primary-foreground transition-colors hover:bg-primary-foreground/10"
-        >
-          <MessageSquareText className="h-5 w-5" aria-hidden="true" />
         </a>
       </div>
     </div>

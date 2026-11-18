@@ -11,9 +11,6 @@ import { PHONE } from "@/data/pricing";
 export const QUOTE_FALLBACK = "/quote";
 export const QUOTE_LABEL = "Get a quote";
 
-const SMS_BODY = "Hi Xpress, here are photos of my vehicle for a quote:";
-/** `?&body=` works on both iOS and Android messaging apps. */
-export const SMS_HREF = `sms:+1${PHONE.replace(/\D/g, "")}?&body=${encodeURIComponent(SMS_BODY)}`;
 export const TEL_HREF = `tel:+1${PHONE.replace(/\D/g, "")}`;
 
 /** Finds the on-page quote form's anchor, waiting briefly for lazy sections to mount. */

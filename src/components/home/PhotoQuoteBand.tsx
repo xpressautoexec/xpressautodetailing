@@ -1,6 +1,6 @@
-import { MessageSquareText, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
 import QuoteForm from "@/components/QuoteForm";
-import { SMS_HREF, TEL_HREF } from "@/components/site/QuoteLink";
+import { TEL_HREF } from "@/components/site/QuoteLink";
 import { NAP } from "@/data/copy";
 
 const STEPS = [
@@ -38,13 +38,6 @@ const PhotoQuoteBand = () => (
           >
             <Phone className="h-4 w-4 text-action" aria-hidden="true" />
             Call {NAP.phone}
-          </a>
-          <a
-            href={SMS_HREF}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary-foreground/75 underline decoration-primary-foreground/25 decoration-2 underline-offset-[6px] hover:text-primary-foreground"
-          >
-            <MessageSquareText className="h-4 w-4" aria-hidden="true" />
-            Or text us photos
           </a>
         </div>
       </div>

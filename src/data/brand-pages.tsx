@@ -40,7 +40,7 @@ const WARRANTY_NOTE = "Film and coating warranties are set by the manufacturer. 
 const TRADEMARKS = "SunTek® and CARPRO® are trademarks of their respective owners.";
 
 const PPF_FAQS = [
-  { q: "How much does paint protection film cost in Calgary?", a: "It depends on the vehicle, the film and the coverage: a partial front, a full front or the whole car. Text us three photos and we will send an exact price for your vehicle." },
+  { q: "How much does paint protection film cost in Calgary?", a: "It depends on the vehicle, the film and the coverage: a partial front, a full front or the whole car. Send three photos through the quote form and we will send an exact price for your vehicle." },
   { q: "How long does PPF last?", a: "Premium SunTek films are built to last for years and carry a manufacturer warranty. Washing and care affect how long it looks its best, and we walk you through that at pickup." },
   { q: "Can I put ceramic coating on top of PPF?", a: "Yes. Coating the film makes it easier to wash and adds gloss. Some films already have a hydrophobic topcoat, so we will tell you whether it is worth it on yours." },
   { q: "Will PPF damage my paint if it is removed?", a: "Quality film installed on healthy factory paint is designed to come off cleanly. Repainted or damaged paint is a different case, and we check it before we install." },
@@ -68,7 +68,7 @@ export const SUNTEK_PPF: BrandPage = {
   ],
   questions: [
     { q: "Is SunTek PPF worth it in Calgary?", a: "If you drive the Deerfoot, Stoney Trail or Highway 2, gravel and winter grit are a daily hit on your hood and bumper. Film costs far less than a repaint and keeps the factory paint intact for resale." },
-    { q: "How much does SunTek PPF cost?", a: "Price depends on your vehicle, the film you pick and the coverage: partial front, full front or full body. Text us photos for an exact number." },
+    { q: "How much does SunTek PPF cost?", a: "Price depends on your vehicle, the film you pick and the coverage: partial front, full front or full body. Send photos through the quote form for an exact number." },
     { q: "How long does it last?", a: "SunTek films are built to last for years and carry a manufacturer's limited warranty. We explain the warranty and care at pickup." },
   ],
   productsTitle: "The SunTek films we install",
@@ -108,7 +108,7 @@ export const LLUMAR_PPF: BrandPage = {
   ],
   questions: [
     { q: "Is LLumar PPF worth it in Calgary?", a: "Flying gravel, salt, sand and bird droppings are a year-round fact of Alberta driving. Film absorbs the damage, and a fresh panel of film costs far less than paint." },
-    { q: "How much does LLumar PPF cost?", a: "It depends on the vehicle, the film and the coverage. Text us photos and we will send an exact price." },
+    { q: "How much does LLumar PPF cost?", a: "It depends on the vehicle, the film and the coverage. Send photos through the quote form and we will send an exact price." },
     { q: "Which LLumar film should I pick?", a: "Valor for the easiest washing, Platinum Gloss for a factory look, Platinum Matte for flat paint, and Platinum Extra for gravel roads and heavy use." },
   ],
   productsTitle: "The LLumar films we install",

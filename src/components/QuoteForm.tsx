@@ -1,11 +1,12 @@
 import { useEffect, useId, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, Camera, Check, Phone, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Building2, Bus, Camera, Car, CarFront, Caravan, Check, CircleHelp, Gauge, Phone, Ship, Star, Truck, X, type LucideIcon } from "lucide-react";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent, trackQuoteSubmit } from "@/lib/tracking";
 import { getAttribution } from "@/lib/attribution";
 import { NAP } from "@/data/copy";
+import { FIVE_STAR_REVIEWS } from "@/data/pricing";
 import { TEL_HREF } from "@/components/site/QuoteLink";
 
 /* Legacy coarse values, still stored in vehicle_type / need and checked by the database policy. */
@@ -27,6 +28,19 @@ export const VEHICLE_TYPES = [
   "Other",
 ] as const;
 export type VehicleType = (typeof VEHICLE_TYPES)[number];
+
+const VEHICLE_ICONS: Record<VehicleType, LucideIcon> = {
+  "Car / Sedan": Car,
+  SUV: CarFront,
+  "Pickup Truck": Truck,
+  "Minivan / 3-Row": Bus,
+  "Exotic / Sports": Gauge,
+  "RV / Motorhome": Bus,
+  "Travel Trailer / 5th Wheel": Caravan,
+  Boat: Ship,
+  "Fleet / Commercial": Building2,
+  Other: CircleHelp,
+};
 
 export const SERVICES = [
   "Interior Detail",
@@ -143,7 +157,7 @@ const shrink = async (file: File): Promise<{ blob: Blob; ext: string; type: stri
 
 const chip =
   "flex min-h-[48px] cursor-pointer items-center justify-center rounded-full border px-4 py-2 text-center text-[15px] font-semibold leading-tight transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-electric/40";
-const chipOn = "border-electric bg-electric text-primary-foreground";
+const chipOn = "border-action bg-action text-primary-foreground shadow-sm";
 const chipOff = "border-line bg-surface text-ink hover:border-ink-2";
 const input =
   "mt-1.5 h-12 w-full rounded-lg border border-line bg-surface px-3 text-base text-ink outline-none transition-colors focus:border-electric focus:ring-2 focus:ring-electric/20";
@@ -171,6 +185,7 @@ type Props = {
   confirmation?: string;
 };
 
+const SHORT_STEPS = ["Vehicle", "Services", "Contact"];
 const STEPS = ["Your vehicle", "What you're interested in", "How to reach you"];
 
 /**
@@ -370,7 +385,7 @@ const QuoteForm = ({
       }
       trackQuoteSubmit({ leadId, phone: c.phone, vehicle: row.vehicle_type, need, photos: paths.length, source });
       if (photos.length && paths.length < photos.length) {
-        toast({ title: "Some photos didn't upload. Text them to us and we'll add them to your quote." });
+        toast({ title: `Some photos didn't upload. Email them to ${NAP.email} and we'll add them to your quote.` });
       }
       goTo(4);
     } catch (err) {
@@ -402,14 +417,14 @@ const QuoteForm = ({
       ["Email", c.email.trim()],
     ];
     return (
-      <div ref={topRef} data-quote-form className="scroll-mt-24 rounded-card border border-line bg-surface p-6 sm:p-8" role="status">
+      <div ref={topRef} data-quote-form className="scroll-mt-24 rounded-card border border-line bg-surface p-6 shadow-[0_18px_50px_-24px_hsl(var(--ink)/0.35)] sm:p-8" role="status">
         <span className="flex h-11 w-11 items-center justify-center rounded-full bg-electric text-primary-foreground">
           <Check className="h-5 w-5" aria-hidden="true" />
         </span>
         <p className="mt-5 font-heading text-2xl font-bold leading-tight text-ink sm:text-3xl">
           {confirmation ?? `Thanks, ${first} — we've got your request.`}
         </p>
-        <p className="mt-2 text-[15px] text-ink-2">We'll reach out by {by} shortly.</p>
+        <p className="mt-2 text-[15px] text-ink-2">We'll reach out by {by} shortly. A copy of your request is on its way to {c.email.trim()}.</p>
         <dl className="mt-6 divide-y divide-line rounded-lg bg-tint px-4 text-sm">
           {summary.filter(([, val]) => val).map(([k, val]) => (
             <div key={k} className="grid grid-cols-[6rem_1fr] gap-3 py-2.5">
@@ -424,31 +439,68 @@ const QuoteForm = ({
   }
 
   return (
-    <div ref={topRef} data-quote-form className="scroll-mt-24 rounded-card border border-line bg-surface p-5 sm:p-8">
-      <div className="flex items-baseline justify-between gap-4">
-        <p className="font-heading text-2xl font-bold text-ink sm:text-3xl">{title}</p>
-        <p className="shrink-0 text-xs font-semibold uppercase tracking-label text-muted-ink">Step {step} of 3</p>
+    <div ref={topRef} data-quote-form className="scroll-mt-24 overflow-hidden rounded-card border border-line bg-surface shadow-[0_18px_50px_-24px_hsl(var(--ink)/0.35)]">
+      <div className="bg-charcoal px-5 pb-5 pt-6 sm:px-8">
+        <p className="font-heading text-2xl font-bold text-primary-foreground sm:text-3xl">{title}</p>
+        <p className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-primary-foreground/70">
+          <span className="inline-flex items-center gap-1.5">
+            <Star className="h-4 w-4 fill-current text-electric-soft" aria-hidden="true" />
+            {FIVE_STAR_REVIEWS} five-star Google reviews
+          </span>
+          <span aria-hidden="true">·</span>
+          <span>Free, no-obligation quote</span>
+        </p>
+        <ol className="mt-5 grid grid-cols-3 gap-2" aria-label={`Step ${step} of 3`}>
+          {SHORT_STEPS.map((label, i) => {
+            const n = i + 1;
+            const done = step > n;
+            const on = step === n;
+            return (
+              <li key={label} className="min-w-0">
+                <span className={`block h-1.5 rounded-full transition-colors ${step >= n ? "bg-electric" : "bg-primary-foreground/20"}`} />
+                <span className={`mt-2 flex items-center gap-1.5 text-xs font-semibold sm:text-[13px] ${on ? "text-primary-foreground" : "text-primary-foreground/55"}`}>
+                  <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] ${done || on ? "bg-electric text-primary-foreground" : "border border-primary-foreground/30"}`}>
+                    {done ? <Check className="h-3 w-3" aria-hidden="true" /> : n}
+                  </span>
+                  <span className="truncate">{label}</span>
+                </span>
+              </li>
+            );
+          })}
+        </ol>
       </div>
-      <div className="mt-3 grid grid-cols-3 gap-1.5" aria-hidden="true">
-        {[1, 2, 3].map((n) => (
-          <span key={n} className={`h-1.5 rounded-full transition-colors ${step >= n ? "bg-electric" : "bg-line"}`} />
-        ))}
-      </div>
-      <p className="mt-3 text-[15px] font-semibold text-ink">{STEPS[step - 1]}</p>
-      <div className="mt-2">{callLink}</div>
 
-      <form onSubmit={step === 3 ? submit : (e) => (e.preventDefault(), next())} className="mt-5" noValidate>
+      <div className="p-5 sm:p-8">
+      <p className="font-heading text-xl font-bold text-ink sm:text-2xl">{STEPS[step - 1]}</p>
+      <div className="mt-1">{callLink}</div>
+
+      <form onSubmit={step === 3 ? submit : (e) => (e.preventDefault(), next())} className="mt-4" noValidate>
         {step === 1 && (
           <div className="space-y-6">
             <fieldset>
               <legend className={labelCls}>Vehicle type</legend>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {VEHICLE_TYPES.map((t) => (
-                  <label key={t} className={`${chip} ${vehicle === t ? chipOn : chipOff}`}>
-                    <input type="radio" name={`${uid}-vehicle`} checked={vehicle === t} onChange={() => pickVehicle(t)} className="sr-only" />
-                    {t}
-                  </label>
-                ))}
+              <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-5">
+                {VEHICLE_TYPES.map((t) => {
+                  const Icon = VEHICLE_ICONS[t];
+                  const on = vehicle === t;
+                  return (
+                    <label
+                      key={t}
+                      className={`relative flex min-h-[88px] cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 px-2 py-3 text-center text-[13px] font-semibold leading-tight transition-all has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-electric/40 ${
+                        on ? "border-action bg-electric-soft text-ink" : "border-line bg-surface text-ink hover:border-ink-2/40 hover:bg-tint"
+                      }`}
+                    >
+                      <input type="radio" name={`${uid}-vehicle`} checked={on} onChange={() => pickVehicle(t)} className="sr-only" />
+                      {on && (
+                        <span className="absolute right-1.5 top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-action text-primary-foreground">
+                          <Check className="h-3 w-3" aria-hidden="true" />
+                        </span>
+                      )}
+                      <Icon className={`h-7 w-7 ${on ? "text-action" : "text-ink-2"}`} strokeWidth={1.6} aria-hidden="true" />
+                      {t}
+                    </label>
+                  );
+                })}
               </div>
               <Err msg={errors.vehicle} />
             </fieldset>
@@ -524,6 +576,7 @@ const QuoteForm = ({
                 {visible.map((s) => (
                   <label key={s} className={`${chip} ${chosen.includes(s) ? chipOn : chipOff}`}>
                     <input type="checkbox" checked={chosen.includes(s)} onChange={() => toggleService(s)} className="sr-only" />
+                    {chosen.includes(s) && <Check className="mr-1.5 h-4 w-4 shrink-0" aria-hidden="true" />}
                     {s}
                   </label>
                 ))}
@@ -659,8 +712,9 @@ const QuoteForm = ({
             {step === 3 ? sending ?? submitLabel : <>Next <ArrowRight className="h-4 w-4" aria-hidden="true" /></>}
           </button>
         </div>
-        {step === 3 && <p className="mt-3 text-center text-xs text-muted-ink">No spam and no obligation. We only use your details to reply to this request.</p>}
+        {step === 3 && <p className="mt-3 text-center text-xs text-muted-ink">No spam and no obligation. We only use your details to reply to this request, and we'll email you a copy.</p>}
       </form>
+      </div>
     </div>
   );
 };
