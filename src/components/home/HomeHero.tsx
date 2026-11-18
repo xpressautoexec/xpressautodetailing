@@ -24,7 +24,9 @@ const HomeHero = () => (
           <br />
           protection
           <br />
-          in Calgary
+          in Calgary, Airdrie,
+          <br />
+          &amp; surrounding
         </h1>
         <p className="mt-10 max-w-[32rem] text-lg leading-relaxed text-ink-2">
           Ceramic coating, SunTek® paint protection film, ExoShield windshield film and full detailing for cars, RVs and fleets. Book a bay at our heated Airdrie shop or have
