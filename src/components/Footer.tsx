@@ -14,9 +14,11 @@ const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
     title: "Services",
     links: [
       { label: "Car detailing", href: "/detailing" },
-      { label: "Paint correction", href: "/paint-correction" },
       { label: "RV & trailer detailing", href: "/rv-trailer" },
+      { label: "RV paint protection film", href: "/rv-trailer/ppf" },
+      { label: "RV rental fleet care", href: "/rv-trailer/rental-fleet" },
       { label: "Fleet & dealership", href: "/fleet" },
+      { label: "Lease return prep", href: "/lease-return" },
       { label: "Marine & pontoon", href: "/marine" },
       { label: "Headlight restoration", href: "/headlight-restoration" },
       { label: "Xpress Pass", href: "/xpress-pass" },
@@ -35,6 +37,7 @@ const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
     links: [
       { label: "Reviews", href: "/reviews" },
       { label: "Gallery", href: "/gallery" },
+      { label: "Price comparison", href: "/calgary-detailing-price-comparison" },
       { label: "Blog", href: "/blog" },
       { label: "Warranty & care", href: "/warranty" },
       { label: "Gift cards", href: "/gift-cards" },
