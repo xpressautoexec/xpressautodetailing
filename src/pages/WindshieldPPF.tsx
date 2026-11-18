@@ -64,7 +64,7 @@ const faqs = [
 
 const WindshieldPPF = () => (
   <LandingPage
-    quote={{ defaultNeed: "PPF/windshield film" }}
+    quote={{ defaultServices: ["ExoShield Windshield Film"] }}
     childrenFirst
     products={["exoshield"]}
     seo={{

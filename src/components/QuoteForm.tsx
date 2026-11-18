@@ -1,77 +1,116 @@
 import { useEffect, useId, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, Camera, Check, MessageSquareText, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Camera, Check, Phone, X } from "lucide-react";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent, trackQuoteSubmit } from "@/lib/tracking";
 import { getAttribution } from "@/lib/attribution";
-import { BOOKING_URL } from "@/data/pricing";
 import { NAP } from "@/data/copy";
-import { SMS_HREF } from "@/components/site/QuoteLink";
-import WalkaroundGuarantee from "@/components/site/WalkaroundGuarantee";
+import { TEL_HREF } from "@/components/site/QuoteLink";
 
-/** Values are stored as-is and checked by the database policy; keep the two lists in sync. */
+/* Legacy coarse values, still stored in vehicle_type / need and checked by the database policy. */
 export const QUOTE_VEHICLES = ["Car/SUV", "Truck", "RV/Trailer", "Boat", "Fleet"] as const;
 export const QUOTE_NEEDS = ["Interior", "Full detail", "Paint correction/ceramic", "PPF/windshield film", "Not sure"] as const;
 export type QuoteVehicle = (typeof QUOTE_VEHICLES)[number];
 export type QuoteNeed = (typeof QUOTE_NEEDS)[number];
 
-/**
- * RVs and boats get their own choices. Each maps to a stored `need` the database accepts;
- * the exact choice and the unit length go in `notes`, so the lead email shows both.
- */
-type NeedOption = { label: string; need: QuoteNeed };
-const RV_NEEDS: NeedOption[] = [
-  { label: "Wash & seal", need: "Full detail" },
-  { label: "Oxidation / gelcoat restoration", need: "Paint correction/ceramic" },
-  { label: "Storage prep", need: "Full detail" },
-  { label: "Interior", need: "Interior" },
-  { label: "PPF / front cap", need: "PPF/windshield film" },
-  { label: "Not sure", need: "Not sure" },
-];
-const BOAT_NEEDS: NeedOption[] = [
-  { label: "Wash & wax", need: "Full detail" },
-  { label: "Oxidation / polish & seal", need: "Paint correction/ceramic" },
-  { label: "Ceramic coating", need: "Paint correction/ceramic" },
-  { label: "Interior", need: "Interior" },
-  { label: "Pontoon restoration", need: "Full detail" },
-  { label: "Not sure", need: "Not sure" },
-];
-const needOptions = (v?: QuoteVehicle): NeedOption[] =>
-  v === "RV/Trailer" ? RV_NEEDS : v === "Boat" ? BOAT_NEEDS : QUOTE_NEEDS.map((n) => ({ label: n, need: n }));
-/** RVs and boats are priced by length and done where they're parked. */
-const isUnit = (v?: QuoteVehicle) => v === "RV/Trailer" || v === "Boat";
+export const VEHICLE_TYPES = [
+  "Car / Sedan",
+  "SUV",
+  "Pickup Truck",
+  "Minivan / 3-Row",
+  "Exotic / Sports",
+  "RV / Motorhome",
+  "Travel Trailer / 5th Wheel",
+  "Boat",
+  "Fleet / Commercial",
+  "Other",
+] as const;
+export type VehicleType = (typeof VEHICLE_TYPES)[number];
+
+export const SERVICES = [
+  "Interior Detail",
+  "Full Detail",
+  "Paint Correction (Xpress Correct™)",
+  "Ceramic Coating (Xpress Coat™)",
+  "Paint Protection Film (Xpress Protect™)",
+  "ExoShield Windshield Film",
+  "Headlight Restoration",
+  "RV Wash & Seal",
+  "RV Oxidation Removal / Restoration (Xpress Restore™)",
+  "Fleet Program",
+  "Lease Return Prep",
+  "Training Course",
+  "Not sure — need advice",
+] as const;
+export type Service = (typeof SERVICES)[number];
+
+const CARS: VehicleType[] = ["Car / Sedan", "SUV", "Pickup Truck", "Minivan / 3-Row", "Exotic / Sports"];
+const UNITS: VehicleType[] = ["RV / Motorhome", "Travel Trailer / 5th Wheel", "Boat"];
+const isCar = (v?: VehicleType) => !!v && CARS.includes(v);
+const isUnit = (v?: VehicleType) => !!v && UNITS.includes(v);
+const isRv = (v?: VehicleType) => v === "RV / Motorhome" || v === "Travel Trailer / 5th Wheel";
+
+/** Services shown for each vehicle type. "Not sure" is always kept. */
+export const servicesFor = (v?: VehicleType): Service[] => {
+  const rv = ["RV Wash & Seal", "RV Oxidation Removal / Restoration (Xpress Restore™)"];
+  const carOnly = ["ExoShield Windshield Film", "Headlight Restoration", "Lease Return Prep"];
+  if (isRv(v)) return SERVICES.filter((s) => !carOnly.includes(s) && s !== "Fleet Program");
+  if (v === "Boat") return SERVICES.filter((s) => ["Interior Detail", "Full Detail", "Paint Correction (Xpress Correct™)", "Ceramic Coating (Xpress Coat™)", "Training Course", "Not sure — need advice"].includes(s));
+  if (v === "Fleet / Commercial") return [...SERVICES];
+  return SERVICES.filter((s) => !rv.includes(s));
+};
+
+const LOCATIONS = [
+  ["shop", "Drop-off at our Airdrie shop"],
+  ["mobile", "Mobile — at my location"],
+  ["either", "Either works"],
+] as const;
+type Loc = (typeof LOCATIONS)[number][0];
+const AREAS = ["Calgary", "Airdrie", "Cochrane", "Chestermere", "Okotoks", "Rocky View County", "Other"];
+const TIMINGS = ["As soon as possible", "Within 2 weeks", "This month", "Flexible", "Just comparing prices"];
+const CONTACT_PREFS = ["Call", "Text", "Email"] as const;
+type ContactPref = (typeof CONTACT_PREFS)[number];
+const HEARD = ["Google search", "Google Maps", "Instagram", "Facebook", "Referral", "Saw our van", "Returning customer", "Other"];
+const MAKES = ["Acura", "Audi", "BMW", "Buick", "Cadillac", "Chevrolet", "Chrysler", "Dodge", "Ford", "Genesis", "GMC", "Honda", "Hyundai", "Infiniti", "Jeep", "Kia", "Land Rover", "Lexus", "Lincoln", "Mazda", "Mercedes-Benz", "Mitsubishi", "Nissan", "Porsche", "Ram", "Subaru", "Tesla", "Toyota", "Volkswagen", "Volvo"];
+
+/** Maps from the older page presets so every page keeps its pre-fill. */
+const LEGACY_VEHICLE: Record<QuoteVehicle, VehicleType | undefined> = {
+  "Car/SUV": undefined,
+  Truck: "Pickup Truck",
+  "RV/Trailer": "RV / Motorhome",
+  Boat: "Boat",
+  Fleet: "Fleet / Commercial",
+};
+const LEGACY_NEED: Record<QuoteNeed, Service> = {
+  Interior: "Interior Detail",
+  "Full detail": "Full Detail",
+  "Paint correction/ceramic": "Ceramic Coating (Xpress Coat™)",
+  "PPF/windshield film": "Paint Protection Film (Xpress Protect™)",
+  "Not sure": "Not sure — need advice",
+};
+
+export const toLegacyVehicle = (v: VehicleType): QuoteVehicle =>
+  v === "Pickup Truck" ? "Truck" : isRv(v) ? "RV/Trailer" : v === "Boat" ? "Boat" : v === "Fleet / Commercial" ? "Fleet" : "Car/SUV";
+export const toLegacyNeed = (s: Service[]): QuoteNeed => {
+  const has = (...k: string[]) => s.some((x) => k.some((y) => x.startsWith(y)));
+  if (has("Paint Protection", "ExoShield")) return "PPF/windshield film";
+  if (has("Paint Correction", "Ceramic", "RV Oxidation")) return "Paint correction/ceramic";
+  if (has("Full Detail", "RV Wash", "Lease Return", "Fleet")) return "Full detail";
+  if (has("Interior")) return "Interior";
+  return "Not sure";
+};
+
+export const formatPhone = (raw: string) => {
+  const d = raw.replace(/\D/g, "").replace(/^1(?=\d{10})/, "").slice(0, 10);
+  if (d.length < 4) return d;
+  if (d.length < 7) return `(${d.slice(0, 3)}) ${d.slice(3)}`;
+  return `(${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6)}`;
+};
 
 const MAX_PHOTOS = 6;
 const MAX_EDGE = 1800;
 const MAX_RAW_BYTES = 15 * 1024 * 1024;
-
-/* The generated Supabase types predate quote_requests; this is the row the form inserts. */
-type QuoteInsert = {
-  id: string;
-  vehicle_type: QuoteVehicle;
-  need: QuoteNeed;
-  name: string;
-  phone: string;
-  area: string | null;
-  location_pref: "mobile" | "shop";
-  company_name: string | null;
-  fleet_size: string | null;
-  notes: string | null;
-  photo_paths: string[];
-  source: string;
-  page_path: string;
-  landing_page?: string;
-  referrer?: string;
-  gclid?: string;
-  gbraid?: string;
-  wbraid?: string;
-  utm_source?: string;
-  utm_medium?: string;
-  utm_campaign?: string;
-  utm_term?: string;
-  utm_content?: string;
-};
 const db = supabase as unknown as SupabaseClient;
 
 const uuid = () => {
@@ -85,7 +124,6 @@ const uuid = () => {
   }
 };
 
-/** Phone photos are 3-12 MB; resize to ~1800px JPEG (about 0.4 MB) before upload. */
 const shrink = async (file: File): Promise<{ blob: Blob; ext: string; type: string }> => {
   try {
     const bmp = await createImageBitmap(file);
@@ -104,11 +142,19 @@ const shrink = async (file: File): Promise<{ blob: Blob; ext: string; type: stri
 };
 
 const chip =
-  "flex min-h-[52px] cursor-pointer items-center justify-center rounded-md border px-3 text-center text-[15px] font-semibold transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-electric/40";
-const chipOn = "border-electric bg-electric-soft text-electric";
+  "flex min-h-[48px] cursor-pointer items-center justify-center rounded-full border px-4 py-2 text-center text-[15px] font-semibold leading-tight transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-electric/40";
+const chipOn = "border-electric bg-electric text-primary-foreground";
 const chipOff = "border-line bg-surface text-ink hover:border-ink-2";
 const input =
-  "mt-1.5 h-12 w-full rounded-md border border-line bg-surface px-3 text-base text-ink outline-none transition-colors focus:border-electric focus:ring-2 focus:ring-electric/20";
+  "mt-1.5 h-12 w-full rounded-lg border border-line bg-surface px-3 text-base text-ink outline-none transition-colors focus:border-electric focus:ring-2 focus:ring-electric/20";
+const labelCls = "block text-sm font-semibold text-ink";
+const opt = <span className="font-normal text-muted-ink">(optional)</span>;
+const btnMain =
+  "inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-electric px-7 text-base font-semibold text-primary-foreground transition-colors hover:bg-electric-2 disabled:opacity-70";
+const btnBack =
+  "inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border border-line px-6 text-base font-semibold text-ink transition-colors hover:border-ink";
+
+const Err = ({ msg }: { msg?: string }) => (msg ? <p className="mt-1.5 text-sm font-medium text-destructive" role="alert">{msg}</p> : null);
 
 type Props = {
   /** Stored with the lead: which form/page it came from. */
@@ -116,75 +162,108 @@ type Props = {
   title?: string;
   defaultVehicle?: QuoteVehicle;
   defaultNeed?: QuoteNeed;
-  /** Pre-select the Airdrie shop (e.g. on PPF pages). */
-  defaultLocation?: "mobile" | "shop";
-  /** Submit button text (default "Get my price"). */
+  /** Exact vehicle type / services to pre-select (take priority over the legacy presets). */
+  defaultVehicleType?: VehicleType;
+  defaultServices?: Service[];
+  defaultLocation?: Loc;
   submitLabel?: string;
-  /** Single-step mode: skip step 1 when vehicle and need are fixed (e.g. fleet yard walk). */
-  contactOnly?: boolean;
   /** Override the confirmation headline. */
   confirmation?: string;
 };
 
+const STEPS = ["Your vehicle", "What you're interested in", "How to reach you"];
+
 /**
- * Two-step quote request. Step 1: what it is and what it needs. Step 2: contact, area,
- * mobile or shop, and up to 6 photos. Saved to quote_requests (photos in the private
- * quote-photos bucket); a database trigger emails the lead to support@.
+ * The one lead form used everywhere. Three steps, saved to quote_requests (photos in the
+ * private quote-photos bucket); a database trigger emails the lead to support@.
  */
 const QuoteForm = ({
   source = "quote",
-  title = "Get a price",
+  title = "Get a quote",
   defaultVehicle,
   defaultNeed,
-  defaultLocation = "mobile",
-  submitLabel = "Get a quote",
-  contactOnly = false,
-  confirmation = "Got it — we'll be in touch with your price, usually the same day.",
+  defaultVehicleType,
+  defaultServices,
+  defaultLocation,
+  submitLabel = "Get my quote",
+  confirmation,
 }: Props) => {
   const { toast } = useToast();
   const uid = useId();
   const fileRef = useRef<HTMLInputElement>(null);
   const topRef = useRef<HTMLDivElement>(null);
-  const [step, setStep] = useState<1 | 2 | 3>(contactOnly && defaultVehicle && defaultNeed ? 2 : 1);
-  const single = contactOnly && !!defaultVehicle && !!defaultNeed;
-  const [vehicle, setVehicle] = useState<QuoteVehicle | undefined>(defaultVehicle);
-  const [needLabel, setNeedLabel] = useState<string | undefined>(() => {
-    const opts = needOptions(defaultVehicle);
-    return (opts.find((o) => o.label === defaultNeed) ?? opts.find((o) => o.need === defaultNeed && o.need !== "Full detail"))?.label;
-  });
-  const need = needOptions(vehicle).find((o) => o.label === needLabel)?.need ?? (contactOnly ? defaultNeed : undefined);
-  const pickVehicle = (v: QuoteVehicle) => {
-    setVehicle(v);
-    if (!needOptions(v).some((o) => o.label === needLabel)) setNeedLabel(undefined);
-  };
-  const [form, setForm] = useState({ name: "", phone: "", area: "", company: "", fleetSize: "", length: "" });
-  const [location, setLocation] = useState<"mobile" | "shop">(defaultLocation);
+  const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const [vehicle, setVehicle] = useState<VehicleType | undefined>(defaultVehicleType ?? (defaultVehicle ? LEGACY_VEHICLE[defaultVehicle] : undefined));
+  const [services, setServices] = useState<Service[]>(defaultServices ?? (defaultNeed ? [LEGACY_NEED[defaultNeed]] : []));
+  const [v, setV] = useState({ year: "", make: "", model: "", color: "", length: "", company: "", fleetSize: "" });
+  const [location, setLocation] = useState<Loc | undefined>(defaultLocation);
+  const [area, setArea] = useState("");
+  const [timing, setTiming] = useState("");
+  const [notes, setNotes] = useState("");
+  const [c, setC] = useState({ name: "", phone: "", email: "", heard: "" });
+  const [pref, setPref] = useState<ContactPref>("Text");
   const [photos, setPhotos] = useState<{ file: File; url: string }[]>([]);
   const [sending, setSending] = useState<string | null>(null);
-  const [sentPhotos, setSentPhotos] = useState(0);
 
   const photosRef = useRef(photos);
   photosRef.current = photos;
   useEffect(() => () => photosRef.current.forEach((p) => URL.revokeObjectURL(p.url)), []);
 
-  const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement>) => setForm((f) => ({ ...f, [k]: e.target.value }));
+  const visible = servicesFor(vehicle);
+  const chosen = services.filter((s) => visible.includes(s));
 
-  const goTo = (s: 1 | 2 | 3) => {
+  const pickVehicle = (t: VehicleType) => {
+    setVehicle(t);
+    setErrors((e) => ({ ...e, vehicle: "" }));
+  };
+  const toggleService = (s: Service) => {
+    setServices((cur) => (cur.includes(s) ? cur.filter((x) => x !== s) : [...cur, s]));
+    setErrors((e) => ({ ...e, services: "" }));
+  };
+  const setVf = (k: keyof typeof v) => (e: React.ChangeEvent<HTMLInputElement>) => setV((f) => ({ ...f, [k]: e.target.value }));
+  const setCf = (k: keyof typeof c) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
+    setC((f) => ({ ...f, [k]: k === "phone" ? formatPhone(e.target.value) : e.target.value }));
+
+  const goTo = (s: 1 | 2 | 3 | 4) => {
     setStep(s);
-    // Keep the form in view on phones when the step changes.
     requestAnimationFrame(() => {
       const el = topRef.current;
       if (el && el.getBoundingClientRect().top < 0) el.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   };
 
-  const next = () => {
-    if (!vehicle || !need) {
-      toast({ title: "Pick what it is and what it needs.", variant: "destructive" });
-      return;
+  const validate = (s: number) => {
+    const e: Record<string, string> = {};
+    if (s === 1) {
+      if (!vehicle) e.vehicle = "Choose the type of vehicle.";
+      if (isCar(vehicle)) {
+        if (!v.make.trim()) e.make = "Add the make, for example Toyota.";
+        if (!v.model.trim()) e.model = "Add the model, for example RAV4.";
+      }
+      if (isUnit(vehicle) && !/^\d{1,3}(\.\d)?$/.test(v.length.trim())) e.length = "Add the approximate length in feet, for example 32.";
+      if (v.year.trim() && !/^(19|20)\d{2}$/.test(v.year.trim())) e.year = "Use a 4-digit year, for example 2022.";
     }
-    trackEvent("quote_step1_complete", { vehicle_type: vehicle, need, form_source: source });
-    goTo(2);
+    if (s === 2) {
+      if (!chosen.length) e.services = "Pick at least one service. Not sure is fine too.";
+      if (!location) e.location = "Choose where you'd like the work done.";
+      if ((location === "mobile" || location === "either") && !area) e.area = "Choose your city or area.";
+      if (!timing) e.timing = "Let us know roughly when.";
+    }
+    if (s === 3) {
+      if (!c.name.trim()) e.name = "Add your name.";
+      if (c.phone.replace(/\D/g, "").length !== 10) e.phone = "Add a 10-digit phone number.";
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c.email.trim())) e.email = "Add a valid email address.";
+    }
+    setErrors(e);
+    return Object.keys(e).length === 0;
+  };
+
+  const next = () => {
+    if (!validate(step)) return;
+    trackEvent(`quote_step${step}_complete`, { vehicle_type: vehicle, form_source: source });
+    goTo((step + 1) as 2 | 3);
   };
 
   const addPhotos = (list: FileList | null) => {
@@ -197,26 +276,28 @@ const QuoteForm = ({
     setPhotos((p) => [...p, ...picked.slice(0, room).map((file) => ({ file, url: URL.createObjectURL(file) }))]);
     if (fileRef.current) fileRef.current.value = "";
   };
-
   const removePhoto = (i: number) =>
     setPhotos((p) => {
       URL.revokeObjectURL(p[i].url);
       return p.filter((_, j) => j !== i);
     });
 
+  const vehicleLine = () => {
+    if (!vehicle) return "";
+    const ymm = [v.year.trim(), v.make.trim(), v.model.trim()].filter(Boolean).join(" ");
+    const len = isUnit(vehicle) && v.length.trim() ? `, ${v.length.trim()} ft` : "";
+    const co = vehicle === "Fleet / Commercial" && v.company.trim() ? `${v.company.trim()}${v.fleetSize.trim() ? ` (${v.fleetSize.trim()} vehicles)` : ""}` : "";
+    return [ymm || co, `${vehicle}${len}`].filter(Boolean).join(" — ");
+  };
+  const locLine = () => {
+    const l = LOCATIONS.find(([k]) => k === location)?.[1] ?? "";
+    return location !== "shop" && area ? `${l} · ${area}` : l;
+  };
+
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!vehicle || !need) return goTo(1);
-    const phoneDigits = form.phone.replace(/\D/g, "");
-    if (!form.name.trim()) {
-      toast({ title: "Add your name.", variant: "destructive" });
-      return;
-    }
-    if (phoneDigits.length < 10) {
-      toast({ title: "Add a 10-digit mobile number so we can text you the price.", variant: "destructive" });
-      return;
-    }
-
+    if (!validate(3)) return;
+    if (!vehicle) return goTo(1);
     const leadId = uuid();
     const paths: string[] = [];
     try {
@@ -228,29 +309,36 @@ const QuoteForm = ({
         if (!error) paths.push(path);
         else console.error("Photo upload failed", error);
       }
-
       setSending("Sending…");
-      const attr = getAttribution();
-      const row: QuoteInsert = {
+      const attr = getAttribution() as Record<string, string | undefined>;
+      const need = toLegacyNeed(chosen);
+      const t = (s: string, n: number) => s.trim().slice(0, n) || null;
+      const row = {
         id: leadId,
-        vehicle_type: vehicle,
+        vehicle_type: toLegacyVehicle(vehicle),
         need,
-        name: form.name.trim().slice(0, 120),
-        phone: form.phone.trim().slice(0, 30),
-        area: form.area.trim().slice(0, 120) || null,
-        location_pref: isUnit(vehicle) ? "mobile" : location,
-        company_name: vehicle === "Fleet" ? form.company.trim().slice(0, 200) || null : null,
-        fleet_size: vehicle === "Fleet" ? form.fleetSize.trim().slice(0, 60) || null : null,
-        notes:
-          [
-            needLabel && needLabel !== need && `Wants: ${needLabel}`,
-            isUnit(vehicle) && form.length.trim() && `Length: ${form.length.trim().slice(0, 20)} ft`,
-          ]
-            .filter(Boolean)
-            .join(" · ") || null,
+        vehicle_category: vehicle,
+        vehicle_year: t(v.year, 10),
+        vehicle_make: t(v.make, 80),
+        vehicle_model: t(v.model, 80),
+        vehicle_color: t(v.color, 60),
+        length_ft: isUnit(vehicle) ? t(v.length, 20) : null,
+        company_name: vehicle === "Fleet / Commercial" ? t(v.company, 200) : null,
+        fleet_size: vehicle === "Fleet / Commercial" ? t(v.fleetSize, 60) : null,
+        services: chosen,
+        location_pref: location ?? null,
+        area: location === "shop" ? null : area || null,
+        timing: timing || null,
+        notes: t(notes, 2000),
+        name: c.name.trim().slice(0, 120),
+        phone: c.phone.trim().slice(0, 30),
+        email: c.email.trim().slice(0, 255),
+        contact_pref: pref,
+        heard_from: c.heard || null,
         photo_paths: paths,
         source: source.slice(0, 80),
         page_path: window.location.pathname.slice(0, 300),
+        page_url: window.location.href.slice(0, 500),
         ...attr,
       };
       const { error } = await db.from("quote_requests").insert(row);
@@ -258,33 +346,33 @@ const QuoteForm = ({
         // Never lose a lead: fall back to the older contact table (emailed by its own trigger).
         console.error("quote_requests insert failed, using fallback", error);
         const lines = [
-          `Quote request: ${vehicle} / ${need}`,
-          row.area && `Area: ${row.area}`,
-          `Prefers: ${row.location_pref === "shop" ? "Airdrie shop" : "mobile"}`,
-          row.company_name && `Company: ${row.company_name}`,
-          row.fleet_size && `Fleet size: ${row.fleet_size}`,
-          row.notes,
-          paths.length ? `Photos uploaded: ${paths.length} (lead ${leadId})` : "No photos uploaded",
+          `Vehicle: ${vehicleLine()}`,
+          `Services: ${chosen.join(", ")}`,
+          `Where: ${locLine()}`,
+          timing && `When: ${timing}`,
+          notes.trim() && `Notes: ${notes.trim()}`,
+          `Contact by: ${pref}`,
+          c.heard && `Heard from: ${c.heard}`,
+          paths.length ? `Photos uploaded: ${paths.length} (lead ${leadId})` : "",
           attr.gclid && `gclid: ${attr.gclid}`,
+          attr.fbclid && `fbclid: ${attr.fbclid}`,
           attr.utm_source && `utm: ${[attr.utm_source, attr.utm_medium, attr.utm_campaign].filter(Boolean).join(" / ")}`,
-          `Page: ${row.page_path}`,
+          `Page: ${row.page_url}`,
         ].filter(Boolean);
         const fb = await supabase.from("contact_submissions").insert({
           name: row.name,
-          email: "not-provided@xpressautodetail.ca",
+          email: row.email,
           phone: row.phone,
-          message: lines.join("\n"),
+          message: lines.join("\n").slice(0, 5000),
           form_type: `quote:${row.source}`.slice(0, 100),
         });
         if (fb.error) throw fb.error;
       }
-
-      trackQuoteSubmit({ leadId, phone: form.phone, vehicle, need, photos: paths.length, source });
-      setSentPhotos(paths.length);
+      trackQuoteSubmit({ leadId, phone: c.phone, vehicle: row.vehicle_type, need, photos: paths.length, source });
       if (photos.length && paths.length < photos.length) {
         toast({ title: "Some photos didn't upload. Text them to us and we'll add them to your quote." });
       }
-      goTo(3);
+      goTo(4);
     } catch (err) {
       console.error("Quote submit failed", err);
       toast({ title: `That didn't send. Please call or text ${NAP.phone}.`, variant: "destructive" });
@@ -293,45 +381,44 @@ const QuoteForm = ({
     }
   };
 
-  if (step === 3) {
+  const callLink = (
+    <a href={TEL_HREF} className="inline-flex min-h-[44px] items-center gap-2 font-semibold text-ink hover:text-electric">
+      <Phone className="h-4 w-4 text-electric" aria-hidden="true" />
+      Prefer to talk? Call {NAP.phone}
+    </a>
+  );
+
+  if (step === 4) {
+    const first = c.name.trim().split(/\s+/)[0];
+    const by = pref === "Call" ? "phone" : pref === "Text" ? "text" : "email";
+    const summary: [string, string][] = [
+      ["Vehicle", vehicleLine()],
+      ["Colour", v.color.trim()],
+      ["Services", chosen.join(", ")],
+      ["Where", locLine()],
+      ["When", timing],
+      ["Notes", notes.trim()],
+      ["Phone", c.phone],
+      ["Email", c.email.trim()],
+    ];
     return (
       <div ref={topRef} data-quote-form className="scroll-mt-24 rounded-card border border-line bg-surface p-6 sm:p-8" role="status">
         <span className="flex h-11 w-11 items-center justify-center rounded-full bg-electric text-primary-foreground">
           <Check className="h-5 w-5" aria-hidden="true" />
         </span>
-        <p className="mt-5 font-heading text-3xl font-bold leading-tight text-ink">
-          {confirmation}
+        <p className="mt-5 font-heading text-2xl font-bold leading-tight text-ink sm:text-3xl">
+          {confirmation ?? `Thanks, ${first} — we've got your request.`}
         </p>
-        {sentPhotos === 0 ? (
-          <>
-            <p className="mt-3 text-[15px] leading-relaxed text-ink-2">
-              Send three photos (front, side and the worst spot) and we'll send an exact price.
-            </p>
-            <a
-              href={SMS_HREF}
-              className="mt-6 inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-md bg-electric px-6 text-[15px] font-semibold text-primary-foreground hover:bg-electric-2 sm:w-auto"
-            >
-              <MessageSquareText className="h-4 w-4" aria-hidden="true" />
-              Text us photos
-            </a>
-          </>
-        ) : (
-          <p className="mt-3 text-[15px] leading-relaxed text-ink-2">
-            We have your {sentPhotos} photo{sentPhotos > 1 ? "s" : ""}. Keep your phone handy; the price comes by text from {NAP.phone}.
-          </p>
-        )}
-        <WalkaroundGuarantee className="mt-8" />
-        <div className="mt-6 border-t border-line pt-5">
-          <p className="text-sm text-muted-ink">Already know what you want?</p>
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2 inline-flex min-h-[44px] items-center justify-center rounded-md border border-ink/20 px-5 text-sm font-semibold text-ink transition-colors hover:border-ink"
-          >
-            Book online
-          </a>
-        </div>
+        <p className="mt-2 text-[15px] text-ink-2">We'll reach out by {by} shortly.</p>
+        <dl className="mt-6 divide-y divide-line rounded-lg bg-tint px-4 text-sm">
+          {summary.filter(([, val]) => val).map(([k, val]) => (
+            <div key={k} className="grid grid-cols-[6rem_1fr] gap-3 py-2.5">
+              <dt className="text-muted-ink">{k}</dt>
+              <dd className="whitespace-pre-line font-medium text-ink">{val}</dd>
+            </div>
+          ))}
+        </dl>
+        <div className="mt-6">{callLink}</div>
       </div>
     );
   }
@@ -340,195 +427,240 @@ const QuoteForm = ({
     <div ref={topRef} data-quote-form className="scroll-mt-24 rounded-card border border-line bg-surface p-5 sm:p-8">
       <div className="flex items-baseline justify-between gap-4">
         <p className="font-heading text-2xl font-bold text-ink sm:text-3xl">{title}</p>
-        {!single && <p className="shrink-0 text-xs font-semibold uppercase tracking-label text-muted-ink">Step {step} of 2</p>}
+        <p className="shrink-0 text-xs font-semibold uppercase tracking-label text-muted-ink">Step {step} of 3</p>
       </div>
-      {!single && (
-        <div className="mt-3 grid grid-cols-2 gap-1.5" aria-hidden="true">
-          <span className="h-1 rounded-full bg-electric" />
-          <span className={`h-1 rounded-full ${step === 2 ? "bg-electric" : "bg-line"}`} />
-        </div>
-      )}
+      <div className="mt-3 grid grid-cols-3 gap-1.5" aria-hidden="true">
+        {[1, 2, 3].map((n) => (
+          <span key={n} className={`h-1.5 rounded-full transition-colors ${step >= n ? "bg-electric" : "bg-line"}`} />
+        ))}
+      </div>
+      <p className="mt-3 text-[15px] font-semibold text-ink">{STEPS[step - 1]}</p>
+      <div className="mt-2">{callLink}</div>
 
-      {step === 1 ? (
-        <div className="mt-6">
-          <fieldset>
-            <legend className="text-[15px] font-semibold text-ink">What is it?</legend>
-            <div className="mt-3 grid grid-cols-[repeat(auto-fill,minmax(min(100%,9.75rem),1fr))] gap-2">
-              {QUOTE_VEHICLES.map((v) => (
-                <label key={v} className={`${chip} ${vehicle === v ? chipOn : chipOff}`}>
-                  <input type="radio" name={`${uid}-vehicle`} value={v} checked={vehicle === v} onChange={() => pickVehicle(v)} className="sr-only" />
-                  {v}
+      <form onSubmit={step === 3 ? submit : (e) => (e.preventDefault(), next())} className="mt-5" noValidate>
+        {step === 1 && (
+          <div className="space-y-6">
+            <fieldset>
+              <legend className={labelCls}>Vehicle type</legend>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {VEHICLE_TYPES.map((t) => (
+                  <label key={t} className={`${chip} ${vehicle === t ? chipOn : chipOff}`}>
+                    <input type="radio" name={`${uid}-vehicle`} checked={vehicle === t} onChange={() => pickVehicle(t)} className="sr-only" />
+                    {t}
+                  </label>
+                ))}
+              </div>
+              <Err msg={errors.vehicle} />
+            </fieldset>
+
+            {vehicle && vehicle !== "Fleet / Commercial" && (
+              <div className="grid gap-4 sm:grid-cols-3">
+                <label className={labelCls}>
+                  Year {opt}
+                  <input inputMode="numeric" maxLength={4} placeholder="2022" value={v.year} onChange={setVf("year")} className={input} />
+                  <Err msg={errors.year} />
                 </label>
-              ))}
-            </div>
-          </fieldset>
-          <fieldset className="mt-7">
-            <legend className="text-[15px] font-semibold text-ink">What does it need?</legend>
-            <div className="mt-3 grid grid-cols-[repeat(auto-fill,minmax(min(100%,9.75rem),1fr))] gap-2">
-              {needOptions(vehicle).map(({ label }) => (
-                <label key={label} className={`${chip} ${needLabel === label ? chipOn : chipOff}`}>
+                <label className={labelCls}>
+                  {isUnit(vehicle) ? "Make / Brand" : "Make"} {!isCar(vehicle) && opt}
                   <input
-                    type="radio"
-                    name={`${uid}-need`}
-                    value={label}
-                    checked={needLabel === label}
-                    onChange={() => setNeedLabel(label)}
-                    className="sr-only"
+                    list={isCar(vehicle) ? `${uid}-makes` : undefined}
+                    maxLength={80}
+                    placeholder={vehicle === "Boat" ? "SunChaser" : isUnit(vehicle) ? "Jayco" : "Toyota"}
+                    value={v.make}
+                    onChange={setVf("make")}
+                    className={input}
                   />
-                  {label}
+                  <datalist id={`${uid}-makes`}>
+                    {MAKES.map((m) => (
+                      <option key={m} value={m} />
+                    ))}
+                  </datalist>
+                  <Err msg={errors.make} />
                 </label>
-              ))}
-            </div>
-          </fieldset>
-          <button
-            type="button"
-            onClick={next}
-            className="mt-8 inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-md bg-electric px-6 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-electric-2"
-          >
-            Next
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </button>
-          <p className="mt-4 text-center text-sm text-muted-ink">
-            Rather just text?{" "}
-            <a href={SMS_HREF} className="font-semibold text-electric hover:underline hover:underline-offset-4">
-              Text us photos
-            </a>
-          </p>
-        </div>
-      ) : (
-        <form onSubmit={submit} className="mt-6" noValidate>
-          <p className={`flex flex-wrap items-center gap-x-2 text-sm text-ink-2 ${single ? "hidden" : ""}`}>
-            <span className="font-semibold text-ink">
-              {vehicle} · {needLabel ?? need}
-            </span>
-            <button type="button" onClick={() => goTo(1)} className="inline-flex items-center gap-1 font-semibold text-electric hover:underline">
-              <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
-              Change
-            </button>
-          </p>
+                <label className={labelCls}>
+                  Model {!isCar(vehicle) && opt}
+                  <input maxLength={80} placeholder={isUnit(vehicle) ? "Eagle 321RSTS" : "RAV4"} value={v.model} onChange={setVf("model")} className={input} />
+                  <Err msg={errors.model} />
+                </label>
+              </div>
+            )}
 
-          <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            <label className="block text-sm font-medium text-ink-2">
-              Name
-              <input required maxLength={120} autoComplete="name" value={form.name} onChange={set("name")} className={input} />
-            </label>
-            <label className="block text-sm font-medium text-ink-2">
-              Mobile number
-              <input
-                required
-                type="tel"
-                inputMode="tel"
-                autoComplete="tel-national"
-                maxLength={30}
-                placeholder="587-555-0123"
-                value={form.phone}
-                onChange={set("phone")}
-                className={input}
-              />
-            </label>
-            <label className="block text-sm font-medium text-ink-2 sm:col-span-2">
-              {vehicle === "Fleet" ? "Where is the yard?" : isUnit(vehicle) ? "Where is it parked?" : "Postal code or area"}{" "}
-              <span className="text-muted-ink">(optional)</span>
-              <input maxLength={120} autoComplete="postal-code" placeholder="T3A 1B2 or Airdrie" value={form.area} onChange={set("area")} className={input} />
-            </label>
             {isUnit(vehicle) && (
-              <label className="block text-sm font-medium text-ink-2 sm:col-span-2">
-                Approx. length, front to back <span className="text-muted-ink">(feet, without the hitch)</span>
-                <input maxLength={20} inputMode="numeric" placeholder="e.g. 32" value={form.length} onChange={set("length")} className={input} />
+              <label className={labelCls}>
+                Approximate length in feet
+                <span className="block text-sm font-normal text-muted-ink">Measured front to back, without the hitch</span>
+                <input inputMode="decimal" maxLength={5} placeholder="32" value={v.length} onChange={setVf("length")} className={`${input} sm:max-w-[10rem]`} />
+                <Err msg={errors.length} />
               </label>
             )}
-            {vehicle === "Fleet" && (
-              <>
-                <label className="block text-sm font-medium text-ink-2">
-                  Company <span className="text-muted-ink">(optional)</span>
-                  <input maxLength={200} autoComplete="organization" value={form.company} onChange={set("company")} className={input} />
+
+            {vehicle === "Fleet / Commercial" && (
+              <div className="grid gap-4 sm:grid-cols-2">
+                <label className={labelCls}>
+                  Company name {opt}
+                  <input maxLength={200} autoComplete="organization" value={v.company} onChange={setVf("company")} className={input} />
                 </label>
-                <label className="block text-sm font-medium text-ink-2">
-                  How many vehicles? <span className="text-muted-ink">(optional)</span>
-                  <input maxLength={60} inputMode="numeric" value={form.fleetSize} onChange={set("fleetSize")} className={input} />
+                <label className={labelCls}>
+                  Number of vehicles {opt}
+                  <input inputMode="numeric" maxLength={60} placeholder="12" value={v.fleetSize} onChange={setVf("fleetSize")} className={input} />
                 </label>
-              </>
+              </div>
+            )}
+
+            {vehicle && (
+              <label className={`${labelCls} sm:max-w-xs`}>
+                Colour {opt}
+                <input maxLength={60} placeholder="Silver" value={v.color} onChange={setVf("color")} className={input} />
+              </label>
             )}
           </div>
+        )}
 
-          <fieldset className={`mt-5 ${vehicle === "Fleet" || isUnit(vehicle) ? "hidden" : ""}`}>
-            <legend className="text-sm font-medium text-ink-2">Where works best?</legend>
-            <div className="mt-1.5 grid grid-cols-2 gap-2">
-              {(
-                [
-                  ["mobile", "Mobile", "We come to you"],
-                  ["shop", "Airdrie shop", "Heated, drop-off"],
-                ] as const
-              ).map(([v, label, sub]) => (
-                <label key={v} className={`${chip} flex-col gap-0 py-2 ${location === v ? chipOn : chipOff}`}>
-                  <input type="radio" name={`${uid}-loc`} value={v} checked={location === v} onChange={() => setLocation(v)} className="sr-only" />
-                  <span>{label}</span>
-                  <span className={`text-xs font-normal ${location === v ? "text-electric" : "text-muted-ink"}`}>{sub}</span>
-                </label>
-              ))}
-            </div>
-          </fieldset>
+        {step === 2 && (
+          <div className="space-y-6">
+            <fieldset>
+              <legend className={labelCls}>Services <span className="font-normal text-muted-ink">(choose any)</span></legend>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {visible.map((s) => (
+                  <label key={s} className={`${chip} ${chosen.includes(s) ? chipOn : chipOff}`}>
+                    <input type="checkbox" checked={chosen.includes(s)} onChange={() => toggleService(s)} className="sr-only" />
+                    {s}
+                  </label>
+                ))}
+              </div>
+              <Err msg={errors.services} />
+            </fieldset>
 
-          <div className="mt-6">
-            <p className="text-sm font-medium text-ink-2">
-              Photos <span className="text-muted-ink">(up to {MAX_PHOTOS})</span>
-            </p>
-            <p className="mt-0.5 text-sm font-semibold text-electric">
-              {vehicle === "Fleet"
-                ? "A photo of the yard or a typical unit helps"
-                : isUnit(vehicle)
-                  ? "Each side, the front and the roof or deck = exact price"
-                  : "Photos = faster, exact price"}
-            </p>
-            <input
-              ref={fileRef}
-              id={`${uid}-photos`}
-              type="file"
-              accept="image/*,.heic,.heif"
-              multiple
-              onChange={(e) => addPhotos(e.target.files)}
-              className="sr-only"
-            />
-            <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-6">
-              {photos.map((p, i) => (
-                <div key={p.url} className="relative aspect-square overflow-hidden rounded-md border border-line bg-tint">
-                  <img src={p.url} alt={`Photo ${i + 1}`} className="h-full w-full object-cover" />
-                  <button
-                    type="button"
-                    onClick={() => removePhoto(i)}
-                    aria-label={`Remove photo ${i + 1}`}
-                    className="absolute right-1 top-1 flex h-7 w-7 items-center justify-center rounded-full bg-charcoal/80 text-primary-foreground"
-                  >
-                    <X className="h-4 w-4" aria-hidden="true" />
-                  </button>
-                </div>
-              ))}
-              {photos.length < MAX_PHOTOS && (
-                <label
-                  htmlFor={`${uid}-photos`}
-                  className="flex aspect-square cursor-pointer flex-col items-center justify-center gap-1 rounded-md border border-dashed border-ink/25 bg-tint text-xs font-semibold text-ink-2 transition-colors hover:border-electric hover:text-electric"
-                >
-                  <Camera className="h-5 w-5" aria-hidden="true" />
-                  {photos.length ? "Add more" : "Add photos"}
-                </label>
-              )}
+            <fieldset>
+              <legend className={labelCls}>Where would you like the work done?</legend>
+              <div className="mt-3 grid gap-2 sm:grid-cols-3">
+                {LOCATIONS.map(([k, l]) => (
+                  <label key={k} className={`${chip} ${location === k ? chipOn : chipOff}`}>
+                    <input type="radio" name={`${uid}-loc`} checked={location === k} onChange={() => (setLocation(k), setErrors((e) => ({ ...e, location: "" })))} className="sr-only" />
+                    {l}
+                  </label>
+                ))}
+              </div>
+              <Err msg={errors.location} />
+            </fieldset>
+
+            {(location === "mobile" || location === "either") && (
+              <label className={`${labelCls} sm:max-w-xs`}>
+                City or area
+                <select value={area} onChange={(e) => setArea(e.target.value)} className={input}>
+                  <option value="">Choose…</option>
+                  {AREAS.map((a) => (
+                    <option key={a}>{a}</option>
+                  ))}
+                </select>
+                <Err msg={errors.area} />
+              </label>
+            )}
+
+            <fieldset>
+              <legend className={labelCls}>When are you hoping to book?</legend>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {TIMINGS.map((t) => (
+                  <label key={t} className={`${chip} ${timing === t ? chipOn : chipOff}`}>
+                    <input type="radio" name={`${uid}-when`} checked={timing === t} onChange={() => (setTiming(t), setErrors((e) => ({ ...e, timing: "" })))} className="sr-only" />
+                    {t}
+                  </label>
+                ))}
+              </div>
+              <Err msg={errors.timing} />
+            </fieldset>
+
+            <label className="block rounded-lg bg-tint p-4">
+              <span className={labelCls}>Anything we should know? {opt}</span>
+              <textarea
+                rows={4}
+                maxLength={2000}
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                placeholder="Condition of the vehicle, scratches, stains, oxidation, pet hair, questions about pricing or products…"
+                className={`${input} h-auto py-2.5`}
+              />
+            </label>
+
+            <div>
+              <p className={labelCls}>Photos {opt}</p>
+              <p className="mt-0.5 text-sm text-muted-ink">A few photos help us give an exact price.</p>
+              <input ref={fileRef} id={`${uid}-photos`} type="file" accept="image/*,.heic,.heif" multiple onChange={(e) => addPhotos(e.target.files)} className="sr-only" />
+              <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-6">
+                {photos.map((p, i) => (
+                  <div key={p.url} className="relative aspect-square overflow-hidden rounded-md border border-line bg-tint">
+                    <img src={p.url} alt={`Photo ${i + 1}`} className="h-full w-full object-cover" />
+                    <button type="button" onClick={() => removePhoto(i)} aria-label={`Remove photo ${i + 1}`} className="absolute right-1 top-1 flex h-7 w-7 items-center justify-center rounded-full bg-charcoal/80 text-primary-foreground">
+                      <X className="h-4 w-4" aria-hidden="true" />
+                    </button>
+                  </div>
+                ))}
+                {photos.length < MAX_PHOTOS && (
+                  <label htmlFor={`${uid}-photos`} className="flex aspect-square cursor-pointer flex-col items-center justify-center gap-1 rounded-md border border-dashed border-ink/25 bg-tint text-xs font-semibold text-ink-2 hover:border-electric hover:text-electric">
+                    <Camera className="h-5 w-5" aria-hidden="true" />
+                    {photos.length ? "Add more" : "Add photos"}
+                  </label>
+                )}
+              </div>
             </div>
           </div>
+        )}
 
-          <button
-            type="submit"
-            disabled={!!sending}
-            className="mt-7 inline-flex min-h-[56px] w-full items-center justify-center rounded-md bg-electric px-6 text-base font-semibold text-primary-foreground transition-colors hover:bg-electric-2 disabled:opacity-70"
-          >
-            {sending ?? submitLabel}
+        {step === 3 && (
+          <div className="space-y-5">
+            <label className={labelCls}>
+              Full name
+              <input maxLength={120} autoComplete="name" value={c.name} onChange={setCf("name")} className={input} />
+              <Err msg={errors.name} />
+            </label>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <label className={labelCls}>
+                Phone
+                <input type="tel" inputMode="tel" autoComplete="tel-national" placeholder="(587) 555-0123" value={c.phone} onChange={setCf("phone")} className={input} />
+                <Err msg={errors.phone} />
+              </label>
+              <label className={labelCls}>
+                Email
+                <input type="email" autoComplete="email" maxLength={255} placeholder="you@example.com" value={c.email} onChange={setCf("email")} className={input} />
+                <Err msg={errors.email} />
+              </label>
+            </div>
+            <fieldset>
+              <legend className={labelCls}>Preferred contact</legend>
+              <div className="mt-3 grid grid-cols-3 gap-2">
+                {CONTACT_PREFS.map((p) => (
+                  <label key={p} className={`${chip} ${pref === p ? chipOn : chipOff}`}>
+                    <input type="radio" name={`${uid}-pref`} checked={pref === p} onChange={() => setPref(p)} className="sr-only" />
+                    {p}
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <label className={`${labelCls} sm:max-w-xs`}>
+              How did you hear about us? {opt}
+              <select value={c.heard} onChange={setCf("heard")} className={input}>
+                <option value="">Choose…</option>
+                {HEARD.map((h) => (
+                  <option key={h}>{h}</option>
+                ))}
+              </select>
+            </label>
+          </div>
+        )}
+
+        <div className="mt-8 flex gap-3">
+          {step > 1 && (
+            <button type="button" onClick={() => goTo((step - 1) as 1 | 2)} className={btnBack}>
+              <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+              Back
+            </button>
+          )}
+          <button type="submit" disabled={!!sending} className={`${btnMain} flex-1`}>
+            {step === 3 ? sending ?? submitLabel : <>Next <ArrowRight className="h-4 w-4" aria-hidden="true" /></>}
           </button>
-          <p className="mt-3 text-center text-xs text-muted-ink">
-            {vehicle === "Fleet"
-              ? `We'll call or text from ${NAP.phone} to book the walk. No obligation.`
-              : `We text you the price from ${NAP.phone}. No spam, no obligation.`}
-          </p>
-        </form>
-      )}
+        </div>
+        {step === 3 && <p className="mt-3 text-center text-xs text-muted-ink">No spam and no obligation. We only use your details to reply to this request.</p>}
+      </form>
     </div>
   );
 };

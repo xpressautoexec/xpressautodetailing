@@ -77,6 +77,7 @@ const LeaseReturn = () => (
       <XpressProcess service="lease return" />
 
       <QuoteSection
+        defaultServices={["Lease Return Prep"]}
         source="lease-return"
         title="Get a quote before the inspection"
         intro="Tell us the vehicle and the inspection date. Photos of the seats, paint and headlights get you an exact price by text."

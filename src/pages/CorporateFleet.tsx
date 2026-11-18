@@ -144,6 +144,7 @@ const CorporateFleet = () => (
       <QuoteSection
         source="fleet"
         defaultVehicle="Fleet"
+        defaultServices={["Fleet Program"]}
         title={CTA.fleet}
         intro="Tell us how many units and where they sit. We'll come count them and send a written per-unit rate."
       />

@@ -44,7 +44,7 @@ const faqs = [
 
 const PaintCorrection = () => (
   <LandingPage
-    quote={{ defaultNeed: "Paint correction/ceramic" }}
+    quote={{ defaultServices: ["Paint Correction (Xpress Correct™)"] }}
     childrenFirst
     products={["menzerna", "carpro"]}
     seo={{

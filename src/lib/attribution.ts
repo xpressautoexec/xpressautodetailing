@@ -6,7 +6,7 @@
  * storage can be blocked (private mode, in-app browsers).
  */
 
-const CLICK_KEYS = ["gclid", "gbraid", "wbraid"] as const;
+const CLICK_KEYS = ["gclid", "gbraid", "wbraid", "fbclid"] as const;
 const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
 const CLICK_STORE = "xp_click";
 const SESSION_STORE = "xp_attr";

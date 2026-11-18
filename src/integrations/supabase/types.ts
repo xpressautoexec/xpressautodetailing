@@ -141,82 +141,121 @@ export type Database = {
         Row: {
           area: string | null
           company_name: string | null
+          contact_pref: string | null
           created_at: string
+          email: string | null
+          fbclid: string | null
           fleet_size: string | null
           gbraid: string | null
           gclid: string | null
+          heard_from: string | null
           id: string
           landing_page: string | null
+          length_ft: string | null
           location_pref: string | null
           name: string
           need: string
           notes: string | null
           page_path: string | null
+          page_url: string | null
           phone: string
           photo_paths: string[]
           referrer: string | null
+          services: string[]
           source: string | null
           status: string
+          timing: string | null
           utm_campaign: string | null
           utm_content: string | null
           utm_medium: string | null
           utm_source: string | null
           utm_term: string | null
+          vehicle_category: string | null
+          vehicle_color: string | null
+          vehicle_make: string | null
+          vehicle_model: string | null
           vehicle_type: string
+          vehicle_year: string | null
           wbraid: string | null
         }
         Insert: {
           area?: string | null
           company_name?: string | null
+          contact_pref?: string | null
           created_at?: string
+          email?: string | null
+          fbclid?: string | null
           fleet_size?: string | null
           gbraid?: string | null
           gclid?: string | null
+          heard_from?: string | null
           id?: string
           landing_page?: string | null
+          length_ft?: string | null
           location_pref?: string | null
           name: string
           need: string
           notes?: string | null
           page_path?: string | null
+          page_url?: string | null
           phone: string
           photo_paths?: string[]
           referrer?: string | null
+          services?: string[]
           source?: string | null
           status?: string
+          timing?: string | null
           utm_campaign?: string | null
           utm_content?: string | null
           utm_medium?: string | null
           utm_source?: string | null
           utm_term?: string | null
+          vehicle_category?: string | null
+          vehicle_color?: string | null
+          vehicle_make?: string | null
+          vehicle_model?: string | null
           vehicle_type: string
+          vehicle_year?: string | null
           wbraid?: string | null
         }
         Update: {
           area?: string | null
           company_name?: string | null
+          contact_pref?: string | null
           created_at?: string
+          email?: string | null
+          fbclid?: string | null
           fleet_size?: string | null
           gbraid?: string | null
           gclid?: string | null
+          heard_from?: string | null
           id?: string
           landing_page?: string | null
+          length_ft?: string | null
           location_pref?: string | null
           name?: string
           need?: string
           notes?: string | null
           page_path?: string | null
+          page_url?: string | null
           phone?: string
           photo_paths?: string[]
           referrer?: string | null
+          services?: string[]
           source?: string | null
           status?: string
+          timing?: string | null
           utm_campaign?: string | null
           utm_content?: string | null
           utm_medium?: string | null
           utm_source?: string | null
           utm_term?: string | null
+          vehicle_category?: string | null
+          vehicle_color?: string | null
+          vehicle_make?: string | null
+          vehicle_model?: string | null
           vehicle_type?: string
+          vehicle_year?: string | null
           wbraid?: string | null
         }
         Relationships: []

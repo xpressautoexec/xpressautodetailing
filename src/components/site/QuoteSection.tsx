@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { MessageSquareText, Phone } from "lucide-react";
 import WalkaroundGuarantee from "@/components/site/WalkaroundGuarantee";
-import QuoteForm, { type QuoteNeed, type QuoteVehicle } from "@/components/QuoteForm";
+import QuoteForm, { type QuoteNeed, type QuoteVehicle, type Service, type VehicleType } from "@/components/QuoteForm";
 import { SMS_HREF, TEL_HREF } from "@/components/site/QuoteLink";
 import { NAP, SHOP } from "@/data/copy";
 
@@ -12,11 +12,13 @@ import { NAP, SHOP } from "@/data/copy";
 const QuoteSection = ({
   id = "quote",
   title = "Get a price for your vehicle",
-  intro = "Two quick steps. Photos are optional but help us give you an exact price.",
+  intro = "Three short steps: your vehicle, what you're interested in, and how to reach you.",
   source,
   defaultVehicle,
   defaultNeed,
   defaultLocation,
+  defaultVehicleType,
+  defaultServices,
   aside,
   as: Tag = "h2",
 }: {
@@ -26,7 +28,9 @@ const QuoteSection = ({
   source: string;
   defaultVehicle?: QuoteVehicle;
   defaultNeed?: QuoteNeed;
-  defaultLocation?: "mobile" | "shop";
+  defaultLocation?: "mobile" | "shop" | "either";
+  defaultVehicleType?: VehicleType;
+  defaultServices?: Service[];
   /** Extra content under the intro (page-specific notes). */
   aside?: ReactNode;
   as?: "h1" | "h2";
@@ -62,7 +66,7 @@ const QuoteSection = ({
           </div>
         </dl>
       </div>
-      <QuoteForm source={source} defaultVehicle={defaultVehicle} defaultNeed={defaultNeed} defaultLocation={defaultLocation} />
+      <QuoteForm source={source} defaultVehicle={defaultVehicle} defaultNeed={defaultNeed} defaultLocation={defaultLocation} defaultVehicleType={defaultVehicleType} defaultServices={defaultServices} />
     </div>
   </section>
 );

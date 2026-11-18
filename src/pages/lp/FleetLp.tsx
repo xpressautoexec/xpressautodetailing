@@ -51,10 +51,8 @@ const FleetLp = () => (
           source="lp-fleet"
           title={CTA}
           defaultVehicle="Fleet"
-          defaultNeed="Not sure"
-          contactOnly
+          defaultServices={["Fleet Program"]}
           submitLabel={CTA}
-          confirmation="Got it — we'll call you to book your yard walk, usually the same day."
         />
       }
     />

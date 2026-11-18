@@ -50,7 +50,7 @@ const faqs = [
 
 const HeadlightRestoration = () => (
   <LandingPage
-    quote={{ title: "Get a price for your headlights" }}
+    quote={{ title: "Get a price for your headlights", defaultServices: ["Headlight Restoration"] }}
     childrenBeforeWork
     products={["menzerna", "3m"]}
     seo={{
