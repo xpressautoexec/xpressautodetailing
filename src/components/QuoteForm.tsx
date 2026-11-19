@@ -713,6 +713,7 @@ const QuoteForm = ({
           </button>
         </div>
         {step === 3 && <p className="mt-3 text-center text-xs text-muted-ink">No spam and no obligation. We only use your details to reply to this request, and we'll email you a copy.</p>}
+        {step === 3 && <p className="mt-1 text-center text-xs text-muted-ink">By submitting, you agree to our <a href="/privacy-policy" className="font-semibold text-electric hover:underline">Privacy Policy</a>.</p>}
       </form>
       </div>
     </div>

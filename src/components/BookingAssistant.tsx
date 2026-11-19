@@ -386,6 +386,9 @@ const BookingAssistant = () => {
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </button>
               </div>
+              <p className="mt-2 text-[11px] leading-relaxed text-muted-ink">
+                By submitting, you agree to our <a href="/privacy-policy" className="font-semibold text-electric hover:underline">Privacy Policy</a>.
+              </p>
             </form>
           )}
           <a

@@ -187,6 +187,9 @@ const TrainingSignup = () => {
                 </button>
                 <p className="mt-3 text-xs leading-relaxed text-muted-ink">
                   No payment now. We'll email dates and deposit details.
+                 </p>
+                <p className="mt-1 text-xs leading-relaxed text-muted-ink">
+                  By submitting, you agree to our <Link to="/privacy-policy" className="font-semibold text-electric hover:underline">Privacy Policy</Link>.
                 </p>
               </div>
             </form>
