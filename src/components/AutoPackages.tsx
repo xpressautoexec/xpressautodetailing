@@ -16,6 +16,8 @@ import {
 
 const maxPassDiscount = Math.max(...XPRESS_PASS.map((p) => p.discount));
 import { useSizeParam } from "@/hooks/useSizeParam";
+import { useRecommendedPkg } from "@/hooks/useRecommendedPkg";
+import { useSearchParams } from "react-router-dom";
 
 interface Props {
   /** Dark section background — switches card colours. */
@@ -30,7 +32,11 @@ interface Props {
 const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
   const [size, setSize] = useSizeParam();
   /** Package ids switched to their interior-only version. */
-  const [interior, setInterior] = useState<Record<string, boolean>>({});
+  const recommended = useRecommendedPkg();
+  const [searchParams] = useSearchParams();
+  const [interior, setInterior] = useState<Record<string, boolean>>(() =>
+    recommended && searchParams.get("io") === "1" ? { [recommended]: true } : {},
+  );
   const all = only
     ? only.map((id) => AUTO_PACKAGES.find((p) => p.id === id)!).filter(Boolean)
     : AUTO_PACKAGES;
@@ -130,24 +136,33 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
           return (
             <article
               key={p.id}
-              className={`relative flex h-full flex-col overflow-hidden rounded-card border p-6 ${
-                p.popular
+              id={`pkg-${p.id}`}
+              className={`relative flex h-full scroll-mt-28 flex-col overflow-hidden rounded-card border p-6 ${
+                recommended === p.id ? "ring-2 ring-electric ring-offset-2 ring-offset-canvas" : ""
+              } ${
+                p.popular || recommended === p.id
                   ? "border-electric"
                   : dark
                     ? "border-primary-foreground/15"
                     : "border-line"
               } ${dark ? "bg-primary-foreground/[0.04]" : "bg-surface"}`}
             >
-              {p.popular && (
+              {(p.popular || recommended === p.id) && (
                 <span
                   aria-hidden="true"
                   className="absolute inset-x-0 top-0 h-1 bg-electric"
                 />
               )}
               <p
-                className={`h-4 text-xs font-medium ${p.popular ? "text-electric" : muted}`}
+                className={`h-4 text-xs font-medium ${p.popular || recommended === p.id ? "text-electric" : muted}`}
               >
-                {p.popular ? "Most chosen" : p.memberOnly ? "Members only" : ""}
+                {recommended === p.id
+                  ? "Recommended for you"
+                  : p.popular
+                    ? "Most chosen"
+                    : p.memberOnly
+                      ? "Members only"
+                      : ""}
               </p>
               <h3 className={`mt-1 font-heading text-2xl font-bold ${text}`}>
                 {io ? io.name : p.name}

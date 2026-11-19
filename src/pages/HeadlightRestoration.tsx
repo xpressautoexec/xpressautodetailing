@@ -90,7 +90,7 @@ const HeadlightRestoration = () => (
     ]}
     closing={{ title: "Get your headlights clear again", body: `${money(standalone)} per pair, or ${money(addOn)} with any detail.`, mode: "book", bookHref: BOOK_HEADLIGHTS, bookLabel: "Book online" }}
   >
-    <Section tone="surface">
+    <Section tone="surface" id="pricing">
       <SectionHeading title="Pricing" intro="Per pair of headlights. Same process either way." />
       <div className="grid gap-5 md:grid-cols-2">
         <div className={`${cardClass} flex flex-col p-6`}>

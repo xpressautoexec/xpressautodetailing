@@ -5,6 +5,7 @@ import { ArrowRight, Check, Copy, Phone, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { getAttribution } from "@/lib/attribution";
 import { trackEvent } from "@/lib/tracking";
+import { finderPickFor } from "@/lib/finderHandoff";
 import {
   AUTO_PACKAGES,
   CAR_PPF,
@@ -12,6 +13,8 @@ import {
   HEADLIGHT_RESTORATION,
   PHONE,
   RV_BUNDLES,
+  TRAINING,
+  TRAINING_PROMO,
   WINDSHIELD_PPF,
   carPpfPrice,
   fielddUrl,
@@ -34,10 +37,34 @@ const VEHICLES: { id: Vehicle; label: string; short: string }[] = [
 ];
 const TIMES = ["This week", "Next 2 weeks", "This month", "Just looking"];
 
-type Offer = { name: string; price: string; href: string; need: string };
+type Offer = {
+  name: string;
+  price: string;
+  href: string;
+  need: string;
+  /** Fieldd promo code shown with this offer (defaults to WEB5, 5%). */
+  code?: string;
+  pct?: number;
+  /** Training offers skip the vehicle question and file leads as training requests. */
+  training?: boolean;
+};
+
+const isTrainingPath = (path: string) => path === "/training";
 
 /** The package each service page leads with, priced for the visitor's vehicle. */
 const offerFor = (path: string, v: Vehicle): Offer | null => {
+  if (isTrainingPath(path)) {
+    const c = TRAINING[0];
+    return {
+      name: c.name,
+      price: money(c.price),
+      href: c.book,
+      need: "Training",
+      code: TRAINING_PROMO.code,
+      pct: TRAINING_PROMO.percent,
+      training: true,
+    };
+  }
   const size = v === "rv" ? "truck" : v;
   if (path.startsWith("/rv") || v === "rv") {
     const b = RV_BUNDLES.find((x) => x.id === "washseal")!;
@@ -107,6 +134,7 @@ type Saved = {
   timing?: string;
   snoozedAt?: number;
   booked?: boolean;
+  bookedAt?: number;
 };
 const load = (): Saved => {
   try {
@@ -140,13 +168,19 @@ const BookingAssistant = () => {
 
   useEffect(() => setSaved(load()), []);
 
+  /** Package picked in the home page finder for this page: overrides the default offer. */
+  const pick = useMemo(() => (typeof window === "undefined" ? null : finderPickFor(pathname)), [pathname]);
   const eligible = useMemo(
-    () => offerFor(pathname, "sedan") !== null && pathname !== "/",
-    [pathname],
+    () => (pick !== null || offerFor(pathname, "sedan") !== null) && pathname !== "/",
+    [pathname, pick],
   );
+  // A fresh finder pick reopens the assistant even after an earlier dismissal or booking.
+  const pickIsNew =
+    !!pick && pick.at > (saved.snoozedAt ?? 0) && pick.at > (saved.bookedAt ?? 0);
   const snoozed =
-    saved.booked ||
-    (saved.snoozedAt && Date.now() - saved.snoozedAt < SNOOZE_DAYS * 864e5);
+    !pickIsNew &&
+    (saved.booked ||
+      (saved.snoozedAt && Date.now() - saved.snoozedAt < SNOOZE_DAYS * 864e5));
 
   // Open once the visitor is clearly reading: a third of the page, or 40 seconds.
   useEffect(() => {
@@ -157,21 +191,30 @@ const BookingAssistant = () => {
       if (shown) return;
       shown = true;
       const s = load();
-      setStep(s.vehicle ? (s.timing ? 2 : 1) : 0);
+      if (pick) {
+        // The finder already knows the vehicle and package: go straight to timing.
+        const next = { ...s, vehicle: pick.vehicle, timing: undefined };
+        save(next);
+        setSaved(next);
+        setStep(1);
+      } else {
+        setStep(s.vehicle || isTrainingPath(pathname) ? (s.timing ? 2 : 1) : 0);
+      }
       setOpen(true);
       trackEvent("assistant_open", { path: pathname });
     };
     const onScroll = () => {
       const max = document.documentElement.scrollHeight - innerHeight;
-      if (max > 0 && scrollY / max > 0.33) show();
+      if (max > 0 && scrollY / max > (pick ? 0.15 : 0.33)) show();
     };
-    const t = setTimeout(show, 40000);
+    // Coming from the finder, they have chosen a package: offer it once they have seen it.
+    const t = setTimeout(show, pick ? 6000 : 40000);
     addEventListener("scroll", onScroll, { passive: true });
     return () => {
       clearTimeout(t);
       removeEventListener("scroll", onScroll);
     };
-  }, [pathname, eligible, snoozed]);
+  }, [pathname, eligible, snoozed, pick]);
 
   if (!open) return null;
 
@@ -186,7 +229,13 @@ const BookingAssistant = () => {
     trackEvent("assistant_dismiss", { path: pathname, step });
   };
   const vehicleLabel = VEHICLES.find((v) => v.id === saved.vehicle)?.label;
-  const offer = saved.vehicle ? offerFor(pathname, saved.vehicle) : null;
+  const offer: Offer | null = pick
+    ? { name: pick.rec.name, price: pick.rec.price, href: pick.rec.book, need: pick.rec.need }
+    : saved.vehicle || isTrainingPath(pathname)
+      ? offerFor(pathname, saved.vehicle ?? "sedan")
+      : null;
+  const code = offer?.code ?? ASSIST_CODE;
+  const pct = offer?.pct ?? 5;
 
   const submitLead = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -196,7 +245,20 @@ const BookingAssistant = () => {
       lead.phone.replace(/\D/g, "").length < 10
     )
       return;
-    const notes = `Booking assistant: ${offer.name} (${offer.price}) · Vehicle: ${vehicleLabel} · Timing: ${saved.timing} · Offered ${ASSIST_CODE} 5% off`;
+    if (offer.training) {
+      const message = `Booking assistant: ${offer.name} (${offer.price}) · Start: ${saved.timing} · Offered ${code} ${pct}% off`;
+      await supabase.from("contact_submissions").insert({
+        name: lead.name.trim().slice(0, 120),
+        email: "not-provided@xpressautodetail.ca",
+        phone: lead.phone.trim().slice(0, 30),
+        message,
+        form_type: "training",
+      });
+      setSent(true);
+      trackEvent("assistant_lead", { path: pathname, offer: offer.name });
+      return;
+    }
+    const notes = `Booking assistant: ${offer.name} (${offer.price}) · Vehicle: ${vehicleLabel} · Timing: ${saved.timing} · Offered ${code} ${pct}% off`;
     const row = {
       vehicle_type:
         saved.vehicle === "rv"
@@ -273,9 +335,9 @@ const BookingAssistant = () => {
 
       {step === 1 && (
         <>
-          <p className="eyebrow">Quick question 2 of 2</p>
+          <p className="eyebrow">{isTrainingPath(pathname) || pick ? "One quick question" : "Quick question 2 of 2"}</p>
           <p className="mt-1.5 pr-6 font-heading text-xl font-bold text-ink">
-            When are you hoping to get it done?
+            {isTrainingPath(pathname) ? "When would you like to start?" : "When are you hoping to get it done?"}
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             {TIMES.map((t) => (
@@ -300,21 +362,23 @@ const BookingAssistant = () => {
         <>
           <p className="eyebrow">You&apos;ve done the hard part</p>
           <p className="mt-1.5 pr-6 font-heading text-xl font-bold leading-tight text-ink">
-            {offer.name} for your {VEHICLES.find((v) => v.id === saved.vehicle)?.short}: {offer.price}
+            {offer.training
+              ? `${offer.name}, 1-on-1: ${offer.price}`
+              : `${offer.name} for your ${VEHICLES.find((v) => v.id === saved.vehicle)?.short}: ${offer.price}`}
           </p>
           <p className="mt-2 text-sm text-ink-2">
-            Book now and take 5% off with code{" "}
+            Book now and take {pct}% off with code{" "}
             <button
               type="button"
               onClick={() => {
                 navigator.clipboard
-                  ?.writeText(ASSIST_CODE)
+                  ?.writeText(code)
                   .catch(() => undefined);
                 setCopied(true);
               }}
               className="inline-flex items-center gap-1 rounded bg-electric/10 px-1.5 py-0.5 font-mono font-semibold text-electric"
             >
-              {ASSIST_CODE}
+              {code}
               {copied ? (
                 <Check className="h-3.5 w-3.5" aria-hidden="true" />
               ) : (
@@ -329,9 +393,9 @@ const BookingAssistant = () => {
             rel="noopener noreferrer"
             onClick={() => {
               navigator.clipboard
-                ?.writeText(ASSIST_CODE)
+                ?.writeText(code)
                 .catch(() => undefined);
-              update({ booked: true });
+              update({ booked: true, bookedAt: Date.now() });
               trackEvent("assistant_book", {
                 path: pathname,
                 offer: offer.name,
@@ -339,7 +403,7 @@ const BookingAssistant = () => {
             }}
             className="mt-4 inline-flex min-h-[50px] w-full items-center justify-center gap-2 rounded-full bg-action px-5 text-[15px] font-semibold text-primary-foreground transition-colors hover:bg-ink"
           >
-            Book now and save 5%
+            Book now and save {pct}%
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
 
@@ -354,7 +418,7 @@ const BookingAssistant = () => {
               className="mt-4 border-t border-line pt-4"
             >
               <p className="text-xs font-semibold text-ink-2">
-                Rather we text you a time? We&apos;ll hold the 5%.
+                Rather we text you a time? We&apos;ll hold the {pct}%.
               </p>
               <div className="mt-2 flex gap-2">
                 <input

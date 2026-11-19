@@ -11,7 +11,8 @@ import { Section, SectionHeading, btnPrimary, btnSecondary, cardClass } from "@/
 import heroImg from "@/assets/jobs/hero-training-machine-polish.webp";
 import { PHOTOS } from "@/data/photos";
 import WorkShowcase from "@/components/site/WorkShowcase";
-import { TRAINING, TRAINING_TERMS, money } from "@/data/pricing";
+import { TRAINING, TRAINING_PROMO, TRAINING_TERMS, money } from "@/data/pricing";
+import BookLink from "@/components/site/BookLink";
 import { CERAMIC_CERTIFICATIONS, NAP, TRAINING_CERTIFICATION } from "@/data/copy";
 import QualityProducts from "@/components/site/QualityProducts";
 
@@ -33,8 +34,12 @@ const trainingFAQs = [
     a: `Yes. Every graduate who completes the course earns the ${TRAINING_CERTIFICATION}, with a certificate you can show clients and employers.`,
   },
   {
-    q: "How do I reserve a seat?",
-    a: `Request a course and a preferred month online. We confirm a date by email, and a ${money(TRAINING_TERMS.deposit)} deposit holds your seat. You can move your seat with ${TRAINING_TERMS.rescheduleDays} days' notice.`,
+    q: "How do I book?",
+    a: `Book online and pick your date. Full-day courses run 9 AM to 5 PM at our Airdrie shop. For ${TRAINING[1].name}, you book Day 1 and Day 2 runs the next day; we confirm both by email. Enter ${TRAINING_PROMO.code} at checkout for ${TRAINING_PROMO.percent}% off your first course. You can move your date with ${TRAINING_TERMS.rescheduleDays} days' notice.`,
+  },
+  {
+    q: "Is there a discount?",
+    a: `Yes. Enter ${TRAINING_PROMO.code} at online checkout for ${TRAINING_PROMO.percent}% off any course, one use per student. Taking ${TRAINING[2].name} together with ${TRAINING[1].name} also drops the coating course to ${money(TRAINING[2].addOn!.price)}.`,
   },
 ];
 
@@ -56,20 +61,21 @@ const Training = () => (
         subtitle="1-on-1, hands-on courses in Calgary, Airdrie and surrounding areas, taught by the crew that does the work every day. Real vehicles, professional products, and the instructor to yourself."
         image={heroImg}
         ctaType="call"
+        quoteHref="#courses"
+        quoteLabel="Book online"
         bookHref="/training/signup"
-        bookLabel="Sign up for a course"
+        bookLabel="Need a different date? Request one"
       />
 
-      <Section>
+      <Section id="courses">
         <SectionHeading
           title="Courses"
-          intro="Every course is 1-on-1 and hands-on from the first hour: one student, one instructor. Prices include all tools and products used on the day."
-          action={
-            <Link to="/training/signup" className={btnPrimary}>
-              Request a date
-            </Link>
-          }
+          intro="Every course is 1-on-1 and hands-on from the first hour: one student, one instructor. Prices include all tools and products used on the day. Pick a course and book your date online."
         />
+        <p className="-mt-4 mb-8 rounded-card border border-electric bg-electric-soft px-5 py-4 text-[15px] text-ink">
+          Book online with code <strong className="font-semibold tracking-wide">{TRAINING_PROMO.code}</strong> for{" "}
+          {TRAINING_PROMO.percent}% off your course. One use per student.
+        </p>
         <div className="grid gap-5 md:grid-cols-2">
           {TRAINING.map((c) => (
             <article key={c.id} className={`${cardClass} flex flex-col p-6 sm:p-8`}>
@@ -103,9 +109,18 @@ const Training = () => (
                   {TRAINING_CERTIFICATION}
                 </li>
               </ul>
-              <Link to={`/training/signup?course=${c.id}`} className={`${btnSecondary} mt-7`}>
-                Request {c.name}
-              </Link>
+              <div className="mt-7 flex flex-col gap-3">
+                <BookLink href={c.book} className={btnPrimary}>
+                  Book {c.name}
+                </BookLink>
+                {c.addOn && (
+                  <BookLink href={c.addOn.book} className={btnSecondary}>
+                    Book with {TRAINING.find((t) => t.id === c.addOn?.courseId)?.name} ({money(
+                      (TRAINING.find((t) => t.id === c.addOn?.courseId)?.price ?? 0) + c.addOn.price,
+                    )})
+                  </BookLink>
+                )}
+              </div>
             </article>
           ))}
         </div>
@@ -118,8 +133,8 @@ const Training = () => (
         />
         <ol className="grid gap-x-8 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
           {[
-            { n: "01", t: "Pick your course", b: "Choose Detailing Fundamentals, Paint Correction Mastery or Ceramic Coating, and tell us the month that suits you." },
-            { n: "02", t: "We set a date", b: `Courses run on demand. We confirm a date by email and a ${money(TRAINING_TERMS.deposit)} deposit holds it.` },
+            { n: "01", t: "Pick your course", b: "Choose Detailing Fundamentals, Paint Correction Mastery or Ceramic Coating." },
+            { n: "02", t: "Book your date", b: `Book online and pick any open date. Full-day courses run 9 AM to 5 PM. Use ${TRAINING_PROMO.code} for ${TRAINING_PROMO.percent}% off.` },
             { n: "03", t: "Hands on the tools", b: "You do the work yourself on real vehicles with professional tools and products, with correction and feedback as you go." },
             { n: "04", t: "Leave certified", b: `Every graduate receives the ${TRAINING_CERTIFICATION}.` },
           ].map((x) => (
@@ -151,9 +166,9 @@ const Training = () => (
               Call or text {NAP.phone} and talk to the people who teach the course.
             </p>
           </div>
-          <Link to="/training/signup" className={btnPrimary}>
-            Request a seat
-          </Link>
+          <a href="#courses" className={btnPrimary}>
+            Book online
+          </a>
         </div>
       </Section>
 

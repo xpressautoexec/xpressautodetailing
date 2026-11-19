@@ -45,6 +45,13 @@ const HomeHero = () => (
             Call {NAP.phone}
           </a>
         </div>
+        <a
+          href="#price"
+          className="mt-5 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-ink-2 underline decoration-line decoration-2 underline-offset-[6px] transition-colors hover:text-action hover:decoration-electric"
+        >
+          See your price
+          <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+        </a>
       </div>
     </div>
   </section>

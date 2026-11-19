@@ -1,3 +1,4 @@
+import PackageFinder from "@/components/home/PackageFinder";
 import PopularPackages from "@/components/home/PopularPackages";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -58,6 +59,7 @@ const Index = () => (
       <Navbar />
 
       <HomeHero />
+      <PackageFinder />
       <AuthorizedInstallers />
       <CompanyLogos />
       <PopularPackages />

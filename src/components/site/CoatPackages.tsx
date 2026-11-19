@@ -19,6 +19,7 @@ import {
 } from "@/data/pricing";
 import { CTA } from "@/data/brand";
 import { useSizeParam } from "@/hooks/useSizeParam";
+import { useRecommendedPkg } from "@/hooks/useRecommendedPkg";
 
 const TIME: Record<CoatingTierId, string> = {
   essential: "1 day",
@@ -151,6 +152,7 @@ const Option = ({
 /** Xpress Coat tiers: the package is the card, "Select your coating" sits beside it. */
 const CoatPackages = ({ id = "packages" }: { id?: string }) => {
   const [size, setSize] = useSizeParam();
+  const recommended = useRecommendedPkg();
   const [picks, setPicks] = useState<Record<string, string>>({
     essential: defaultPick("essential"),
     signature: defaultPick("signature"),
@@ -208,13 +210,14 @@ const CoatPackages = ({ id = "packages" }: { id?: string }) => {
           return (
             <article
               key={r.key}
-              className={`relative grid overflow-hidden rounded-card border bg-surface ${pick ? "lg:grid-cols-[1fr_24rem] lg:grid-rows-[auto_1fr]" : ""} ${
-                pkg.popular ? "border-electric" : "border-line"
-              }`}
+              id={`pkg-${r.key}`}
+              className={`relative grid scroll-mt-28 overflow-hidden rounded-card border bg-surface ${pick ? "lg:grid-cols-[1fr_24rem] lg:grid-rows-[auto_1fr]" : ""} ${
+                pkg.popular || recommended === r.key ? "border-electric" : "border-line"
+              } ${recommended === r.key ? "ring-2 ring-electric ring-offset-2 ring-offset-canvas" : ""}`}
             >
-              {pkg.popular && (
+              {(pkg.popular || recommended === r.key) && (
                 <span className="absolute left-5 top-0 rounded-b-sm bg-electric px-2 py-1 text-[11px] font-semibold uppercase tracking-label text-primary-foreground sm:left-8">
-                  Most chosen
+                  {recommended === r.key ? "Recommended for you" : "Most chosen"}
                 </span>
               )}
 

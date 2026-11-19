@@ -1,5 +1,7 @@
 import ManufacturerWarranty from "@/components/site/ManufacturerWarranty";
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useRecommendedPkg } from "@/hooks/useRecommendedPkg";
 import LandingPage from "@/components/site/LandingPage";
 import { Section, SectionHeading } from "@/components/site/Section";
 import PackageCard from "@/components/site/PackageCard";
@@ -121,7 +123,12 @@ const PRICED_SIZES = CAR_PPF_SIZES.filter((s) => !("quoteOnly" in s));
 const fullCoverage = CAR_PPF.find((p) => p.id === "full-vehicle")!;
 
 const CarPPF = () => {
-  const [size, setSize] = useState<CarPpfSizeId>("car");
+  const [searchParams] = useSearchParams();
+  const recommended = useRecommendedPkg();
+  const [size, setSize] = useState<CarPpfSizeId>(() => {
+    const p = searchParams.get("ppf");
+    return PRICED_SIZES.some((s) => s.id === p) ? (p as CarPpfSizeId) : "car";
+  });
   const sizeInfo = CAR_PPF_SIZES.find((s) => s.id === size)!;
   const cov = COVERAGE[size];
 
@@ -290,9 +297,13 @@ const CarPPF = () => {
         ) : (
           <div className="grid gap-5 pt-3 sm:grid-cols-2 xl:grid-cols-4">
             {CAR_PPF.map((p) => (
-              <PackageCard
+              <div
                 key={p.id}
-                name={p.name}
+                id={`pkg-${p.id}`}
+                className={`scroll-mt-28 rounded-card ${recommended === p.id ? "ring-2 ring-electric ring-offset-2 ring-offset-canvas" : ""}`}
+              >
+              <PackageCard
+                name={recommended === p.id ? `${p.name} · Recommended for you` : p.name}
                 forWho={p.forWho}
                 includes={p.covers}
                 time={p.time}
@@ -313,6 +324,7 @@ const CarPPF = () => {
                   />
                 }
               />
+              </div>
             ))}
           </div>
         )}

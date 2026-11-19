@@ -707,6 +707,8 @@ export const TRAINING = [
     id: "detailing-fundamentals",
     name: "Detailing Fundamentals",
     price: 449,
+    /** Fieldd > Training Courses (1-on-1). Books 9 AM to 5 PM at the Airdrie shop. */
+    book: "https://fieldd.me/q/75Uzy",
     duration: "1 day",
     schedule: "1 day, 6–8 hours",
     forWho: "Beginners who want to learn proper detailing from the ground up.",
@@ -723,6 +725,8 @@ export const TRAINING = [
     id: "paint-correction",
     name: "Paint Correction Mastery",
     price: 899,
+    /** Books Day 1 (9 AM to 5 PM); Day 2 runs the next day and is confirmed by us. */
+    book: "https://fieldd.me/q/w_cb9",
     duration: "2 days",
     schedule: "2 days, 6–8 hours each day",
     forWho: "Detailers ready to add machine correction to their services.",
@@ -739,10 +743,11 @@ export const TRAINING = [
     id: "ceramic-coating",
     name: "Ceramic Coating",
     price: 599,
+    book: "https://fieldd.me/q/Js-VA",
     duration: "4 hours",
     schedule: "4 hours",
     /** Discounted price when taken together with Paint Correction Mastery. */
-    addOn: { courseId: "paint-correction", price: 399 },
+    addOn: { courseId: "paint-correction", price: 399, book: "https://fieldd.me/q/QW5E2" },
     forWho: "Detailers who want to offer ceramic coatings properly, from prep to cure.",
     includes: [
       "Surface preparation and decontamination",
@@ -754,6 +759,12 @@ export const TRAINING = [
     ],
   },
 ];
+
+/**
+ * Training promo code. Fieldd > Discounts > TRAINING10: 10% off, training courses only,
+ * one use per customer. Customer enters it at Fieldd checkout.
+ */
+export const TRAINING_PROMO = { code: "TRAINING10", percent: 10 };
 
 /** Training seat terms. Shown on /training/signup and in Terms of Service section 12. */
 export const TRAINING_TERMS = {
