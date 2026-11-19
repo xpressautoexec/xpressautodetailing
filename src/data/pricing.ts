@@ -768,7 +768,7 @@ export const TRAINING_PROMO = { code: "TRAINING10", percent: 10 };
 
 /** Training seat terms. Shown on /training/signup and in Terms of Service section 12. */
 export const TRAINING_TERMS = {
-  deposit: 50,
+  /** No deposit: a card on file holds the seat. */
   classSize: "1-on-1",
   rescheduleDays: 7,
 };

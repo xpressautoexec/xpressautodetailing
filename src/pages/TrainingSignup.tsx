@@ -77,8 +77,8 @@ const TrainingSignup = () => {
               Request a training seat
             </h1>
             <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink-2">
-              Pick a course and when you'd like to start. We'll email you the next available dates, and a{" "}
-              {money(TRAINING_TERMS.deposit)} deposit holds your seat once you choose one.
+              Pick a course and when you'd like to start. We'll email you the next available dates. A card on file holds
+              your seat; there is no deposit.
             </p>
           </div>
         </section>
@@ -136,8 +136,8 @@ const TrainingSignup = () => {
                     <dd>{TRAINING_TERMS.classSize}, hands-on</dd>
                   </div>
                   <div className="flex justify-between border-b border-line pb-2">
-                    <dt className="text-muted-ink">Deposit to hold a seat</dt>
-                    <dd>{money(TRAINING_TERMS.deposit)}, applied to the course fee</dd>
+                    <dt className="text-muted-ink">To hold a seat</dt>
+                    <dd>Card on file, no deposit</dd>
                   </div>
                   <div className="flex justify-between">
                     <dt className="text-muted-ink">Move your seat</dt>
@@ -186,7 +186,7 @@ const TrainingSignup = () => {
                   {loading ? "Sending…" : course ? `Request a seat in ${course.name}` : "Choose a course"}
                 </button>
                 <p className="mt-3 text-xs leading-relaxed text-muted-ink">
-                  No payment now. We'll email dates and deposit details.
+                  No payment now. We'll email you dates to choose from.
                  </p>
                 <p className="mt-1 text-xs leading-relaxed text-muted-ink">
                   By submitting, you agree to our <Link to="/privacy-policy" className="font-semibold text-electric hover:underline">Privacy Policy</Link>.

@@ -1,4 +1,4 @@
-import { TRAINING_TERMS, money } from "@/data/pricing";
+import { TRAINING_TERMS } from "@/data/pricing";
 import CancellationPolicy from "@/components/CancellationPolicy";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -141,7 +141,7 @@ const TermsOfService = () => (
 
             <div>
               <h2 className="font-heading text-xl font-semibold text-ink mb-3">11. Detailing Training Program</h2>
-              <p>A {money(TRAINING_TERMS.deposit)} deposit holds a training seat and is applied to the course fee. The balance is due before the first day of class. Course fees are non-refundable once course materials have been accessed or the course start date has passed. A seat can be moved to another date with at least {TRAINING_TERMS.rescheduleDays} days' notice, subject to availability. Training is not covered by the service cancellation policy in section 3.</p>
+              <p>A card on file is required to book a training seat. No deposit is taken. The course fee is due before the first day of class. Course fees are non-refundable once course materials have been accessed or the course start date has passed. A seat can be moved to another date with at least {TRAINING_TERMS.rescheduleDays} days' notice, subject to availability. Training is not covered by the service cancellation policy in section 3.</p>
             </div>
 
             <div>
