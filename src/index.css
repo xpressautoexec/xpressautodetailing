@@ -284,7 +284,7 @@
 .main-site .vehicle-fade { mask-image: linear-gradient(to bottom, black 65%, transparent); }
 .main-site .receipt-overlay { background: var(--receipt-overlay); }
 .main-site .installer-logo { filter: grayscale(1); opacity: .7; transition: filter .2s, opacity .2s; }
-.main-site .installer-logo:hover { filter: grayscale(0); opacity: 1; }
+.main-site .installer-logo:hover, .main-site .installer-logo[data-state="open"] { filter: grayscale(0); opacity: 1; }
 .main-site .why-band { color: hsl(var(--primary-foreground)); background: hsl(var(--dark)); }
 .main-site .why-band h2, .main-site .why-band h3 { color: hsl(var(--primary-foreground)); }
 .main-site .contact-bar { background: hsl(var(--action)); }
