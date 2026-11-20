@@ -2,10 +2,30 @@ import suntek from "@/assets/brand-suntek.svg.asset.json";
 import carpro from "@/assets/carpro/logo-carpro.png";
 import exoshield from "@/assets/brand-exoshield.svg";
 import { AUTHORIZED_BRANDS } from "@/data/protection-brands";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 const logos: Record<string, string> = {
   SunTek: suntek.url,
   CARPRO: carpro,
   ExoShield: exoshield,
+};
+/** Short brand notes shown when a logo is tapped. No links: the popover stays on the page. */
+const BRAND_INFO: Record<string, { tagline: string; body: string }> = {
+  SunTek: {
+    tagline: "Paint protection film",
+    body: "SunTek is an Eastman Performance Films brand, the same family as LLumar. Its clear, self-healing films guard paint against rock chips, road debris and stains. Xpress installs SunTek Reaction and Ultra films on cars, trucks and SUVs.",
+  },
+  CARPRO: {
+    tagline: "Ceramic coatings",
+    body: "CARPRO makes the CQUARTZ line of professional ceramic coatings. Xpress applies CQUARTZ Professional, CQUARTZ Finest Reserve and DQUARTZ, our diamond-infused flagship built for hardness and long-term gloss.",
+  },
+  ExoShield: {
+    tagline: "Windshield protection film",
+    body: "ExoShield makes optically clear film for windshields that helps resist chips, pitting and cracks from gravel. Xpress is a certified ExoShield installer, using GT3+ on cars and trucks and ULTRA on RVs and heavy-duty equipment.",
+  },
 };
 export default function AuthorizedInstallers() {
   return (
@@ -20,28 +40,60 @@ export default function AuthorizedInstallers() {
         </p>
         <p className="eyebrow mb-6 mt-7 text-center">Authorized installer</p>
         <div className="mx-auto grid max-w-2xl grid-cols-3 items-center gap-x-8 gap-y-7">
-          {AUTHORIZED_BRANDS.map((name) => (
-            <div
-              key={name}
-              className="installer-logo flex min-h-12 items-center justify-center"
-            >
-              {logos[name] ? (
-                <img
-                  src={logos[name]}
-                  alt={`${name} authorized installer`}
-                  className="max-h-10 w-auto max-w-full object-contain"
-                  loading="lazy"
-                />
-              ) : (
-                <span
-                  className="brand-placeholder"
-                  title={`${name} — official logo pending`}
+          {AUTHORIZED_BRANDS.map((name) => {
+            const info = BRAND_INFO[name];
+            const mark = logos[name] ? (
+              <img
+                src={logos[name]}
+                alt={`${name} authorized installer`}
+                className="max-h-10 w-auto max-w-full object-contain"
+                loading="lazy"
+              />
+            ) : (
+              <span
+                className="brand-placeholder"
+                title={`${name} — official logo pending`}
+              >
+                {name}
+              </span>
+            );
+            if (!info)
+              return (
+                <div
+                  key={name}
+                  className="installer-logo flex min-h-12 items-center justify-center"
                 >
-                  {name}
-                </span>
-              )}
-            </div>
-          ))}
+                  {mark}
+                </div>
+              );
+            return (
+              <Popover key={name}>
+                <PopoverTrigger asChild>
+                  <button
+                    type="button"
+                    aria-label={`About ${name}`}
+                    className="installer-logo flex min-h-12 w-full cursor-pointer items-center justify-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  >
+                    {mark}
+                  </button>
+                </PopoverTrigger>
+                <PopoverContent
+                  side="bottom"
+                  align="center"
+                  sideOffset={10}
+                  className="w-72 max-w-[calc(100vw-2rem)] rounded-xl border-line p-4"
+                >
+                  <p className="text-xs font-semibold uppercase tracking-wide text-primary">
+                    {info.tagline}
+                  </p>
+                  <p className="mt-1 text-base font-semibold text-ink">{name}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-ink">
+                    {info.body}
+                  </p>
+                </PopoverContent>
+              </Popover>
+            );
+          })}
         </div>
       </div>
     </section>
