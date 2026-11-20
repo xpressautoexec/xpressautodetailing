@@ -60,7 +60,7 @@ const Index = () => (
 
       <HomeHero />
       <PackageFinder />
-      <AuthorizedInstallers />
+      <AuthorizedInstallers showInfo />
       <CompanyLogos />
       <PopularPackages />
       <OurExpertise />

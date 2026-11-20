@@ -16,7 +16,7 @@ const logos: Record<string, string> = {
 const BRAND_INFO: Record<string, { tagline: string; body: string }> = {
   SunTek: {
     tagline: "Paint protection film",
-    body: "SunTek is an Eastman Performance Films brand, the same family as LLumar. Its clear, self-healing films guard paint against rock chips, road debris and stains. Xpress installs SunTek Reaction and Ultra films on cars, trucks and SUVs.",
+    body: "SunTek makes clear, self-healing paint protection film that guards paint against rock chips, road debris and stains. Xpress installs SunTek film on cars, trucks and SUVs.",
   },
   CARPRO: {
     tagline: "Ceramic coatings",
@@ -27,7 +27,8 @@ const BRAND_INFO: Record<string, { tagline: string; body: string }> = {
     body: "ExoShield makes optically clear film for windshields that helps resist chips, pitting and cracks from gravel. Xpress is a certified ExoShield installer, using GT3+ on cars and trucks and ULTRA on RVs and heavy-duty equipment.",
   },
 };
-export default function AuthorizedInstallers() {
+/** Pass `showInfo` to make logos open a brand description (homepage only). */
+export default function AuthorizedInstallers({ showInfo = false }: { showInfo?: boolean }) {
   return (
     <section
       id="authorized-installers"
@@ -41,7 +42,7 @@ export default function AuthorizedInstallers() {
         <p className="eyebrow mb-6 mt-7 text-center">Authorized installer</p>
         <div className="mx-auto grid max-w-2xl grid-cols-3 items-center gap-x-8 gap-y-7">
           {AUTHORIZED_BRANDS.map((name) => {
-            const info = BRAND_INFO[name];
+            const info = showInfo ? BRAND_INFO[name] : undefined;
             const mark = logos[name] ? (
               <img
                 src={logos[name]}
