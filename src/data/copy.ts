@@ -47,12 +47,12 @@ export const GUARANTEES = [
 
 /**
  * Commercial account terms. Mirrors what /fleet already states (rate in writing,
- * rotations outside business hours, monthly invoice with net terms).
+ * rotations outside business hours, per-unit or single invoicing, net terms set after the yard walk).
  */
 export const FLEET_TERMS = [
   { title: "Per-unit rate in writing", body: "Set after a yard walk, with a proposed rotation schedule." },
   { title: "Off-hours rotations", body: "Early mornings, evenings or weekends, so units stay on the road." },
-  { title: "Monthly invoicing, net terms", body: "One invoice with a per-unit breakdown for your accounts team." },
+  { title: "Invoicing your way", body: "Per-unit invoices, or one invoice with a per-unit breakdown. Net terms are agreed after the yard walk." },
   { title: "Self-sufficient on site", body: "Our vans bring their own water and power to your yard or lot." },
 ];
 

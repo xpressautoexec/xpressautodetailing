@@ -212,7 +212,7 @@ const QuoteForm = ({
 
   const [vehicle, setVehicle] = useState<VehicleType | undefined>(defaultVehicleType ?? (defaultVehicle ? LEGACY_VEHICLE[defaultVehicle] : undefined));
   const [services, setServices] = useState<Service[]>(defaultServices ?? (defaultNeed ? [LEGACY_NEED[defaultNeed]] : []));
-  const [v, setV] = useState({ year: "", make: "", model: "", color: "", length: "", company: "", fleetSize: "" });
+  const [v, setV] = useState({ year: "", make: "", model: "", color: "", length: "", company: "", fleetSize: "", yard: "" });
   const [location, setLocation] = useState<Loc | undefined>(defaultLocation);
   const [area, setArea] = useState("");
   const [timing, setTiming] = useState("");
@@ -344,7 +344,7 @@ const QuoteForm = ({
         location_pref: location ?? null,
         area: location === "shop" ? null : area || null,
         timing: timing || null,
-        notes: t(notes, 2000),
+        notes: t([vehicle === "Fleet / Commercial" && v.yard.trim() ? `Yard address: ${v.yard.trim().slice(0, 200)}` : "", notes.trim()].filter(Boolean).join("\n\n"), 2000),
         name: c.name.trim().slice(0, 120),
         phone: c.phone.trim().slice(0, 30),
         email: c.email.trim().slice(0, 255),
@@ -365,6 +365,7 @@ const QuoteForm = ({
           `Services: ${chosen.join(", ")}`,
           `Where: ${locLine()}`,
           timing && `When: ${timing}`,
+          vehicle === "Fleet / Commercial" && v.yard.trim() && `Yard address: ${v.yard.trim()}`,
           notes.trim() && `Notes: ${notes.trim()}`,
           `Contact by: ${pref}`,
           c.heard && `Heard from: ${c.heard}`,
@@ -555,6 +556,10 @@ const QuoteForm = ({
                 <label className={labelCls}>
                   Number of vehicles {opt}
                   <input inputMode="numeric" maxLength={60} placeholder="12" value={v.fleetSize} onChange={setVf("fleetSize")} className={input} />
+                </label>
+                <label className={`${labelCls} sm:col-span-2`}>
+                  Yard or lot address {opt}
+                  <input maxLength={200} autoComplete="street-address" placeholder="Where the units are parked" value={v.yard} onChange={setVf("yard")} className={input} />
                 </label>
               </div>
             )}
