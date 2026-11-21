@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowDown, Check, Phone, CalendarCheck, Eye, ShieldCheck, Sun, Target } from "lucide-react";
+import { Check, Phone, Eye, ShieldCheck, Sun } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
@@ -15,6 +15,7 @@ import winterPhoto from "@/assets/jobs/exterior-bmw-m340i-front-xpress-studio.we
 
 const WINTER_ICONS = [Eye, ShieldCheck, Sun];
 const MAX_DISCOUNT = blackFridayMaxDiscount();
+const TEL = `tel:+1${PHONE.replace(/\D/g, "")}`;
 
 const BlackFriday = () => {
   const { ready, active, countdown } = useBlackFriday();
@@ -37,29 +38,13 @@ const BlackFriday = () => {
           </section>
         ) : (
           <>
-            <section className="bf-hero pb-12 pt-12 sm:pb-16 sm:pt-16">
+            <section className="bf-hero py-14 sm:py-20">
               <div className="shell text-center">
-                <span className="bf-eyebrow inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest">{BLACK_FRIDAY_COPY.heroEyebrow}</span>
-                <h1 className="bf-hero-title mt-6">{BLACK_FRIDAY_COPY.title}</h1>
-                <p className="bf-hero-deal mt-4">Up to <span className="bf-hero-accent">{MAX_DISCOUNT}% off</span></p>
+                <p className="bf-hero-eyebrow text-xs font-semibold uppercase tracking-[0.2em]">{BLACK_FRIDAY_COPY.heroEyebrow}</p>
+                <h1 className="bf-hero-title mt-5">{BLACK_FRIDAY_COPY.title}</h1>
+                <p className="bf-hero-deal mt-4">Save up to <span className="bf-hero-accent">{MAX_DISCOUNT}%</span></p>
                 <p className="bf-hero-sub mx-auto mt-5 max-w-2xl text-base sm:text-lg">{BLACK_FRIDAY_COPY.subtitle}</p>
-                <div className="mt-8"><BlackFridayCountdown countdown={countdown} large /></div>
-                <p className="bf-hero-sub mt-10 text-xs font-semibold uppercase tracking-widest">{BLACK_FRIDAY_COPY.pickTitle}</p>
-                <div className="mx-auto mt-4 grid max-w-4xl gap-3 sm:grid-cols-3">
-                  {BLACK_FRIDAY_COPY.packages.map((pkg) => {
-                    const price = blackFridayPrice(pkg.id, size);
-                    return (
-                      <a key={pkg.id} href={`#bf-${pkg.id}`} data-tier={pkg.id} className="bf-goal-chip group flex items-center justify-between gap-3 rounded-md px-4 py-3 text-left">
-                        <span>
-                          <span className="bf-goal-chip-tier block text-xs font-bold uppercase tracking-widest">{pkg.name}</span>
-                          <span className="block text-[15px] font-semibold leading-snug">{pkg.goal}</span>
-                          <span className="bf-hero-sub block text-xs">Save {money(price.savings)}</span>
-                        </span>
-                        <ArrowDown className="h-4 w-4 shrink-0 transition-transform group-hover:translate-y-0.5" aria-hidden="true" />
-                      </a>
-                    );
-                  })}
-                </div>
+                <div className="mt-10"><BlackFridayCountdown countdown={countdown} large /></div>
               </div>
             </section>
             <section aria-label="Black Friday packages" className="bg-tint py-10 sm:py-14">
@@ -82,7 +67,7 @@ const BlackFriday = () => {
                             {pkg.popular && <span className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">Most popular</span>}
                           </div>
                           <div className="mt-4">
-                            <p className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-action"><Target className="h-3.5 w-3.5" aria-hidden="true" />Goal</p>
+                            <p className="text-xs font-bold uppercase tracking-widest text-action">Goal</p>
                             <p className="mt-1 text-xl font-bold leading-tight text-ink">{pkg.goal}</p>
                             <p className="mt-2 text-sm leading-snug text-muted-ink">{pkg.goalBody}</p>
                           </div>
@@ -108,17 +93,14 @@ const BlackFriday = () => {
                             </div>
                           </div>
                           <p className="mt-5 text-sm leading-snug text-muted-ink"><span className="font-semibold text-ink">Best for:</span> {pkg.bestFor}</p>
-                          <p className="mt-1 min-h-5 text-sm leading-snug text-muted-ink">{pkg.shop ? BLACK_FRIDAY_COPY.shopNote : null}</p>
-                          <div className="mt-6 grid gap-3">
-                            <Button asChild size="lg" className="rounded-full"><a href={`tel:+1${PHONE.replace(/\D/g, "")}`}><Phone aria-hidden="true" />Call {PHONE}</a></Button>
-                            <Button asChild variant="outline" size="lg" className="rounded-full"><a href={BOOKING_URL} target="_blank" rel="noopener noreferrer"><CalendarCheck aria-hidden="true" />Book online</a></Button>
-                          </div>
+                          <Button asChild size="lg" variant={pkg.popular ? "default" : "outline"} className="mt-6 rounded-full"><a href={TEL}><Phone aria-hidden="true" />Call to book {pkg.name}</a></Button>
                         </div>
                       </article>
                     );
                   })}
                 </div>
-                <p className="mx-auto mt-8 max-w-4xl text-center text-xs leading-relaxed text-muted-ink sm:text-sm">Values shown for a {sizeLabel.toLowerCase()} at our regular published prices. {BLACK_FRIDAY_COPY.finePrint}</p>
+                <p className="mt-10 text-center text-sm text-muted-ink">{BLACK_FRIDAY_COPY.shopNote} Call {PHONE} or <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-action underline underline-offset-4">book online</a>.</p>
+                <p className="mx-auto mt-4 max-w-4xl text-center text-xs leading-relaxed text-muted-ink">Values shown for a {sizeLabel.toLowerCase()} at our regular published prices. {BLACK_FRIDAY_COPY.finePrint}</p>
               </div>
             </section>
             <section className="bg-canvas py-12 sm:py-16">
