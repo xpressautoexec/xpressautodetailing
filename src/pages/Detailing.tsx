@@ -20,7 +20,7 @@ import ClosingCTA from "@/components/site/ClosingCTA";
 import { Section } from "@/components/site/Section";
 import completeHero from "@/assets/jobs/hero-detailing.webp";
 import WorkShowcase from "@/components/site/WorkShowcase";
-import { AUTO_PACKAGES, PASS_ADDON_DISCOUNT } from "@/data/pricing";
+import { AUTO_PACKAGES, MOBILE_FEE, PASS_MIN_DETAIL_DISCOUNT, PASS_MAX_DETAIL_DISCOUNT } from "@/data/pricing";
 import QualityProducts from "@/components/site/QualityProducts";
 import WorkMosaic from "@/components/site/WorkMosaic";
 import { DETAILING_FEATURE } from "@/data/photos";
@@ -103,7 +103,7 @@ const Detailing = () => {
       <Section id="packages">
         <AutoPackages
           heading="Detailing packages"
-          intro="Pick your vehicle size and the prices update. Prices are before tax, with no travel charge in our service area."
+          intro={`Pick your vehicle size and the prices update. Prices are before tax. Mobile visits add a $${MOBILE_FEE} mobile service fee.`}
         />
         <PackageCompare />
       </Section>
@@ -124,7 +124,7 @@ const Detailing = () => {
             <p className="eyebrow">Add-ons</p>
             <h2 className="mt-3 font-heading text-4xl font-extrabold leading-[1.0] tracking-display text-ink sm:text-5xl">Add to any package.</h2>
             <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-ink-2">
-              Add any of these to any package. Xpress Pass members take {PASS_ADDON_DISCOUNT}% off every add-on.
+              Add any of these to any package. Xpress Pass members take {PASS_MIN_DETAIL_DISCOUNT}–{PASS_MAX_DETAIL_DISCOUNT}% off every add-on.
             </p>
           </div>
           <AddOnList />

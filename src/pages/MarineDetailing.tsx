@@ -15,7 +15,7 @@ import { Section, SectionHeading, cardDarkClass } from "@/components/site/Sectio
 import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import marineHeroAsset from "@/assets/marine-pontoon-sunset.jpg.asset.json";
 import { MARINE_SERVICES, money } from "@/data/pricing";
-import { WATER_LINE } from "@/data/copy";
+import { WATER_LINE, MOBILE_FEE_NOTE } from "@/data/copy";
 import QualityProducts from "@/components/site/QualityProducts";
 
 const svc = (name: string) => MARINE_SERVICES.find((s) => s.name === name)!;
@@ -78,6 +78,7 @@ const MarineDetailing = () => (
               Per-foot services are multiplied by overall length. Aluminum restoration is per pontoon side.
             </p>
           </div>
+          <div>
           <ul className={`${cardDarkClass} divide-y divide-primary-foreground/10 overflow-hidden`}>
             {MARINE_SERVICES.map((s) => (
               <li key={s.name} className="flex items-center justify-between gap-4 px-5 py-4">
@@ -89,6 +90,8 @@ const MarineDetailing = () => (
               </li>
             ))}
           </ul>
+          <p className="mt-3 text-xs text-primary-foreground/55">{MOBILE_FEE_NOTE}</p>
+          </div>
         </div>
       </Section>
 

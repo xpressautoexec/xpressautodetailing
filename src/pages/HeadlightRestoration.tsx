@@ -3,7 +3,7 @@ import { Section, SectionHeading, btnPrimary, btnSecondary, cardClass } from "@/
 import heroImg from "@/assets/jobs/headlight-mercedes-white.webp";
 import { HEADLIGHT_PHOTOS } from "@/data/photos";
 import { Link } from "react-router-dom";
-import { HEADLIGHT_RESTORATION, fielddUrl, money } from "@/data/pricing";
+import { HEADLIGHT_RESTORATION, MOBILE_FEE, fielddUrl, money } from "@/data/pricing";
 
 const { standalone, addOn, fogLights, time } = HEADLIGHT_RESTORATION;
 const BOOK_HEADLIGHTS = fielddUrl(HEADLIGHT_RESTORATION.book);
@@ -44,7 +44,7 @@ const faqs = [
   },
   {
     q: "Is it cheaper with a detail?",
-    a: `Yes. On its own it's ${money(standalone)} per pair. Added to any detail booking it's ${money(addOn)} per pair.`,
+    a: `Yes. On its own it's ${money(standalone)} per pair. Added to any detail booking it's ${money(addOn)} per pair. Mobile visits add a ${money(MOBILE_FEE)} mobile service fee; there's no fee at our Airdrie shop.`,
   },
 ];
 

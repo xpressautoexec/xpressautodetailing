@@ -17,6 +17,7 @@ import {
   CERAMIC_UPCHARGE,
   PET_HAIR_TIERS,
   PHONE,
+  MOBILE_FEE,
   money,
 } from "@/data/pricing";
 import { CERAMIC_CERTIFICATIONS, NAP, SERVICE_AREA_SENTENCE } from "@/data/copy";
@@ -38,11 +39,11 @@ const ceramicTruckRange = range(CERAMIC_PACKAGES.map((p) => p.prices.truck - p.p
 /** "ours" is always computed from pricing.ts. "shop" is the Calgary market range and is editorial. */
 const priceRows = [
   {
-    service: `${pkg("maintain").name} (sedan, Xpress Pass only)`,
+    service: `${pkg("maintain").name} (sedan)`,
     ours: money(pkg("maintain").price.sedan),
     shop: "$120 – $180",
     note: `Hand wash, wheels, glass and interior tidy. ${pkg("maintain").duration}. ${upcharges("maintain")}`,
-    link: "/xpress-pass",
+    link: "/detailing",
   },
   {
     service: `${pkg("refresh").name} (sedan)`,
@@ -137,7 +138,7 @@ const faqs = [
   },
   {
     q: "Do you charge extra to travel in Calgary?",
-    a: `No travel fee within ${SERVICE_AREA_SENTENCE}. Call ${PHONE} if you're further out and we'll confirm before booking.`,
+    a: `Mobile visits within ${SERVICE_AREA_SENTENCE} add a flat $${MOBILE_FEE} mobile service fee. There's no fee at our Airdrie shop, and Xpress Pass members never pay it. Call ${PHONE} if you're further out and we'll confirm before booking.`,
   },
 ];
 
