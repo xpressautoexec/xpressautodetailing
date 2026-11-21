@@ -14,7 +14,7 @@ export const BLACK_FRIDAY_COPY = {
   shopNote: "Installed at our heated Airdrie shop.",
   finePrint: "Book and pay a deposit by November 30, 2026 at 11:59 PM MT. Appointments can be scheduled into December. Prices before GST. Cannot be combined with other offers or Xpress Pass discounts.",
   packages: [
-    { id: "bronze", name: "Bronze", includes: ["Inside & Out detail", "Engine bay detail", "Headlight restoration", "Ceramic coating on all glass"], shop: false, popular: false },
+    { id: "bronze", name: "Bronze", includes: ["Inside & Out detail", "Engine bay detail", "Headlight restoration", "Ceramic coating on all glass"], shop: true, popular: false },
     { id: "silver", name: "Silver", includes: ["Inside & Out detail", "Engine bay detail", "ExoShield GT3+ windshield protection film", "Headlight restoration sealed with protection film", "Ceramic coating on all glass"], shop: true, popular: true },
     { id: "gold", name: "Gold", includes: ["Inside & Out detail", "Engine bay detail", "Headlight restoration", "Partial Front PPF (3M Scotchgard Pro film)", "1-step paint correction under the film", "ExoShield GT3+ windshield protection film"], shop: true, popular: false },
   ],
