@@ -3,7 +3,7 @@
  * Anything not in here that makes a claim about the business must be verified first.
  */
 
-import { PHONE, EMAIL, HOURS, FIVE_STAR_REVIEWS, SEASON_STATS, SERVICE_AREAS } from "./pricing";
+import { PHONE, EMAIL, HOURS, FIVE_STAR_REVIEWS, SEASON_STATS, SERVICE_AREAS, MOBILE_FEE, XPRESS_PASS, PASS_TERM_MONTHS, PASS_EARLY_EXIT_FEE } from "./pricing";
 
 export const BLACK_FRIDAY_COPY = {
   title: "Black Friday Packages",
@@ -51,6 +51,54 @@ export const BLACK_FRIDAY_COPY = {
     { title: "Clearer winter views", body: "Glass ceramic and windshield film help with sleet and road spray." },
     { title: "Highway protection", body: "Rock-chip protection for Alberta highway driving." },
     { title: "Clear headlights", body: "Restored headlights that stay clear." },
+  ],
+} as const;
+
+/** One-line mobile fee note. Shown small under every price list for mobile services. */
+export const MOBILE_FEE_NOTE = `Mobile visits include a $${MOBILE_FEE} mobile service fee. No fee at our Airdrie shop, and Xpress Pass members never pay it.`;
+
+// ---------- XPRESS PASS ----------
+const tier = (id: "silver" | "gold") => XPRESS_PASS.find((t) => t.id === id)!;
+export const PASS_COPY = {
+  title: "The Xpress Pass",
+  subtitle: `A ${PASS_TERM_MONTHS}-month detailing membership. Included details every season, member pricing on everything else, and priority booking. Billed monthly.`,
+  items: {
+    insideOut: "Inside & Out details",
+    deepClean: "Deep Clean & Seal details",
+    upkeep: "Upkeep maintenance visits",
+    headlights: "Headlight restoration",
+    headlightsUv: "Headlight restoration with 3-year UV protectant",
+    glassCeramic: "Ceramic coating on all glass",
+    engineBay: "Engine bay details",
+  },
+  tiers: {
+    silver: {
+      goal: "A clean car all year",
+      goalBody: "One full Inside & Out detail every season, with member pricing whenever you want more.",
+      perks: [
+        `${tier("silver").detailDiscount}% off every other detail and add-on`,
+        `Priority booking within ${tier("silver").bookingWindowHrs} hours`,
+        `No $${MOBILE_FEE} mobile fee, ever`,
+        "48-hour early access to every sale",
+      ],
+    },
+    gold: {
+      goal: "Showroom condition + protection",
+      goalBody: "A Deep Clean & Seal every season, an Upkeep visit between each one, and protection for your headlights and glass.",
+      perks: [
+        `${tier("gold").detailDiscount}% off every other detail and add-on`,
+        `${tier("gold").protectionDiscount}% off ceramic coating, PPF and ExoShield windshield film`,
+        `Priority booking within ${tier("gold").bookingWindowHrs} hours`,
+        `No $${MOBILE_FEE} mobile fee, ever`,
+        "48-hour early access to every sale",
+      ],
+    },
+  },
+  terms: [
+    { title: `${PASS_TERM_MONTHS}-month membership, billed monthly`, body: `Card on file. Your first month is charged at sign-up. After ${PASS_TERM_MONTHS} months it continues month to month; cancel with 30 days' written notice. Leaving early costs $${PASS_EARLY_EXIT_FEE} plus GST.` },
+    { title: "Included visits run on your membership year", body: "Book them when it suits you, one per season works best. Unused included visits end with the membership year." },
+    { title: "Winter visits", body: "From November to March, included details happen at our heated Airdrie shop, or mobile when the weather allows." },
+    { title: "Add a second vehicle", body: `Put another vehicle on the same membership for $${tier("silver").secondVehicle}/month on Silver or $${tier("gold").secondVehicle}/month on Gold. It gets the full set of benefits.` },
   ],
 } as const;
 
@@ -420,7 +468,7 @@ export const CANCELLATION_SECTIONS: { title: string; body: string[] }[] = [
   {
     title: "Xpress Pass members",
     body: [
-      `Member visits follow the ${C.standardHours}-hour rule. Skipping or moving a cycle with notice is always free. Missing two cycles in a row may pause your plan, and you can resume any time.`,
+      `Member visits follow the ${C.standardHours}-hour rule. Moving an included visit with notice is always free, and members book inside their priority window: ${XPRESS_PASS.map((t) => `${t.bookingWindowHrs} hours for ${t.name}`).join(", ")}.`,
     ],
   },
   {

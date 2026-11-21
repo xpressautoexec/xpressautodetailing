@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Check, Phone } from "lucide-react";
-import { WINDSHIELD_PPF, WINDSHIELD_FILMS, RV_WINDSHIELD_ULTRA, fielddUrl, money } from "@/data/pricing";
+import { WINDSHIELD_PPF, WINDSHIELD_FILMS, RV_WINDSHIELD_ULTRA, fielddUrl, money, MOBILE_FEE } from "@/data/pricing";
 import gt3Logo from "@/assets/exoshield-gt3plus-red.svg";
 import ultraLogo from "@/assets/exoshield-ultra-white.svg";
 
@@ -107,7 +107,7 @@ const WindshieldPackages = () => {
       </div>
 
       <div className="mt-6 flex flex-col gap-3 text-sm text-ink-2 sm:flex-row sm:items-center sm:justify-between">
-        <p>Heated, panoramic and oversized glass may carry a small surcharge, confirmed before we start.</p>
+        <p>Heated, panoramic and oversized glass may carry a small surcharge, confirmed before we start. Mobile installs add a {money(MOBILE_FEE)} mobile service fee.</p>
         <a href={TEL} className="inline-flex shrink-0 items-center gap-2 font-semibold text-ink hover:text-electric">
           <Phone className="h-4 w-4 text-action" aria-hidden="true" />
           Not sure which? Call or text

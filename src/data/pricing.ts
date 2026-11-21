@@ -50,7 +50,9 @@ export type BlackFridayItemId = (typeof BLACK_FRIDAY_PACKAGE_ITEMS)[keyof typeof
  * (559 / 1187 / 1686) and held flat for larger vehicles, which understates the value there. Everything
  * else reads the published price for that size, so values track the rest of the site.
  */
-export const BLACK_FRIDAY_UNLISTED_VALUES = { glassCeramic: 150, headlightsFilm: 269, correction: 199 } as const;
+/** Regular value of ceramic coating on all glass (no standalone listing). Used by Black Friday and the Xpress Pass. */
+export const GLASS_CERAMIC_VALUE = 150;
+export const BLACK_FRIDAY_UNLISTED_VALUES = { glassCeramic: GLASS_CERAMIC_VALUE, headlightsFilm: 269, correction: 199 } as const;
 /**
  * Fieldd booking shortlink keys (Fieldd > Settings > Services > Booking Shortlink).
  * Each opens booking straight on that service, so customers skip the service picker.
@@ -88,7 +90,7 @@ export interface AutoPackage {
   };
 }
 
-/** Upkeep member price per visit (unchanged). Members only: there is no non-member booking. */
+/** Legacy Upkeep member price (old Pass). Upkeep is bookable by anyone at its package price since Nov 21 2026; kept for reference. */
 export const UPKEEP_MEMBER_PRICE: Record<PassSizeId, number> = { sedan: 119, suv: 135, minivan: 143, truck: 151 };
 
 export const AUTO_PACKAGES: AutoPackage[] = [
@@ -97,7 +99,6 @@ export const AUTO_PACKAGES: AutoPackage[] = [
     name: "Upkeep",
     tagline: "For the car that's already been detailed properly and you want to keep it that way.",
     duration: "45 min",
-    memberOnly: true,
     includes: [
       "Exterior hand wash",
       "Wheels, tires & arches",
@@ -490,47 +491,102 @@ export const CONDITION_TIERS = [
   { label: "It's rough — be honest with us", price: 135 },
 ];
 
-// ---------- XPRESS PASS ----------
+// ---------- MOBILE SERVICE FEE ----------
+/** Charged once per mobile visit. No fee at the Airdrie shop. Xpress Pass members never pay it. */
+export const MOBILE_FEE = 20;
+
+// ---------- XPRESS PASS (membership) ----------
 /**
- * Refresh and Restore prices derive from the regular package price. Maintain
- * uses the owner-approved fixed class prices, including $119 for a sedan, and
- * must not be advertised as a percentage discount.
+ * Owner-approved Nov 2026. Two tiers on a 12-month term, billed monthly. Each tier bundles included
+ * visits, standing discounts and perks (AMA / Costco style), instead of mapping to one package.
+ * Monthly price is per vehicle class; a second vehicle on the same membership is a flat add-on.
  */
-const PASS_TERMS = [
-  { id: "maintain", name: "Maintain", frequency: "Every 4 weeks", discount: 0, popular: true, service: "Upkeep" },
-  { id: "refresh", name: "Refresh", frequency: "Every 8 weeks", discount: 20, service: "Inside & Out" },
-  { id: "restore", name: "Restore", frequency: "Every 13 weeks", discount: 15, service: "Deep Clean & Seal" },
-] as const;
+export type PassTierId = "silver" | "gold";
+export type PassItemId = "insideOut" | "deepClean" | "upkeep" | "headlights" | "headlightsUv" | "glassCeramic" | "engineBay";
 
-const round2 = (n: number) => Math.round(n * 100) / 100;
+export const PASS_TERM_MONTHS = 12;
+export const PASS_EARLY_EXIT_FEE = 99;
 
-export const XPRESS_PASS = PASS_TERMS.map((t) => {
-  const pkg = AUTO_PACKAGES.find((p) => p.name === t.service)!;
-  const memberPrice = Object.fromEntries(
-    PASS_SIZES.map(({ id }) => [
-      id,
-      t.id === "maintain" ? UPKEEP_MEMBER_PRICE[id] : round2(pkg.price[id] * (1 - t.discount / 100)),
-    ]),
-  ) as Record<PassSizeId, number>;
-  return { ...t, popular: "popular" in t ? t.popular : false, memberPrice };
-});
+export const XPRESS_PASS = [
+  {
+    id: "silver" as PassTierId,
+    name: "Silver",
+    monthly: { sedan: 79, suv: 89, minivan: 99, truck: 99 } as Record<PassSizeId, number>,
+    secondVehicle: 60,
+    detailDiscount: 15,
+    addOnDiscount: 15,
+    protectionDiscount: 0,
+    bookingWindowHrs: 72,
+    included: [
+      { item: "insideOut" as PassItemId, qty: 4 },
+      { item: "headlights" as PassItemId, qty: 1 },
+      { item: "engineBay" as PassItemId, qty: 2 },
+    ],
+  },
+  {
+    id: "gold" as PassTierId,
+    name: "Gold",
+    popular: true,
+    monthly: { sedan: 149, suv: 164, minivan: 179, truck: 179 } as Record<PassSizeId, number>,
+    secondVehicle: 120,
+    detailDiscount: 20,
+    addOnDiscount: 20,
+    protectionDiscount: 10,
+    bookingWindowHrs: 48,
+    included: [
+      { item: "deepClean" as PassItemId, qty: 4 },
+      { item: "upkeep" as PassItemId, qty: 4 },
+      { item: "headlightsUv" as PassItemId, qty: 1 },
+      { item: "glassCeramic" as PassItemId, qty: 1 },
+      { item: "engineBay" as PassItemId, qty: 2 },
+    ],
+  },
+];
 
-export const PASS_ADDON_DISCOUNT = 15; // % off every add-on, all tiers
+const pkgPrice = (id: string, size: PassSizeId) => AUTO_PACKAGES.find((p) => p.id === id)?.price[size] ?? 0;
 
-/** The Xpress Pass plan built on an auto package, if any (matched by service name). */
-export const passPlanFor = (pkg: AutoPackage) => XPRESS_PASS.find((p) => p.service === pkg.name);
+/** Regular value of one included item for a vehicle class, from the published price lists. */
+export const passItemValue = (item: PassItemId, size: PassSizeId): number => {
+  switch (item) {
+    case "insideOut": return pkgPrice("refresh", size);
+    case "deepClean": return pkgPrice("showroom", size);
+    case "upkeep": return pkgPrice("maintain", size);
+    case "headlights":
+    case "headlightsUv": return HEADLIGHT_RESTORATION.standalone;
+    case "glassCeramic": return GLASS_CERAMIC_VALUE;
+    case "engineBay": return ADDONS.find((a) => a.name === "Engine Bay Detail")?.price ?? 0;
+  }
+};
+
+/** Included visits per year (each one skips the mobile fee). Engine bay and headlights ride along on a visit. */
+export const passVisitsPerYear = (tier: (typeof XPRESS_PASS)[number]) =>
+  tier.included.filter((i) => ["insideOut", "deepClean", "upkeep"].includes(i.item)).reduce((n, i) => n + i.qty, 0);
+
+/** Annual value vs. annual price for one vehicle, used for the "you get back" line. */
+export const passAnnualValue = (tierId: PassTierId, size: PassSizeId) => {
+  const tier = XPRESS_PASS.find((t) => t.id === tierId)!;
+  const items = tier.included.map((i) => ({ ...i, value: passItemValue(i.item, size) * i.qty }));
+  const mobile = passVisitsPerYear(tier) * MOBILE_FEE;
+  const included = items.reduce((n, i) => n + i.value, 0) + mobile;
+  const cost = tier.monthly[size] * PASS_TERM_MONTHS;
+  return { items, mobile, included, cost, net: included - cost };
+};
+
+/** Lowest per-add-on discount across tiers (detailing page footnote). */
+export const PASS_ADDON_DISCOUNT = Math.min(...XPRESS_PASS.map((t) => t.addOnDiscount));
+export const PASS_MAX_DETAIL_DISCOUNT = Math.max(...XPRESS_PASS.map((t) => t.detailDiscount));
+export const PASS_MIN_DETAIL_DISCOUNT = Math.min(...XPRESS_PASS.map((t) => t.detailDiscount));
+
 
 /**
- * Per-visit member price for a package at a vehicle size, from the Xpress Pass terms.
- * Uses the plan's published member price where set; otherwise applies the plan discount
- * to the package's regular price (e.g. pickups). Undefined if the package has no Pass plan.
+ * Member price per tier for a regular (non member-only) package at a vehicle size.
+ * Member-only Upkeep returns its fixed member price for both tiers.
  */
-export const memberPriceFor = (pkg: AutoPackage, size: VehicleSizeId): number | undefined => {
-  const plan = passPlanFor(pkg);
+export const memberPricesFor = (pkg: AutoPackage, size: VehicleSizeId): Record<PassTierId, number> | undefined => {
   const regular = pkg.price[size];
-  if (!plan || regular === undefined) return undefined;
-  const published = (plan.memberPrice as Partial<Record<VehicleSizeId, number>>)[size];
-  return published ?? Math.round(regular * (1 - plan.discount / 100) * 100) / 100;
+  if (regular === undefined) return undefined;
+  if (pkg.memberOnly) return { silver: UPKEEP_MEMBER_PRICE[size], gold: UPKEEP_MEMBER_PRICE[size] };
+  return Object.fromEntries(XPRESS_PASS.map((t) => [t.id, Math.round(regular * (1 - t.detailDiscount / 100))])) as Record<PassTierId, number>;
 };
 // NO 6-MONTH TIER. Do not add one.
 

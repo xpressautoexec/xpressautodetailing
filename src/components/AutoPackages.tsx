@@ -6,15 +6,13 @@ import {
   AUTO_PACKAGES,
   VEHICLE_SIZES,
   WORK_TRUCK_PACKAGE,
-  XPRESS_PASS,
-  PASS_ADDON_DISCOUNT,
+  PASS_MIN_DETAIL_DISCOUNT,
+  PASS_MAX_DETAIL_DISCOUNT,
   money,
   fielddUrl,
-  passPlanFor,
-  memberPriceFor,
+  memberPricesFor,
 } from "@/data/pricing";
-
-const maxPassDiscount = Math.max(...XPRESS_PASS.map((p) => p.discount));
+import { MOBILE_FEE_NOTE } from "@/data/copy";
 import { useSizeParam } from "@/hooks/useSizeParam";
 import { useRecommendedPkg } from "@/hooks/useRecommendedPkg";
 import { useSearchParams } from "react-router-dom";
@@ -126,8 +124,7 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
         {packages.map((p) => {
           const io =
             p.interiorOnly && interior[p.id] ? p.interiorOnly : undefined;
-          const plan = io ? undefined : passPlanFor(p);
-          const member = io ? undefined : memberPriceFor(p, size);
+          const members = io ? undefined : memberPricesFor(p, size);
           const price = io ? io.price[size] : p.price[size];
           const includes = io ? io.includes : p.includes;
           const bookHref = p.memberOnly
@@ -205,7 +202,7 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
                   <p
                     className={`mt-4 font-heading text-4xl font-semibold tracking-tight tabular-nums ${text}`}
                   >
-                    {money(member ?? p.price[size] ?? 0)}
+                    {money(p.price[size] ?? 0)}
                   </p>
                   <p className={`mt-1 text-xs ${muted}`}>
                     Member price per visit · {p.duration}
@@ -221,12 +218,12 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
                   <p className={`mt-1 text-xs ${muted}`}>
                     {io
                       ? "Interior only · "
-                      : member !== undefined
+                      : members !== undefined
                         ? "Regular price · "
                         : ""}
                     {io ? io.duration : p.duration}
                   </p>
-                  {member !== undefined && plan && (
+                  {members !== undefined && (
                     <div
                       className={`mt-4 flex items-center justify-between gap-3 rounded-md border px-3 py-2.5 ${
                         dark ? "border-electric/40" : "border-electric/30"
@@ -237,11 +234,12 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
                         <span
                           className={`ml-1.5 font-medium normal-case tracking-normal ${muted}`}
                         >
-                          {plan.discount}% off
+                          Silver {money(members.silver)}
                         </span>
                       </span>
-                      <span className="font-heading text-xl font-semibold tabular-nums text-electric">
-                        {money(member)}
+                      <span className="text-right">
+                        <span className={`block text-[11px] font-medium ${muted}`}>Gold</span>
+                        <span className="font-heading text-xl font-semibold tabular-nums text-electric">{money(members.gold)}</span>
                       </span>
                     </div>
                   )}
@@ -290,10 +288,9 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
       >
         <p className={`text-sm leading-relaxed ${sub}`}>
           <span className={`font-semibold ${text}`}>
-            Xpress Pass members save up to {maxPassDiscount}% every visit
+            Xpress Pass members save {PASS_MIN_DETAIL_DISCOUNT}–{PASS_MAX_DETAIL_DISCOUNT}% on every detail
           </span>{" "}
-          plus {PASS_ADDON_DISCOUNT}% off every add-on. No contract, cancel any
-          time.
+          and add-on, get included details every season, and never pay the mobile fee.
         </p>
         <Link
           to="/xpress-pass"
@@ -306,6 +303,7 @@ const AutoPackages = ({ dark = false, only, heading, intro }: Props) => {
           See the Xpress Pass
         </Link>
       </div>
+      <p className={`mt-4 text-xs ${muted}`}>{MOBILE_FEE_NOTE}</p>
       <p className={`mt-6 text-sm ${sub}`}>
         Not sure which package fits?{" "}
         <Link

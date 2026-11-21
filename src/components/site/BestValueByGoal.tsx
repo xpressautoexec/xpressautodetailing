@@ -20,7 +20,7 @@ const GOALS = [
   {
     title: "Staying clean year-round",
     pick: "The Xpress Pass",
-    desc: "Scheduled visits at member rates beat repeated one-off deep cleans, plus discounts on every add-on.",
+    desc: "Included details every season, member pricing on everything else, and no mobile fee.",
     to: "/xpress-pass",
   },
 ];

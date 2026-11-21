@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { AUTO_PACKAGES, VEHICLE_SIZES, fielddUrl, memberPriceFor, money } from "@/data/pricing";
+import { AUTO_PACKAGES, VEHICLE_SIZES, fielddUrl, memberPricesFor, money } from "@/data/pricing";
+import { MOBILE_FEE_NOTE } from "@/data/copy";
 import { useSizeParam } from "@/hooks/useSizeParam";
 
-/** Display order: the three public packages, then the members-only Upkeep. */
+/** Display order: the three main packages, then Upkeep. */
 const ORDER = ["refresh", "showroom", "restore", "maintain"];
 const ROWS = ORDER.map((id) => AUTO_PACKAGES.find((p) => p.id === id)!).filter(Boolean);
 
@@ -46,7 +47,7 @@ const CompactPackages = () => {
             {ROWS.map((p) => {
               const price = p.price[size];
               if (price === undefined) return null;
-              const member = memberPriceFor(p, size);
+              const members = memberPricesFor(p, size);
               return (
                 <tr key={p.id} className="border-b border-line last:border-b-0">
                   <th scope="row" className="px-4 py-5 align-top font-normal sm:px-6">
@@ -63,9 +64,9 @@ const CompactPackages = () => {
                   </th>
                   <td className="hidden whitespace-nowrap px-4 py-5 align-top text-ink-2 md:table-cell">{p.duration}</td>
                   <td className="whitespace-nowrap px-4 py-5 text-right align-top sm:px-6">
-                    <span className="num text-2xl text-ink">{money(p.memberOnly ? (member ?? price) : price)}</span>
-                    {!p.memberOnly && member !== undefined && (
-                      <span className="mt-0.5 block text-xs text-muted-ink">Members {money(member)}</span>
+                    <span className="num text-2xl text-ink">{money(price)}</span>
+                    {members !== undefined && (
+                      <span className="mt-0.5 block text-xs text-muted-ink">Members from {money(members.gold)}</span>
                     )}
                     {p.memberOnly && <span className="mt-0.5 block text-xs text-muted-ink">per visit</span>}
                   </td>
@@ -93,6 +94,7 @@ const CompactPackages = () => {
         </table>
       </div>
 
+      <p className="mt-3 text-xs text-muted-ink">{MOBILE_FEE_NOTE}</p>
       <div className="mt-6 flex flex-col gap-3 text-sm sm:flex-row sm:gap-8">
         <Link to="/detailing#packages" className="inline-flex items-center gap-1.5 font-semibold text-ink hover:text-electric">
           See everything included and all add-ons

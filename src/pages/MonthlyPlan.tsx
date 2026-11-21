@@ -14,51 +14,42 @@ import { Check, Phone } from "lucide-react";
 import { PHOTOS, CLIPS } from "@/data/photos";
 import WorkShowcase from "@/components/site/WorkShowcase";
 import xpressPassCard from "@/assets/xpress-pass-card.png";
-import { XPRESS_PASS, PASS_ADDON_DISCOUNT, AUTO_PACKAGES, PASS_SIZES, type PassSizeId, money } from "@/data/pricing";
-import { NAP } from "@/data/copy";
+import { XPRESS_PASS, PASS_SIZES, PASS_TERM_MONTHS, MOBILE_FEE, passAnnualValue, passVisitsPerYear, type PassSizeId, money } from "@/data/pricing";
+import { NAP, PASS_COPY } from "@/data/copy";
 import QualityProducts from "@/components/site/QualityProducts";
 
-const PERKS = [
-  {
-    title: "One included detail each cycle",
-    body: "Your plan is tied to one vehicle. Confirm an available visit within each paid cycle.",
-  },
-  { title: `${PASS_ADDON_DISCOUNT}% off eligible add-ons`, body: "Add-ons and extra condition work are agreed before the visit and billed separately." },
-  { title: "Plan changes in writing", body: "Give 30 days' written notice to cancel after the six-month initial commitment." },
-  { title: "One pause each year", body: "Pause for up to 90 days once in a rolling 12-month period. The commitment end date moves with your pause." },
-];
-
+const [SILVER, GOLD] = XPRESS_PASS;
 const monthlyFAQs = [
   {
     q: "How does the Xpress Pass work?",
-    a: `Pick a plan for one vehicle: ${XPRESS_PASS.map((p) => `${p.name} ${p.frequency.toLowerCase()}`).join(", ")}. The first cycle is charged at enrollment. We arrange an available visit for each paid cycle.`,
+    a: `Pick Silver or Gold for your vehicle. You pay monthly for ${PASS_TERM_MONTHS} months and get a set of included details each year, member pricing on everything else, priority booking and no mobile fee.`,
   },
   {
-    q: "Can I cancel or pause?",
-    a: "The initial commitment is six months. After that, give 30 days' written notice to cancel. An early exit during the initial term costs $99 plus GST unless a documented waiver applies. One pause of up to 90 days is available per rolling 12 months; it extends the commitment by the pause length.",
+    q: "What's the difference between Silver and Gold?",
+    a: `Silver includes four Inside & Out details a year, a headlight restoration and two engine bay details, with ${SILVER.detailDiscount}% off everything else. Gold includes four Deep Clean & Seal details, four Upkeep visits, headlight restoration with a 3-year UV protectant, ceramic coating on all glass and two engine bay details, with ${GOLD.detailDiscount}% off detailing and ${GOLD.protectionDiscount}% off ceramic coating, PPF and windshield film.`,
   },
   {
-    q: "Does the discount apply to add-ons?",
-    a: `Members save ${PASS_ADDON_DISCOUNT}% on eligible add-ons. We quote add-ons and extra condition work before the visit and bill them separately.`,
+    q: "How fast can I book?",
+    a: `Gold members get a visit within ${GOLD.bookingWindowHrs} hours of asking and Silver members within ${SILVER.bookingWindowHrs} hours, subject to weather for mobile visits.`,
   },
   {
-    q: "What about SUVs and trucks?",
-    a: "Choose your vehicle class when you enroll. SUVs, three-row SUVs and minivans, and pickups each have their own published member price. Tell us about heavy condition or pet hair before the visit so we can quote any extra work first.",
+    q: "Can I add a second vehicle?",
+    a: `Yes. Add another vehicle to the same membership for ${money(SILVER.secondVehicle)}/month on Silver or ${money(GOLD.secondVehicle)}/month on Gold. It gets the full benefits of the tier.`,
   },
   {
-    q: "When do I pay?",
-    a: "Keep a card on file. The first cycle is charged when you enroll, before its included detail. Xpress initiates each later cycle charge before arranging that cycle's included visit. Prices shown are before GST.",
+    q: "Can I cancel?",
+    a: PASS_COPY.terms[0].body,
   },
   {
-    q: "What if I miss a visit?",
-    a: "A visit can be moved free with at least 24 hours' notice. Contact us before missing a cycle so we can agree on the next available visit; a pause follows the once-per-year policy above.",
+    q: "What about SUVs, minivans and trucks?",
+    a: "Pick your vehicle class above to see its monthly price. Tell us about heavy condition or pet hair before a visit so we can quote any extra work first.",
   },
 ];
 
 const PROCESS = [
-  { title: "Choose your plan", body: "Pick your plan and vehicle class, review the six-month commitment, and add a card on file." },
-  { title: "Pay and schedule", body: "The first cycle is charged at enrollment. Xpress initiates later charges; each paid cycle includes one visit to schedule." },
-  { title: "We come to you", body: "Mobile service in Calgary, Airdrie, Cochrane and Chestermere. Other locations are reviewed by photo first." },
+  { title: "Choose your tier", body: `Pick Silver or Gold and your vehicle class, then call us to join. ${PASS_TERM_MONTHS}-month term, card on file.` },
+  { title: "Book your included visits", body: "Book each visit when it suits you. Members get priority booking." },
+  { title: "We come to you, or you come to us", body: `Mobile with no $${MOBILE_FEE} fee, or drop off at our heated Airdrie shop.` },
 ];
 
 const MonthlyPlan = () => {
@@ -69,7 +60,7 @@ const MonthlyPlan = () => {
       <div className="min-h-screen bg-canvas">
         <SEO
           title="The Xpress Pass | Detailing Membership Calgary"
-          description={`Xpress Pass recurring mobile detailing. One included visit every 4, 8 or 13 weeks, with a six-month initial commitment and ${PASS_ADDON_DISCOUNT}% off eligible add-ons.`}
+          description={`Xpress Pass Silver and Gold detailing memberships in Calgary and Airdrie. Included details every season, up to ${GOLD.detailDiscount}% off everything else, priority booking and no mobile fee.`}
           canonical="/xpress-pass"
           jsonLd={[buildFAQJsonLd(monthlyFAQs)]}
         />
@@ -81,11 +72,10 @@ const MonthlyPlan = () => {
             <div className="max-w-[38rem]">
               <p className="eyebrow mb-4">Membership · Xpress Pass</p>
               <h1 className="font-heading text-[2.6rem] font-extrabold leading-[0.98] tracking-display text-ink sm:text-6xl lg:text-[4.25rem]">
-                Keep it detailed, automatically.
+                Keep it detailed, all year.
               </h1>
               <p className="mt-6 text-base leading-relaxed text-ink-2 sm:text-lg">
-                A detailing membership for one vehicle, with an included visit every 4, 8 or 13 weeks.
-                Keep a card on file and enjoy {PASS_ADDON_DISCOUNT}% off eligible add-ons. Six-month initial commitment.
+                {PASS_COPY.subtitle}
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <QuoteLink className={`${btnPrimary} min-h-[52px] px-7`} />
@@ -115,19 +105,19 @@ const MonthlyPlan = () => {
         <Section id="plans">
           <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-xl">
-              <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Plans</h2>
+              <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Silver and Gold</h2>
               <p className="mt-4 text-[15px] leading-relaxed text-ink-2">
-                Prices are before GST. Your first cycle is charged at enrollment; Xpress initiates later cycle charges before each included visit.
+                Monthly price per vehicle, before GST. Values are our regular published prices.
               </p>
             </div>
-            <div role="tablist" aria-label="Vehicle size" className="flex w-full shrink-0 gap-1 rounded-md border border-line bg-surface p-1 sm:w-fit">
+            <div role="tablist" aria-label="Vehicle size" className="flex w-full shrink-0 gap-1 rounded-full border border-line bg-surface p-1 sm:w-fit">
               {PASS_SIZES.map((s) => (
                 <button
                   key={s.id}
                   role="tab"
                   aria-selected={size === s.id}
                   onClick={() => setSize(s.id)}
-                  className={`flex-1 rounded px-3 py-2 text-xs font-semibold transition-colors sm:flex-none sm:px-4 sm:text-sm ${
+                  className={`flex-1 rounded-full px-3 py-2 text-xs font-semibold transition-colors sm:flex-none sm:px-4 sm:text-sm ${
                     size === s.id ? "bg-electric text-primary-foreground" : "text-ink-2 hover:text-ink"
                   }`}
                 >
@@ -137,47 +127,80 @@ const MonthlyPlan = () => {
             </div>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="mx-auto grid max-w-5xl items-start gap-6 md:grid-cols-2">
             {XPRESS_PASS.map((plan) => {
-              const pkg = AUTO_PACKAGES.find((p) => p.name === plan.service);
+              const copy = PASS_COPY.tiers[plan.id];
+              const value = passAnnualValue(plan.id, size);
               return (
                 <article
                   key={plan.id}
-                  className={`relative flex flex-col overflow-hidden rounded-card border bg-surface p-6 sm:p-7 ${
-                    plan.popular ? "border-electric" : "border-line"
-                  }`}
+                  data-tier={plan.id}
+                  className={`bf-card flex flex-col overflow-hidden rounded-card border bg-canvas ${plan.popular ? "bf-card-popular border-electric" : "border-line"}`}
                 >
-                  {plan.popular && <span aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-electric" />}
-                  <p className={`text-xs font-medium ${plan.popular ? "text-electric" : "text-muted-ink"}`}>
-                    {plan.frequency}
-                    {plan.popular ? ", most popular" : ""}
-                  </p>
-                  <h3 className="mt-1 font-heading text-2xl font-semibold text-ink">{plan.name}</h3>
-                  <p className="mt-1 text-sm text-ink-2">
-                    {plan.id === "maintain" ? "Members-only Upkeep" : `${plan.service}, ${plan.discount}% off the regular price`}
-                  </p>
-                  <p className="mt-5">
-                    <span className="font-heading text-4xl font-semibold tracking-tight tabular-nums text-ink">
-                      {money(plan.memberPrice[size])}
-                    </span>
-                    <span className="text-sm text-muted-ink"> / cycle + GST</span>
-                    {pkg && plan.id !== "maintain" && <span className="ml-2 text-sm text-muted-ink line-through">{money(pkg.price[size])}</span>}
-                  </p>
-                  <ul className="mt-6 flex-1 space-y-2.5">
-                    {(pkg?.includes ?? []).map((inc) => (
-                      <li key={inc} className="flex gap-2 text-sm text-ink-2">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-electric" aria-hidden="true" />
-                        {inc}
-                      </li>
-                    ))}
-                    <li className="flex gap-2 text-sm font-semibold text-ink">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-electric" aria-hidden="true" />
-                      {PASS_ADDON_DISCOUNT}% off every add-on
-                    </li>
-                  </ul>
-                  <a href={NAP.phoneHref} className={`${plan.popular ? btnPrimary : btnSecondary} mt-7`}>
-                    Join {plan.name}
-                  </a>
+                  <div className="bf-tier-stripe h-2" aria-hidden="true" />
+                  <div className="flex flex-1 flex-col p-6 sm:p-8">
+                    <div className="flex items-center justify-between gap-2">
+                      <h3 className="font-heading text-3xl font-bold text-ink">{plan.name}</h3>
+                      {plan.popular && <span className="rounded-full bg-electric px-3 py-1 text-xs font-semibold text-primary-foreground">Best value</span>}
+                    </div>
+                    <p className="mt-4 text-xs font-bold uppercase tracking-widest text-electric">Goal</p>
+                    <p className="mt-1 text-xl font-bold leading-tight text-ink">{copy.goal}</p>
+                    <p className="mt-2 text-sm leading-snug text-muted-ink">{copy.goalBody}</p>
+
+                    <div className="mt-6 rounded-md bg-surface p-5">
+                      <p>
+                        <span className="font-heading text-5xl font-extrabold tracking-tight tabular-nums text-ink">{money(plan.monthly[size])}</span>
+                        <span className="text-sm text-muted-ink"> / month + GST</span>
+                      </p>
+                      <p className="mt-2 text-sm text-ink-2">
+                        You get <span className="font-semibold text-ink">{money(value.included)}</span> of included work a year for {money(value.cost)}.
+                      </p>
+                      <p className="mt-3 inline-flex rounded-full bg-electric/10 px-3 py-1 text-sm font-bold tabular-nums text-electric">
+                        {money(value.net)} ahead every year
+                      </p>
+                    </div>
+
+                    <div className="mt-6">
+                      <div className="flex items-baseline justify-between border-b border-line pb-2 text-xs font-semibold uppercase tracking-wider text-muted-ink">
+                        <span>Included every year</span>
+                        <span>Regular value</span>
+                      </div>
+                      <ul className="divide-y divide-line">
+                        {[...value.items, { item: "mobile" as const, qty: passVisitsPerYear(plan), value: value.mobile }]
+                          .sort((a, b) => a.value - b.value)
+                          .map((i) => (
+                            <li key={i.item} className="flex items-start gap-3 py-3 text-[15px] leading-snug text-ink-2">
+                              <Check className="mt-0.5 h-4 w-4 shrink-0 text-electric" aria-hidden="true" />
+                              <span className="flex-1">
+                                {i.item === "mobile"
+                                  ? `$${MOBILE_FEE} mobile fee waived on ${i.qty} visits`
+                                  : `${i.qty > 1 ? `${i.qty} ` : ""}${PASS_COPY.items[i.item]}`}
+                              </span>
+                              <span className="shrink-0 font-semibold tabular-nums text-ink">{money(i.value)}</span>
+                            </li>
+                          ))}
+                      </ul>
+                    </div>
+
+                    <p className="mt-6 text-xs font-semibold uppercase tracking-wider text-muted-ink">Member benefits</p>
+                    <ul className="mt-3 space-y-2.5">
+                      {copy.perks.map((perk) => (
+                        <li key={perk} className="flex gap-3 text-[15px] leading-snug text-ink-2">
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-electric" aria-hidden="true" />
+                          {perk}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <p className="mt-6 border-t border-line pt-4 text-sm text-ink-2">
+                      <span className="font-semibold text-ink">Second vehicle:</span> add it for {money(plan.secondVehicle)}/month.
+                    </p>
+
+                    <a href={NAP.phoneHref} className={`${plan.popular ? btnPrimary : btnSecondary} mt-6 min-h-[52px]`}>
+                      <Phone className="h-4 w-4" aria-hidden="true" />
+                      Call to join {plan.name}
+                    </a>
+                  </div>
                 </article>
               );
             })}
@@ -185,12 +208,12 @@ const MonthlyPlan = () => {
         </Section>
 
         <Section tone="dark">
-          <SectionHeading dark title="Every plan includes" />
+          <SectionHeading dark title="Membership terms" />
           <dl className="grid gap-px overflow-hidden rounded-card bg-primary-foreground/10 sm:grid-cols-2">
-            {PERKS.map((p) => (
-              <div key={p.title} className="bg-charcoal p-7 first:sm:col-span-2">
-                <dt className="font-heading text-lg font-semibold text-primary-foreground">{p.title}</dt>
-                <dd className="mt-2 text-[15px] leading-relaxed text-primary-foreground/70">{p.body}</dd>
+            {PASS_COPY.terms.map((t) => (
+              <div key={t.title} className="bg-charcoal p-7">
+                <dt className="font-heading text-lg font-semibold text-primary-foreground">{t.title}</dt>
+                <dd className="mt-2 text-[15px] leading-relaxed text-primary-foreground/70">{t.body}</dd>
               </div>
             ))}
           </dl>
@@ -215,7 +238,7 @@ const MonthlyPlan = () => {
 
         <ClosingCTA
           title="Keep it clean on a schedule"
-          body="Choose a plan for your vehicle and we’ll arrange one included detail for each paid cycle."
+          body="Pick Silver or Gold, and we'll book your first included detail."
           mode="quote"
           quoteHref="#plans"
           quoteLabel="See the plans"

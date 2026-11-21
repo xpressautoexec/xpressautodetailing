@@ -6,7 +6,7 @@ import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import PageTransition from "@/components/PageTransition";
-import { NAP } from "@/data/copy";
+import { NAP, MOBILE_FEE_NOTE } from "@/data/copy";
 
 const TermsOfService = () => (
   <PageTransition>
@@ -131,6 +131,7 @@ const TermsOfService = () => (
             <div>
               <h2 className="font-heading text-xl font-semibold text-ink mb-3">9. Marine, Pontoon, RV & Trailer Services</h2>
               <p className="mb-2">Pricing for marine, pontoon, RV, and trailer services is typically quoted by length (per foot), per side, or per unit as specified in the estimator. Final invoices are calculated on measured length and confirmed scope at the time of service.</p>
+              <p className="mb-2">{MOBILE_FEE_NOTE} The mobile service fee applies to every mobile visit, including car detailing.</p>
               <p>Aluminum pontoon restoration, oxidation removal, and decal restoration are cosmetic services. Results depend on substrate condition and are not guaranteed to remove all oxidation, staining, or pre-existing damage.</p>
             </div>
 

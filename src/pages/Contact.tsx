@@ -7,10 +7,9 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import { Section } from "@/components/site/Section";
 import QuoteForm from "@/components/QuoteForm";
 import SEO, { buildFAQJsonLd } from "@/components/SEO";
-import { PASS_ADDON_DISCOUNT, XPRESS_PASS } from "@/data/pricing";
+import { PASS_MIN_DETAIL_DISCOUNT, PASS_MAX_DETAIL_DISCOUNT, MOBILE_FEE } from "@/data/pricing";
 import { CANCELLATION_SUMMARY, NAP, SERVICE_AREA_SENTENCE } from "@/data/copy";
 
-const maxPass = Math.max(...XPRESS_PASS.map((p) => p.discount));
 
 const contactFAQs = [
   { q: "What areas do you serve?", a: `${SERVICE_AREA_SENTENCE}. Just outside those areas? Call and ask.` },
@@ -21,7 +20,7 @@ const contactFAQs = [
   { q: "What's your cancellation policy?", a: CANCELLATION_SUMMARY },
   {
     q: "Do you offer recurring service discounts?",
-    a: `Yes. The Xpress Pass saves up to ${maxPass}% on scheduled visits plus ${PASS_ADDON_DISCOUNT}% off add-ons, with no contract.`,
+    a: `Yes. The Xpress Pass (Silver or Gold) includes details every season, ${PASS_MIN_DETAIL_DISCOUNT}–${PASS_MAX_DETAIL_DISCOUNT}% off everything else, priority booking and no $${MOBILE_FEE} mobile fee. 12-month membership, billed monthly.`,
   },
   {
     q: "What payment methods do you accept?",

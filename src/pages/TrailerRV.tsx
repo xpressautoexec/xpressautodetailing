@@ -45,7 +45,7 @@ import {
   monthlyPayment,
   fielddUrl,
 } from "@/data/pricing";
-import { WATER_LINE } from "@/data/copy";
+import { WATER_LINE, MOBILE_FEE_NOTE } from "@/data/copy";
 
 /** Maps each bundle's included services to calculator ids so the estimator never double counts. */
 const ESTIMATOR_BUNDLES = RV_BUNDLES.map((b) => ({
@@ -754,7 +754,10 @@ const TrailerRV = () => (
               {CTA.rv}
             </QuoteLink>
           </div>
-          <RvLengthEstimate />
+          <div>
+            <RvLengthEstimate />
+            <p className="mt-3 text-xs text-muted-ink">{MOBILE_FEE_NOTE}</p>
+          </div>
         </div>
       </section>
 
