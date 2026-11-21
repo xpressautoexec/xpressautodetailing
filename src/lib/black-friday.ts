@@ -56,7 +56,7 @@ export type BlackFridayPackageId = keyof typeof BLACK_FRIDAY_PRICES;
 
 export const blackFridayPrice = (id: BlackFridayPackageId, size: BlackFridaySize) => {
   const sale = BLACK_FRIDAY_PRICES[id][size];
-  const items = BLACK_FRIDAY_PACKAGE_ITEMS[id].map((item) => ({ id: item as BlackFridayItemId, value: blackFridayItemValue(item, size) }));
+  const items = BLACK_FRIDAY_PACKAGE_ITEMS[id].map((item) => ({ id: item as BlackFridayItemId, value: blackFridayItemValue(item, size) })).sort((a, b) => a.value - b.value);
   const regular = items.reduce((sum, item) => sum + item.value, 0);
   return { sale, regular, savings: regular - sale, discount: Math.round((1 - sale / regular) * 100), items };
 };
