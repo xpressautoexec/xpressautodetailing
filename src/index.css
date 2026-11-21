@@ -14,6 +14,12 @@
     --sale-blue: 224.4 76.3% 48%;
     --sale-white: 0 0% 100%;
     --sale-surface: 216 33.3% 97.1%;
+    --sale-bronze: 27 52% 48%;
+    --sale-bronze-light: 30 60% 70%;
+    --sale-silver: 215 12% 62%;
+    --sale-silver-light: 215 16% 86%;
+    --sale-gold: 42 78% 46%;
+    --sale-gold-light: 46 90% 70%;
     --sale-banner-h: 0px;
     --foreground: 216 14% 14%;
 
@@ -359,7 +365,27 @@
 .legacy-lp header.sticky { top: var(--sale-banner-h, 0px); }
 .black-friday-page { --primary: var(--sale-blue); --action: var(--sale-blue); --electric: var(--sale-blue); --tint: var(--sale-surface); --surface: var(--sale-surface); --border: 220 20% 92%; --line: var(--border); }
 .main-site .black-friday-page .bf-package-name { font-family: "Sofia Sans", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: 0; }
-.bf-sale-price { font-family: "Sofia Sans", sans-serif; font-weight: 700; font-size: 48px; line-height: 1; letter-spacing: 0; }
+/* Black Friday page: dark hero, tier stripes, value rows */
+.main-site .black-friday-page .bf-hero { background: radial-gradient(120% 90% at 50% 0%, hsl(var(--sale-blue) / .35) 0%, transparent 60%), hsl(var(--sale-charcoal)); color: hsl(var(--sale-white)); }
+.main-site .black-friday-page .bf-hero-title { font-family: "Unbounded", sans-serif; font-weight: 500; text-transform: uppercase; line-height: 1; color: hsl(var(--sale-white)); font-size: clamp(30px, 5vw, 64px); }
+.main-site .black-friday-page .bf-hero-deal { font-family: "Unbounded", sans-serif; font-weight: 600; text-transform: uppercase; line-height: 1; font-size: clamp(36px, 7vw, 88px); color: hsl(var(--sale-white)); }
+.bf-hero-accent { color: hsl(var(--sale-blue)); background: hsl(var(--sale-white)); padding: .05em .25em; border-radius: .12em; display: inline-block; }
+.bf-hero-sub { color: hsl(var(--sale-white) / .78); }
+.bf-eyebrow { background: hsl(var(--sale-blue)); color: hsl(var(--sale-white)); }
+.bf-count-tile { background: hsl(var(--sale-white) / .08); border: 1px solid hsl(var(--sale-white) / .18); color: hsl(var(--sale-white)); }
+.bf-goal-chip { background: hsl(var(--sale-white) / .06); border: 1px solid hsl(var(--sale-white) / .18); border-top: 3px solid var(--tier-color); color: hsl(var(--sale-white)); transition: background .15s, border-color .15s; }
+.bf-goal-chip:hover { background: hsl(var(--sale-white) / .12); }
+.bf-goal-chip-tier { color: var(--tier-light); }
+[data-tier="bronze"] { --tier-color: hsl(var(--sale-bronze)); --tier-light: hsl(var(--sale-bronze-light)); }
+[data-tier="silver"] { --tier-color: hsl(var(--sale-silver)); --tier-light: hsl(var(--sale-silver-light)); }
+[data-tier="gold"] { --tier-color: hsl(var(--sale-gold)); --tier-light: hsl(var(--sale-gold-light)); }
+.bf-tier-stripe { background: linear-gradient(90deg, var(--tier-color), var(--tier-light), var(--tier-color)); }
+.bf-card { box-shadow: 0 1px 2px hsl(var(--sale-charcoal) / .06); }
+.bf-card-popular { box-shadow: 0 0 0 2px hsl(var(--sale-blue)), 0 24px 48px -20px hsl(var(--sale-blue) / .45); }
+@media (min-width: 1024px) { .bf-card-popular { transform: translateY(-12px); } }
+.bf-price-panel { background: hsl(var(--sale-surface)); }
+.bf-save-pill { background: hsl(var(--sale-blue)); color: hsl(var(--sale-white)); }
+.bf-sale-price { font-family: "Sofia Sans", sans-serif; font-weight: 800; font-size: 56px; line-height: 1; letter-spacing: 0; }
 html { scroll-padding-top: calc(var(--header-h) + var(--sale-banner-h, 0px) + 1rem); }
 @media (min-width: 1024px) and (max-width: 1279px) {
   .main-site:has(.bf-banner) .site-header .shell { gap: .5rem; }
