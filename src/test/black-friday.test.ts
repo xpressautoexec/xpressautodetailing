@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { blackFridayCountdown, blackFridayPrice, BLACK_FRIDAY_DEADLINE, BLACK_FRIDAY_DISMISS_MS, isBlackFridayActive, isBlackFridayBannerVisible } from "@/lib/black-friday";
+import { blackFridayCountdown, blackFridayMaxDiscount, blackFridayPrice, BLACK_FRIDAY_DEADLINE, BLACK_FRIDAY_DISMISS_MS, isBlackFridayActive, isBlackFridayBannerVisible } from "@/lib/black-friday";
+import { BLACK_FRIDAY_PRICES } from "@/data/pricing";
 
 describe("Black Friday sale rules", () => {
   it("ends at the supplied Mountain Time deadline", () => {
@@ -18,13 +19,21 @@ describe("Black Friday sale rules", () => {
     expect(isBlackFridayBannerVisible(dismissed + 86400000, dismissed)).toBe(true);
     expect(isBlackFridayBannerVisible(BLACK_FRIDAY_DEADLINE + 1, null)).toBe(false);
   });
+  it.each(["bronze", "silver", "gold"] as const)("%s sedan line items add up to the owner's regular price and discount", (id) => {
+    const price = blackFridayPrice(id, "sedan");
+    expect(price.sale).toBe(BLACK_FRIDAY_PRICES[id].sedan);
+    expect(price.regular).toBe(BLACK_FRIDAY_PRICES[id].regular);
+    expect(price.discount).toBe(BLACK_FRIDAY_PRICES[id].discount);
+    expect(price.savings).toBe(price.regular - price.sale);
+  });
   it.each([
-    ["bronze", 299, 349, 379, 559, 47],
-    ["silver", 749, 849, 949, 1187, 37],
-    ["gold", 1199, 1299, 1399, 1686, 29],
-  ] as const)("uses the supplied %s prices and sedan-only regular price", (id, sedan, suv, truck, regular, discount) => {
-    expect(blackFridayPrice(id, "sedan")).toEqual({ sale: sedan, regular, discount });
-    expect(blackFridayPrice(id, "suv")).toEqual({ sale: suv, regular: null, discount: null });
-    expect(blackFridayPrice(id, "truck")).toEqual({ sale: truck, regular: null, discount: null });
+    ["bronze", "suv", 349, 609], ["bronze", "truck", 379, 649],
+    ["silver", "suv", 849, 1337], ["silver", "truck", 949, 1477],
+    ["gold", "suv", 1299, 1896], ["gold", "truck", 1399, 2066],
+  ] as const)("%s %s reads published prices for larger vehicles", (id, size, sale, regular) => {
+    expect(blackFridayPrice(id, size)).toMatchObject({ sale, regular, savings: regular - sale });
+  });
+  it("advertises the real maximum discount", () => {
+    expect(blackFridayMaxDiscount()).toBe(47);
   });
 });

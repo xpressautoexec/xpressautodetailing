@@ -37,6 +37,20 @@ export const BLACK_FRIDAY_PRICES = {
   silver: { sedan: 749, suv: 849, truck: 949, regular: 1187, discount: 37 },
   gold: { sedan: 1199, suv: 1299, truck: 1399, regular: 1686, discount: 29 },
 } as const;
+/** Line items inside the Black Friday packages (labels live in BLACK_FRIDAY_COPY.items). */
+export const BLACK_FRIDAY_PACKAGE_ITEMS = {
+  bronze: ["insideOut", "engineBay", "headlights", "glassCeramic"],
+  silver: ["insideOut", "engineBay", "windshieldFilm", "headlightsFilm", "glassCeramic"],
+  gold: ["insideOut", "engineBay", "headlights", "partialPpf", "correction", "windshieldFilm"],
+} as const;
+export type BlackFridayItemId = (typeof BLACK_FRIDAY_PACKAGE_ITEMS)[keyof typeof BLACK_FRIDAY_PACKAGE_ITEMS][number];
+/**
+ * Regular price of each package item, used for the "value" column. glassCeramic, headlightsFilm and
+ * correction have no standalone listing; they are solved from the owner's sedan regular totals above
+ * (559 / 1187 / 1686) and held flat for larger vehicles, which understates the value there. Everything
+ * else reads the published price for that size, so values track the rest of the site.
+ */
+export const BLACK_FRIDAY_UNLISTED_VALUES = { glassCeramic: 150, headlightsFilm: 269, correction: 199 } as const;
 /**
  * Fieldd booking shortlink keys (Fieldd > Settings > Services > Booking Shortlink).
  * Each opens booking straight on that service, so customers skip the service picker.
