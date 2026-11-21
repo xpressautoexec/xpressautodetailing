@@ -33,7 +33,7 @@ const TERMS = [
   { title: "Per-unit rate", body: "A written rate per vehicle type, set after the yard walk." },
   { title: "Rotation schedule", body: "Weekly, bi-weekly or monthly, planned around your shifts." },
   { title: "Off-hours service", body: "Early morning, evening or weekend so units stay on the road." },
-  { title: "Monthly invoicing", body: "One invoice with a per-unit breakdown, on net terms." },
+  { title: "Invoicing your way", body: "Per-unit invoices, or one invoice with a per-unit breakdown. Net terms are agreed after the yard walk." },
   { title: "Own water and power", body: WATER_LINE },
   { title: "$2M liability", body: "Commercial liability coverage on every visit." },
   { title: "Yard walk first", body: "We count units and note condition before any price." },
@@ -44,7 +44,7 @@ const HOW = [
   { title: "Yard walk", body: "We visit, count units and note vehicle types and condition." },
   { title: "Written rate", body: "You get a per-unit rate and a proposed schedule, in writing." },
   { title: "On rotation", body: "We show up on schedule with our own water and power." },
-  { title: "One invoice", body: "A single monthly invoice with a per-unit breakdown." },
+  { title: "Per-unit or one invoice", body: "A separate invoice for each unit, or one invoice with a per-unit breakdown." },
 ];
 
 const faqs = [
@@ -57,7 +57,7 @@ const faqs = [
     q: "Can you work outside business hours?",
     a: "Yes. Most fleet work happens early morning, evenings or weekends so vehicles aren't pulled off the road during the day.",
   },
-  { q: "Do you invoice monthly?", a: "Yes. Fleet accounts are invoiced monthly with a per-unit breakdown and net terms." },
+  { q: "How do you invoice fleet accounts?", a: "Per unit, or on one invoice with a per-unit breakdown, whichever suits your accounts team. Net terms are agreed after the yard walk." },
   {
     q: "What's the minimum fleet size?",
     a: "There's no hard minimum, but scheduled rotations make the most sense from about five units up. For one or two work trucks, see our work truck package on the detailing page.",
@@ -69,7 +69,7 @@ const CorporateFleet = () => (
     <div className="min-h-screen bg-canvas">
       <SEO
         title="Fleet & Dealership Detailing Calgary"
-        description="On-site fleet washing and detailing in Calgary for work trucks, dealership lots and heavy equipment. Per-unit rates, scheduled rotations, monthly invoicing."
+        description="On-site fleet washing and detailing in Calgary for work trucks, dealership lots and heavy equipment. Per-unit rates, scheduled rotations, per-unit or single invoicing."
         canonical="/fleet"
         jsonLd={[
           buildServiceJsonLd("Fleet & Dealership Detailing", "On-site fleet and dealership vehicle detailing across Calgary and area.", "/fleet"),
@@ -81,7 +81,7 @@ const CorporateFleet = () => (
       <ServicePageHero
         eyebrow="For business"
         title="Clean units. On schedule. One invoice."
-        subtitle={`The ${SYSTEMS.fleet.tm}: fleet washing in Calgary, Airdrie and surrounding areas, on your own lot, on a per-unit rate in writing, with one monthly invoice.`}
+        subtitle={`The ${SYSTEMS.fleet.tm}: fleet washing in Calgary, Airdrie and surrounding areas, on your own lot, on a per-unit rate in writing, with per-unit or single invoicing.`}
         image={fleetHero}
         ctaType="call"
         quoteLabel={CTA.fleet}
@@ -123,7 +123,7 @@ const CorporateFleet = () => (
       <Section id="how" className="scroll-mt-24">
         <SectionHeading
           eyebrow="How it works"
-          title="Yard walk to monthly invoice."
+          title="Yard walk to invoice."
           intro="Fleet pricing is quoted per unit. There's no published rate card because no two fleets are alike."
         />
         <ProcessSteps steps={HOW} />

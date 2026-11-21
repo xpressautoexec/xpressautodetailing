@@ -16,7 +16,7 @@ const STEPS = [
   { icon: Building2, title: "Yard walk", body: "We visit, count units and note vehicle types and condition." },
   { icon: FileText, title: "Written rate", body: "You get a per-unit rate and a proposed schedule, in writing." },
   { icon: CalendarClock, title: "Off-hours rotation", body: "Early morning, evening or weekend, so trucks aren't pulled off the road." },
-  { icon: Receipt, title: "One monthly invoice", body: "A single invoice with a per-unit breakdown and net terms." },
+  { icon: Receipt, title: "Invoicing your way", body: "Per-unit invoices, or one invoice with a per-unit breakdown. Net terms are agreed after the yard walk." },
 ];
 
 const faqs = [
@@ -29,14 +29,14 @@ const faqs = [
     q: "Can you work outside business hours?",
     a: "Yes. Most fleet work happens early morning, evenings or weekends so vehicles aren't pulled off the road during the day.",
   },
-  { q: "Do you invoice monthly?", a: "Yes. Fleet accounts are invoiced monthly with a per-unit breakdown and net terms." },
+  { q: "How do you invoice fleet accounts?", a: "Per unit, or on one invoice with a per-unit breakdown, whichever suits your accounts team. Net terms are agreed after the yard walk." },
 ];
 
 /** Paid-ad landing page: fleet and dealership accounts. */
 const FleetLp = () => (
   <LpShell
     title="Fleet Detailing Calgary | Per-Unit Rates, Monthly Invoicing"
-    description="On-site fleet washing and detailing for work trucks, vans, dealer inventory and heavy equipment. Per-unit rates in writing, off-hours rotations, one monthly invoice."
+    description="On-site fleet washing and detailing for work trucks, vans, dealer inventory and heavy equipment. Per-unit rates in writing, off-hours rotations, per-unit or single invoicing."
     canonical="/lp/fleet"
     quoteLabel="Yard walk"
   >
@@ -44,7 +44,7 @@ const FleetLp = () => (
       eyebrow="Fleet & dealership accounts"
       title="Your fleet, cleaned on your lot — on a written per-unit rate."
       sub="Work trucks, vans, dealer inventory and heavy equipment in Calgary, Airdrie and surrounding areas, washed and detailed where they park. Our vans bring their own water and power."
-      points={["Per-unit rates in writing", "Off-hours rotations: early, evening or weekend", "One monthly invoice with a per-unit breakdown"]}
+      points={["Per-unit rates in writing", "Off-hours rotations: early, evening or weekend", "Per-unit invoices or one invoice with a per-unit breakdown"]}
       image={{ small, large, alt: "Ford Transit fleet van during on-site cleaning" }}
       form={
         <QuoteForm
@@ -62,7 +62,7 @@ const FleetLp = () => (
         { strong: FIVE_STAR_REVIEWS, rest: "five-star Google reviews" },
         { strong: COVERAGE.replace(/ liability coverage$/, ""), rest: "liability coverage" },
         { strong: "Per unit", rest: "rates in writing" },
-        { strong: "Monthly", rest: "invoicing, net terms" },
+        { strong: "Net terms", rest: "agreed after the yard walk" },
       ]}
     />
 

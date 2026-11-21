@@ -25,6 +25,13 @@ import {
 
 type Rec = Record<string, any>;
 
+const FLEET_STEPS = [
+  { t: "Yard walk", d: "We visit your yard or lot, look at the units and talk through how often they need service." },
+  { t: "Per-unit rate in writing", d: "You get a written per-unit rate, a proposed rotation schedule and net terms that suit your accounts team." },
+  { t: "Off-hours rotations", d: "Early mornings, evenings or weekends, so units stay on the road." },
+  { t: "Invoicing your way", d: "A separate invoice for each unit, or one invoice with a per-unit breakdown. Net terms are agreed after the yard walk." },
+];
+
 /* ---------- quote_requests ---------- */
 
 export function quoteFacts(r: Rec) {
@@ -41,7 +48,8 @@ export function quoteFacts(r: Rec) {
           ? `Shop or mobile${r.area ? ` · ${r.area}` : ""}`
           : r.area;
   const isRv = /rv|trailer|motorhome|camper/i.test(String(category));
-  return { services, category, vehicle, where, isRv };
+  const isFleet = /fleet/i.test(String(category));
+  return { services, category, vehicle, where, isRv, isFleet };
 }
 
 export function quoteStaff(r: Rec, photos: { url: string }[]) {
@@ -127,7 +135,7 @@ export function quoteCustomer(r: Rec) {
       ),
       section(
         "What happens next",
-        steps([
+        f.isFleet ? steps(FLEET_STEPS) : steps([
           { t: "We review your request", d: "A real person on our team looks at your vehicle details, photos and notes." },
           {
             t: f.isRv ? "Your price, or a free assessment" : "You get your price",
@@ -215,12 +223,7 @@ export function contactCustomer(rec: Rec) {
       eyebrow: "Fleet inquiry received",
       title: `Thanks, ${name}.<br>Let's look at your fleet.`,
       intro: "Our team will reach out to learn about your units and book a yard walk, so your rate is based on what we actually see.",
-      steps: [
-        { t: "Yard walk", d: "We visit your yard or lot, look at the units and talk through how often they need service." },
-        { t: "Per-unit rate in writing", d: "You get a written per-unit rate with a proposed rotation schedule." },
-        { t: "Off-hours rotations", d: "Early mornings, evenings or weekends, so units stay on the road." },
-        { t: "Monthly invoicing", d: "One invoice with a per-unit breakdown for your accounts team." },
-      ],
+      steps: FLEET_STEPS,
       know: [
         { t: "Self-sufficient on site.", d: "Our vans bring their own water and power to your yard or lot." },
         { t: "Covered.", d: "$2M liability coverage on every job." },

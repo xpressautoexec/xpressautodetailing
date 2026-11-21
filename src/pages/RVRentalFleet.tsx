@@ -45,7 +45,7 @@ const faqs = [
     a: "A Turnover Basic on a mid-size unit is typically 1.5 to 2 hours. Turnover Plus runs 3 to 4 hours. We can run several units in parallel on larger jobs.",
   },
   { q: "Do you need power and water at the lot?", a: WATER_LINE },
-  { q: "Can we get monthly invoicing?", a: "Yes. Fleet and rental accounts are invoiced monthly with a per-unit breakdown." },
+  { q: "How do you invoice rental fleets?", a: "Per unit, or on one invoice with a per-unit breakdown, whichever suits your accounts team. Net terms are agreed after the yard walk." },
 ];
 
 const RVRentalFleet = () => (
@@ -55,7 +55,7 @@ const RVRentalFleet = () => (
         title="RV Rental Fleet Care Calgary"
         description={`Turnover cleaning and seasonal refresh for RV rental fleets in Calgary, from ${money(
           Math.min(...RV_FLEET.map((t) => t.price)),
-        )} per unit. Monthly invoicing, done at your lot.`}
+        )} per unit. Per-unit or single invoicing, done at your lot.`}
         canonical="/rv-trailer/rental-fleet"
         jsonLd={[
           buildServiceJsonLd("RV Rental Fleet Care", "Turnover cleaning and seasonal detailing for RV rental fleets in Calgary and area.", "/rv-trailer/rental-fleet"),
