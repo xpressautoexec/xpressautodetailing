@@ -24,6 +24,19 @@ export const PASS_SIZES: { id: PassSizeId; label: string }[] = [
 
 // ---------- ONLINE BOOKING (Fieldd) ----------
 export const BOOKING_URL = "https://xpressauto.fieldd.co/";
+
+// Owner-supplied Black Friday 2026 prices; regular prices exist for sedans only.
+export const BLACK_FRIDAY_SIZES = [
+  { id: "sedan", label: "Sedan/Coupe" },
+  { id: "suv", label: "SUV/Crossover" },
+  { id: "truck", label: "Pickup/Large SUV" },
+] as const;
+export type BlackFridaySize = (typeof BLACK_FRIDAY_SIZES)[number]["id"];
+export const BLACK_FRIDAY_PRICES = {
+  bronze: { sedan: 299, suv: 349, truck: 379, regular: 559, discount: 47 },
+  silver: { sedan: 749, suv: 849, truck: 949, regular: 1187, discount: 37 },
+  gold: { sedan: 1199, suv: 1299, truck: 1399, regular: 1686, discount: 29 },
+} as const;
 /**
  * Fieldd booking shortlink keys (Fieldd > Settings > Services > Booking Shortlink).
  * Each opens booking straight on that service, so customers skip the service picker.

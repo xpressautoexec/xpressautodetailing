@@ -47,6 +47,8 @@ Build: `npm run build` = client build + SSR build of `src/entry-server.tsx` +
 
 ## Blog
 
+- Time-limited promotions keep prices in pricing.ts and copy in copy.ts, share a client-clock hook, and use isolated seasonal tokens so expiration and styling stay consistent across page, banner and navigation.
+
 Posts are JSON files in `src/content/blog/<slug>.json` (schema in `src/data/blog.ts`). Adding a
 file is all it takes: page, /blog card, prerender and sitemap entry are automatic. No prices,
 invented stats, testimonials or case studies in posts; link to the service page instead.

@@ -5,6 +5,8 @@ import { MEGA_NAV, type NavGroup } from "@/data/navigation";
 import { PHONE } from "@/data/pricing";
 import QuoteLink, { TEL_HREF } from "@/components/site/QuoteLink";
 import SiteSearch from "@/components/site/SiteSearch";
+import { useBlackFriday } from "@/hooks/useBlackFriday";
+import { Button } from "@/components/ui/button";
 
 const strip = (href: string) => href.split(/[?#]/)[0];
 const isActive = (pathname: string, href: string) => {
@@ -20,6 +22,7 @@ const groupActive = (pathname: string, g: NavGroup) =>
  * Each item opens a full-width gradient panel whose angled bottom edge slides over the hero.
  */
 const Navbar = () => {
+  const { active: blackFridayActive } = useBlackFriday();
   const [open, setOpen] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -66,7 +69,7 @@ const Navbar = () => {
   const active = MEGA_NAV.find((g) => g.label === open);
 
   return (
-    <header ref={headerRef} className="site-header sticky top-0 z-50 bg-canvas">
+    <header ref={headerRef} className="site-header sticky top-[var(--sale-banner-h,0px)] z-50 bg-canvas">
       <div className="shell flex h-header items-center justify-between gap-4">
         <Link to="/" className="shrink-0" aria-label="Xpress Auto & RV Detailing home">
           <img
@@ -79,6 +82,7 @@ const Navbar = () => {
         </Link>
 
         <nav aria-label="Main" className="hidden h-full items-stretch lg:flex">
+          {blackFridayActive && <Button asChild variant="link" className="bf-nav-link h-full px-2 text-xs xl:px-3"><Link to="/black-friday" aria-current={pathname === "/black-friday" ? "page" : undefined}>Black Friday</Link></Button>}
           {MEGA_NAV.map((g) => {
             const isOpen = open === g.label;
             const current = groupActive(pathname, g);
@@ -193,12 +197,13 @@ const Navbar = () => {
       {mobileOpen && (
         <nav
           aria-label="Mobile"
-          className="mega-panel-mobile fixed inset-x-0 bottom-0 top-[var(--header-h)] z-50 overflow-y-auto lg:hidden"
+          className="mega-panel-mobile fixed inset-x-0 bottom-0 top-[calc(var(--header-h)+var(--sale-banner-h,0px))] z-50 overflow-y-auto lg:hidden"
         >
           <div className="shell pb-[calc(var(--mobile-bar-h)+2rem)] pt-4">
             {!mobileGroup ? (
               <>
                 <ul>
+                  {blackFridayActive && <li className="border-b border-line"><Button asChild variant="link" className="bf-nav-link min-h-[60px] w-full justify-between px-0 text-lg"><Link to="/black-friday">Black Friday<ArrowRight className="h-5 w-5" aria-hidden="true" /></Link></Button></li>}
                   {MEGA_NAV.map((g) => (
                     <li key={g.label} className="border-b border-line">
                       <button

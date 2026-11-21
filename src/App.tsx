@@ -1,4 +1,5 @@
 import BookingAssistant from "@/components/BookingAssistant";
+import BlackFridayBanner from "@/components/BlackFridayBanner";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -42,6 +43,7 @@ const lazyPage = (loader: () => Promise<PageModule>) => {
 };
 
 const Detailing = lazyPage(() => import("./pages/Detailing"));
+const BlackFriday = lazyPage(() => import("./pages/BlackFriday"));
 
 const PaintCeramics = lazyPage(() => import("./pages/PaintCeramics"));
 const CorporateFleet = lazyPage(() => import("./pages/CorporateFleet"));
@@ -127,9 +129,11 @@ export const AnimatedRoutes = () => {
         location.pathname.startsWith("/lp/") ? "legacy-lp" : "main-site"
       }
     >
+      <BlackFridayBanner />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Index />} />
+          <Route path="/black-friday" element={<BlackFriday />} />
           <Route path="/detailing" element={<Detailing />} />
           <Route
             path="/interior-detailing"
@@ -294,6 +298,7 @@ export const RouteFallback = () => <div className="min-h-screen bg-canvas" />;
 
 /** Lazy pages by path, for preloading the current page before hydration. */
 const PRELOAD: [string, { preload: () => Promise<unknown> }][] = [
+  ["/black-friday", BlackFriday],
   ["/warranty", Warranty],
   ["/lease-return", LeaseReturn],
   ["/lp/interior-detailing", InteriorLp],

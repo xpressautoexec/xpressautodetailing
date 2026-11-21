@@ -10,6 +10,11 @@
        Electric blue #1D4ED8 is the single accent. Charcoal #1F2329 for text
        and at most one or two high-contrast bands per page. */
     --background: 0 0% 100%;
+    --sale-charcoal: 220 14% 14%;
+    --sale-blue: 224.4 76.3% 48%;
+    --sale-white: 0 0% 100%;
+    --sale-surface: 216 33.3% 97.1%;
+    --sale-banner-h: 0px;
     --foreground: 216 14% 14%;
 
     --card: 0 0% 100%;
@@ -343,3 +348,21 @@
 .main-site .display-xl { font-family: "Unbounded", sans-serif; font-weight: 500; text-transform: uppercase; color: hsl(var(--ink)); line-height: 1; font-size: clamp(34px, 4.2vw, 72px); }
 .main-site .cutout { filter: drop-shadow(0 24px 22px hsl(var(--dark) / .35)); }
 @media (min-width: 640px) { .main-site .why-icon { width: 88px; height: 88px; } }
+
+/* Seasonal promotion: isolated tokens keep all regular pages unchanged. */
+.bf-banner { background: hsl(var(--sale-charcoal)); color: hsl(var(--sale-white)); font-family: "Sofia Sans", sans-serif; }
+.bf-banner .bf-banner-link { background: hsl(var(--sale-blue)); color: hsl(var(--sale-white)); min-height: 0; }
+.bf-banner .bf-banner-link:hover { background: hsl(var(--sale-blue) / .85); }
+.bf-banner .bf-dismiss { color: hsl(var(--sale-white)); }
+.bf-banner .bf-dismiss:hover { background: hsl(var(--sale-white) / .12); }
+.main-site .bf-nav-link { color: hsl(var(--sale-blue)); font-weight: 700; letter-spacing: 0; white-space: nowrap; }
+.legacy-lp header.sticky { top: var(--sale-banner-h, 0px); }
+.black-friday-page { --primary: var(--sale-blue); --action: var(--sale-blue); --electric: var(--sale-blue); --tint: var(--sale-surface); --surface: var(--sale-surface); --border: 220 20% 92%; --line: var(--border); }
+.main-site .black-friday-page .bf-package-name { font-family: "Sofia Sans", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: 0; }
+.bf-sale-price { font-family: "Sofia Sans", sans-serif; font-weight: 700; font-size: 48px; line-height: 1; letter-spacing: 0; }
+html { scroll-padding-top: calc(var(--header-h) + var(--sale-banner-h, 0px) + 1rem); }
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .main-site:has(.bf-banner) .site-header .shell { gap: .5rem; }
+  .main-site:has(.bf-banner) .site-header .nav-item { padding-inline: .4rem; letter-spacing: 0; }
+  .main-site:has(.bf-banner) .site-header .pill-action { padding-inline: 1rem; }
+}

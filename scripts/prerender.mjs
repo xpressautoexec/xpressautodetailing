@@ -21,6 +21,7 @@ const SSR_ENTRY = resolve(SSR_DIST, "entry-server.js");
 /** Every public route that should get its own static HTML file. */
 const ROUTES = [
   "/",
+  "/black-friday",
   "/detailing",
   "/auto-detailing",
   "/rv-detailing",
