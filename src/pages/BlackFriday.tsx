@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Check, Phone, Eye, ShieldCheck, Sun } from "lucide-react";
+import { CalendarCheck, Check, Phone, Eye, ShieldCheck, Sun } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AutoBreadcrumbs from "@/components/AutoBreadcrumbs";
@@ -93,13 +93,14 @@ const BlackFriday = () => {
                             </div>
                           </div>
                           <p className="mt-5 text-sm leading-snug text-muted-ink"><span className="font-semibold text-ink">Best for:</span> {pkg.bestFor}</p>
-                          <Button asChild size="lg" variant={pkg.popular ? "default" : "outline"} className="mt-6 rounded-full"><a href={TEL}><Phone aria-hidden="true" />Call to book {pkg.name}</a></Button>
+                          <Button asChild size="lg" className="mt-6 rounded-full"><a href={BOOKING_URL} target="_blank" rel="noopener noreferrer"><CalendarCheck aria-hidden="true" />Book {pkg.name} online</a></Button>
+                          <Button asChild size="lg" variant="outline" className="mt-3 rounded-full"><a href={TEL}><Phone aria-hidden="true" />Call {PHONE}</a></Button>
                         </div>
                       </article>
                     );
                   })}
                 </div>
-                <p className="mt-10 text-center text-sm text-muted-ink">{BLACK_FRIDAY_COPY.shopNote} Call {PHONE} or <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-action underline underline-offset-4">book online</a>.</p>
+                <p className="mt-10 text-center text-sm text-muted-ink">{BLACK_FRIDAY_COPY.shopNote} Online, pick your package under Black Friday Deals.</p>
                 <p className="mx-auto mt-4 max-w-4xl text-center text-xs leading-relaxed text-muted-ink">Values shown for a {sizeLabel.toLowerCase()} at our regular published prices. {BLACK_FRIDAY_COPY.finePrint}</p>
               </div>
             </section>
