@@ -46,8 +46,8 @@ export const SERVICES = [
   "Interior Detail",
   "Full Detail",
   "Paint Correction (Xpress Correct™)",
-  "Ceramic Coating (Xpress Coat™)",
-  "Paint Protection Film (Xpress Protect™)",
+  "Ceramic Coating",
+  "Paint Protection Film",
   "ExoShield Windshield Film",
   "Headlight Restoration",
   "RV Wash & Seal",
@@ -70,7 +70,7 @@ export const servicesFor = (v?: VehicleType): Service[] => {
   const rv = ["RV Wash & Seal", "RV Oxidation Removal / Restoration (Xpress Restore™)"];
   const carOnly = ["ExoShield Windshield Film", "Headlight Restoration", "Lease Return Prep"];
   if (isRv(v)) return SERVICES.filter((s) => !carOnly.includes(s) && s !== "Fleet Program");
-  if (v === "Boat") return SERVICES.filter((s) => ["Interior Detail", "Full Detail", "Paint Correction (Xpress Correct™)", "Ceramic Coating (Xpress Coat™)", "Training Course", "Not sure — need advice"].includes(s));
+  if (v === "Boat") return SERVICES.filter((s) => ["Interior Detail", "Full Detail", "Paint Correction (Xpress Correct™)", "Ceramic Coating", "Training Course", "Not sure — need advice"].includes(s));
   if (v === "Fleet / Commercial") return [...SERVICES];
   return SERVICES.filter((s) => !rv.includes(s));
 };
@@ -82,10 +82,8 @@ const LOCATIONS = [
 ] as const;
 type Loc = (typeof LOCATIONS)[number][0];
 const AREAS = ["Calgary", "Airdrie", "Cochrane", "Chestermere", "Okotoks", "Rocky View County", "Other"];
-const TIMINGS = ["As soon as possible", "Within 2 weeks", "This month", "Flexible", "Just comparing prices"];
 const CONTACT_PREFS = ["Call", "Text", "Email"] as const;
 type ContactPref = (typeof CONTACT_PREFS)[number];
-const HEARD = ["Google search", "Google Maps", "Instagram", "Facebook", "Referral", "Saw our van", "Returning customer", "Other"];
 const MAKES = ["Acura", "Audi", "BMW", "Buick", "Cadillac", "Chevrolet", "Chrysler", "Dodge", "Ford", "Genesis", "GMC", "Honda", "Hyundai", "Infiniti", "Jeep", "Kia", "Land Rover", "Lexus", "Lincoln", "Mazda", "Mercedes-Benz", "Mitsubishi", "Nissan", "Porsche", "Ram", "Subaru", "Tesla", "Toyota", "Volkswagen", "Volvo"];
 
 /** Maps from the older page presets so every page keeps its pre-fill. */
@@ -99,8 +97,8 @@ const LEGACY_VEHICLE: Record<QuoteVehicle, VehicleType | undefined> = {
 const LEGACY_NEED: Record<QuoteNeed, Service> = {
   Interior: "Interior Detail",
   "Full detail": "Full Detail",
-  "Paint correction/ceramic": "Ceramic Coating (Xpress Coat™)",
-  "PPF/windshield film": "Paint Protection Film (Xpress Protect™)",
+  "Paint correction/ceramic": "Ceramic Coating",
+  "PPF/windshield film": "Paint Protection Film",
   "Not sure": "Not sure — need advice",
 };
 
@@ -156,7 +154,7 @@ const shrink = async (file: File): Promise<{ blob: Blob; ext: string; type: stri
 };
 
 const chip =
-  "flex min-h-[48px] cursor-pointer items-center justify-center rounded-full border px-4 py-2 text-center text-[15px] font-semibold leading-tight transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-electric/40";
+  "flex min-h-[44px] cursor-pointer items-center justify-center rounded-full border px-3.5 py-2 text-center text-[14px] font-semibold sm:min-h-[48px] sm:px-4 sm:text-[15px] leading-tight transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-electric/40";
 const chipOn = "border-action bg-action text-primary-foreground shadow-sm";
 const chipOff = "border-line bg-surface text-ink hover:border-ink-2";
 const input =
@@ -185,11 +183,11 @@ type Props = {
   confirmation?: string;
 };
 
-const SHORT_STEPS = ["Vehicle", "Services", "Contact"];
-const STEPS = ["Your vehicle", "What you're interested in", "How to reach you"];
+const SHORT_STEPS = ["Vehicle & service", "Contact"];
+const STEPS = ["Your vehicle and service", "How to reach you"];
 
 /**
- * The one lead form used everywhere. Three steps, saved to quote_requests (photos in the
+ * The one lead form used everywhere. Two steps, saved to quote_requests (photos in the
  * private quote-photos bucket); a database trigger emails the lead to support@.
  */
 const QuoteForm = ({
@@ -207,7 +205,7 @@ const QuoteForm = ({
   const uid = useId();
   const fileRef = useRef<HTMLInputElement>(null);
   const topRef = useRef<HTMLDivElement>(null);
-  const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
+  const [step, setStep] = useState<1 | 2 | 3>(1);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const [vehicle, setVehicle] = useState<VehicleType | undefined>(defaultVehicleType ?? (defaultVehicle ? LEGACY_VEHICLE[defaultVehicle] : undefined));
@@ -215,10 +213,10 @@ const QuoteForm = ({
   const [v, setV] = useState({ year: "", make: "", model: "", color: "", length: "", company: "", fleetSize: "", yard: "" });
   const [location, setLocation] = useState<Loc | undefined>(defaultLocation);
   const [area, setArea] = useState("");
-  const [timing, setTiming] = useState("");
+  const timing = "";
   const [notes, setNotes] = useState("");
   const [c, setC] = useState({ name: "", phone: "", email: "", heard: "" });
-  const [pref, setPref] = useState<ContactPref>("Text");
+  const pref: ContactPref = "Call";
   const [photos, setPhotos] = useState<{ file: File; url: string }[]>([]);
   const [sending, setSending] = useState<string | null>(null);
 
@@ -241,7 +239,7 @@ const QuoteForm = ({
   const setCf = (k: keyof typeof c) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
     setC((f) => ({ ...f, [k]: k === "phone" ? formatPhone(e.target.value) : e.target.value }));
 
-  const goTo = (s: 1 | 2 | 3 | 4) => {
+  const goTo = (s: 1 | 2 | 3) => {
     setStep(s);
     requestAnimationFrame(() => {
       const el = topRef.current;
@@ -258,15 +256,11 @@ const QuoteForm = ({
         if (!v.model.trim()) e.model = "Add the model, for example RAV4.";
       }
       if (isUnit(vehicle) && !/^\d{1,3}(\.\d)?$/.test(v.length.trim())) e.length = "Add the approximate length in feet, for example 32.";
-      if (v.year.trim() && !/^(19|20)\d{2}$/.test(v.year.trim())) e.year = "Use a 4-digit year, for example 2022.";
-    }
-    if (s === 2) {
       if (!chosen.length) e.services = "Pick at least one service. Not sure is fine too.";
       if (!location) e.location = "Choose where you'd like the work done.";
       if ((location === "mobile" || location === "either") && !area) e.area = "Choose your city or area.";
-      if (!timing) e.timing = "Let us know roughly when.";
     }
-    if (s === 3) {
+    if (s === 2) {
       if (!c.name.trim()) e.name = "Add your name.";
       if (c.phone.replace(/\D/g, "").length !== 10) e.phone = "Add a 10-digit phone number.";
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c.email.trim())) e.email = "Add a valid email address.";
@@ -278,7 +272,7 @@ const QuoteForm = ({
   const next = () => {
     if (!validate(step)) return;
     trackEvent(`quote_step${step}_complete`, { vehicle_type: vehicle, form_source: source });
-    goTo((step + 1) as 2 | 3);
+    goTo(2);
   };
 
   const addPhotos = (list: FileList | null) => {
@@ -311,7 +305,7 @@ const QuoteForm = ({
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validate(3)) return;
+    if (!validate(2)) return;
     if (!vehicle) return goTo(1);
     const leadId = uuid();
     const paths: string[] = [];
@@ -388,7 +382,7 @@ const QuoteForm = ({
       if (photos.length && paths.length < photos.length) {
         toast({ title: `Some photos didn't upload. Email them to ${NAP.email} and we'll add them to your quote.` });
       }
-      goTo(4);
+      goTo(3);
     } catch (err) {
       console.error("Quote submit failed", err);
       toast({ title: `That didn't send. Please call or text ${NAP.phone}.`, variant: "destructive" });
@@ -404,15 +398,13 @@ const QuoteForm = ({
     </a>
   );
 
-  if (step === 4) {
+  if (step === 3) {
     const first = c.name.trim().split(/\s+/)[0];
     const by = pref === "Call" ? "phone" : pref === "Text" ? "text" : "email";
     const summary: [string, string][] = [
       ["Vehicle", vehicleLine()],
-      ["Colour", v.color.trim()],
       ["Services", chosen.join(", ")],
       ["Where", locLine()],
-      ["When", timing],
       ["Notes", notes.trim()],
       ["Phone", c.phone],
       ["Email", c.email.trim()],
@@ -451,7 +443,7 @@ const QuoteForm = ({
           <span aria-hidden="true">·</span>
           <span>Free, no-obligation quote</span>
         </p>
-        <ol className="mt-5 grid grid-cols-3 gap-2" aria-label={`Step ${step} of 3`}>
+        <ol className="mt-5 grid grid-cols-2 gap-2" aria-label={`Step ${step} of 2`}>
           {SHORT_STEPS.map((label, i) => {
             const n = i + 1;
             const done = step > n;
@@ -475,7 +467,7 @@ const QuoteForm = ({
       <p className="font-heading text-xl font-bold text-ink sm:text-2xl">{STEPS[step - 1]}</p>
       <div className="mt-1">{callLink}</div>
 
-      <form onSubmit={step === 3 ? submit : (e) => (e.preventDefault(), next())} className="mt-4" noValidate>
+      <form onSubmit={step === 2 ? submit : (e) => (e.preventDefault(), next())} className="mt-4" noValidate>
         {step === 1 && (
           <div className="space-y-6">
             <fieldset>
@@ -487,7 +479,7 @@ const QuoteForm = ({
                   return (
                     <label
                       key={t}
-                      className={`relative flex min-h-[88px] cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 px-2 py-3 text-center text-[13px] font-semibold leading-tight transition-all has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-electric/40 ${
+                      className={`relative flex min-h-[64px] cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border-2 px-2 py-2.5 sm:min-h-[84px] sm:gap-2 sm:py-3 text-center text-[13px] font-semibold leading-tight transition-all has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-electric/40 ${
                         on ? "border-action bg-electric-soft text-ink" : "border-line bg-surface text-ink hover:border-ink-2/40 hover:bg-tint"
                       }`}
                     >
@@ -497,7 +489,7 @@ const QuoteForm = ({
                           <Check className="h-3 w-3" aria-hidden="true" />
                         </span>
                       )}
-                      <Icon className={`h-7 w-7 ${on ? "text-action" : "text-ink-2"}`} strokeWidth={1.6} aria-hidden="true" />
+                      <Icon className={`h-6 w-6 sm:h-7 sm:w-7 ${on ? "text-action" : "text-ink-2"}`} strokeWidth={1.6} aria-hidden="true" />
                       {t}
                     </label>
                   );
@@ -507,12 +499,7 @@ const QuoteForm = ({
             </fieldset>
 
             {vehicle && vehicle !== "Fleet / Commercial" && (
-              <div className="grid gap-4 sm:grid-cols-3">
-                <label className={labelCls}>
-                  Year {opt}
-                  <input inputMode="numeric" maxLength={4} placeholder="2022" value={v.year} onChange={setVf("year")} className={input} />
-                  <Err msg={errors.year} />
-                </label>
+              <div className="grid gap-4 sm:grid-cols-2">
                 <label className={labelCls}>
                   {isUnit(vehicle) ? "Make / Brand" : "Make"} {!isCar(vehicle) && opt}
                   <input
@@ -564,17 +551,6 @@ const QuoteForm = ({
               </div>
             )}
 
-            {vehicle && (
-              <label className={`${labelCls} sm:max-w-xs`}>
-                Colour {opt}
-                <input maxLength={60} placeholder="Silver" value={v.color} onChange={setVf("color")} className={input} />
-              </label>
-            )}
-          </div>
-        )}
-
-        {step === 2 && (
-          <div className="space-y-6">
             <fieldset>
               <legend className={labelCls}>Services <span className="font-normal text-muted-ink">(choose any)</span></legend>
               <div className="mt-3 flex flex-wrap gap-2">
@@ -615,19 +591,28 @@ const QuoteForm = ({
               </label>
             )}
 
-            <fieldset>
-              <legend className={labelCls}>When are you hoping to book?</legend>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {TIMINGS.map((t) => (
-                  <label key={t} className={`${chip} ${timing === t ? chipOn : chipOff}`}>
-                    <input type="radio" name={`${uid}-when`} checked={timing === t} onChange={() => (setTiming(t), setErrors((e) => ({ ...e, timing: "" })))} className="sr-only" />
-                    {t}
-                  </label>
-                ))}
-              </div>
-              <Err msg={errors.timing} />
-            </fieldset>
+          </div>
+        )}
 
+        {step === 2 && (
+          <div className="space-y-5">
+            <label className={labelCls}>
+              Full name
+              <input maxLength={120} autoComplete="name" value={c.name} onChange={setCf("name")} className={input} />
+              <Err msg={errors.name} />
+            </label>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <label className={labelCls}>
+                Phone
+                <input type="tel" inputMode="tel" autoComplete="tel-national" placeholder="(587) 555-0123" value={c.phone} onChange={setCf("phone")} className={input} />
+                <Err msg={errors.phone} />
+              </label>
+              <label className={labelCls}>
+                Email
+                <input type="email" autoComplete="email" maxLength={255} placeholder="you@example.com" value={c.email} onChange={setCf("email")} className={input} />
+                <Err msg={errors.email} />
+              </label>
+            </div>
             <label className="block rounded-lg bg-tint p-4">
               <span className={labelCls}>Anything we should know? {opt}</span>
               <textarea
@@ -664,61 +649,19 @@ const QuoteForm = ({
           </div>
         )}
 
-        {step === 3 && (
-          <div className="space-y-5">
-            <label className={labelCls}>
-              Full name
-              <input maxLength={120} autoComplete="name" value={c.name} onChange={setCf("name")} className={input} />
-              <Err msg={errors.name} />
-            </label>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <label className={labelCls}>
-                Phone
-                <input type="tel" inputMode="tel" autoComplete="tel-national" placeholder="(587) 555-0123" value={c.phone} onChange={setCf("phone")} className={input} />
-                <Err msg={errors.phone} />
-              </label>
-              <label className={labelCls}>
-                Email
-                <input type="email" autoComplete="email" maxLength={255} placeholder="you@example.com" value={c.email} onChange={setCf("email")} className={input} />
-                <Err msg={errors.email} />
-              </label>
-            </div>
-            <fieldset>
-              <legend className={labelCls}>Preferred contact</legend>
-              <div className="mt-3 grid grid-cols-3 gap-2">
-                {CONTACT_PREFS.map((p) => (
-                  <label key={p} className={`${chip} ${pref === p ? chipOn : chipOff}`}>
-                    <input type="radio" name={`${uid}-pref`} checked={pref === p} onChange={() => setPref(p)} className="sr-only" />
-                    {p}
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-            <label className={`${labelCls} sm:max-w-xs`}>
-              How did you hear about us? {opt}
-              <select value={c.heard} onChange={setCf("heard")} className={input}>
-                <option value="">Choose…</option>
-                {HEARD.map((h) => (
-                  <option key={h}>{h}</option>
-                ))}
-              </select>
-            </label>
-          </div>
-        )}
-
         <div className="mt-8 flex gap-3">
           {step > 1 && (
-            <button type="button" onClick={() => goTo((step - 1) as 1 | 2)} className={btnBack}>
+            <button type="button" onClick={() => goTo(1)} className={btnBack}>
               <ArrowLeft className="h-4 w-4" aria-hidden="true" />
               Back
             </button>
           )}
           <button type="submit" disabled={!!sending} className={`${btnMain} flex-1`}>
-            {step === 3 ? sending ?? submitLabel : <>Next <ArrowRight className="h-4 w-4" aria-hidden="true" /></>}
+            {step === 2 ? sending ?? submitLabel : <>Next <ArrowRight className="h-4 w-4" aria-hidden="true" /></>}
           </button>
         </div>
-        {step === 3 && <p className="mt-3 text-center text-xs text-muted-ink">No spam and no obligation. We only use your details to reply to this request, and we'll email you a copy.</p>}
-        {step === 3 && <p className="mt-1 text-center text-xs text-muted-ink">By submitting, you agree to our <a href="/privacy-policy" className="font-semibold text-electric hover:underline">Privacy Policy</a>.</p>}
+        {step === 2 && <p className="mt-3 text-center text-xs text-muted-ink">No spam and no obligation. We only use your details to reply to this request, and we'll email you a copy.</p>}
+        {step === 2 && <p className="mt-1 text-center text-xs text-muted-ink">By submitting, you agree to our <a href="/privacy-policy" className="font-semibold text-electric hover:underline">Privacy Policy</a>.</p>}
       </form>
       </div>
     </div>
