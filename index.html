@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- OpenAI Ads pixel (data source "Xpress Website"). Events: lead_created (quote saved, src/lib/tracking.ts), phone_call_click (tel: taps, click listener below). -->
+    <script>!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f);}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"67te2LvYrgQMessonxPQMf"});</script>
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <!-- Google Search shows a favicon at a multiple of 48px, so offer 48/96/144/192. -->
     <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48" />
@@ -98,7 +100,7 @@
       gtag('js', new Date());
       gtag('config', 'AW-17894848842', { allow_enhanced_conversions: true });
 
-      // Click tracking (event names: fieldd_click, tel_click, sms_click).
+      // Click tracking (event names: fieldd_click, tel_click, sms_click). tel: taps also send the OpenAI Ads custom event phone_call_click.
       // Phone and Fieldd taps also send their existing Google Ads conversion actions so those
       // actions keep reporting. The primary conversion is quote_submit (src/lib/tracking.ts);
       // set "Phone tap" and "Book tap" to Secondary in Google Ads if they are not already.
@@ -112,6 +114,7 @@
           gtag('event', 'conversion', { send_to: 'AW-17894848842/saGECKSR0rEdEMry9tRC' });
         } else if (href.indexOf('tel:') === 0) {
           gtag('event', 'tel_click', where);
+          if (typeof window.oaiq === 'function') window.oaiq('measure', 'custom', { type: 'custom' }, { custom_event_name: 'phone_call_click' });
           gtag('event', 'conversion', { send_to: 'AW-17894848842/Q2fxCKGR0rEdEMry9tRC' });
         } else if (href.indexOf('sms:') === 0) {
           gtag('event', 'sms_click', where);

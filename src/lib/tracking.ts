@@ -6,6 +6,7 @@
  *   quote_step1_complete  vehicle + need chosen in the quote form
  *   quote_submit          quote saved to the database: the primary conversion
  *   sms_click, tel_click, fieldd_click  (index.html click listener)
+ *   OpenAI Ads pixel (index.html): lead_created on quote_submit, phone_call_click on tel: taps
  */
 
 export const GOOGLE_ADS_ID = "AW-17894848842";
@@ -108,6 +109,9 @@ export const trackQuoteSubmit = ({
   }
   const clarity = (window as unknown as { clarity?: (...a: unknown[]) => void }).clarity;
   if (typeof clarity === "function") clarity("event", "quote_submit");
+  // OpenAI Ads conversion "Quote Form Submit" (pixel loads in index.html). The lead id dedupes retries.
+  const oaiq = (window as unknown as { oaiq?: (...a: unknown[]) => void }).oaiq;
+  if (typeof oaiq === "function") oaiq("measure", "lead_created", { type: "customer_action" }, { event_id: leadId });
 };
 
 /** Call once, after the form submission has been saved successfully. */
