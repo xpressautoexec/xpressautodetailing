@@ -5,6 +5,16 @@
 
 import { PHONE, EMAIL, HOURS, FIVE_STAR_REVIEWS, SEASON_STATS, SERVICE_AREAS, MOBILE_FEE, XPRESS_PASS, PASS_TERM_MONTHS, PASS_EARLY_EXIT_FEE } from "./pricing";
 
+export const GIFT_CARD_BONUS_COPY = {
+  eyebrow: "Holiday bonus · Ends December 24",
+  title: "Get a bonus card up to $70",
+  intro: "Buy a gift card of $200 or more by December 24 and we email you a separate bonus card within 24 hours. Keep it for yourself or give it as a second gift.",
+  tierLabel: (min: number) => `Buy $${min} or more`,
+  bonusLabel: (bonus: number) => `$${bonus} bonus card`,
+  customNote: "For $350 or $500, enter it as a custom amount at checkout.",
+  finePrint: "One bonus card per gift card purchased between now and December 24, 2026 at 11:59 PM MT. The bonus card is sent to the buyer's email and is promotional: it can't be exchanged for cash.",
+};
+
 export const BLACK_FRIDAY_COPY = {
   title: "Black Friday Packages",
   subtitle: "Three winter-ready packages, each built around one goal. Priced for a limited time. Book by December 5.",
