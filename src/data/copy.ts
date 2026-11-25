@@ -5,6 +5,22 @@
 
 import { PHONE, EMAIL, HOURS, FIVE_STAR_REVIEWS, SEASON_STATS, SERVICE_AREAS, MOBILE_FEE, XPRESS_PASS, PASS_TERM_MONTHS, PASS_EARLY_EXIT_FEE } from "./pricing";
 
+/** Work truck package as shown at the top of /fleet: one truck, company or personal. */
+export const WORK_TRUCK_FLEET_COPY = {
+  eyebrow: "One truck at a time",
+  intro: "For a single work truck, company or personal. Book it yourself and we come to your home or job site. No yard walk or account needed.",
+  points: [
+    "Single trucks welcome",
+    "Company or personal truck",
+    "We invoice your company, or you pay at the appointment",
+  ],
+  paymentFaq: {
+    q: "My company pays for my truck detail. How does payment work?",
+    a: "Whatever is easiest for them. We can invoice your company directly, or you pay at the appointment and get an itemized receipt for your expense claim.",
+  },
+  fleetEyebrow: "Five trucks or more",
+};
+
 export const GIFT_CARD_BONUS_COPY = {
   eyebrow: "Holiday bonus · Ends December 24",
   title: "Get a bonus card up to $70",

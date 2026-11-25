@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Check } from "lucide-react";
+import { Check, CircleCheck } from "lucide-react";
 import { WORK_TRUCK_PACKAGE, money, fielddUrl } from "@/data/pricing";
 import { WORK_TRUCK_PHOTOS } from "@/data/photos";
 import {
@@ -14,13 +14,22 @@ import {
 /** Work truck package: trades, landscaping and construction trucks, plus the fleet link. */
 const WorkTruckPackage = ({
   showFleetLink = true,
+  eyebrow,
+  intro,
+  points,
 }: {
   showFleetLink?: boolean;
+  eyebrow?: string;
+  /** Replaces the package tagline as the section intro. */
+  intro?: string;
+  /** Short audience callouts shown under the heading. */
+  points?: readonly string[];
 }) => (
-  <Section tone="surface" id="work-truck">
+  <Section tone="surface" id="work-truck" className="scroll-mt-24">
     <SectionHeading
+      eyebrow={eyebrow}
       title={WORK_TRUCK_PACKAGE.name}
-      intro={WORK_TRUCK_PACKAGE.tagline}
+      intro={intro ?? WORK_TRUCK_PACKAGE.tagline}
       action={
         showFleetLink ? (
           <Link to="/fleet" className={textLink}>
@@ -29,6 +38,16 @@ const WorkTruckPackage = ({
         ) : undefined
       }
     />
+    {points && points.length > 0 && (
+      <ul className="mb-6 flex flex-wrap gap-x-6 gap-y-2">
+        {points.map((pt) => (
+          <li key={pt} className="flex items-center gap-2 text-sm font-semibold text-ink">
+            <CircleCheck className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+            {pt}
+          </li>
+        ))}
+      </ul>
+    )}
     <div className="mb-6 grid grid-cols-3 gap-2 sm:gap-3">
       {[
         {

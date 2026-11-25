@@ -19,7 +19,7 @@ import SEO, { buildServiceJsonLd, buildFAQJsonLd } from "@/components/SEO";
 import fleetHero from "@/assets/fleet-kls-truck.jpg";
 import { PHOTOS } from "@/data/photos";
 import WorkShowcase from "@/components/site/WorkShowcase";
-import { NAP, WATER_LINE } from "@/data/copy";
+import { NAP, WATER_LINE, WORK_TRUCK_FLEET_COPY } from "@/data/copy";
 import QualityProducts from "@/components/site/QualityProducts";
 
 const WHAT_WE_SERVICE = [
@@ -60,8 +60,9 @@ const faqs = [
   { q: "How do you invoice fleet accounts?", a: "Per unit, or on one invoice with a per-unit breakdown, whichever suits your accounts team. Net terms are agreed after the yard walk." },
   {
     q: "What's the minimum fleet size?",
-    a: "There's no hard minimum, but scheduled rotations make the most sense from about five units up. For one or two work trucks, see our work truck package on the detailing page.",
+    a: "There's no hard minimum, but scheduled rotations make the most sense from about five units up. For one or two work trucks, book the work truck package at the top of this page.",
   },
+  WORK_TRUCK_FLEET_COPY.paymentFaq,
 ];
 
 const CorporateFleet = () => (
@@ -69,7 +70,7 @@ const CorporateFleet = () => (
     <div className="min-h-screen bg-canvas">
       <SEO
         title="Fleet & Dealership Detailing Calgary"
-        description="On-site fleet washing and detailing in Calgary for work trucks, dealership lots and heavy equipment. Per-unit rates, scheduled rotations, per-unit or single invoicing."
+        description="Work truck detailing in Calgary for single trucks, company or personal, plus on-site fleet washing for dealership lots and heavy equipment. Per-unit rates and flexible invoicing."
         canonical="/fleet"
         jsonLd={[
           buildServiceJsonLd("Fleet & Dealership Detailing", "On-site fleet and dealership vehicle detailing across Calgary and area.", "/fleet"),
@@ -85,16 +86,23 @@ const CorporateFleet = () => (
         image={fleetHero}
         ctaType="call"
         quoteLabel={CTA.fleet}
-        bookHref="#how"
-        bookLabel="How an account works"
+        bookHref="#work-truck"
+        bookLabel="One truck? See the work truck package"
       />
 
       <StatRow />
 
       <CompanyLogos />
 
+      <WorkTruckPackage
+        showFleetLink={false}
+        eyebrow={WORK_TRUCK_FLEET_COPY.eyebrow}
+        intro={WORK_TRUCK_FLEET_COPY.intro}
+        points={WORK_TRUCK_FLEET_COPY.points}
+      />
+
       <Section>
-        <SectionHeading eyebrow={SYSTEMS.fleet.name} title="What you get in writing." intro="The terms every fleet account runs on." />
+        <SectionHeading eyebrow={`${WORK_TRUCK_FLEET_COPY.fleetEyebrow} · ${SYSTEMS.fleet.name}`} title="What you get in writing." intro="The terms every fleet account runs on." />
         <ul className="grid gap-x-8 gap-y-4 border-t border-line pt-6 sm:grid-cols-2 lg:grid-cols-4">
           {TERMS.map((t) => (
             <li key={t.title} className="border-b border-line pb-4">
@@ -136,8 +144,6 @@ const CorporateFleet = () => (
         intro="Work vans, pickups, dealer inventory and heavy equipment, cleaned on the client's own lot or job site."
         photos={Array.from({ length: Math.max(PHOTOS.fleet.length, PHOTOS.dealership.length) }, (_, i) => [PHOTOS.fleet[i], PHOTOS.dealership[i]]).flat().filter((p): p is (typeof PHOTOS.fleet)[number] => Boolean(p))}
       />
-
-      <WorkTruckPackage showFleetLink={false} />
 
       <RvWindshieldUltra variant="fleet" quoteHref="#quote" />
 
