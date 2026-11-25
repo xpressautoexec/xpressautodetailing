@@ -857,7 +857,27 @@ export const TRAINING_TERMS = {
 };
 
 // ---------- GIFT CARDS ----------
-export const GIFT_CARD_TIERS = [50, 100, 250, 379, 500];
+/** Preset amounts on the Fieldd purchase page (custom amounts are also allowed there). */
+export const GIFT_CARD_TIERS = [100, 150, 200, 300];
+
+/**
+ * Holiday bonus card: buy a card at or above `min`, get a separate bonus card worth `bonus`,
+ * emailed to the buyer within `deliveryHours`. Issued manually in Fieldd.
+ */
+export const GIFT_CARD_BONUS = {
+  /** December 24, 2026 at 11:59 PM MT. */
+  deadline: Date.parse("2026-12-25T06:59:59Z"),
+  deliveryHours: 24,
+  tiers: [
+    { min: 200, bonus: 30 },
+    { min: 350, bonus: 50 },
+    { min: 500, bonus: 70 },
+  ],
+} as const;
+
+/** Bonus card value for a purchase amount (0 below the first tier). */
+export const giftCardBonusFor = (amount: number): number =>
+  GIFT_CARD_BONUS.tiers.reduce((bonus, tier) => (amount >= tier.min ? tier.bonus : bonus), 0 as number);
 
 // ---------- CONSTANTS ----------
 export const SERVICE_AREAS = ["Calgary", "Airdrie", "Cochrane", "Chestermere", "Okotoks", "Rocky View County"];

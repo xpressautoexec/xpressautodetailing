@@ -7,12 +7,12 @@ import ServiceFAQ from "@/components/ServiceFAQ";
 import SEO from "@/components/SEO";
 import { Section, SectionHeading, cardClass } from "@/components/site/Section";
 import giftcardHero from "@/assets/jobs/hero-gift-cards.webp";
-import { AUTO_PACKAGES, CERAMIC_PACKAGES, GIFT_CARD_TIERS, money } from "@/data/pricing";
-import { NAP } from "@/data/copy";
+import { AUTO_PACKAGES, CERAMIC_PACKAGES, GIFT_CARD_BONUS, GIFT_CARD_TIERS, money } from "@/data/pricing";
+import { GIFT_CARD_BONUS_COPY, NAP } from "@/data/copy";
+import { useGiftCardBonus } from "@/hooks/useGiftCardBonus";
 
 const pkg = (id: string) => AUTO_PACKAGES.find((p) => p.id === id)!;
 const minCard = Math.min(...GIFT_CARD_TIERS);
-const maxCard = Math.max(...GIFT_CARD_TIERS);
 const ceramicFrom = Math.min(...CERAMIC_PACKAGES.map((p) => p.price));
 
 /** Each suggestion covers a real package at its sedan price. Sizes above sedan cost a little more. */
@@ -53,6 +53,28 @@ const faqs = [
   },
 ];
 
+/** Holiday bonus tiers. Renders client-side only, and only before the deadline. */
+const HolidayBonus = () => {
+  const { active } = useGiftCardBonus();
+  if (!active) return null;
+  return (
+    <Section tone="surface" id="holiday-bonus">
+      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">{GIFT_CARD_BONUS_COPY.eyebrow}</p>
+      <SectionHeading title={GIFT_CARD_BONUS_COPY.title} intro={GIFT_CARD_BONUS_COPY.intro} />
+      <div className="grid gap-5 md:grid-cols-3">
+        {GIFT_CARD_BONUS.tiers.map((t) => (
+          <article key={t.min} className={`${cardClass} p-6`}>
+            <p className="text-sm font-semibold text-ink-2">{GIFT_CARD_BONUS_COPY.tierLabel(t.min)}</p>
+            <p className="mt-2 font-heading text-3xl font-semibold tabular-nums text-ink">{GIFT_CARD_BONUS_COPY.bonusLabel(t.bonus)}</p>
+          </article>
+        ))}
+      </div>
+      <p className="mt-6 max-w-2xl text-sm leading-relaxed text-ink-2">{GIFT_CARD_BONUS_COPY.customNote}</p>
+      <p className="mt-2 max-w-2xl text-xs leading-relaxed text-muted-ink">{GIFT_CARD_BONUS_COPY.finePrint}</p>
+    </Section>
+  );
+};
+
 const GiftCards = () => (
   <PageTransition>
     <div className="min-h-screen bg-canvas">
@@ -66,11 +88,13 @@ const GiftCards = () => (
       <ServicePageHero
         openings={false}
         title="Detailing gift cards"
-        subtitle={`From ${money(minCard)} to ${money(maxCard)}, good for any service in Calgary, Airdrie and surrounding areas. Delivered by email the moment you check out, and they never expire.`}
+        subtitle={`Any amount from ${money(minCard)}, good for any service in Calgary, Airdrie and surrounding areas. Delivered by email the moment you check out, and they never expire.`}
         image={giftcardHero}
         bookHref="#buy"
         bookLabel="Buy a gift card"
       />
+
+      <HolidayBonus />
 
       <Section>
         <SectionHeading
@@ -93,7 +117,7 @@ const GiftCards = () => (
           <div>
             <h2 className="font-heading text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Buy a gift card</h2>
             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ink-2">
-              Pick an amount and check out. Preset amounts are {GIFT_CARD_TIERS.map((t) => money(t)).join(", ")}.
+              Pick an amount and check out. Preset amounts are {GIFT_CARD_TIERS.map((t) => money(t)).join(", ")}, or enter a custom amount.
             </p>
             <p className="mt-4 max-w-md text-[15px] leading-relaxed text-ink-2">
               Buying for a team or want a custom amount? Call or text{" "}
