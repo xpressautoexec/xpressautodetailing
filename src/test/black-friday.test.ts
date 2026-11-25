@@ -4,9 +4,9 @@ import { BLACK_FRIDAY_PRICES } from "@/data/pricing";
 
 describe("Black Friday sale rules", () => {
   it("ends at the supplied Mountain Time deadline", () => {
-    expect(BLACK_FRIDAY_DEADLINE).toBe(Date.parse("2026-12-01T06:59:59Z"));
-    expect(isBlackFridayActive(Date.parse("2026-12-01T06:59:58Z"))).toBe(true);
-    expect(isBlackFridayActive(Date.parse("2026-12-01T07:00:00Z"))).toBe(false);
+    expect(BLACK_FRIDAY_DEADLINE).toBe(Date.parse("2026-12-06T06:59:59Z"));
+    expect(isBlackFridayActive(Date.parse("2026-12-06T06:59:58Z"))).toBe(true);
+    expect(isBlackFridayActive(Date.parse("2026-12-06T07:00:00Z"))).toBe(false);
   });
   it("counts days, hours, minutes and seconds without going negative", () => {
     expect(blackFridayCountdown(BLACK_FRIDAY_DEADLINE - (3 * 86400 + 12 * 3600 + 4 * 60 + 9) * 1000)).toEqual({ days: 3, hours: 12, minutes: 4, seconds: 9 });

@@ -12,7 +12,7 @@ import {
   type BlackFridaySize,
 } from "@/data/pricing";
 
-export const BLACK_FRIDAY_DEADLINE = Date.parse("2026-12-01T06:59:59Z");
+export const BLACK_FRIDAY_DEADLINE = Date.parse("2026-12-06T06:59:59Z");
 export const BLACK_FRIDAY_DISMISS_KEY = "xpress-black-friday-2026-dismissed";
 export const BLACK_FRIDAY_DISMISS_MS = 24 * 60 * 60 * 1000;
 

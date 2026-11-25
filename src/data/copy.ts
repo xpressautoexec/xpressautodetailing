@@ -7,13 +7,13 @@ import { PHONE, EMAIL, HOURS, FIVE_STAR_REVIEWS, SEASON_STATS, SERVICE_AREAS, MO
 
 export const BLACK_FRIDAY_COPY = {
   title: "Black Friday Packages",
-  subtitle: "Three winter-ready packages, each built around one goal. Priced for 10 days only. Book by November 30.",
+  subtitle: "Three winter-ready packages, each built around one goal. Priced for a limited time. Book by December 5.",
   banner: "Black Friday Packages — save up to 47%",
   seoTitle: "Black Friday Detailing & PPF Packages in Calgary & Airdrie | Xpress",
-  seoDescription: "Save up to 47% on Black Friday detailing, glass ceramic and PPF packages in Calgary and Airdrie. Book and pay a deposit by November 30, 2026.",
+  seoDescription: "Save up to 47% on Black Friday detailing, glass ceramic and PPF packages in Calgary and Airdrie. Book and pay a deposit by December 5, 2026.",
   shopNote: "Installed at our heated Airdrie shop.",
-  finePrint: "Book and pay a deposit by November 30, 2026 at 11:59 PM MT. Appointments can be scheduled into December. Prices before GST. Cannot be combined with other offers or Xpress Pass discounts.",
-  heroEyebrow: "Black Friday 2026 · Ends November 30",
+  finePrint: "Book and pay a deposit by December 5, 2026 at 11:59 PM MT. Appointments can be scheduled after December 5. Prices before GST. Cannot be combined with other offers or Xpress Pass discounts.",
+  heroEyebrow: "Black Friday 2026 · Ends December 5",
   pickTitle: "Pick your goal",
   valueLabel: "Regular value",
   totalLabel: "Total regular value",
