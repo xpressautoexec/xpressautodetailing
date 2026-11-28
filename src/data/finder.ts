@@ -9,11 +9,13 @@ import {
   CERAMIC_PACKAGES,
   GLOSS_PACKAGE,
   HEADLIGHT_RESTORATION,
+  HUB_SERVICE,
   PET_HAIR_TIERS,
   RV_BUNDLES,
   WINDSHIELD_PPF,
   carPpfPrice,
   fielddUrl,
+  hubBookUrl,
   money,
   type CarPpfSizeId,
   type VehicleSizeId,
@@ -247,7 +249,9 @@ export const recommend = (vehicle: FinderVehicle, service: FinderService, a: Ans
       extras,
       page: pageUrl("/detailing", params, `pkg-${id}`),
       path: "/detailing",
-      book: fielddUrl(io ? io.book[size] : p.book[size]),
+      book: io
+        ? fielddUrl(io.book[size])
+        : hubBookUrl({ source: "package-finder", size, service: HUB_SERVICE[p.id], promo: "WEB5" }) ?? fielddUrl(p.book[size]),
       need: "Full detail",
     };
   }
@@ -285,7 +289,9 @@ export const recommend = (vehicle: FinderVehicle, service: FinderService, a: Ans
       extras,
       page: pageUrl("/ceramic-coating", { size, pkg: id }, `pkg-${id}`),
       path: "/ceramic-coating",
-      book: fielddUrl(pkg.book![size]),
+      book: id === "gloss"
+        ? fielddUrl(pkg.book![size])
+        : hubBookUrl({ source: "package-finder", size, service: HUB_SERVICE[id], promo: "WEB5" }) ?? fielddUrl(pkg.book![size]),
       need: "Paint correction/ceramic",
     };
   }

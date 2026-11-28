@@ -10,13 +10,14 @@ import { Section, SectionHeading, btnPrimary, btnSecondary } from "@/components/
 import QuoteLink from "@/components/site/QuoteLink";
 import Swoosh from "@/components/site/Swoosh";
 import SEO, { buildFAQJsonLd } from "@/components/SEO";
-import { Check, Phone } from "lucide-react";
+import { ArrowRight, Check, Phone } from "lucide-react";
 import { PHOTOS, CLIPS } from "@/data/photos";
 import WorkShowcase from "@/components/site/WorkShowcase";
 import xpressPassCard from "@/assets/xpress-pass-card.png";
-import { XPRESS_PASS, PASS_SIZES, PASS_TERM_MONTHS, MOBILE_FEE, passAnnualValue, passVisitsPerYear, type PassSizeId, money } from "@/data/pricing";
+import { XPRESS_PASS, PASS_SIZES, PASS_TERM_MONTHS, MOBILE_FEE, hubBookUrl, passAnnualValue, passVisitsPerYear, type PassSizeId, money } from "@/data/pricing";
 import { NAP, PASS_COPY } from "@/data/copy";
 import QualityProducts from "@/components/site/QualityProducts";
+import { useHubBooking } from "@/lib/hubBooking";
 
 const [SILVER, GOLD] = XPRESS_PASS;
 const monthlyFAQs = [
@@ -53,6 +54,7 @@ const PROCESS = [
 ];
 
 const MonthlyPlan = () => {
+  const { open: openHubBooking } = useHubBooking();
   const [size, setSize] = useState<PassSizeId>("sedan");
 
   return (
@@ -131,6 +133,7 @@ const MonthlyPlan = () => {
             {XPRESS_PASS.map((plan) => {
               const copy = PASS_COPY.tiers[plan.id];
               const value = passAnnualValue(plan.id, size);
+              const hubHref = hubBookUrl({ source: "xpress-pass", size, pass: plan.id });
               return (
                 <article
                   key={plan.id}
@@ -196,9 +199,18 @@ const MonthlyPlan = () => {
                       <span className="font-semibold text-ink">Second vehicle:</span> add it for {money(plan.secondVehicle)}/month.
                     </p>
 
-                    <a href={NAP.phoneHref} className={`${plan.popular ? btnPrimary : btnSecondary} mt-6 min-h-[52px]`}>
-                      <Phone className="h-4 w-4" aria-hidden="true" />
-                      Call to join {plan.name}
+                    <a href={hubHref ?? NAP.phoneHref} onClick={(event) => {
+                      if (hubHref && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey && event.button === 0) {
+                        event.preventDefault();
+                        openHubBooking(hubHref);
+                      }
+                    }} className={`${plan.popular ? btnPrimary : btnSecondary} mt-6 min-h-[52px]`}>
+                      {hubHref ? (
+                        <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                      ) : (
+                        <Phone className="h-4 w-4" aria-hidden="true" />
+                      )}
+                      {hubHref ? `Join ${plan.name}` : `Call to join ${plan.name}`}
                     </a>
                   </div>
                 </article>

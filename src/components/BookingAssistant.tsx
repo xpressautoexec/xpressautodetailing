@@ -6,11 +6,13 @@ import { supabase } from "@/integrations/supabase/client";
 import { getAttribution } from "@/lib/attribution";
 import { trackEvent } from "@/lib/tracking";
 import { finderPickFor } from "@/lib/finderHandoff";
+import { useHubBooking } from "@/lib/hubBooking";
 import {
   AUTO_PACKAGES,
   CAR_PPF,
   CERAMIC_PACKAGES,
   HEADLIGHT_RESTORATION,
+  HUB_SERVICE,
   PHONE,
   RV_BUNDLES,
   TRAINING,
@@ -18,6 +20,8 @@ import {
   WINDSHIELD_PPF,
   carPpfPrice,
   fielddUrl,
+  hubBookUrl,
+  isHubBookUrl,
   money,
 } from "@/data/pricing";
 
@@ -47,12 +51,14 @@ type Offer = {
   pct?: number;
   /** Training offers skip the vehicle question and file leads as training requests. */
   training?: boolean;
+  /** True when this offer deep-links into Xpress Hub and applies the promo automatically. */
+  hub?: boolean;
 };
 
 const isTrainingPath = (path: string) => path === "/training";
 
 /** The package each service page leads with, priced for the visitor's vehicle. */
-const offerFor = (path: string, v: Vehicle): Offer | null => {
+export const offerFor = (path: string, v: Vehicle): Offer | null => {
   if (isTrainingPath(path)) {
     const c = TRAINING[0];
     return {
@@ -81,20 +87,24 @@ const offerFor = (path: string, v: Vehicle): Offer | null => {
     path === "/"
   ) {
     const p = AUTO_PACKAGES.find((x) => x.id === "showroom")!;
+    const hubHref = hubBookUrl({ source: "booking-assistant", size, service: HUB_SERVICE[p.id], promo: ASSIST_CODE });
     return {
       name: p.name,
       price: money(p.price[size]),
-      href: fielddUrl(p.book[size]),
+      href: hubHref ?? fielddUrl(p.book[size]),
       need: "Full detail",
+      hub: hubHref !== null,
     };
   }
   if (path.startsWith("/ceramic") || path.startsWith("/paint-correction")) {
     const p = CERAMIC_PACKAGES.find((x) => x.id === "signature")!;
+    const hubHref = hubBookUrl({ source: "booking-assistant", size, service: HUB_SERVICE[p.id], promo: ASSIST_CODE });
     return {
       name: "Coat 3-Year ceramic",
       price: money(p.prices[size]),
-      href: fielddUrl(p.book[size]),
+      href: hubHref ?? fielddUrl(p.book[size]),
       need: "Paint correction/ceramic",
+      hub: hubHref !== null,
     };
   }
   if (path.startsWith("/paint-protection-film")) {
@@ -158,6 +168,7 @@ const db = supabase as unknown as SupabaseClient;
  * priced for their vehicle, with 5% off to book now. Optional name + phone saves a lead.
  */
 const BookingAssistant = () => {
+  const { open: openHubBooking } = useHubBooking();
   const { pathname } = useLocation();
   const [saved, setSaved] = useState<Saved>({});
   const [open, setOpen] = useState(false);
@@ -230,7 +241,13 @@ const BookingAssistant = () => {
   };
   const vehicleLabel = VEHICLES.find((v) => v.id === saved.vehicle)?.label;
   const offer: Offer | null = pick
-    ? { name: pick.rec.name, price: pick.rec.price, href: pick.rec.book, need: pick.rec.need }
+    ? {
+        name: pick.rec.name,
+        price: pick.rec.price,
+        href: pick.rec.book,
+        need: pick.rec.need,
+        hub: isHubBookUrl(pick.rec.book),
+      }
     : saved.vehicle || isTrainingPath(pathname)
       ? offerFor(pathname, saved.vehicle ?? "sedan")
       : null;
@@ -367,7 +384,7 @@ const BookingAssistant = () => {
               : `${offer.name} for your ${VEHICLES.find((v) => v.id === saved.vehicle)?.short}: ${offer.price}`}
           </p>
           <p className="mt-2 text-sm text-ink-2">
-            Book now and take {pct}% off with code{" "}
+            Book now and take {pct}% off{offer.hub ? ". Code " : " with code "}
             <button
               type="button"
               onClick={() => {
@@ -385,13 +402,18 @@ const BookingAssistant = () => {
                 <Copy className="h-3.5 w-3.5" aria-hidden="true" />
               )}
             </button>{" "}
-            at checkout.
+            {offer.hub ? "is applied for you." : "at checkout."}
           </p>
           <a
             href={offer.href}
-            target="_blank"
+            target={isHubBookUrl(offer.href) ? undefined : "_blank"}
             rel="noopener noreferrer"
-            onClick={() => {
+            onClick={(event) => {
+              if (isHubBookUrl(offer.href) && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey && event.button === 0) {
+                event.preventDefault();
+                openHubBooking(offer.href);
+                setOpen(false);
+              }
               navigator.clipboard
                 ?.writeText(code)
                 .catch(() => undefined);

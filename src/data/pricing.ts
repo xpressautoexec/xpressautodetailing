@@ -61,6 +61,38 @@ export type FielddKey = string;
 /** Either a shortlink key, or a full Fieldd booking link (fieldd.me/q/..., created per service in Fieldd). */
 export const fielddUrl = (key: FielddKey) => (key.startsWith("http") ? key : `${BOOKING_URL}service/${key}`);
 
+// ---------- XPRESS HUB BOOKING (off until the hub launches) ----------
+/**
+ * Origin of the Xpress Hub booking app, e.g. "https://book.xpressautodetail.ca".
+ * null = keep every link on Fieldd. Set only when the owner approves the hub launch.
+ * Never point this at a staging or preview URL: bookings there are not real.
+ */
+export const HUB_BOOKING_ORIGIN: string | null = null;
+export const HUB_ORIGIN_NORMALIZED = HUB_BOOKING_ORIGIN?.replace(/\/$/, "") ?? null;
+
+/** Only intercept wizard links belonging to the enabled Hub origin. */
+export const isHubBookUrl = (href: string, origin: string | null = HUB_ORIGIN_NORMALIZED): boolean => {
+  if (!origin) return false;
+  try {
+    const url = new URL(href);
+    return url.origin === origin.replace(/\/$/, "") && url.pathname === "/book" &&
+      url.searchParams.get("embed") === "1" && url.searchParams.get("utm_source") === "website";
+  } catch {
+    return false;
+  }
+};
+
+/** Hub service slugs for packages the hub sells. Anything not listed stays on Fieldd. */
+export const HUB_SERVICE: Record<string, string> = {
+  maintain: "upkeep",
+  refresh: "inside-out",
+  showroom: "deep-clean-seal",
+  restore: "correct-coat",
+  essential: "essential-ceramic",
+  signature: "signature-ceramic",
+  elite: "elite-ceramic",
+};
+
 // ---------- AUTO PACKAGES ----------
 export interface AutoPackage {
   id: string;
@@ -503,6 +535,37 @@ export const MOBILE_FEE = 20;
  */
 export type PassTierId = "silver" | "gold";
 export type PassItemId = "insideOut" | "deepClean" | "upkeep" | "headlights" | "headlightsUv" | "glassCeramic" | "engineBay";
+
+export type HubBookOptions = {
+  source: string;
+  size?: VehicleSizeId;
+  service?: string;
+  promo?: string;
+  pass?: PassTierId;
+};
+
+/** Pure hub URL builder, exported separately so its launch-time format is unit-testable while the hub is off. */
+export const buildHubBookUrl = (origin: string, o: HubBookOptions): string => {
+  const q = new URLSearchParams();
+  q.set("embed", "1");
+  if (o.size) q.set("size", o.size);
+  if (o.service) q.set("service", o.service);
+  if (o.promo) q.set("promo", o.promo);
+  if (o.pass) q.set("pass", o.pass);
+  q.set("utm_source", "website");
+  q.set("utm_campaign", o.source);
+  return `${origin.replace(/\/$/, "")}/book?${q.toString()}`;
+};
+
+/**
+ * Embedded hub wizard: /book?embed=1&size=&service=&promo=&pass=&utm_source=website&utm_campaign=<source>.
+ * The hub accepts our size ids (sedan, suv, minivan, truck), validates the promo code itself and ignores anything it cannot match.
+ * Returns null while HUB_BOOKING_ORIGIN is null, so callers fall back to their Fieldd link.
+ */
+export const hubBookUrl = (o: HubBookOptions): string | null => {
+  if (!HUB_BOOKING_ORIGIN) return null;
+  return buildHubBookUrl(HUB_BOOKING_ORIGIN, o);
+};
 
 export const PASS_TERM_MONTHS = 12;
 export const PASS_EARLY_EXIT_FEE = 99;

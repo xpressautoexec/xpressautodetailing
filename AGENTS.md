@@ -64,4 +64,10 @@ Windshield Film, Marine, Gallery, Training, Gift Cards, Blog). Header: phone + o
 Window tint lives at `/window-tint` (+ `/llumar`, `/suntek`).
 
 Phone 587-500-4523 · support@xpressautodetail.ca · Calgary, Airdrie, Chestermere,
-Cochrane, Okotoks, Rocky View County. Standard booking → fieldd.co.
+Cochrane, Okotoks, Rocky View County.
+
+## Booking
+
+Standard booking → fieldd.co.
+- Xpress Hub links: HUB_BOOKING_ORIGIN in src/data/pricing.ts (null = Fieldd). Hub deep links carry size, service, promo (WEB5) and pass. Do not set it to a staging URL.
+- Enabled Hub wizard links open through the single HubBookingProvider modal with embed=1; accept only the configured origin and active frame's messages, and record Ads bookings on confirmation to avoid click conversions.
