@@ -23,7 +23,7 @@ import {
   steps,
 } from "./email.ts";
 
-type Rec = Record<string, any>;
+type Rec = Record<string, unknown>;
 
 const FLEET_STEPS = [
   { t: "Yard walk", d: "We visit your yard or lot, look at the units and talk through how often they need service." },
