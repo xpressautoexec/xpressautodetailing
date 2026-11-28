@@ -100,7 +100,7 @@
       gtag('js', new Date());
       gtag('config', 'AW-17894848842', { allow_enhanced_conversions: true });
 
-      // Click tracking (event names: fieldd_click, tel_click, sms_click). tel: taps also send the OpenAI Ads custom event phone_call_click.
+      // Click tracking (event names: fieldd_click, tel_click, sms_click). tel: taps also send the OpenAI Ads custom event phone_call_click. Hub bookings track confirmation in the booking modal.
       // Phone and Fieldd taps also send their existing Google Ads conversion actions so those
       // actions keep reporting. The primary conversion is quote_submit (src/lib/tracking.ts);
       // set "Phone tap" and "Book tap" to Secondary in Google Ads if they are not already.

@@ -1,4 +1,5 @@
 import BookingAssistant from "@/components/BookingAssistant";
+import { HubBookingProvider } from "@/lib/hubBooking";
 import BlackFridayBanner from "@/components/BlackFridayBanner";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -289,7 +290,7 @@ export const AppProviders = ({ children }: { children: ReactNode }) => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      {children}
+      <HubBookingProvider>{children}</HubBookingProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

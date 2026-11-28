@@ -14,6 +14,9 @@ import {
 } from "@/data/finder";
 import { saveFinderPick } from "@/lib/finderHandoff";
 import { trackEvent } from "@/lib/tracking";
+import { isHubBookUrl } from "@/data/pricing";
+import { useHubBooking } from "@/lib/hubBooking";
+import { Button } from "@/components/ui/button";
 
 const chip = (on: boolean) =>
   `inline-flex min-h-[44px] items-center gap-2 rounded-full border-2 px-4 text-left text-sm font-semibold transition-colors ${
@@ -39,6 +42,7 @@ const Step = ({ n, title, children }: { n: number; title: string; children: Reac
  * hands the pick to the booking assistant, which then only asks timing before offering WEB5.
  */
 const PackageFinder = () => {
+  const { open: openHubBooking } = useHubBooking();
   const navigate = useNavigate();
   const [vehicle, setVehicle] = useState<FinderVehicle | null>(null);
   const [service, setService] = useState<FinderService | null>(null);
@@ -177,7 +181,22 @@ const PackageFinder = () => {
                 <p className="text-sm text-muted-ink">Answer the questions to see your package and price.</p>
               )}
             </div>
-            <button
+            {rec && isHubBookUrl(rec.book) ? (
+              <Button asChild className="min-h-[52px] rounded-full bg-action px-7 text-[15px] font-semibold text-primary-foreground hover:bg-ink">
+                <a href={rec.book} onClick={(event) => {
+                  if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
+                  event.preventDefault();
+                  if (vehicle) {
+                    saveFinderPick(vehicle, rec);
+                    trackEvent("finder_result", { service: rec.service, pkg: rec.pkgId, vehicle });
+                  }
+                  openHubBooking(rec.book);
+                }}>
+                  See price &amp; package
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </Button>
+            ) : <button
               type="button"
               disabled={!rec}
               onClick={go}
@@ -185,7 +204,7 @@ const PackageFinder = () => {
             >
               See price &amp; package
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </button>
+            </button>}
           </div>
         </div>
       </div>
