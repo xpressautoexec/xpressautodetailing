@@ -23,7 +23,7 @@ const PrivacyPolicy = () => (
       <section className="py-14 sm:py-20">
         <div className="shell max-w-3xl">
           <h1 className="font-heading text-4xl font-semibold tracking-[-0.03em] text-ink sm:text-5xl mb-4">Privacy Policy</h1>
-          <p className="text-sm text-muted-ink mb-12">Last updated November 19, 2026</p>
+          <p className="text-sm text-muted-ink mb-12">Last updated November 28, 2026</p>
 
           <div className="space-y-10 text-[15px] leading-relaxed text-ink-2">
             <p>Xpress Auto & RV Detailing ("we", "us") is a mobile detailing business serving Calgary and surrounding communities, operated by Alberta Keystone Solutions Ltd. This policy explains what personal information we collect, why we collect it, and how you can reach us about it. We follow Alberta's Personal Information Protection Act (PIPA).</p>
@@ -54,10 +54,11 @@ const PrivacyPolicy = () => (
               <h2 className={h2}>Who we share it with</h2>
               <p className="mb-2">We only share what's needed for these service providers to do their job:</p>
               <ul className={`${ul} mb-4`}>
-                <li>Fieldd: our online booking system.</li>
+                <li>Fieldd and Xpress Hub: our booking and customer systems. Xpress Hub is our own system, hosted by Vercel and Supabase; it holds your bookings, quotes, invoices, membership and account.</li>
                 <li>Google: our advertising, lead forms, email and spreadsheets. As an advertising partner, see <a href="#advertising" className={a}>Advertising and audience matching</a>.</li>
                 <li>Meta: advertising partner — see <a href="#advertising" className={a}>Advertising and audience matching</a>.</li>
-                <li>Square: card payments.</li>
+                <li>Square: card payments and saved cards.</li>
+                <li>Resend: sends our booking, quote, invoice, membership and sign-in emails.</li>
                 <li>Lovable and Supabase: host our website and store the enquiries you send through our website forms.</li>
               </ul>
               <p>Some of these providers store data outside Canada, including in the United States. While it's there, it may be subject to that country's laws.</p>
@@ -65,14 +66,28 @@ const PrivacyPolicy = () => (
 
             <div>
               <h2 className={h2}>Website tracking</h2>
-              <p>Our website uses the Google tag to measure our Google Ads. It records visits and clicks on our Book and phone links. When you send a form on our website, the Google tag also sends Google your email address and phone number in a scrambled (hashed) form, so Google can tell us which ad led to the enquiry. We don't use Google Analytics or the Meta Pixel. You can block the Google tag with your browser settings or an ad blocker.</p>
+              <p>Our website uses the Google tag to measure our Google Ads. It records visits and clicks on our Book and phone links. When you send a form on our website, the Google tag also sends Google your email address and phone number in a scrambled (hashed) form, so Google can tell us which ad led to the enquiry. We don't use Google Analytics or the Meta pixel. You can block the Google tag with your browser settings or an ad blocker.</p>
             </div>
 
             <div id="advertising">
               <h2 className={h2}>Advertising and audience matching</h2>
               <p className="mb-4">We use advertising services from Google and Meta to show our ads to existing customers and to people with similar interests, and to measure how well our ads work. To do this, we may share the email address and phone number you gave us when you booked, requested a quote or contacted us. These details are hashed (converted into an unreadable code) before they are sent, and Google and Meta use them only to match you to an account on their platforms and to report results to us. They are not allowed to use them for any other purpose.</p>
-              <p className="mb-4">We also use the Google tag and the Meta pixel on this website to see which ads lead to quote requests, calls and bookings.</p>
+              <p className="mb-4">We also use the Google tag on this website, and booking links from our ads carry the ad campaign's ID, to see which ads lead to quote requests, calls and bookings. We see these results only as totals per campaign. If we add the Meta pixel, we will update this policy before it goes live.</p>
               <p>You can opt out of this at any time by emailing <Email /> or calling <Phone />. We will remove your details from our advertising lists within 30 days. You can also manage ad personalization in your Google account (adssettings.google.com) and your Meta account settings.</p>
+            </div>
+
+            <div>
+              <h2 className={h2}>Accounts, sign-in and saved cards</h2>
+              <ul className={ul}>
+                <li>If you create a customer account, we keep your email address, a securely hashed password (we cannot read it) and a record of your sign-ins. Every sign-in needs a one-time 6-digit code that we email to you. We keep a scrambled copy of each code for a short time to check it, then it expires.</li>
+                <li>If you save a card, for example for an Xpress Pass membership or a quote deposit, Square stores it. We keep only the card brand, the last four digits and Square's reference to it, plus when and to which terms you agreed. We charge it only as your agreement allows.</li>
+                <li>You can ask us to remove a saved card or close your account at any time.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className={h2}>How we protect it</h2>
+              <p>Access to our customer system is limited to our staff and requires a password plus a one-time code. Data is encrypted in transit, and each person sees only what their role needs. If a breach creates a real risk of significant harm to you, we will tell you and the Information and Privacy Commissioner of Alberta, as the law requires.</p>
             </div>
 
             <div>
@@ -92,7 +107,7 @@ const PrivacyPolicy = () => (
 
             <div>
               <h2 className={h2}>Contact</h2>
-              <p>Xpress Auto & RV Detailing · <Email /> · <Phone /></p>
+              <p>Privacy questions go to our privacy contact at Alberta Keystone Solutions Ltd., operating as Xpress Auto & RV Detailing, Unit 2012, 529 Gateway Rd NE, Airdrie, AB · <Email /> · <Phone /></p>
             </div>
           </div>
         </div>
